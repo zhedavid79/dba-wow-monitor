@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'acurast_dba_report.py'
+      - 'acurast_listing_quality.py'
       - 'acurast_valuation.py'
       - '.github/workflows/acurast-dba.yml'
 
@@ -33,6 +34,8 @@ jobs:
         run: python dba_probe.py
       - name: Build verified Acurast phone price report
         run: python acurast_dba_report.py
+      - name: Apply single-device price identity gate
+        run: python acurast_listing_quality.py
       - name: Build Acurast procurement valuation
         run: python acurast_valuation.py
       - name: Commit Acurast results
@@ -44,8 +47,6 @@ jobs:
             echo "No Acurast result changes"
           else
             git commit -m "Update verified Acurast DBA report [skip ci]"
-            # dba_probe.py may have modified shared probe output. The checkout is disposable;
-            # keep only the committed Acurast outputs before rebasing over concurrent WoW pushes.
             git reset --hard HEAD
             git clean -fd
             git pull --rebase origin main
