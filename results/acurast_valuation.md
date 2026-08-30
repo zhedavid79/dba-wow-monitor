@@ -1,8 +1,8 @@
 # Acurast DBA Value Hunter
 
-Generated: 2026-08-30T18:42:52.517872+00:00
+Generated: 2026-08-30T18:45:50.710255+00:00
 
-DBA data gate: **PASS** — regression 24247594 = 4399 kr.
+DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch.
 AcurastBot data gate: **PASS** — farm reference based on 7 current-phone entries.
 
 > Primær rangering er **AAE = forventet ACU pr. måned pr. investeret DKK**. ACU spotpris bruges kun som scenariereference og påvirker ikke rangering, STARTBUD, TARGET eller HARD MAX.

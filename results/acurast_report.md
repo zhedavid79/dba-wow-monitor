@@ -1,8 +1,8 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-08-30T18:42:50.708715+00:00
+Generated: 2026-08-30T18:45:47.815292+00:00
 
-Regression 24247594: **PASS** — 4399 DKK
+DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
 T0: 112 | Product rejects: 82 | Bundle/price rejects: 2 | Final: 28
 
