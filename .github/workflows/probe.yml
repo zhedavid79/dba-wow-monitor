@@ -29,8 +29,8 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install requests beautifulsoup4
-      - name: Build verified WoW price report v6
-        run: python dba_report_v6.py
+      - name: Build verified WoW price report v7
+        run: python dba_report_v7.py
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
@@ -39,6 +39,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "Update verified DBA WoW report v6 [skip ci]"
+            git commit -m "Update verified DBA WoW report [skip ci]"
             git push
           fi
