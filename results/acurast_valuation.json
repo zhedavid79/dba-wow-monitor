@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T19:40:30.242211+00:00",
+  "generated_at": "2026-08-30T19:46:26.305994+00:00",
   "valuation_gate": true,
   "core_gate": {
     "minimum_android": 12,
@@ -9,17 +9,48 @@
   "reward_calibration": {
     "status": "INSUFFICIENT_REFERENCE_MATCH",
     "scale": 1.0,
-    "matched": 0,
+    "matched": 3,
     "missing": [
-      "Samsung Galaxy S10",
-      "Samsung Galaxy S20 Ultra",
-      "Samsung Galaxy S21 Ultra",
-      "OnePlus Nord 2T",
-      "OnePlus Nord 2T",
-      "OnePlus Nord 3",
-      "Xiaomi 12 Pro"
+      {
+        "model": "Samsung Galaxy S20 Ultra",
+        "best_match_score": 0.667
+      },
+      {
+        "model": "OnePlus Nord 2T",
+        "best_match_score": 0.6
+      },
+      {
+        "model": "OnePlus Nord 2T",
+        "best_match_score": 0.6
+      },
+      {
+        "model": "OnePlus Nord 3",
+        "best_match_score": 0.6
+      }
     ],
-    "samples": [],
+    "samples": [
+      {
+        "model": "Samsung Galaxy S10",
+        "matched_device": "Samsung Galaxy S10",
+        "match_score": 1.0,
+        "configuration_id": 304,
+        "bot_base_acu_epoch": 0.00411291
+      },
+      {
+        "model": "Samsung Galaxy S21 Ultra",
+        "matched_device": "Samsung S21 Ultra",
+        "match_score": 1.0,
+        "configuration_id": 353,
+        "bot_base_acu_epoch": 0.00523152
+      },
+      {
+        "model": "Xiaomi 12 Pro",
+        "matched_device": "Xiaomi Redmi Note 12 Pro+",
+        "match_score": 0.9,
+        "configuration_id": 176,
+        "bot_base_acu_epoch": 0.005815280000000001
+      }
+    ],
     "observed_floor": 0.0315
   },
   "method": "AcurastBot relative reward signal + observed production-floor calibration for absolute ACU/epoch + verified DBA ASK + hard Android 12 Core gate; conservative AAE ranking; separate evidence haircut for bid ceilings; no ACU spot-price dependence",
@@ -197,43 +228,6 @@
       "opportunity_score": 262.54025932340807
     },
     {
-      "listing_id": "23661735",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23661735",
-      "title": "OnePlus 8T",
-      "model": "OnePlus 8T",
-      "ask": 900,
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
-      "acurastbot_device": "OnePlus 8T",
-      "configuration_id": 360,
-      "ram": "12GB",
-      "storage": "256GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7992284483305935,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.004822197933790252,
-      "acurastbot_acu_epoch_raw": 0.01023807,
-      "absolute_reward_scale": 1.0,
-      "acu_epoch_low": 0.010213380000000001,
-      "acu_epoch_estimate": 0.01023807,
-      "acu_epoch_conservative": 0.005727789759999999,
-      "acu_epoch_bid_basis": 0.0025775053919999996,
-      "acu_epoch_high": 0.010262750000000001,
-      "acu_month_base": 4.9142736000000005,
-      "acu_month_conservative": 2.7493390847999994,
-      "acu_month_bid_basis": 1.2372025881599997,
-      "aae_ask": 0.005460304000000001,
-      "conservative_aae_ask": 0.003054821205333333,
-      "start_bid": 500,
-      "target": 625,
-      "hard_max": 900,
-      "aae_at_target": 0.004398942535679999,
-      "decision": "BID",
-      "opportunity_score": 222.84988269593217
-    },
-    {
       "listing_id": "24293758",
       "url": "https://www.dba.dk/recommerce/forsale/item/24293758",
       "title": "Motorola Edge 40 neo",
@@ -269,6 +263,43 @@
       "aae_at_target": 0.004491762688,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 204.79692607933248
+    },
+    {
+      "listing_id": "23661735",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23661735",
+      "title": "OnePlus 8T",
+      "model": "OnePlus 8T",
+      "ask": 900,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
+      "acurastbot_device": "OnePlus 8T",
+      "configuration_id": 336,
+      "ram": "8GB",
+      "storage": "128GB",
+      "processor_count": 1,
+      "confidence": "LOW",
+      "confidence_factor": 0.7999999999999999,
+      "bid_evidence_factor": 0.45,
+      "spread_ratio": 0.0,
+      "acurastbot_acu_epoch_raw": 0.008731029999999999,
+      "absolute_reward_scale": 1.0,
+      "acu_epoch_low": 0.008731029999999999,
+      "acu_epoch_estimate": 0.008731029999999999,
+      "acu_epoch_conservative": 0.0048893767999999985,
+      "acu_epoch_bid_basis": 0.0022002195599999993,
+      "acu_epoch_high": 0.008731029999999999,
+      "acu_month_base": 4.1908943999999995,
+      "acu_month_conservative": 2.3469008639999993,
+      "acu_month_bid_basis": 1.0561053887999996,
+      "aae_ask": 0.004656549333333333,
+      "conservative_aae_ask": 0.0026076676266666658,
+      "start_bid": 425,
+      "target": 525,
+      "hard_max": 775,
+      "aae_at_target": 0.004470287359999998,
+      "decision": "LOW OFFER / NEGOTIATE",
+      "opportunity_score": 190.2299302159114
     },
     {
       "listing_id": "23858419",
