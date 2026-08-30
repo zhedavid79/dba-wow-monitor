@@ -24,22 +24,64 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - name: Install dependencies
         run: pip install requests beautifulsoup4
+
       - name: Probe AcurastBot public device-data endpoints
         run: python acurastbot_probe.py
-      - name: Build verified Acurast phone price report
-        run: python acurast_dba_report.py
+
+      - name: Build verified Acurast phone price report with retry
+        run: |
+          set -e
+          for attempt in 1 2 3; do
+            echo "DBA verified report attempt $attempt/3"
+            if python acurast_dba_report.py; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep $((attempt * 20))
+            fi
+          done
+          echo "DBA verified report failed after 3 attempts"
+          exit 1
+
       - name: Apply single-device price identity gate
         run: python acurast_listing_quality.py
+
       - name: Build Acurast procurement valuation
         run: python acurast_valuation_fixed.py
+
+      - name: Validate publication contract
+        run: |
+          set -e
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from datetime import datetime, timezone
+
+          latest = json.loads(Path('results/acurast_latest.json').read_text(encoding='utf-8'))
+          valuation = json.loads(Path('results/acurast_valuation.json').read_text(encoding='utf-8'))
+
+          assert latest.get('gate_passed') is True, 'DBA data gate is not PASS'
+          assert int(latest.get('counts', {}).get('final_refetched', 0)) > 0, 'No final-refetched listings'
+          assert valuation, 'Valuation JSON is empty'
+
+          generated = latest.get('generated_at')
+          assert generated, 'Missing generated_at'
+          ts = datetime.fromisoformat(generated.replace('Z', '+00:00'))
+          age = (datetime.now(timezone.utc) - ts).total_seconds()
+          assert age < 1800, f'Result already stale at publication: {age:.0f}s'
+          print(f'Publication contract PASS: {latest["counts"]["final_refetched"]} final listings, age={age:.0f}s')
+          PY
+
       - name: Publish Acurast results
         run: |
           set -e
