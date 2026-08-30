@@ -44,6 +44,10 @@ jobs:
             echo "No Acurast result changes"
           else
             git commit -m "Update verified Acurast DBA report [skip ci]"
+            # dba_probe.py may have modified shared probe output. The checkout is disposable;
+            # keep only the committed Acurast outputs before rebasing over concurrent WoW pushes.
+            git reset --hard HEAD
+            git clean -fd
             git pull --rebase origin main
             git push origin main
           fi
