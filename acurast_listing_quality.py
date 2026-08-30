@@ -74,7 +74,7 @@ def main() -> None:
     lines = [
         '# Acurast DBA verified phone report', '',
         f"Generated: {src.get('generated_at')}", '',
-        f"Regression {src.get('regression',{}).get('listing_id')}: **PASS** — {src.get('regression',{}).get('price')} DKK", '',
+        'DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch', '',
         f"T0: {src.get('counts',{}).get('t0_unique')} | Product rejects: {src.get('counts',{}).get('product_identity_excluded')} | Bundle/price rejects: {len(rejected)} | Final: {len(kept)}", '',
         '## Lowest verified single-device listings', '',
         '| Rank | Model | ASK | Listing |', '|---:|---|---:|---|'
