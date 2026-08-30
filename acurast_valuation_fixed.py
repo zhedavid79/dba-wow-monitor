@@ -91,5 +91,6 @@ def safe_partial_calibration(devices,stats_by_cfg):
 v.reference_device=strict_reference_device
 v.reference_calibration=safe_partial_calibration
 
+# Manual full-model run trigger; no valuation semantics changed.
 if __name__=='__main__':
     v.main()
