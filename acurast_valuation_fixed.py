@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import json, re
+import re
 import acurast_valuation as v
 
 GENERIC={'galaxy','smartphone','phone','mobile','moto','5g','lte'}
@@ -37,7 +37,6 @@ def strict_reference_device(devices,label,stats_by_cfg):
     target_set=set(target)
     target_compact=''.join(target)
     candidates=[]; best=0.0
-
     for d in devices:
         company_raw=v.norm(d.get('company',''))
         company=BRAND_ALIASES.get(company_raw,company_raw)
@@ -55,32 +54,42 @@ def strict_reference_device(devices,label,stats_by_cfg):
         observed=sum(int(stats_by_cfg.get(int(c.get('id')),{}).get('processorCount') or 0)
                      for c in (d.get('configurations') or []) if c.get('id') is not None)
         candidates.append((len(extra),-observed,d))
-
     if not candidates:return None,best
     candidates.sort(key=lambda x:(x[0],x[1]))
     return candidates[0][2],1.0
 
 
-def print_reference_diagnostics():
-    devices=v.get_json(v.BOT_BASE+'/devices/with-counts')
-    refs=[]
-    for label,_,_ in v.REFERENCE_FARM:
-        brand=BRAND_ALIASES.get(brand_of(label),brand_of(label))
-        target=set(core_tokens(label,brand)); rows=[]
-        for d in devices:
-            company_raw=v.norm(d.get('company','')); company=BRAND_ALIASES.get(company_raw,company_raw)
-            if not (company==brand or company.startswith(brand+' ')): continue
-            cand=set(core_tokens(str(d.get('model') or ''),brand))
-            overlap=len(target & cand)/len(target) if target else 0.0
-            if overlap>0:
-                rows.append({'company':d.get('company'),'model':d.get('model'),'tokens':sorted(cand),'overlap':round(overlap,3)})
-        rows.sort(key=lambda x:x['overlap'],reverse=True)
-        refs.append({'reference':label,'target_tokens':sorted(target),'candidates':rows[:12]})
-    print('ACURAST_REFERENCE_DIAGNOSTICS='+json.dumps(refs,ensure_ascii=False))
+def safe_partial_calibration(devices,stats_by_cfg):
+    samples=[]; missing=[]
+    for label,title_hint,weight in v.REFERENCE_FARM:
+        d,match_score=strict_reference_device(devices,label,stats_by_cfg)
+        if not d:
+            missing.append({'model':label,'best_match_score':round(match_score,3),'reason':'exact marketed model absent from current AcurastBot device catalog'})
+            continue
+        picked=v.choose_config(d,title_hint,stats_by_cfg)
+        if not picked:
+            missing.append({'model':label,'reason':'matched device has no reward stats'}); continue
+        cfg,st=picked; rw=v.rewards(st)
+        if not rw:
+            missing.append({'model':label,'reason':'matched config has no expectedReward'}); continue
+        matched_name=f"{d.get('company','')} {d.get('model','')}".strip()
+        for _ in range(weight):
+            samples.append({'model':label,'matched_device':matched_name,'match_score':round(match_score,3),'configuration_id':cfg.get('id'),'bot_base_acu_epoch':rw['base']})
+    if len(samples)<2:
+        return {'status':'INSUFFICIENT_REFERENCE_MATCH','scale':1.0,'matched':len(samples),'missing':missing,'samples':samples,
+                'observed_floor':v.OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR,
+                'reference_mode':'exact-only; no cross-family substitution'}
+    bot_mean=sum(x['bot_base_acu_epoch'] for x in samples)/len(samples)
+    scale=max(1.0,v.OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR/bot_mean) if bot_mean>0 else 1.0
+    return {'status':'CALIBRATED_PARTIAL_REFERENCE','scale':scale,'matched':len(samples),'missing':missing,'samples':samples,
+            'bot_reference_mean':bot_mean,'observed_floor':v.OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR,
+            'calibrated_reference_mean':bot_mean*scale,
+            'reference_mode':'partial exact-reference production-floor calibration; uniform scale preserves relative AAE ranking and bid ordering',
+            'confidence':'LOW_ABSOLUTE_SCALE_HIGH_RELATIVE_RANKING'}
 
 
 v.reference_device=strict_reference_device
+v.reference_calibration=safe_partial_calibration
 
 if __name__=='__main__':
-    print_reference_diagnostics()
     v.main()
