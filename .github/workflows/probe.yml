@@ -3,6 +3,15 @@ name: DBA Verified Report
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'acurast_dba_report.py'
+      - 'acurast_listing_quality.py'
+      - 'acurast_valuation.py'
+      - '.github/workflows/acurast-dba.yml'
+      - 'results/acurast_latest.json'
+      - 'results/acurast_report.md'
+      - 'results/acurast_valuation.json'
+      - 'results/acurast_valuation.md'
   workflow_dispatch:
 
 permissions:
