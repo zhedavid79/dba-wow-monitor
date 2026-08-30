@@ -8,12 +8,12 @@ from pathlib import Path
 PATH = Path('results/acurast_latest.json')
 REPORT = Path('results/acurast_report.md')
 
-# A single DBA listing can mention several devices and several item-specific prices.
-# In that case the structured listing ASK is real, but it is not safe to bind that ASK
-# automatically to one phone model. Such listings stay visible as manual-review rejects.
+# A structured DBA ASK can be perfectly genuine while the listing itself contains several
+# devices. In that situation the ASK cannot safely be assigned to one Acurast phone model.
 BRANDS = re.compile(r'\b(samsung|oneplus|xiaomi|poco|motorola|google|pixel|huawei|honor|nokia|sony|iphone|apple|oppo|realme)\b', re.I)
 PRICE_MENTION = re.compile(r'(?<!\d)(\d{2,5})\s*(?:kr\.?|kroner)\b', re.I)
 BUNDLE_WORDS = re.compile(r'\b(begge|2\s*(?:telefoner|mobiler)|to\s*(?:telefoner|mobiler)|samlet|pakke|bundle)\b', re.I)
+OTHER_DEVICE = re.compile(r'\b(galaxy\s+watch|smartwatch|watch\s*\d*|galaxy\s+tab|tablet|ipad|macbook|laptop|bærbar)\b', re.I)
 
 
 def ambiguity(row: dict) -> tuple[bool, str]:
@@ -25,6 +25,8 @@ def ambiguity(row: dict) -> tuple[bool, str]:
 
     if len(brands) > 1:
         return True, f'multiple phone brands in live title: {sorted(brands)}'
+    if OTHER_DEVICE.search(title):
+        return True, 'live title contains another distinct device type'
     if len(prices) > 1:
         return True, f'multiple explicit item prices in live description: {sorted(prices)}'
     if BUNDLE_WORDS.search(title + ' ' + desc) and prices and (ask not in prices or len(prices) != 1):
@@ -53,20 +55,13 @@ def main() -> None:
             row['bundle_price_identity_reason'] = reason
             kept.append(row)
 
-    # Recompute market statistics only from candidates that survive all identity gates.
     by_model: dict[str, list[int]] = {}
     for row in kept:
         by_model.setdefault(str(row.get('model')), []).append(int(row.get('ask_t2') or row.get('ask_t1')))
     market = []
     for model, asks in sorted(by_model.items()):
         asks = sorted(asks)
-        market.append({
-            'model': model,
-            'n': len(asks),
-            'min_ask': min(asks),
-            'median_ask': statistics.median(asks),
-            'max_ask': max(asks),
-        })
+        market.append({'model': model, 'n': len(asks), 'min_ask': min(asks), 'median_ask': statistics.median(asks), 'max_ask': max(asks)})
 
     src['ranked_by_verified_ask'] = kept
     src['market'] = market
