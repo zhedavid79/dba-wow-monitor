@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-30T20:47:30.702541+00:00",
+  "generated_at": "2026-08-30T20:57:36.362740+00:00",
   "valuation_gate": true,
   "core_gate": {
     "minimum_android": 12,
     "mode": "hard fail-closed allowlist",
-    "excluded_count": 7
+    "excluded_count": 6
   },
   "reward_calibration": {
     "status": "INSUFFICIENT_REFERENCE_MATCH",
@@ -60,18 +60,18 @@
     "n>=10": 1.0
   },
   "hurdles": {
-    "start_conservative_aae": 0.0035609814799999993,
-    "target_conservative_aae_p75": 0.0028487851839999996,
-    "hard_max_conservative_aae_p50": 0.0021561566362612115
+    "start_conservative_aae": 0.0037565471999999995,
+    "target_conservative_aae_p75": 0.0030052377599999996,
+    "hard_max_conservative_aae_p50": 0.0019740395408870226
   },
   "dba_counts": {
     "category_pages": 49,
     "category_docs": 2597,
     "catalog_models": 191,
-    "t0_unique": 2498,
-    "t1_attempted": 2498,
-    "t1_verified_active_product": 33,
-    "final_refetched": 28,
+    "t0_unique": 2497,
+    "t1_attempted": 2497,
+    "t1_verified_active_product": 30,
+    "final_refetched": 25,
     "bundle_price_identity_excluded": 5
   },
   "ranked": [
@@ -106,11 +106,11 @@
       "aae_ask": 0.029906784000000002,
       "conservative_aae_ask": 0.016747799039999997,
       "target": 125,
-      "hard_max": 175,
+      "hard_max": 200,
       "start_bid": 50,
       "aae_at_target": 0.006699119615999999,
       "decision": "BUY AT ASK",
-      "opportunity_score": 776.7431529947091
+      "opportunity_score": 848.4024100385789
     },
     {
       "listing_id": "22585550",
@@ -142,12 +142,12 @@
       "acu_month_bid_basis": 0.39614158079999995,
       "aae_ask": 0.010479936000000002,
       "conservative_aae_ask": 0.00586876416,
-      "target": 150,
-      "hard_max": 175,
+      "target": 125,
+      "hard_max": 200,
       "start_bid": 100,
-      "aae_at_target": 0.00586876416,
-      "decision": "BUY AT ASK",
-      "opportunity_score": 272.1863551702103
+      "aae_at_target": 0.007042516992,
+      "decision": "BID",
+      "opportunity_score": 297.29719382231355
     },
     {
       "listing_id": "24452651",
@@ -179,12 +179,12 @@
       "acu_month_bid_basis": 1.5786879184337377,
       "aae_ask": 0.010744917333333333,
       "conservative_aae_ask": 0.004677593832396259,
-      "target": 550,
-      "hard_max": 725,
-      "start_bid": 450,
-      "aae_at_target": 0.0038271222265060306,
+      "target": 525,
+      "hard_max": 800,
+      "start_bid": 425,
+      "aae_at_target": 0.004009366142053937,
       "decision": "BUY AT ASK",
-      "opportunity_score": 216.94128124695223
+      "opportunity_score": 236.95542746293782
     },
     {
       "listing_id": "23235041",
@@ -216,49 +216,12 @@
       "acu_month_bid_basis": 0.9717019199999999,
       "aae_ask": 0.0064266,
       "conservative_aae_ask": 0.0035988959999999994,
-      "target": 350,
-      "hard_max": 450,
-      "start_bid": 275,
-      "aae_at_target": 0.006169535999999999,
+      "target": 325,
+      "hard_max": 500,
+      "start_bid": 250,
+      "aae_at_target": 0.006644115692307691,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 166.91254890648887
-    },
-    {
-      "listing_id": "24022698",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24022698",
-      "title": "Huawei Mate 10 Pro",
-      "model": "OnePlus 10 Pro",
-      "ask": 500,
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
-      "acurastbot_device": "OnePlus 10 Pro",
-      "configuration_id": 317,
-      "ram": "8GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "acurastbot_acu_epoch_raw": 0.0053247699999999995,
-      "absolute_reward_scale": 1.0,
-      "acu_epoch_low": 0.0053247699999999995,
-      "acu_epoch_estimate": 0.0053247699999999995,
-      "acu_epoch_conservative": 0.0029818711999999993,
-      "acu_epoch_bid_basis": 0.0013418420399999996,
-      "acu_epoch_high": 0.0053247699999999995,
-      "acu_month_base": 2.5558895999999995,
-      "acu_month_conservative": 1.4312981759999996,
-      "acu_month_bid_basis": 0.6440841791999998,
-      "aae_ask": 0.005111779199999999,
-      "conservative_aae_ask": 0.0028625963519999993,
-      "target": 225,
-      "hard_max": 300,
-      "start_bid": 175,
-      "aae_at_target": 0.006361325226666665,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 132.76384024510196
+      "opportunity_score": 182.31124176888866
     },
     {
       "listing_id": "24293758",
@@ -290,49 +253,12 @@
       "acu_month_bid_basis": 0.7579849535999998,
       "aae_ask": 0.005013128,
       "conservative_aae_ask": 0.00280735168,
-      "target": 275,
-      "hard_max": 350,
-      "start_bid": 225,
-      "aae_at_target": 0.006125130938181818,
+      "target": 250,
+      "hard_max": 375,
+      "start_bid": 200,
+      "aae_at_target": 0.006737644031999999,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 130.20165755990553
-    },
-    {
-      "listing_id": "21758689",
-      "url": "https://www.dba.dk/recommerce/forsale/item/21758689",
-      "title": "Huawei Mate10 Pro 128GB",
-      "model": "OnePlus 10 Pro",
-      "ask": 529,
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
-      "acurastbot_device": "OnePlus 10 Pro",
-      "configuration_id": 317,
-      "ram": "8GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "acurastbot_acu_epoch_raw": 0.0053247699999999995,
-      "absolute_reward_scale": 1.0,
-      "acu_epoch_low": 0.0053247699999999995,
-      "acu_epoch_estimate": 0.0053247699999999995,
-      "acu_epoch_conservative": 0.0029818711999999993,
-      "acu_epoch_bid_basis": 0.0013418420399999996,
-      "acu_epoch_high": 0.0053247699999999995,
-      "acu_month_base": 2.5558895999999995,
-      "acu_month_conservative": 1.4312981759999996,
-      "acu_month_bid_basis": 0.6440841791999998,
-      "aae_ask": 0.0048315493383742905,
-      "conservative_aae_ask": 0.0027056676294896025,
-      "target": 225,
-      "hard_max": 300,
-      "start_bid": 175,
-      "aae_at_target": 0.006361325226666665,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 125.48567130917012
+      "opportunity_score": 142.21354850564612
     },
     {
       "listing_id": "24086458",
@@ -364,12 +290,12 @@
       "acu_month_bid_basis": 1.0371195072,
       "aae_ask": 0.004577923915461625,
       "conservative_aae_ask": 0.0025636373926585096,
-      "target": 375,
-      "hard_max": 475,
-      "start_bid": 300,
-      "aae_at_target": 0.006145893376,
+      "target": 350,
+      "hard_max": 525,
+      "start_bid": 275,
+      "aae_at_target": 0.00658488576,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 118.89847655520389
+      "opportunity_score": 129.86758064159923
     },
     {
       "listing_id": "24114191",
@@ -402,11 +328,11 @@
       "aae_ask": 0.0038164288,
       "conservative_aae_ask": 0.0022934728694270568,
       "target": 350,
-      "hard_max": 475,
-      "start_bid": 300,
+      "hard_max": 525,
+      "start_bid": 275,
       "aae_at_target": 0.004914584720200836,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 106.36856482764408
+      "opportunity_score": 116.1817087208141
     },
     {
       "listing_id": "24317162",
@@ -438,12 +364,12 @@
       "acu_month_bid_basis": 0.847912969300054,
       "aae_ask": 0.003987620571428572,
       "conservative_aae_ask": 0.0020188404030953666,
-      "target": 300,
-      "hard_max": 400,
-      "start_bid": 250,
-      "aae_at_target": 0.0047106276072225225,
+      "target": 275,
+      "hard_max": 425,
+      "start_bid": 225,
+      "aae_at_target": 0.005138866480606388,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 93.63143517235594
+      "opportunity_score": 102.26950176429663
     },
     {
       "listing_id": "24396538",
@@ -476,11 +402,11 @@
       "aae_ask": 0.0034450690690690693,
       "conservative_aae_ask": 0.0019292386786786784,
       "target": 300,
-      "hard_max": 400,
-      "start_bid": 250,
+      "hard_max": 450,
+      "start_bid": 225,
       "aae_at_target": 0.006424364799999999,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 89.47581294576028
+      "opportunity_score": 97.73049823570337
     },
     {
       "listing_id": "24453052",
@@ -513,11 +439,11 @@
       "aae_ask": 0.0031948619999999993,
       "conservative_aae_ask": 0.0017891227199999995,
       "target": 225,
-      "hard_max": 300,
+      "hard_max": 325,
       "start_bid": 175,
       "aae_at_target": 0.006361325226666665,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 82.97740015318873
+      "opportunity_score": 90.63256753185745
     },
     {
       "listing_id": "17025084",
@@ -549,12 +475,12 @@
       "acu_month_bid_basis": 0.7579849535999998,
       "aae_ask": 0.003166186105263158,
       "conservative_aae_ask": 0.0017730642189473682,
-      "target": 275,
-      "hard_max": 350,
-      "start_bid": 225,
-      "aae_at_target": 0.006125130938181818,
+      "target": 250,
+      "hard_max": 375,
+      "start_bid": 200,
+      "aae_at_target": 0.006737644031999999,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 82.23262582730874
+      "opportunity_score": 89.81908326672387
     },
     {
       "listing_id": "22032520",
@@ -587,11 +513,11 @@
       "aae_ask": 0.0025558895999999993,
       "conservative_aae_ask": 0.0014312981759999996,
       "target": 225,
-      "hard_max": 300,
+      "hard_max": 325,
       "start_bid": 175,
       "aae_at_target": 0.006361325226666665,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 66.38192012255098
+      "opportunity_score": 72.50605402548597
     },
     {
       "listing_id": "23858419",
@@ -623,12 +549,12 @@
       "acu_month_bid_basis": 0.6328046591999998,
       "aae_ask": 0.0025111295999999997,
       "conservative_aae_ask": 0.0014062325759999995,
-      "target": 225,
-      "hard_max": 300,
+      "target": 200,
+      "hard_max": 325,
       "start_bid": 175,
-      "aae_at_target": 0.006249922559999998,
+      "aae_at_target": 0.007031162879999998,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 65.21940717806176
+      "opportunity_score": 71.23629222584455
     },
     {
       "listing_id": "23098313",
@@ -660,12 +586,12 @@
       "acu_month_bid_basis": 0.5480987904,
       "aae_ask": 0.0021749952,
       "conservative_aae_ask": 0.001217997312,
-      "target": 200,
-      "hard_max": 250,
+      "target": 175,
+      "hard_max": 275,
       "start_bid": 150,
-      "aae_at_target": 0.00608998656,
+      "aae_at_target": 0.006959984640000001,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 56.489277797183355
+      "opportunity_score": 61.70075557112197
     },
     {
       "listing_id": "24342803",
@@ -697,12 +623,12 @@
       "acu_month_bid_basis": 0.6788051423999999,
       "aae_ask": 0.001995312,
       "conservative_aae_ask": 0.0010056372479999999,
-      "target": 250,
-      "hard_max": 325,
-      "start_bid": 200,
-      "aae_at_target": 0.003620294092799999,
+      "target": 225,
+      "hard_max": 350,
+      "start_bid": 175,
+      "aae_at_target": 0.004022548991999999,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 46.64026866544264
+      "opportunity_score": 50.94311573658362
     },
     {
       "listing_id": "24142657",
@@ -735,11 +661,11 @@
       "aae_ask": 0.0010475946666666667,
       "conservative_aae_ask": 0.0007333162666666665,
       "target": 225,
-      "hard_max": 300,
+      "hard_max": 325,
       "start_bid": 175,
       "aae_at_target": 0.002933265066666666,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 34.0103429562632
+      "opportunity_score": 37.148002939047274
     }
   ],
   "core_incompatible": [
@@ -771,12 +697,6 @@
       "listing_id": "24398197",
       "model": "Samsung A52s",
       "url": "https://www.dba.dk/recommerce/forsale/item/24398197",
-      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
-    },
-    {
-      "listing_id": "23588486",
-      "model": "One Plus Nord 2",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23588486",
       "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
