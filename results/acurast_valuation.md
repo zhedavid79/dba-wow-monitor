@@ -1,13 +1,14 @@
 # Acurast DBA Profitability Hunter
 
-Generated: 2026-08-30T19:26:28.456108+00:00
+Generated: 2026-08-30T19:40:30.242211+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing T1 + final T2 refetch.
 Acurast Core gate: **PASS** — only verified Android 12+ model families may enter ranking; unknown compatibility is excluded.
 Core-incompatible/unverified exclusions: **4**.
 AcurastBot data gate: **PASS** — dynamic market-wide device/config matching.
+Absolute ACU/epoch calibration: **INSUFFICIENT_REFERENCE_MATCH** — scale ×1.000, matched reference devices 0/7, observed floor 0.0315 ACU/epoch/device.
 
-> Rangering = konservativ AAE. ACU/epoch vises direkte. Budgrænser bruger et ekstra evidence-haircut ved små AcurastBot-samples, så n=1 ikke kan skabe kunstigt høje maxbud.
+> ACU/epoch is now a farm-calibrated TOTAL-reward estimate. AcurastBot remains the relative device-performance signal. The calibration is one uniform multiplier, so it does not change model ranking; low-n evidence haircuts still control bid ceilings.
 
 Target-hurdle (P75): 0.001974 konservativ ACU/md/DKK | Hard-max hurdle (P50): 0.001371
 
@@ -17,8 +18,8 @@ Target-hurdle (P75): 0.001974 konservativ ACU/md/DKK | Hard-max hurdle (P50): 0.
 | 2 | Motorola E13 | 150 | 12+ PASS | 0.00327 | 0.00183 | LOW | 1 | 0.45 | 0.00587 | 428 | 150 | 200 | 300 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/22585550) |
 | 3 | OnePlus 8 Pro | 450 | 12+ PASS | 0.01007 | 0.00439 | MEDIUM | 3 | 0.75 | 0.00468 | 341 | 650 | 800 | 1150 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24452651) |
 | 4 | Motorola Edge 50 Fusion | 600 | 12+ PASS | 0.00803 | 0.00450 | LOW | 1 | 0.45 | 0.00360 | 263 | 400 | 500 | 700 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/23235041) |
-| 5 | Motorola Edge 40 Neo | 600 | 12+ PASS | 0.00627 | 0.00351 | LOW | 1 | 0.45 | 0.00281 | 205 | 300 | 375 | 550 | LOW OFFER / NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24293758) |
-| 6 | OnePlus 8T | 900 | 12+ PASS | 0.00873 | 0.00489 | LOW | 1 | 0.45 | 0.00261 | 190 | 425 | 525 | 775 | LOW OFFER / NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23661735) |
+| 5 | OnePlus 8T | 900 | 12+ PASS | 0.01024 | 0.00573 | LOW | 1 | 0.45 | 0.00305 | 223 | 500 | 625 | 900 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/23661735) |
+| 6 | Motorola Edge 40 Neo | 600 | 12+ PASS | 0.00627 | 0.00351 | LOW | 1 | 0.45 | 0.00281 | 205 | 300 | 375 | 550 | LOW OFFER / NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24293758) |
 | 7 | Samsung Galaxy S21 | 1000 | 12+ PASS | 0.00962 | 0.00539 | LOW | 1 | 0.45 | 0.00259 | 189 | 475 | 600 | 850 | LOW OFFER / NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23858419) |
 | 8 | Motorola G85 | 750 | 12+ PASS | 0.00596 | 0.00358 | LOW | 2 | 0.60 | 0.00229 | 167 | 425 | 525 | 750 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24114191) |
 | 9 | Samsung Galaxy S21 | 1200 | 12+ PASS | 0.00962 | 0.00539 | LOW | 1 | 0.45 | 0.00216 | 157 | 475 | 600 | 850 | LOW OFFER / NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24125127) |
@@ -63,8 +64,8 @@ Target-hurdle (P75): 0.001974 konservativ ACU/md/DKK | Hard-max hurdle (P50): 0.
 - **Motorola E13** — ASK 150 kr. — est. 0.00327 ACU/epoch, konservativ 0.00183 — LOW (n=1, evidence 0.45) — start 150 / target 200 / max 300 — **STRONG BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/22585550)
 - **OnePlus 8 Pro** — ASK 450 kr. — est. 0.01007 ACU/epoch, konservativ 0.00439 — MEDIUM (n=3, evidence 0.75) — start 650 / target 800 / max 1150 — **STRONG BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24452651)
 - **Motorola Edge 50 Fusion** — ASK 600 kr. — est. 0.00803 ACU/epoch, konservativ 0.00450 — LOW (n=1, evidence 0.45) — start 400 / target 500 / max 700 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/23235041)
+- **OnePlus 8T** — ASK 900 kr. — est. 0.01024 ACU/epoch, konservativ 0.00573 — LOW (n=1, evidence 0.45) — start 500 / target 625 / max 900 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/23661735)
 - **Motorola Edge 40 Neo** — ASK 600 kr. — est. 0.00627 ACU/epoch, konservativ 0.00351 — LOW (n=1, evidence 0.45) — start 300 / target 375 / max 550 — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24293758)
-- **OnePlus 8T** — ASK 900 kr. — est. 0.00873 ACU/epoch, konservativ 0.00489 — LOW (n=1, evidence 0.45) — start 425 / target 525 / max 775 — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23661735)
 - **Samsung Galaxy S21** — ASK 1000 kr. — est. 0.00962 ACU/epoch, konservativ 0.00539 — LOW (n=1, evidence 0.45) — start 475 / target 600 / max 850 — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23858419)
 - **Motorola G85** — ASK 750 kr. — est. 0.00596 ACU/epoch, konservativ 0.00358 — LOW (n=2, evidence 0.60) — start 425 / target 525 / max 750 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24114191)
 - **Samsung Galaxy S21** — ASK 1200 kr. — est. 0.00962 ACU/epoch, konservativ 0.00539 — LOW (n=1, evidence 0.45) — start 475 / target 600 / max 850 — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24125127)
