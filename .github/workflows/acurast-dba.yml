@@ -10,6 +10,7 @@ on:
       - 'acurast_dba_report.py'
       - 'acurast_listing_quality.py'
       - 'acurast_valuation.py'
+      - 'acurast_valuation_fixed.py'
       - 'acurastbot_probe.py'
       - '.github/workflows/acurast-dba.yml'
 
@@ -38,7 +39,7 @@ jobs:
       - name: Apply single-device price identity gate
         run: python acurast_listing_quality.py
       - name: Build Acurast procurement valuation
-        run: python acurast_valuation.py
+        run: python acurast_valuation_fixed.py
       - name: Publish Acurast results
         run: |
           set -e
@@ -59,9 +60,7 @@ jobs:
               exit 0
             fi
             git commit -m "Update verified Acurast DBA report [skip ci]"
-            if git push origin main; then
-              exit 0
-            fi
+            if git push origin main; then exit 0; fi
             echo "Concurrent update detected; retrying ($attempt/3)"
             sleep 2
           done
