@@ -38,17 +38,31 @@ jobs:
         run: python acurast_listing_quality.py
       - name: Build Acurast procurement valuation
         run: python acurast_valuation.py
-      - name: Commit Acurast results
+      - name: Publish Acurast results
         run: |
+          set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/acurast_latest.json results/acurast_report.md results/acurast_valuation.json results/acurast_valuation.md
-          if git diff --cached --quiet; then
-            echo "No Acurast result changes"
-          else
+          mkdir -p /tmp/acurast-results
+          cp results/acurast_latest.json /tmp/acurast-results/
+          cp results/acurast_report.md /tmp/acurast-results/
+          cp results/acurast_valuation.json /tmp/acurast-results/
+          cp results/acurast_valuation.md /tmp/acurast-results/
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp /tmp/acurast-results/* results/
+            git add results/acurast_latest.json results/acurast_report.md results/acurast_valuation.json results/acurast_valuation.md
+            if git diff --cached --quiet; then
+              echo "No Acurast result changes"
+              exit 0
+            fi
             git commit -m "Update verified Acurast DBA report [skip ci]"
-            git reset --hard HEAD
-            git clean -fd
-            git pull --rebase origin main
-            git push origin main
-          fi
+            if git push origin main; then
+              exit 0
+            fi
+            echo "Concurrent update detected; retrying ($attempt/3)"
+            sleep 2
+          done
+          echo "Failed to publish Acurast results after 3 attempts"
+          exit 1
