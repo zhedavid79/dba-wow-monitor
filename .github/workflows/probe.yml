@@ -29,8 +29,8 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install requests beautifulsoup4
-      - name: Build verified WoW price report v7
-        run: python dba_report_v7.py
+      - name: Build verified WoW price report v8
+        run: python dba_report_v8.py
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
