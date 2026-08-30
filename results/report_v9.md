@@ -1,13 +1,13 @@
 # DBA WoW-PC verified price report v9
 
-Generated: 2026-08-30T18:16:47.741617+00:00
+Generated: 2026-08-30T18:25:30.645899+00:00
 
 Current schema/source gate: **PASS** — live item 24433020 — 8500 kr.
 Historical price-binding regression: **PASS (static_fixture; no dependency on historical live listing)**
 
 Discovery queries: 62
-Structured T0 unique records: 1598
-T0 GPU-promising records sent to T1 (no top-100 cap): 254
+Structured T0 unique records: 1599
+T0 GPU-promising records sent to T1 (no top-100 cap): 255
 T1 verified systems with parsed GPU+CPU: 114
 
 ## Price-first ranking
@@ -47,8 +47,8 @@ All verified candidates at ACCEPTABLE or better are shown; SWEET SPOT is not all
 | 29 | 4500 kr. | ACCEPTABLE | RTX 3060 | Core i7-10700 | [MM Vision - gaming computer - RTX 3060 - I7 processor - april 2021 god stand](https://www.dba.dk/recommerce/forsale/item/24467994) |
 | 30 | 4500 kr. | ACCEPTABLE | RTX 3060 | Core i5-11400H | [Lenovo Legion 5 Gaming Laptop – RTX 3060 / i5 / 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23688401) |
 | 31 | 4500 kr. | ACCEPTABLE | RTX 2070 | Ryzen 5 5600X | [🎮 Kraftig gaming-PC – Perfekt til 1080p gaming | RTX 2070 | Ryzen 5 5600X](https://www.dba.dk/recommerce/forsale/item/22484336) |
-| 32 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
-| 33 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
+| 32 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
+| 33 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
 | 34 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | [Asus gaming stationær PC med i7 9700K og RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/23248956) |
 | 35 | 4700 kr. | ACCEPTABLE | RTX 4060 | Core i5-12400 | [🔥 RTX 4060 8GB | i5-12400F | 1.250GB SSD | 16GB RAM 🔥](https://www.dba.dk/recommerce/forsale/item/24400646) |
 | 36 | 4795 kr. | SWEET SPOT | RTX 2080 Super | Core i7-9700 | [MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram](https://www.dba.dk/recommerce/forsale/item/24156419) |
@@ -81,15 +81,15 @@ All verified candidates at ACCEPTABLE or better are shown; SWEET SPOT is not all
 | 63 | 6800 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | [Super Gamer  intel i7 12700K-RTX 3070-32 GB DDR5-m2 SSD](https://www.dba.dk/recommerce/forsale/item/24381782) |
 | 64 | 6800 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | [Intel i7 12700K-RTX 3070-32 GB DDR5-M2 SSD-750 watt PSU-vandkøling-Wifi](https://www.dba.dk/recommerce/forsale/item/24293713) |
 | 65 | 6995 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | [Gaming PC – RTX 3070 | i7-12700KF | 16GB DDR5 | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/23858984) |
-| 66 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
-| 67 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
-| 68 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
+| 66 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
+| 67 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
+| 68 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
 | 69 | 6999 kr. | SWEET SPOT | RTX 4060 Ti | Core i5-12400 | [Gaming PC RTX 4060 Ti | i5-12400F | 16GB | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/21761715) |
 | 70 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i7-14650HX | [Lenovo Thinkbook i7, RTX 4060](https://www.dba.dk/recommerce/forsale/item/13043596) |
 | 71 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12400 | [Gaming Pc rtx 4060 32 gb ram I5 12400f](https://www.dba.dk/recommerce/forsale/item/17656716) |
-| 72 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
-| 73 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/8888151) |
-| 74 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
+| 72 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/8888151) |
+| 73 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
+| 74 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
 | 75 | 7000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | [RTX 3080 - Kraftig gamer pc sælges 7000kr.](https://www.dba.dk/recommerce/forsale/item/21317324) |
 | 76 | 7000 kr. | SWEET SPOT | RTX 3070 | Ryzen 7 5800H | [Gamer Bærbar 17,3” 144 Hz –  Ryzen 7 5800H / RTX 3070 / 16 GB / 1 TB](https://www.dba.dk/recommerce/forsale/item/24461236) |
 | 77 | 7000 kr. | SWEET SPOT | RTX 3070 | Core i7-10700 | [Kraftig Vision Gaming PC – RTX 3070, i7-10700F, 1TB NVMe SSD Bygget af MM-Vision](https://www.dba.dk/recommerce/forsale/item/22873086) |
@@ -131,4 +131,4 @@ All verified candidates at ACCEPTABLE or better are shown; SWEET SPOT is not all
 
 ## Rejection diagnostics
 
-{"CPU_PARSE_FAILED": 140}
+{"CPU_PARSE_FAILED": 141}
