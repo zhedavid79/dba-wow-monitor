@@ -25,6 +25,7 @@ COMPLETE_PHONE_RE=re.compile(r'\b(telefon|mobiltelefon|smartphone|mobil)\b',re.I
 FUNCTION_RE=re.compile(r'\b(virker|fungerer|tænder|starter|defekt|revnet|ødelagt|skadet|imei|simkort|dual sim|factory reset|nulstillet|android\s*1[2-9])\b',re.I)
 SPEC_RE=re.compile(r'\b(?:4|6|8|10|12|16|18|24)\s*gb\s*(?:ram)?\b|\b(?:64|128|256|512|1024)\s*gb\b',re.I)
 KNOWN_PHONE_BRANDS={'apple','iphone','huawei','nokia','htc','lg','zte','meizu','vivo','blackview','ulefone','cubot','fairphone','tecno','infinix'}
+VARIANT_WORDS=('ultra','pro','lite','fe','neo','fusion','plus')
 
 def getj(s,url,params=None):
     last=None
@@ -83,14 +84,23 @@ def detected_brand(text,catalog):
     uniq=set(hits)
     return next(iter(uniq)) if len(uniq)==1 else None
 
+def candidate_variant_ok(text,model):
+    raw=(text or '').lower(); nt=' '+norm(text)+' '; nm=' '+norm(model)+' '
+    # A marketed variant present in the AcurastBot model must also be stated by the seller.
+    # This prevents base S10 -> S10+, S21 -> S21 Ultra, CE2 Lite -> CE2, etc.
+    if '+' in str(model) and not ('+' in raw or ' plus ' in nt): return False
+    for variant in VARIANT_WORDS:
+        if f' {variant} ' in nm and f' {variant} ' not in nt:
+            return False
+    return True
+
 def model_of(text,catalog):
     nt=' '+norm(text)+' '; ct=compact(text); seller_brand=detected_brand(text,catalog); matches=[]
     if seller_brand=='apple': return None
     for x in catalog:
         xb=norm(x['brand'])
-        # Explicit seller/manufacturer identity is a hard barrier. A Huawei title can
-        # never resolve to e.g. OnePlus merely because both contain "10 Pro".
         if seller_brand and xb!=seller_brand: continue
+        if not candidate_variant_ok(text,x['model']): continue
         for a in x['aliases']:
             boundary=f' {a} ' in nt; ca=compact(a); compact_hit=len(ca)>=5 and ca in ct
             if boundary or compact_hit:
@@ -107,11 +117,13 @@ def product_identity(title,description,model,price,catalog):
     if not model:return False,'no AcurastBot-supported model resolved'
     model_brand=norm(next((x['brand'] for x in catalog if x['label']==model),''))
     if explicit and explicit!=model_brand:return False,f'explicit brand mismatch: {explicit} != {model_brand}'
+    if not candidate_variant_ok(both,next((x['model'] for x in catalog if x['label']==model),model)):
+        return False,'resolved model variant is not supported by seller text'
     if ACCESSORY_RE.search(t):return False,'accessory/part title'
     complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both))
     if price is not None and price<150 and not (complete and (functional or specs)):return False,'weak complete-phone evidence'
     if ACCESSORY_RE.search(d) and not (complete and functional):return False,'description indicates part'
-    return True,'AcurastBot dynamic universe + strict brand/model identity + live product identity passed'
+    return True,'AcurastBot dynamic universe + strict brand/model/variant identity + live product identity passed'
 
 def canonical_id_from_payload(payload):
     stack=[payload]
