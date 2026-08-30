@@ -10,6 +10,7 @@ on:
       - 'acurast_dba_report.py'
       - 'acurast_listing_quality.py'
       - 'acurast_valuation.py'
+      - 'acurastbot_probe.py'
       - '.github/workflows/acurast-dba.yml'
 
 permissions:
@@ -30,6 +31,8 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install requests beautifulsoup4
+      - name: Probe AcurastBot public device-data endpoints
+        run: python acurastbot_probe.py
       - name: Run shared DBA regression probe
         run: python dba_probe.py
       - name: Build verified Acurast phone price report
