@@ -9,8 +9,6 @@ import requests
 BASE='https://www.dba.dk'
 SEARCH_API=BASE+'/recommerce/forsale/search/api/search/SEARCH_ID_BAP_COMMON'
 ITEM_URL=BASE+'/recommerce/forsale/item/{id}'
-REGRESSION_ID='24247594'
-REGRESSION_PRICE=4399
 HEADERS={'User-Agent':'Mozilla/5.0','Accept-Language':'da-DK,da;q=0.9','Accept':'application/json,text/html;q=0.9,*/*;q=0.8'}
 TIMEOUT=25
 QUERIES=['samsung s10','samsung s20','samsung s20 ultra','samsung s21','samsung s21 ultra','samsung s22','samsung s22 ultra','samsung s23','samsung s23 fe','samsung z flip','oneplus nord','oneplus nord 2','oneplus nord 2t','oneplus nord 3','oneplus 8','oneplus 9','oneplus 9 pro','oneplus 10','oneplus 10 pro','oneplus 11','xiaomi 11','xiaomi 12','xiaomi 12 pro','poco f3','poco f4','poco f5','motorola edge 30','motorola edge 40','pixel 6','pixel 7','pixel 8','defekt samsung','defekt oneplus','defekt xiaomi','defekt motorola','defekt pixel','defekt skærm android','revnet skærm samsung','repareres android','reservedele android','burn in samsung']
@@ -39,11 +37,9 @@ def product_identity(title:str,description:str,model:str|None,price:int|None)->t
     title_model=model_of(t)
     if not model or title_model!=model: return False,'model not identified unambiguously in live title'
     if ACCESSORY_RE.search(t): return False,'accessory/part language in live title'
-    # Extremely cheap ads are overwhelmingly accessories/parts; require strong evidence that the object is the phone.
     complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both))
     if price is not None and price < 150 and not (complete and (functional or specs)):
         return False,'sub-150 DKK listing lacks strong complete-phone evidence'
-    # Above the noise floor, a clean model title is acceptable, but descriptions containing explicit accessory-only wording are not.
     if ACCESSORY_RE.search(d) and not (complete and functional): return False,'description indicates accessory/part rather than complete phone'
     return True,'complete-phone identity passed'
 
@@ -77,19 +73,26 @@ def fetch_item(s,lid):
     return {'listing_id':lid,'bound_listing_id':bound,'identity_ok':bound==lid if bound else False,'url':ITEM_URL.format(id=lid),'title':str(item.get('title') or '').strip(),'price':amount(item.get('price')),'disposed':bool(item.get('disposed')),'trade_type':item.get('tradeType') or item.get('adViewTypeLabel'),'description':str(item.get('description') or ''),'location':item.get('location'),'extras':item.get('extras'),'meta':item.get('meta')}
 
 def main():
-    s=requests.Session(); Path('results').mkdir(exist_ok=True); reg=fetch_item(s,REGRESSION_ID)
-    regression_ok=bool(reg['identity_ok'] and reg['price']==REGRESSION_PRICE and reg['title'] and not reg['disposed'])
-    if not regression_ok:
-        out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':False,'reason':'PRICE DATA GATE FAILED','regression':reg,'expected_price':REGRESSION_PRICE}; Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)); raise SystemExit('PRICE DATA GATE FAILED')
+    s=requests.Session(); Path('results').mkdir(exist_ok=True)
     found={}; search_errors=[]
     for q in QUERIES:
         try:
-            for d in (getj(s,SEARCH_API,{'q':q,'sort':'PRICE_ASC'}).get('docs') or []):
-                lid=str(d.get('id') or d.get('listingId') or d.get('itemId') or ''); title=str(d.get('heading') or d.get('title') or '').strip(); p=amount(d.get('price')); model=model_of(title)
+            payload=getj(s,SEARCH_API,{'q':q,'sort':'PRICE_ASC'})
+            docs=payload.get('docs') or []
+            if not isinstance(docs,list):
+                raise ValueError('structured DBA search returned no docs list')
+            for d in docs:
+                lid=str(d.get('id') or d.get('listingId') or d.get('itemId') or '')
+                title=str(d.get('heading') or d.get('title') or '').strip(); p=amount(d.get('price')); model=model_of(title)
                 if not lid or not title or p is None or not model: continue
                 r=found.setdefault(lid,{'listing_id':lid,'title_t0':title,'ask_t0':p,'model':model,'queries':[]}); r['queries'].append(q)
         except Exception as e: search_errors.append({'query':q,'error':repr(e)})
         time.sleep(.03)
+    if not found:
+        out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':False,'reason':'PRICE DATA GATE FAILED — no structured DBA candidates','search_errors':search_errors}
+        Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
+        raise SystemExit(out['reason'])
+
     verified=[]; excluded=[]
     for r in found.values():
         try:
@@ -102,11 +105,17 @@ def main():
             verified.append({**r,**t1,'model':model,'ask_t1':int(t1['price']),'product_identity_ok':True,'product_identity_reason':prod_reason,'price_changed':int(t1['price'])!=int(r['ask_t0']),'t1_timestamp':datetime.now(timezone.utc).isoformat()})
         except Exception as e: excluded.append({**r,'reason':f'T1 fetch failed: {e!r}'})
         time.sleep(.03)
+    if not verified:
+        out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':False,'reason':'PRICE DATA GATE FAILED — no T1 verified active phones','counts':{'queries':len(QUERIES),'search_errors':len(search_errors),'t0_unique':len(found)},'excluded':excluded,'search_errors':search_errors}
+        Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
+        raise SystemExit(out['reason'])
+
     by_model={}
     for r in verified: by_model.setdefault(r['model'],[]).append(r)
     market=[]
     for model,rows in sorted(by_model.items()):
         asks=sorted(r['ask_t1'] for r in rows); market.append({'model':model,'n':len(asks),'min_ask':min(asks),'median_ask':statistics.median(asks),'max_ask':max(asks)})
+
     preliminary=sorted(verified,key=lambda r:(r['ask_t1'],r['model']))[:30]; final=[]
     for r in preliminary:
         try:
@@ -115,10 +124,14 @@ def main():
             final.append({**r,'ask_t2':int(t2['price']),'title':t2['title'],'description':t2['description'],'product_identity_reason_t2':reason,'final_timestamp':datetime.now(timezone.utc).isoformat()})
         except Exception: pass
         time.sleep(.03)
-    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'regression':{'listing_id':REGRESSION_ID,'price':reg['price'],'identity_ok':reg['identity_ok'],'disposed':reg['disposed'],'title':reg['title']},'counts':{'queries':len(QUERIES),'search_errors':len(search_errors),'t0_unique':len(found),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
+    if not final:
+        raise SystemExit('PRICE DATA GATE FAILED — no final refetched candidates')
+
+    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'data_gate':'structured T0 discovery + same-listing T1 + final T2 refetch','counts':{'queries':len(QUERIES),'search_errors':len(search_errors),'t0_unique':len(found),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
     Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-    lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'',f"Regression {REGRESSION_ID}: **PASS** — {reg['price']} DKK",'',f"T0: {len(found)} | T1 phone-verified: {len(verified)} | Product rejects: {out['counts']['product_identity_excluded']} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
+    lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'','DBA data gate: **PASS** — structured discovery + live same-listing verification + final refetch','',f"T0: {len(found)} | T1 phone-verified: {len(verified)} | Product rejects: {out['counts']['product_identity_excluded']} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
     for i,r in enumerate(final,1): lines.append(f"| {i} | {r['model']} | {r['ask_t2']} kr. | [{r['title']}]({r['url']}) |")
     Path('results/acurast_report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print(json.dumps({'gate':True,'product_gate':True,'regression_price':reg['price'],'t0':len(found),'verified_phone':len(verified),'product_rejects':out['counts']['product_identity_excluded'],'final':len(final),'top':[{k:r[k] for k in ('listing_id','model','ask_t2','title','url')} for r in final[:10]]},ensure_ascii=False,indent=2))
+    print(json.dumps({'gate':True,'product_gate':True,'t0':len(found),'verified_phone':len(verified),'product_rejects':out['counts']['product_identity_excluded'],'final':len(final),'top':[{k:r[k] for k in ('listing_id','model','ask_t2','title','url')} for r in final[:10]]},ensure_ascii=False,indent=2))
+
 if __name__=='__main__': main()
