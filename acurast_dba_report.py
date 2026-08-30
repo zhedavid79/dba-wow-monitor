@@ -14,9 +14,11 @@ REGRESSION_PRICE=4399
 HEADERS={'User-Agent':'Mozilla/5.0','Accept-Language':'da-DK,da;q=0.9','Accept':'application/json,text/html;q=0.9,*/*;q=0.8'}
 TIMEOUT=25
 QUERIES=['samsung s10','samsung s20','samsung s20 ultra','samsung s21','samsung s21 ultra','samsung s22','samsung s22 ultra','samsung s23','samsung s23 fe','samsung z flip','oneplus nord','oneplus nord 2','oneplus nord 2t','oneplus nord 3','oneplus 8','oneplus 9','oneplus 9 pro','oneplus 10','oneplus 10 pro','oneplus 11','xiaomi 11','xiaomi 12','xiaomi 12 pro','poco f3','poco f4','poco f5','motorola edge 30','motorola edge 40','pixel 6','pixel 7','pixel 8','defekt samsung','defekt oneplus','defekt xiaomi','defekt motorola','defekt pixel','defekt skærm android','revnet skærm samsung','repareres android','reservedele android','burn in samsung']
-MODEL_RULES=[(r'galaxy\s+s10\b','Samsung Galaxy S10'),(r'galaxy\s+s20\s*ultra','Samsung Galaxy S20 Ultra'),(r'galaxy\s+s20\b','Samsung Galaxy S20'),(r'galaxy\s+s21\s*ultra','Samsung Galaxy S21 Ultra'),(r'galaxy\s+s21\b','Samsung Galaxy S21'),(r'galaxy\s+s22\s*ultra','Samsung Galaxy S22 Ultra'),(r'galaxy\s+s22\b','Samsung Galaxy S22'),(r'galaxy\s+s23\s*fe','Samsung Galaxy S23 FE'),(r'galaxy\s+s23\b','Samsung Galaxy S23'),(r'(?:galaxy\s+)?z\s*flip\s*4','Samsung Galaxy Z Flip4'),(r'(?:galaxy\s+)?z\s*flip\s*5','Samsung Galaxy Z Flip5'),(r'oneplus\s+nord\s*2t','OnePlus Nord 2T'),(r'oneplus\s+nord\s*3','OnePlus Nord 3'),(r'oneplus\s+nord\s*2\b','OnePlus Nord 2'),(r'oneplus\s+9\s*pro','OnePlus 9 Pro'),(r'oneplus\s+9\b','OnePlus 9'),(r'oneplus\s+10\s*pro','OnePlus 10 Pro'),(r'oneplus\s+10\b','OnePlus 10'),(r'oneplus\s+11\b','OnePlus 11'),(r'xiaomi\s+12\s*pro','Xiaomi 12 Pro'),(r'xiaomi\s+12\b','Xiaomi 12'),(r'xiaomi\s+11\b','Xiaomi 11'),(r'poco\s+f3\b','Poco F3'),(r'poco\s+f4\b','Poco F4'),(r'poco\s+f5\b','Poco F5'),(r'motorola\s+edge\s+40\s*neo','Motorola Edge 40 Neo'),(r'motorola\s+edge\s+40\b','Motorola Edge 40'),(r'motorola\s+edge\s+30\b','Motorola Edge 30'),(r'(?:google\s+)?pixel\s+6\b','Google Pixel 6'),(r'(?:google\s+)?pixel\s+7\b','Google Pixel 7'),(r'(?:google\s+)?pixel\s+8\b','Google Pixel 8')]
-ACCESSORY_RE=re.compile(r'\b(etui|cover|covers|case|skal|skærmbeskytt|panserglas|glas|kabel|ledning|oplader|charger|adapter|holder|mount|taske|pung|stativ|reservedel|reservedele|display|lcd|oled|skærm til|batteri til|kamera modul|bagglas|ramme)\b',re.I)
-PHONE_RE=re.compile(r'\b(telefon|mobil|smartphone|android|gb|ram|5g|4g|dual sim|simkort|imei|batteri|skærm|display|revnet|defekt|virker|fungerer|låst|ulåst|factory reset)\b',re.I)
+MODEL_RULES=[(r'galaxy\s+s10\b','Samsung Galaxy S10'),(r'galaxy\s+s20\s*ultra','Samsung Galaxy S20 Ultra'),(r'galaxy\s+s20\b(?!\s*(?:fe|\+|plus))','Samsung Galaxy S20'),(r'galaxy\s+s21\s*ultra','Samsung Galaxy S21 Ultra'),(r'galaxy\s+s21\b(?!\s*(?:fe|\+|plus))','Samsung Galaxy S21'),(r'galaxy\s+s22\s*ultra','Samsung Galaxy S22 Ultra'),(r'galaxy\s+s22\b(?!\s*(?:\+|plus))','Samsung Galaxy S22'),(r'galaxy\s+s23\s*fe','Samsung Galaxy S23 FE'),(r'galaxy\s+s23\b(?!\s*(?:fe|\+|plus))','Samsung Galaxy S23'),(r'(?:galaxy\s+)?z\s*flip\s*4','Samsung Galaxy Z Flip4'),(r'(?:galaxy\s+)?z\s*flip\s*5','Samsung Galaxy Z Flip5'),(r'oneplus\s+nord\s*2t','OnePlus Nord 2T'),(r'oneplus\s+nord\s*3','OnePlus Nord 3'),(r'oneplus\s+nord\s*2\b','OnePlus Nord 2'),(r'oneplus\s+9\s*pro','OnePlus 9 Pro'),(r'oneplus\s+9\b','OnePlus 9'),(r'oneplus\s+10\s*pro','OnePlus 10 Pro'),(r'oneplus\s+10\b','OnePlus 10'),(r'oneplus\s+11\b','OnePlus 11'),(r'xiaomi\s+12\s*pro','Xiaomi 12 Pro'),(r'xiaomi\s+12\b','Xiaomi 12'),(r'xiaomi\s+11\b','Xiaomi 11'),(r'poco\s+f3\b','Poco F3'),(r'poco\s+f4\b','Poco F4'),(r'poco\s+f5\b','Poco F5'),(r'motorola\s+edge\s+40\s*neo','Motorola Edge 40 Neo'),(r'motorola\s+edge\s+40\b','Motorola Edge 40'),(r'motorola\s+edge\s+30\b','Motorola Edge 30'),(r'(?:google\s+)?pixel\s+6\b','Google Pixel 6'),(r'(?:google\s+)?pixel\s+7\b','Google Pixel 7'),(r'(?:google\s+)?pixel\s+8\b','Google Pixel 8')]
+ACCESSORY_RE=re.compile(r'(mobilcover|telefoncover|cover|covers|case|etui|skærmbeskytt|screenor|panserglas|beskyttelsesglas|privacy.?filter|kabel|ledning|oplader|charger|adapter|holder|mount|taske|pung|stativ|reservedel|reservedele|batteri\b|display\b|lcd\b|oled\b|skærm\s+til|kamera.?modul|bagglas|ramme\s+til)',re.I)
+COMPLETE_PHONE_RE=re.compile(r'\b(telefon|mobiltelefon|smartphone)\b',re.I)
+FUNCTION_RE=re.compile(r'\b(virker|fungerer|tænder|starter|defekt|revnet|ødelagt|skadet|imei|simkort|dual sim|factory reset|nulstillet|android\s*1[2-9])\b',re.I)
+SPEC_RE=re.compile(r'\b(?:6|8|12|16)\s*gb\s*(?:ram)?\b|\b(?:64|128|256|512)\s*gb\b',re.I)
 
 def amount(v:Any)->int|None:
     if isinstance(v,(int,float)): return int(v)
@@ -32,17 +34,18 @@ def model_of(text:str)->str|None:
         if re.search(pat,text,re.I): return label
     return None
 
-def product_identity(title:str,description:str,model:str|None)->tuple[bool,str]:
+def product_identity(title:str,description:str,model:str|None,price:int|None)->tuple[bool,str]:
     t=' '.join((title or '').split()); d=' '.join((description or '').split()); both=f'{t} {d}'
     title_model=model_of(t)
-    if not model or title_model!=model: return False,'model not identified in live title'
-    # Accessories/parts are rejected when title itself names them. A damaged complete phone remains eligible.
-    if ACCESSORY_RE.search(t):
-        if re.search(r'\b(defekt|revnet|ødelagt|skadet|virker ikke|skal repareres)\b',t,re.I) and re.search(r'\b(telefon|mobil|smartphone)\b',both,re.I): pass
-        else: return False,'accessory/part language in live title'
-    evidence=len(PHONE_RE.findall(both))
-    # Extremely low asks need stronger semantic evidence because accessory false positives dominate this range.
-    return (evidence>=1, 'complete-phone evidence' if evidence>=1 else 'no complete-phone evidence')
+    if not model or title_model!=model: return False,'model not identified unambiguously in live title'
+    if ACCESSORY_RE.search(t): return False,'accessory/part language in live title'
+    # Extremely cheap ads are overwhelmingly accessories/parts; require strong evidence that the object is the phone.
+    complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both))
+    if price is not None and price < 150 and not (complete and (functional or specs)):
+        return False,'sub-150 DKK listing lacks strong complete-phone evidence'
+    # Above the noise floor, a clean model title is acceptable, but descriptions containing explicit accessory-only wording are not.
+    if ACCESSORY_RE.search(d) and not (complete and functional): return False,'description indicates accessory/part rather than complete phone'
+    return True,'complete-phone identity passed'
 
 def getj(s,url,params=None):
     r=s.get(url,params=params,headers=HEADERS,timeout=TIMEOUT); r.raise_for_status(); return r.json()
@@ -90,10 +93,11 @@ def main():
     verified=[]; excluded=[]
     for r in found.values():
         try:
-            t1=fetch_item(s,r['listing_id']); model=model_of(t1['title']+' '+t1['description']) or r['model']; prod_ok,prod_reason=product_identity(t1['title'],t1['description'],model)
+            t1=fetch_item(s,r['listing_id']); model=model_of(t1['title'])
             if not t1['identity_ok']: excluded.append({**r,'reason':'listing identity mismatch','t1':t1}); continue
             if t1['disposed']: excluded.append({**r,'reason':'disposed/inactive','t1':t1}); continue
             if t1['price'] is None or not t1['title']: excluded.append({**r,'reason':'missing live price/title','t1':t1}); continue
+            prod_ok,prod_reason=product_identity(t1['title'],t1['description'],model,int(t1['price']))
             if not prod_ok: excluded.append({**r,'reason':'PRODUCT IDENTITY GATE: '+prod_reason,'t1':t1}); continue
             verified.append({**r,**t1,'model':model,'ask_t1':int(t1['price']),'product_identity_ok':True,'product_identity_reason':prod_reason,'price_changed':int(t1['price'])!=int(r['ask_t0']),'t1_timestamp':datetime.now(timezone.utc).isoformat()})
         except Exception as e: excluded.append({**r,'reason':f'T1 fetch failed: {e!r}'})
@@ -106,7 +110,7 @@ def main():
     preliminary=sorted(verified,key=lambda r:(r['ask_t1'],r['model']))[:30]; final=[]
     for r in preliminary:
         try:
-            t2=fetch_item(s,r['listing_id']); model=model_of(t2['title']+' '+t2['description']) or r['model']; prod_ok,reason=product_identity(t2['title'],t2['description'],model)
+            t2=fetch_item(s,r['listing_id']); model=model_of(t2['title']); prod_ok,reason=product_identity(t2['title'],t2['description'],model,int(t2['price']) if t2['price'] is not None else None)
             if not (t2['identity_ok'] and not t2['disposed'] and t2['price'] is not None and t2['title'] and prod_ok): continue
             final.append({**r,'ask_t2':int(t2['price']),'title':t2['title'],'description':t2['description'],'product_identity_reason_t2':reason,'final_timestamp':datetime.now(timezone.utc).isoformat()})
         except Exception: pass
