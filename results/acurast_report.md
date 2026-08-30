@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-08-30T18:36:45.975021+00:00
+Generated: 2026-08-30T18:42:50.708715+00:00
 
 Regression 24247594: **PASS** — 4399 DKK
 
-T0: 113 | Product rejects: 83 | Bundle/price rejects: 2 | Final: 28
+T0: 112 | Product rejects: 82 | Bundle/price rejects: 2 | Final: 28
 
 ## Lowest verified single-device listings
 
