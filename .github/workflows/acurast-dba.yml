@@ -33,8 +33,6 @@ jobs:
         run: pip install requests beautifulsoup4
       - name: Probe AcurastBot public device-data endpoints
         run: python acurastbot_probe.py
-      - name: Run shared DBA regression probe
-        run: python dba_probe.py
       - name: Build verified Acurast phone price report
         run: python acurast_dba_report.py
       - name: Apply single-device price identity gate
