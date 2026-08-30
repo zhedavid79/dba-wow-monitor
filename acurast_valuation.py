@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import json, math, statistics
+import json, math, re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -11,194 +11,238 @@ INPUT = Path('results/acurast_latest.json')
 OUTPUT = Path('results/acurast_valuation.json')
 REPORT = Path('results/acurast_valuation.md')
 
-# Official Mainnet benchmark metric weights, verified against Acurast docs.
-WEIGHTS = {'cpu_sc': 0.2307, 'cpu_mc': 0.2307, 'ram': 0.4615, 'storage': 0.0769}
-EPOCHS_DAY = 16.0  # ~900 blocks / ~90 minutes
-FARM_PHONES = 7
-FARM_REWARD_BASE = 0.27  # observed midpoint ACU/epoch for current farm
-FARM_REWARD_LOW = 0.22
-FARM_REWARD_HIGH = 0.32
-FARM_AVAILABLE_RAM_GB = 60.9
-FARM_AVAILABLE_STORAGE_GB = 802.89
-FARM_AVG_AVAILABLE_RAM = FARM_AVAILABLE_RAM_GB / FARM_PHONES
-FARM_AVG_AVAILABLE_STORAGE = FARM_AVAILABLE_STORAGE_GB / FARM_PHONES
-ELECTRICITY_DKK_KWH = 2.50  # conservative fallback; explicitly reported as assumption
+BOT_BASE = 'https://api.acurastbot.com'
+EPOCHS_DAY = 16.0
+REFERENCE_ACQUISITION_DKK = 275.0
+ELECTRICITY_DKK_KWH = 2.50
 
-# Relative CPU factors are intentionally coarse and calibrated around the user's current mixed farm = 1.0.
-# RAM/storage are modelled separately using estimated Acurast-available capacity.
+# Fallback hardware metadata is only used for power/risk and for selecting the
+# closest AcurastBot configuration. Reward ranking itself comes from AcurastBot.
 PROFILES: dict[str, dict[str, Any]] = {
-    'Samsung Galaxy S10': {'ram':8,'storage':128,'soc':'Exynos 9820','sc':0.72,'mc':0.66,'watt':4.0,'risk':0.10},
-    'Samsung Galaxy S20': {'ram':8,'storage':128,'soc':'Exynos 990','sc':0.82,'mc':0.78,'watt':4.8,'risk':0.12},
-    'Samsung Galaxy S20 Ultra': {'ram':12,'storage':128,'soc':'Exynos 990','sc':0.82,'mc':0.78,'watt':5.0,'risk':0.12},
-    'Samsung Galaxy S21': {'ram':8,'storage':128,'soc':'Exynos 2100','sc':0.98,'mc':0.98,'watt':4.8,'risk':0.10},
-    'Samsung Galaxy S21 Ultra': {'ram':12,'storage':128,'soc':'Exynos 2100','sc':0.98,'mc':0.98,'watt':5.0,'risk':0.10},
-    'Samsung Galaxy S22': {'ram':8,'storage':128,'soc':'Exynos 2200','sc':1.10,'mc':1.06,'watt':5.8,'risk':0.18},
-    'Samsung Galaxy S22 Ultra': {'ram':8,'storage':128,'soc':'Exynos 2200','sc':1.10,'mc':1.06,'watt':6.0,'risk':0.18},
-    'Samsung Galaxy S23': {'ram':8,'storage':128,'soc':'Snapdragon 8 Gen 2','sc':1.34,'mc':1.32,'watt':5.0,'risk':0.07},
-    'Samsung Galaxy S23 FE': {'ram':8,'storage':128,'soc':'Exynos 2200','sc':1.10,'mc':1.06,'watt':5.8,'risk':0.16},
-    'Samsung Galaxy Z Flip4': {'ram':8,'storage':128,'soc':'Snapdragon 8+ Gen 1','sc':1.22,'mc':1.18,'watt':5.2,'risk':0.20},
-    'Samsung Galaxy Z Flip5': {'ram':8,'storage':256,'soc':'Snapdragon 8 Gen 2','sc':1.34,'mc':1.32,'watt':5.0,'risk':0.15},
-    'OnePlus Nord 2': {'ram':8,'storage':128,'soc':'Dimensity 1200','sc':0.90,'mc':0.92,'watt':4.4,'risk':0.08},
-    'OnePlus Nord 2T': {'ram':8,'storage':128,'soc':'Dimensity 1300','sc':0.94,'mc':0.95,'watt':4.4,'risk':0.08},
-    'OnePlus Nord 3': {'ram':16,'storage':256,'soc':'Dimensity 9000','sc':1.25,'mc':1.30,'watt':5.2,'risk':0.09},
-    'OnePlus 9': {'ram':8,'storage':128,'soc':'Snapdragon 888','sc':1.04,'mc':1.02,'watt':6.2,'risk':0.20},
-    'OnePlus 9 Pro': {'ram':8,'storage':128,'soc':'Snapdragon 888','sc':1.04,'mc':1.02,'watt':6.4,'risk':0.20},
-    'OnePlus 10': {'ram':8,'storage':128,'soc':'Snapdragon 8 Gen 1','sc':1.12,'mc':1.08,'watt':6.4,'risk':0.22},
-    'OnePlus 10 Pro': {'ram':8,'storage':128,'soc':'Snapdragon 8 Gen 1','sc':1.12,'mc':1.08,'watt':6.4,'risk':0.22},
-    'OnePlus 11': {'ram':8,'storage':128,'soc':'Snapdragon 8 Gen 2','sc':1.34,'mc':1.32,'watt':5.1,'risk':0.07},
-    'Xiaomi 11': {'ram':8,'storage':128,'soc':'Snapdragon 888','sc':1.04,'mc':1.02,'watt':6.2,'risk':0.20},
-    'Xiaomi 12': {'ram':8,'storage':128,'soc':'Snapdragon 8 Gen 1','sc':1.12,'mc':1.08,'watt':6.3,'risk':0.22},
-    'Xiaomi 12 Pro': {'ram':12,'storage':256,'soc':'Snapdragon 8 Gen 1','sc':1.12,'mc':1.08,'watt':6.5,'risk':0.22},
-    'Poco F3': {'ram':8,'storage':128,'soc':'Snapdragon 870','sc':0.94,'mc':0.91,'watt':5.0,'risk':0.10},
-    'Poco F4': {'ram':8,'storage':128,'soc':'Snapdragon 870','sc':0.94,'mc':0.91,'watt':5.0,'risk':0.10},
-    'Poco F5': {'ram':8,'storage':256,'soc':'Snapdragon 7+ Gen 2','sc':1.18,'mc':1.16,'watt':4.8,'risk':0.08},
-    'Motorola Edge 30': {'ram':8,'storage':128,'soc':'Snapdragon 778G+','sc':0.84,'mc':0.82,'watt':4.2,'risk':0.08},
-    'Motorola Edge 40': {'ram':8,'storage':256,'soc':'Dimensity 8020','sc':0.98,'mc':1.00,'watt':4.5,'risk':0.08},
-    'Motorola Edge 40 Neo': {'ram':12,'storage':256,'soc':'Dimensity 7030','sc':0.82,'mc':0.82,'watt':4.2,'risk':0.08},
-    'Google Pixel 6': {'ram':8,'storage':128,'soc':'Tensor G1','sc':0.93,'mc':0.88,'watt':5.4,'risk':0.14},
-    'Google Pixel 7': {'ram':8,'storage':128,'soc':'Tensor G2','sc':1.00,'mc':0.94,'watt':5.2,'risk':0.13},
-    'Google Pixel 8': {'ram':8,'storage':128,'soc':'Tensor G3','sc':1.10,'mc':1.03,'watt':5.2,'risk':0.12},
+    'Samsung Galaxy S10': {'brand':'Samsung','ram':8,'storage':128,'watt':4.0,'risk':0.10},
+    'Samsung Galaxy S20': {'brand':'Samsung','ram':8,'storage':128,'watt':4.8,'risk':0.12},
+    'Samsung Galaxy S20 Ultra': {'brand':'Samsung','ram':12,'storage':128,'watt':5.0,'risk':0.12},
+    'Samsung Galaxy S21': {'brand':'Samsung','ram':8,'storage':128,'watt':4.8,'risk':0.10},
+    'Samsung Galaxy S21 Ultra': {'brand':'Samsung','ram':12,'storage':128,'watt':5.0,'risk':0.10},
+    'Samsung Galaxy S22': {'brand':'Samsung','ram':8,'storage':128,'watt':5.8,'risk':0.18},
+    'Samsung Galaxy S22 Ultra': {'brand':'Samsung','ram':8,'storage':128,'watt':6.0,'risk':0.18},
+    'Samsung Galaxy S23': {'brand':'Samsung','ram':8,'storage':128,'watt':5.0,'risk':0.07},
+    'Samsung Galaxy S23 FE': {'brand':'Samsung','ram':8,'storage':128,'watt':5.8,'risk':0.16},
+    'Samsung Galaxy Z Flip4': {'brand':'Samsung','ram':8,'storage':128,'watt':5.2,'risk':0.20},
+    'Samsung Galaxy Z Flip5': {'brand':'Samsung','ram':8,'storage':256,'watt':5.0,'risk':0.15},
+    'OnePlus Nord 2': {'brand':'OnePlus','ram':8,'storage':128,'watt':4.4,'risk':0.08},
+    'OnePlus Nord 2T': {'brand':'OnePlus','ram':8,'storage':128,'watt':4.4,'risk':0.08},
+    'OnePlus Nord 3': {'brand':'OnePlus','ram':16,'storage':256,'watt':5.2,'risk':0.09},
+    'OnePlus 9': {'brand':'OnePlus','ram':8,'storage':128,'watt':6.2,'risk':0.20},
+    'OnePlus 9 Pro': {'brand':'OnePlus','ram':8,'storage':128,'watt':6.4,'risk':0.20},
+    'OnePlus 10': {'brand':'OnePlus','ram':8,'storage':128,'watt':6.4,'risk':0.22},
+    'OnePlus 10 Pro': {'brand':'OnePlus','ram':8,'storage':128,'watt':6.4,'risk':0.22},
+    'OnePlus 11': {'brand':'OnePlus','ram':8,'storage':128,'watt':5.1,'risk':0.07},
+    'Xiaomi 11': {'brand':'Xiaomi','ram':8,'storage':128,'watt':6.2,'risk':0.20},
+    'Xiaomi 12': {'brand':'Xiaomi','ram':8,'storage':128,'watt':6.3,'risk':0.22},
+    'Xiaomi 12 Pro': {'brand':'Xiaomi','ram':12,'storage':256,'watt':6.5,'risk':0.22},
+    'Poco F3': {'brand':'Poco','ram':8,'storage':128,'watt':5.0,'risk':0.10},
+    'Poco F4': {'brand':'Poco','ram':8,'storage':128,'watt':5.0,'risk':0.10},
+    'Poco F5': {'brand':'Poco','ram':8,'storage':256,'watt':4.8,'risk':0.08},
+    'Motorola Edge 30': {'brand':'Motorola','ram':8,'storage':128,'watt':4.2,'risk':0.08},
+    'Motorola Edge 40': {'brand':'Motorola','ram':8,'storage':256,'watt':4.5,'risk':0.08},
+    'Motorola Edge 40 Neo': {'brand':'Motorola','ram':12,'storage':256,'watt':4.2,'risk':0.08},
+    'Google Pixel 6': {'brand':'Google','ram':8,'storage':128,'watt':5.4,'risk':0.14},
+    'Google Pixel 7': {'brand':'Google','ram':8,'storage':128,'watt':5.2,'risk':0.13},
+    'Google Pixel 8': {'brand':'Google','ram':8,'storage':128,'watt':5.2,'risk':0.12},
 }
 
+FARM_MODELS = [
+    'Samsung Galaxy S10','Samsung Galaxy S20 Ultra','Samsung Galaxy S21 Ultra',
+    'OnePlus Nord 2T','OnePlus Nord 2T','OnePlus Nord 3','Xiaomi 12 Pro'
+]
 
-def fetch_acu_dkk() -> tuple[float | None, dict[str, Any]]:
-    url='https://api.coingecko.com/api/v3/simple/price'
-    try:
-        r=requests.get(url,params={'ids':'acurast','vs_currencies':'dkk,usd'},timeout=20,headers={'User-Agent':'Mozilla/5.0'})
-        r.raise_for_status(); data=r.json().get('acurast') or {}
-        dkk=float(data['dkk']) if data.get('dkk') is not None else None
-        return dkk, {'source':'CoinGecko simple price','url':url,'usd':data.get('usd'),'dkk':dkk,'ok':dkk is not None}
-    except Exception as e:
-        return None, {'source':'CoinGecko simple price','url':url,'ok':False,'error':repr(e)}
+
+def get_json(url: str) -> Any:
+    r = requests.get(url, timeout=30, headers={'User-Agent':'Mozilla/5.0'})
+    r.raise_for_status()
+    return r.json()
+
+
+def norm(s: str) -> str:
+    return re.sub(r'[^a-z0-9]+', ' ', (s or '').lower()).strip()
+
+
+def num_gb(v: Any) -> int | None:
+    if v is None: return None
+    m = re.search(r'(\d+)', str(v))
+    return int(m.group(1)) if m else None
+
+
+def parse_title_capacity(title: str, default_ram: int, default_storage: int) -> tuple[int,int]:
+    vals = [int(x) for x in re.findall(r'(\d{1,4})\s*gb', title.lower())]
+    ram = next((x for x in vals if x in (4,6,8,10,12,16,18,24)), default_ram)
+    storage = next((x for x in vals if x >= 64), default_storage)
+    return ram, storage
 
 
 def round25(v: float) -> int:
-    return max(0, int(math.floor(v / 25.0) * 25))
+    return max(25, int(round(v / 25.0) * 25))
 
 
-def available_ram(physical: float) -> float:
-    # Empirical farm relationship is around 80% for a plausible 76 GB physical total.
-    return physical * 0.80
+def find_device(devices: list[dict[str,Any]], model: str, brand: str) -> dict[str,Any] | None:
+    wanted = norm(model.replace(brand, '', 1))
+    wt = set(wanted.split())
+    candidates=[]
+    for d in devices:
+        if norm(d.get('company','')) != norm(brand):
+            continue
+        dm = norm(d.get('model',''))
+        dt = set(dm.split())
+        overlap = len(wt & dt)
+        if overlap == 0: continue
+        missing = len(wt - dt)
+        extra = len(dt - wt)
+        score = overlap*10 - missing*7 - extra
+        candidates.append((score,d))
+    return max(candidates,key=lambda x:x[0])[1] if candidates else None
 
 
-def available_storage(nominal: float) -> float:
-    # Conservative allowance for Android/system/reserved space.
-    return nominal * 0.78
+def choose_config(device: dict[str,Any], ram: int, storage: int, stats_by_cfg: dict[int,dict[str,Any]]) -> tuple[dict[str,Any],dict[str,Any]] | None:
+    opts=[]
+    for c in device.get('configurations') or []:
+        cid=c.get('id'); st=stats_by_cfg.get(int(cid)) if cid is not None else None
+        if not st: continue
+        cr=num_gb(c.get('ram')); cs=num_gb(c.get('storage'))
+        penalty=(abs((cr or ram)-ram)*8 + abs((cs or storage)-storage)/32)
+        opts.append((penalty,c,st))
+    if not opts: return None
+    _,c,st=min(opts,key=lambda x:x[0])
+    return c,st
 
 
-def reward_estimate(profile: dict[str, Any]) -> dict[str, float]:
-    ram_rel=available_ram(profile['ram'])/FARM_AVG_AVAILABLE_RAM
-    storage_rel=available_storage(profile['storage'])/FARM_AVG_AVAILABLE_STORAGE
-    idx=(WEIGHTS['cpu_sc']*profile['sc'] + WEIGHTS['cpu_mc']*profile['mc'] + WEIGHTS['ram']*ram_rel + WEIGHTS['storage']*storage_rel)
-    avg=FARM_REWARD_BASE/FARM_PHONES
-    # Base is empirical farm-calibrated. LOW/HIGH deliberately wide because global metric pool totals and exact device Acurast benchmarks are unavailable here.
-    base=avg*idx
-    low=base*0.70
-    high=base*1.30
-    return {'index':idx,'low':low,'base':base,'high':high,'available_ram_gb':available_ram(profile['ram']),'available_storage_gb':available_storage(profile['storage'])}
+def reward_from_stats(st: dict[str,Any]) -> dict[str,float] | None:
+    def f(k: str) -> float | None:
+        try: return float(st[k])
+        except Exception: return None
+    med=f('expectedRewardMedian')
+    avg=f('expectedRewardAvg')
+    lo=f('expectedRewardMin')
+    hi=f('expectedRewardMax')
+    base = med if med is not None else avg
+    if base is None: return None
+    # AcurastBot labels this metric cACU/epoch; 1 cACU = 0.01 ACU.
+    return {'low':(lo if lo is not None else base)*0.01,
+            'base':base*0.01,
+            'high':(hi if hi is not None else base)*0.01,
+            'raw_cacu_median':med,'raw_cacu_avg':avg}
 
 
-def economics(reward: dict[str,float], profile: dict[str,Any], acu_dkk: float) -> dict[str,Any]:
-    power_month=profile['watt']*24*30/1000*ELECTRICITY_DKK_KWH
-    out={'power_dkk_month':power_month}
-    for name,mult in [('bear',0.5),('base',1.0),('bull',1.5)]:
-        gross=reward['base']*EPOCHS_DAY*30*acu_dkk*mult
-        out[f'gross_{name}_dkk_month']=gross
-        out[f'net_{name}_dkk_month']=gross-power_month
-    low_net=reward['low']*EPOCHS_DAY*30*acu_dkk-power_month
-    high_net=reward['high']*EPOCHS_DAY*30*acu_dkk-power_month
-    out['net_reward_low_dkk_month']=low_net
-    out['net_reward_high_dkk_month']=high_net
-    # Procurement limits: target <=8m base payback, hard max <=12m conservative reward payback, both risk haircutted.
-    risk=float(profile.get('risk',0.1))
-    target=round25(max(0,out['net_base_dkk_month']*8*(1-risk)))
-    hard=round25(max(0,low_net*12*(1-risk)))
-    hard=max(target,hard) if target else hard
-    start=round25(target*0.65) if target else 0
-    out.update({'start_bid':start,'target':target,'hard_max':hard})
-    return out
-
-
-def classify(ask:int,econ:dict[str,Any]) -> str:
-    target=econ['target']; hard=econ['hard_max']
-    if hard<=0:return 'REJECT'
-    if ask<=target and econ['net_reward_low_dkk_month']>0:return 'STRONG BID'
-    if ask<=hard:return 'BID'
-    # High ASK can still be a rational low-offer case.
-    if ask<=hard*1.8:return 'BID / LOW OFFER'
-    if target>0:return 'WATCH/NEGOTIATE'
-    return 'REJECT'
-
-
-def payback(price:int,net:float)->float|None:
-    return round(price/net,1) if net>0 else None
+def fetch_acu_dkk() -> tuple[float | None,dict[str,Any]]:
+    url='https://api.coingecko.com/api/v3/simple/price'
+    try:
+        r=requests.get(url,params={'ids':'acurast','vs_currencies':'dkk,usd'},timeout=20,headers={'User-Agent':'Mozilla/5.0'})
+        r.raise_for_status(); d=(r.json().get('acurast') or {})
+        return (float(d['dkk']) if d.get('dkk') is not None else None,
+                {'source':'CoinGecko','dkk':d.get('dkk'),'usd':d.get('usd')})
+    except Exception as e:
+        return None, {'source':'CoinGecko','error':repr(e)}
 
 
 def main():
     src=json.loads(INPUT.read_text(encoding='utf-8'))
     if not src.get('gate_passed'):
         raise SystemExit('PRICE DATA GATE FAILED upstream')
-    acu_dkk,price_meta=fetch_acu_dkk()
-    if acu_dkk is None:
-        # Do not fabricate token economics. Preserve verified DBA data but fail valuation gate.
-        out={'generated_at':datetime.now(timezone.utc).isoformat(),'valuation_gate':False,'reason':'ACU PRICE GATE FAILED','price_meta':price_meta}
-        OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-        REPORT.write_text('# Acurast procurement valuation\n\n**ACU PRICE GATE FAILED — ingen ROI-rangering**\n',encoding='utf-8')
-        raise SystemExit('ACU PRICE GATE FAILED')
 
+    devices=get_json(BOT_BASE+'/devices/with-counts')
+    stats=get_json(BOT_BASE+'/devices/pool-statistics')
+    stats_by_cfg={int(s['deviceConfigurationId']):s for s in stats if s.get('deviceConfigurationId') is not None}
+
+    # Build AcurastBot benchmark reference from the user's current seven-phone mix.
+    farm_rewards=[]
+    for model in FARM_MODELS:
+        p=PROFILES[model]; d=find_device(devices,model,p['brand'])
+        if not d: continue
+        picked=choose_config(d,p['ram'],p['storage'],stats_by_cfg)
+        if not picked: continue
+        rw=reward_from_stats(picked[1])
+        if rw: farm_rewards.append(rw['base'])
+    if len(farm_rewards) < 4:
+        raise SystemExit('ACURASTBOT DATA GATE FAILED — insufficient farm benchmark coverage')
+    farm_ref=sum(farm_rewards)/len(farm_rewards)
+
+    acu_dkk, token_meta=fetch_acu_dkk()  # scenario/reference only; never drives primary ranking/bids
     valued=[]; unsupported=[]
     for row in src.get('ranked_by_verified_ask',[]):
-        model=row.get('model'); profile=PROFILES.get(model)
-        if not profile:
-            unsupported.append({'listing_id':row.get('listing_id'),'model':model,'reason':'no conservative hardware profile'}); continue
-        reward=reward_estimate(profile); econ=economics(reward,profile,acu_dkk); ask=int(row.get('ask_t2') or row.get('ask_t1'))
-        decision=classify(ask,econ)
-        base_net=econ['net_base_dkk_month']; low_net=econ['net_reward_low_dkk_month']
-        x={
-            'listing_id':row['listing_id'],'url':row['url'],'title':row['title'],'model':model,'ask':ask,
-            't1_timestamp':row.get('t1_timestamp'),'final_timestamp':row.get('final_timestamp'),
-            'soc':profile['soc'],'ram_gb':profile['ram'],'storage_gb':profile['storage'],'watt':profile['watt'],
-            'acurastbot':'unavailable/not integrated: no verified public device-data endpoint used',
-            'reward_source':'empirical farm calibration + official metric weights; not exact per-device Acurast benchmark',
-            'acu_epoch_low':reward['low'],'acu_epoch_base':reward['base'],'acu_epoch_high':reward['high'],
-            'acu_month_base':reward['base']*EPOCHS_DAY*30,'acu_dkk':acu_dkk,
-            **econ,
-            'payback_target_months':payback(econ['target'],base_net) if econ['target'] else None,
-            'payback_hard_max_months':payback(econ['hard_max'],low_net) if econ['hard_max'] else None,
-            'ask_payback_base_months':payback(ask,base_net),
-            'roi_12m_at_target_pct':round(((base_net*12-econ['target'])/econ['target']*100),1) if econ['target']>0 else None,
-            'decision':decision,
-            'risk':'thermal/condition/onboarding uncertainty + model-level rather than exact Acurast benchmark',
-        }
-        # capital efficiency at target; higher is better
-        x['net_dkk_per_target_dkk_month']=base_net/econ['target'] if econ['target']>0 else 0
-        valued.append(x)
+        model=row.get('model'); p=PROFILES.get(model)
+        if not p:
+            unsupported.append({'listing_id':row.get('listing_id'),'model':model,'reason':'no profile'}); continue
+        d=find_device(devices,model,p['brand'])
+        if not d:
+            unsupported.append({'listing_id':row.get('listing_id'),'model':model,'reason':'no AcurastBot device match'}); continue
+        ram,storage=parse_title_capacity(row.get('title',''),p['ram'],p['storage'])
+        picked=choose_config(d,ram,storage,stats_by_cfg)
+        if not picked:
+            unsupported.append({'listing_id':row.get('listing_id'),'model':model,'reason':'no AcurastBot stats for configuration'}); continue
+        cfg,st=picked; rw=reward_from_stats(st)
+        if not rw:
+            unsupported.append({'listing_id':row.get('listing_id'),'model':model,'reason':'no AcurastBot expectedReward'}); continue
 
-    priority={'STRONG BID':0,'BID':1,'BID / LOW OFFER':2,'WATCH/NEGOTIATE':3,'REJECT':4}
-    valued.sort(key=lambda x:(priority.get(x['decision'],9),-x['net_dkk_per_target_dkk_month'],x['ask']))
-    out={
-      'generated_at':datetime.now(timezone.utc).isoformat(),'valuation_gate':True,
-      'upstream_generated_at':src.get('generated_at'),'regression':src.get('regression'),'dba_counts':src.get('counts'),
-      'official_reward_model':{'weights':WEIGHTS,'epochs_day':EPOCHS_DAY,'base_benchmark_rewards_acu_epoch':856.164,'staking_rewards_acu_epoch':5993.15,'note':'staking/deployment rewards not added to procurement cashflow'},
-      'farm_calibration':{'phones':FARM_PHONES,'observed_acu_epoch_low':FARM_REWARD_LOW,'observed_acu_epoch_base':FARM_REWARD_BASE,'observed_acu_epoch_high':FARM_REWARD_HIGH},
-      'token_price':price_meta,'electricity':{'dkk_kwh':ELECTRICITY_DKK_KWH,'source':'conservative assumption'},
-      'ranked':valued,'unsupported':unsupported}
+        ask=int(row.get('ask_t2') or row.get('ask_t1'))
+        perf=rw['base']/farm_ref if farm_ref>0 else 1.0
+        risk=float(p['risk'])
+        # Price-independent accumulation budget: scale historical desired acquisition level by
+        # observed AcurastBot reward performance vs current farm, then apply risk haircut.
+        target=round25(REFERENCE_ACQUISITION_DKK*perf*(1-risk))
+        hard=round25(target*1.30)
+        start=round25(target*0.65)
+        acu_month=rw['base']*EPOCHS_DAY*30
+        aae_ask=acu_month/ask if ask>0 else 0
+        aae_target=acu_month/target if target>0 else 0
+        if ask <= target: decision='STRONG BID'
+        elif ask <= hard: decision='BID'
+        else: decision='LOW OFFER / NEGOTIATE'
+
+        power_month=p['watt']*24*30/1000*ELECTRICITY_DKK_KWH
+        spot={}
+        if acu_dkk is not None:
+            for label,mult in [('spot_0_5x',0.5),('spot_1_0x',1.0),('spot_2_0x',2.0),('spot_5_0x',5.0)]:
+                gross=acu_month*acu_dkk*mult
+                spot[label]={'gross_dkk_month':gross,'net_after_power_dkk_month':gross-power_month,
+                             'payback_at_target_months':target/(gross-power_month) if gross>power_month else None}
+
+        valued.append({
+            'listing_id':row['listing_id'],'url':row['url'],'title':row['title'],'model':model,'ask':ask,
+            'acurastbot_device':f"{d.get('company')} {d.get('model')}",
+            'acurastbot_configuration_id':cfg.get('id'),'acurastbot_ram':cfg.get('ram'),'acurastbot_storage':cfg.get('storage'),
+            'acurastbot_processor_count':st.get('processorCount'),'acurastbot_calculated_at':st.get('calculatedAt'),
+            'acu_epoch_low':rw['low'],'acu_epoch_base':rw['base'],'acu_epoch_high':rw['high'],'acu_month_base':acu_month,
+            'relative_to_current_farm_reference':perf,
+            'aae_ask_acu_month_per_dkk':aae_ask,'aae_target_acu_month_per_dkk':aae_target,
+            'start_bid':start,'target':target,'hard_max':hard,'decision':decision,
+            'power_dkk_month_assumption':power_month,'spot_scenarios':spot,
+        })
+
+    # Primary ranking = ACU accumulation efficiency at verified ASK, not current ACU spot price.
+    valued.sort(key=lambda x:(-x['aae_ask_acu_month_per_dkk'],x['ask']))
+    out={'generated_at':datetime.now(timezone.utc).isoformat(),'valuation_gate':True,
+         'method':'AcurastBot observed expected reward + verified DBA ASK; primary metric AAE',
+         'reference_acquisition_dkk':REFERENCE_ACQUISITION_DKK,
+         'farm_acurastbot_reference_acu_epoch':farm_ref,'farm_reference_device_count':len(farm_rewards),
+         'token_price_reference_only':token_meta,'electricity_reference_only':{'dkk_kwh':ELECTRICITY_DKK_KWH},
+         'regression':src.get('regression'),'dba_counts':src.get('counts'),'ranked':valued,'unsupported':unsupported}
     OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
 
-    lines=['# Acurast DBA Procurement Model — valuation','',f"Generated: {out['generated_at']}",'',
-           f"DBA regression: **PASS** — listing 24247594 = {src['regression']['price']} kr.",
-           f"ACU spot used: **{acu_dkk:.4f} DKK/ACU** (CoinGecko)",
-           f"Electricity assumption: **{ELECTRICITY_DKK_KWH:.2f} DKK/kWh**",'',
-           '> Reward estimates are LOW/BASE/HIGH farm-calibrated estimates using the official Acurast metric weights. Staking and deployment rewards are not added.','',
-           '| Rank | Decision | ASK | Start | Target | Hard max | ACU/epoch L/B/H | Net base/md | Ask payback | Listing |',
-           '|---:|---|---:|---:|---:|---:|---|---:|---:|---|']
+    lines=['# Acurast DBA Value Hunter','',f"Generated: {out['generated_at']}",'',
+           f"DBA data gate: **PASS** — regression {src['regression']['listing_id']} = {src['regression']['price']} kr.",
+           f"AcurastBot data gate: **PASS** — farm reference based on {len(farm_rewards)} current-phone entries.",
+           '', '> Primær rangering er **AAE = forventet ACU pr. måned pr. investeret DKK**. ACU spotpris bruges kun som scenariereference og påvirker ikke rangering, STARTBUD, TARGET eller HARD MAX.',
+           '', '| # | Model | ASK | AcurastBot ACU/epoch | ACU/md | AAE ved ASK | Start | Target | Hard max | Beslutning |',
+           '|---:|---|---:|---:|---:|---:|---:|---:|---:|---|']
     for i,r in enumerate(valued[:30],1):
-        pb=f"{r['ask_payback_base_months']:.1f} mdr" if r['ask_payback_base_months'] is not None else '—'
-        lines.append(f"| {i} | {r['decision']} | {r['ask']} kr. | {r['start_bid']} | {r['target']} | {r['hard_max']} | {r['acu_epoch_low']:.4f}/{r['acu_epoch_base']:.4f}/{r['acu_epoch_high']:.4f} | {r['net_base_dkk_month']:.1f} kr. | {pb} | [{r['model']}]({r['url']}) |")
-    lines += ['', '## Top bid instructions','']
+        lines.append(f"| {i} | [{r['model']}]({r['url']}) | {r['ask']} | {r['acu_epoch_base']:.5f} | {r['acu_month_base']:.2f} | {r['aae_ask_acu_month_per_dkk']:.4f} | {r['start_bid']} | {r['target']} | {r['hard_max']} | {r['decision']} |")
+    lines += ['', '## Bedste bud nu','']
     for r in valued[:10]:
-        lines.append(f"- **{r['model']} — {r['decision']}** — ASK {r['ask']} kr. — Start {r['start_bid']} kr.; gå til {r['target']} kr.; walk away {r['hard_max']} kr. — [DBA]({r['url']})")
+        lines.append(f"- **{r['model']}** — ASK {r['ask']} kr. — AAE {r['aae_ask_acu_month_per_dkk']:.4f} — start {r['start_bid']} kr., target {r['target']} kr., walk-away {r['hard_max']} kr. — **{r['decision']}** — [DBA]({r['url']})")
+    if unsupported:
+        lines += ['',f"Ikke rangeret pga. manglende AcurastBot-match/statistik: {len(unsupported)} annoncer."]
     REPORT.write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print(json.dumps({'valuation_gate':True,'acu_dkk':acu_dkk,'ranked':len(valued),'top':[{k:r[k] for k in ('listing_id','model','ask','start_bid','target','hard_max','decision')} for r in valued[:10]]},ensure_ascii=False,indent=2))
+    print(json.dumps({'valuation_gate':True,'farm_ref_acu_epoch':farm_ref,'ranked':len(valued),'unsupported':len(unsupported),
+                      'top':[{k:r[k] for k in ('listing_id','model','ask','acu_epoch_base','aae_ask_acu_month_per_dkk','start_bid','target','hard_max','decision')} for r in valued[:10]]},ensure_ascii=False,indent=2))
 
 if __name__=='__main__': main()
