@@ -15,14 +15,41 @@ PRICE_MENTION = re.compile(r'(?<!\d)(\d{2,5})\s*(?:kr\.?|kroner)\b', re.I)
 BUNDLE_WORDS = re.compile(r'\b(begge|2\s*(?:telefoner|mobiler)|to\s*(?:telefoner|mobiler)|samlet|pakke|bundle)\b', re.I)
 OTHER_DEVICE = re.compile(r'\b(galaxy\s+watch|smartwatch|watch\s*\d*|galaxy\s+tab|tablet|ipad|macbook|laptop|bærbar)\b', re.I)
 
+# Variant words are part of product identity, not cosmetic descriptors. If a seller says
+# S21 Ultra / CE2 Lite / Edge 40 Neo, a base-model AcurastBot match must never inherit that ASK.
+VARIANT_TOKENS = {
+    'ultra', 'pro', 'plus', 'lite', 'fe', 'neo', 'fusion', 'ce', 'gt',
+    'master', 'max', 'mini', 'fold', 'flip', 'note'
+}
+
+
+def norm_tokens(text: str) -> set[str]:
+    text = (text or '').lower().replace('+', ' plus ')
+    text = re.sub(r'([a-z]+)(\d)', r'\1 \2', text)
+    text = re.sub(r'(\d)([a-z]+)', r'\1 \2', text)
+    return set(re.findall(r'[a-z0-9]+', text))
+
+
+def variant_conflict(title: str, model: str) -> tuple[bool, str]:
+    title_variants = norm_tokens(title) & VARIANT_TOKENS
+    model_variants = norm_tokens(model) & VARIANT_TOKENS
+    missing = sorted(title_variants - model_variants)
+    if missing:
+        return True, f'live title variant(s) {missing} absent from resolved model {model!r}'
+    return False, 'variant identity passed'
+
 
 def ambiguity(row: dict) -> tuple[bool, str]:
     title = str(row.get('title') or '')
     desc = str(row.get('description') or '')
+    model = str(row.get('model') or '')
     brands = {m.group(1).lower() for m in BRANDS.finditer(title)}
     prices = {int(m.group(1)) for m in PRICE_MENTION.finditer(desc)}
     ask = int(row.get('ask_t2') or row.get('ask_t1') or 0)
 
+    conflict, reason = variant_conflict(title, model)
+    if conflict:
+        return True, 'variant/model conflict: ' + reason
     if len(brands) > 1:
         return True, f'multiple phone brands in live title: {sorted(brands)}'
     if OTHER_DEVICE.search(title):
@@ -31,7 +58,7 @@ def ambiguity(row: dict) -> tuple[bool, str]:
         return True, f'multiple explicit item prices in live description: {sorted(prices)}'
     if BUNDLE_WORDS.search(title + ' ' + desc) and prices and (ask not in prices or len(prices) != 1):
         return True, 'bundle/multi-device language with ambiguous price binding'
-    return False, 'single-device price identity passed'
+    return False, 'single-device price + variant identity passed'
 
 
 def main() -> None:
@@ -75,7 +102,7 @@ def main() -> None:
         '# Acurast DBA verified phone report', '',
         f"Generated: {src.get('generated_at')}", '',
         'DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch', '',
-        f"T0: {src.get('counts',{}).get('t0_unique')} | Product rejects: {src.get('counts',{}).get('product_identity_excluded')} | Bundle/price rejects: {len(rejected)} | Final: {len(kept)}", '',
+        f"T0: {src.get('counts',{}).get('t0_unique')} | Product rejects: {src.get('counts',{}).get('product_identity_excluded')} | Bundle/variant/price rejects: {len(rejected)} | Final: {len(kept)}", '',
         '## Lowest verified single-device listings', '',
         '| Rank | Model | ASK | Listing |', '|---:|---|---:|---|'
     ]
@@ -83,12 +110,12 @@ def main() -> None:
         ask = int(row.get('ask_t2') or row.get('ask_t1'))
         lines.append(f"| {i} | {row.get('model')} | {ask} kr. | [{row.get('title')}]({row.get('url')}) |")
     if rejected:
-        lines += ['', '## Manual review — ambiguous multi-device/price listings', '']
+        lines += ['', '## Manual review — ambiguous variant/multi-device/price listings', '']
         for row in rejected:
             lines.append(f"- {row['listing_id']}: {row['title']} — {row['ask']} kr. — {row['reason']}")
     REPORT.write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
-    print(json.dumps({'gate': True, 'kept': len(kept), 'bundle_price_rejects': len(rejected), 'rejected': rejected[:10]}, ensure_ascii=False, indent=2))
+    print(json.dumps({'gate': True, 'kept': len(kept), 'bundle_variant_price_rejects': len(rejected), 'rejected': rejected[:10]}, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':
