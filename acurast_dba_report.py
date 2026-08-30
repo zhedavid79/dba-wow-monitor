@@ -9,14 +9,20 @@ import requests
 BASE='https://www.dba.dk'
 SEARCH_API=BASE+'/recommerce/forsale/search/api/search/SEARCH_ID_BAP_COMMON'
 ITEM_URL=BASE+'/recommerce/forsale/item/{id}'
+BOT_BASE='https://api.acurastbot.com'
 HEADERS={'User-Agent':'Mozilla/5.0','Accept-Language':'da-DK,da;q=0.9','Accept':'application/json,text/html;q=0.9,*/*;q=0.8'}
 TIMEOUT=25
-QUERIES=['samsung s10','samsung s20','samsung s20 ultra','samsung s21','samsung s21 ultra','samsung s22','samsung s22 ultra','samsung s23','samsung s23 fe','samsung z flip','oneplus nord','oneplus nord 2','oneplus nord 2t','oneplus nord 3','oneplus 8','oneplus 9','oneplus 9 pro','oneplus 10','oneplus 10 pro','oneplus 11','xiaomi 11','xiaomi 12','xiaomi 12 pro','poco f3','poco f4','poco f5','motorola edge 30','motorola edge 40','pixel 6','pixel 7','pixel 8','defekt samsung','defekt oneplus','defekt xiaomi','defekt motorola','defekt pixel','defekt skærm android','revnet skærm samsung','repareres android','reservedele android','burn in samsung']
-MODEL_RULES=[(r'galaxy\s+s10\b','Samsung Galaxy S10'),(r'galaxy\s+s20\s*ultra','Samsung Galaxy S20 Ultra'),(r'galaxy\s+s20\b(?!\s*(?:fe|\+|plus))','Samsung Galaxy S20'),(r'galaxy\s+s21\s*ultra','Samsung Galaxy S21 Ultra'),(r'galaxy\s+s21\b(?!\s*(?:fe|\+|plus))','Samsung Galaxy S21'),(r'galaxy\s+s22\s*ultra','Samsung Galaxy S22 Ultra'),(r'galaxy\s+s22\b(?!\s*(?:\+|plus))','Samsung Galaxy S22'),(r'galaxy\s+s23\s*fe','Samsung Galaxy S23 FE'),(r'galaxy\s+s23\b(?!\s*(?:fe|\+|plus))','Samsung Galaxy S23'),(r'(?:galaxy\s+)?z\s*flip\s*4','Samsung Galaxy Z Flip4'),(r'(?:galaxy\s+)?z\s*flip\s*5','Samsung Galaxy Z Flip5'),(r'oneplus\s+nord\s*2t','OnePlus Nord 2T'),(r'oneplus\s+nord\s*3','OnePlus Nord 3'),(r'oneplus\s+nord\s*2\b','OnePlus Nord 2'),(r'oneplus\s+9\s*pro','OnePlus 9 Pro'),(r'oneplus\s+9\b','OnePlus 9'),(r'oneplus\s+10\s*pro','OnePlus 10 Pro'),(r'oneplus\s+10\b','OnePlus 10'),(r'oneplus\s+11\b','OnePlus 11'),(r'xiaomi\s+12\s*pro','Xiaomi 12 Pro'),(r'xiaomi\s+12\b','Xiaomi 12'),(r'xiaomi\s+11\b','Xiaomi 11'),(r'poco\s+f3\b','Poco F3'),(r'poco\s+f4\b','Poco F4'),(r'poco\s+f5\b','Poco F5'),(r'motorola\s+edge\s+40\s*neo','Motorola Edge 40 Neo'),(r'motorola\s+edge\s+40\b','Motorola Edge 40'),(r'motorola\s+edge\s+30\b','Motorola Edge 30'),(r'(?:google\s+)?pixel\s+6\b','Google Pixel 6'),(r'(?:google\s+)?pixel\s+7\b','Google Pixel 7'),(r'(?:google\s+)?pixel\s+8\b','Google Pixel 8')]
+ALLOWED_BRANDS={'samsung','oneplus','xiaomi','poco','motorola','google','nothing','asus','sony','oppo','realme','honor'}
+SALVAGE_QUERIES=['defekt samsung','defekt oneplus','defekt xiaomi','defekt motorola','defekt pixel','revnet skærm samsung','revnet skærm oneplus','skærm defekt android','burn in samsung','repareres android']
 ACCESSORY_RE=re.compile(r'(mobilcover|telefoncover|cover|covers|case|etui|skærmbeskytt|screenor|panserglas|beskyttelsesglas|privacy.?filter|kabel|ledning|oplader|charger|adapter|holder|mount|taske|pung|stativ|reservedel|reservedele|batteri\b|display\b|lcd\b|oled\b|skærm\s+til|kamera.?modul|bagglas|ramme\s+til)',re.I)
 COMPLETE_PHONE_RE=re.compile(r'\b(telefon|mobiltelefon|smartphone)\b',re.I)
 FUNCTION_RE=re.compile(r'\b(virker|fungerer|tænder|starter|defekt|revnet|ødelagt|skadet|imei|simkort|dual sim|factory reset|nulstillet|android\s*1[2-9])\b',re.I)
-SPEC_RE=re.compile(r'\b(?:6|8|12|16)\s*gb\s*(?:ram)?\b|\b(?:64|128|256|512)\s*gb\b',re.I)
+SPEC_RE=re.compile(r'\b(?:4|6|8|10|12|16|18|24)\s*gb\s*(?:ram)?\b|\b(?:64|128|256|512|1024)\s*gb\b',re.I)
+
+
+def getj(s,url,params=None):
+    r=s.get(url,params=params,headers=HEADERS,timeout=TIMEOUT); r.raise_for_status(); return r.json()
+
 
 def amount(v:Any)->int|None:
     if isinstance(v,(int,float)): return int(v)
@@ -27,14 +33,53 @@ def amount(v:Any)->int|None:
         s=re.sub(r'[^0-9]','',v); return int(s) if s else None
     return None
 
-def model_of(text:str)->str|None:
-    for pat,label in MODEL_RULES:
-        if re.search(pat,text,re.I): return label
-    return None
 
-def product_identity(title:str,description:str,model:str|None,price:int|None)->tuple[bool,str]:
+def norm(s:str)->str:
+    return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
+
+
+def build_catalog(s:requests.Session):
+    devices=getj(s,BOT_BASE+'/devices/with-counts')
+    stats=getj(s,BOT_BASE+'/devices/pool-statistics')
+    stats_by_cfg={int(x['deviceConfigurationId']):x for x in stats if x.get('deviceConfigurationId') is not None}
+    catalog=[]
+    for d in devices:
+        brand=norm(d.get('company',''))
+        if brand not in ALLOWED_BRANDS: continue
+        model=str(d.get('model') or '').strip()
+        if not model: continue
+        best_reward=None; total_count=0
+        for c in d.get('configurations') or []:
+            cid=c.get('id'); st=stats_by_cfg.get(int(cid)) if cid is not None else None
+            if not st: continue
+            total_count=max(total_count,int(st.get('processorCount') or 0))
+            try: rw=float(st.get('expectedRewardMedian') or st.get('expectedRewardAvg'))
+            except Exception: continue
+            best_reward=rw if best_reward is None else max(best_reward,rw)
+        if best_reward is None: continue
+        full=f"{d.get('company','')} {model}".strip()
+        aliases={norm(model),norm(full)}
+        # AcurastBot sometimes stores redundant brand names in model.
+        if norm(model).startswith(brand+' '): aliases.add(norm(model)[len(brand)+1:])
+        aliases={a for a in aliases if len(a)>=4}
+        catalog.append({'label':full,'brand':d.get('company',''),'model':model,'aliases':aliases,'reward':best_reward,'processor_count':total_count})
+    catalog.sort(key=lambda x:(-x['reward'],-x['processor_count'],x['label']))
+    return catalog
+
+
+def model_of(text:str,catalog)->str|None:
+    nt=' '+norm(text)+' '
+    matches=[]
+    for x in catalog:
+        for a in x['aliases']:
+            if f' {a} ' in nt:
+                matches.append((len(a.split()),len(a),x['label']))
+    return max(matches)[2] if matches else None
+
+
+def product_identity(title:str,description:str,model:str|None,price:int|None,catalog)->tuple[bool,str]:
     t=' '.join((title or '').split()); d=' '.join((description or '').split()); both=f'{t} {d}'
-    title_model=model_of(t)
+    title_model=model_of(t,catalog)
     if not model or title_model!=model: return False,'model not identified unambiguously in live title'
     if ACCESSORY_RE.search(t): return False,'accessory/part language in live title'
     complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both))
@@ -43,8 +88,6 @@ def product_identity(title:str,description:str,model:str|None,price:int|None)->t
     if ACCESSORY_RE.search(d) and not (complete and functional): return False,'description indicates accessory/part rather than complete phone'
     return True,'complete-phone identity passed'
 
-def getj(s,url,params=None):
-    r=s.get(url,params=params,headers=HEADERS,timeout=TIMEOUT); r.raise_for_status(); return r.json()
 
 def canonical_id_from_payload(payload):
     for obj in (payload.get('jsonLd'),payload.get('meta'),payload.get('itemData')):
@@ -68,47 +111,58 @@ def canonical_id_from_payload(payload):
         elif isinstance(x,list):stack.extend(x[:200])
     return None
 
+
 def fetch_item(s,lid):
     payload=getj(s,ITEM_URL.format(id=lid)); item=payload.get('itemData') or {}; bound=canonical_id_from_payload(payload)
     return {'listing_id':lid,'bound_listing_id':bound,'identity_ok':bound==lid if bound else False,'url':ITEM_URL.format(id=lid),'title':str(item.get('title') or '').strip(),'price':amount(item.get('price')),'disposed':bool(item.get('disposed')),'trade_type':item.get('tradeType') or item.get('adViewTypeLabel'),'description':str(item.get('description') or ''),'location':item.get('location'),'extras':item.get('extras'),'meta':item.get('meta')}
 
+
 def main():
     s=requests.Session(); Path('results').mkdir(exist_ok=True)
+    catalog=build_catalog(s)
+    # Search the AcurastBot-observed high-reward Android universe, not a fixed farm-derived list.
+    top_models=[]
+    seen=set()
+    for x in catalog:
+        q=f"{x['brand']} {x['model']}".strip()
+        nq=norm(q)
+        if nq in seen: continue
+        seen.add(nq); top_models.append(q)
+        if len(top_models)>=55: break
+    brand_queries=['samsung galaxy','oneplus','xiaomi','poco','motorola edge','google pixel','nothing phone','asus rog phone','sony xperia','oppo','realme','honor']
+    QUERIES=top_models+brand_queries+SALVAGE_QUERIES
+
     found={}; search_errors=[]
     for q in QUERIES:
         try:
             payload=getj(s,SEARCH_API,{'q':q,'sort':'PRICE_ASC'})
             docs=payload.get('docs') or []
-            if not isinstance(docs,list):
-                raise ValueError('structured DBA search returned no docs list')
+            if not isinstance(docs,list): raise ValueError('structured DBA search returned no docs list')
             for d in docs:
                 lid=str(d.get('id') or d.get('listingId') or d.get('itemId') or '')
-                title=str(d.get('heading') or d.get('title') or '').strip(); p=amount(d.get('price')); model=model_of(title)
+                title=str(d.get('heading') or d.get('title') or '').strip(); p=amount(d.get('price')); model=model_of(title,catalog)
                 if not lid or not title or p is None or not model: continue
                 r=found.setdefault(lid,{'listing_id':lid,'title_t0':title,'ask_t0':p,'model':model,'queries':[]}); r['queries'].append(q)
         except Exception as e: search_errors.append({'query':q,'error':repr(e)})
-        time.sleep(.03)
+        time.sleep(.02)
     if not found:
         out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':False,'reason':'PRICE DATA GATE FAILED — no structured DBA candidates','search_errors':search_errors}
-        Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-        raise SystemExit(out['reason'])
+        Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8'); raise SystemExit(out['reason'])
 
     verified=[]; excluded=[]
     for r in found.values():
         try:
-            t1=fetch_item(s,r['listing_id']); model=model_of(t1['title'])
+            t1=fetch_item(s,r['listing_id']); model=model_of(t1['title'],catalog)
             if not t1['identity_ok']: excluded.append({**r,'reason':'listing identity mismatch','t1':t1}); continue
             if t1['disposed']: excluded.append({**r,'reason':'disposed/inactive','t1':t1}); continue
             if t1['price'] is None or not t1['title']: excluded.append({**r,'reason':'missing live price/title','t1':t1}); continue
-            prod_ok,prod_reason=product_identity(t1['title'],t1['description'],model,int(t1['price']))
+            prod_ok,prod_reason=product_identity(t1['title'],t1['description'],model,int(t1['price']),catalog)
             if not prod_ok: excluded.append({**r,'reason':'PRODUCT IDENTITY GATE: '+prod_reason,'t1':t1}); continue
             verified.append({**r,**t1,'model':model,'ask_t1':int(t1['price']),'product_identity_ok':True,'product_identity_reason':prod_reason,'price_changed':int(t1['price'])!=int(r['ask_t0']),'t1_timestamp':datetime.now(timezone.utc).isoformat()})
         except Exception as e: excluded.append({**r,'reason':f'T1 fetch failed: {e!r}'})
-        time.sleep(.03)
+        time.sleep(.02)
     if not verified:
-        out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':False,'reason':'PRICE DATA GATE FAILED — no T1 verified active phones','counts':{'queries':len(QUERIES),'search_errors':len(search_errors),'t0_unique':len(found)},'excluded':excluded,'search_errors':search_errors}
-        Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-        raise SystemExit(out['reason'])
+        raise SystemExit('PRICE DATA GATE FAILED — no T1 verified active phones')
 
     by_model={}
     for r in verified: by_model.setdefault(r['model'],[]).append(r)
@@ -116,22 +170,22 @@ def main():
     for model,rows in sorted(by_model.items()):
         asks=sorted(r['ask_t1'] for r in rows); market.append({'model':model,'n':len(asks),'min_ask':min(asks),'median_ask':statistics.median(asks),'max_ask':max(asks)})
 
-    preliminary=sorted(verified,key=lambda r:(r['ask_t1'],r['model']))[:30]; final=[]
+    # Re-fetch more than the old 30-cheapest cap so high-output phones are not lost before valuation.
+    preliminary=sorted(verified,key=lambda r:(r['ask_t1'],r['model']))[:80]; final=[]
     for r in preliminary:
         try:
-            t2=fetch_item(s,r['listing_id']); model=model_of(t2['title']); prod_ok,reason=product_identity(t2['title'],t2['description'],model,int(t2['price']) if t2['price'] is not None else None)
+            t2=fetch_item(s,r['listing_id']); model=model_of(t2['title'],catalog); prod_ok,reason=product_identity(t2['title'],t2['description'],model,int(t2['price']) if t2['price'] is not None else None,catalog)
             if not (t2['identity_ok'] and not t2['disposed'] and t2['price'] is not None and t2['title'] and prod_ok): continue
-            final.append({**r,'ask_t2':int(t2['price']),'title':t2['title'],'description':t2['description'],'product_identity_reason_t2':reason,'final_timestamp':datetime.now(timezone.utc).isoformat()})
+            final.append({**r,'model':model,'ask_t2':int(t2['price']),'title':t2['title'],'description':t2['description'],'product_identity_reason_t2':reason,'final_timestamp':datetime.now(timezone.utc).isoformat()})
         except Exception: pass
-        time.sleep(.03)
-    if not final:
-        raise SystemExit('PRICE DATA GATE FAILED — no final refetched candidates')
+        time.sleep(.02)
+    if not final: raise SystemExit('PRICE DATA GATE FAILED — no final refetched candidates')
 
-    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'data_gate':'structured T0 discovery + same-listing T1 + final T2 refetch','counts':{'queries':len(QUERIES),'search_errors':len(search_errors),'t0_unique':len(found),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
+    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'data_gate':'structured T0 discovery + same-listing T1 + final T2 refetch','discovery_method':'dynamic AcurastBot high-reward Android model universe + brand/salvage queries','counts':{'queries':len(QUERIES),'catalog_models':len(catalog),'search_errors':len(search_errors),'t0_unique':len(found),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
     Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-    lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'','DBA data gate: **PASS** — structured discovery + live same-listing verification + final refetch','',f"T0: {len(found)} | T1 phone-verified: {len(verified)} | Product rejects: {out['counts']['product_identity_excluded']} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
+    lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'','DBA data gate: **PASS** — structured discovery + live same-listing verification + final refetch','',f"Queries: {len(QUERIES)} | T0: {len(found)} | T1 phone-verified: {len(verified)} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
     for i,r in enumerate(final,1): lines.append(f"| {i} | {r['model']} | {r['ask_t2']} kr. | [{r['title']}]({r['url']}) |")
     Path('results/acurast_report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print(json.dumps({'gate':True,'product_gate':True,'t0':len(found),'verified_phone':len(verified),'product_rejects':out['counts']['product_identity_excluded'],'final':len(final),'top':[{k:r[k] for k in ('listing_id','model','ask_t2','title','url')} for r in final[:10]]},ensure_ascii=False,indent=2))
+    print(json.dumps({'gate':True,'catalog_models':len(catalog),'queries':len(QUERIES),'t0':len(found),'verified_phone':len(verified),'final':len(final),'top':[{k:r[k] for k in ('listing_id','model','ask_t2','title','url')} for r in final[:10]]},ensure_ascii=False,indent=2))
 
 if __name__=='__main__': main()
