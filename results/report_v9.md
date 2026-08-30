@@ -1,12 +1,12 @@
 # DBA WoW-PC verified price report v9
 
-Generated: 2026-08-30T20:31:31.230067+00:00
+Generated: 2026-08-30T20:42:07.560507+00:00
 
 Current schema/source gate: **PASS** — live item 24433020 — 8500 kr.
 Historical price-binding regression: **PASS (static_fixture; no dependency on historical live listing)**
 
 Discovery queries: 62
-Structured T0 unique records: 1595
+Structured T0 unique records: 1594
 T0 GPU-promising records sent to T1 (no top-100 cap): 255
 T1 verified systems with parsed GPU+CPU: 114
 
@@ -49,8 +49,8 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 29 | 4500 kr. | ACCEPTABLE | RTX 3060 | Core i7-10700 | 65–90 FPS | [MM Vision - gaming computer - RTX 3060 - I7 processor - april 2021 god stand](https://www.dba.dk/recommerce/forsale/item/24467994) |
 | 30 | 4500 kr. | ACCEPTABLE | RTX 3060 | Core i5-11400H | 65–85 FPS | [Lenovo Legion 5 Gaming Laptop – RTX 3060 / i5 / 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23688401) |
 | 31 | 4500 kr. | ACCEPTABLE | RTX 2070 | Ryzen 5 5600X | 65–90 FPS | [🎮 Kraftig gaming-PC – Perfekt til 1080p gaming | RTX 2070 | Ryzen 5 5600X](https://www.dba.dk/recommerce/forsale/item/22484336) |
-| 32 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
-| 33 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
+| 32 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
+| 33 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
 | 34 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Asus gaming stationær PC med i7 9700K og RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/23248956) |
 | 35 | 4700 kr. | ACCEPTABLE | RTX 4060 | Core i5-12400 | 70–95 FPS | [🔥 RTX 4060 8GB | i5-12400F | 1.250GB SSD | 16GB RAM 🔥](https://www.dba.dk/recommerce/forsale/item/24400646) |
 | 36 | 4795 kr. | SWEET SPOT | RTX 2080 Super | Core i7-9700 | 70–90 FPS | [MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram](https://www.dba.dk/recommerce/forsale/item/24156419) |
@@ -82,14 +82,14 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 62 | 6800 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | 80–100 FPS | [Intel i7 12700K-RTX 3070-32 GB DDR5-M2 SSD-750 watt PSU-vandkøling-Wifi](https://www.dba.dk/recommerce/forsale/item/24293713) |
 | 63 | 6800 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | 80–100 FPS | [Super Gamer  intel i7 12700K-RTX 3070-32 GB DDR5-m2 SSD](https://www.dba.dk/recommerce/forsale/item/24381782) |
 | 64 | 6995 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | 80–100 FPS | [Gaming PC – RTX 3070 | i7-12700KF | 16GB DDR5 | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/23858984) |
-| 65 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
-| 66 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
-| 67 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
+| 65 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
+| 66 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
+| 67 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
 | 68 | 6999 kr. | SWEET SPOT | RTX 4060 Ti | Core i5-12400 | 75–100 FPS | [Gaming PC RTX 4060 Ti | i5-12400F | 16GB | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/21761715) |
 | 69 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i7-14650HX | 80–100 FPS | [Lenovo Thinkbook i7, RTX 4060](https://www.dba.dk/recommerce/forsale/item/13043596) |
 | 70 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12400 | 70–95 FPS | [Gaming Pc rtx 4060 32 gb ram I5 12400f](https://www.dba.dk/recommerce/forsale/item/17656716) |
-| 71 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
-| 72 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/8888151) |
+| 71 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/8888151) |
+| 72 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
 | 73 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
 | 74 | 7000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | 80–100 FPS | [RTX 3080 - Kraftig gamer pc sælges 7000kr.](https://www.dba.dk/recommerce/forsale/item/21317324) |
 | 75 | 7000 kr. | SWEET SPOT | RTX 3070 | Ryzen 7 5800H | 75–95 FPS | [Gamer Bærbar 17,3” 144 Hz –  Ryzen 7 5800H / RTX 3070 / 16 GB / 1 TB](https://www.dba.dk/recommerce/forsale/item/24461236) |
