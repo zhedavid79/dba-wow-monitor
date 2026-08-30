@@ -1,6 +1,6 @@
 # Acurast DBA Value Hunter
 
-Generated: 2026-08-30T18:45:50.710255+00:00
+Generated: 2026-08-30T18:49:43.159552+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch.
 AcurastBot data gate: **PASS** — farm reference based on 7 current-phone entries.
