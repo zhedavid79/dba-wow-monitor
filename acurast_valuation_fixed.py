@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import re
+import json, re
 import acurast_valuation as v
 
 GENERIC={'galaxy','smartphone','phone','mobile','moto','5g','lte'}
@@ -43,26 +43,15 @@ def strict_reference_device(devices,label,stats_by_cfg):
         company=BRAND_ALIASES.get(company_raw,company_raw)
         if not (company==target_brand or company.startswith(target_brand+' ')):
             continue
-
         cand=core_tokens(str(d.get('model') or ''),target_brand)
-        cset=set(cand)
-        cand_compact=''.join(cand)
+        cset=set(cand); cand_compact=''.join(cand)
         overlap=len(target_set & cset)/len(target_set) if target_set else 0.0
         best=max(best,overlap)
-
-        # Accept either token-subset equality or an equivalent compact spelling.
-        # This handles S20Ultra/S20 Ultra and Nord2T/Nord 2T without fuzzy family jumps.
         token_match=target_set.issubset(cset)
         compact_match=bool(target_compact and target_compact in cand_compact)
-        if not (token_match or compact_match):
-            continue
-
-        # Never cross into a distinct marketed family. In particular this blocks
-        # Xiaomi 12 Pro -> Redmi Note 12 Pro+ even though "12pro" is a substring.
+        if not (token_match or compact_match): continue
         extra=cset-target_set
-        if extra & FAMILY_BLOCK:
-            continue
-
+        if extra & FAMILY_BLOCK: continue
         observed=sum(int(stats_by_cfg.get(int(c.get('id')),{}).get('processorCount') or 0)
                      for c in (d.get('configurations') or []) if c.get('id') is not None)
         candidates.append((len(extra),-observed,d))
@@ -72,7 +61,26 @@ def strict_reference_device(devices,label,stats_by_cfg):
     return candidates[0][2],1.0
 
 
+def print_reference_diagnostics():
+    devices=v.get_json(v.BOT_BASE+'/devices/with-counts')
+    refs=[]
+    for label,_,_ in v.REFERENCE_FARM:
+        brand=BRAND_ALIASES.get(brand_of(label),brand_of(label))
+        target=set(core_tokens(label,brand)); rows=[]
+        for d in devices:
+            company_raw=v.norm(d.get('company','')); company=BRAND_ALIASES.get(company_raw,company_raw)
+            if not (company==brand or company.startswith(brand+' ')): continue
+            cand=set(core_tokens(str(d.get('model') or ''),brand))
+            overlap=len(target & cand)/len(target) if target else 0.0
+            if overlap>0:
+                rows.append({'company':d.get('company'),'model':d.get('model'),'tokens':sorted(cand),'overlap':round(overlap,3)})
+        rows.sort(key=lambda x:x['overlap'],reverse=True)
+        refs.append({'reference':label,'target_tokens':sorted(target),'candidates':rows[:12]})
+    print('ACURAST_REFERENCE_DIAGNOSTICS='+json.dumps(refs,ensure_ascii=False))
+
+
 v.reference_device=strict_reference_device
 
 if __name__=='__main__':
+    print_reference_diagnostics()
     v.main()
