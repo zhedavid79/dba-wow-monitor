@@ -8,27 +8,16 @@ import dba_report_v8 as v8
 v6 = v8.v6
 
 
-def wow_scenarios(r):
-    """Conservative WoW Classic/Cataclysm estimates for 3840x1600 Ultra, up to 75 Hz.
-
-    These are deliberately broad ranges, not benchmark claims. GPU matters strongly at
-    6.14 MP while raids/crowded combat become increasingly CPU-limited.
-    """
+def wow_estimate(r):
+    """Combined conservative WoW Classic/Cataclysm estimate for 3840x1600 Ultra."""
     g = int(r.get('gpu_score', 0))
     c = int(r.get('cpu_score', 0))
-
-    # Open-world/dungeon performance is more GPU-sensitive; raids/crowds are more CPU-sensitive.
-    open_mid = min(100, 42 + 0.62*g + 0.22*c)
-    dungeon_mid = min(96, 38 + 0.56*g + 0.25*c)
-    raid_mid = min(88, 28 + 0.35*g + 0.38*c)
-    crowd_mid = min(78, 20 + 0.24*g + 0.40*c)
-
-    def rng(mid, spread):
-        lo = max(25, int(round((mid-spread)/5)*5))
-        hi = max(lo+5, int(round((mid+spread)/5)*5))
-        return f'{lo}–{hi} FPS'
-
-    return rng(open_mid, 10), rng(dungeon_mid, 9), rng(raid_mid, 11), rng(crowd_mid, 12)
+    # Balanced overall gameplay estimate: GPU-heavy at 3840x1600 while retaining
+    # substantial CPU weighting for raids and crowded combat.
+    mid = min(92, 30 + 0.43*g + 0.34*c)
+    lo = max(25, int(round((mid-12)/5)*5))
+    hi = max(lo+10, int(round((mid+10)/5)*5))
+    return f'{lo}–{hi} FPS'
 
 
 def render_price_first():
@@ -54,13 +43,13 @@ def render_price_first():
         f"T1 verified systems with parsed GPU+CPU: {counts.get('t1_verified_specs')}", '',
         '## Price-first ranking', '',
         'All verified candidates at ACCEPTABLE or better are shown; SWEET SPOT is not allowed to hide a cheaper ACCEPTABLE machine.', '',
-        'WoW estimates target **WoW Classic through Cataclysm Classic, Ultra, 3840×1600, up to 75 Hz**. They are conservative scenario ranges derived from the parsed CPU/GPU tier, not measured benchmarks; actual FPS varies by zone, addons, raid size and effects.', '',
-        '| Rank | ASK | Class | GPU | CPU | Quest/open world | Dungeon | Raid | Worst-case crowded | Listing |',
-        '|---:|---:|---|---|---|---:|---:|---:|---:|---|'
+        'WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600, up to 75 Hz**. It is one conservative overall gameplay range derived from the parsed CPU/GPU tier, not a measured benchmark; actual FPS varies by zone, addons, raid size and effects.', '',
+        '| Rank | ASK | Class | GPU | CPU | WoW estimate | Listing |',
+        '|---:|---:|---|---|---|---:|---|'
     ]
     for i,r in enumerate(visible,1):
-        ow,dun,raid,crowd = wow_scenarios(r)
-        lines.append(f"| {i} | {r['ask_t1']} kr. | {r['performance_class']} | {r['gpu']} | {r['cpu']} | {ow} | {dun} | {raid} | {crowd} | [{r['title']}]({r['url']}) |")
+        fps = wow_estimate(r)
+        lines.append(f"| {i} | {r['ask_t1']} kr. | {r['performance_class']} | {r['gpu']} | {r['cpu']} | {fps} | [{r['title']}]({r['url']}) |")
 
     lines += ['', '## Rejection diagnostics', '', json.dumps(data.get('rejection_reason_counts') or {}, ensure_ascii=False)]
     Path('results/report_v9.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
