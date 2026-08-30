@@ -1,21 +1,26 @@
 {
-  "generated_at": "2026-08-30T19:05:23.518797+00:00",
+  "generated_at": "2026-08-30T19:17:50.230233+00:00",
   "valuation_gate": true,
-  "method": "market-wide AcurastBot expected reward + verified DBA ASK; conservative AAE ranking; no farm calibration; no ACU spot-price dependence",
+  "core_gate": {
+    "minimum_android": 12,
+    "mode": "hard fail-closed allowlist",
+    "excluded_count": 4
+  },
+  "method": "market-wide AcurastBot expected reward + verified DBA ASK + hard Android 12 Core compatibility gate; conservative AAE ranking; no farm calibration; no ACU spot-price dependence",
   "hurdles": {
     "start_conservative_aae": 0.0033935772012012007,
     "target_conservative_aae_p75": 0.0027148617609609607,
-    "hard_max_conservative_aae_p50": 0.0017830261621621624
+    "hard_max_conservative_aae_p50": 0.001952456678935826
   },
   "dba_counts": {
     "queries": 77,
     "catalog_models": 125,
     "search_errors": 0,
-    "t0_unique": 273,
-    "t1_verified_active_product": 61,
-    "excluded": 212,
-    "product_identity_excluded": 208,
-    "final_refetched": 49,
+    "t0_unique": 271,
+    "t1_verified_active_product": 60,
+    "excluded": 211,
+    "product_identity_excluded": 207,
+    "final_refetched": 48,
     "bundle_price_identity_excluded": 12
   },
   "ranked": [
@@ -25,6 +30,9 @@
       "title": "Motorola G30  128GB",
       "model": "Motorola G30",
       "ask": 50,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola G-series model supports Android 12+",
       "acurastbot_device": "Motorola G30",
       "configuration_id": 271,
       "ram": "4GB",
@@ -42,10 +50,10 @@
       "conservative_aae_ask": 0.023925427200000002,
       "start_bid": 350,
       "target": 450,
-      "hard_max": 675,
+      "hard_max": 625,
       "aae_at_target": 0.0026583808000000004,
       "decision": "STRONG BID",
-      "opportunity_score": 1341.843866776871
+      "opportunity_score": 1225.4011808876805
     },
     {
       "listing_id": "22585550",
@@ -53,6 +61,9 @@
       "title": "Motorola E13 - ødelagt skærm",
       "model": "Motorola E13",
       "ask": 150,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola E-series model supports Android 12+",
       "acurastbot_device": "Motorola E13",
       "configuration_id": 300,
       "ram": "8GB",
@@ -70,10 +81,10 @@
       "conservative_aae_ask": 0.0083839488,
       "start_bid": 375,
       "target": 475,
-      "hard_max": 700,
+      "hard_max": 650,
       "aae_at_target": 0.0026475627789473684,
       "decision": "STRONG BID",
-      "opportunity_score": 470.20896147891176
+      "opportunity_score": 429.4051125666777
     },
     {
       "listing_id": "24452651",
@@ -81,6 +92,9 @@
       "title": "OnePlus 8 Pro",
       "model": "OnePlus 8 Pro",
       "ask": 450,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
       "acurastbot_device": "OnePlus 8 Pro",
       "configuration_id": 305,
       "ram": "12GB",
@@ -98,10 +112,10 @@
       "conservative_aae_ask": 0.006106774463999998,
       "start_bid": 800,
       "target": 1000,
-      "hard_max": 1550,
+      "hard_max": 1400,
       "aae_at_target": 0.002748048508799999,
       "decision": "STRONG BID",
-      "opportunity_score": 342.4949444709606
+      "opportunity_score": 312.7738776426249
     },
     {
       "listing_id": "23235041",
@@ -109,6 +123,9 @@
       "title": "Motorola Edge 50 Fusion smartphone 256 GB",
       "model": "Motorola Edge 50 Fusion",
       "ask": 600,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola Edge family supports Android 12+",
       "acurastbot_device": "Motorola Edge 50 Fusion",
       "configuration_id": 351,
       "ram": "12GB",
@@ -126,10 +143,10 @@
       "conservative_aae_ask": 0.00514128,
       "start_bid": 900,
       "target": 1125,
-      "hard_max": 1725,
+      "hard_max": 1575,
       "aae_at_target": 0.002742016,
       "decision": "STRONG BID",
-      "opportunity_score": 288.34574102746177
+      "opportunity_score": 263.32364018454035
     },
     {
       "listing_id": "23661735",
@@ -137,6 +154,9 @@
       "title": "OnePlus 8T",
       "model": "OnePlus 8T",
       "ask": 900,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
       "acurastbot_device": "OnePlus 8T",
       "configuration_id": 360,
       "ram": "12GB",
@@ -154,10 +174,10 @@
       "conservative_aae_ask": 0.0043535060531257165,
       "start_bid": 1150,
       "target": 1450,
-      "hard_max": 2200,
+      "hard_max": 2000,
       "aae_at_target": 0.002702176170905617,
       "decision": "STRONG BID",
-      "opportunity_score": 244.16389089022096
+      "opportunity_score": 222.97580786778673
     },
     {
       "listing_id": "24293758",
@@ -165,6 +185,9 @@
       "title": "Motorola Edge 40 neo",
       "model": "Motorola Edge 40 Neo",
       "ask": 600,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola Edge family supports Android 12+",
       "acurastbot_device": "Motorola Edge 40 Neo",
       "configuration_id": 331,
       "ram": "12GB",
@@ -182,10 +205,10 @@
       "conservative_aae_ask": 0.004010502399999999,
       "start_bid": 700,
       "target": 875,
-      "hard_max": 1350,
+      "hard_max": 1225,
       "aae_at_target": 0.002750058788571428,
       "decision": "STRONG BID",
-      "opportunity_score": 224.92672766712062
+      "opportunity_score": 205.40800947173375
     },
     {
       "listing_id": "23858419",
@@ -193,6 +216,9 @@
       "title": "Samsung galaxy S21 ultra",
       "model": "Samsung Galaxy S21",
       "ask": 1000,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S21",
       "configuration_id": 308,
       "ram": "8GB",
@@ -210,38 +236,10 @@
       "conservative_aae_ask": 0.0036943219199999998,
       "start_bid": 1100,
       "target": 1350,
-      "hard_max": 2075,
+      "hard_max": 1900,
       "aae_at_target": 0.0027365347555555553,
       "decision": "STRONG BID",
-      "opportunity_score": 207.19392672960728
-    },
-    {
-      "listing_id": "22710438",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22710438",
-      "title": "OnePlus 9 Pro 12/256",
-      "model": "OnePlus 9 Pro",
-      "ask": 1400,
-      "acurastbot_device": "OnePlus 9 Pro",
-      "configuration_id": 341,
-      "ram": "12GB",
-      "storage": "256GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "spread_ratio": 0.0,
-      "acu_epoch_low": 0.012008129999999999,
-      "acu_epoch_base": 0.012008129999999999,
-      "acu_epoch_high": 0.012008129999999999,
-      "acu_month_base": 5.763902399999999,
-      "acu_month_conservative": 4.6111219199999995,
-      "aae_ask": 0.0041170731428571425,
-      "conservative_aae_ask": 0.003293658514285714,
-      "start_bid": 1350,
-      "target": 1700,
-      "hard_max": 2575,
-      "aae_at_target": 0.0027124246588235293,
-      "decision": "STRONG BID",
-      "opportunity_score": 184.7229493420166
+      "opportunity_score": 189.21402763279573
     },
     {
       "listing_id": "24114191",
@@ -249,6 +247,9 @@
       "title": "Motorola g85",
       "model": "Motorola G85",
       "ask": 750,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola G-series model supports Android 12+",
       "acurastbot_device": "Motorola G85",
       "configuration_id": 334,
       "ram": "12GB",
@@ -266,10 +267,10 @@
       "conservative_aae_ask": 0.0032763898134672243,
       "start_bid": 725,
       "target": 900,
-      "hard_max": 1375,
+      "hard_max": 1250,
       "aae_at_target": 0.0027303248445560203,
       "decision": "STRONG BID",
-      "opportunity_score": 183.75444415768723
+      "opportunity_score": 167.80857925375327
     },
     {
       "listing_id": "24125127",
@@ -277,6 +278,9 @@
       "title": "Samsung Galaxy S21 5G smartphone 128 GB sort",
       "model": "Samsung Galaxy S21",
       "ask": 1200,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S21",
       "configuration_id": 308,
       "ram": "8GB",
@@ -294,10 +298,10 @@
       "conservative_aae_ask": 0.0030786015999999996,
       "start_bid": 1100,
       "target": 1350,
-      "hard_max": 2075,
+      "hard_max": 1900,
       "aae_at_target": 0.0027365347555555553,
       "decision": "STRONG BID",
-      "opportunity_score": 172.66160560800608
+      "opportunity_score": 157.67835636066312
     },
     {
       "listing_id": "23858958",
@@ -305,6 +309,9 @@
       "title": "Samsung Galaxy S21 smartphone 128 GB hvid",
       "model": "Samsung Galaxy S21",
       "ask": 1200,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S21",
       "configuration_id": 308,
       "ram": "8GB",
@@ -322,10 +329,10 @@
       "conservative_aae_ask": 0.0030786015999999996,
       "start_bid": 1100,
       "target": 1350,
-      "hard_max": 2075,
+      "hard_max": 1900,
       "aae_at_target": 0.0027365347555555553,
       "decision": "STRONG BID",
-      "opportunity_score": 172.66160560800608
+      "opportunity_score": 157.67835636066312
     },
     {
       "listing_id": "24396538",
@@ -333,6 +340,9 @@
       "title": "Xiaomi Redmi Note 13 Pro 5g",
       "model": "Xiaomi Redmi Note 13 Pro +",
       "ask": 999,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Redmi Note family supports Android 12+",
       "acurastbot_device": "Xiaomi Redmi Note 13 Pro +",
       "configuration_id": 260,
       "ram": "12GB",
@@ -350,10 +360,10 @@
       "conservative_aae_ask": 0.002756055255255255,
       "start_bid": 800,
       "target": 1025,
-      "hard_max": 1550,
+      "hard_max": 1400,
       "aae_at_target": 0.0026861455609756097,
       "decision": "STRONG BID",
-      "opportunity_score": 154.57177879617663
+      "opportunity_score": 141.15833068098726
     },
     {
       "listing_id": "23049288",
@@ -361,6 +371,9 @@
       "title": "Motorola Edge 40 Neo 5G 256GB Black",
       "model": "Motorola Edge 40 Neo",
       "ask": 900,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola Edge family supports Android 12+",
       "acurastbot_device": "Motorola Edge 40 Neo",
       "configuration_id": 331,
       "ram": "12GB",
@@ -378,10 +391,10 @@
       "conservative_aae_ask": 0.0026736682666666663,
       "start_bid": 700,
       "target": 875,
-      "hard_max": 1350,
+      "hard_max": 1225,
       "aae_at_target": 0.002750058788571428,
       "decision": "BID",
-      "opportunity_score": 149.9511517780804
+      "opportunity_score": 136.93867298115583
     },
     {
       "listing_id": "24453052",
@@ -389,6 +402,9 @@
       "title": "OnePlus 10 Pro",
       "model": "OnePlus 10 Pro",
       "ask": 800,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
       "acurastbot_device": "OnePlus 10 Pro",
       "configuration_id": 317,
       "ram": "8GB",
@@ -406,10 +422,10 @@
       "conservative_aae_ask": 0.0025558895999999998,
       "start_bid": 600,
       "target": 750,
-      "hard_max": 1150,
+      "hard_max": 1050,
       "aae_at_target": 0.00272628224,
       "decision": "BID",
-      "opportunity_score": 143.3456027869291
+      "opportunity_score": 130.90634110217854
     },
     {
       "listing_id": "23197519",
@@ -417,6 +433,9 @@
       "title": "Samsung Galaxy S21 Ultra 5G smartphone 512 GB sort",
       "model": "Samsung Galaxy S21",
       "ask": 1499,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S21",
       "configuration_id": 308,
       "ram": "8GB",
@@ -434,10 +453,10 @@
       "conservative_aae_ask": 0.0024645242961974646,
       "start_bid": 1100,
       "target": 1350,
-      "hard_max": 2075,
+      "hard_max": 1900,
       "aae_at_target": 0.0027365347555555553,
       "decision": "BID",
-      "opportunity_score": 138.22143210781007
+      "opportunity_score": 126.22683631273898
     },
     {
       "listing_id": "23843827",
@@ -445,6 +464,9 @@
       "title": "Samsung Galaxy S23 smartphone 128 GB",
       "model": "Samsung Galaxy S23",
       "ask": 1500,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S23",
       "configuration_id": 384,
       "ram": "12GB",
@@ -462,10 +484,10 @@
       "conservative_aae_ask": 0.0021990656000000003,
       "start_bid": 975,
       "target": 1225,
-      "hard_max": 1850,
+      "hard_max": 1700,
       "aae_at_target": 0.0026927333877551024,
       "decision": "BID",
-      "opportunity_score": 123.33333333333331
+      "opportunity_score": 112.63069873584017
     },
     {
       "listing_id": "22972801",
@@ -473,6 +495,9 @@
       "title": "Samsung Galaxy S23 128 GB lilla",
       "model": "Samsung Galaxy S23",
       "ask": 1500,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S23",
       "configuration_id": 384,
       "ram": "12GB",
@@ -490,10 +515,10 @@
       "conservative_aae_ask": 0.0021990656000000003,
       "start_bid": 975,
       "target": 1225,
-      "hard_max": 1850,
+      "hard_max": 1700,
       "aae_at_target": 0.0026927333877551024,
       "decision": "BID",
-      "opportunity_score": 123.33333333333331
+      "opportunity_score": 112.63069873584017
     },
     {
       "listing_id": "23534379",
@@ -501,6 +526,9 @@
       "title": "OnePlus Nord CE 2 Lite 128GB Sort",
       "model": "OnePlus Nord CE 2",
       "ask": 800,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus Nord family supports Android 12+",
       "acurastbot_device": "OnePlus Nord CE 2",
       "configuration_id": 396,
       "ram": "8GB",
@@ -518,10 +546,10 @@
       "conservative_aae_ask": 0.0021749952,
       "start_bid": 525,
       "target": 650,
-      "hard_max": 975,
+      "hard_max": 900,
       "aae_at_target": 0.002676917169230769,
       "decision": "BID",
-      "opportunity_score": 121.98335875018915
+      "opportunity_score": 111.39787240685244
     },
     {
       "listing_id": "24317162",
@@ -529,6 +557,9 @@
       "title": "Xiaomi redmi note 12 pro 5G",
       "model": "Xiaomi Redmi Note 12 Pro+",
       "ask": 700,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Redmi Note family supports Android 12+",
       "acurastbot_device": "Xiaomi Redmi Note 12 Pro+",
       "configuration_id": 176,
       "ram": "8GB",
@@ -546,10 +577,10 @@
       "conservative_aae_ask": 0.002086904935719705,
       "start_bid": 425,
       "target": 550,
-      "hard_max": 825,
+      "hard_max": 750,
       "aae_at_target": 0.002656060827279624,
       "decision": "BID",
-      "opportunity_score": 117.04286678491852
+      "opportunity_score": 106.88610703809107
     },
     {
       "listing_id": "24342897",
@@ -557,6 +588,9 @@
       "title": "Samsung Galaxy S23 FE 128 GB grå smartphone",
       "model": "Samsung Galaxy S23",
       "ask": 1600,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S23",
       "configuration_id": 384,
       "ram": "12GB",
@@ -574,10 +608,10 @@
       "conservative_aae_ask": 0.002061624,
       "start_bid": 975,
       "target": 1225,
-      "hard_max": 1850,
+      "hard_max": 1700,
       "aae_at_target": 0.0026927333877551024,
       "decision": "BID",
-      "opportunity_score": 115.625
+      "opportunity_score": 105.59128006485014
     },
     {
       "listing_id": "22032520",
@@ -585,6 +619,9 @@
       "title": "oneplus 10 pro 256gb",
       "model": "OnePlus 10 Pro",
       "ask": 1000,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
       "acurastbot_device": "OnePlus 10 Pro",
       "configuration_id": 317,
       "ram": "8GB",
@@ -602,10 +639,10 @@
       "conservative_aae_ask": 0.0020447116799999997,
       "start_bid": 600,
       "target": 750,
-      "hard_max": 1150,
+      "hard_max": 1050,
       "aae_at_target": 0.00272628224,
       "decision": "BID",
-      "opportunity_score": 114.67648222954327
+      "opportunity_score": 104.72507288174285
     },
     {
       "listing_id": "24425265",
@@ -613,6 +650,9 @@
       "title": "Samsung s23 fe",
       "model": "Samsung S23 FE",
       "ask": 1900,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung S23 FE",
       "configuration_id": 376,
       "ram": "8GB",
@@ -630,10 +670,10 @@
       "conservative_aae_ask": 0.002032954610526316,
       "start_bid": 1150,
       "target": 1425,
-      "hard_max": 2175,
+      "hard_max": 1975,
       "aae_at_target": 0.0027106061473684212,
       "decision": "BID",
-      "opportunity_score": 114.01709372907246
+      "opportunity_score": 104.12290487460982
     },
     {
       "listing_id": "24058455",
@@ -641,6 +681,9 @@
       "title": "Samsung A56 5G 128GB",
       "model": "Samsung A56",
       "ask": 2200,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung A-series model supports Android 12+",
       "acurastbot_device": "Samsung A56",
       "configuration_id": 325,
       "ram": "12GB",
@@ -658,10 +701,10 @@
       "conservative_aae_ask": 0.001952456678935826,
       "start_bid": 1275,
       "target": 1575,
-      "hard_max": 2400,
+      "hard_max": 2200,
       "aae_at_target": 0.0027272410753389313,
       "decision": "BID",
-      "opportunity_score": 109.50241338961655
+      "opportunity_score": 100.0
     },
     {
       "listing_id": "24310625",
@@ -669,6 +712,9 @@
       "title": "Samsung Galaxy S23 FE smartphone 128 GB",
       "model": "Samsung Galaxy S23",
       "ask": 1850,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S23",
       "configuration_id": 384,
       "ram": "12GB",
@@ -686,10 +732,10 @@
       "conservative_aae_ask": 0.0017830261621621624,
       "start_bid": 975,
       "target": 1225,
-      "hard_max": 1850,
+      "hard_max": 1700,
       "aae_at_target": 0.0026927333877551024,
-      "decision": "BID",
-      "opportunity_score": 100.0
+      "decision": "LOW OFFER / NEGOTIATE",
+      "opportunity_score": 91.32218816419474
     },
     {
       "listing_id": "24445342",
@@ -697,6 +743,9 @@
       "title": "Samsung Galaxy Z Fold 4 mobil 256 GB sort",
       "model": "Samsung Z Fold 4",
       "ask": 1500,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
       "acurastbot_device": "Samsung Z Fold 4",
       "configuration_id": 214,
       "ram": "12GB",
@@ -714,10 +763,10 @@
       "conservative_aae_ask": 0.0017348838399999997,
       "start_bid": 775,
       "target": 950,
-      "hard_max": 1450,
+      "hard_max": 1325,
       "aae_at_target": 0.00273929027368421,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 97.29996546411952
+      "opportunity_score": 88.85645754483971
     },
     {
       "listing_id": "24036107",
@@ -725,6 +774,9 @@
       "title": "OnePlus 10 pro 256",
       "model": "OnePlus 10 Pro",
       "ask": 1200,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
       "acurastbot_device": "OnePlus 10 Pro",
       "configuration_id": 317,
       "ram": "8GB",
@@ -742,38 +794,10 @@
       "conservative_aae_ask": 0.0017039263999999998,
       "start_bid": 600,
       "target": 750,
-      "hard_max": 1150,
+      "hard_max": 1050,
       "aae_at_target": 0.00272628224,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 95.56373519128607
-    },
-    {
-      "listing_id": "1570325",
-      "url": "https://www.dba.dk/recommerce/forsale/item/1570325",
-      "title": "Motorola G84, 256GB , Perfekt",
-      "model": "Motorola G84",
-      "ask": 2500,
-      "acurastbot_device": "Motorola G84",
-      "configuration_id": 174,
-      "ram": "12GB",
-      "storage": "256GB",
-      "processor_count": 6,
-      "confidence": "MEDIUM",
-      "confidence_factor": 0.9772110710732368,
-      "spread_ratio": 0.017968255256047092,
-      "acu_epoch_low": 0.00878981,
-      "acu_epoch_base": 0.00887454,
-      "acu_epoch_high": 0.00894927,
-      "acu_month_base": 4.2597792000000005,
-      "acu_month_conservative": 4.122959829422519,
-      "aae_ask": 0.0017039116800000001,
-      "conservative_aae_ask": 0.0016491839317690075,
-      "start_bid": 1225,
-      "target": 1525,
-      "hard_max": 2300,
-      "aae_at_target": 0.0027035802160147665,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 92.49353524735426
+      "opportunity_score": 87.27089406811905
     },
     {
       "listing_id": "22816660",
@@ -781,6 +805,9 @@
       "title": "Samsung Galaxy S23+ 256 GB sort smartphone",
       "model": "Samsung Galaxy S23",
       "ask": 2300,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S23",
       "configuration_id": 384,
       "ram": "12GB",
@@ -798,10 +825,10 @@
       "conservative_aae_ask": 0.0014341732173913046,
       "start_bid": 975,
       "target": 1225,
-      "hard_max": 1850,
+      "hard_max": 1700,
       "aae_at_target": 0.0026927333877551024,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 80.43478260869566
+      "opportunity_score": 73.45480352337403
     },
     {
       "listing_id": "23817454",
@@ -809,6 +836,9 @@
       "title": "Pixel 8 pro",
       "model": "Google Pixel 8",
       "ask": 2500,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Google Pixel model supports Android 12+",
       "acurastbot_device": "Google Pixel 8",
       "configuration_id": 144,
       "ram": null,
@@ -826,10 +856,10 @@
       "conservative_aae_ask": 0.0014098056503448787,
       "start_bid": 1050,
       "target": 1300,
-      "hard_max": 1975,
+      "hard_max": 1800,
       "aae_at_target": 0.00271116471220169,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 79.06814158213456
+      "opportunity_score": 72.20675703356882
     },
     {
       "listing_id": "24408497",
@@ -837,6 +867,9 @@
       "title": "Samsung Galaxy Z Fold 4 - 256GB",
       "model": "Samsung Z Fold 4",
       "ask": 2200,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
       "acurastbot_device": "Samsung Z Fold 4",
       "configuration_id": 214,
       "ram": "12GB",
@@ -854,10 +887,10 @@
       "conservative_aae_ask": 0.001182875345454545,
       "start_bid": 775,
       "target": 950,
-      "hard_max": 1450,
+      "hard_max": 1325,
       "aae_at_target": 0.00273929027368421,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 66.34088554371785
+      "opportunity_score": 60.58394832602707
     },
     {
       "listing_id": "23868734",
@@ -865,6 +898,9 @@
       "title": "Samsung Galaxy S23 Ultra Green 256 GB",
       "model": "Samsung Galaxy S23",
       "ask": 2800,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S23",
       "configuration_id": 384,
       "ram": "12GB",
@@ -882,10 +918,10 @@
       "conservative_aae_ask": 0.0011780708571428574,
       "start_bid": 975,
       "target": 1225,
-      "hard_max": 1850,
+      "hard_max": 1700,
       "aae_at_target": 0.0026927333877551024,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 66.07142857142857
+      "opportunity_score": 60.337874322771526
     },
     {
       "listing_id": "24285603",
@@ -893,6 +929,9 @@
       "title": "Samsung Galaxy Z Fold 3",
       "model": "Samsung Z Fold 3",
       "ask": 1999,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
       "acurastbot_device": "Samsung Z Fold 3",
       "configuration_id": 217,
       "ram": "12GB",
@@ -910,10 +949,10 @@
       "conservative_aae_ask": 0.0011187087559779885,
       "start_bid": 650,
       "target": 825,
-      "hard_max": 1250,
+      "hard_max": 1150,
       "aae_at_target": 0.002710665215999999,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 62.74213916308449
+      "opportunity_score": 57.29749438475294
     },
     {
       "listing_id": "19003162",
@@ -921,6 +960,9 @@
       "title": "OnePlus 7 Pro - Unik skærm uden huller (QHD+ 90Hz)",
       "model": "OnePlus 7",
       "ask": 1450,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
       "acurastbot_device": "OnePlus 7",
       "configuration_id": 345,
       "ram": "8GB",
@@ -938,10 +980,10 @@
       "conservative_aae_ask": 0.0011033697103448275,
       "start_bid": 475,
       "target": 600,
-      "hard_max": 900,
+      "hard_max": 825,
       "aae_at_target": 0.0026664768,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 61.8818575834491
+      "opportunity_score": 56.511866421856396
     },
     {
       "listing_id": "24459138",
@@ -949,6 +991,9 @@
       "title": "Samsung Galaxy S23 smartphone 256 GB grøn",
       "model": "Samsung Galaxy S23",
       "ask": 3000,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S23",
       "configuration_id": 384,
       "ram": "12GB",
@@ -966,10 +1011,10 @@
       "conservative_aae_ask": 0.0010995328000000001,
       "start_bid": 975,
       "target": 1225,
-      "hard_max": 1850,
+      "hard_max": 1700,
       "aae_at_target": 0.0026927333877551024,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 61.66666666666666
+      "opportunity_score": 56.315349367920085
     },
     {
       "listing_id": "24312839",
@@ -977,6 +1022,9 @@
       "title": "Samsung Galaxy S23 Ultra 256 GB",
       "model": "Samsung Galaxy S23",
       "ask": 3000,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S23",
       "configuration_id": 384,
       "ram": "12GB",
@@ -994,10 +1042,41 @@
       "conservative_aae_ask": 0.0010995328000000001,
       "start_bid": 975,
       "target": 1225,
-      "hard_max": 1850,
+      "hard_max": 1700,
       "aae_at_target": 0.0026927333877551024,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 61.66666666666666
+      "opportunity_score": 56.315349367920085
+    },
+    {
+      "listing_id": "1570325",
+      "url": "https://www.dba.dk/recommerce/forsale/item/1570325",
+      "title": "Motorola G84, 256GB , Perfekt",
+      "model": "Motorola G84",
+      "ask": 2500,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola G-series model supports Android 12+",
+      "acurastbot_device": "Motorola G84",
+      "configuration_id": 241,
+      "ram": "12GB",
+      "storage": "256GB",
+      "processor_count": 6,
+      "confidence": "MEDIUM",
+      "confidence_factor": 0.9046994785408217,
+      "spread_ratio": 0.38764791459686565,
+      "acu_epoch_low": 0.00549107,
+      "acu_epoch_base": 0.00888773,
+      "acu_epoch_high": 0.00893638,
+      "acu_month_base": 4.2661104,
+      "acu_month_conservative": 2.701683497994303,
+      "aae_ask": 0.00170644416,
+      "conservative_aae_ask": 0.0010806733991977212,
+      "start_bid": 800,
+      "target": 1000,
+      "hard_max": 1375,
+      "aae_at_target": 0.002701683497994303,
+      "decision": "LOW OFFER / NEGOTIATE",
+      "opportunity_score": 55.34941752391328
     },
     {
       "listing_id": "24304837",
@@ -1005,6 +1084,9 @@
       "title": "Motorola Edge 40 Neo 5G Phone, 256/12 GB, Turquoise",
       "model": "Motorola Edge 40 Neo",
       "ask": 2287,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola Edge family supports Android 12+",
       "acurastbot_device": "Motorola Edge 40 Neo",
       "configuration_id": 331,
       "ram": "12GB",
@@ -1022,10 +1104,10 @@
       "conservative_aae_ask": 0.0010521650371665937,
       "start_bid": 700,
       "target": 875,
-      "hard_max": 1350,
+      "hard_max": 1225,
       "aae_at_target": 0.002750058788571428,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 59.01007284664293
+      "opportunity_score": 53.88928976083963
     },
     {
       "listing_id": "23764581",
@@ -1033,6 +1115,9 @@
       "title": "Samsung Galaxy Flip 6 512GB Silver",
       "model": "Samsung Flip 6",
       "ask": 4000,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
       "acurastbot_device": "Samsung Flip 6",
       "configuration_id": 120,
       "ram": null,
@@ -1050,10 +1135,10 @@
       "conservative_aae_ask": 0.0007624905599999999,
       "start_bid": 900,
       "target": 1125,
-      "hard_max": 1700,
+      "hard_max": 1550,
       "aae_at_target": 0.0027110775466666665,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 42.763845880723146
+      "opportunity_score": 39.052879801440234
     },
     {
       "listing_id": "24437871",
@@ -1061,6 +1146,9 @@
       "title": "Samsung Galaxy Z Flip 3 - 128 GB sort",
       "model": "Samsung Z Flip 3",
       "ask": 1599,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
       "acurastbot_device": "Samsung Z Flip 3",
       "configuration_id": 352,
       "ram": "8GB",
@@ -1078,10 +1166,10 @@
       "conservative_aae_ask": 0.0007101485628517824,
       "start_bid": 325,
       "target": 425,
-      "hard_max": 625,
+      "hard_max": 575,
       "aae_at_target": 0.0026718295341176474,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 39.828274981149484
+      "opportunity_score": 36.37205222083823
     },
     {
       "listing_id": "1570456",
@@ -1089,6 +1177,9 @@
       "title": "Motorola Edge 40 Neo, 256 , Perfekt",
       "model": "Motorola Edge 40 Neo",
       "ask": 3500,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Motorola Edge family supports Android 12+",
       "acurastbot_device": "Motorola Edge 40 Neo",
       "configuration_id": 331,
       "ram": "12GB",
@@ -1106,10 +1197,10 @@
       "conservative_aae_ask": 0.000687514697142857,
       "start_bid": 700,
       "target": 875,
-      "hard_max": 1350,
+      "hard_max": 1225,
       "aae_at_target": 0.002750058788571428,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 38.55886760007782
+      "opportunity_score": 35.21280162372578
     },
     {
       "listing_id": "23926294",
@@ -1117,6 +1208,9 @@
       "title": "Lækker Samsung Galaxy S20 FE til god pris",
       "model": "Samsung Galaxy S20 FE",
       "ask": 1100,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
       "acurastbot_device": "Samsung Galaxy S20 FE",
       "configuration_id": 254,
       "ram": "6GB",
@@ -1134,10 +1228,10 @@
       "conservative_aae_ask": 0.0006870248727272726,
       "start_bid": 225,
       "target": 275,
-      "hard_max": 425,
+      "hard_max": 375,
       "aae_at_target": 0.0027480994909090902,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 38.53139607857246
+      "opportunity_score": 35.18771402916509
     },
     {
       "listing_id": "23426243",
@@ -1145,6 +1239,9 @@
       "title": "OnePLus 11 5G",
       "model": "OnePlus 11",
       "ask": 2995,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
       "acurastbot_device": "OnePlus 11",
       "configuration_id": 361,
       "ram": "8GB",
@@ -1162,10 +1259,10 @@
       "conservative_aae_ask": 0.0006746963338898163,
       "start_bid": 600,
       "target": 750,
-      "hard_max": 1125,
+      "hard_max": 1025,
       "aae_at_target": 0.00269428736,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 37.83995704648859
+      "opportunity_score": 34.556276775244775
     },
     {
       "listing_id": "24371099",
@@ -1173,6 +1270,9 @@
       "title": "Pixel 9 Pro, 256GB, 16GB RAM, sealed in box, unused.",
       "model": "OnePlus 9 Pro",
       "ask": 8000,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
       "acurastbot_device": "OnePlus 9 Pro",
       "configuration_id": 341,
       "ram": "12GB",
@@ -1190,38 +1290,10 @@
       "conservative_aae_ask": 0.00057639024,
       "start_bid": 1350,
       "target": 1700,
-      "hard_max": 2575,
+      "hard_max": 2350,
       "aae_at_target": 0.0027124246588235293,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 32.32651613485291
-    },
-    {
-      "listing_id": "23535406",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23535406",
-      "title": "samsung galaxy z flip",
-      "model": "Samsung Z Flip",
-      "ask": 2200,
-      "acurastbot_device": "Samsung Z Flip",
-      "configuration_id": 369,
-      "ram": "8GB",
-      "storage": "256GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "spread_ratio": 0.0,
-      "acu_epoch_low": 0.00328518,
-      "acu_epoch_base": 0.00328518,
-      "acu_epoch_high": 0.00328518,
-      "acu_month_base": 1.5768864,
-      "acu_month_conservative": 1.26150912,
-      "aae_ask": 0.0007167665454545454,
-      "conservative_aae_ask": 0.0005734132363636363,
-      "start_bid": 375,
-      "target": 475,
-      "hard_max": 700,
-      "aae_at_target": 0.0026558086736842104,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 32.15955259278386
+      "opportunity_score": 29.521281891599145
     },
     {
       "listing_id": "21107850",
@@ -1229,6 +1301,9 @@
       "title": "Samsung Galaxy Z Fold  6 mobil  512 GB rosa",
       "model": "Samsung Z Fold 6",
       "ask": 6000,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
       "acurastbot_device": "Samsung Z Fold 6",
       "configuration_id": 377,
       "ram": "12GB",
@@ -1246,10 +1321,10 @@
       "conservative_aae_ask": 0.00051588288,
       "start_bid": 900,
       "target": 1150,
-      "hard_max": 1725,
+      "hard_max": 1575,
       "aae_at_target": 0.0026915628521739132,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 28.932995541379025
+      "opportunity_score": 26.42224462983623
     },
     {
       "listing_id": "14037734",
@@ -1257,6 +1332,9 @@
       "title": "Samsung galaxy z Fold 6 1000 gb",
       "model": "Samsung Z Fold 6",
       "ask": 7000,
+      "core_android_min": 12,
+      "core_compatibility": true,
+      "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
       "acurastbot_device": "Samsung Z Fold 6",
       "configuration_id": 377,
       "ram": "12GB",
@@ -1274,76 +1352,41 @@
       "conservative_aae_ask": 0.0004421853257142857,
       "start_bid": 900,
       "target": 1150,
-      "hard_max": 1725,
+      "hard_max": 1575,
       "aae_at_target": 0.0026915628521739132,
       "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 24.799710464039165
+      "opportunity_score": 22.64763825414534
+    }
+  ],
+  "core_incompatible": [
+    {
+      "listing_id": "22710438",
+      "model": "OnePlus 9 Pro",
+      "url": "https://www.dba.dk/recommerce/forsale/item/22710438",
+      "reason": "listing indicates rooted/custom-ROM/unlocked-bootloader state"
+    },
+    {
+      "listing_id": "23535406",
+      "model": "Samsung Z Flip",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23535406",
+      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
       "listing_id": "23654542",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23654542",
-      "title": "Flot Galaxy z Flip 6",
       "model": "Samsung Z Flip",
-      "ask": 3000,
-      "acurastbot_device": "Samsung Z Flip",
-      "configuration_id": 369,
-      "ram": "8GB",
-      "storage": "256GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "spread_ratio": 0.0,
-      "acu_epoch_low": 0.00328518,
-      "acu_epoch_base": 0.00328518,
-      "acu_epoch_high": 0.00328518,
-      "acu_month_base": 1.5768864,
-      "acu_month_conservative": 1.26150912,
-      "aae_ask": 0.0005256288,
-      "conservative_aae_ask": 0.00042050303999999997,
-      "start_bid": 375,
-      "target": 475,
-      "hard_max": 700,
-      "aae_at_target": 0.0026558086736842104,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 23.583671901374835
+      "url": "https://www.dba.dk/recommerce/forsale/item/23654542",
+      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
       "listing_id": "23573534",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23573534",
-      "title": "Samsung Galaxy Z Flip mobil 256 GB Graphite",
       "model": "Samsung Z Flip",
-      "ask": 6999,
-      "acurastbot_device": "Samsung Z Flip",
-      "configuration_id": 369,
-      "ram": "8GB",
-      "storage": "256GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "spread_ratio": 0.0,
-      "acu_epoch_low": 0.00328518,
-      "acu_epoch_base": 0.00328518,
-      "acu_epoch_high": 0.00328518,
-      "acu_month_base": 1.5768864,
-      "acu_month_conservative": 1.26150912,
-      "aae_ask": 0.00022530167166738105,
-      "conservative_aae_ask": 0.00018024133733390483,
-      "start_bid": 375,
-      "target": 475,
-      "hard_max": 700,
-      "aae_at_target": 0.0026558086736842104,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "opportunity_score": 10.108732062312402
+      "url": "https://www.dba.dk/recommerce/forsale/item/23573534",
+      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     }
   ],
   "unsupported": [
     {
       "listing_id": "24036150",
-      "model": "Samsung Galaxy s22+",
-      "reason": "no unique exact AcurastBot device match"
-    },
-    {
-      "listing_id": "23769344",
       "model": "Samsung Galaxy s22+",
       "reason": "no unique exact AcurastBot device match"
     }
