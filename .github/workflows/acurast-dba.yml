@@ -4,6 +4,12 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '17 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'acurast_dba_report.py'
+      - 'acurast_valuation.py'
+      - '.github/workflows/acurast-dba.yml'
 
 permissions:
   contents: write
