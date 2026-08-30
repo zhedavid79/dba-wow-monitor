@@ -1,6 +1,6 @@
 # DBA WoW-PC verified price report v2
 
-Generated: 2026-08-30T17:20:19.359497+00:00
+Generated: 2026-08-30T18:03:21.754100+00:00
 
 Regression 24247594: **PASS** — 4399 DKK — disposed=False
 
