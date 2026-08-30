@@ -11,7 +11,7 @@ permissions:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,14 +23,16 @@ jobs:
         run: python dba_probe.py
       - name: Build verified WoW price report
         run: python dba_report_v2.py
+      - name: Build verified Acurast phone price report
+        run: python acurast_dba_report.py
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/latest.json results/latest_v2.json results/report_v2.md
+          git add results/latest.json results/latest_v2.json results/report_v2.md results/acurast_latest.json results/acurast_report.md
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "Update verified DBA price report [skip ci]"
+            git commit -m "Update verified DBA reports [skip ci]"
             git push
           fi
