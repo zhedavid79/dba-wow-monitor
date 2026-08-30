@@ -29,13 +29,13 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install requests beautifulsoup4
-      - name: Build verified WoW price report v8
-        run: python dba_report_v8.py
+      - name: Build verified WoW price report v9
+        run: python dba_report_v9.py
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/latest_v6.json results/report_v6.md
+          git add results/latest_v6.json results/report_v6.md results/report_v9.md
           if git diff --cached --quiet; then
             echo "No result changes"
           else
