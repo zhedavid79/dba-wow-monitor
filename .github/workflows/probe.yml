@@ -29,18 +29,16 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install requests beautifulsoup4
-      - name: Run structured-data regression probe
-        run: python dba_probe.py
-      - name: Build verified WoW price report
-        run: python dba_report_v2.py
+      - name: Build verified WoW price report v6
+        run: python dba_report_v6.py
       - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/latest.json results/latest_v2.json results/report_v2.md
+          git add results/latest_v6.json results/report_v6.md
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "Update verified DBA reports [skip ci]"
+            git commit -m "Update verified DBA WoW report v6 [skip ci]"
             git push
           fi
