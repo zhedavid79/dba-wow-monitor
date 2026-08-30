@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T20:14:34.379534+00:00",
+  "generated_at": "2026-08-30T20:16:30.362157+00:00",
   "valuation_gate": true,
   "core_gate": {
     "minimum_android": 12,
@@ -9,23 +9,27 @@
   "reward_calibration": {
     "status": "INSUFFICIENT_REFERENCE_MATCH",
     "scale": 1.0,
-    "matched": 3,
+    "matched": 2,
     "missing": [
       {
         "model": "Samsung Galaxy S20 Ultra",
+        "best_match_score": 0.75
+      },
+      {
+        "model": "OnePlus Nord 2T",
         "best_match_score": 0.667
       },
       {
         "model": "OnePlus Nord 2T",
-        "best_match_score": 0.6
-      },
-      {
-        "model": "OnePlus Nord 2T",
-        "best_match_score": 0.6
+        "best_match_score": 0.667
       },
       {
         "model": "OnePlus Nord 3",
-        "best_match_score": 0.6
+        "best_match_score": 0.667
+      },
+      {
+        "model": "Xiaomi 12 Pro",
+        "best_match_score": 1.0
       }
     ],
     "samples": [
@@ -42,13 +46,6 @@
         "match_score": 1.0,
         "configuration_id": 353,
         "bot_base_acu_epoch": 0.00523152
-      },
-      {
-        "model": "Xiaomi 12 Pro",
-        "matched_device": "Xiaomi Redmi Note 12 Pro+",
-        "match_score": 0.9,
-        "configuration_id": 176,
-        "bot_base_acu_epoch": 0.005815280000000001
       }
     ],
     "observed_floor": 0.0315
@@ -112,11 +109,11 @@
       "acu_month_bid_basis": 0.3768254783999999,
       "aae_ask": 0.029906784000000002,
       "conservative_aae_ask": 0.016747799039999997,
-      "start_bid": 75,
       "target": 75,
       "hard_max": 150,
+      "start_bid": 50,
       "aae_at_target": 0.01116519936,
-      "decision": "STRONG BID",
+      "decision": "BUY AT ASK",
       "opportunity_score": 663.8276382295031
     },
     {
@@ -149,11 +146,11 @@
       "acu_month_bid_basis": 0.6920678015999999,
       "aae_ask": 0.018308672,
       "conservative_aae_ask": 0.010252856319999998,
-      "start_bid": 125,
       "target": 150,
       "hard_max": 275,
+      "start_bid": 125,
       "aae_at_target": 0.010252856319999998,
-      "decision": "STRONG BID",
+      "decision": "BUY AT ASK",
       "opportunity_score": 406.38948316471055
     },
     {
@@ -186,9 +183,9 @@
       "acu_month_bid_basis": 0.39614158079999995,
       "aae_ask": 0.010479936000000002,
       "conservative_aae_ask": 0.00586876416,
-      "start_bid": 75,
       "target": 75,
       "hard_max": 150,
+      "start_bid": 75,
       "aae_at_target": 0.01173752832,
       "decision": "BID",
       "opportunity_score": 232.6184976517818
@@ -223,9 +220,9 @@
       "acu_month_bid_basis": 1.5786879184337377,
       "aae_ask": 0.010744917333333333,
       "conservative_aae_ask": 0.004677593832396259,
-      "start_bid": 275,
       "target": 350,
       "hard_max": 625,
+      "start_bid": 275,
       "aae_at_target": 0.006014049213080905,
       "decision": "BID",
       "opportunity_score": 185.40442591532909
@@ -260,9 +257,9 @@
       "acu_month_bid_basis": 0.9717019199999999,
       "aae_ask": 0.0064266,
       "conservative_aae_ask": 0.0035988959999999994,
-      "start_bid": 175,
       "target": 200,
       "hard_max": 375,
+      "start_bid": 175,
       "aae_at_target": 0.010796687999999999,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 142.64839375058597
@@ -297,9 +294,9 @@
       "acu_month_bid_basis": 1.1637114048,
       "aae_ask": 0.0046179024,
       "conservative_aae_ask": 0.002586025344,
-      "start_bid": 200,
       "target": 250,
       "hard_max": 450,
+      "start_bid": 200,
       "aae_at_target": 0.010344101376,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 102.5015342260256
@@ -334,9 +331,9 @@
       "acu_month_bid_basis": 1.1353112064,
       "aae_ask": 0.004505203199999999,
       "conservative_aae_ask": 0.0025229137919999998,
-      "start_bid": 200,
       "target": 250,
       "hard_max": 450,
+      "start_bid": 200,
       "aae_at_target": 0.010091655167999999,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 100.0
@@ -371,9 +368,9 @@
       "acu_month_bid_basis": 0.5480987904,
       "aae_ask": 0.0036310437395659432,
       "conservative_aae_ask": 0.002033384494156928,
-      "start_bid": 100,
       "target": 125,
       "hard_max": 225,
+      "start_bid": 100,
       "aae_at_target": 0.009743978496,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 80.59666963669792
@@ -408,9 +405,9 @@
       "acu_month_bid_basis": 0.7579849535999998,
       "aae_ask": 0.0033420853333333334,
       "conservative_aae_ask": 0.0018715677866666665,
-      "start_bid": 125,
       "target": 150,
       "hard_max": 300,
+      "start_bid": 125,
       "aae_at_target": 0.01122940672,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 74.1827878780991
@@ -445,9 +442,9 @@
       "acu_month_bid_basis": 0.6440841791999998,
       "aae_ask": 0.0031948619999999993,
       "conservative_aae_ask": 0.0017891227199999995,
-      "start_bid": 100,
       "target": 150,
       "hard_max": 250,
+      "start_bid": 100,
       "aae_at_target": 0.009541987839999998,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 70.91493675579382
@@ -482,9 +479,9 @@
       "acu_month_bid_basis": 0.7579849535999998,
       "aae_ask": 0.003166186105263158,
       "conservative_aae_ask": 0.0017730642189473682,
-      "start_bid": 125,
       "target": 150,
       "hard_max": 300,
+      "start_bid": 125,
       "aae_at_target": 0.01122940672,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 70.27843062135706
@@ -519,9 +516,9 @@
       "acu_month_bid_basis": 0.5480987904,
       "aae_ask": 0.0027187440000000004,
       "conservative_aae_ask": 0.00152249664,
-      "start_bid": 100,
       "target": 125,
       "hard_max": 225,
+      "start_bid": 100,
       "aae_at_target": 0.009743978496,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 60.34675639047757
@@ -556,9 +553,9 @@
       "acu_month_bid_basis": 0.6440841791999998,
       "aae_ask": 0.0025558895999999993,
       "conservative_aae_ask": 0.0014312981759999996,
-      "start_bid": 100,
       "target": 150,
       "hard_max": 250,
+      "start_bid": 100,
       "aae_at_target": 0.009541987839999998,
       "decision": "LOW OFFER / NEGOTIATE",
       "opportunity_score": 56.73194940463506
