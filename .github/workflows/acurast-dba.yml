@@ -44,5 +44,6 @@ jobs:
             echo "No Acurast result changes"
           else
             git commit -m "Update verified Acurast DBA report [skip ci]"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi
