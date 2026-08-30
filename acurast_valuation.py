@@ -225,11 +225,11 @@ def main():
          'reference_acquisition_dkk':REFERENCE_ACQUISITION_DKK,
          'farm_acurastbot_reference_acu_epoch':farm_ref,'farm_reference_device_count':len(farm_rewards),
          'token_price_reference_only':token_meta,'electricity_reference_only':{'dkk_kwh':ELECTRICITY_DKK_KWH},
-         'regression':src.get('regression'),'dba_counts':src.get('counts'),'ranked':valued,'unsupported':unsupported}
+         'dba_counts':src.get('counts'),'ranked':valued,'unsupported':unsupported}
     OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
 
     lines=['# Acurast DBA Value Hunter','',f"Generated: {out['generated_at']}",'',
-           f"DBA data gate: **PASS** — regression {src['regression']['listing_id']} = {src['regression']['price']} kr.",
+           'DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch.',
            f"AcurastBot data gate: **PASS** — farm reference based on {len(farm_rewards)} current-phone entries.",
            '', '> Primær rangering er **AAE = forventet ACU pr. måned pr. investeret DKK**. ACU spotpris bruges kun som scenariereference og påvirker ikke rangering, STARTBUD, TARGET eller HARD MAX.',
            '', '| # | Model | ASK | AcurastBot ACU/epoch | ACU/md | AAE ved ASK | Start | Target | Hard max | Beslutning |',
