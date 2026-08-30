@@ -12,10 +12,12 @@ ITEM_URL=BASE+'/recommerce/forsale/item/{id}'
 BOT_BASE='https://api.acurastbot.com'
 HEADERS={'User-Agent':'Mozilla/5.0','Accept-Language':'da-DK,da;q=0.9','Accept':'application/json,text/html;q=0.9,*/*;q=0.8'}
 TIMEOUT=25
+MOBILE_CATEGORY='2.93.3217.39'
+CATEGORY_MAX_PAGES=120
 ALLOWED_BRANDS={'samsung','oneplus','xiaomi','poco','motorola','google','nothing','asus','sony','oppo','realme','honor'}
 SALVAGE_QUERIES=['defekt samsung','defekt oneplus','defekt xiaomi','defekt motorola','defekt pixel','revnet skærm samsung','revnet skærm oneplus','skærm defekt android','burn in samsung','repareres android']
-ACCESSORY_RE=re.compile(r'(mobilcover|telefoncover|cover|covers|case|etui|skærmbeskytt|screenor|panserglas|beskyttelsesglas|privacy.?filter|kabel|ledning|oplader|charger|adapter|holder|mount|taske|pung|stativ|reservedel|reservedele|batteri\b|display\b|lcd\b|oled\b|skærm\s+til|kamera.?modul|bagglas|ramme\s+til)',re.I)
-COMPLETE_PHONE_RE=re.compile(r'\b(telefon|mobiltelefon|smartphone)\b',re.I)
+ACCESSORY_RE=re.compile(r'(mobilcover|telefoncover|cover|covers|case|etui|skærmbeskytt|screenor|panserglas|beskyttelsesglas|privacy.?filter|kabel|ledning|oplader|charger|adapter|holder|mount|taske|pung|stativ|reservedel|reservedele|batteri\b|display\b|lcd\b|oled\b|skærm\s+til|kamera.?modul|bagglas|ramme\s+til|stylus|s[ -]?pen\b)',re.I)
+COMPLETE_PHONE_RE=re.compile(r'\b(telefon|mobiltelefon|smartphone|mobil)\b',re.I)
 FUNCTION_RE=re.compile(r'\b(virker|fungerer|tænder|starter|defekt|revnet|ødelagt|skadet|imei|simkort|dual sim|factory reset|nulstillet|android\s*1[2-9])\b',re.I)
 SPEC_RE=re.compile(r'\b(?:4|6|8|10|12|16|18|24)\s*gb\s*(?:ram)?\b|\b(?:64|128|256|512|1024)\s*gb\b',re.I)
 
@@ -59,7 +61,6 @@ def build_catalog(s:requests.Session):
         if best_reward is None: continue
         full=f"{d.get('company','')} {model}".strip()
         aliases={norm(model),norm(full)}
-        # AcurastBot sometimes stores redundant brand names in model.
         if norm(model).startswith(brand+' '): aliases.add(norm(model)[len(brand)+1:])
         aliases={a for a in aliases if len(a)>=4}
         catalog.append({'label':full,'brand':d.get('company',''),'model':model,'aliases':aliases,'reward':best_reward,'processor_count':total_count})
@@ -79,14 +80,15 @@ def model_of(text:str,catalog)->str|None:
 
 def product_identity(title:str,description:str,model:str|None,price:int|None,catalog)->tuple[bool,str]:
     t=' '.join((title or '').split()); d=' '.join((description or '').split()); both=f'{t} {d}'
-    title_model=model_of(t,catalog)
-    if not model or title_model!=model: return False,'model not identified unambiguously in live title'
+    if not model: return False,'no AcurastBot-supported Android model resolved from live listing'
     if ACCESSORY_RE.search(t): return False,'accessory/part language in live title'
     complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both))
+    # Discovery is already constrained to DBA's Mobiltelefoner category. Stronger evidence is
+    # still required for suspicious ultra-cheap listings, while cosmetic/repairable phones survive.
     if price is not None and price < 150 and not (complete and (functional or specs)):
         return False,'sub-150 DKK listing lacks strong complete-phone evidence'
     if ACCESSORY_RE.search(d) and not (complete and functional): return False,'description indicates accessory/part rather than complete phone'
-    return True,'complete-phone identity passed'
+    return True,'Mobiltelefoner category + supported-model + complete-phone identity passed'
 
 
 def canonical_id_from_payload(payload):
@@ -117,42 +119,65 @@ def fetch_item(s,lid):
     return {'listing_id':lid,'bound_listing_id':bound,'identity_ok':bound==lid if bound else False,'url':ITEM_URL.format(id=lid),'title':str(item.get('title') or '').strip(),'price':amount(item.get('price')),'disposed':bool(item.get('disposed')),'trade_type':item.get('tradeType') or item.get('adViewTypeLabel'),'description':str(item.get('description') or ''),'location':item.get('location'),'extras':item.get('extras'),'meta':item.get('meta')}
 
 
+def add_search_docs(found:dict,docs:list,source:str,catalog):
+    added=0
+    for d in docs:
+        lid=str(d.get('id') or d.get('listingId') or d.get('itemId') or '')
+        title=str(d.get('heading') or d.get('title') or '').strip(); p=amount(d.get('price'))
+        if not lid or not title or p is None: continue
+        model=model_of(title,catalog)
+        is_new=lid not in found
+        r=found.setdefault(lid,{'listing_id':lid,'title_t0':title,'ask_t0':p,'model_t0':model,'sources':[]})
+        if source not in r['sources']: r['sources'].append(source)
+        if is_new: added+=1
+    return added
+
+
 def main():
     s=requests.Session(); Path('results').mkdir(exist_ok=True)
     catalog=build_catalog(s)
-    # Search the AcurastBot-observed high-reward Android universe, not a fixed farm-derived list.
-    top_models=[]
-    seen=set()
-    for x in catalog:
-        q=f"{x['brand']} {x['model']}".strip()
-        nq=norm(q)
-        if nq in seen: continue
-        seen.add(nq); top_models.append(q)
-        if len(top_models)>=55: break
-    brand_queries=['samsung galaxy','oneplus','xiaomi','poco','motorola edge','google pixel','nothing phone','asus rog phone','sony xperia','oppo','realme','honor']
-    QUERIES=top_models+brand_queries+SALVAGE_QUERIES
+    found={}; search_errors=[]; category_pages=0; category_docs=0
 
-    found={}; search_errors=[]
-    for q in QUERIES:
+    # PRIMARY DISCOVERY: crawl DBA's actual Mobiltelefoner category, cheapest first.
+    # Model resolution is deliberately downstream so listings are not lost just because
+    # the seller used an abbreviation, typo, generic title or placed model details in description.
+    previous_ids=None
+    for page in range(1,CATEGORY_MAX_PAGES+1):
+        try:
+            payload=getj(s,SEARCH_API,{'product_category':MOBILE_CATEGORY,'sort':'PRICE_ASC','page':page})
+            docs=payload.get('docs') or []
+            if not isinstance(docs,list): raise ValueError('structured DBA category search returned no docs list')
+            if not docs: break
+            ids=tuple(str(d.get('id') or d.get('listingId') or d.get('itemId') or '') for d in docs)
+            if ids==previous_ids: break  # fail-safe if backend ignores page
+            previous_ids=ids; category_pages+=1; category_docs+=len(docs)
+            add_search_docs(found,docs,f'category:{page}',catalog)
+        except Exception as e:
+            search_errors.append({'query':f'category page {page}','error':repr(e)})
+            if page==1: break
+            continue
+        time.sleep(.02)
+
+    # SECONDARY FALLBACK/COVERAGE: retain a small set of salvage searches. They may find
+    # miscategorised repairable phones, but they are no longer the primary discovery universe.
+    for q in SALVAGE_QUERIES:
         try:
             payload=getj(s,SEARCH_API,{'q':q,'sort':'PRICE_ASC'})
             docs=payload.get('docs') or []
             if not isinstance(docs,list): raise ValueError('structured DBA search returned no docs list')
-            for d in docs:
-                lid=str(d.get('id') or d.get('listingId') or d.get('itemId') or '')
-                title=str(d.get('heading') or d.get('title') or '').strip(); p=amount(d.get('price')); model=model_of(title,catalog)
-                if not lid or not title or p is None or not model: continue
-                r=found.setdefault(lid,{'listing_id':lid,'title_t0':title,'ask_t0':p,'model':model,'queries':[]}); r['queries'].append(q)
+            add_search_docs(found,docs,'salvage:'+q,catalog)
         except Exception as e: search_errors.append({'query':q,'error':repr(e)})
         time.sleep(.02)
+
     if not found:
         out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':False,'reason':'PRICE DATA GATE FAILED — no structured DBA candidates','search_errors':search_errors}
         Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8'); raise SystemExit(out['reason'])
 
     verified=[]; excluded=[]
+    # T1 is where product/model identity is resolved from the live same-listing object.
     for r in found.values():
         try:
-            t1=fetch_item(s,r['listing_id']); model=model_of(t1['title'],catalog)
+            t1=fetch_item(s,r['listing_id']); model=model_of(f"{t1['title']} {t1['description']}",catalog)
             if not t1['identity_ok']: excluded.append({**r,'reason':'listing identity mismatch','t1':t1}); continue
             if t1['disposed']: excluded.append({**r,'reason':'disposed/inactive','t1':t1}); continue
             if t1['price'] is None or not t1['title']: excluded.append({**r,'reason':'missing live price/title','t1':t1}); continue
@@ -170,22 +195,21 @@ def main():
     for model,rows in sorted(by_model.items()):
         asks=sorted(r['ask_t1'] for r in rows); market.append({'model':model,'n':len(asks),'min_ask':min(asks),'median_ask':statistics.median(asks),'max_ask':max(asks)})
 
-    # Re-fetch more than the old 30-cheapest cap so high-output phones are not lost before valuation.
-    preliminary=sorted(verified,key=lambda r:(r['ask_t1'],r['model']))[:80]; final=[]
+    preliminary=sorted(verified,key=lambda r:(r['ask_t1'],r['model']))[:120]; final=[]
     for r in preliminary:
         try:
-            t2=fetch_item(s,r['listing_id']); model=model_of(t2['title'],catalog); prod_ok,reason=product_identity(t2['title'],t2['description'],model,int(t2['price']) if t2['price'] is not None else None,catalog)
+            t2=fetch_item(s,r['listing_id']); model=model_of(f"{t2['title']} {t2['description']}",catalog); prod_ok,reason=product_identity(t2['title'],t2['description'],model,int(t2['price']) if t2['price'] is not None else None,catalog)
             if not (t2['identity_ok'] and not t2['disposed'] and t2['price'] is not None and t2['title'] and prod_ok): continue
             final.append({**r,'model':model,'ask_t2':int(t2['price']),'title':t2['title'],'description':t2['description'],'product_identity_reason_t2':reason,'final_timestamp':datetime.now(timezone.utc).isoformat()})
         except Exception: pass
         time.sleep(.02)
     if not final: raise SystemExit('PRICE DATA GATE FAILED — no final refetched candidates')
 
-    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'data_gate':'structured T0 discovery + same-listing T1 + final T2 refetch','discovery_method':'dynamic AcurastBot high-reward Android model universe + brand/salvage queries','counts':{'queries':len(QUERIES),'catalog_models':len(catalog),'search_errors':len(search_errors),'t0_unique':len(found),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
+    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'data_gate':'DBA Mobiltelefoner category T0 + same-listing T1 + final T2 refetch','discovery_method':'PRIMARY: DBA Mobiltelefoner category 2.93.3217.39, price-ascending pagination; SECONDARY: salvage queries','counts':{'category_pages':category_pages,'category_docs':category_docs,'salvage_queries':len(SALVAGE_QUERIES),'catalog_models':len(catalog),'search_errors':len(search_errors),'t0_unique':len(found),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
     Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-    lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'','DBA data gate: **PASS** — structured discovery + live same-listing verification + final refetch','',f"Queries: {len(QUERIES)} | T0: {len(found)} | T1 phone-verified: {len(verified)} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
+    lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'','DBA data gate: **PASS** — Mobiltelefoner category discovery + live same-listing verification + final refetch','',f"Category pages: {category_pages} | category docs: {category_docs} | T0 unique: {len(found)} | T1 phone-verified: {len(verified)} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
     for i,r in enumerate(final,1): lines.append(f"| {i} | {r['model']} | {r['ask_t2']} kr. | [{r['title']}]({r['url']}) |")
     Path('results/acurast_report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print(json.dumps({'gate':True,'catalog_models':len(catalog),'queries':len(QUERIES),'t0':len(found),'verified_phone':len(verified),'final':len(final),'top':[{k:r[k] for k in ('listing_id','model','ask_t2','title','url')} for r in final[:10]]},ensure_ascii=False,indent=2))
+    print(json.dumps({'gate':True,'discovery':'Mobiltelefoner category primary','category_pages':category_pages,'category_docs':category_docs,'catalog_models':len(catalog),'t0':len(found),'verified_phone':len(verified),'final':len(final),'top':[{k:r[k] for k in ('listing_id','model','ask_t2','title','url')} for r in final[:10]]},ensure_ascii=False,indent=2))
 
 if __name__=='__main__': main()
