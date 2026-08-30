@@ -1,10 +1,10 @@
 # DBA WoW-PC verified price report v2
 
-Generated: 2026-08-30T16:54:47.990715+00:00
+Generated: 2026-08-30T17:10:52.893351+00:00
 
 Regression 24247594: **PASS** — 4399 DKK — disposed=False
 
-Structured T0 records: 615
+Structured T0 records: 618
 T1 verified ranked records: 49
 
 | Rank | ASK | Class | GPU | CPU | Listing |
