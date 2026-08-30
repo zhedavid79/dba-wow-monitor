@@ -98,37 +98,35 @@ def exact_device(devices:list[dict[str,Any]],label:str)->dict[str,Any]|None:
     return hits[0] if len(hits)==1 else None
 
 
-def reference_tokens(s:str)->set[str]:
-    return {t for t in norm(s).split() if t not in REFERENCE_GENERIC_TOKENS}
+def reference_key(s:str)->str:
+    # Normalize community naming differences without collapsing distinct product families.
+    n=norm(s)
+    n=re.sub(r'([a-z]+)(\d)',r'\1 \2',n)
+    toks=[t for t in n.split() if t not in REFERENCE_GENERIC_TOKENS]
+    dedup=[]
+    for t in toks:
+        if not dedup or dedup[-1]!=t: dedup.append(t)
+    return ' '.join(dedup)
 
 
 def reference_device(devices:list[dict[str,Any]],label:str,stats_by_cfg:dict[int,dict[str,Any]])->tuple[dict[str,Any]|None,float]:
-    # Reference labels are human model names, while AcurastBot naming is not fully
-    # consistent (e.g. optional Galaxy/5G/company duplication). Match only within
-    # the same brand and require high token overlap; candidate valuation remains exact.
-    target=reference_tokens(label)
-    if not target:return None,0.0
-    brand=norm(label).split()[0]
-    ranked=[]
+    # Reference calibration is exact after narrow naming normalization. This prevents
+    # e.g. Xiaomi 12 Pro from ever matching Redmi Note 12 Pro+ while accepting
+    # Galaxy/no-Galaxy, 5G/LTE and Nord2T/Nord 2T spelling differences.
+    target=reference_key(label)
+    hits=[]; best_overlap=0.0
     for d in devices:
-        company=norm(d.get('company',''))
         full=f"{d.get('company','')} {d.get('model','')}"
-        if brand not in company.split() and brand not in norm(full).split():continue
-        cand=reference_tokens(full)
-        if not cand:continue
-        inter=len(target & cand)
-        if not inter:continue
-        containment=inter/len(target)
-        union=len(target | cand)
-        jaccard=inter/union if union else 0.0
-        score=0.75*containment+0.25*jaccard
-        # Prefer devices that actually have observed reward statistics.
+        cand=reference_key(full)
+        tt=set(target.split()); ct=set(cand.split())
+        if tt:
+            best_overlap=max(best_overlap,len(tt & ct)/len(tt))
+        if cand!=target: continue
         observed=sum(int(stats_by_cfg.get(int(c.get('id')),{}).get('processorCount') or 0) for c in (d.get('configurations') or []) if c.get('id') is not None)
-        ranked.append((score,observed,d))
-    if not ranked:return None,0.0
-    ranked.sort(key=lambda x:(x[0],x[1]),reverse=True)
-    score,_,best=ranked[0]
-    return (best,score) if score>=0.80 else (None,score)
+        hits.append((observed,d))
+    if not hits:return None,best_overlap
+    hits.sort(key=lambda x:x[0],reverse=True)
+    return hits[0][1],1.0
 
 
 def choose_config(device:dict[str,Any],title:str,stats_by_cfg:dict[int,dict[str,Any]]):
@@ -254,11 +252,12 @@ def main():
     target_hurdle=percentile(market_aae,0.75); hard_hurdle=percentile(market_aae,0.50); start_hurdle=target_hurdle*1.25
     for x in valued:
         bm=x['acu_month_bid_basis']
-        x['start_bid']=round25(bm/start_hurdle) if start_hurdle>0 else 25
+        raw_start=round25(bm/start_hurdle) if start_hurdle>0 else 25
         x['target']=round25(bm/target_hurdle) if target_hurdle>0 else x['ask']
         x['hard_max']=round25(bm/hard_hurdle) if hard_hurdle>0 else x['target']
+        x['start_bid']=min(raw_start,x['ask'])
         x['aae_at_target']=x['acu_month_conservative']/x['target'] if x['target'] else 0
-        if x['ask']<=x['target']:x['decision']='STRONG BID'
+        if x['ask']<=x['target']:x['decision']='BUY AT ASK'
         elif x['ask']<=x['hard_max']:x['decision']='BID'
         else:x['decision']='LOW OFFER / NEGOTIATE'
         x['opportunity_score']=100*(x['conservative_aae_ask']/hard_hurdle) if hard_hurdle>0 else 0
