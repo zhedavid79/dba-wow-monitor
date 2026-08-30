@@ -13,6 +13,7 @@ ITEM_URL=BASE+'/recommerce/forsale/item/{id}'
 BOT_BASE='https://api.acurastbot.com'
 HEADERS={'User-Agent':'Mozilla/5.0','Accept-Language':'da-DK,da;q=0.9','Accept':'application/json,text/html;q=0.9,*/*;q=0.8'}
 TIMEOUT=15
+REQUEST_RETRIES=3
 MOBILE_CATEGORY='2.93.3217.39'
 MAX_ASK_DKK=1000
 CATEGORY_MAX_PAGES=30
@@ -28,7 +29,16 @@ SPEC_RE=re.compile(r'\b(?:4|6|8|10|12|16|18|24)\s*gb\s*(?:ram)?\b|\b(?:64|128|25
 
 
 def getj(s,url,params=None):
-    r=s.get(url,params=params,headers=HEADERS,timeout=TIMEOUT); r.raise_for_status(); return r.json()
+    last=None
+    for attempt in range(REQUEST_RETRIES):
+        try:
+            r=s.get(url,params=params,headers=HEADERS,timeout=TIMEOUT); r.raise_for_status(); return r.json()
+        except (requests.ConnectionError,requests.Timeout,requests.HTTPError) as e:
+            last=e
+            if isinstance(e,requests.HTTPError) and e.response is not None and e.response.status_code < 500 and e.response.status_code != 429:
+                raise
+            if attempt+1<REQUEST_RETRIES: time.sleep(0.35*(2**attempt))
+    raise last
 
 
 def amount(v:Any)->int|None:
@@ -43,6 +53,12 @@ def amount(v:Any)->int|None:
 
 def norm(s:str)->str:
     return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
+
+
+def compact(s:str)->str:
+    n=norm(s)
+    n=re.sub(r'([a-z]+)(\d)',r'\1 \2',n)
+    return re.sub(r'\s+','',n)
 
 
 def build_catalog(s:requests.Session):
@@ -74,13 +90,22 @@ def build_catalog(s:requests.Session):
 
 
 def model_of(text:str,catalog)->str|None:
-    nt=' '+norm(text)+' '
-    matches=[]
+    nt=' '+norm(text)+' '; ct=compact(text); matches=[]
     for x in catalog:
         for a in x['aliases']:
-            if f' {a} ' in nt:
-                matches.append((len(a.split()),len(a),x['label']))
-    return max(matches)[2] if matches else None
+            boundary=f' {a} ' in nt
+            ca=compact(a)
+            compact_hit=len(ca)>=5 and ca in ct
+            if boundary or compact_hit:
+                # Prefer the most specific model string. This prevents S21 from
+                # beating S21 Ultra and also tolerates Nord2T vs Nord 2T naming.
+                matches.append((len(ca),len(a.split()),len(a),x['label']))
+    return max(matches)[3] if matches else None
+
+
+def resolve_model(title:str,description:str,catalog)->str|None:
+    # Seller title is the strongest identity signal. Only use description as fallback.
+    return model_of(title,catalog) or model_of(f'{title} {description}',catalog)
 
 
 def product_identity(title:str,description:str,model:str|None,price:int|None,catalog)->tuple[bool,str]:
@@ -119,9 +144,17 @@ def canonical_id_from_payload(payload):
 
 
 def fetch_item(lid):
-    r=requests.get(ITEM_URL.format(id=lid),headers=HEADERS,timeout=TIMEOUT); r.raise_for_status()
-    payload=r.json(); item=payload.get('itemData') or {}; bound=canonical_id_from_payload(payload)
-    return {'listing_id':lid,'bound_listing_id':bound,'identity_ok':bound==lid if bound else False,'url':ITEM_URL.format(id=lid),'title':str(item.get('title') or '').strip(),'price':amount(item.get('price')),'disposed':bool(item.get('disposed')),'trade_type':item.get('tradeType') or item.get('adViewTypeLabel'),'description':str(item.get('description') or ''),'location':item.get('location'),'extras':item.get('extras'),'meta':item.get('meta')}
+    last=None
+    for attempt in range(REQUEST_RETRIES):
+        try:
+            r=requests.get(ITEM_URL.format(id=lid),headers=HEADERS,timeout=TIMEOUT); r.raise_for_status()
+            payload=r.json(); item=payload.get('itemData') or {}; bound=canonical_id_from_payload(payload)
+            return {'listing_id':lid,'bound_listing_id':bound,'identity_ok':bound==lid if bound else False,'url':ITEM_URL.format(id=lid),'title':str(item.get('title') or '').strip(),'price':amount(item.get('price')),'disposed':bool(item.get('disposed')),'trade_type':item.get('tradeType') or item.get('adViewTypeLabel'),'description':str(item.get('description') or ''),'location':item.get('location'),'extras':item.get('extras'),'meta':item.get('meta')}
+        except (requests.ConnectionError,requests.Timeout,requests.HTTPError) as e:
+            last=e
+            if isinstance(e,requests.HTTPError) and e.response is not None and e.response.status_code < 500 and e.response.status_code != 429: raise
+            if attempt+1<REQUEST_RETRIES: time.sleep(0.25*(2**attempt))
+    raise last
 
 
 def add_search_docs(found:dict,docs:list,source:str,catalog):
@@ -144,9 +177,10 @@ def t1_pool(found:dict)->list[dict]:
 
 def verify_t1(r,catalog):
     try:
-        t1=fetch_item(r['listing_id']); model=model_of(f"{t1['title']} {t1['description']}",catalog)
+        t1=fetch_item(r['listing_id']); model=resolve_model(t1['title'],t1['description'],catalog)
         if not t1['identity_ok']: return None,{**r,'reason':'listing identity mismatch','t1':t1}
         if t1['disposed']: return None,{**r,'reason':'disposed/inactive','t1':t1}
+        if str(t1.get('trade_type') or '').lower() not in ('til salg','for sale','sælges',''): return None,{**r,'reason':f"unsupported trade type: {t1.get('trade_type')}",'t1':t1}
         if t1['price'] is None or not t1['title']: return None,{**r,'reason':'missing live price/title','t1':t1}
         if int(t1['price']) > MAX_ASK_DKK: return None,{**r,'reason':f'live ASK exceeds {MAX_ASK_DKK} DKK ceiling','t1':t1}
         prod_ok,prod_reason=product_identity(t1['title'],t1['description'],model,int(t1['price']),catalog)
@@ -158,8 +192,9 @@ def verify_t1(r,catalog):
 
 def verify_t2(r,catalog):
     try:
-        t2=fetch_item(r['listing_id']); model=model_of(f"{t2['title']} {t2['description']}",catalog)
+        t2=fetch_item(r['listing_id']); model=resolve_model(t2['title'],t2['description'],catalog)
         if t2['price'] is None or int(t2['price']) > MAX_ASK_DKK: return None
+        if str(t2.get('trade_type') or '').lower() not in ('til salg','for sale','sælges',''): return None
         prod_ok,reason=product_identity(t2['title'],t2['description'],model,int(t2['price']),catalog)
         if not (t2['identity_ok'] and not t2['disposed'] and t2['title'] and prod_ok): return None
         return {**r,'model':model,'ask_t2':int(t2['price']),'title':t2['title'],'description':t2['description'],'product_identity_reason_t2':reason,'final_timestamp':datetime.now(timezone.utc).isoformat()}
@@ -191,6 +226,12 @@ def main():
             if page==1: break
             continue
         time.sleep(.01)
+
+    # Category discovery is the authoritative coverage source. Salvage searches are
+    # supplemental only; never silently produce a "PASS" report from salvage alone.
+    if category_pages==0:
+        out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':False,'reason':'PRICE DATA GATE FAILED — DBA Mobiltelefoner category unavailable after retries','search_errors':search_errors}
+        Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8'); raise SystemExit(out['reason'])
 
     for q in SALVAGE_QUERIES:
         try:
@@ -230,7 +271,7 @@ def main():
     final.sort(key=lambda r:(r['ask_t2'],r['model']))
     if not final: raise SystemExit('PRICE DATA GATE FAILED — no final refetched candidates <= 1000 DKK')
 
-    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'max_ask_dkk':MAX_ASK_DKK,'data_gate':'DBA Mobiltelefoner category T0 + same-listing T1 + final T2 refetch','discovery_method':'PRIMARY: DBA Mobiltelefoner category 2.93.3217.39, price-ascending and hard-capped at 1000 DKK; SECONDARY: salvage queries; concurrent live verification','counts':{'category_pages':category_pages,'category_docs':category_docs,'salvage_queries':len(SALVAGE_QUERIES),'catalog_models':len(catalog),'search_errors':len(search_errors),'t0_unique':len(found),'t1_attempted':len(pool),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
+    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'max_ask_dkk':MAX_ASK_DKK,'data_gate':'DBA Mobiltelefoner category T0 + same-listing T1 + final T2 refetch','discovery_method':'PRIMARY: DBA Mobiltelefoner category 2.93.3217.39, price-ascending and hard-capped at 1000 DKK; SECONDARY: salvage queries; retry-hardened concurrent live verification','counts':{'category_pages':category_pages,'category_docs':category_docs,'salvage_queries':len(SALVAGE_QUERIES),'catalog_models':len(catalog),'search_errors':len(search_errors),'t0_unique':len(found),'t1_attempted':len(pool),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
     Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
     lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'',f"DBA data gate: **PASS** — Mobiltelefoner category, ASK <= {MAX_ASK_DKK} DKK, live same-listing verification + final refetch",'',f"Category pages: {category_pages} | category docs: {category_docs} | T0 unique <= {MAX_ASK_DKK}: {len(found)} | T1 attempted: {len(pool)} | T1 phone-verified: {len(verified)} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
     for i,r in enumerate(final,1): lines.append(f"| {i} | {r['model']} | {r['ask_t2']} kr. | [{r['title']}]({r['url']}) |")
