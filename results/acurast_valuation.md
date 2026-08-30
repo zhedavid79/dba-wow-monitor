@@ -1,6 +1,6 @@
 # Acurast DBA Profitability Hunter
 
-Generated: 2026-08-30T20:33:39.878661+00:00
+Generated: 2026-08-30T20:42:43.824770+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing T1 + final T2 refetch.
 Acurast Core gate: **PASS** — only verified Android 12+ model families may enter ranking; unknown compatibility is excluded.
