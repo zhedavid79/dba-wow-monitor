@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json, re, statistics, time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -11,9 +12,14 @@ SEARCH_API=BASE+'/recommerce/forsale/search/api/search/SEARCH_ID_BAP_COMMON'
 ITEM_URL=BASE+'/recommerce/forsale/item/{id}'
 BOT_BASE='https://api.acurastbot.com'
 HEADERS={'User-Agent':'Mozilla/5.0','Accept-Language':'da-DK,da;q=0.9','Accept':'application/json,text/html;q=0.9,*/*;q=0.8'}
-TIMEOUT=25
+TIMEOUT=15
 MOBILE_CATEGORY='2.93.3217.39'
-CATEGORY_MAX_PAGES=120
+CATEGORY_MAX_PAGES=30
+T1_CHEAPEST_POOL=500
+T1_MODEL_PRICE_CEILING=5000
+T1_WORKERS=12
+T2_WORKERS=12
+T2_LIMIT=120
 ALLOWED_BRANDS={'samsung','oneplus','xiaomi','poco','motorola','google','nothing','asus','sony','oppo','realme','honor'}
 SALVAGE_QUERIES=['defekt samsung','defekt oneplus','defekt xiaomi','defekt motorola','defekt pixel','revnet skærm samsung','revnet skærm oneplus','skærm defekt android','burn in samsung','repareres android']
 ACCESSORY_RE=re.compile(r'(mobilcover|telefoncover|cover|covers|case|etui|skærmbeskytt|screenor|panserglas|beskyttelsesglas|privacy.?filter|kabel|ledning|oplader|charger|adapter|holder|mount|taske|pung|stativ|reservedel|reservedele|batteri\b|display\b|lcd\b|oled\b|skærm\s+til|kamera.?modul|bagglas|ramme\s+til|stylus|s[ -]?pen\b)',re.I)
@@ -83,8 +89,6 @@ def product_identity(title:str,description:str,model:str|None,price:int|None,cat
     if not model: return False,'no AcurastBot-supported Android model resolved from live listing'
     if ACCESSORY_RE.search(t): return False,'accessory/part language in live title'
     complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both))
-    # Discovery is already constrained to DBA's Mobiltelefoner category. Stronger evidence is
-    # still required for suspicious ultra-cheap listings, while cosmetic/repairable phones survive.
     if price is not None and price < 150 and not (complete and (functional or specs)):
         return False,'sub-150 DKK listing lacks strong complete-phone evidence'
     if ACCESSORY_RE.search(d) and not (complete and functional): return False,'description indicates accessory/part rather than complete phone'
@@ -114,8 +118,9 @@ def canonical_id_from_payload(payload):
     return None
 
 
-def fetch_item(s,lid):
-    payload=getj(s,ITEM_URL.format(id=lid)); item=payload.get('itemData') or {}; bound=canonical_id_from_payload(payload)
+def fetch_item(lid):
+    r=requests.get(ITEM_URL.format(id=lid),headers=HEADERS,timeout=TIMEOUT); r.raise_for_status()
+    payload=r.json(); item=payload.get('itemData') or {}; bound=canonical_id_from_payload(payload)
     return {'listing_id':lid,'bound_listing_id':bound,'identity_ok':bound==lid if bound else False,'url':ITEM_URL.format(id=lid),'title':str(item.get('title') or '').strip(),'price':amount(item.get('price')),'disposed':bool(item.get('disposed')),'trade_type':item.get('tradeType') or item.get('adViewTypeLabel'),'description':str(item.get('description') or ''),'location':item.get('location'),'extras':item.get('extras'),'meta':item.get('meta')}
 
 
@@ -133,14 +138,43 @@ def add_search_docs(found:dict,docs:list,source:str,catalog):
     return added
 
 
+def t1_pool(found:dict)->list[dict]:
+    rows=sorted(found.values(),key=lambda r:(int(r['ask_t0']),r['listing_id']))
+    selected={r['listing_id']:r for r in rows[:T1_CHEAPEST_POOL]}
+    for r in rows:
+        if r.get('model_t0') and int(r['ask_t0'])<=T1_MODEL_PRICE_CEILING:
+            selected.setdefault(r['listing_id'],r)
+    return sorted(selected.values(),key=lambda r:(int(r['ask_t0']),r['listing_id']))
+
+
+def verify_t1(r,catalog):
+    try:
+        t1=fetch_item(r['listing_id']); model=model_of(f"{t1['title']} {t1['description']}",catalog)
+        if not t1['identity_ok']: return None,{**r,'reason':'listing identity mismatch','t1':t1}
+        if t1['disposed']: return None,{**r,'reason':'disposed/inactive','t1':t1}
+        if t1['price'] is None or not t1['title']: return None,{**r,'reason':'missing live price/title','t1':t1}
+        prod_ok,prod_reason=product_identity(t1['title'],t1['description'],model,int(t1['price']),catalog)
+        if not prod_ok: return None,{**r,'reason':'PRODUCT IDENTITY GATE: '+prod_reason,'t1':t1}
+        return {**r,**t1,'model':model,'ask_t1':int(t1['price']),'product_identity_ok':True,'product_identity_reason':prod_reason,'price_changed':int(t1['price'])!=int(r['ask_t0']),'t1_timestamp':datetime.now(timezone.utc).isoformat()},None
+    except Exception as e:
+        return None,{**r,'reason':f'T1 fetch failed: {e!r}'}
+
+
+def verify_t2(r,catalog):
+    try:
+        t2=fetch_item(r['listing_id']); model=model_of(f"{t2['title']} {t2['description']}",catalog)
+        prod_ok,reason=product_identity(t2['title'],t2['description'],model,int(t2['price']) if t2['price'] is not None else None,catalog)
+        if not (t2['identity_ok'] and not t2['disposed'] and t2['price'] is not None and t2['title'] and prod_ok): return None
+        return {**r,'model':model,'ask_t2':int(t2['price']),'title':t2['title'],'description':t2['description'],'product_identity_reason_t2':reason,'final_timestamp':datetime.now(timezone.utc).isoformat()}
+    except Exception:
+        return None
+
+
 def main():
     s=requests.Session(); Path('results').mkdir(exist_ok=True)
     catalog=build_catalog(s)
     found={}; search_errors=[]; category_pages=0; category_docs=0
 
-    # PRIMARY DISCOVERY: crawl DBA's actual Mobiltelefoner category, cheapest first.
-    # Model resolution is deliberately downstream so listings are not lost just because
-    # the seller used an abbreviation, typo, generic title or placed model details in description.
     previous_ids=None
     for page in range(1,CATEGORY_MAX_PAGES+1):
         try:
@@ -149,17 +183,15 @@ def main():
             if not isinstance(docs,list): raise ValueError('structured DBA category search returned no docs list')
             if not docs: break
             ids=tuple(str(d.get('id') or d.get('listingId') or d.get('itemId') or '') for d in docs)
-            if ids==previous_ids: break  # fail-safe if backend ignores page
+            if ids==previous_ids: break
             previous_ids=ids; category_pages+=1; category_docs+=len(docs)
             add_search_docs(found,docs,f'category:{page}',catalog)
         except Exception as e:
             search_errors.append({'query':f'category page {page}','error':repr(e)})
             if page==1: break
             continue
-        time.sleep(.02)
+        time.sleep(.01)
 
-    # SECONDARY FALLBACK/COVERAGE: retain a small set of salvage searches. They may find
-    # miscategorised repairable phones, but they are no longer the primary discovery universe.
     for q in SALVAGE_QUERIES:
         try:
             payload=getj(s,SEARCH_API,{'q':q,'sort':'PRICE_ASC'})
@@ -167,27 +199,21 @@ def main():
             if not isinstance(docs,list): raise ValueError('structured DBA search returned no docs list')
             add_search_docs(found,docs,'salvage:'+q,catalog)
         except Exception as e: search_errors.append({'query':q,'error':repr(e)})
-        time.sleep(.02)
+        time.sleep(.01)
 
     if not found:
         out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':False,'reason':'PRICE DATA GATE FAILED — no structured DBA candidates','search_errors':search_errors}
         Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8'); raise SystemExit(out['reason'])
 
-    verified=[]; excluded=[]
-    # T1 is where product/model identity is resolved from the live same-listing object.
-    for r in found.values():
-        try:
-            t1=fetch_item(s,r['listing_id']); model=model_of(f"{t1['title']} {t1['description']}",catalog)
-            if not t1['identity_ok']: excluded.append({**r,'reason':'listing identity mismatch','t1':t1}); continue
-            if t1['disposed']: excluded.append({**r,'reason':'disposed/inactive','t1':t1}); continue
-            if t1['price'] is None or not t1['title']: excluded.append({**r,'reason':'missing live price/title','t1':t1}); continue
-            prod_ok,prod_reason=product_identity(t1['title'],t1['description'],model,int(t1['price']),catalog)
-            if not prod_ok: excluded.append({**r,'reason':'PRODUCT IDENTITY GATE: '+prod_reason,'t1':t1}); continue
-            verified.append({**r,**t1,'model':model,'ask_t1':int(t1['price']),'product_identity_ok':True,'product_identity_reason':prod_reason,'price_changed':int(t1['price'])!=int(r['ask_t0']),'t1_timestamp':datetime.now(timezone.utc).isoformat()})
-        except Exception as e: excluded.append({**r,'reason':f'T1 fetch failed: {e!r}'})
-        time.sleep(.02)
-    if not verified:
-        raise SystemExit('PRICE DATA GATE FAILED — no T1 verified active phones')
+    pool=t1_pool(found); verified=[]; excluded=[]
+    with ThreadPoolExecutor(max_workers=T1_WORKERS) as ex:
+        futures={ex.submit(verify_t1,r,catalog):r for r in pool}
+        for fut in as_completed(futures):
+            ok,bad=fut.result()
+            if ok: verified.append(ok)
+            elif bad: excluded.append(bad)
+    verified.sort(key=lambda r:(r['ask_t1'],r['model']))
+    if not verified: raise SystemExit('PRICE DATA GATE FAILED — no T1 verified active phones')
 
     by_model={}
     for r in verified: by_model.setdefault(r['model'],[]).append(r)
@@ -195,21 +221,20 @@ def main():
     for model,rows in sorted(by_model.items()):
         asks=sorted(r['ask_t1'] for r in rows); market.append({'model':model,'n':len(asks),'min_ask':min(asks),'median_ask':statistics.median(asks),'max_ask':max(asks)})
 
-    preliminary=sorted(verified,key=lambda r:(r['ask_t1'],r['model']))[:120]; final=[]
-    for r in preliminary:
-        try:
-            t2=fetch_item(s,r['listing_id']); model=model_of(f"{t2['title']} {t2['description']}",catalog); prod_ok,reason=product_identity(t2['title'],t2['description'],model,int(t2['price']) if t2['price'] is not None else None,catalog)
-            if not (t2['identity_ok'] and not t2['disposed'] and t2['price'] is not None and t2['title'] and prod_ok): continue
-            final.append({**r,'model':model,'ask_t2':int(t2['price']),'title':t2['title'],'description':t2['description'],'product_identity_reason_t2':reason,'final_timestamp':datetime.now(timezone.utc).isoformat()})
-        except Exception: pass
-        time.sleep(.02)
+    preliminary=verified[:T2_LIMIT]; final=[]
+    with ThreadPoolExecutor(max_workers=T2_WORKERS) as ex:
+        futures=[ex.submit(verify_t2,r,catalog) for r in preliminary]
+        for fut in as_completed(futures):
+            row=fut.result()
+            if row: final.append(row)
+    final.sort(key=lambda r:(r['ask_t2'],r['model']))
     if not final: raise SystemExit('PRICE DATA GATE FAILED — no final refetched candidates')
 
-    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'data_gate':'DBA Mobiltelefoner category T0 + same-listing T1 + final T2 refetch','discovery_method':'PRIMARY: DBA Mobiltelefoner category 2.93.3217.39, price-ascending pagination; SECONDARY: salvage queries','counts':{'category_pages':category_pages,'category_docs':category_docs,'salvage_queries':len(SALVAGE_QUERIES),'catalog_models':len(catalog),'search_errors':len(search_errors),'t0_unique':len(found),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
+    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'data_gate':'DBA Mobiltelefoner category T0 + same-listing T1 + final T2 refetch','discovery_method':'PRIMARY: DBA Mobiltelefoner category 2.93.3217.39, price-ascending pagination; SECONDARY: salvage queries; bounded/concurrent live verification','counts':{'category_pages':category_pages,'category_docs':category_docs,'salvage_queries':len(SALVAGE_QUERIES),'catalog_models':len(catalog),'search_errors':len(search_errors),'t0_unique':len(found),'t1_attempted':len(pool),'t1_verified_active_product':len(verified),'excluded':len(excluded),'product_identity_excluded':sum('PRODUCT IDENTITY GATE' in x.get('reason','') for x in excluded),'final_refetched':len(final)},'market':market,'ranked_by_verified_ask':final,'excluded':excluded,'search_errors':search_errors}
     Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-    lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'','DBA data gate: **PASS** — Mobiltelefoner category discovery + live same-listing verification + final refetch','',f"Category pages: {category_pages} | category docs: {category_docs} | T0 unique: {len(found)} | T1 phone-verified: {len(verified)} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
+    lines=['# Acurast DBA verified phone report','',f"Generated: {out['generated_at']}",'','DBA data gate: **PASS** — Mobiltelefoner category discovery + live same-listing verification + final refetch','',f"Category pages: {category_pages} | category docs: {category_docs} | T0 unique: {len(found)} | T1 attempted: {len(pool)} | T1 phone-verified: {len(verified)} | Final: {len(final)}",'','## Lowest verified complete-phone listings','', '| Rank | Model | ASK | Listing |','|---:|---|---:|---|']
     for i,r in enumerate(final,1): lines.append(f"| {i} | {r['model']} | {r['ask_t2']} kr. | [{r['title']}]({r['url']}) |")
     Path('results/acurast_report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print(json.dumps({'gate':True,'discovery':'Mobiltelefoner category primary','category_pages':category_pages,'category_docs':category_docs,'catalog_models':len(catalog),'t0':len(found),'verified_phone':len(verified),'final':len(final),'top':[{k:r[k] for k in ('listing_id','model','ask_t2','title','url')} for r in final[:10]]},ensure_ascii=False,indent=2))
+    print(json.dumps({'gate':True,'discovery':'Mobiltelefoner category primary','category_pages':category_pages,'category_docs':category_docs,'catalog_models':len(catalog),'t0':len(found),'t1_attempted':len(pool),'verified_phone':len(verified),'final':len(final),'top':[{k:r[k] for k in ('listing_id','model','ask_t2','title','url')} for r in final[:10]]},ensure_ascii=False,indent=2))
 
 if __name__=='__main__': main()
