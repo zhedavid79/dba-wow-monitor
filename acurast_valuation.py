@@ -13,10 +13,6 @@ BOT_BASE='https://api.acurastbot.com'
 EPOCHS_MONTH=16.0*30.0
 CORE_MIN_ANDROID=12
 
-# AcurastBot currently labels its reward values cACU. We retain the 0.01 conversion as
-# the raw community-tool scale, then calibrate the absolute TOTAL-ACU estimate against
-# an observed production floor. The calibration multiplier is uniform across candidates,
-# so it changes absolute ACU/epoch estimates but not relative AAE ranking or bid ordering.
 BOT_REWARD_TO_ACU=0.01
 OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR=0.0315
 REFERENCE_FARM=[
@@ -57,6 +53,7 @@ CORE_ANDROID12_RULES=[
 ]
 
 INCOMPATIBLE_STATE_RE=re.compile(r'\b(rooted|rootet|magisk|lineage\s*os|lineageos|custom\s*rom|bootloader\s*(?:unlocked|oplåst)|oplåst\s+bootloader)\b',re.I)
+REFERENCE_GENERIC_TOKENS={'galaxy','smartphone','phone','mobile','moto','5g','lte'}
 
 
 def get_json(url:str)->Any:
@@ -99,6 +96,39 @@ def exact_device(devices:list[dict[str,Any]],label:str)->dict[str,Any]|None:
         full=norm(f"{d.get('company','')} {d.get('model','')}"); model=norm(d.get('model',''))
         if nl==full or nl==model:hits.append(d)
     return hits[0] if len(hits)==1 else None
+
+
+def reference_tokens(s:str)->set[str]:
+    return {t for t in norm(s).split() if t not in REFERENCE_GENERIC_TOKENS}
+
+
+def reference_device(devices:list[dict[str,Any]],label:str,stats_by_cfg:dict[int,dict[str,Any]])->tuple[dict[str,Any]|None,float]:
+    # Reference labels are human model names, while AcurastBot naming is not fully
+    # consistent (e.g. optional Galaxy/5G/company duplication). Match only within
+    # the same brand and require high token overlap; candidate valuation remains exact.
+    target=reference_tokens(label)
+    if not target:return None,0.0
+    brand=norm(label).split()[0]
+    ranked=[]
+    for d in devices:
+        company=norm(d.get('company',''))
+        full=f"{d.get('company','')} {d.get('model','')}"
+        if brand not in company.split() and brand not in norm(full).split():continue
+        cand=reference_tokens(full)
+        if not cand:continue
+        inter=len(target & cand)
+        if not inter:continue
+        containment=inter/len(target)
+        union=len(target | cand)
+        jaccard=inter/union if union else 0.0
+        score=0.75*containment+0.25*jaccard
+        # Prefer devices that actually have observed reward statistics.
+        observed=sum(int(stats_by_cfg.get(int(c.get('id')),{}).get('processorCount') or 0) for c in (d.get('configurations') or []) if c.get('id') is not None)
+        ranked.append((score,observed,d))
+    if not ranked:return None,0.0
+    ranked.sort(key=lambda x:(x[0],x[1]),reverse=True)
+    score,_,best=ranked[0]
+    return (best,score) if score>=0.80 else (None,score)
 
 
 def choose_config(device:dict[str,Any],title:str,stats_by_cfg:dict[int,dict[str,Any]]):
@@ -150,17 +180,18 @@ def rewards(st:dict[str,Any]):
 def reference_calibration(devices:list[dict[str,Any]],stats_by_cfg:dict[int,dict[str,Any]])->dict[str,Any]:
     samples=[]; missing=[]
     for label,title_hint,weight in REFERENCE_FARM:
-        d=exact_device(devices,label)
+        d,match_score=reference_device(devices,label,stats_by_cfg)
         if not d:
-            missing.append(label); continue
+            missing.append({'model':label,'best_match_score':round(match_score,3)}); continue
         picked=choose_config(d,title_hint,stats_by_cfg)
         if not picked:
-            missing.append(label); continue
+            missing.append({'model':label,'reason':'matched device has no reward stats'}); continue
         cfg,st=picked; rw=rewards(st)
         if not rw:
-            missing.append(label); continue
+            missing.append({'model':label,'reason':'matched config has no expectedReward'}); continue
+        matched_name=f"{d.get('company','')} {d.get('model','')}".strip()
         for _ in range(weight):
-            samples.append({'model':label,'configuration_id':cfg.get('id'),'bot_base_acu_epoch':rw['base']})
+            samples.append({'model':label,'matched_device':matched_name,'match_score':round(match_score,3),'configuration_id':cfg.get('id'),'bot_base_acu_epoch':rw['base']})
     if len(samples)<4:
         return {'status':'INSUFFICIENT_REFERENCE_MATCH','scale':1.0,'matched':len(samples),'missing':missing,'samples':samples,
                 'observed_floor':OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR}
@@ -250,7 +281,7 @@ def main():
         f"Core-incompatible/unverified exclusions: **{len(core_incompatible)}**.",
         'AcurastBot data gate: **PASS** — dynamic market-wide device/config matching.',
         f"Absolute ACU/epoch calibration: **{cal_status}** — scale ×{cal_scale:.3f}, matched reference devices {cal_match}/7, observed floor {OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR:.4f} ACU/epoch/device.",'',
-        '> ACU/epoch is now a farm-calibrated TOTAL-reward estimate. AcurastBot remains the relative device-performance signal. The calibration is one uniform multiplier, so it does not change model ranking; low-n evidence haircuts still control bid ceilings.','',
+        '> ACU/epoch is a production-floor-calibrated TOTAL-reward estimate. AcurastBot supplies relative device performance; calibration is uniform and therefore preserves relative ranking.','',
         f"Target-hurdle (P75): {target_hurdle:.6f} konservativ ACU/md/DKK | Hard-max hurdle (P50): {hard_hurdle:.6f}",'',
         '| # | Model | ASK | Android | ACU/epoch est. | ACU/epoch konservativ | Conf. | n | Evidence | AAE konservativ | Score | Start | Target | Hard max | Beslutning | Link |',
         '|---:|---|---:|---|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---|---|']
