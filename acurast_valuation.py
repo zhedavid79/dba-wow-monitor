@@ -11,6 +11,53 @@ OUTPUT=Path('results/acurast_valuation.json')
 REPORT=Path('results/acurast_valuation.md')
 BOT_BASE='https://api.acurastbot.com'
 EPOCHS_MONTH=16.0*30.0
+CORE_MIN_ANDROID=12
+
+# Acurast Core requires Android 12+. This is intentionally fail-closed:
+# a device must match a known Android-12-capable model/family rule to enter valuation.
+# Unknown models remain discoverable in DBA, but are excluded before AAE/bid ranking.
+CORE_ANDROID12_RULES=[
+    # Samsung flagship/foldable families with official Android 12+ availability.
+    (r'\bsamsung\s+(?:galaxy\s+)?s10(?:e|\+|\s+plus)?\b', 'Samsung S10 family updated to Android 12'),
+    (r'\bsamsung\s+(?:galaxy\s+)?s(?:20|21|22|23|24|25)(?:\s*(?:fe|ultra|\+|plus))?\b', 'Samsung S20+ family supports Android 12+'),
+    (r'\bsamsung\s+(?:galaxy\s+)?note\s*10(?:\+|plus)?\b', 'Samsung Note 10 family updated to Android 12'),
+    (r'\bsamsung\s+(?:galaxy\s+)?note\s*20(?:\s*ultra)?\b', 'Samsung Note 20 family supports Android 12+'),
+    (r'\bsamsung\s+(?:galaxy\s+)?(?:z\s*)?(?:flip|fold)\s*[1-9]\b', 'Samsung Z Fold/Flip family supports Android 12+'),
+    (r'\bsamsung\s+(?:galaxy\s+)?a(?:13|14|15|23|24|25|33|34|35|52|53|54|55|56|72|73)\b', 'Samsung A-series model supports Android 12+'),
+
+    # Google Pixel: Pixel 3a/4 and newer received or launched with Android 12+.
+    (r'\bgoogle\s+pixel\s+(?:3a|4(?:a)?|5(?:a)?|6(?:a|\s*pro)?|7(?:a|\s*pro)?|8(?:a|\s*pro)?|9(?:a|\s*pro|\s*pro\s*xl)?|10)\b', 'Google Pixel model supports Android 12+'),
+
+    # OnePlus 7 generation and newer officially reached Android 12 or later.
+    (r'\boneplus\s+(?:7|7t|8|8t|9|10|11|12|13)(?:\s*pro)?\b', 'OnePlus flagship family supports Android 12+'),
+    (r'\boneplus\s+nord(?:\s+ce)?\s*(?:2|2t|3|4)(?:\s*lite)?\b', 'OnePlus Nord family supports Android 12+'),
+    (r'\boneplus\s+nord\s*n(?:10|20|30)\b', 'OnePlus Nord N-series model supports Android 12+'),
+
+    # Motorola models/families known to have Android 12+ support.
+    (r'\bmotorola\s+g(?:30|31|32|34|42|52|53|54|60|62|71|72|73|82|84|85|100|200)\b', 'Motorola G-series model supports Android 12+'),
+    (r'\bmotorola\s+e(?:13|14|20|22|32|40)\b', 'Motorola E-series model supports Android 12+'),
+    (r'\bmotorola\s+edge\s*(?:20|30|40|50)(?:\s*(?:neo|fusion|pro|ultra))?\b', 'Motorola Edge family supports Android 12+'),
+    (r'\bmotorola\s+razr\s*(?:2022|40|50)(?:\s*(?:ultra))?\b', 'Motorola Razr model supports Android 12+'),
+
+    # Xiaomi / Redmi / Poco families commonly represented in AcurastBot and officially Android-12-capable.
+    (r'\bxiaomi\s+(?:mi\s*)?(?:10|10t|11|11t|12|12t|13|13t|14|15)(?:\s*(?:lite|pro|ultra))?\b', 'Xiaomi flagship family supports Android 12+'),
+    (r'\bxiaomi\s+redmi\s+note\s*(?:10|11|12|13|14)(?:\s*(?:pro|pro\s*\+|pro\+|plus))?\b', 'Redmi Note family supports Android 12+'),
+    (r'\bxiaomi\s+redmi\s+(?:10|11|12|13|14)(?:\s*[a-z0-9]+)?\b', 'Redmi model supports Android 12+'),
+    (r'\bpoco\s+(?:f3|f4|f5|f6|x3\s*pro|x4|x5|x6|m4|m5|m6)(?:\s*(?:pro|gt))?\b', 'Poco model supports Android 12+'),
+
+    # Other modern Android families searched by the discovery layer.
+    (r'\bnothing\s+phone\s*\(?[1-9][a-z]?\)?\b', 'Nothing Phone supports Android 12+'),
+    (r'\basus\s+rog\s+phone\s*(?:5|6|7|8|9)\b', 'ASUS ROG Phone model supports Android 12+'),
+    (r'\bsony\s+xperia\s+(?:1|5|10)\s*(?:ii|iii|iv|v|vi)\b', 'Sony Xperia generation supports Android 12+'),
+    (r'\boppo\s+(?:find\s+x[3-9]|reno\s*[6-9]|reno\s*1[0-9])(?:\s*(?:pro|lite|neo))?\b', 'OPPO model supports Android 12+'),
+    (r'\brealme\s+(?:gt|gt\s*neo|[89]|1[0-9])(?:\s*(?:pro|plus|5g|master))?\b', 'Realme model supports Android 12+'),
+    (r'\bhonor\s+(?:50|60|70|80|90|100|200|magic\s*[4-9])(?:\s*(?:pro|lite))?\b', 'Honor model supports Android 12+'),
+]
+
+INCOMPATIBLE_STATE_RE=re.compile(
+    r'\b(rooted|rootet|magisk|lineage\s*os|lineageos|custom\s*rom|bootloader\s*(?:unlocked|oplåst)|oplåst\s+bootloader)\b',
+    re.I,
+)
 
 
 def get_json(url:str)->Any:
@@ -37,6 +84,17 @@ def round25(v:float)->int:
     return max(25,int(round(v/25.0)*25))
 
 
+def core_compatibility(model:str,title:str='',description:str='')->tuple[bool,str]:
+    text=f'{model} {title} {description}'
+    if INCOMPATIBLE_STATE_RE.search(text):
+        return False,'listing indicates rooted/custom-ROM/unlocked-bootloader state'
+    nm=norm(model)
+    for pattern,reason in CORE_ANDROID12_RULES:
+        if re.search(pattern,nm,re.I):
+            return True,reason
+    return False,f'Android {CORE_MIN_ANDROID}+ compatibility not verified by conservative Core allowlist'
+
+
 def exact_device(devices:list[dict[str,Any]],label:str)->dict[str,Any]|None:
     nl=norm(label)
     hits=[]
@@ -58,7 +116,6 @@ def choose_config(device:dict[str,Any],title:str,stats_by_cfg:dict[int,dict[str,
         penalty=0.0
         if wanted_ram is not None: penalty+=abs((cr or wanted_ram)-wanted_ram)*10
         if wanted_storage is not None: penalty+=abs((cs or wanted_storage)-wanted_storage)/32
-        # Prefer configurations with more observed processors when title does not disambiguate.
         count=int(st.get('processorCount') or 0)
         penalty-=min(count,20)*0.05
         opts.append((penalty,-count,c,st))
@@ -73,12 +130,10 @@ def rewards(st:dict[str,Any]):
     med=f('expectedRewardMedian'); avg=f('expectedRewardAvg'); lo=f('expectedRewardMin'); hi=f('expectedRewardMax')
     base=med if med is not None else avg
     if base is None:return None
-    # AcurastBot UI labels expectedReward as cACU/epoch.
     base*=0.01; lo=(lo if lo is not None else base/0.01)*0.01; hi=(hi if hi is not None else base/0.01)*0.01
     count=max(1,int(st.get('processorCount') or 1))
     spread=max(0.0,hi-lo)
     spread_ratio=spread/base if base>0 else 1.0
-    # Confidence discounts tiny pools and highly dispersed observations, without deleting scarce-but-interesting models.
     sample_factor=min(1.0,0.70+0.10*math.log2(count+1))
     spread_factor=max(0.70,1.0-min(spread_ratio,1.0)*0.20)
     confidence_factor=sample_factor*spread_factor
@@ -103,9 +158,13 @@ def main():
     stats=get_json(BOT_BASE+'/devices/pool-statistics')
     stats_by_cfg={int(s['deviceConfigurationId']):s for s in stats if s.get('deviceConfigurationId') is not None}
 
-    valued=[]; unsupported=[]
+    valued=[]; unsupported=[]; core_incompatible=[]
     for row in src.get('ranked_by_verified_ask',[]):
         model=row.get('model') or ''
+        core_ok,core_reason=core_compatibility(model,row.get('title',''),row.get('description',''))
+        if not core_ok:
+            core_incompatible.append({'listing_id':row.get('listing_id'),'model':model,'url':row.get('url'),'reason':core_reason})
+            continue
         d=exact_device(devices,model)
         if not d:
             unsupported.append({'listing_id':row.get('listing_id'),'model':model,'reason':'no unique exact AcurastBot device match'}); continue
@@ -121,15 +180,14 @@ def main():
         aae=acu_month/ask if ask else 0.0
         conservative_aae=conservative_month/ask if ask else 0.0
         valued.append({'listing_id':row['listing_id'],'url':row['url'],'title':row['title'],'model':model,'ask':ask,
+            'core_android_min':CORE_MIN_ANDROID,'core_compatibility':True,'core_compatibility_reason':core_reason,
             'acurastbot_device':f"{d.get('company')} {d.get('model')}",'configuration_id':cfg.get('id'),'ram':cfg.get('ram'),'storage':cfg.get('storage'),
             'processor_count':rw['count'],'confidence':rw['confidence'],'confidence_factor':rw['confidence_factor'],'spread_ratio':rw['spread_ratio'],
             'acu_epoch_low':rw['low'],'acu_epoch_base':rw['base'],'acu_epoch_high':rw['high'],'acu_month_base':acu_month,'acu_month_conservative':conservative_month,
             'aae_ask':aae,'conservative_aae_ask':conservative_aae})
 
-    if not valued: raise SystemExit('ACURASTBOT DATA GATE FAILED — no valuatable live phones')
+    if not valued: raise SystemExit('ACURAST CORE DATA GATE FAILED — no Android 12+ valuatable live phones')
 
-    # Market-relative accumulation hurdles: no farm calibration and no spot-price dependence.
-    # Target = price that preserves top-quartile conservative AAE. Hard max = median conservative AAE.
     market_aae=[x['conservative_aae_ask'] for x in valued if x['conservative_aae_ask']>0]
     target_hurdle=percentile(market_aae,0.75)
     hard_hurdle=percentile(market_aae,0.50)
@@ -143,29 +201,37 @@ def main():
         if x['ask']<=x['target']: x['decision']='STRONG BID'
         elif x['ask']<=x['hard_max']: x['decision']='BID'
         else: x['decision']='LOW OFFER / NEGOTIATE'
-        # Opportunity score rewards conservative AAE and confidence; 100 ~= current market median.
         x['opportunity_score']=100*(x['conservative_aae_ask']/hard_hurdle) if hard_hurdle>0 else 0
 
     valued.sort(key=lambda x:(-x['conservative_aae_ask'],-x['confidence_factor'],x['ask']))
     out={'generated_at':datetime.now(timezone.utc).isoformat(),'valuation_gate':True,
-         'method':'market-wide AcurastBot expected reward + verified DBA ASK; conservative AAE ranking; no farm calibration; no ACU spot-price dependence',
+         'core_gate':{'minimum_android':CORE_MIN_ANDROID,'mode':'hard fail-closed allowlist','excluded_count':len(core_incompatible)},
+         'method':'market-wide AcurastBot expected reward + verified DBA ASK + hard Android 12 Core compatibility gate; conservative AAE ranking; no farm calibration; no ACU spot-price dependence',
          'hurdles':{'start_conservative_aae':start_hurdle,'target_conservative_aae_p75':target_hurdle,'hard_max_conservative_aae_p50':hard_hurdle},
-         'dba_counts':src.get('counts'),'ranked':valued,'unsupported':unsupported}
+         'dba_counts':src.get('counts'),'ranked':valued,'core_incompatible':core_incompatible,'unsupported':unsupported}
     OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
 
     lines=['# Acurast DBA Profitability Hunter','',f"Generated: {out['generated_at']}",'',
         'DBA data gate: **PASS** — structured discovery + same-listing T1 + final T2 refetch.',
+        f'Acurast Core gate: **PASS** — only verified Android {CORE_MIN_ANDROID}+ model families may enter ranking; unknown compatibility is excluded.',
+        f'Core-incompatible/unverified exclusions: **{len(core_incompatible)}**.',
         'AcurastBot data gate: **PASS** — dynamic market-wide device/config matching.', '',
         '> Rangeringen bruger **konservativ AAE = confidence-adjusteret forventet ACU pr. måned pr. DKK**. Din nuværende farm og ACU spotpris indgår ikke i rangering eller budgrænser.', '',
         f"Target-hurdle (P75): {target_hurdle:.6f} konservativ ACU/md/DKK | Hard-max hurdle (P50): {hard_hurdle:.6f}",'',
-        '| # | Model | ASK | ACU/md base | ACU/md konservativ | Conf. | n | AAE konservativ | Score | Start | Target | Hard max | Beslutning | Link |',
-        '|---:|---|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|---|---|']
+        '| # | Model | ASK | Android gate | ACU/md base | ACU/md konservativ | Conf. | n | AAE konservativ | Score | Start | Target | Hard max | Beslutning | Link |',
+        '|---:|---|---:|---|---:|---:|---|---:|---:|---:|---:|---:|---:|---|---|']
     for i,x in enumerate(valued,1):
-        lines.append(f"| {i} | {x['model']} | {x['ask']} | {x['acu_month_base']:.2f} | {x['acu_month_conservative']:.2f} | {x['confidence']} | {x['processor_count']} | {x['conservative_aae_ask']:.5f} | {x['opportunity_score']:.0f} | {x['start_bid']} | {x['target']} | {x['hard_max']} | {x['decision']} | [DBA]({x['url']}) |")
+        lines.append(f"| {i} | {x['model']} | {x['ask']} | {CORE_MIN_ANDROID}+ PASS | {x['acu_month_base']:.2f} | {x['acu_month_conservative']:.2f} | {x['confidence']} | {x['processor_count']} | {x['conservative_aae_ask']:.5f} | {x['opportunity_score']:.0f} | {x['start_bid']} | {x['target']} | {x['hard_max']} | {x['decision']} | [DBA]({x['url']}) |")
     lines+=['','## Bedste muligheder nu','']
     for x in valued[:12]:
-        lines.append(f"- **{x['model']}** — ASK {x['ask']} kr. — score {x['opportunity_score']:.0f} — {x['confidence']} confidence (n={x['processor_count']}) — start {x['start_bid']} / target {x['target']} / max {x['hard_max']} — **{x['decision']}** — [DBA]({x['url']})")
+        lines.append(f"- **{x['model']}** — ASK {x['ask']} kr. — Android {CORE_MIN_ANDROID}+ PASS — score {x['opportunity_score']:.0f} — {x['confidence']} confidence (n={x['processor_count']}) — start {x['start_bid']} / target {x['target']} / max {x['hard_max']} — **{x['decision']}** — [DBA]({x['url']})")
+    if core_incompatible:
+        lines+=['','## Ekskluderet af Acurast Core Android-gate','']
+        for x in core_incompatible[:30]:
+            url=x.get('url') or ''
+            link=f" — [DBA]({url})" if url else ''
+            lines.append(f"- {x.get('model') or 'Ukendt model'} — {x['reason']}{link}")
     REPORT.write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print(json.dumps({'valuation_gate':True,'ranked':len(valued),'unsupported':len(unsupported),'target_hurdle':target_hurdle,'hard_hurdle':hard_hurdle,'top':[{k:x[k] for k in ('listing_id','model','ask','conservative_aae_ask','opportunity_score','start_bid','target','hard_max','decision','url')} for x in valued[:10]]},ensure_ascii=False,indent=2))
+    print(json.dumps({'valuation_gate':True,'core_min_android':CORE_MIN_ANDROID,'core_excluded':len(core_incompatible),'ranked':len(valued),'unsupported':len(unsupported),'target_hurdle':target_hurdle,'hard_hurdle':hard_hurdle,'top':[{k:x[k] for k in ('listing_id','model','ask','conservative_aae_ask','opportunity_score','start_bid','target','hard_max','decision','url')} for x in valued[:10]]},ensure_ascii=False,indent=2))
 
 if __name__=='__main__': main()
