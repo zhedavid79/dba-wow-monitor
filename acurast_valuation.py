@@ -13,6 +13,22 @@ BOT_BASE='https://api.acurastbot.com'
 EPOCHS_MONTH=16.0*30.0
 CORE_MIN_ANDROID=12
 
+# AcurastBot currently labels its reward values cACU. We retain the 0.01 conversion as
+# the raw community-tool scale, then calibrate the absolute TOTAL-ACU estimate against
+# an observed production floor. The calibration multiplier is uniform across candidates,
+# so it changes absolute ACU/epoch estimates but not relative AAE ranking or bid ordering.
+BOT_REWARD_TO_ACU=0.01
+OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR=0.0315
+REFERENCE_FARM=[
+    ('Samsung Galaxy S10','Samsung Galaxy S10',1),
+    ('Samsung Galaxy S20 Ultra','Samsung Galaxy S20 Ultra 12 GB',1),
+    ('Samsung Galaxy S21 Ultra','Samsung Galaxy S21 Ultra 12 GB',1),
+    ('OnePlus Nord 2T','OnePlus Nord 2T 8 GB',1),
+    ('OnePlus Nord 2T','OnePlus Nord 2T',1),
+    ('OnePlus Nord 3','OnePlus Nord 3',1),
+    ('Xiaomi 12 Pro','Xiaomi 12 Pro 12 GB',1),
+]
+
 CORE_ANDROID12_RULES=[
     (r'\bsamsung\s+(?:galaxy\s+)?s10(?:e|\+|\s+plus)?\b', 'Samsung S10 family updated to Android 12'),
     (r'\bsamsung\s+(?:galaxy\s+)?s(?:20|21|22|23|24|25)(?:\s*(?:fe|ultra|\+|plus))?\b', 'Samsung S20+ family supports Android 12+'),
@@ -100,8 +116,6 @@ def choose_config(device:dict[str,Any],title:str,stats_by_cfg:dict[int,dict[str,
 
 
 def bid_evidence_factor(count:int)->float:
-    # Separate valuation/ranking uncertainty from willingness to pay.
-    # Thin AcurastBot pools may still surface as opportunities, but cannot generate aggressive bid ceilings.
     if count<=1:return 0.45
     if count==2:return 0.60
     if count<=4:return 0.75
@@ -116,14 +130,14 @@ def rewards(st:dict[str,Any]):
     med=f('expectedRewardMedian'); avg=f('expectedRewardAvg'); lo=f('expectedRewardMin'); hi=f('expectedRewardMax')
     base=med if med is not None else avg
     if base is None:return None
-    base*=0.01; lo=(lo if lo is not None else base/0.01)*0.01; hi=(hi if hi is not None else base/0.01)*0.01
+    base*=BOT_REWARD_TO_ACU
+    lo=(lo if lo is not None else base/BOT_REWARD_TO_ACU)*BOT_REWARD_TO_ACU
+    hi=(hi if hi is not None else base/BOT_REWARD_TO_ACU)*BOT_REWARD_TO_ACU
     count=max(1,int(st.get('processorCount') or 1))
     spread=max(0.0,hi-lo); spread_ratio=spread/base if base>0 else 1.0
     sample_factor=min(1.0,0.70+0.10*math.log2(count+1))
     spread_factor=max(0.70,1.0-min(spread_ratio,1.0)*0.20)
     confidence_factor=sample_factor*spread_factor
-    # A conservative estimate must never be ABOVE either the observed minimum or a 70% haircut of base.
-    # With n=1, min==base, so the 70% haircut remains active instead of pretending one observation is a floor.
     conservative_raw=min(lo,base*0.70)
     conservative=conservative_raw*confidence_factor
     evidence_factor=bid_evidence_factor(count)
@@ -131,6 +145,30 @@ def rewards(st:dict[str,Any]):
     confidence='HIGH' if count>=10 and spread_ratio<=0.25 else ('MEDIUM' if count>=3 and spread_ratio<=0.60 else 'LOW')
     return {'low':lo,'base':base,'high':hi,'conservative':conservative,'bid_reward':bid_reward,'count':count,'spread_ratio':spread_ratio,
             'confidence_factor':confidence_factor,'bid_evidence_factor':evidence_factor,'confidence':confidence}
+
+
+def reference_calibration(devices:list[dict[str,Any]],stats_by_cfg:dict[int,dict[str,Any]])->dict[str,Any]:
+    samples=[]; missing=[]
+    for label,title_hint,weight in REFERENCE_FARM:
+        d=exact_device(devices,label)
+        if not d:
+            missing.append(label); continue
+        picked=choose_config(d,title_hint,stats_by_cfg)
+        if not picked:
+            missing.append(label); continue
+        cfg,st=picked; rw=rewards(st)
+        if not rw:
+            missing.append(label); continue
+        for _ in range(weight):
+            samples.append({'model':label,'configuration_id':cfg.get('id'),'bot_base_acu_epoch':rw['base']})
+    if len(samples)<4:
+        return {'status':'INSUFFICIENT_REFERENCE_MATCH','scale':1.0,'matched':len(samples),'missing':missing,'samples':samples,
+                'observed_floor':OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR}
+    bot_mean=sum(x['bot_base_acu_epoch'] for x in samples)/len(samples)
+    scale=max(1.0,OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR/bot_mean) if bot_mean>0 else 1.0
+    return {'status':'CALIBRATED','scale':scale,'matched':len(samples),'missing':missing,'samples':samples,
+            'bot_reference_mean':bot_mean,'observed_floor':OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR,
+            'calibrated_reference_mean':bot_mean*scale}
 
 
 def percentile(values:list[float],p:float)->float:
@@ -147,6 +185,8 @@ def main():
     if not src.get('gate_passed'):raise SystemExit('PRICE DATA GATE FAILED upstream')
     devices=get_json(BOT_BASE+'/devices/with-counts'); stats=get_json(BOT_BASE+'/devices/pool-statistics')
     stats_by_cfg={int(s['deviceConfigurationId']):s for s in stats if s.get('deviceConfigurationId') is not None}
+    calibration=reference_calibration(devices,stats_by_cfg)
+    reward_scale=float(calibration['scale'])
 
     valued=[]; unsupported=[]; core_incompatible=[]
     for row in src.get('ranked_by_verified_ask',[]):
@@ -164,13 +204,16 @@ def main():
         if not rw:
             unsupported.append({'listing_id':row.get('listing_id'),'model':model,'reason':'no expectedReward stats'}); continue
         ask=int(row.get('ask_t2') or row.get('ask_t1'))
-        acu_month=rw['base']*EPOCHS_MONTH; conservative_month=rw['conservative']*EPOCHS_MONTH; bid_month=rw['bid_reward']*EPOCHS_MONTH
+        est=rw['base']*reward_scale; cons=rw['conservative']*reward_scale; bid_basis=rw['bid_reward']*reward_scale
+        lo=rw['low']*reward_scale; hi=rw['high']*reward_scale
+        acu_month=est*EPOCHS_MONTH; conservative_month=cons*EPOCHS_MONTH; bid_month=bid_basis*EPOCHS_MONTH
         aae=acu_month/ask if ask else 0.0; conservative_aae=conservative_month/ask if ask else 0.0
         valued.append({'listing_id':row['listing_id'],'url':row['url'],'title':row['title'],'model':model,'ask':ask,
             'core_android_min':CORE_MIN_ANDROID,'core_compatibility':True,'core_compatibility_reason':core_reason,
             'acurastbot_device':f"{d.get('company')} {d.get('model')}",'configuration_id':cfg.get('id'),'ram':cfg.get('ram'),'storage':cfg.get('storage'),
             'processor_count':rw['count'],'confidence':rw['confidence'],'confidence_factor':rw['confidence_factor'],'bid_evidence_factor':rw['bid_evidence_factor'],'spread_ratio':rw['spread_ratio'],
-            'acu_epoch_low':rw['low'],'acu_epoch_estimate':rw['base'],'acu_epoch_conservative':rw['conservative'],'acu_epoch_bid_basis':rw['bid_reward'],'acu_epoch_high':rw['high'],
+            'acurastbot_acu_epoch_raw':rw['base'],'absolute_reward_scale':reward_scale,
+            'acu_epoch_low':lo,'acu_epoch_estimate':est,'acu_epoch_conservative':cons,'acu_epoch_bid_basis':bid_basis,'acu_epoch_high':hi,
             'acu_month_base':acu_month,'acu_month_conservative':conservative_month,'acu_month_bid_basis':bid_month,
             'aae_ask':aae,'conservative_aae_ask':conservative_aae})
 
@@ -179,7 +222,6 @@ def main():
     market_aae=[x['conservative_aae_ask'] for x in valued if x['conservative_aae_ask']>0]
     target_hurdle=percentile(market_aae,0.75); hard_hurdle=percentile(market_aae,0.50); start_hurdle=target_hurdle*1.25
     for x in valued:
-        # Ranking uses conservative reward. Bid ceilings use a second evidence haircut so n=1/n=2 cannot inflate willingness to pay.
         bm=x['acu_month_bid_basis']
         x['start_bid']=round25(bm/start_hurdle) if start_hurdle>0 else 25
         x['target']=round25(bm/target_hurdle) if target_hurdle>0 else x['ask']
@@ -193,18 +235,22 @@ def main():
     valued.sort(key=lambda x:(-x['conservative_aae_ask'],-x['confidence_factor'],x['ask']))
     out={'generated_at':datetime.now(timezone.utc).isoformat(),'valuation_gate':True,
          'core_gate':{'minimum_android':CORE_MIN_ANDROID,'mode':'hard fail-closed allowlist','excluded_count':len(core_incompatible)},
-         'method':'AcurastBot expected ACU/epoch + verified DBA ASK + hard Android 12 Core gate; conservative AAE ranking; separate evidence haircut for bid ceilings; no farm calibration; no ACU spot-price dependence',
+         'reward_calibration':calibration,
+         'method':'AcurastBot relative reward signal + observed production-floor calibration for absolute ACU/epoch + verified DBA ASK + hard Android 12 Core gate; conservative AAE ranking; separate evidence haircut for bid ceilings; no ACU spot-price dependence',
+         'ranking_invariance_note':'The absolute reward calibration is a uniform multiplier, so relative AAE ordering and market-relative bid ceilings are unchanged by the calibration scale.',
          'bid_evidence_policy':{'n<=1':0.45,'n=2':0.60,'n=3-4':0.75,'n=5-9':0.90,'n>=10':1.00},
          'hurdles':{'start_conservative_aae':start_hurdle,'target_conservative_aae_p75':target_hurdle,'hard_max_conservative_aae_p50':hard_hurdle},
          'dba_counts':src.get('counts'),'ranked':valued,'core_incompatible':core_incompatible,'unsupported':unsupported}
     OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
 
+    cal_status=calibration['status']; cal_scale=calibration['scale']; cal_match=calibration['matched']
     lines=['# Acurast DBA Profitability Hunter','',f"Generated: {out['generated_at']}",'',
         'DBA data gate: **PASS** — structured discovery + same-listing T1 + final T2 refetch.',
         'Acurast Core gate: **PASS** — only verified Android 12+ model families may enter ranking; unknown compatibility is excluded.',
         f"Core-incompatible/unverified exclusions: **{len(core_incompatible)}**.",
-        'AcurastBot data gate: **PASS** — dynamic market-wide device/config matching.','',
-        '> Rangering = konservativ AAE. ACU/epoch vises direkte. Budgrænser bruger et ekstra evidence-haircut ved små AcurastBot-samples, så n=1 ikke kan skabe kunstigt høje maxbud.','',
+        'AcurastBot data gate: **PASS** — dynamic market-wide device/config matching.',
+        f"Absolute ACU/epoch calibration: **{cal_status}** — scale ×{cal_scale:.3f}, matched reference devices {cal_match}/7, observed floor {OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR:.4f} ACU/epoch/device.",'',
+        '> ACU/epoch is now a farm-calibrated TOTAL-reward estimate. AcurastBot remains the relative device-performance signal. The calibration is one uniform multiplier, so it does not change model ranking; low-n evidence haircuts still control bid ceilings.','',
         f"Target-hurdle (P75): {target_hurdle:.6f} konservativ ACU/md/DKK | Hard-max hurdle (P50): {hard_hurdle:.6f}",'',
         '| # | Model | ASK | Android | ACU/epoch est. | ACU/epoch konservativ | Conf. | n | Evidence | AAE konservativ | Score | Start | Target | Hard max | Beslutning | Link |',
         '|---:|---|---:|---|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---|---|']
@@ -215,6 +261,7 @@ def main():
         lines.append(f"- **{x['model']}** — ASK {x['ask']} kr. — est. {x['acu_epoch_estimate']:.5f} ACU/epoch, konservativ {x['acu_epoch_conservative']:.5f} — {x['confidence']} (n={x['processor_count']}, evidence {x['bid_evidence_factor']:.2f}) — start {x['start_bid']} / target {x['target']} / max {x['hard_max']} — **{x['decision']}** — [DBA]({x['url']})")
     REPORT.write_text('\n'.join(lines)+'\n',encoding='utf-8')
     print(json.dumps({'valuation_gate':True,'ranked':len(valued),'core_excluded':len(core_incompatible),'unsupported':len(unsupported),
+        'reward_calibration':{'status':cal_status,'scale':cal_scale,'matched':cal_match,'observed_floor':OBSERVED_REFERENCE_AVG_ACU_EPOCH_FLOOR},
         'target_hurdle':target_hurdle,'hard_hurdle':hard_hurdle,'top':[{k:x[k] for k in ('listing_id','model','ask','acu_epoch_estimate','acu_epoch_conservative','processor_count','bid_evidence_factor','conservative_aae_ask','start_bid','target','hard_max','decision','url')} for x in valued[:10]]},ensure_ascii=False,indent=2))
 
 if __name__=='__main__':main()
