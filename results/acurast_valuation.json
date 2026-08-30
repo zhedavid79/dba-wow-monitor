@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T18:49:43.159552+00:00",
+  "generated_at": "2026-08-30T19:02:43.015887+00:00",
   "valuation_gate": true,
   "method": "AcurastBot observed expected reward + verified DBA ASK; primary metric AAE",
   "reference_acquisition_dkk": 275.0,
@@ -7,70 +7,24 @@
   "farm_reference_device_count": 7,
   "token_price_reference_only": {
     "source": "CoinGecko",
-    "dkk": 0.801385,
-    "usd": 0.12418
+    "dkk": 0.802108,
+    "usd": 0.124292
   },
   "electricity_reference_only": {
     "dkk_kwh": 2.5
   },
   "dba_counts": {
-    "queries": 41,
+    "queries": 77,
+    "catalog_models": 125,
     "search_errors": 0,
-    "t0_unique": 112,
-    "t1_verified_active_product": 30,
-    "excluded": 82,
-    "product_identity_excluded": 82,
-    "final_refetched": 28,
-    "bundle_price_identity_excluded": 2
+    "t0_unique": 273,
+    "t1_verified_active_product": 61,
+    "excluded": 212,
+    "product_identity_excluded": 208,
+    "final_refetched": 49,
+    "bundle_price_identity_excluded": 12
   },
   "ranked": [
-    {
-      "listing_id": "23769344",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23769344",
-      "title": "Samsung Galaxy S22 Ultra smartphone 128 GB sort",
-      "model": "Samsung Galaxy S22 Ultra",
-      "ask": 900,
-      "acurastbot_device": "Samsung Galaxy s22",
-      "acurastbot_configuration_id": 375,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "128GB",
-      "acurastbot_processor_count": 21,
-      "acurastbot_calculated_at": "2026-08-30T18:00:47.292Z",
-      "acu_epoch_low": 0.00985564,
-      "acu_epoch_base": 0.00985564,
-      "acu_epoch_high": 0.00985564,
-      "acu_month_base": 4.7307072,
-      "relative_to_current_farm_reference": 1.8729124700695527,
-      "aae_ask_acu_month_per_dkk": 0.0052563413333333335,
-      "aae_target_acu_month_per_dkk": 0.011131075764705883,
-      "start_bid": 275,
-      "target": 425,
-      "hard_max": 550,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 10.8,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 1.8955588947360003,
-          "net_after_power_dkk_month": -8.904441105264,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 3.7911177894720005,
-          "net_after_power_dkk_month": -7.008882210528,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 7.582235578944001,
-          "net_after_power_dkk_month": -3.2177644210559997,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 18.955588947360003,
-          "net_after_power_dkk_month": 8.155588947360002,
-          "payback_at_target_months": 52.11150325784556
-        }
-      }
-    },
     {
       "listing_id": "24293758",
       "url": "https://www.dba.dk/recommerce/forsale/item/24293758",
@@ -82,7 +36,7 @@
       "acurastbot_ram": "12GB",
       "acurastbot_storage": "256GB",
       "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:39.318Z",
+      "acurastbot_calculated_at": "2026-08-30T19:00:44.102Z",
       "acu_epoch_low": 0.00626641,
       "acu_epoch_base": 0.00626641,
       "acu_epoch_high": 0.00626641,
@@ -97,24 +51,24 @@
       "power_dkk_month_assumption": 7.560000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.205233674684,
-          "net_after_power_dkk_month": -6.354766325316001,
+          "gross_dkk_month": 1.2063210221472,
+          "net_after_power_dkk_month": -6.353678977852802,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 2.410467349368,
-          "net_after_power_dkk_month": -5.149532650632001,
+          "gross_dkk_month": 2.4126420442944,
+          "net_after_power_dkk_month": -5.147357955705601,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 4.820934698736,
-          "net_after_power_dkk_month": -2.7390653012640014,
+          "gross_dkk_month": 4.8252840885888,
+          "net_after_power_dkk_month": -2.734715911411201,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 12.05233674684,
-          "net_after_power_dkk_month": 4.492336746839999,
-          "payback_at_target_months": 66.78039000772284
+          "gross_dkk_month": 12.063210221472001,
+          "net_after_power_dkk_month": 4.503210221472,
+          "payback_at_target_months": 66.61914173350242
         }
       }
     },
@@ -122,7 +76,7 @@
       "listing_id": "23858419",
       "url": "https://www.dba.dk/recommerce/forsale/item/23858419",
       "title": "Samsung galaxy S21 ultra",
-      "model": "Samsung Galaxy S21 Ultra",
+      "model": "Samsung Galaxy S21",
       "ask": 1000,
       "acurastbot_device": "Samsung Galaxy S21",
       "acurastbot_configuration_id": 308,
@@ -141,27 +95,27 @@
       "target": 450,
       "hard_max": 575,
       "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 9.0,
+      "power_dkk_month_assumption": 8.639999999999999,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.850358857412,
-          "net_after_power_dkk_month": -7.149641142588,
+          "gross_dkk_month": 1.8520282291296002,
+          "net_after_power_dkk_month": -6.787971770870398,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 3.700717714824,
-          "net_after_power_dkk_month": -5.299282285176,
+          "gross_dkk_month": 3.7040564582592004,
+          "net_after_power_dkk_month": -4.935943541740798,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 7.401435429648,
-          "net_after_power_dkk_month": -1.598564570352,
+          "gross_dkk_month": 7.408112916518401,
+          "net_after_power_dkk_month": -1.231887083481598,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 18.503588574120002,
-          "net_after_power_dkk_month": 9.503588574120002,
-          "payback_at_target_months": 47.35053464177014
+          "gross_dkk_month": 18.520282291296002,
+          "net_after_power_dkk_month": 9.880282291296004,
+          "payback_at_target_months": 45.54525738565443
         }
       }
     },
@@ -191,71 +145,118 @@
       "power_dkk_month_assumption": 11.520000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 2.309552462412,
-          "net_after_power_dkk_month": -9.210447537588001,
+          "gross_dkk_month": 2.3116361131296,
+          "net_after_power_dkk_month": -9.208363886870401,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 4.619104924824,
-          "net_after_power_dkk_month": -6.900895075176002,
+          "gross_dkk_month": 4.6232722262592,
+          "net_after_power_dkk_month": -6.8967277737408015,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 9.238209849648,
-          "net_after_power_dkk_month": -2.281790150352002,
+          "gross_dkk_month": 9.2465444525184,
+          "net_after_power_dkk_month": -2.2734555474816016,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 23.09552462412,
-          "net_after_power_dkk_month": 11.575524624119998,
-          "payback_at_target_months": 43.19458652942145
+          "gross_dkk_month": 23.116361131296,
+          "net_after_power_dkk_month": 11.596361131295998,
+          "payback_at_target_months": 43.11697387990197
         }
       }
     },
     {
-      "listing_id": "2223363",
-      "url": "https://www.dba.dk/recommerce/forsale/item/2223363",
-      "title": "Samsung Galaxy S10, 128 GB , God",
-      "model": "Samsung Galaxy S10",
-      "ask": 500,
-      "acurastbot_device": "Samsung Galaxy S10",
-      "acurastbot_configuration_id": 304,
+      "listing_id": "24125127",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24125127",
+      "title": "Samsung Galaxy S21 5G smartphone 128 GB sort",
+      "model": "Samsung Galaxy S21",
+      "ask": 1200,
+      "acurastbot_device": "Samsung Galaxy S21",
+      "acurastbot_configuration_id": 308,
       "acurastbot_ram": "8GB",
       "acurastbot_storage": "128GB",
-      "acurastbot_processor_count": 2,
-      "acurastbot_calculated_at": "2026-08-30T18:00:34.286Z",
-      "acu_epoch_low": 0.0037778,
-      "acu_epoch_base": 0.00411291,
-      "acu_epoch_high": 0.00444802,
-      "acu_month_base": 1.9741968,
-      "relative_to_current_farm_reference": 0.7815951503173578,
-      "aae_ask_acu_month_per_dkk": 0.0039483936,
-      "aae_target_acu_month_per_dkk": 0.009870984000000001,
-      "start_bid": 125,
-      "target": 200,
-      "hard_max": 250,
+      "acurastbot_processor_count": 1,
+      "acurastbot_calculated_at": "2026-04-02T02:00:26.388Z",
+      "acu_epoch_low": 0.00962063,
+      "acu_epoch_base": 0.00962063,
+      "acu_epoch_high": 0.00962063,
+      "acu_month_base": 4.6179024,
+      "relative_to_current_farm_reference": 1.828252441944434,
+      "aae_ask_acu_month_per_dkk": 0.0038482520000000004,
+      "aae_target_acu_month_per_dkk": 0.010262005333333334,
+      "start_bid": 300,
+      "target": 450,
+      "hard_max": 575,
       "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 7.199999999999999,
+      "power_dkk_month_assumption": 8.639999999999999,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 0.7910458512840001,
-          "net_after_power_dkk_month": -6.408954148715999,
+          "gross_dkk_month": 1.8520282291296002,
+          "net_after_power_dkk_month": -6.787971770870398,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 1.5820917025680001,
-          "net_after_power_dkk_month": -5.617908297431999,
+          "gross_dkk_month": 3.7040564582592004,
+          "net_after_power_dkk_month": -4.935943541740798,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 3.1641834051360003,
-          "net_after_power_dkk_month": -4.035816594863999,
+          "gross_dkk_month": 7.408112916518401,
+          "net_after_power_dkk_month": -1.231887083481598,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 7.910458512840001,
-          "net_after_power_dkk_month": 0.7104585128400016,
-          "payback_at_target_months": 281.50834480188837
+          "gross_dkk_month": 18.520282291296002,
+          "net_after_power_dkk_month": 9.880282291296004,
+          "payback_at_target_months": 45.54525738565443
+        }
+      }
+    },
+    {
+      "listing_id": "23858958",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23858958",
+      "title": "Samsung Galaxy S21 smartphone 128 GB hvid",
+      "model": "Samsung Galaxy S21",
+      "ask": 1200,
+      "acurastbot_device": "Samsung Galaxy S21",
+      "acurastbot_configuration_id": 308,
+      "acurastbot_ram": "8GB",
+      "acurastbot_storage": "128GB",
+      "acurastbot_processor_count": 1,
+      "acurastbot_calculated_at": "2026-04-02T02:00:26.388Z",
+      "acu_epoch_low": 0.00962063,
+      "acu_epoch_base": 0.00962063,
+      "acu_epoch_high": 0.00962063,
+      "acu_month_base": 4.6179024,
+      "relative_to_current_farm_reference": 1.828252441944434,
+      "aae_ask_acu_month_per_dkk": 0.0038482520000000004,
+      "aae_target_acu_month_per_dkk": 0.010262005333333334,
+      "start_bid": 300,
+      "target": 450,
+      "hard_max": 575,
+      "decision": "LOW OFFER / NEGOTIATE",
+      "power_dkk_month_assumption": 8.639999999999999,
+      "spot_scenarios": {
+        "spot_0_5x": {
+          "gross_dkk_month": 1.8520282291296002,
+          "net_after_power_dkk_month": -6.787971770870398,
+          "payback_at_target_months": null
+        },
+        "spot_1_0x": {
+          "gross_dkk_month": 3.7040564582592004,
+          "net_after_power_dkk_month": -4.935943541740798,
+          "payback_at_target_months": null
+        },
+        "spot_2_0x": {
+          "gross_dkk_month": 7.408112916518401,
+          "net_after_power_dkk_month": -1.231887083481598,
+          "payback_at_target_months": null
+        },
+        "spot_5_0x": {
+          "gross_dkk_month": 18.520282291296002,
+          "net_after_power_dkk_month": 9.880282291296004,
+          "payback_at_target_months": 45.54525738565443
         }
       }
     },
@@ -270,7 +271,7 @@
       "acurastbot_ram": "12GB",
       "acurastbot_storage": "256GB",
       "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:39.318Z",
+      "acurastbot_calculated_at": "2026-08-30T19:00:44.102Z",
       "acu_epoch_low": 0.00626641,
       "acu_epoch_base": 0.00626641,
       "acu_epoch_high": 0.00626641,
@@ -285,24 +286,24 @@
       "power_dkk_month_assumption": 7.560000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.205233674684,
-          "net_after_power_dkk_month": -6.354766325316001,
+          "gross_dkk_month": 1.2063210221472,
+          "net_after_power_dkk_month": -6.353678977852802,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 2.410467349368,
-          "net_after_power_dkk_month": -5.149532650632001,
+          "gross_dkk_month": 2.4126420442944,
+          "net_after_power_dkk_month": -5.147357955705601,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 4.820934698736,
-          "net_after_power_dkk_month": -2.7390653012640014,
+          "gross_dkk_month": 4.8252840885888,
+          "net_after_power_dkk_month": -2.734715911411201,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 12.05233674684,
-          "net_after_power_dkk_month": 4.492336746839999,
-          "payback_at_target_months": 66.78039000772284
+          "gross_dkk_month": 12.063210221472001,
+          "net_after_power_dkk_month": 4.503210221472,
+          "payback_at_target_months": 66.61914173350242
         }
       }
     },
@@ -332,23 +333,23 @@
       "power_dkk_month_assumption": 11.520000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.024125793548,
-          "net_after_power_dkk_month": -10.495874206452001,
+          "gross_dkk_month": 1.0250497476384,
+          "net_after_power_dkk_month": -10.494950252361601,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 2.048251587096,
-          "net_after_power_dkk_month": -9.471748412904002,
+          "gross_dkk_month": 2.0500994952768,
+          "net_after_power_dkk_month": -9.469900504723201,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 4.096503174192,
-          "net_after_power_dkk_month": -7.423496825808002,
+          "gross_dkk_month": 4.1001989905536,
+          "net_after_power_dkk_month": -7.4198010094464015,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 10.24125793548,
-          "net_after_power_dkk_month": -1.2787420645200012,
+          "gross_dkk_month": 10.250497476384,
+          "net_after_power_dkk_month": -1.2695025236160014,
           "payback_at_target_months": null
         }
       }
@@ -357,7 +358,7 @@
       "listing_id": "23197519",
       "url": "https://www.dba.dk/recommerce/forsale/item/23197519",
       "title": "Samsung Galaxy S21 Ultra 5G smartphone 512 GB sort",
-      "model": "Samsung Galaxy S21 Ultra",
+      "model": "Samsung Galaxy S21",
       "ask": 1499,
       "acurastbot_device": "Samsung Galaxy S21",
       "acurastbot_configuration_id": 308,
@@ -376,121 +377,121 @@
       "target": 450,
       "hard_max": 575,
       "decision": "LOW OFFER / NEGOTIATE",
+      "power_dkk_month_assumption": 8.639999999999999,
+      "spot_scenarios": {
+        "spot_0_5x": {
+          "gross_dkk_month": 1.8520282291296002,
+          "net_after_power_dkk_month": -6.787971770870398,
+          "payback_at_target_months": null
+        },
+        "spot_1_0x": {
+          "gross_dkk_month": 3.7040564582592004,
+          "net_after_power_dkk_month": -4.935943541740798,
+          "payback_at_target_months": null
+        },
+        "spot_2_0x": {
+          "gross_dkk_month": 7.408112916518401,
+          "net_after_power_dkk_month": -1.231887083481598,
+          "payback_at_target_months": null
+        },
+        "spot_5_0x": {
+          "gross_dkk_month": 18.520282291296002,
+          "net_after_power_dkk_month": 9.880282291296004,
+          "payback_at_target_months": 45.54525738565443
+        }
+      }
+    },
+    {
+      "listing_id": "23843827",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23843827",
+      "title": "Samsung Galaxy S23 smartphone 128 GB",
+      "model": "Samsung Galaxy S23",
+      "ask": 1500,
+      "acurastbot_device": "Samsung Galaxy S23",
+      "acurastbot_configuration_id": 384,
+      "acurastbot_ram": "12GB",
+      "acurastbot_storage": "512GB",
+      "acurastbot_processor_count": 1,
+      "acurastbot_calculated_at": "2026-08-30T19:00:53.792Z",
+      "acu_epoch_low": 0.008590100000000002,
+      "acu_epoch_base": 0.008590100000000002,
+      "acu_epoch_high": 0.008590100000000002,
+      "acu_month_base": 4.123248000000001,
+      "relative_to_current_farm_reference": 1.6324160997301511,
+      "aae_ask_acu_month_per_dkk": 0.002748832000000001,
+      "aae_target_acu_month_per_dkk": 0.009701760000000002,
+      "start_bid": 275,
+      "target": 425,
+      "hard_max": 550,
+      "decision": "LOW OFFER / NEGOTIATE",
       "power_dkk_month_assumption": 9.0,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.850358857412,
-          "net_after_power_dkk_month": -7.149641142588,
+          "gross_dkk_month": 1.6536451033920005,
+          "net_after_power_dkk_month": -7.346354896607999,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 3.700717714824,
-          "net_after_power_dkk_month": -5.299282285176,
+          "gross_dkk_month": 3.307290206784001,
+          "net_after_power_dkk_month": -5.6927097932159985,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 7.401435429648,
-          "net_after_power_dkk_month": -1.598564570352,
+          "gross_dkk_month": 6.614580413568002,
+          "net_after_power_dkk_month": -2.385419586431998,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 18.503588574120002,
-          "net_after_power_dkk_month": 9.503588574120002,
-          "payback_at_target_months": 47.35053464177014
+          "gross_dkk_month": 16.536451033920006,
+          "net_after_power_dkk_month": 7.536451033920006,
+          "payback_at_target_months": 56.39259090083157
         }
       }
     },
     {
-      "listing_id": "21612519",
-      "url": "https://www.dba.dk/recommerce/forsale/item/21612519",
-      "title": "OnePlus Nord 2T Gray Shadow",
-      "model": "OnePlus Nord 2T",
-      "ask": 790,
-      "acurastbot_device": "OnePlus Nord CE 2",
-      "acurastbot_configuration_id": 396,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "128GB",
+      "listing_id": "22972801",
+      "url": "https://www.dba.dk/recommerce/forsale/item/22972801",
+      "title": "Samsung Galaxy S23 128 GB lilla",
+      "model": "Samsung Galaxy S23",
+      "ask": 1500,
+      "acurastbot_device": "Samsung Galaxy S23",
+      "acurastbot_configuration_id": 384,
+      "acurastbot_ram": "12GB",
+      "acurastbot_storage": "512GB",
       "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:50.280Z",
-      "acu_epoch_low": 0.004531240000000001,
-      "acu_epoch_base": 0.004531240000000001,
-      "acu_epoch_high": 0.004531240000000001,
-      "acu_month_base": 2.1749952,
-      "relative_to_current_farm_reference": 0.8610923188020221,
-      "aae_ask_acu_month_per_dkk": 0.0027531584810126584,
-      "aae_target_acu_month_per_dkk": 0.009666645333333335,
-      "start_bid": 150,
-      "target": 225,
-      "hard_max": 300,
+      "acurastbot_calculated_at": "2026-08-30T19:00:53.792Z",
+      "acu_epoch_low": 0.008590100000000002,
+      "acu_epoch_base": 0.008590100000000002,
+      "acu_epoch_high": 0.008590100000000002,
+      "acu_month_base": 4.123248000000001,
+      "relative_to_current_farm_reference": 1.6324160997301511,
+      "aae_ask_acu_month_per_dkk": 0.002748832000000001,
+      "aae_target_acu_month_per_dkk": 0.009701760000000002,
+      "start_bid": 275,
+      "target": 425,
+      "hard_max": 550,
       "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 7.920000000000002,
+      "power_dkk_month_assumption": 9.0,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 0.871504264176,
-          "net_after_power_dkk_month": -7.048495735824002,
+          "gross_dkk_month": 1.6536451033920005,
+          "net_after_power_dkk_month": -7.346354896607999,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 1.743008528352,
-          "net_after_power_dkk_month": -6.176991471648002,
+          "gross_dkk_month": 3.307290206784001,
+          "net_after_power_dkk_month": -5.6927097932159985,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 3.486017056704,
-          "net_after_power_dkk_month": -4.433982943296002,
+          "gross_dkk_month": 6.614580413568002,
+          "net_after_power_dkk_month": -2.385419586431998,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 8.71504264176,
-          "net_after_power_dkk_month": 0.7950426417599985,
-          "payback_at_target_months": 283.0036883328848
-        }
-      }
-    },
-    {
-      "listing_id": "23992209",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23992209",
-      "title": "OnePlus Nord 2T 5G 128GB 8GB RAM",
-      "model": "OnePlus Nord 2T",
-      "ask": 800,
-      "acurastbot_device": "OnePlus Nord CE 2",
-      "acurastbot_configuration_id": 396,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "128GB",
-      "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:50.280Z",
-      "acu_epoch_low": 0.004531240000000001,
-      "acu_epoch_base": 0.004531240000000001,
-      "acu_epoch_high": 0.004531240000000001,
-      "acu_month_base": 2.1749952,
-      "relative_to_current_farm_reference": 0.8610923188020221,
-      "aae_ask_acu_month_per_dkk": 0.0027187440000000004,
-      "aae_target_acu_month_per_dkk": 0.009666645333333335,
-      "start_bid": 150,
-      "target": 225,
-      "hard_max": 300,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 7.920000000000002,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 0.871504264176,
-          "net_after_power_dkk_month": -7.048495735824002,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 1.743008528352,
-          "net_after_power_dkk_month": -6.176991471648002,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 3.486017056704,
-          "net_after_power_dkk_month": -4.433982943296002,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 8.71504264176,
-          "net_after_power_dkk_month": 0.7950426417599985,
-          "payback_at_target_months": 283.0036883328848
+          "gross_dkk_month": 16.536451033920006,
+          "net_after_power_dkk_month": 7.536451033920006,
+          "payback_at_target_months": 56.39259090083157
         }
       }
     },
@@ -498,93 +499,46 @@
       "listing_id": "24342897",
       "url": "https://www.dba.dk/recommerce/forsale/item/24342897",
       "title": "Samsung Galaxy S23 FE 128 GB grå smartphone",
-      "model": "Samsung Galaxy S23 FE",
+      "model": "Samsung Galaxy S23",
       "ask": 1600,
       "acurastbot_device": "Samsung Galaxy S23",
       "acurastbot_configuration_id": 384,
       "acurastbot_ram": "12GB",
       "acurastbot_storage": "512GB",
       "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:48.433Z",
+      "acurastbot_calculated_at": "2026-08-30T19:00:53.792Z",
       "acu_epoch_low": 0.008590100000000002,
       "acu_epoch_base": 0.008590100000000002,
       "acu_epoch_high": 0.008590100000000002,
       "acu_month_base": 4.123248000000001,
       "relative_to_current_farm_reference": 1.6324160997301511,
       "aae_ask_acu_month_per_dkk": 0.0025770300000000006,
-      "aae_target_acu_month_per_dkk": 0.010995328000000004,
-      "start_bid": 250,
-      "target": 375,
-      "hard_max": 500,
+      "aae_target_acu_month_per_dkk": 0.009701760000000002,
+      "start_bid": 275,
+      "target": 425,
+      "hard_max": 550,
       "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 10.440000000000001,
+      "power_dkk_month_assumption": 9.0,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.6521545492400005,
-          "net_after_power_dkk_month": -8.78784545076,
+          "gross_dkk_month": 1.6536451033920005,
+          "net_after_power_dkk_month": -7.346354896607999,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 3.304309098480001,
-          "net_after_power_dkk_month": -7.13569090152,
+          "gross_dkk_month": 3.307290206784001,
+          "net_after_power_dkk_month": -5.6927097932159985,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 6.608618196960002,
-          "net_after_power_dkk_month": -3.8313818030399993,
+          "gross_dkk_month": 6.614580413568002,
+          "net_after_power_dkk_month": -2.385419586431998,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 16.521545492400005,
-          "net_after_power_dkk_month": 6.081545492400004,
-          "payback_at_target_months": 61.66195755151888
-        }
-      }
-    },
-    {
-      "listing_id": "22792055",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22792055",
-      "title": "samsung galaxy s22 ultra edge 256 gb",
-      "model": "Samsung Galaxy S22 Ultra",
-      "ask": 1975,
-      "acurastbot_device": "Samsung Galaxy s22",
-      "acurastbot_configuration_id": 406,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "256GB",
-      "acurastbot_processor_count": 3,
-      "acurastbot_calculated_at": "2026-08-30T18:00:51.690Z",
-      "acu_epoch_low": 0.010344009999999999,
-      "acu_epoch_base": 0.01055206,
-      "acu_epoch_high": 0.010760110000000002,
-      "acu_month_base": 5.0649888,
-      "relative_to_current_farm_reference": 2.0052563566569117,
-      "aae_ask_acu_month_per_dkk": 0.0025645512911392407,
-      "aae_target_acu_month_per_dkk": 0.011255530666666666,
-      "start_bid": 300,
-      "target": 450,
-      "hard_max": 575,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 10.8,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 2.0295030247440002,
-          "net_after_power_dkk_month": -8.770496975256,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 4.0590060494880005,
-          "net_after_power_dkk_month": -6.740993950512,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 8.118012098976001,
-          "net_after_power_dkk_month": -2.6819879010239998,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 20.295030247440003,
-          "net_after_power_dkk_month": 9.495030247440003,
-          "payback_at_target_months": 47.39321395224902
+          "gross_dkk_month": 16.536451033920006,
+          "net_after_power_dkk_month": 7.536451033920006,
+          "payback_at_target_months": 56.39259090083157
         }
       }
     },
@@ -614,164 +568,23 @@
       "power_dkk_month_assumption": 11.520000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.024125793548,
-          "net_after_power_dkk_month": -10.495874206452001,
+          "gross_dkk_month": 1.0250497476384,
+          "net_after_power_dkk_month": -10.494950252361601,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 2.048251587096,
-          "net_after_power_dkk_month": -9.471748412904002,
+          "gross_dkk_month": 2.0500994952768,
+          "net_after_power_dkk_month": -9.469900504723201,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 4.096503174192,
-          "net_after_power_dkk_month": -7.423496825808002,
+          "gross_dkk_month": 4.1001989905536,
+          "net_after_power_dkk_month": -7.4198010094464015,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 10.24125793548,
-          "net_after_power_dkk_month": -1.2787420645200012,
-          "payback_at_target_months": null
-        }
-      }
-    },
-    {
-      "listing_id": "24113148",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24113148",
-      "title": "Samsung Galaxy S10 smartphone 128 GB hvid",
-      "model": "Samsung Galaxy S10",
-      "ask": 800,
-      "acurastbot_device": "Samsung Galaxy S10",
-      "acurastbot_configuration_id": 304,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "128GB",
-      "acurastbot_processor_count": 2,
-      "acurastbot_calculated_at": "2026-08-30T18:00:34.286Z",
-      "acu_epoch_low": 0.0037778,
-      "acu_epoch_base": 0.00411291,
-      "acu_epoch_high": 0.00444802,
-      "acu_month_base": 1.9741968,
-      "relative_to_current_farm_reference": 0.7815951503173578,
-      "aae_ask_acu_month_per_dkk": 0.0024677460000000003,
-      "aae_target_acu_month_per_dkk": 0.009870984000000001,
-      "start_bid": 125,
-      "target": 200,
-      "hard_max": 250,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 7.199999999999999,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 0.7910458512840001,
-          "net_after_power_dkk_month": -6.408954148715999,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 1.5820917025680001,
-          "net_after_power_dkk_month": -5.617908297431999,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 3.1641834051360003,
-          "net_after_power_dkk_month": -4.035816594863999,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 7.910458512840001,
-          "net_after_power_dkk_month": 0.7104585128400016,
-          "payback_at_target_months": 281.50834480188837
-        }
-      }
-    },
-    {
-      "listing_id": "23588486",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23588486",
-      "title": "OnePlus Nord 2 5g smartphone 128 GB grå",
-      "model": "OnePlus Nord 2",
-      "ask": 899,
-      "acurastbot_device": "OnePlus Nord CE 2",
-      "acurastbot_configuration_id": 396,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "128GB",
-      "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:50.280Z",
-      "acu_epoch_low": 0.004531240000000001,
-      "acu_epoch_base": 0.004531240000000001,
-      "acu_epoch_high": 0.004531240000000001,
-      "acu_month_base": 2.1749952,
-      "relative_to_current_farm_reference": 0.8610923188020221,
-      "aae_ask_acu_month_per_dkk": 0.0024193494994438265,
-      "aae_target_acu_month_per_dkk": 0.009666645333333335,
-      "start_bid": 150,
-      "target": 225,
-      "hard_max": 300,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 7.920000000000002,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 0.871504264176,
-          "net_after_power_dkk_month": -7.048495735824002,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 1.743008528352,
-          "net_after_power_dkk_month": -6.176991471648002,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 3.486017056704,
-          "net_after_power_dkk_month": -4.433982943296002,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 8.71504264176,
-          "net_after_power_dkk_month": 0.7950426417599985,
-          "payback_at_target_months": 283.0036883328848
-        }
-      }
-    },
-    {
-      "listing_id": "22007439",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22007439",
-      "title": "Xiaomi 12 Pro – flot stand, ingen ridser",
-      "model": "Xiaomi 12 Pro",
-      "ask": 1200,
-      "acurastbot_device": "Xiaomi Redmi Note 12 Pro+",
-      "acurastbot_configuration_id": 176,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "256GB",
-      "acurastbot_processor_count": 2,
-      "acurastbot_calculated_at": "2026-01-28T21:07:58.410Z",
-      "acu_epoch_low": 0.00393793,
-      "acu_epoch_base": 0.005815280000000001,
-      "acu_epoch_high": 0.00769262,
-      "acu_month_base": 2.7913344,
-      "relative_to_current_farm_reference": 1.105104328987876,
-      "aae_ask_acu_month_per_dkk": 0.002326112,
-      "aae_target_acu_month_per_dkk": 0.012405930666666667,
-      "start_bid": 150,
-      "target": 225,
-      "hard_max": 300,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 11.7,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 1.118466759072,
-          "net_after_power_dkk_month": -10.581533240928,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 2.236933518144,
-          "net_after_power_dkk_month": -9.463066481856,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 4.473867036288,
-          "net_after_power_dkk_month": -7.226132963711999,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 11.18466759072,
-          "net_after_power_dkk_month": -0.5153324092799991,
+          "gross_dkk_month": 10.250497476384,
+          "net_after_power_dkk_month": -1.2695025236160014,
           "payback_at_target_months": null
         }
       }
@@ -780,93 +593,46 @@
       "listing_id": "24310625",
       "url": "https://www.dba.dk/recommerce/forsale/item/24310625",
       "title": "Samsung Galaxy S23 FE smartphone 128 GB",
-      "model": "Samsung Galaxy S23 FE",
+      "model": "Samsung Galaxy S23",
       "ask": 1850,
       "acurastbot_device": "Samsung Galaxy S23",
       "acurastbot_configuration_id": 384,
       "acurastbot_ram": "12GB",
       "acurastbot_storage": "512GB",
       "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:48.433Z",
+      "acurastbot_calculated_at": "2026-08-30T19:00:53.792Z",
       "acu_epoch_low": 0.008590100000000002,
       "acu_epoch_base": 0.008590100000000002,
       "acu_epoch_high": 0.008590100000000002,
       "acu_month_base": 4.123248000000001,
       "relative_to_current_farm_reference": 1.6324160997301511,
       "aae_ask_acu_month_per_dkk": 0.002228782702702703,
-      "aae_target_acu_month_per_dkk": 0.010995328000000004,
-      "start_bid": 250,
-      "target": 375,
-      "hard_max": 500,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 10.440000000000001,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 1.6521545492400005,
-          "net_after_power_dkk_month": -8.78784545076,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 3.304309098480001,
-          "net_after_power_dkk_month": -7.13569090152,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 6.608618196960002,
-          "net_after_power_dkk_month": -3.8313818030399993,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 16.521545492400005,
-          "net_after_power_dkk_month": 6.081545492400004,
-          "payback_at_target_months": 61.66195755151888
-        }
-      }
-    },
-    {
-      "listing_id": "24009767",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24009767",
-      "title": "Samsung Galaxy S21 Ultra smartphone 128 GB rosa guld",
-      "model": "Samsung Galaxy S21 Ultra",
-      "ask": 2100,
-      "acurastbot_device": "Samsung Galaxy S21",
-      "acurastbot_configuration_id": 308,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "128GB",
-      "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-04-02T02:00:26.388Z",
-      "acu_epoch_low": 0.00962063,
-      "acu_epoch_base": 0.00962063,
-      "acu_epoch_high": 0.00962063,
-      "acu_month_base": 4.6179024,
-      "relative_to_current_farm_reference": 1.828252441944434,
-      "aae_ask_acu_month_per_dkk": 0.002199001142857143,
-      "aae_target_acu_month_per_dkk": 0.010262005333333334,
-      "start_bid": 300,
-      "target": 450,
-      "hard_max": 575,
+      "aae_target_acu_month_per_dkk": 0.009701760000000002,
+      "start_bid": 275,
+      "target": 425,
+      "hard_max": 550,
       "decision": "LOW OFFER / NEGOTIATE",
       "power_dkk_month_assumption": 9.0,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.850358857412,
-          "net_after_power_dkk_month": -7.149641142588,
+          "gross_dkk_month": 1.6536451033920005,
+          "net_after_power_dkk_month": -7.346354896607999,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 3.700717714824,
-          "net_after_power_dkk_month": -5.299282285176,
+          "gross_dkk_month": 3.307290206784001,
+          "net_after_power_dkk_month": -5.6927097932159985,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 7.401435429648,
-          "net_after_power_dkk_month": -1.598564570352,
+          "gross_dkk_month": 6.614580413568002,
+          "net_after_power_dkk_month": -2.385419586431998,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 18.503588574120002,
-          "net_after_power_dkk_month": 9.503588574120002,
-          "payback_at_target_months": 47.35053464177014
+          "gross_dkk_month": 16.536451033920006,
+          "net_after_power_dkk_month": 7.536451033920006,
+          "payback_at_target_months": 56.39259090083157
         }
       }
     },
@@ -896,118 +662,259 @@
       "power_dkk_month_assumption": 11.520000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.024125793548,
-          "net_after_power_dkk_month": -10.495874206452001,
+          "gross_dkk_month": 1.0250497476384,
+          "net_after_power_dkk_month": -10.494950252361601,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 2.048251587096,
-          "net_after_power_dkk_month": -9.471748412904002,
+          "gross_dkk_month": 2.0500994952768,
+          "net_after_power_dkk_month": -9.469900504723201,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 4.096503174192,
-          "net_after_power_dkk_month": -7.423496825808002,
+          "gross_dkk_month": 4.1001989905536,
+          "net_after_power_dkk_month": -7.4198010094464015,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 10.24125793548,
-          "net_after_power_dkk_month": -1.2787420645200012,
+          "gross_dkk_month": 10.250497476384,
+          "net_after_power_dkk_month": -1.2695025236160014,
           "payback_at_target_months": null
         }
       }
     },
     {
-      "listing_id": "23240542",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23240542",
-      "title": "OnePlus Nord 3 5G – 256 GB / 16 GB RAM – CPH2493",
-      "model": "OnePlus Nord 3",
-      "ask": 1100,
-      "acurastbot_device": "OnePlus Nord CE 2",
-      "acurastbot_configuration_id": 396,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "128GB",
+      "listing_id": "22816660",
+      "url": "https://www.dba.dk/recommerce/forsale/item/22816660",
+      "title": "Samsung Galaxy S23+ 256 GB sort smartphone",
+      "model": "Samsung Galaxy S23",
+      "ask": 2300,
+      "acurastbot_device": "Samsung Galaxy S23",
+      "acurastbot_configuration_id": 384,
+      "acurastbot_ram": "12GB",
+      "acurastbot_storage": "512GB",
       "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:50.280Z",
-      "acu_epoch_low": 0.004531240000000001,
-      "acu_epoch_base": 0.004531240000000001,
-      "acu_epoch_high": 0.004531240000000001,
-      "acu_month_base": 2.1749952,
-      "relative_to_current_farm_reference": 0.8610923188020221,
-      "aae_ask_acu_month_per_dkk": 0.0019772683636363635,
-      "aae_target_acu_month_per_dkk": 0.009666645333333335,
-      "start_bid": 150,
-      "target": 225,
-      "hard_max": 300,
+      "acurastbot_calculated_at": "2026-08-30T19:00:53.792Z",
+      "acu_epoch_low": 0.008590100000000002,
+      "acu_epoch_base": 0.008590100000000002,
+      "acu_epoch_high": 0.008590100000000002,
+      "acu_month_base": 4.123248000000001,
+      "relative_to_current_farm_reference": 1.6324160997301511,
+      "aae_ask_acu_month_per_dkk": 0.001792716521739131,
+      "aae_target_acu_month_per_dkk": 0.009701760000000002,
+      "start_bid": 275,
+      "target": 425,
+      "hard_max": 550,
+      "decision": "LOW OFFER / NEGOTIATE",
+      "power_dkk_month_assumption": 9.0,
+      "spot_scenarios": {
+        "spot_0_5x": {
+          "gross_dkk_month": 1.6536451033920005,
+          "net_after_power_dkk_month": -7.346354896607999,
+          "payback_at_target_months": null
+        },
+        "spot_1_0x": {
+          "gross_dkk_month": 3.307290206784001,
+          "net_after_power_dkk_month": -5.6927097932159985,
+          "payback_at_target_months": null
+        },
+        "spot_2_0x": {
+          "gross_dkk_month": 6.614580413568002,
+          "net_after_power_dkk_month": -2.385419586431998,
+          "payback_at_target_months": null
+        },
+        "spot_5_0x": {
+          "gross_dkk_month": 16.536451033920006,
+          "net_after_power_dkk_month": 7.536451033920006,
+          "payback_at_target_months": 56.39259090083157
+        }
+      }
+    },
+    {
+      "listing_id": "23817454",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23817454",
+      "title": "Pixel 8 pro",
+      "model": "Google Pixel 8",
+      "ask": 2500,
+      "acurastbot_device": "Google Pixel 8",
+      "acurastbot_configuration_id": 144,
+      "acurastbot_ram": null,
+      "acurastbot_storage": "128GB",
+      "acurastbot_processor_count": 4,
+      "acurastbot_calculated_at": "2026-01-28T19:09:10.367Z",
+      "acu_epoch_low": 0.00791793,
+      "acu_epoch_base": 0.00796427,
+      "acu_epoch_high": 0.00812456,
+      "acu_month_base": 3.8228496000000005,
+      "relative_to_current_farm_reference": 1.5134867545893353,
+      "aae_ask_acu_month_per_dkk": 0.0015291398400000002,
+      "aae_target_acu_month_per_dkk": 0.010194265600000002,
+      "start_bid": 250,
+      "target": 375,
+      "hard_max": 500,
       "decision": "LOW OFFER / NEGOTIATE",
       "power_dkk_month_assumption": 9.360000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 0.871504264176,
-          "net_after_power_dkk_month": -8.488495735824001,
+          "gross_dkk_month": 1.5331691234784004,
+          "net_after_power_dkk_month": -7.826830876521601,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 1.743008528352,
-          "net_after_power_dkk_month": -7.616991471648001,
+          "gross_dkk_month": 3.066338246956801,
+          "net_after_power_dkk_month": -6.2936617530432,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 3.486017056704,
-          "net_after_power_dkk_month": -5.873982943296001,
+          "gross_dkk_month": 6.132676493913602,
+          "net_after_power_dkk_month": -3.2273235060863996,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 8.71504264176,
-          "net_after_power_dkk_month": -0.644957358240001,
-          "payback_at_target_months": null
+          "gross_dkk_month": 15.331691234784003,
+          "net_after_power_dkk_month": 5.971691234784002,
+          "payback_at_target_months": 62.79628086189287
         }
       }
     },
     {
-      "listing_id": "10894827",
-      "url": "https://www.dba.dk/recommerce/forsale/item/10894827",
-      "title": "Samsung Galaxy S22 Ultra 5G – 256 GB, Dual SIM & S-Pen",
-      "model": "Samsung Galaxy S22 Ultra",
-      "ask": 2999,
-      "acurastbot_device": "Samsung Galaxy s22",
-      "acurastbot_configuration_id": 406,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "256GB",
-      "acurastbot_processor_count": 3,
-      "acurastbot_calculated_at": "2026-08-30T18:00:51.690Z",
-      "acu_epoch_low": 0.010344009999999999,
-      "acu_epoch_base": 0.01055206,
-      "acu_epoch_high": 0.010760110000000002,
-      "acu_month_base": 5.0649888,
-      "relative_to_current_farm_reference": 2.0052563566569117,
-      "aae_ask_acu_month_per_dkk": 0.0016888925641880628,
-      "aae_target_acu_month_per_dkk": 0.011255530666666666,
-      "start_bid": 300,
-      "target": 450,
-      "hard_max": 575,
+      "listing_id": "23868734",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23868734",
+      "title": "Samsung Galaxy S23 Ultra Green 256 GB",
+      "model": "Samsung Galaxy S23",
+      "ask": 2800,
+      "acurastbot_device": "Samsung Galaxy S23",
+      "acurastbot_configuration_id": 384,
+      "acurastbot_ram": "12GB",
+      "acurastbot_storage": "512GB",
+      "acurastbot_processor_count": 1,
+      "acurastbot_calculated_at": "2026-08-30T19:00:53.792Z",
+      "acu_epoch_low": 0.008590100000000002,
+      "acu_epoch_base": 0.008590100000000002,
+      "acu_epoch_high": 0.008590100000000002,
+      "acu_month_base": 4.123248000000001,
+      "relative_to_current_farm_reference": 1.6324160997301511,
+      "aae_ask_acu_month_per_dkk": 0.001472588571428572,
+      "aae_target_acu_month_per_dkk": 0.009701760000000002,
+      "start_bid": 275,
+      "target": 425,
+      "hard_max": 550,
       "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 10.8,
+      "power_dkk_month_assumption": 9.0,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 2.0295030247440002,
-          "net_after_power_dkk_month": -8.770496975256,
+          "gross_dkk_month": 1.6536451033920005,
+          "net_after_power_dkk_month": -7.346354896607999,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 4.0590060494880005,
-          "net_after_power_dkk_month": -6.740993950512,
+          "gross_dkk_month": 3.307290206784001,
+          "net_after_power_dkk_month": -5.6927097932159985,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 8.118012098976001,
-          "net_after_power_dkk_month": -2.6819879010239998,
+          "gross_dkk_month": 6.614580413568002,
+          "net_after_power_dkk_month": -2.385419586431998,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 20.295030247440003,
-          "net_after_power_dkk_month": 9.495030247440003,
-          "payback_at_target_months": 47.39321395224902
+          "gross_dkk_month": 16.536451033920006,
+          "net_after_power_dkk_month": 7.536451033920006,
+          "payback_at_target_months": 56.39259090083157
+        }
+      }
+    },
+    {
+      "listing_id": "24459138",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24459138",
+      "title": "Samsung Galaxy S23 smartphone 256 GB grøn",
+      "model": "Samsung Galaxy S23",
+      "ask": 3000,
+      "acurastbot_device": "Samsung Galaxy S23",
+      "acurastbot_configuration_id": 384,
+      "acurastbot_ram": "12GB",
+      "acurastbot_storage": "512GB",
+      "acurastbot_processor_count": 1,
+      "acurastbot_calculated_at": "2026-08-30T19:00:53.792Z",
+      "acu_epoch_low": 0.008590100000000002,
+      "acu_epoch_base": 0.008590100000000002,
+      "acu_epoch_high": 0.008590100000000002,
+      "acu_month_base": 4.123248000000001,
+      "relative_to_current_farm_reference": 1.6324160997301511,
+      "aae_ask_acu_month_per_dkk": 0.0013744160000000005,
+      "aae_target_acu_month_per_dkk": 0.009701760000000002,
+      "start_bid": 275,
+      "target": 425,
+      "hard_max": 550,
+      "decision": "LOW OFFER / NEGOTIATE",
+      "power_dkk_month_assumption": 9.0,
+      "spot_scenarios": {
+        "spot_0_5x": {
+          "gross_dkk_month": 1.6536451033920005,
+          "net_after_power_dkk_month": -7.346354896607999,
+          "payback_at_target_months": null
+        },
+        "spot_1_0x": {
+          "gross_dkk_month": 3.307290206784001,
+          "net_after_power_dkk_month": -5.6927097932159985,
+          "payback_at_target_months": null
+        },
+        "spot_2_0x": {
+          "gross_dkk_month": 6.614580413568002,
+          "net_after_power_dkk_month": -2.385419586431998,
+          "payback_at_target_months": null
+        },
+        "spot_5_0x": {
+          "gross_dkk_month": 16.536451033920006,
+          "net_after_power_dkk_month": 7.536451033920006,
+          "payback_at_target_months": 56.39259090083157
+        }
+      }
+    },
+    {
+      "listing_id": "24312839",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24312839",
+      "title": "Samsung Galaxy S23 Ultra 256 GB",
+      "model": "Samsung Galaxy S23",
+      "ask": 3000,
+      "acurastbot_device": "Samsung Galaxy S23",
+      "acurastbot_configuration_id": 384,
+      "acurastbot_ram": "12GB",
+      "acurastbot_storage": "512GB",
+      "acurastbot_processor_count": 1,
+      "acurastbot_calculated_at": "2026-08-30T19:00:53.792Z",
+      "acu_epoch_low": 0.008590100000000002,
+      "acu_epoch_base": 0.008590100000000002,
+      "acu_epoch_high": 0.008590100000000002,
+      "acu_month_base": 4.123248000000001,
+      "relative_to_current_farm_reference": 1.6324160997301511,
+      "aae_ask_acu_month_per_dkk": 0.0013744160000000005,
+      "aae_target_acu_month_per_dkk": 0.009701760000000002,
+      "start_bid": 275,
+      "target": 425,
+      "hard_max": 550,
+      "decision": "LOW OFFER / NEGOTIATE",
+      "power_dkk_month_assumption": 9.0,
+      "spot_scenarios": {
+        "spot_0_5x": {
+          "gross_dkk_month": 1.6536451033920005,
+          "net_after_power_dkk_month": -7.346354896607999,
+          "payback_at_target_months": null
+        },
+        "spot_1_0x": {
+          "gross_dkk_month": 3.307290206784001,
+          "net_after_power_dkk_month": -5.6927097932159985,
+          "payback_at_target_months": null
+        },
+        "spot_2_0x": {
+          "gross_dkk_month": 6.614580413568002,
+          "net_after_power_dkk_month": -2.385419586431998,
+          "payback_at_target_months": null
+        },
+        "spot_5_0x": {
+          "gross_dkk_month": 16.536451033920006,
+          "net_after_power_dkk_month": 7.536451033920006,
+          "payback_at_target_months": 56.39259090083157
         }
       }
     },
@@ -1022,7 +929,7 @@
       "acurastbot_ram": "12GB",
       "acurastbot_storage": "256GB",
       "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:39.318Z",
+      "acurastbot_calculated_at": "2026-08-30T19:00:44.102Z",
       "acu_epoch_low": 0.00626641,
       "acu_epoch_base": 0.00626641,
       "acu_epoch_high": 0.00626641,
@@ -1037,212 +944,24 @@
       "power_dkk_month_assumption": 7.560000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.205233674684,
-          "net_after_power_dkk_month": -6.354766325316001,
+          "gross_dkk_month": 1.2063210221472,
+          "net_after_power_dkk_month": -6.353678977852802,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 2.410467349368,
-          "net_after_power_dkk_month": -5.149532650632001,
+          "gross_dkk_month": 2.4126420442944,
+          "net_after_power_dkk_month": -5.147357955705601,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 4.820934698736,
-          "net_after_power_dkk_month": -2.7390653012640014,
+          "gross_dkk_month": 4.8252840885888,
+          "net_after_power_dkk_month": -2.734715911411201,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 12.05233674684,
-          "net_after_power_dkk_month": 4.492336746839999,
-          "payback_at_target_months": 66.78039000772284
-        }
-      }
-    },
-    {
-      "listing_id": "23758125",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23758125",
-      "title": "Samsung Galaxy S22 Ultra – 256GB – Sølv (Flot stand!)",
-      "model": "Samsung Galaxy S22 Ultra",
-      "ask": 4000,
-      "acurastbot_device": "Samsung Galaxy s22",
-      "acurastbot_configuration_id": 406,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "256GB",
-      "acurastbot_processor_count": 3,
-      "acurastbot_calculated_at": "2026-08-30T18:00:51.690Z",
-      "acu_epoch_low": 0.010344009999999999,
-      "acu_epoch_base": 0.01055206,
-      "acu_epoch_high": 0.010760110000000002,
-      "acu_month_base": 5.0649888,
-      "relative_to_current_farm_reference": 2.0052563566569117,
-      "aae_ask_acu_month_per_dkk": 0.0012662472,
-      "aae_target_acu_month_per_dkk": 0.011255530666666666,
-      "start_bid": 300,
-      "target": 450,
-      "hard_max": 575,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 10.8,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 2.0295030247440002,
-          "net_after_power_dkk_month": -8.770496975256,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 4.0590060494880005,
-          "net_after_power_dkk_month": -6.740993950512,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 8.118012098976001,
-          "net_after_power_dkk_month": -2.6819879010239998,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 20.295030247440003,
-          "net_after_power_dkk_month": 9.495030247440003,
-          "payback_at_target_months": 47.39321395224902
-        }
-      }
-    },
-    {
-      "listing_id": "4703792",
-      "url": "https://www.dba.dk/recommerce/forsale/item/4703792",
-      "title": "Samsung Samsung Galaxy Z Flip 4 5G 256GB/8GB, 8 GB , God",
-      "model": "Samsung Galaxy Z Flip4",
-      "ask": 2200,
-      "acurastbot_device": "Samsung Galaxy Z Flip 4",
-      "acurastbot_configuration_id": 294,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "512GB",
-      "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:32.012Z",
-      "acu_epoch_low": 0.00510877,
-      "acu_epoch_base": 0.00510877,
-      "acu_epoch_high": 0.00510877,
-      "acu_month_base": 2.4522096,
-      "relative_to_current_farm_reference": 0.9708429934248034,
-      "aae_ask_acu_month_per_dkk": 0.0011146407272727274,
-      "aae_target_acu_month_per_dkk": 0.010898709333333334,
-      "start_bid": 150,
-      "target": 225,
-      "hard_max": 300,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 9.360000000000001,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 0.9825819951480002,
-          "net_after_power_dkk_month": -8.377418004852,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 1.9651639902960003,
-          "net_after_power_dkk_month": -7.394836009704001,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 3.9303279805920006,
-          "net_after_power_dkk_month": -5.429672019408001,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 9.825819951480002,
-          "net_after_power_dkk_month": 0.4658199514800003,
-          "payback_at_target_months": 483.0192422740404
-        }
-      }
-    },
-    {
-      "listing_id": "24044084",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24044084",
-      "title": "Samsung Galaxy Z flip 5",
-      "model": "Samsung Galaxy Z Flip5",
-      "ask": 2200,
-      "acurastbot_device": "Samsung Galaxy Z Flip 4",
-      "acurastbot_configuration_id": 294,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "512GB",
-      "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:32.012Z",
-      "acu_epoch_low": 0.00510877,
-      "acu_epoch_base": 0.00510877,
-      "acu_epoch_high": 0.00510877,
-      "acu_month_base": 2.4522096,
-      "relative_to_current_farm_reference": 0.9708429934248034,
-      "aae_ask_acu_month_per_dkk": 0.0011146407272727274,
-      "aae_target_acu_month_per_dkk": 0.010898709333333334,
-      "start_bid": 150,
-      "target": 225,
-      "hard_max": 300,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 9.0,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 0.9825819951480002,
-          "net_after_power_dkk_month": -8.017418004852,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 1.9651639902960003,
-          "net_after_power_dkk_month": -7.034836009704,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 3.9303279805920006,
-          "net_after_power_dkk_month": -5.069672019407999,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 9.825819951480002,
-          "net_after_power_dkk_month": 0.8258199514800015,
-          "payback_at_target_months": 272.4564835189123
-        }
-      }
-    },
-    {
-      "listing_id": "24415940",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24415940",
-      "title": "OnePlus Nord 3 5G 128GB, Green",
-      "model": "OnePlus Nord 3",
-      "ask": 2363,
-      "acurastbot_device": "OnePlus Nord CE 2",
-      "acurastbot_configuration_id": 396,
-      "acurastbot_ram": "8GB",
-      "acurastbot_storage": "128GB",
-      "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:50.280Z",
-      "acu_epoch_low": 0.004531240000000001,
-      "acu_epoch_base": 0.004531240000000001,
-      "acu_epoch_high": 0.004531240000000001,
-      "acu_month_base": 2.1749952,
-      "relative_to_current_farm_reference": 0.8610923188020221,
-      "aae_ask_acu_month_per_dkk": 0.000920438087177317,
-      "aae_target_acu_month_per_dkk": 0.009666645333333335,
-      "start_bid": 150,
-      "target": 225,
-      "hard_max": 300,
-      "decision": "LOW OFFER / NEGOTIATE",
-      "power_dkk_month_assumption": 9.360000000000001,
-      "spot_scenarios": {
-        "spot_0_5x": {
-          "gross_dkk_month": 0.871504264176,
-          "net_after_power_dkk_month": -8.488495735824001,
-          "payback_at_target_months": null
-        },
-        "spot_1_0x": {
-          "gross_dkk_month": 1.743008528352,
-          "net_after_power_dkk_month": -7.616991471648001,
-          "payback_at_target_months": null
-        },
-        "spot_2_0x": {
-          "gross_dkk_month": 3.486017056704,
-          "net_after_power_dkk_month": -5.873982943296001,
-          "payback_at_target_months": null
-        },
-        "spot_5_0x": {
-          "gross_dkk_month": 8.71504264176,
-          "net_after_power_dkk_month": -0.644957358240001,
-          "payback_at_target_months": null
+          "gross_dkk_month": 12.063210221472001,
+          "net_after_power_dkk_month": 4.503210221472,
+          "payback_at_target_months": 66.61914173350242
         }
       }
     },
@@ -1257,7 +976,7 @@
       "acurastbot_ram": "12GB",
       "acurastbot_storage": "256GB",
       "acurastbot_processor_count": 1,
-      "acurastbot_calculated_at": "2026-08-30T18:00:39.318Z",
+      "acurastbot_calculated_at": "2026-08-30T19:00:44.102Z",
       "acu_epoch_low": 0.00626641,
       "acu_epoch_base": 0.00626641,
       "acu_epoch_high": 0.00626641,
@@ -1272,24 +991,24 @@
       "power_dkk_month_assumption": 7.560000000000001,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.205233674684,
-          "net_after_power_dkk_month": -6.354766325316001,
+          "gross_dkk_month": 1.2063210221472,
+          "net_after_power_dkk_month": -6.353678977852802,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 2.410467349368,
-          "net_after_power_dkk_month": -5.149532650632001,
+          "gross_dkk_month": 2.4126420442944,
+          "net_after_power_dkk_month": -5.147357955705601,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 4.820934698736,
-          "net_after_power_dkk_month": -2.7390653012640014,
+          "gross_dkk_month": 4.8252840885888,
+          "net_after_power_dkk_month": -2.734715911411201,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 12.05233674684,
-          "net_after_power_dkk_month": 4.492336746839999,
-          "payback_at_target_months": 66.78039000772284
+          "gross_dkk_month": 12.063210221472001,
+          "net_after_power_dkk_month": 4.503210221472,
+          "payback_at_target_months": 66.61914173350242
         }
       }
     },
@@ -1319,27 +1038,205 @@
       "power_dkk_month_assumption": 9.18,
       "spot_scenarios": {
         "spot_0_5x": {
-          "gross_dkk_month": 1.0121069418720001,
-          "net_after_power_dkk_month": -8.167893058128,
+          "gross_dkk_month": 1.0130200526976,
+          "net_after_power_dkk_month": -8.1669799473024,
           "payback_at_target_months": null
         },
         "spot_1_0x": {
-          "gross_dkk_month": 2.0242138837440002,
-          "net_after_power_dkk_month": -7.1557861162559995,
+          "gross_dkk_month": 2.0260401053952,
+          "net_after_power_dkk_month": -7.1539598946047995,
           "payback_at_target_months": null
         },
         "spot_2_0x": {
-          "gross_dkk_month": 4.0484277674880005,
-          "net_after_power_dkk_month": -5.131572232511999,
+          "gross_dkk_month": 4.0520802107904,
+          "net_after_power_dkk_month": -5.127919789209599,
           "payback_at_target_months": null
         },
         "spot_5_0x": {
-          "gross_dkk_month": 10.121069418720001,
-          "net_after_power_dkk_month": 0.9410694187200015,
-          "payback_at_target_months": 265.65521631766364
+          "gross_dkk_month": 10.130200526976001,
+          "net_after_power_dkk_month": 0.9502005269760012,
+          "payback_at_target_months": 263.10235882063887
+        }
+      }
+    },
+    {
+      "listing_id": "24371099",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24371099",
+      "title": "Pixel 9 Pro, 256GB, 16GB RAM, sealed in box, unused.",
+      "model": "OnePlus 9 Pro",
+      "ask": 8000,
+      "acurastbot_device": "OnePlus 9 Pro",
+      "acurastbot_configuration_id": 341,
+      "acurastbot_ram": "12GB",
+      "acurastbot_storage": "256GB",
+      "acurastbot_processor_count": 1,
+      "acurastbot_calculated_at": "2026-01-28T19:27:55.708Z",
+      "acu_epoch_low": 0.012008129999999999,
+      "acu_epoch_base": 0.012008129999999999,
+      "acu_epoch_high": 0.012008129999999999,
+      "acu_month_base": 5.763902399999999,
+      "relative_to_current_farm_reference": 2.2819600167230436,
+      "aae_ask_acu_month_per_dkk": 0.0007204877999999999,
+      "aae_target_acu_month_per_dkk": 0.011527804799999998,
+      "start_bid": 325,
+      "target": 500,
+      "hard_max": 650,
+      "decision": "LOW OFFER / NEGOTIATE",
+      "power_dkk_month_assumption": 11.520000000000001,
+      "spot_scenarios": {
+        "spot_0_5x": {
+          "gross_dkk_month": 2.3116361131296,
+          "net_after_power_dkk_month": -9.208363886870401,
+          "payback_at_target_months": null
+        },
+        "spot_1_0x": {
+          "gross_dkk_month": 4.6232722262592,
+          "net_after_power_dkk_month": -6.8967277737408015,
+          "payback_at_target_months": null
+        },
+        "spot_2_0x": {
+          "gross_dkk_month": 9.2465444525184,
+          "net_after_power_dkk_month": -2.2734555474816016,
+          "payback_at_target_months": null
+        },
+        "spot_5_0x": {
+          "gross_dkk_month": 23.116361131296,
+          "net_after_power_dkk_month": 11.596361131295998,
+          "payback_at_target_months": 43.11697387990197
         }
       }
     }
   ],
-  "unsupported": []
+  "unsupported": [
+    {
+      "listing_id": "24451422",
+      "model": "Motorola G30",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "22585550",
+      "model": "Motorola E13",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24036150",
+      "model": "Samsung Galaxy s22+",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24452651",
+      "model": "OnePlus 8 Pro",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23235041",
+      "model": "Motorola Edge 50 Fusion",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24317162",
+      "model": "Xiaomi Redmi Note 12 Pro+",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24114191",
+      "model": "Motorola G85",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23534379",
+      "model": "OnePlus Nord CE 2",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23661735",
+      "model": "OnePlus 8T",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23769344",
+      "model": "Samsung Galaxy s22+",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24396538",
+      "model": "Xiaomi Redmi Note 13 Pro +",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23926294",
+      "model": "Samsung Galaxy S20 FE",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "19003162",
+      "model": "OnePlus 7",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24445342",
+      "model": "Samsung Z Fold 4",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24437871",
+      "model": "Samsung Z Flip 3",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24425265",
+      "model": "Samsung S23 FE",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24285603",
+      "model": "Samsung Z Fold 3",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24058455",
+      "model": "Samsung A56",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23535406",
+      "model": "Samsung Z Flip",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "24408497",
+      "model": "Samsung Z Fold 4",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "1570325",
+      "model": "Motorola G84",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23654542",
+      "model": "Samsung Z Flip",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23764581",
+      "model": "Samsung Flip 6",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "21107850",
+      "model": "Samsung Z Fold 6",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "23573534",
+      "model": "Samsung Z Flip",
+      "reason": "no profile"
+    },
+    {
+      "listing_id": "14037734",
+      "model": "Samsung Z Fold 6",
+      "reason": "no profile"
+    }
+  ]
 }
