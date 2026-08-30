@@ -27,11 +27,13 @@ jobs:
         run: python dba_probe.py
       - name: Build verified Acurast phone price report
         run: python acurast_dba_report.py
+      - name: Build Acurast procurement valuation
+        run: python acurast_valuation.py
       - name: Commit Acurast results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/acurast_latest.json results/acurast_report.md
+          git add results/acurast_latest.json results/acurast_report.md results/acurast_valuation.json results/acurast_valuation.md
           if git diff --cached --quiet; then
             echo "No Acurast result changes"
           else
