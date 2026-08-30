@@ -4,7 +4,6 @@ import json, re, statistics, time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
 import requests
 
 BASE='https://www.dba.dk'
@@ -25,6 +24,7 @@ ACCESSORY_RE=re.compile(r'(mobilcover|telefoncover|cover|covers|case|etui|skærm
 COMPLETE_PHONE_RE=re.compile(r'\b(telefon|mobiltelefon|smartphone|mobil)\b',re.I)
 FUNCTION_RE=re.compile(r'\b(virker|fungerer|tænder|starter|defekt|revnet|ødelagt|skadet|imei|simkort|dual sim|factory reset|nulstillet|android\s*1[2-9])\b',re.I)
 SPEC_RE=re.compile(r'\b(?:4|6|8|10|12|16|18|24)\s*gb\s*(?:ram)?\b|\b(?:64|128|256|512|1024)\s*gb\b',re.I)
+KNOWN_PHONE_BRANDS={'apple','iphone','huawei','nokia','htc','lg','zte','meizu','vivo','blackview','ulefone','cubot','fairphone','tecno','infinix'}
 
 def getj(s,url,params=None):
     last=None
@@ -48,7 +48,7 @@ def amount(v):
 
 def norm(s): return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
 def compact(s):
-    n=norm(s); n=re.sub(r'([a-z]+)(\d)',r'\1 \2',n); return re.sub(r'\s+','',n)
+    n=norm(s); n=re.sub(r'([a-z]+)(\d)',r'\1 \2',n); n=re.sub(r'(\d)([a-z]+)',r'\1 \2',n); return re.sub(r'\s+','',n)
 
 def build_catalog(s):
     devices=getj(s,BOT_BASE+'/devices/with-counts'); stats=getj(s,BOT_BASE+'/devices/pool-statistics')
@@ -74,18 +74,22 @@ def build_catalog(s):
 def catalog_brands(catalog): return {norm(x['brand']) for x in catalog if norm(x['brand'])}
 def detected_brand(text,catalog):
     n=' '+norm(text)+' '; aliases={'pixel':'google','galaxy':'samsung','redmi':'xiaomi'}; hits=[]
-    for b in catalog_brands(catalog):
-        if f' {b} ' in n: hits.append(b)
+    cbrands=catalog_brands(catalog)
+    for b in cbrands | KNOWN_PHONE_BRANDS:
+        if f' {b} ' in n: hits.append('apple' if b=='iphone' else b)
     for token,b in aliases.items():
-        if f' {token} ' in n and b in catalog_brands(catalog): hits.append(b)
+        if f' {token} ' in n: hits.append(b)
     if re.search(r'\bi\s*phone\b|\biphone\b',n): return 'apple'
-    return hits[0] if len(set(hits))==1 else None
+    uniq=set(hits)
+    return next(iter(uniq)) if len(uniq)==1 else None
 
 def model_of(text,catalog):
     nt=' '+norm(text)+' '; ct=compact(text); seller_brand=detected_brand(text,catalog); matches=[]
     if seller_brand=='apple': return None
     for x in catalog:
         xb=norm(x['brand'])
+        # Explicit seller/manufacturer identity is a hard barrier. A Huawei title can
+        # never resolve to e.g. OnePlus merely because both contain "10 Pro".
         if seller_brand and xb!=seller_brand: continue
         for a in x['aliases']:
             boundary=f' {a} ' in nt; ca=compact(a); compact_hit=len(ca)>=5 and ca in ct
@@ -97,14 +101,17 @@ def model_of(text,catalog):
 def resolve_model(title,description,catalog): return model_of(title,catalog) or model_of(f'{title} {description}',catalog)
 def product_identity(title,description,model,price,catalog):
     t=' '.join((title or '').split()); d=' '.join((description or '').split()); both=f'{t} {d}'
-    if detected_brand(t,catalog)=='apple': return False,'Apple/iPhone listing is not an Android Acurast Core candidate'
+    explicit=detected_brand(t,catalog)
+    if explicit=='apple': return False,'Apple/iPhone listing is not an Android Acurast Core candidate'
     if price is not None and price>MAX_ASK_DKK:return False,'ASK ceiling'
     if not model:return False,'no AcurastBot-supported model resolved'
+    model_brand=norm(next((x['brand'] for x in catalog if x['label']==model),''))
+    if explicit and explicit!=model_brand:return False,f'explicit brand mismatch: {explicit} != {model_brand}'
     if ACCESSORY_RE.search(t):return False,'accessory/part title'
     complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both))
     if price is not None and price<150 and not (complete and (functional or specs)):return False,'weak complete-phone evidence'
     if ACCESSORY_RE.search(d) and not (complete and functional):return False,'description indicates part'
-    return True,'AcurastBot dynamic universe + live product identity passed'
+    return True,'AcurastBot dynamic universe + strict brand/model identity + live product identity passed'
 
 def canonical_id_from_payload(payload):
     stack=[payload]
