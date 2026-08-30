@@ -1,53 +1,52 @@
-# Acurast DBA Procurement Model — valuation
+# Acurast DBA Value Hunter
 
-Generated: 2026-08-30T17:36:33.209471+00:00
+Generated: 2026-08-30T18:36:47.740425+00:00
 
-DBA regression: **PASS** — listing 24247594 = 4399 kr.
-ACU spot used: **0.7890 DKK/ACU** (CoinGecko)
-Electricity assumption: **2.50 DKK/kWh**
+DBA data gate: **PASS** — regression 24247594 = 4399 kr.
+AcurastBot data gate: **PASS** — farm reference based on 7 current-phone entries.
 
-> Reward estimates are LOW/BASE/HIGH farm-calibrated estimates using the official Acurast metric weights. Staking and deployment rewards are not added.
+> Primær rangering er **AAE = forventet ACU pr. måned pr. investeret DKK**. ACU spotpris bruges kun som scenariereference og påvirker ikke rangering, STARTBUD, TARGET eller HARD MAX.
 
-| Rank | Decision | ASK | Start | Target | Hard max | ACU/epoch L/B/H | Net base/md | Ask payback | Listing |
-|---:|---|---:|---:|---:|---:|---|---:|---:|---|
-| 1 | WATCH/NEGOTIATE | 2200 kr. | 0 | 25 | 25 | 0.0293/0.0419/0.0545 | 6.9 kr. | 319.8 mdr | [Samsung Galaxy Z Flip5](https://www.dba.dk/recommerce/forsale/item/24044084) |
-| 2 | WATCH/NEGOTIATE | 1000 kr. | 0 | 25 | 25 | 0.0278/0.0397/0.0516 | 6.0 kr. | 166.0 mdr | [Samsung Galaxy S21 Ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |
-| 3 | WATCH/NEGOTIATE | 1499 kr. | 0 | 25 | 25 | 0.0278/0.0397/0.0516 | 6.0 kr. | 248.9 mdr | [Samsung Galaxy S21 Ultra](https://www.dba.dk/recommerce/forsale/item/23197519) |
-| 4 | WATCH/NEGOTIATE | 2100 kr. | 0 | 25 | 25 | 0.0278/0.0397/0.0516 | 6.0 kr. | 348.7 mdr | [Samsung Galaxy S21 Ultra](https://www.dba.dk/recommerce/forsale/item/24009767) |
-| 5 | WATCH/NEGOTIATE | 2995 kr. | 0 | 25 | 25 | 0.0275/0.0393/0.0512 | 5.7 kr. | 523.4 mdr | [OnePlus 11](https://www.dba.dk/recommerce/forsale/item/23426243) |
-| 6 | WATCH/NEGOTIATE | 1200 kr. | 0 | 25 | 25 | 0.0311/0.0444/0.0577 | 5.1 kr. | 234.9 mdr | [Xiaomi 12 Pro](https://www.dba.dk/recommerce/forsale/item/22007439) |
-| 7 | WATCH/NEGOTIATE | 2200 kr. | 0 | 25 | 25 | 0.0259/0.0370/0.0481 | 4.7 kr. | 471.5 mdr | [Samsung Galaxy Z Flip4](https://www.dba.dk/recommerce/forsale/item/4703792) |
-| 8 | WATCH/NEGOTIATE | 790 kr. | 0 | 25 | 25 | 0.0227/0.0325/0.0422 | 4.4 kr. | 180.1 mdr | [OnePlus Nord 2T](https://www.dba.dk/recommerce/forsale/item/21612519) |
-| 9 | WATCH/NEGOTIATE | 800 kr. | 0 | 25 | 25 | 0.0227/0.0325/0.0422 | 4.4 kr. | 182.4 mdr | [OnePlus Nord 2T](https://www.dba.dk/recommerce/forsale/item/23992209) |
-| 10 | WATCH/NEGOTIATE | 899 kr. | 0 | 25 | 25 | 0.0223/0.0319/0.0414 | 4.2 kr. | 216.6 mdr | [OnePlus Nord 2](https://www.dba.dk/recommerce/forsale/item/23588486) |
-| 11 | WATCH/NEGOTIATE | 1100 kr. | 25 | 75 | 75 | 0.0378/0.0540/0.0703 | 11.1 kr. | 99.0 mdr | [OnePlus Nord 3](https://www.dba.dk/recommerce/forsale/item/23240542) |
-| 12 | WATCH/NEGOTIATE | 2363 kr. | 25 | 75 | 75 | 0.0378/0.0540/0.0703 | 11.1 kr. | 212.7 mdr | [OnePlus Nord 3](https://www.dba.dk/recommerce/forsale/item/24415940) |
-| 13 | WATCH/NEGOTIATE | 600 kr. | 25 | 50 | 50 | 0.0276/0.0394/0.0512 | 7.4 kr. | 81.5 mdr | [Motorola Edge 40 Neo](https://www.dba.dk/recommerce/forsale/item/24293758) |
-| 14 | WATCH/NEGOTIATE | 900 kr. | 25 | 50 | 50 | 0.0276/0.0394/0.0512 | 7.4 kr. | 122.2 mdr | [Motorola Edge 40 Neo](https://www.dba.dk/recommerce/forsale/item/23049288) |
-| 15 | WATCH/NEGOTIATE | 2287 kr. | 25 | 50 | 50 | 0.0276/0.0394/0.0512 | 7.4 kr. | 310.6 mdr | [Motorola Edge 40 Neo](https://www.dba.dk/recommerce/forsale/item/24304837) |
-| 16 | WATCH/NEGOTIATE | 3500 kr. | 25 | 50 | 50 | 0.0276/0.0394/0.0512 | 7.4 kr. | 475.4 mdr | [Motorola Edge 40 Neo](https://www.dba.dk/recommerce/forsale/item/1570456) |
-| 17 | REJECT | 500 kr. | 0 | 0 | 0 | 0.0196/0.0280/0.0363 | 3.4 kr. | 147.6 mdr | [Samsung Galaxy S10](https://www.dba.dk/recommerce/forsale/item/2223363) |
-| 18 | REJECT | 800 kr. | 0 | 0 | 0 | 0.0247/0.0353/0.0458 | 1.8 kr. | 436.7 mdr | [OnePlus 10 Pro](https://www.dba.dk/recommerce/forsale/item/24453052) |
-| 19 | REJECT | 800 kr. | 0 | 0 | 0 | 0.0196/0.0280/0.0363 | 3.4 kr. | 236.1 mdr | [Samsung Galaxy S10](https://www.dba.dk/recommerce/forsale/item/24113148) |
-| 20 | REJECT | 900 kr. | 0 | 0 | 0 | 0.0244/0.0349/0.0454 | 2.4 kr. | 372.3 mdr | [Samsung Galaxy S22 Ultra](https://www.dba.dk/recommerce/forsale/item/23769344) |
-| 21 | REJECT | 1000 kr. | 0 | 0 | 0 | 0.0247/0.0353/0.0458 | 1.8 kr. | 545.9 mdr | [OnePlus 10 Pro](https://www.dba.dk/recommerce/forsale/item/22032520) |
-| 22 | REJECT | 1200 kr. | 0 | 0 | 0 | 0.0247/0.0353/0.0458 | 1.8 kr. | 655.0 mdr | [OnePlus 10 Pro](https://www.dba.dk/recommerce/forsale/item/24036107) |
-| 23 | REJECT | 1400 kr. | 0 | 0 | 0 | 0.0238/0.0340/0.0442 | 1.4 kr. | 1029.3 mdr | [OnePlus 9 Pro](https://www.dba.dk/recommerce/forsale/item/22710438) |
-| 24 | REJECT | 1600 kr. | 0 | 0 | 0 | 0.0244/0.0349/0.0454 | 2.8 kr. | 576.1 mdr | [Samsung Galaxy S23 FE](https://www.dba.dk/recommerce/forsale/item/24342897) |
-| 25 | REJECT | 1850 kr. | 0 | 0 | 0 | 0.0244/0.0349/0.0454 | 2.8 kr. | 666.2 mdr | [Samsung Galaxy S23 FE](https://www.dba.dk/recommerce/forsale/item/24310625) |
-| 26 | REJECT | 1975 kr. | 0 | 0 | 0 | 0.0244/0.0349/0.0454 | 2.4 kr. | 817.1 mdr | [Samsung Galaxy S22 Ultra](https://www.dba.dk/recommerce/forsale/item/22792055) |
-| 27 | REJECT | 2999 kr. | 0 | 0 | 0 | 0.0244/0.0349/0.0454 | 2.4 kr. | 1240.7 mdr | [Samsung Galaxy S22 Ultra](https://www.dba.dk/recommerce/forsale/item/10894827) |
-| 28 | REJECT | 4000 kr. | 0 | 0 | 0 | 0.0244/0.0349/0.0454 | 2.4 kr. | 1654.9 mdr | [Samsung Galaxy S22 Ultra](https://www.dba.dk/recommerce/forsale/item/23758125) |
+| # | Model | ASK | AcurastBot ACU/epoch | ACU/md | AAE ved ASK | Start | Target | Hard max | Beslutning |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|---|
+| 1 | [Samsung Galaxy S22 Ultra](https://www.dba.dk/recommerce/forsale/item/23769344) | 900 | 0.00986 | 4.73 | 0.0053 | 275 | 425 | 550 | LOW OFFER / NEGOTIATE |
+| 2 | [Motorola Edge 40 Neo](https://www.dba.dk/recommerce/forsale/item/24293758) | 600 | 0.00627 | 3.01 | 0.0050 | 200 | 300 | 400 | LOW OFFER / NEGOTIATE |
+| 3 | [Samsung Galaxy S21 Ultra](https://www.dba.dk/recommerce/forsale/item/23858419) | 1000 | 0.00962 | 4.62 | 0.0046 | 300 | 450 | 575 | LOW OFFER / NEGOTIATE |
+| 4 | [OnePlus 9 Pro](https://www.dba.dk/recommerce/forsale/item/22710438) | 1400 | 0.01201 | 5.76 | 0.0041 | 325 | 500 | 650 | LOW OFFER / NEGOTIATE |
+| 5 | [Samsung Galaxy S10](https://www.dba.dk/recommerce/forsale/item/2223363) | 500 | 0.00411 | 1.97 | 0.0039 | 125 | 200 | 250 | LOW OFFER / NEGOTIATE |
+| 6 | [Motorola Edge 40 Neo](https://www.dba.dk/recommerce/forsale/item/23049288) | 900 | 0.00627 | 3.01 | 0.0033 | 200 | 300 | 400 | LOW OFFER / NEGOTIATE |
+| 7 | [OnePlus 10 Pro](https://www.dba.dk/recommerce/forsale/item/24453052) | 800 | 0.00532 | 2.56 | 0.0032 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 8 | [Samsung Galaxy S21 Ultra](https://www.dba.dk/recommerce/forsale/item/23197519) | 1499 | 0.00962 | 4.62 | 0.0031 | 300 | 450 | 575 | LOW OFFER / NEGOTIATE |
+| 9 | [OnePlus Nord 2T](https://www.dba.dk/recommerce/forsale/item/21612519) | 790 | 0.00453 | 2.17 | 0.0028 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 10 | [OnePlus Nord 2T](https://www.dba.dk/recommerce/forsale/item/23992209) | 800 | 0.00453 | 2.17 | 0.0027 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 11 | [Samsung Galaxy S23 FE](https://www.dba.dk/recommerce/forsale/item/24342897) | 1600 | 0.00859 | 4.12 | 0.0026 | 250 | 375 | 500 | LOW OFFER / NEGOTIATE |
+| 12 | [Samsung Galaxy S22 Ultra](https://www.dba.dk/recommerce/forsale/item/22792055) | 1975 | 0.01055 | 5.06 | 0.0026 | 300 | 450 | 575 | LOW OFFER / NEGOTIATE |
+| 13 | [OnePlus 10 Pro](https://www.dba.dk/recommerce/forsale/item/22032520) | 1000 | 0.00532 | 2.56 | 0.0026 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 14 | [Samsung Galaxy S10](https://www.dba.dk/recommerce/forsale/item/24113148) | 800 | 0.00411 | 1.97 | 0.0025 | 125 | 200 | 250 | LOW OFFER / NEGOTIATE |
+| 15 | [OnePlus Nord 2](https://www.dba.dk/recommerce/forsale/item/23588486) | 899 | 0.00453 | 2.17 | 0.0024 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 16 | [Xiaomi 12 Pro](https://www.dba.dk/recommerce/forsale/item/22007439) | 1200 | 0.00582 | 2.79 | 0.0023 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 17 | [Samsung Galaxy S23 FE](https://www.dba.dk/recommerce/forsale/item/24310625) | 1850 | 0.00859 | 4.12 | 0.0022 | 250 | 375 | 500 | LOW OFFER / NEGOTIATE |
+| 18 | [Samsung Galaxy S21 Ultra](https://www.dba.dk/recommerce/forsale/item/24009767) | 2100 | 0.00962 | 4.62 | 0.0022 | 300 | 450 | 575 | LOW OFFER / NEGOTIATE |
+| 19 | [OnePlus 10 Pro](https://www.dba.dk/recommerce/forsale/item/24036107) | 1200 | 0.00532 | 2.56 | 0.0021 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 20 | [OnePlus Nord 3](https://www.dba.dk/recommerce/forsale/item/23240542) | 1100 | 0.00453 | 2.17 | 0.0020 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 21 | [Samsung Galaxy S22 Ultra](https://www.dba.dk/recommerce/forsale/item/10894827) | 2999 | 0.01055 | 5.06 | 0.0017 | 300 | 450 | 575 | LOW OFFER / NEGOTIATE |
+| 22 | [Motorola Edge 40 Neo](https://www.dba.dk/recommerce/forsale/item/24304837) | 2287 | 0.00627 | 3.01 | 0.0013 | 200 | 300 | 400 | LOW OFFER / NEGOTIATE |
+| 23 | [Samsung Galaxy S22 Ultra](https://www.dba.dk/recommerce/forsale/item/23758125) | 4000 | 0.01055 | 5.06 | 0.0013 | 300 | 450 | 575 | LOW OFFER / NEGOTIATE |
+| 24 | [Samsung Galaxy Z Flip4](https://www.dba.dk/recommerce/forsale/item/4703792) | 2200 | 0.00511 | 2.45 | 0.0011 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 25 | [Samsung Galaxy Z Flip5](https://www.dba.dk/recommerce/forsale/item/24044084) | 2200 | 0.00511 | 2.45 | 0.0011 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 26 | [OnePlus Nord 3](https://www.dba.dk/recommerce/forsale/item/24415940) | 2363 | 0.00453 | 2.17 | 0.0009 | 150 | 225 | 300 | LOW OFFER / NEGOTIATE |
+| 27 | [Motorola Edge 40 Neo](https://www.dba.dk/recommerce/forsale/item/1570456) | 3500 | 0.00627 | 3.01 | 0.0009 | 200 | 300 | 400 | LOW OFFER / NEGOTIATE |
+| 28 | [OnePlus 11](https://www.dba.dk/recommerce/forsale/item/23426243) | 2995 | 0.00526 | 2.53 | 0.0008 | 150 | 250 | 325 | LOW OFFER / NEGOTIATE |
 
-## Top bid instructions
+## Bedste bud nu
 
-- **Samsung Galaxy Z Flip5 — WATCH/NEGOTIATE** — ASK 2200 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/24044084)
-- **Samsung Galaxy S21 Ultra — WATCH/NEGOTIATE** — ASK 1000 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/23858419)
-- **Samsung Galaxy S21 Ultra — WATCH/NEGOTIATE** — ASK 1499 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/23197519)
-- **Samsung Galaxy S21 Ultra — WATCH/NEGOTIATE** — ASK 2100 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/24009767)
-- **OnePlus 11 — WATCH/NEGOTIATE** — ASK 2995 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/23426243)
-- **Xiaomi 12 Pro — WATCH/NEGOTIATE** — ASK 1200 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/22007439)
-- **Samsung Galaxy Z Flip4 — WATCH/NEGOTIATE** — ASK 2200 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/4703792)
-- **OnePlus Nord 2T — WATCH/NEGOTIATE** — ASK 790 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/21612519)
-- **OnePlus Nord 2T — WATCH/NEGOTIATE** — ASK 800 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/23992209)
-- **OnePlus Nord 2 — WATCH/NEGOTIATE** — ASK 899 kr. — Start 0 kr.; gå til 25 kr.; walk away 25 kr. — [DBA](https://www.dba.dk/recommerce/forsale/item/23588486)
+- **Samsung Galaxy S22 Ultra** — ASK 900 kr. — AAE 0.0053 — start 275 kr., target 425 kr., walk-away 550 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23769344)
+- **Motorola Edge 40 Neo** — ASK 600 kr. — AAE 0.0050 — start 200 kr., target 300 kr., walk-away 400 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24293758)
+- **Samsung Galaxy S21 Ultra** — ASK 1000 kr. — AAE 0.0046 — start 300 kr., target 450 kr., walk-away 575 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23858419)
+- **OnePlus 9 Pro** — ASK 1400 kr. — AAE 0.0041 — start 325 kr., target 500 kr., walk-away 650 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/22710438)
+- **Samsung Galaxy S10** — ASK 500 kr. — AAE 0.0039 — start 125 kr., target 200 kr., walk-away 250 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/2223363)
+- **Motorola Edge 40 Neo** — ASK 900 kr. — AAE 0.0033 — start 200 kr., target 300 kr., walk-away 400 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23049288)
+- **OnePlus 10 Pro** — ASK 800 kr. — AAE 0.0032 — start 150 kr., target 225 kr., walk-away 300 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24453052)
+- **Samsung Galaxy S21 Ultra** — ASK 1499 kr. — AAE 0.0031 — start 300 kr., target 450 kr., walk-away 575 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23197519)
+- **OnePlus Nord 2T** — ASK 790 kr. — AAE 0.0028 — start 150 kr., target 225 kr., walk-away 300 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/21612519)
+- **OnePlus Nord 2T** — ASK 800 kr. — AAE 0.0027 — start 150 kr., target 225 kr., walk-away 300 kr. — **LOW OFFER / NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23992209)
