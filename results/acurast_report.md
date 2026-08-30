@@ -1,6 +1,6 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-08-30T20:22:08.228780+00:00
+Generated: 2026-08-30T20:24:09.767474+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
