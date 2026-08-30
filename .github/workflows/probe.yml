@@ -1,4 +1,4 @@
-name: DBA Probe
+name: DBA Verified Report
 
 on:
   push:
@@ -9,9 +9,9 @@ permissions:
   contents: write
 
 jobs:
-  probe:
+  report:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -19,16 +19,18 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install requests beautifulsoup4
-      - name: Probe DBA
+      - name: Run structured-data regression probe
         run: python dba_probe.py
-      - name: Commit result
+      - name: Build verified WoW price report
+        run: python dba_report.py
+      - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/latest.json
+          git add results/latest.json results/report.json results/report.md
           if git diff --cached --quiet; then
             echo "No result changes"
           else
-            git commit -m "Update DBA probe result [skip ci]"
+            git commit -m "Update verified DBA report [skip ci]"
             git push
           fi
