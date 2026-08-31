@@ -89,7 +89,7 @@ def build_catalog(s):
 
 def catalog_brands(catalog): return {norm(x['brand']) for x in catalog if norm(x['brand'])}
 def detected_brand(text,catalog):
-    n=' '+norm(text)+' '; aliases={'pixel':'google','galaxy':'samsung','redmi':'xiaomi'}; hits=[]
+    n=' '+norm(text)+' '; aliases={'pixel':'google','galaxy':'samsung','redmi':'xiaomi','moto':'motorola'}; hits=[]
     cbrands=catalog_brands(catalog)
     for b in cbrands | KNOWN_PHONE_BRANDS:
         if f' {b} ' in n: hits.append('apple' if b=='iphone' else b)
@@ -136,7 +136,7 @@ def product_identity(title,description,model,price,catalog):
     if ACCESSORY_RE.search(t):return False,'accessory/part title'
     complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both)); explicit_model_title=bool(model_of(t,catalog))
     if price is not None and price<150 and not (complete and (functional or specs)):return False,'weak complete-phone evidence'
-    if ACCESSORY_RE.search(d) and not (complete and functional) and not explicit_model_title:return False,'description indicates part without explicit phone-model title'
+    if ACCESSORY_RE.search(d) and not (complete and functional) and not (explicit_model_title and functional):return False,'description indicates part without explicit functional phone evidence'
     return True,'AcurastBot dynamic universe + strict brand/model/variant identity + live product identity passed'
 
 def canonical_id_from_payload(payload):
@@ -180,8 +180,6 @@ def main():
         previous=ids;category_pages+=1;category_docs+=len(docs);add_search_docs(found,docs,f'category:{page}',catalog)
         prices=[amount(d.get('price')) for d in docs if amount(d.get('price')) is not None]
         if prices and min(prices)>MAX_ASK_DKK:break
-    diag={'catalog_s20':[{'label':x['label'],'model':x['model'],'aliases':sorted(x['aliases'])} for x in catalog if 's20' in norm(x['label'])], 't0_s20_fe':[r for r in found.values() if 's20' in norm(r['title_t0']) and (' fe ' in f" {norm(r['title_t0'])} " or 'fan edition' in norm(r['title_t0']))]}
-    print('DISCOVERY_DIAGNOSTIC='+json.dumps(diag,ensure_ascii=False))
     pool=sorted(found.values(),key=lambda r:(r['ask_t0'],r['listing_id']));verified=[]
     with ThreadPoolExecutor(max_workers=T1_WORKERS) as ex:
         for f in as_completed([ex.submit(verify,r,catalog) for r in pool]):
