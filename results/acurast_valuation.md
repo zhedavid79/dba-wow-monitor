@@ -1,45 +1,54 @@
-# Acurast DBA Procurement V1.4 — ACU Accumulation Efficiency
+# Acurast DBA Procurement V1.5 — Mainnet ACU Accumulation Efficiency
 
-Generated: 2026-08-31T12:24:47.463041+00:00
+Generated: 2026-08-31T12:32:33.878175+00:00
 
 DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.
-Primary objective: **maximize long-term ACU accumulation per invested DKK**. Current ACU spot price is not used as a purchase gate.
-Reward calibration: **CALIBRATED_PARTIAL_REFERENCE**, scale ×6.742, exact reference matches 2/7.
-LOW stress path: 20% annual reward decay. Electricity assumption: 4.0 W wall draw at 2.50 DKK/kWh.
+Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived phone earnings; 15/30 live listings matched.
+**Retired:** AcurastBot Canary cACU ×0.01 conversion and ×6.742 farm calibration are not used for ACU/epoch.
+BASE = observed Pulse ACU/epoch. LOW = Pulse baseline/day ratio (deployment boost stripped). Evidence confidence affects bid basis, not physical ACU/epoch.
+Long-horizon LOW stress: 20% annual reward decay. Electricity: 4.0 W at 2.50 DKK/kWh.
 
-| # | Model | ASK | ACU/epoch LOW | BASE | HIGH | ACU/år BASE | AAE LOW @ASK | AAE BASE @ASK | Start | Target | Hard max | 24m BE ACU | Klasse | Link |
+| # | Model | ASK | ACU/epoch LOW | BASE | HIGH | ACU/day BASE | ACU/år BASE | AAE BASE @ASK | Pulse n | Start | Target | Hard max | Klasse | Link |
 |---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---|
-| 1 | Motorola G30 | 50 | 0.01176 | 0.02100 | 0.02100 | 122.7 | 1.3738 | 2.4532 | 50 | 50 | 150 | 1.82 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24451422) |
-| 2 | OnePlus 8T | 350 | 0.03862 | 0.06902 | 0.06919 | 403.1 | 0.6443 | 1.1517 | 250 | 300 | 525 | 1.17 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24483101) |
-| 3 | OnePlus 9 | 400 | 0.03544 | 0.06328 | 0.06328 | 369.6 | 0.5174 | 0.9239 | 225 | 275 | 475 | 1.21 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24099425) |
-| 4 | Motorola E13 | 150 | 0.01236 | 0.02208 | 0.02208 | 128.9 | 0.4814 | 0.8596 | 75 | 100 | 175 | 2.12 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/22585550) |
-| 5 | OnePlus 8 Pro | 450 | 0.02957 | 0.06791 | 0.06965 | 396.6 | 0.3837 | 0.8814 | 300 | 375 | 675 | 1.77 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24452651) |
-| 6 | Motorola Edge 50 Fusion | 600 | 0.03033 | 0.05416 | 0.05416 | 316.3 | 0.2952 | 0.5272 | 200 | 225 | 425 | 1.26 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23235041) |
-| 7 | Samsung Galaxy Z Flip 4 | 400 | 0.01929 | 0.03444 | 0.03444 | 201.1 | 0.2816 | 0.5029 | 125 | 150 | 275 | 1.60 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24156221) |
-| 8 | Motorola Edge 40 Neo | 600 | 0.02366 | 0.04225 | 0.04225 | 246.7 | 0.2303 | 0.4112 | 150 | 175 | 325 | 1.41 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24293758) |
-| 9 | Nothing Phone 1 | 899 | 0.03237 | 0.05781 | 0.05781 | 337.6 | 0.2103 | 0.3755 | 200 | 250 | 450 | 1.25 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24086458) |
-| 10 | OnePlus 8T | 1000 | 0.03296 | 0.05886 | 0.05886 | 343.8 | 0.1925 | 0.3438 | 200 | 250 | 450 | 1.23 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23007415) |
-| 11 | Motorola G85 | 750 | 0.02416 | 0.04020 | 0.04020 | 234.8 | 0.1881 | 0.3131 | 200 | 250 | 450 | 1.67 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24114191) |
-| 12 | Xiaomi Redmi 14C | 500 | 0.01328 | 0.02372 | 0.02372 | 138.5 | 0.1552 | 0.2771 | 75 | 100 | 175 | 1.97 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23455321) |
-| 13 | OnePlus 10 Pro | 800 | 0.02010 | 0.03590 | 0.03590 | 209.7 | 0.1468 | 0.2621 | 125 | 150 | 275 | 1.54 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24453052) |
-| 14 | Motorola Edge 40 Neo | 950 | 0.02366 | 0.04225 | 0.04225 | 246.7 | 0.1454 | 0.2597 | 150 | 175 | 325 | 1.41 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/17025084) |
-| 15 | OnePlus 10 Pro | 1000 | 0.02010 | 0.03590 | 0.03590 | 209.7 | 0.1174 | 0.2097 | 125 | 150 | 275 | 1.54 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/22032520) |
-| 16 | Samsung S21 Ultra | 1000 | 0.01975 | 0.03527 | 0.03527 | 206.0 | 0.1153 | 0.2060 | 125 | 150 | 275 | 1.57 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23858419) |
-| 17 | Samsung Galaxy S20 FE | 400 | 0.00743 | 0.01327 | 0.01327 | 77.5 | 0.1085 | 0.1937 | 50 | 50 | 100 | 2.88 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24479927) |
-| 18 | OnePlus Nord CE 2 | 1000 | 0.01836 | 0.03055 | 0.03055 | 178.4 | 0.1072 | 0.1784 | 150 | 200 | 325 | 1.94 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23098313) |
-| 19 | Samsung Z Flip 3 | 900 | 0.01271 | 0.02522 | 0.06975 | 147.3 | 0.0825 | 0.1637 | 125 | 175 | 300 | 2.62 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24342803) |
+| 1 | OnePlus 8T | 350 | 0.04726 | 0.05010 | 0.05198 | 0.7069 | 258.0 | 0.7372 | 45 | 350 | 350 | 875 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24483101) |
+| 2 | OnePlus 9 | 400 | 0.04858 | 0.04925 | 0.05344 | 0.6949 | 253.6 | 0.6341 | 104 | 400 | 400 | 950 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24099425) |
+| 3 | OnePlus 8 Pro | 450 | 0.04743 | 0.05072 | 0.05217 | 0.7155 | 261.2 | 0.5804 | 3 | 450 | 450 | 750 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24452651) |
+| 4 | Samsung Galaxy Z Flip 4 | 400 | 0.02720 | 0.02885 | 0.02992 | 0.4070 | 148.6 | 0.3714 | 1 | 200 | 250 | 325 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24156221) |
+| 5 | Samsung Galaxy S10 | 400 | 0.02573 | 0.02691 | 0.02830 | 0.3796 | 138.6 | 0.3464 | 1 | 200 | 250 | 300 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24320383) |
+| 6 | Samsung Galaxy S20 FE | 400 | 0.02556 | 0.02654 | 0.02812 | 0.3745 | 136.7 | 0.3418 | 2 | 225 | 300 | 375 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24479927) |
+| 7 | Samsung Galaxy S10 | 500 | 0.02573 | 0.02691 | 0.02830 | 0.3796 | 138.6 | 0.2771 | 1 | 200 | 250 | 300 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/2223363) |
+| 8 | Samsung Galaxy S20 | 600 | 0.03079 | 0.03218 | 0.03387 | 0.4540 | 165.7 | 0.2762 | 1 | 225 | 275 | 350 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/22998960) |
+| 9 | OnePlus 8T | 1000 | 0.04726 | 0.05010 | 0.05198 | 0.7069 | 258.0 | 0.2580 | 45 | 550 | 675 | 875 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23007415) |
+| 10 | Samsung Z Flip 3 | 900 | 0.03720 | 0.03921 | 0.04093 | 0.5532 | 201.9 | 0.2244 | 31 | 425 | 525 | 700 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24342803) |
+| 11 | OnePlus 10 Pro | 800 | 0.03109 | 0.03333 | 0.03420 | 0.4702 | 171.6 | 0.2145 | 2 | 275 | 350 | 450 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24453052) |
+| 12 | Samsung S21 Ultra | 1000 | 0.03855 | 0.03923 | 0.04241 | 0.5534 | 202.0 | 0.2020 | 276 | 425 | 525 | 675 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23858419) |
+| 13 | Samsung Galaxy S10 | 700 | 0.02573 | 0.02691 | 0.02830 | 0.3796 | 138.6 | 0.1979 | 1 | 200 | 250 | 300 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/12922667) |
+| 14 | Samsung Galaxy S10 | 800 | 0.02573 | 0.02691 | 0.02830 | 0.3796 | 138.6 | 0.1732 | 1 | 200 | 250 | 300 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24113148) |
+| 15 | OnePlus 10 Pro | 1000 | 0.03109 | 0.03333 | 0.03420 | 0.4702 | 171.6 | 0.1716 | 2 | 275 | 350 | 450 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/22032520) |
 
-## Topkandidater
+## Reward-proveniens
+- **OnePlus 8T**: Pulse `OnePlus 8T` (ID 661), EXACT, n=45, BASE 0.050101 ACU/epoch, baseline/day 0.666728 ACU.
+- **OnePlus 9**: Pulse `OnePlus 9` (ID 662), EXACT, n=104, BASE 0.049254 ACU/epoch, baseline/day 0.685378 ACU.
+- **OnePlus 8 Pro**: Pulse `OnePlus 8 Pro` (ID 370), EXACT, n=3, BASE 0.050715 ACU/epoch, baseline/day 0.669137 ACU.
+- **Samsung Galaxy Z Flip 4**: Pulse `Samsung Z Flip 4` (ID 729), NORMALIZED_CONNECTIVITY_EXACT, n=1, BASE 0.028846 ACU/epoch, baseline/day 0.383759 ACU.
+- **Samsung Galaxy S10**: Pulse `Samsung s10` (ID 9), NORMALIZED_CONNECTIVITY_EXACT, n=1, BASE 0.026907 ACU/epoch, baseline/day 0.363004 ACU.
+- **Samsung Galaxy S20 FE**: Pulse `Samsung Galaxy S20 FE` (ID 399), EXACT, n=2, BASE 0.026545 ACU/epoch, baseline/day 0.360689 ACU.
+- **Samsung Galaxy S10**: Pulse `Samsung s10` (ID 9), NORMALIZED_CONNECTIVITY_EXACT, n=1, BASE 0.026907 ACU/epoch, baseline/day 0.363004 ACU.
+- **Samsung Galaxy S20**: Pulse `Samsung Galaxy S20 5G` (ID 398), UNIQUE_MARKETING_ALIAS, n=1, BASE 0.032178 ACU/epoch, baseline/day 0.434422 ACU.
+- **OnePlus 8T**: Pulse `OnePlus 8T` (ID 661), EXACT, n=45, BASE 0.050101 ACU/epoch, baseline/day 0.666728 ACU.
+- **Samsung Z Flip 3**: Pulse `Samsung Z Flip 3` (ID 728), EXACT, n=31, BASE 0.039211 ACU/epoch, baseline/day 0.524925 ACU.
+- **OnePlus 10 Pro**: Pulse `OnePlus 10 Pro` (ID 657), EXACT, n=2, BASE 0.033326 ACU/epoch, baseline/day 0.438615 ACU.
+- **Samsung S21 Ultra**: Pulse `Samsung Galaxy S21 Ultra 5G` (ID 405), UNIQUE_MARKETING_ALIAS, n=276, BASE 0.039225 ACU/epoch, baseline/day 0.543969 ACU.
+- **Samsung Galaxy S10**: Pulse `Samsung s10` (ID 9), NORMALIZED_CONNECTIVITY_EXACT, n=1, BASE 0.026907 ACU/epoch, baseline/day 0.363004 ACU.
+- **Samsung Galaxy S10**: Pulse `Samsung s10` (ID 9), NORMALIZED_CONNECTIVITY_EXACT, n=1, BASE 0.026907 ACU/epoch, baseline/day 0.363004 ACU.
+- **OnePlus 10 Pro**: Pulse `OnePlus 10 Pro` (ID 657), EXACT, n=2, BASE 0.033326 ACU/epoch, baseline/day 0.438615 ACU.
 
-- **Motorola G30** — ASK 50 kr. — 0.02100 ACU/epoch BASE; 122.7 ACU/år; AAE BASE @ASK 2.4532; 12/24/36m BASE 122.7/245.3/368.0 ACU; 24m break-even LOW-stress 1.82 DKK/ACU; start 50 / target 50 / max 150 — **STRONG BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24451422)
-- **OnePlus 8T** — ASK 350 kr. — 0.06902 ACU/epoch BASE; 403.1 ACU/år; AAE BASE @ASK 1.1517; 12/24/36m BASE 403.1/806.2/1209.3 ACU; 24m break-even LOW-stress 1.17 DKK/ACU; start 250 / target 300 / max 525 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24483101)
-- **OnePlus 9** — ASK 400 kr. — 0.06328 ACU/epoch BASE; 369.6 ACU/år; AAE BASE @ASK 0.9239; 12/24/36m BASE 369.6/739.1/1108.7 ACU; 24m break-even LOW-stress 1.21 DKK/ACU; start 225 / target 275 / max 475 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24099425)
-- **Motorola E13** — ASK 150 kr. — 0.02208 ACU/epoch BASE; 128.9 ACU/år; AAE BASE @ASK 0.8596; 12/24/36m BASE 128.9/257.9/386.8 ACU; 24m break-even LOW-stress 2.12 DKK/ACU; start 75 / target 100 / max 175 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/22585550)
-- **OnePlus 8 Pro** — ASK 450 kr. — 0.06791 ACU/epoch BASE; 396.6 ACU/år; AAE BASE @ASK 0.8814; 12/24/36m BASE 396.6/793.2/1189.9 ACU; 24m break-even LOW-stress 1.77 DKK/ACU; start 300 / target 375 / max 675 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24452651)
-- **Motorola Edge 50 Fusion** — ASK 600 kr. — 0.05416 ACU/epoch BASE; 316.3 ACU/år; AAE BASE @ASK 0.5272; 12/24/36m BASE 316.3/632.6/948.9 ACU; 24m break-even LOW-stress 1.26 DKK/ACU; start 200 / target 225 / max 425 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23235041)
-- **Samsung Galaxy Z Flip 4** — ASK 400 kr. — 0.03444 ACU/epoch BASE; 201.1 ACU/år; AAE BASE @ASK 0.5029; 12/24/36m BASE 201.1/402.3/603.4 ACU; 24m break-even LOW-stress 1.60 DKK/ACU; start 125 / target 150 / max 275 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24156221)
-- **Motorola Edge 40 Neo** — ASK 600 kr. — 0.04225 ACU/epoch BASE; 246.7 ACU/år; AAE BASE @ASK 0.4112; 12/24/36m BASE 246.7/493.5/740.2 ACU; 24m break-even LOW-stress 1.41 DKK/ACU; start 150 / target 175 / max 325 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24293758)
-- **Nothing Phone 1** — ASK 899 kr. — 0.05781 ACU/epoch BASE; 337.6 ACU/år; AAE BASE @ASK 0.3755; 12/24/36m BASE 337.6/675.2/1012.8 ACU; 24m break-even LOW-stress 1.25 DKK/ACU; start 200 / target 250 / max 450 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24086458)
-- **OnePlus 8T** — ASK 1000 kr. — 0.05886 ACU/epoch BASE; 343.8 ACU/år; AAE BASE @ASK 0.3438; 12/24/36m BASE 343.8/687.5/1031.3 ACU; 24m break-even LOW-stress 1.23 DKK/ACU; start 200 / target 250 / max 450 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23007415)
-- **Motorola G85** — ASK 750 kr. — 0.04020 ACU/epoch BASE; 234.8 ACU/år; AAE BASE @ASK 0.3131; 12/24/36m BASE 234.8/469.6/704.4 ACU; 24m break-even LOW-stress 1.67 DKK/ACU; start 200 / target 250 / max 450 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24114191)
-- **Xiaomi Redmi 14C** — ASK 500 kr. — 0.02372 ACU/epoch BASE; 138.5 ACU/år; AAE BASE @ASK 0.2771; 12/24/36m BASE 138.5/277.1/415.6 ACU; 24m break-even LOW-stress 1.97 DKK/ACU; start 75 / target 100 / max 175 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23455321)
+## Ikke rangeret pga. reward-data
+- Motorola E13 (22585550): no unique Mainnet Pulse reward match: NO_MATCH
+- Xiaomi Redmi 14C (23455321): no unique Mainnet Pulse reward match: NO_MATCH
+- Motorola Edge 40 Neo (24293758): no unique Mainnet Pulse reward match: NO_MATCH
+- Motorola Edge 50 Fusion (23235041): no unique Mainnet Pulse reward match: NO_MATCH
+- Motorola G85 (24114191): no unique Mainnet Pulse reward match: NO_MATCH
+- Nothing Phone 1 (24086458): no unique Mainnet Pulse reward match: NO_MATCH
+- Motorola Edge 40 Neo (17025084): no unique Mainnet Pulse reward match: NO_MATCH
+- OnePlus Nord CE 2 (23098313): no unique Mainnet Pulse reward match: NO_MATCH
