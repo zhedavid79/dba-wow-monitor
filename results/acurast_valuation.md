@@ -1,6 +1,6 @@
 # Acurast DBA Procurement V1.4 — ACU Accumulation Efficiency
 
-Generated: 2026-08-31T12:14:24.308829+00:00
+Generated: 2026-08-31T12:17:42.010403+00:00
 
 DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.
 Primary objective: **maximize long-term ACU accumulation per invested DKK**. Current ACU spot price is not used as a purchase gate.
@@ -10,7 +10,7 @@ LOW stress path: 20% annual reward decay. Electricity assumption: 4.0 W wall dra
 | # | Model | ASK | ACU/epoch LOW | BASE | HIGH | ACU/år BASE | AAE LOW @ASK | AAE BASE @ASK | Start | Target | Hard max | 24m BE ACU | Klasse | Link |
 |---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---|
 | 1 | Motorola G30 | 50 | 0.01176 | 0.02100 | 0.02100 | 122.7 | 1.3738 | 2.4532 | 50 | 50 | 150 | 1.82 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24451422) |
-| 2 | OnePlus 8T | 350 | 0.03296 | 0.05886 | 0.05886 | 343.8 | 0.5500 | 0.9822 | 225 | 275 | 450 | 1.30 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24483101) |
+| 2 | OnePlus 8T | 350 | 0.03862 | 0.06902 | 0.06919 | 403.1 | 0.6443 | 1.1517 | 250 | 325 | 525 | 1.23 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24483101) |
 | 3 | OnePlus 9 | 400 | 0.03544 | 0.06328 | 0.06328 | 369.6 | 0.5174 | 0.9239 | 225 | 300 | 500 | 1.28 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24099425) |
 | 4 | Motorola E13 | 150 | 0.01236 | 0.02208 | 0.02208 | 128.9 | 0.4814 | 0.8596 | 75 | 100 | 175 | 2.12 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/22585550) |
 | 5 | OnePlus 8 Pro | 450 | 0.02957 | 0.06791 | 0.06965 | 396.6 | 0.3837 | 0.8814 | 325 | 400 | 675 | 1.85 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24452651) |
@@ -33,7 +33,7 @@ LOW stress path: 20% annual reward decay. Electricity assumption: 4.0 W wall dra
 ## Topkandidater
 
 - **Motorola G30** — ASK 50 kr. — 0.02100 ACU/epoch BASE; 122.7 ACU/år; AAE BASE @ASK 2.4532; 12/24/36m BASE 122.7/245.3/368.0 ACU; 24m break-even LOW-stress 1.82 DKK/ACU; start 50 / target 50 / max 150 — **STRONG BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24451422)
-- **OnePlus 8T** — ASK 350 kr. — 0.05886 ACU/epoch BASE; 343.8 ACU/år; AAE BASE @ASK 0.9822; 12/24/36m BASE 343.8/687.5/1031.3 ACU; 24m break-even LOW-stress 1.30 DKK/ACU; start 225 / target 275 / max 450 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24483101)
+- **OnePlus 8T** — ASK 350 kr. — 0.06902 ACU/epoch BASE; 403.1 ACU/år; AAE BASE @ASK 1.1517; 12/24/36m BASE 403.1/806.2/1209.3 ACU; 24m break-even LOW-stress 1.23 DKK/ACU; start 250 / target 325 / max 525 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24483101)
 - **OnePlus 9** — ASK 400 kr. — 0.06328 ACU/epoch BASE; 369.6 ACU/år; AAE BASE @ASK 0.9239; 12/24/36m BASE 369.6/739.1/1108.7 ACU; 24m break-even LOW-stress 1.28 DKK/ACU; start 225 / target 300 / max 500 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24099425)
 - **Motorola E13** — ASK 150 kr. — 0.02208 ACU/epoch BASE; 128.9 ACU/år; AAE BASE @ASK 0.8596; 12/24/36m BASE 128.9/257.9/386.8 ACU; 24m break-even LOW-stress 2.12 DKK/ACU; start 75 / target 100 / max 175 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/22585550)
 - **OnePlus 8 Pro** — ASK 450 kr. — 0.06791 ACU/epoch BASE; 396.6 ACU/år; AAE BASE @ASK 0.8814; 12/24/36m BASE 396.6/793.2/1189.9 ACU; 24m break-even LOW-stress 1.85 DKK/ACU; start 325 / target 400 / max 675 — **BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24452651)
