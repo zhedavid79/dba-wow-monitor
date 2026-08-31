@@ -81,19 +81,22 @@ jobs:
           assert valuation.get('valuation_gate') is True, 'Valuation gate is not PASS'
           assert valuation.get('dba_same_listing_gate') is True, 'Valuation same-listing gate is not PASS'
 
-          # Reward integrity gate: never silently publish the retired Canary-derived model.
-          assert valuation.get('model_version') == 'V1.5-MAINNET-PULSE-AAE', 'Unexpected valuation model version'
+          # Reward integrity gate: only Mainnet chain-derived, deployment-neutral BASE is publishable.
+          assert valuation.get('model_version') == 'V1.6-MAINNET-PULSE-BASELINE-AAE', 'Unexpected valuation model version'
           assert valuation.get('reward_data_gate') is True, 'Mainnet reward data gate is not PASS'
           reward = valuation.get('reward_source', {})
           assert reward.get('canary_acurastbot_used_for_absolute_acu') is False, 'Canary AcurastBot absolute reward path re-enabled'
           assert reward.get('old_cacu_to_acu_0_01_conversion_retired') is True, 'Retired cACU ×0.01 conversion detected'
           assert reward.get('old_partial_farm_scale_retired') is True, 'Retired partial-farm calibration detected'
+          assert 'deployment-neutral' in reward.get('base_definition','').lower(), 'BASE is not deployment-neutral'
           coverage = float(reward.get('coverage') or 0)
           assert coverage >= 0.40, f'Mainnet Pulse reward coverage too low: {coverage:.1%}'
           ranked = valuation.get('ranked') or []
           assert ranked, 'No Mainnet Pulse-ranked listings'
           assert all(x.get('reward_source') == 'ACURAST_PULSE_MAINNET_CHAIN_DERIVED' for x in ranked), 'Mixed/unknown absolute reward source in ranked output'
-          assert all(float(x.get('acu_epoch_base') or 0) > 0 for x in ranked), 'Non-positive ACU/epoch in ranked output'
+          assert all(float(x.get('acu_epoch_base') or 0) > 0 for x in ranked), 'Non-positive BASE ACU/epoch in ranked output'
+          assert all(float(x.get('acu_epoch_high') or 0) >= float(x.get('acu_epoch_base') or 0) for x in ranked), 'HIGH below BASE'
+          assert all(float(x.get('pulse_observed_acu_epoch') or 0) >= float(x.get('acu_epoch_base') or 0) for x in ranked), 'BASE includes boost or exceeds observed epoch'
 
           latest_generated = latest.get('generated_at')
           valuation_generated = valuation.get('generated_at')
