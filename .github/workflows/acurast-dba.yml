@@ -14,6 +14,7 @@ on:
       - 'acurast_listing_quality.py'
       - 'acurast_valuation.py'
       - 'acurast_valuation_fixed.py'
+      - 'acurast_coverage_audit.py'
       - 'acurastbot_probe.py'
       - 'acurastpulse_probe.py'
       - 'acurast_run_trigger.txt'
@@ -67,6 +68,9 @@ jobs:
       - name: Build Acurast procurement valuation
         run: python acurast_valuation_fixed.py
 
+      - name: Audit end-to-end candidate coverage
+        run: python acurast_coverage_audit.py
+
       - name: Validate publication contract
         run: |
           set -e
@@ -77,14 +81,15 @@ jobs:
 
           latest = json.loads(Path('results/acurast_latest.json').read_text(encoding='utf-8'))
           valuation = json.loads(Path('results/acurast_valuation.json').read_text(encoding='utf-8'))
+          audit = json.loads(Path('results/acurast_coverage_audit.json').read_text(encoding='utf-8'))
 
           assert latest.get('gate_passed') is True, 'DBA data gate is not PASS'
           assert latest.get('product_identity_gate') is True, 'Product identity gate is not PASS'
           assert int(latest.get('counts', {}).get('final_refetched', 0)) > 0, 'No final-refetched listings'
           assert valuation.get('valuation_gate') is True, 'Valuation gate is not PASS'
           assert valuation.get('dba_same_listing_gate') is True, 'Valuation same-listing gate is not PASS'
+          assert audit.get('audit_gate') is True, 'Coverage audit gate is not PASS'
 
-          # Reward integrity gate: only Mainnet chain-derived, deployment-neutral BASE is publishable.
           assert valuation.get('model_version') == 'V1.6-MAINNET-PULSE-BASELINE-AAE', 'Unexpected valuation model version'
           assert valuation.get('reward_data_gate') is True, 'Mainnet reward data gate is not PASS'
           reward = valuation.get('reward_source', {})
@@ -101,17 +106,11 @@ jobs:
           assert all(float(x.get('acu_epoch_high') or 0) >= float(x.get('acu_epoch_base') or 0) for x in ranked), 'HIGH below BASE'
           assert all(float(x.get('pulse_observed_acu_epoch') or 0) >= float(x.get('acu_epoch_base') or 0) for x in ranked), 'BASE includes boost or exceeds observed epoch'
 
-          latest_generated = latest.get('generated_at')
-          valuation_generated = valuation.get('generated_at')
-          assert latest_generated, 'Missing latest generated_at'
-          assert valuation_generated, 'Missing valuation generated_at'
-
-          latest_ts = datetime.fromisoformat(latest_generated.replace('Z', '+00:00'))
-          valuation_ts = datetime.fromisoformat(valuation_generated.replace('Z', '+00:00'))
+          latest_ts = datetime.fromisoformat(latest['generated_at'].replace('Z', '+00:00'))
+          valuation_ts = datetime.fromisoformat(valuation['generated_at'].replace('Z', '+00:00'))
           now = datetime.now(timezone.utc)
           age = (now - latest_ts).total_seconds()
           skew = abs((valuation_ts - latest_ts).total_seconds())
-
           assert age < 1800, f'Result already stale at publication: {age:.0f}s'
           assert skew < 300, f'Latest/valuation generation skew too large: {skew:.0f}s'
           print(f'Publication contract PASS: {latest["counts"]["final_refetched"]} final listings, Pulse coverage={coverage:.1%}, age={age:.0f}s, generation_skew={skew:.0f}s')
@@ -127,11 +126,14 @@ jobs:
           cp results/acurast_report.md /tmp/acurast-results/
           cp results/acurast_valuation.json /tmp/acurast-results/
           cp results/acurast_valuation.md /tmp/acurast-results/
+          cp results/acurast_discovery_audit.json /tmp/acurast-results/
+          cp results/acurast_coverage_audit.json /tmp/acurast-results/
+          cp results/acurast_coverage_audit.md /tmp/acurast-results/
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/acurast-results/* results/
-            git add results/acurast_latest.json results/acurast_report.md results/acurast_valuation.json results/acurast_valuation.md
+            git add results/acurast_latest.json results/acurast_report.md results/acurast_valuation.json results/acurast_valuation.md results/acurast_discovery_audit.json results/acurast_coverage_audit.json results/acurast_coverage_audit.md
             if git diff --cached --quiet; then
               echo "No Acurast result changes"
               exit 0
