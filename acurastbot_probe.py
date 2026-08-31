@@ -41,12 +41,13 @@ def reward_diagnostics():
         except Exception: pass
         try: weighted_median_total += float(st.get('expectedRewardMedian'))*count
         except Exception: pass
-    wanted=('s20 fe','s21 ultra','galaxy s10','oneplus 8t','oneplus 8 pro','oneplus 9')
+    wanted=('s20 fe','s21 ultra','galaxy s10','oneplus 8t','oneplus 8 pro','oneplus 9','edge 20','xt2143')
     rows=[]
     for d in devices:
         label=f"{d.get('company','')} {d.get('model','')}".strip()
         nl=re.sub(r'[^a-z0-9]+',' ',label.lower()).strip()
-        if not any(w in nl for w in wanted): continue
+        config_text=' '.join(str(c) for c in (d.get('configurations') or [])).lower()
+        if not any(w in nl or w in config_text for w in wanted): continue
         for c in d.get('configurations') or []:
             cid=c.get('id'); st=by_cfg.get(int(cid)) if cid is not None else None
             rows.append({'device':label,'configuration_id':cid,'ram':c.get('ram'),'storage':c.get('storage'),'cpu':c.get('cpu'),'variant':c.get('variant'),'processorCount':None if not st else st.get('processorCount'),'chainId':None if not st else st.get('chainId'),'expectedRewardMin':None if not st else st.get('expectedRewardMin'),'expectedRewardAvg':None if not st else st.get('expectedRewardAvg'),'expectedRewardMedian':None if not st else st.get('expectedRewardMedian'),'expectedRewardMax':None if not st else st.get('expectedRewardMax'),'calculatedAt':None if not st else st.get('calculatedAt')})
