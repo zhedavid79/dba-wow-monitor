@@ -59,7 +59,7 @@ def main():
     for src in re.findall(r'<script[^>]+src=["\']([^"\']+)',page,re.I):
         u=urljoin(BASE,src)
         if u not in scripts:scripts.append(u)
-    routes=set(); contexts=[]; fetched=[]
+    routes=set(); contexts=[]; formula_contexts=[]; fetched=[]
     for u in scripts:
         try:
             text=get(u).text; fetched.append({'url':u,'bytes':len(text)})
@@ -73,9 +73,16 @@ def main():
                     if idx<0: break
                     contexts.append({'needle':needle,'context':re.sub(r'\s+',' ',text[max(0,idx-350):min(len(text),idx+700)]).strip()})
                     start=idx+len(needle)
+            for needle in ('Expected Reward (cACU/epoch)','expectedRewardMedian','expectedRewardAvg','expectedRewardMin','expectedRewardMax'):
+                start=0; hits=0
+                while hits<8:
+                    idx=text.find(needle,start)
+                    if idx<0: break
+                    formula_contexts.append({'needle':needle,'context':re.sub(r'\s+',' ',text[max(0,idx-1200):min(len(text),idx+1800)]).strip()})
+                    start=idx+len(needle); hits+=1
         except Exception as e: fetched.append({'url':u,'error':repr(e)})
     tests=[API_BASE+'/devices',API_BASE+'/devices/with-counts',API_BASE+'/devices/pool-statistics',METRICS_BASE+'/benchmark/acurast-compute/epoch/current',METRICS_BASE+'/benchmark/acurast-compute/pools',METRICS_BASE+'/benchmark/acurast-compute/stats',METRICS_BASE+'/benchmark/acurast-compute/reward-distribution-settings']
-    out={'page_bytes':len(page),'scripts':fetched,'api_base':API_BASE,'metrics_base':METRICS_BASE,'tests':[compact_response(x) for x in tests],'reward_diagnostics':reward_diagnostics(),'route_strings':sorted(routes)[:220],'contexts':contexts}
+    out={'page_bytes':len(page),'scripts':fetched,'api_base':API_BASE,'metrics_base':METRICS_BASE,'tests':[compact_response(x) for x in tests],'reward_diagnostics':reward_diagnostics(),'route_strings':sorted(routes)[:220],'contexts':contexts,'reward_formula_contexts':formula_contexts}
     print(json.dumps(out,ensure_ascii=False,indent=2))
 
 if __name__=='__main__': main()
