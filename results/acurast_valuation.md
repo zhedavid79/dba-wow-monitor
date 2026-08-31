@@ -1,6 +1,6 @@
 # Acurast DBA Procurement V1.4 — ACU Accumulation Efficiency
 
-Generated: 2026-08-31T11:54:05.530582+00:00
+Generated: 2026-08-31T11:58:35.582402+00:00
 
 DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.
 Primary objective: **maximize long-term ACU accumulation per invested DKK**. Current ACU spot price is not used as a purchase gate.
