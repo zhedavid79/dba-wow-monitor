@@ -134,9 +134,9 @@ def product_identity(title,description,model,price,catalog):
     if not candidate_variant_ok(both,next((x['model'] for x in catalog if x['label']==model),model)):
         return False,'resolved model variant is not supported by seller text'
     if ACCESSORY_RE.search(t):return False,'accessory/part title'
-    complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both))
+    complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both)); explicit_model_title=bool(model_of(t,catalog))
     if price is not None and price<150 and not (complete and (functional or specs)):return False,'weak complete-phone evidence'
-    if ACCESSORY_RE.search(d) and not (complete and functional):return False,'description indicates part'
+    if ACCESSORY_RE.search(d) and not (complete and functional) and not explicit_model_title:return False,'description indicates part without explicit phone-model title'
     return True,'AcurastBot dynamic universe + strict brand/model/variant identity + live product identity passed'
 
 def canonical_id_from_payload(payload):
