@@ -53,12 +53,6 @@ def compact(s):
     n=norm(s); n=re.sub(r'([a-z]+)(\d)',r'\1 \2',n); n=re.sub(r'(\d)([a-z]+)',r'\1 \2',n); return re.sub(r'\s+','',n)
 
 def alias_variants(brand,model,full):
-    """Generate conservative marketed-name aliases without weakening variant identity.
-
-    DBA sellers commonly omit connectivity suffixes (5G/LTE) and family words such as
-    Galaxy. AcurastBot may include them in its canonical model label. Keep marketed
-    variants such as FE/Ultra/Pro/Lite intact, but strip only non-distinguishing tokens.
-    """
     b=norm(brand)
     aliases={norm(model),norm(full)}
     m_tokens=norm(model).split()
@@ -67,7 +61,6 @@ def alias_variants(brand,model,full):
     reduced=[t for t in m_tokens if t!=b and t not in GENERIC_MODEL_TOKENS]
     if reduced:
         aliases.add(' '.join(reduced))
-    # Common seller wording: "Fan Edition" == marketed "FE".
     expanded=set()
     for a in aliases:
         expanded.add(a)
@@ -115,7 +108,6 @@ def candidate_variant_ok(text,model):
     return True
 
 def model_of(text,catalog):
-    # Normalize common seller synonym before alias matching.
     text=re.sub(r'\bfan\s+edition\b','fe',text or '',flags=re.I)
     nt=' '+norm(text)+' '; ct=compact(text); seller_brand=detected_brand(text,catalog); matches=[]
     if seller_brand=='apple': return None
@@ -188,6 +180,8 @@ def main():
         previous=ids;category_pages+=1;category_docs+=len(docs);add_search_docs(found,docs,f'category:{page}',catalog)
         prices=[amount(d.get('price')) for d in docs if amount(d.get('price')) is not None]
         if prices and min(prices)>MAX_ASK_DKK:break
+    diag={'catalog_s20':[{'label':x['label'],'model':x['model'],'aliases':sorted(x['aliases'])} for x in catalog if 's20' in norm(x['label'])], 't0_s20_fe':[r for r in found.values() if 's20' in norm(r['title_t0']) and (' fe ' in f" {norm(r['title_t0'])} " or 'fan edition' in norm(r['title_t0']))]}
+    print('DISCOVERY_DIAGNOSTIC='+json.dumps(diag,ensure_ascii=False))
     pool=sorted(found.values(),key=lambda r:(r['ask_t0'],r['listing_id']));verified=[]
     with ThreadPoolExecutor(max_workers=T1_WORKERS) as ex:
         for f in as_completed([ex.submit(verify,r,catalog) for r in pool]):
