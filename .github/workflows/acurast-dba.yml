@@ -71,6 +71,7 @@ jobs:
           valuation = json.loads(Path('results/acurast_valuation.json').read_text(encoding='utf-8'))
 
           assert latest.get('gate_passed') is True, 'DBA data gate is not PASS'
+          assert latest.get('product_identity_gate') is True, 'Product identity gate is not PASS'
           assert int(latest.get('counts', {}).get('final_refetched', 0)) > 0, 'No final-refetched listings'
           assert valuation, 'Valuation JSON is empty'
 
