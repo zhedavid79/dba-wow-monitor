@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-31T12:02:05.013819+00:00",
+  "generated_at": "2026-08-31T12:06:24.528549+00:00",
   "model_version": "V1.4-AAE-LONG-HORIZON",
   "valuation_gate": true,
   "dba_same_listing_gate": true,
   "core_gate": {
     "minimum_android": 12,
     "mode": "hard fail-closed allowlist",
-    "excluded_count": 8
+    "excluded_count": 7
   },
   "reward_calibration": {
     "status": "CALIBRATED_PARTIAL_REFERENCE",
@@ -82,19 +82,19 @@
     20.0
   ],
   "hurdles": {
-    "start_annual_conservative_aae": 0.36473913856703927,
-    "target_annual_conservative_aae_p75": 0.2917913108536314,
-    "hard_max_annual_conservative_aae_p50": 0.206670774251613
+    "start_annual_conservative_aae": 0.3966613340959444,
+    "target_annual_conservative_aae_p75": 0.3173290672767555,
+    "hard_max_annual_conservative_aae_p50": 0.1903190706480673
   },
   "dba_counts": {
     "category_pages": 48,
     "category_docs": 2544,
     "catalog_models": 191,
-    "t0_unique": 2488,
-    "t1_attempted": 2488,
-    "t1_verified_active_product": 63,
-    "final_refetched": 49,
-    "bundle_price_identity_excluded": 14
+    "t0_unique": 2489,
+    "t1_attempted": 2489,
+    "t1_verified_active_product": 39,
+    "final_refetched": 32,
+    "bundle_price_identity_excluded": 7
   },
   "ranked": [
     {
@@ -104,7 +104,7 @@
       "model": "Motorola G30",
       "ask": 50,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:00:48.360784+00:00",
+      "verified_timestamp": "2026-08-31T12:05:01.219605+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Motorola G-series model supports Android 12+",
@@ -192,7 +192,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.7141756580332124,
       "decision": "STRONG BID",
-      "opportunity_score": 664.718886951409
+      "opportunity_score": 721.8297491582102
     },
     {
       "listing_id": "24483101",
@@ -201,7 +201,7 @@
       "model": "OnePlus 8T",
       "ask": 350,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:27.089529+00:00",
+      "verified_timestamp": "2026-08-31T12:05:43.489457+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
@@ -228,13 +228,13 @@
       "aae_ask_base": 1.151729873732266,
       "aae_ask_low": 0.6443466959153206,
       "aae_100_ask_base": 115.17298737322662,
-      "start_bid": 275,
-      "target": 350,
-      "hard_max": 500,
-      "aae_target_base": 1.151729873732266,
-      "aae_target_low": 0.6443466959153206,
-      "aae_hard_max_base": 0.8062109116125863,
-      "aae_hard_max_low": 0.45104268714072443,
+      "start_bid": 250,
+      "target": 325,
+      "hard_max": 525,
+      "aae_target_base": 1.240324479403979,
+      "aae_target_low": 0.6939118263703452,
+      "aae_hard_max_base": 0.7678199158215108,
+      "aae_hard_max_low": 0.4295644639435471,
       "cumulative": {
         "12": {
           "acu_low_stress": 225.5213435703622,
@@ -242,7 +242,7 @@
           "acu_high": 404.07718608839707,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.9403928385317983,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.8295385858734459,
           "scenario_value_base_dkk": {
             "0.5": 201.5527279031466,
             "1.0": 403.1054558062932,
@@ -258,7 +258,7 @@
           "acu_high": 808.1543721767941,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.2937922999148137,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.232206603993507,
           "scenario_value_base_dkk": {
             "0.5": 403.1054558062932,
             "1.0": 806.2109116125864,
@@ -274,7 +274,7 @@
           "acu_high": 1212.2315582651913,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.1136309185088242,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.0681988477472044,
           "scenario_value_base_dkk": {
             "0.5": 604.6581837094398,
             "1.0": 1209.3163674188795,
@@ -288,8 +288,8 @@
       "electricity_kwh_month": 2.9200000000000004,
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.21731286128286742,
-      "decision": "STRONG BID",
-      "opportunity_score": 311.7744626682704
+      "decision": "BID",
+      "opportunity_score": 338.5612874848619
     },
     {
       "listing_id": "24099425",
@@ -298,7 +298,7 @@
       "model": "OnePlus 9",
       "ask": 400,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:30.781835+00:00",
+      "verified_timestamp": "2026-08-31T12:05:47.501298+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
@@ -325,13 +325,13 @@
       "aae_ask_base": 0.9238761092971963,
       "aae_ask_low": 0.5173706212064298,
       "aae_100_ask_base": 92.38761092971963,
-      "start_bid": 250,
-      "target": 325,
-      "hard_max": 450,
-      "aae_target_base": 1.13707828836578,
-      "aae_target_low": 0.6367638414848367,
-      "aae_hard_max_base": 0.8212232082641745,
-      "aae_hard_max_low": 0.45988499662793764,
+      "start_bid": 225,
+      "target": 300,
+      "hard_max": 500,
+      "aae_target_base": 1.2318348123962617,
+      "aae_target_low": 0.6898274949419064,
+      "aae_hard_max_base": 0.739100887437757,
+      "aae_hard_max_low": 0.41389649696514386,
       "cumulative": {
         "12": {
           "acu_low_stress": 206.94824848257193,
@@ -339,7 +339,7 @@
           "acu_high": 369.5504437188785,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.993735163381907,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.8729320148493145,
           "scenario_value_base_dkk": {
             "0.5": 184.77522185943926,
             "1.0": 369.5504437188785,
@@ -355,7 +355,7 @@
           "acu_high": 739.100887437757,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.3427941088000617,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.275681248504177,
           "scenario_value_base_dkk": {
             "0.5": 369.5504437188785,
             "1.0": 739.100887437757,
@@ -371,7 +371,7 @@
           "acu_high": 1108.6513311566355,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.1640670607779982,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.1145575736744766,
           "scenario_value_base_dkk": {
             "0.5": 554.3256655783177,
             "1.0": 1108.6513311566355,
@@ -386,201 +386,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.23704477017659437,
       "decision": "BID",
-      "opportunity_score": 250.33564764050905
-    },
-    {
-      "listing_id": "24098137",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24098137",
-      "title": "Moto G9 Plus (kan bringes)",
-      "model": "OnePlus 9 Plus",
-      "ask": 400,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:30.745862+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
-      "acurastbot_device": "OnePlus 9 Plus",
-      "configuration_id": 244,
-      "ram": "8GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.061488447128396274,
-      "acu_epoch_base": 0.061488447128396274,
-      "acu_epoch_conservative": 0.034433530391901904,
-      "acu_epoch_bid_basis": 0.015495088676355857,
-      "acu_epoch_high": 0.061488447128396274,
-      "acu_day_base": 0.9838151540543404,
-      "acu_month_base": 29.92437760248619,
-      "acu_year_base": 359.09253122983426,
-      "acu_year_conservative": 201.0918174887071,
-      "acu_year_bid_basis": 90.4913178699182,
-      "aae_ask_base": 0.8977313280745857,
-      "aae_ask_low": 0.5027295437217678,
-      "aae_100_ask_base": 89.77313280745857,
-      "start_bid": 250,
-      "target": 300,
-      "hard_max": 450,
-      "aae_target_base": 1.1969751040994476,
-      "aae_target_low": 0.6703060582956903,
-      "aae_hard_max_base": 0.7979834027329651,
-      "aae_hard_max_low": 0.44687070553046027,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 201.0918174887071,
-          "acu_base": 359.09253122983426,
-          "acu_high": 359.09253122983426,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.9274777305236044,
-          "scenario_value_base_dkk": {
-            "0.5": 179.54626561491713,
-            "1.0": 359.09253122983426,
-            "2.0": 718.1850624596685,
-            "5.0": 1795.4626561491714,
-            "10.0": 3590.9253122983428,
-            "20.0": 7181.8506245966855
-          }
-        },
-        "24": {
-          "acu_low_stress": 361.96527147967277,
-          "acu_base": 718.1850624596685,
-          "acu_high": 718.1850624596685,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.3128331291492044,
-          "scenario_value_base_dkk": {
-            "0.5": 359.09253122983426,
-            "1.0": 718.1850624596685,
-            "2.0": 1436.370124919337,
-            "5.0": 3590.9253122983428,
-            "10.0": 7181.8506245966855,
-            "20.0": 14363.701249193371
-          }
-        },
-        "36": {
-          "acu_low_stress": 490.6640346724453,
-          "acu_base": 1077.2775936895027,
-          "acu_high": 1077.2775936895027,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.1470170223006275,
-          "scenario_value_base_dkk": {
-            "0.5": 538.6387968447514,
-            "1.0": 1077.2775936895027,
-            "2.0": 2154.5551873790055,
-            "5.0": 5386.387968447514,
-            "10.0": 10772.775936895028,
-            "20.0": 21545.551873790057
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.24394826508917936,
-      "decision": "BID",
-      "opportunity_score": 243.25139611163195
-    },
-    {
-      "listing_id": "1990080",
-      "url": "https://www.dba.dk/recommerce/forsale/item/1990080",
-      "title": "Andet mærke Pixel 6 Pro Whitestone Dome, Perfekt",
-      "model": "Google Pixel 6 Pro",
-      "ask": 349,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:24.846846+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "Google Pixel model supports Android 12+",
-      "acurastbot_device": "Google Pixel 6 Pro",
-      "configuration_id": 132,
-      "ram": null,
-      "storage": "128GB",
-      "processor_count": 7,
-      "confidence": "MEDIUM",
-      "confidence_factor": 0.9883464620800537,
-      "bid_evidence_factor": 0.9,
-      "spread_ratio": 0.05826768959973121,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.042490883874136784,
-      "acu_epoch_base": 0.04335891434790565,
-      "acu_epoch_conservative": 0.02999754071676924,
-      "acu_epoch_bid_basis": 0.026997786645092316,
-      "acu_epoch_high": 0.04501730763674189,
-      "acu_day_base": 0.6937426295664904,
-      "acu_month_base": 21.101338315980747,
-      "acu_year_base": 253.21605979176897,
-      "acu_year_conservative": 175.18563778593236,
-      "acu_year_bid_basis": 157.66707400733912,
-      "aae_ask_base": 0.725547449260083,
-      "aae_ask_low": 0.5019645781831873,
-      "aae_100_ask_base": 72.5547449260083,
-      "start_bid": 349,
-      "target": 349,
-      "hard_max": 775,
-      "aae_target_base": 0.725547449260083,
-      "aae_target_low": 0.5019645781831873,
-      "aae_hard_max_base": 0.3267303997313148,
-      "aae_hard_max_low": 0.2260459842399127,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 175.18563778593236,
-          "acu_base": 253.21605979176897,
-          "acu_high": 262.9010765985726,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.4922134343769793,
-          "scenario_value_base_dkk": {
-            "0.5": 126.60802989588448,
-            "1.0": 253.21605979176897,
-            "2.0": 506.43211958353794,
-            "5.0": 1266.0802989588449,
-            "10.0": 2532.1605979176898,
-            "20.0": 5064.3211958353795
-          }
-        },
-        "24": {
-          "acu_low_stress": 315.33414801467825,
-          "acu_base": 506.43211958353794,
-          "acu_high": 525.8021531971452,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.6623635698839678,
-          "scenario_value_base_dkk": {
-            "0.5": 253.21605979176897,
-            "1.0": 506.43211958353794,
-            "2.0": 1012.8642391670759,
-            "5.0": 2532.1605979176898,
-            "10.0": 5064.3211958353795,
-            "20.0": 10128.642391670759
-          }
-        },
-        "36": {
-          "acu_low_stress": 427.452956197675,
-          "acu_base": 759.6481793753069,
-          "acu_high": 788.7032297957178,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.4312686136087314,
-          "scenario_value_base_dkk": {
-            "0.5": 379.82408968765344,
-            "1.0": 759.6481793753069,
-            "2.0": 1519.2963587506138,
-            "5.0": 3798.2408968765344,
-            "10.0": 7596.481793753069,
-            "20.0": 15192.963587506138
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.3459496213314332,
-      "decision": "STRONG BID",
-      "opportunity_score": 242.88125885281994
+      "opportunity_score": 271.8438144137101
     },
     {
       "listing_id": "22585550",
@@ -589,7 +395,7 @@
       "model": "Motorola E13",
       "ask": 150,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:03.360611+00:00",
+      "verified_timestamp": "2026-08-31T12:05:18.796442+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Motorola E-series model supports Android 12+",
@@ -616,13 +422,13 @@
       "aae_ask_base": 0.8596426902443488,
       "aae_ask_low": 0.4813999065368353,
       "aae_100_ask_base": 85.96426902443488,
-      "start_bid": 100,
+      "start_bid": 75,
       "target": 100,
-      "hard_max": 150,
+      "hard_max": 175,
       "aae_target_base": 1.2894640353665232,
       "aae_target_low": 0.7220998598052529,
-      "aae_hard_max_base": 0.8596426902443488,
-      "aae_hard_max_low": 0.4813999065368353,
+      "aae_hard_max_base": 0.7368365916380133,
+      "aae_hard_max_low": 0.41262849131728735,
       "cumulative": {
         "12": {
           "acu_low_stress": 72.20998598052529,
@@ -677,7 +483,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.6793520222151849,
       "decision": "BID",
-      "opportunity_score": 232.93080905128417
+      "opportunity_score": 252.94359881938817
     },
     {
       "listing_id": "24452651",
@@ -686,7 +492,7 @@
       "model": "OnePlus 8 Pro",
       "ask": 450,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:33.658704+00:00",
+      "verified_timestamp": "2026-08-31T12:05:50.675624+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
@@ -713,13 +519,13 @@
       "aae_ask_base": 0.8813784399904541,
       "aae_ask_low": 0.3836912120409413,
       "aae_100_ask_base": 88.1378439990454,
-      "start_bid": 350,
-      "target": 450,
-      "hard_max": 625,
-      "aae_target_base": 0.8813784399904541,
-      "aae_target_low": 0.3836912120409413,
-      "aae_hard_max_base": 0.6345924767931269,
-      "aae_hard_max_low": 0.27625767266947776,
+      "start_bid": 325,
+      "target": 400,
+      "hard_max": 675,
+      "aae_target_base": 0.9915507449892609,
+      "aae_target_low": 0.43165261354605894,
+      "aae_hard_max_base": 0.5875856266603027,
+      "aae_hard_max_low": 0.25579414136062756,
       "cumulative": {
         "12": {
           "acu_low_stress": 172.66104541842358,
@@ -727,7 +533,7 @@
           "acu_high": 406.7486569004209,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 3.113614878777029,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.8240301616288677,
           "scenario_value_base_dkk": {
             "0.5": 198.3101489978522,
             "1.0": 396.6202979957044,
@@ -743,7 +549,7 @@
           "acu_high": 813.4973138008418,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.011648501789226,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.850768103373581,
           "scenario_value_base_dkk": {
             "0.5": 396.6202979957044,
             "1.0": 793.2405959914088,
@@ -759,7 +565,7 @@
           "acu_high": 1220.2459707012626,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.6919343146164694,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.573252053490174,
           "scenario_value_base_dkk": {
             "0.5": 594.9304469935566,
             "1.0": 1189.8608939871133,
@@ -773,8 +579,8 @@
       "electricity_kwh_month": 2.9200000000000004,
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.22086615446229327,
-      "decision": "STRONG BID",
-      "opportunity_score": 185.6533481477228
+      "decision": "BID",
+      "opportunity_score": 201.60418540002874
     },
     {
       "listing_id": "23235041",
@@ -783,7 +589,7 @@
       "model": "Motorola Edge 50 Fusion",
       "ask": 600,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:43.398523+00:00",
+      "verified_timestamp": "2026-08-31T12:06:00.958694+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Motorola Edge family supports Android 12+",
@@ -810,13 +616,13 @@
       "aae_ask_base": 0.5271577720631435,
       "aae_ask_low": 0.29520835235536025,
       "aae_100_ask_base": 52.71577720631435,
-      "start_bid": 225,
-      "target": 275,
-      "hard_max": 375,
-      "aae_target_base": 1.1501624117741311,
-      "aae_target_low": 0.6440909505935133,
-      "aae_hard_max_base": 0.8434524353010295,
-      "aae_hard_max_low": 0.47233336376857643,
+      "start_bid": 200,
+      "target": 250,
+      "hard_max": 425,
+      "aae_target_base": 1.2651786529515443,
+      "aae_target_low": 0.7085000456528646,
+      "aae_hard_max_base": 0.7442227370303202,
+      "aae_hard_max_low": 0.41676473273697917,
       "cumulative": {
         "12": {
           "acu_low_stress": 177.12501141321616,
@@ -824,7 +630,7 @@
           "acu_high": 316.29466323788614,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.0471417170672073,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.9059984657525901,
           "scenario_value_base_dkk": {
             "0.5": 158.14733161894307,
             "1.0": 316.29466323788614,
@@ -840,7 +646,7 @@
           "acu_high": 632.5893264757723,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.4120598164853477,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.3336468990883381,
           "scenario_value_base_dkk": {
             "0.5": 316.29466323788614,
             "1.0": 632.5893264757723,
@@ -856,7 +662,7 @@
           "acu_high": 948.8839897136584,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.244374435360674,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.1865288405596013,
           "scenario_value_base_dkk": {
             "0.5": 474.4419948568292,
             "1.0": 948.8839897136584,
@@ -871,104 +677,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.2769569334595944,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 142.83991213772512
-    },
-    {
-      "listing_id": "20211507",
-      "url": "https://www.dba.dk/recommerce/forsale/item/20211507",
-      "title": "Samsung S21 ultra 12gb/128gb",
-      "model": "Samsung S21 Ultra",
-      "ask": 400,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:29.561267+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
-      "acurastbot_device": "Samsung S21 Ultra",
-      "configuration_id": 353,
-      "ram": "12GB",
-      "storage": "256GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.035270825507815885,
-      "acu_epoch_base": 0.035270825507815885,
-      "acu_epoch_conservative": 0.01975166228437689,
-      "acu_epoch_bid_basis": 0.0088882480279696,
-      "acu_epoch_high": 0.035270825507815885,
-      "acu_day_base": 0.5643332081250542,
-      "acu_month_base": 17.1651350804704,
-      "acu_year_base": 205.98162096564477,
-      "acu_year_conservative": 115.34970774076103,
-      "acu_year_bid_basis": 51.90736848334247,
-      "aae_ask_base": 0.514954052414112,
-      "aae_ask_low": 0.2883742693519026,
-      "aae_100_ask_base": 51.49540524141119,
-      "start_bid": 150,
-      "target": 175,
-      "hard_max": 250,
-      "aae_target_base": 1.1770378340893985,
-      "aae_target_low": 0.6591411870900631,
-      "aae_hard_max_base": 0.823926483862579,
-      "aae_hard_max_low": 0.4613988309630441,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 115.34970774076103,
-          "acu_base": 205.9816209656448,
-          "acu_high": 205.9816209656448,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.2765553996042356,
-          "scenario_value_base_dkk": {
-            "0.5": 102.9908104828224,
-            "1.0": 205.9816209656448,
-            "2.0": 411.9632419312896,
-            "5.0": 1029.908104828224,
-            "10.0": 2059.816209656448,
-            "20.0": 4119.632419312896
-          }
-        },
-        "24": {
-          "acu_low_stress": 207.62947393336987,
-          "acu_base": 411.9632419312896,
-          "acu_high": 411.9632419312896,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.6866584178332134,
-          "scenario_value_base_dkk": {
-            "0.5": 205.9816209656448,
-            "1.0": 411.9632419312896,
-            "2.0": 823.9264838625792,
-            "5.0": 2059.816209656448,
-            "10.0": 4119.632419312896,
-            "20.0": 8239.264838625792
-          }
-        },
-        "36": {
-          "acu_low_stress": 281.45328688745695,
-          "acu_base": 617.9448628969344,
-          "acu_high": 617.9448628969344,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.5554979117193986,
-          "scenario_value_base_dkk": {
-            "0.5": 308.9724314484672,
-            "1.0": 617.9448628969344,
-            "2.0": 1235.8897257938688,
-            "5.0": 3089.724314484672,
-            "10.0": 6179.448628969344,
-            "20.0": 12358.897257938688
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.4252806613975071,
-      "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 139.5331635042016
+      "opportunity_score": 155.11233390859252
     },
     {
       "listing_id": "24156221",
@@ -977,7 +686,7 @@
       "model": "Samsung Galaxy Z Flip 4",
       "ask": 400,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:31.216106+00:00",
+      "verified_timestamp": "2026-08-31T12:05:47.668690+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
@@ -1004,13 +713,13 @@
       "aae_ask_base": 0.5028714053184625,
       "aae_ask_low": 0.28160798697833894,
       "aae_100_ask_base": 50.28714053184624,
-      "start_bid": 150,
-      "target": 175,
-      "hard_max": 250,
-      "aae_target_base": 1.1494203550136286,
-      "aae_target_low": 0.6436753988076318,
-      "aae_hard_max_base": 0.80459424850954,
-      "aae_hard_max_low": 0.4505727791653423,
+      "start_bid": 125,
+      "target": 150,
+      "hard_max": 275,
+      "aae_target_base": 1.3409904141825666,
+      "aae_target_low": 0.7509546319422372,
+      "aae_hard_max_base": 0.7314493168268545,
+      "aae_hard_max_low": 0.4096116174230385,
       "cumulative": {
         "12": {
           "acu_low_stress": 112.64319479133557,
@@ -1018,7 +727,7 @@
           "acu_high": 201.148562127385,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.3312549016960147,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.1093151738117784,
           "scenario_value_base_dkk": {
             "0.5": 100.5742810636925,
             "1.0": 201.148562127385,
@@ -1034,7 +743,7 @@
           "acu_high": 402.29712425477,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.7271842823346542,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.6038844335100786,
           "scenario_value_base_dkk": {
             "0.5": 201.148562127385,
             "1.0": 402.29712425477,
@@ -1050,7 +759,7 @@
           "acu_high": 603.4456863821549,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.592872342093746,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.5019134372231575,
           "scenario_value_base_dkk": {
             "0.5": 301.72284319107746,
             "1.0": 603.4456863821549,
@@ -1065,298 +774,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.43549901164356314,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 136.25922097504363
-    },
-    {
-      "listing_id": "24411509",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24411509",
-      "title": "Motorola G84",
-      "model": "Motorola G84",
-      "ask": 750,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:50.419910+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "Motorola G-series model supports Android 12+",
-      "acurastbot_device": "Motorola G84",
-      "configuration_id": 241,
-      "ram": "12GB",
-      "storage": "256GB",
-      "processor_count": 8,
-      "confidence": "MEDIUM",
-      "confidence_factor": 0.9224704170806268,
-      "bid_evidence_factor": 0.9,
-      "spread_ratio": 0.38764791459686565,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.03702070752309129,
-      "acu_epoch_base": 0.0599209357874156,
-      "acu_epoch_conservative": 0.034150507509445927,
-      "acu_epoch_bid_basis": 0.030735456758501336,
-      "acu_epoch_high": 0.06024893332177565,
-      "acu_day_base": 0.9587349725986496,
-      "acu_month_base": 29.161522083208926,
-      "acu_year_base": 349.9382649985071,
-      "acu_year_conservative": 199.43896385516422,
-      "acu_year_bid_basis": 179.4950674696478,
-      "aae_ask_base": 0.46658435333134285,
-      "aae_ask_low": 0.2659186184735523,
-      "aae_100_ask_base": 46.658435333134285,
-      "start_bid": 500,
-      "target": 625,
-      "hard_max": 875,
-      "aae_target_base": 0.5599012239976114,
-      "aae_target_low": 0.3191023421682628,
-      "aae_hard_max_base": 0.39992944571257955,
-      "aae_hard_max_low": 0.22793024440590196,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 199.43896385516422,
-          "acu_base": 349.9382649985071,
-          "acu_high": 351.8537705991698,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 3.573022975177015,
-          "scenario_value_base_dkk": {
-            "0.5": 174.96913249925356,
-            "1.0": 349.9382649985071,
-            "2.0": 699.8765299970142,
-            "5.0": 1749.6913249925356,
-            "10.0": 3499.382649985071,
-            "20.0": 6998.765299970142
-          }
-        },
-        "24": {
-          "acu_low_stress": 358.9901349392956,
-          "acu_base": 699.8765299970142,
-          "acu_high": 703.7075411983396,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.2290306114827136,
-          "scenario_value_base_dkk": {
-            "0.5": 349.9382649985071,
-            "1.0": 699.8765299970142,
-            "2.0": 1399.7530599940285,
-            "5.0": 3499.382649985071,
-            "10.0": 6998.765299970142,
-            "20.0": 13997.530599940284
-          }
-        },
-        "36": {
-          "acu_low_stress": 486.63107180660074,
-          "acu_base": 1049.8147949955214,
-          "acu_high": 1055.5613117975095,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.8243800107216208,
-          "scenario_value_base_dkk": {
-            "0.5": 524.9073974977607,
-            "1.0": 1049.8147949955214,
-            "2.0": 2099.629589991043,
-            "5.0": 5249.073974977608,
-            "10.0": 10498.147949955215,
-            "20.0": 20996.29589991043
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.250329868899515,
-      "decision": "BID",
-      "opportunity_score": 128.66774193713889
-    },
-    {
-      "listing_id": "23765084",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23765084",
-      "title": "moto g9 plus  4 / 128 gb",
-      "model": "OnePlus 9 Plus",
-      "ask": 770,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:50.380784+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
-      "acurastbot_device": "OnePlus 9 Plus",
-      "configuration_id": 244,
-      "ram": "8GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.061488447128396274,
-      "acu_epoch_base": 0.061488447128396274,
-      "acu_epoch_conservative": 0.034433530391901904,
-      "acu_epoch_bid_basis": 0.015495088676355857,
-      "acu_epoch_high": 0.061488447128396274,
-      "acu_day_base": 0.9838151540543404,
-      "acu_month_base": 29.92437760248619,
-      "acu_year_base": 359.09253122983426,
-      "acu_year_conservative": 201.0918174887071,
-      "acu_year_bid_basis": 90.4913178699182,
-      "aae_ask_base": 0.46635393666212244,
-      "aae_ask_low": 0.2611582045307885,
-      "aae_100_ask_base": 46.635393666212245,
-      "start_bid": 250,
-      "target": 300,
-      "hard_max": 450,
-      "aae_target_base": 1.1969751040994476,
-      "aae_target_low": 0.6703060582956903,
-      "aae_hard_max_base": 0.7979834027329651,
-      "aae_hard_max_low": 0.44687070553046027,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 201.0918174887071,
-          "acu_base": 359.09253122983426,
-          "acu_high": 359.09253122983426,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.9274777305236044,
-          "scenario_value_base_dkk": {
-            "0.5": 179.54626561491713,
-            "1.0": 359.09253122983426,
-            "2.0": 718.1850624596685,
-            "5.0": 1795.4626561491714,
-            "10.0": 3590.9253122983428,
-            "20.0": 7181.8506245966855
-          }
-        },
-        "24": {
-          "acu_low_stress": 361.96527147967277,
-          "acu_base": 718.1850624596685,
-          "acu_high": 718.1850624596685,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.3128331291492044,
-          "scenario_value_base_dkk": {
-            "0.5": 359.09253122983426,
-            "1.0": 718.1850624596685,
-            "2.0": 1436.370124919337,
-            "5.0": 3590.9253122983428,
-            "10.0": 7181.8506245966855,
-            "20.0": 14363.701249193371
-          }
-        },
-        "36": {
-          "acu_low_stress": 490.6640346724453,
-          "acu_base": 1077.2775936895027,
-          "acu_high": 1077.2775936895027,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.1470170223006275,
-          "scenario_value_base_dkk": {
-            "0.5": 538.6387968447514,
-            "1.0": 1077.2775936895027,
-            "2.0": 2154.5551873790055,
-            "5.0": 5386.387968447514,
-            "10.0": 10772.775936895028,
-            "20.0": 21545.551873790057
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.24394826508917936,
-      "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 126.36436161643219
-    },
-    {
-      "listing_id": "22761727",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22761727",
-      "title": "Samsung Galaxy S21 smartphone 128 GB lyserød",
-      "model": "Samsung Galaxy S21",
-      "ask": 900,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:55.616481+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
-      "acurastbot_device": "Samsung Galaxy S21",
-      "configuration_id": 308,
-      "ram": "8GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.06486213605324241,
-      "acu_epoch_base": 0.06486213605324241,
-      "acu_epoch_conservative": 0.03632279618981575,
-      "acu_epoch_bid_basis": 0.016345258285417087,
-      "acu_epoch_high": 0.06486213605324241,
-      "acu_day_base": 1.0377941768518786,
-      "acu_month_base": 31.56623954591131,
-      "acu_year_base": 378.7948745509357,
-      "acu_year_conservative": 212.125129748524,
-      "acu_year_bid_basis": 95.45630838683579,
-      "aae_ask_base": 0.42088319394548407,
-      "aae_ask_low": 0.2356945886094711,
-      "aae_100_ask_base": 42.08831939454841,
-      "start_bid": 250,
-      "target": 325,
-      "hard_max": 450,
-      "aae_target_base": 1.165522690925956,
-      "aae_target_low": 0.6526927069185353,
-      "aae_hard_max_base": 0.8417663878909681,
-      "aae_hard_max_low": 0.4713891772189422,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 212.125129748524,
-          "acu_base": 378.7948745509357,
-          "acu_high": 378.7948745509357,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.9450783624228802,
-          "scenario_value_base_dkk": {
-            "0.5": 189.39743727546784,
-            "1.0": 378.7948745509357,
-            "2.0": 757.5897491018713,
-            "5.0": 1893.9743727546784,
-            "10.0": 3787.9487455093567,
-            "20.0": 7575.8974910187135
-          }
-        },
-        "24": {
-          "acu_low_stress": 381.8252335473432,
-          "acu_base": 757.5897491018713,
-          "acu_high": 757.5897491018713,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.3100234244680409,
-          "scenario_value_base_dkk": {
-            "0.5": 378.7948745509357,
-            "1.0": 757.5897491018713,
-            "2.0": 1515.1794982037427,
-            "5.0": 3787.9487455093567,
-            "10.0": 7575.8974910187135,
-            "20.0": 15151.794982037427
-          }
-        },
-        "36": {
-          "acu_low_stress": 517.5853165863986,
-          "acu_base": 1136.384623652807,
-          "acu_high": 1136.384623652807,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.1356581826483882,
-          "scenario_value_base_dkk": {
-            "0.5": 568.1923118264035,
-            "1.0": 1136.384623652807,
-            "2.0": 2272.769247305614,
-            "5.0": 5681.923118264035,
-            "10.0": 11363.84623652807,
-            "20.0": 22727.69247305614
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.23125972890697244,
-      "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 114.04350202052412
+      "opportunity_score": 147.96624742828877
     },
     {
       "listing_id": "24293758",
@@ -1365,7 +783,7 @@
       "model": "Motorola Edge 40 Neo",
       "ask": 600,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:44.477159+00:00",
+      "verified_timestamp": "2026-08-31T12:06:02.050708+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Motorola Edge family supports Android 12+",
@@ -1392,13 +810,13 @@
       "aae_ask_base": 0.41121423264982454,
       "aae_ask_low": 0.2302799702839017,
       "aae_100_ask_base": 41.121423264982454,
-      "start_bid": 175,
-      "target": 225,
-      "hard_max": 300,
-      "aae_target_base": 1.0965712870661988,
-      "aae_target_low": 0.6140799207570712,
-      "aae_hard_max_base": 0.8224284652996491,
-      "aae_hard_max_low": 0.4605599405678034,
+      "start_bid": 150,
+      "target": 200,
+      "hard_max": 325,
+      "aae_target_base": 1.2336426979494737,
+      "aae_target_low": 0.6908399108517052,
+      "aae_hard_max_base": 0.759164737199676,
+      "aae_hard_max_low": 0.42513225283181855,
       "cumulative": {
         "12": {
           "acu_low_stress": 138.16798217034102,
@@ -1406,7 +824,7 @@
           "acu_high": 246.72853958989472,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.262463380369916,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.081524210474689,
           "scenario_value_base_dkk": {
             "0.5": 123.36426979494736,
             "1.0": 246.72853958989472,
@@ -1422,7 +840,7 @@
           "acu_high": 493.45707917978945,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.6091523509348837,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.5086305898819798,
           "scenario_value_base_dkk": {
             "0.5": 246.72853958989472,
             "1.0": 493.45707917978945,
@@ -1438,7 +856,7 @@
           "acu_high": 740.1856187696842,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.4469201159818301,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.3727647184837863,
           "scenario_value_base_dkk": {
             "0.5": 370.0928093848421,
             "1.0": 740.1856187696842,
@@ -1453,7 +871,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.3550460767352098,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 111.42357748345466
+      "opportunity_score": 120.99679212375358
     },
     {
       "listing_id": "24086458",
@@ -1462,7 +880,7 @@
       "model": "Nothing Phone 1",
       "ask": 899,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:55.437342+00:00",
+      "verified_timestamp": "2026-08-31T12:06:13.069289+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Nothing Phone supports Android 12+",
@@ -1490,12 +908,12 @@
       "aae_ask_low": 0.2102887026252802,
       "aae_100_ask_base": 37.551554040228616,
       "start_bid": 225,
-      "target": 300,
-      "hard_max": 400,
-      "aae_target_base": 1.125294902738851,
-      "aae_target_low": 0.6301651455337564,
-      "aae_hard_max_base": 0.8439711770541382,
-      "aae_hard_max_low": 0.4726238591503173,
+      "target": 275,
+      "hard_max": 450,
+      "aae_target_base": 1.2275944393514737,
+      "aae_target_low": 0.6874528860368252,
+      "aae_hard_max_base": 0.7501966018259006,
+      "aae_hard_max_low": 0.42011009702250424,
       "cumulative": {
         "12": {
           "acu_low_stress": 189.04954366012691,
@@ -1503,7 +921,7 @@
           "acu_high": 337.5884708216553,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.0502562053089477,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.9180157379902592,
           "scenario_value_base_dkk": {
             "0.5": 168.79423541082764,
             "1.0": 337.5884708216553,
@@ -1519,7 +937,7 @@
           "acu_high": 675.1769416433106,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.3964593348853516,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.3229924085971911,
           "scenario_value_base_dkk": {
             "0.5": 337.5884708216553,
             "1.0": 675.1769416433106,
@@ -1535,7 +953,7 @@
           "acu_high": 1012.765412464966,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.2200809017534087,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.1658839889178807,
           "scenario_value_base_dkk": {
             "0.5": 506.382706232483,
             "1.0": 1012.765412464966,
@@ -1550,104 +968,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.2594875345914235,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 101.75057570997559
-    },
-    {
-      "listing_id": "23930840",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23930840",
-      "title": "11 Pro",
-      "model": "Realme 11 Pro",
-      "ask": 900,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:56.024481+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "Realme model supports Android 12+",
-      "acurastbot_device": "Realme 11 Pro",
-      "configuration_id": 362,
-      "ram": "8GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.0568749072977164,
-      "acu_epoch_base": 0.0568749072977164,
-      "acu_epoch_conservative": 0.03184994808672118,
-      "acu_epoch_bid_basis": 0.014332476639024533,
-      "acu_epoch_high": 0.0568749072977164,
-      "acu_day_base": 0.9099985167634624,
-      "acu_month_base": 27.679121551555316,
-      "acu_year_base": 332.1494586186638,
-      "acu_year_conservative": 186.00369682645172,
-      "acu_year_bid_basis": 83.70166357190327,
-      "aae_ask_base": 0.36905495402073757,
-      "aae_ask_low": 0.206670774251613,
-      "aae_100_ask_base": 36.905495402073754,
-      "start_bid": 225,
-      "target": 275,
-      "hard_max": 400,
-      "aae_target_base": 1.2078162131587775,
-      "aae_target_low": 0.6763770793689153,
-      "aae_hard_max_base": 0.8303736465466595,
-      "aae_hard_max_low": 0.4650092420661293,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 186.00369682645172,
-          "acu_base": 332.1494586186638,
-          "acu_high": 332.1494586186638,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.9494236199956776,
-          "scenario_value_base_dkk": {
-            "0.5": 166.0747293093319,
-            "1.0": 332.1494586186638,
-            "2.0": 664.2989172373276,
-            "5.0": 1660.747293093319,
-            "10.0": 3321.494586186638,
-            "20.0": 6642.989172373276
-          }
-        },
-        "24": {
-          "acu_low_stress": 334.8066542876131,
-          "acu_base": 664.2989172373276,
-          "acu_high": 664.2989172373276,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.3446566674665288,
-          "scenario_value_base_dkk": {
-            "0.5": 332.1494586186638,
-            "1.0": 664.2989172373276,
-            "2.0": 1328.5978344746552,
-            "5.0": 3321.494586186638,
-            "10.0": 6642.989172373276,
-            "20.0": 13285.978344746552
-          }
-        },
-        "36": {
-          "acu_low_stress": 453.84902025654225,
-          "acu_base": 996.4483758559913,
-          "acu_high": 996.4483758559913,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.1849755667556663,
-          "scenario_value_base_dkk": {
-            "0.5": 498.2241879279957,
-            "1.0": 996.4483758559913,
-            "2.0": 1992.8967517119827,
-            "5.0": 4982.241879279956,
-            "10.0": 9964.483758559913,
-            "20.0": 19928.967517119825
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.2637366936086817,
-      "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 100.0
+      "opportunity_score": 110.49271200684885
     },
     {
       "listing_id": "23007415",
@@ -1656,7 +977,7 @@
       "model": "OnePlus 8T",
       "ask": 1000,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:02:00.252056+00:00",
+      "verified_timestamp": "2026-08-31T12:06:18.695919+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
@@ -1683,13 +1004,13 @@
       "aae_ask_base": 0.34376848642453306,
       "aae_ask_low": 0.1925103523977385,
       "aae_100_ask_base": 34.37684864245331,
-      "start_bid": 250,
-      "target": 300,
-      "hard_max": 425,
-      "aae_target_base": 1.1458949547484436,
-      "aae_target_low": 0.6417011746591283,
-      "aae_hard_max_base": 0.8088670268812543,
-      "aae_hard_max_low": 0.45296553505350234,
+      "start_bid": 225,
+      "target": 275,
+      "hard_max": 450,
+      "aae_target_base": 1.2500672233619385,
+      "aae_target_low": 0.7000376450826855,
+      "aae_hard_max_base": 0.7639299698322958,
+      "aae_hard_max_low": 0.42780078310608555,
       "cumulative": {
         "12": {
           "acu_low_stress": 192.5103523977385,
@@ -1697,7 +1018,7 @@
           "acu_high": 343.7684864245331,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.0133982155889156,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.8835350695885986,
           "scenario_value_base_dkk": {
             "0.5": 171.88424321226654,
             "1.0": 343.7684864245331,
@@ -1713,7 +1034,7 @@
           "acu_high": 687.5369728490662,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.371354821763348,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.2992086295409497,
           "scenario_value_base_dkk": {
             "0.5": 343.7684864245331,
             "1.0": 687.5369728490662,
@@ -1729,7 +1050,7 @@
           "acu_high": 1031.3054592735991,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.1981471896553844,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.1449245888355821,
           "scenario_value_base_dkk": {
             "0.5": 515.6527296367996,
             "1.0": 1031.3054592735991,
@@ -1744,7 +1065,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.25482265960766215,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 93.14831915390475
+      "opportunity_score": 101.15137266181972
     },
     {
       "listing_id": "24114191",
@@ -1753,7 +1074,7 @@
       "model": "Motorola G85",
       "ask": 750,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:49.928988+00:00",
+      "verified_timestamp": "2026-08-31T12:06:07.642461+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Motorola G-series model supports Android 12+",
@@ -1781,12 +1102,12 @@
       "aae_ask_low": 0.18812778889839607,
       "aae_100_ask_base": 31.305201871061158,
       "start_bid": 225,
-      "target": 300,
-      "hard_max": 400,
-      "aae_target_base": 0.782630046776529,
-      "aae_target_low": 0.4703194722459902,
-      "aae_hard_max_base": 0.5869725350823968,
-      "aae_hard_max_low": 0.35273960418449263,
+      "target": 275,
+      "hard_max": 450,
+      "aae_target_base": 0.8537782328471225,
+      "aae_target_low": 0.5130757879047165,
+      "aae_hard_max_base": 0.5217533645176861,
+      "aae_hard_max_low": 0.31354631483066014,
       "cumulative": {
         "12": {
           "acu_low_stress": 141.09584167379705,
@@ -1794,7 +1115,7 @@
           "acu_high": 234.7890140329587,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.7470689100540753,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.569884382831805,
           "scenario_value_base_dkk": {
             "0.5": 117.39450701647935,
             "1.0": 234.7890140329587,
@@ -1810,7 +1131,7 @@
           "acu_high": 469.5780280659174,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.8710686074671719,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.7726327590103552,
           "scenario_value_base_dkk": {
             "0.5": 234.7890140329587,
             "1.0": 469.5780280659174,
@@ -1826,7 +1147,7 @@
           "acu_high": 704.3670420988761,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.6347451134539932,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.5621285039366695,
           "scenario_value_base_dkk": {
             "0.5": 352.18352104943807,
             "1.0": 704.3670420988761,
@@ -1841,104 +1162,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.37310093217437806,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 91.02776605915183
-    },
-    {
-      "listing_id": "23228583",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23228583",
-      "title": "OnePlus Nord ce2 128 GB",
-      "model": "OnePlus Nord CE 2",
-      "ask": 650,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:45.972787+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "OnePlus Nord family supports Android 12+",
-      "acurastbot_device": "OnePlus Nord CE 2",
-      "configuration_id": 396,
-      "ram": "8GB",
-      "storage": "128GB",
-      "processor_count": 2,
-      "confidence": "LOW",
-      "confidence_factor": 0.8584962500721156,
-      "bid_evidence_factor": 0.6,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.030549548768624736,
-      "acu_epoch_base": 0.030549548768624736,
-      "acu_epoch_conservative": 0.018358671141481687,
-      "acu_epoch_bid_basis": 0.011015202684889012,
-      "acu_epoch_high": 0.030549548768624736,
-      "acu_day_base": 0.4887927802979958,
-      "acu_month_base": 14.867447067397372,
-      "acu_year_base": 178.40936480876846,
-      "acu_year_conservative": 107.21463946625306,
-      "acu_year_bid_basis": 64.32878367975182,
-      "aae_ask_base": 0.2744759458596438,
-      "aae_ask_low": 0.16494559917885088,
-      "aae_100_ask_base": 27.447594585964374,
-      "start_bid": 175,
-      "target": 225,
-      "hard_max": 300,
-      "aae_target_base": 0.7929305102611931,
-      "aae_target_low": 0.4765095087389025,
-      "aae_hard_max_base": 0.5946978826958949,
-      "aae_hard_max_low": 0.35738213155417686,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 107.21463946625306,
-          "acu_base": 178.40936480876846,
-          "acu_high": 178.40936480876846,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.915646609047211,
-          "scenario_value_base_dkk": {
-            "0.5": 89.20468240438423,
-            "1.0": 178.40936480876846,
-            "2.0": 356.8187296175369,
-            "5.0": 892.0468240438423,
-            "10.0": 1784.0936480876846,
-            "20.0": 3568.1872961753693
-          }
-        },
-        "24": {
-          "acu_low_stress": 192.9863510392555,
-          "acu_base": 356.8187296175369,
-          "acu_high": 356.8187296175369,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.0737217831461825,
-          "scenario_value_base_dkk": {
-            "0.5": 178.40936480876846,
-            "1.0": 356.8187296175369,
-            "2.0": 713.6374592350738,
-            "5.0": 1784.0936480876846,
-            "10.0": 3568.1872961753693,
-            "20.0": 7136.374592350739
-          }
-        },
-        "36": {
-          "acu_low_stress": 261.6037202976575,
-          "acu_base": 535.2280944263053,
-          "acu_high": 535.2280944263053,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.8646523812619036,
-          "scenario_value_base_dkk": {
-            "0.5": 267.6140472131527,
-            "1.0": 535.2280944263053,
-            "2.0": 1070.4561888526107,
-            "5.0": 2676.1404721315266,
-            "10.0": 5352.280944263053,
-            "20.0": 10704.561888526106
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.49100561561830447,
-      "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 79.8108004269808
+      "opportunity_score": 98.84862733818026
     },
     {
       "listing_id": "23455321",
@@ -1947,7 +1171,7 @@
       "model": "Xiaomi Redmi 14C",
       "ask": 500,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:38.035447+00:00",
+      "verified_timestamp": "2026-08-31T12:05:55.061155+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Redmi model supports Android 12+",
@@ -1975,10 +1199,10 @@
       "aae_ask_low": 0.15516356055361316,
       "aae_100_ask_base": 27.707778670288075,
       "start_bid": 100,
-      "target": 125,
+      "target": 100,
       "hard_max": 175,
-      "aae_target_base": 1.108311146811523,
-      "aae_target_low": 0.6206542422144526,
+      "aae_target_base": 1.3853889335144038,
+      "aae_target_low": 0.7758178027680658,
       "aae_hard_max_base": 0.7916508191510879,
       "aae_hard_max_low": 0.44332445872460907,
       "cumulative": {
@@ -1988,7 +1212,7 @@
           "acu_high": 138.53889335144038,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.7403341253765703,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.418093517971047,
           "scenario_value_base_dkk": {
             "0.5": 69.26944667572019,
             "1.0": 138.53889335144038,
@@ -2004,7 +1228,7 @@
           "acu_high": 277.07778670288076,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.1497028965141802,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.970680336844445,
           "scenario_value_base_dkk": {
             "0.5": 138.53889335144038,
             "1.0": 277.07778670288076,
@@ -2020,7 +1244,7 @@
           "acu_high": 415.61668005432114,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.0486050418338024,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.9165392191266208,
           "scenario_value_base_dkk": {
             "0.5": 207.80834002716057,
             "1.0": 415.61668005432114,
@@ -2035,7 +1259,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.6323134094754139,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 75.07765000420815
+      "opportunity_score": 81.52812013281489
     },
     {
       "listing_id": "24453052",
@@ -2044,7 +1268,7 @@
       "model": "OnePlus 10 Pro",
       "ask": 800,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:53.577671+00:00",
+      "verified_timestamp": "2026-08-31T12:06:11.800249+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
@@ -2071,13 +1295,13 @@
       "aae_ask_base": 0.2620664634439982,
       "aae_ask_low": 0.14675721952863896,
       "aae_100_ask_base": 26.206646344399818,
-      "start_bid": 150,
+      "start_bid": 125,
       "target": 175,
-      "hard_max": 250,
+      "hard_max": 275,
       "aae_target_base": 1.1980181186011345,
       "aae_target_low": 0.6708901464166352,
-      "aae_hard_max_base": 0.8386126830207942,
-      "aae_hard_max_low": 0.4696231024916447,
+      "aae_hard_max_base": 0.7623751663825402,
+      "aae_hard_max_low": 0.4269300931742224,
       "cumulative": {
         "12": {
           "acu_low_stress": 117.40577562291116,
@@ -2132,7 +1356,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.4178329365802253,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 71.01014648058955
+      "opportunity_score": 77.11114762640803
     },
     {
       "listing_id": "17025084",
@@ -2141,7 +1365,7 @@
       "model": "Motorola Edge 40 Neo",
       "ask": 950,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:56.869045+00:00",
+      "verified_timestamp": "2026-08-31T12:06:15.271153+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Motorola Edge family supports Android 12+",
@@ -2168,13 +1392,13 @@
       "aae_ask_base": 0.2597142521998892,
       "aae_ask_low": 0.1454399812319379,
       "aae_100_ask_base": 25.971425219988916,
-      "start_bid": 175,
-      "target": 225,
-      "hard_max": 300,
-      "aae_target_base": 1.0965712870661988,
-      "aae_target_low": 0.6140799207570712,
-      "aae_hard_max_base": 0.8224284652996491,
-      "aae_hard_max_low": 0.4605599405678034,
+      "start_bid": 150,
+      "target": 200,
+      "hard_max": 325,
+      "aae_target_base": 1.2336426979494737,
+      "aae_target_low": 0.6908399108517052,
+      "aae_hard_max_base": 0.759164737199676,
+      "aae_hard_max_low": 0.42513225283181855,
       "cumulative": {
         "12": {
           "acu_low_stress": 138.16798217034102,
@@ -2182,7 +1406,7 @@
           "acu_high": 246.72853958989472,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.262463380369916,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.081524210474689,
           "scenario_value_base_dkk": {
             "0.5": 123.36426979494736,
             "1.0": 246.72853958989472,
@@ -2198,7 +1422,7 @@
           "acu_high": 493.45707917978945,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.6091523509348837,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.5086305898819798,
           "scenario_value_base_dkk": {
             "0.5": 246.72853958989472,
             "1.0": 493.45707917978945,
@@ -2214,7 +1438,7 @@
           "acu_high": 740.1856187696842,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.4469201159818301,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.3727647184837863,
           "scenario_value_base_dkk": {
             "0.5": 370.0928093848421,
             "1.0": 740.1856187696842,
@@ -2229,104 +1453,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.3550460767352098,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 70.372785779024
-    },
-    {
-      "listing_id": "24306637",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24306637",
-      "title": "Oneplus 10 pro 2t6 GB",
-      "model": "OnePlus 10 Pro",
-      "ask": 900,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:56.335825+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
-      "acurastbot_device": "OnePlus 10 Pro",
-      "configuration_id": 317,
-      "ram": "8GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.03589951554027372,
-      "acu_epoch_base": 0.03589951554027372,
-      "acu_epoch_conservative": 0.02010372870255328,
-      "acu_epoch_bid_basis": 0.009046677916148976,
-      "acu_epoch_high": 0.03589951554027372,
-      "acu_day_base": 0.5743922486443795,
-      "acu_month_base": 17.471097562933213,
-      "acu_year_base": 209.65317075519854,
-      "acu_year_conservative": 117.40577562291116,
-      "acu_year_bid_basis": 52.832599030310014,
-      "aae_ask_base": 0.23294796750577615,
-      "aae_ask_low": 0.13045086180323462,
-      "aae_100_ask_base": 23.294796750577618,
-      "start_bid": 150,
-      "target": 175,
-      "hard_max": 250,
-      "aae_target_base": 1.1980181186011345,
-      "aae_target_low": 0.6708901464166352,
-      "aae_hard_max_base": 0.8386126830207942,
-      "aae_hard_max_low": 0.4696231024916447,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 117.40577562291116,
-          "acu_base": 209.65317075519857,
-          "acu_high": 209.65317075519857,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.2366872379722595,
-          "scenario_value_base_dkk": {
-            "0.5": 104.82658537759929,
-            "1.0": 209.65317075519857,
-            "2.0": 419.30634151039715,
-            "5.0": 1048.2658537759928,
-            "10.0": 2096.5317075519856,
-            "20.0": 4193.063415103971
-          }
-        },
-        "24": {
-          "acu_low_stress": 211.33039612124008,
-          "acu_base": 419.30634151039715,
-          "acu_high": 419.30634151039715,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.6571208232586219,
-          "scenario_value_base_dkk": {
-            "0.5": 209.65317075519857,
-            "1.0": 419.30634151039715,
-            "2.0": 838.6126830207943,
-            "5.0": 2096.5317075519856,
-            "10.0": 4193.063415103971,
-            "20.0": 8386.126830207942
-          }
-        },
-        "36": {
-          "acu_low_stress": 286.47009251990323,
-          "acu_base": 628.9595122655957,
-          "acu_high": 628.9595122655957,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.5282572646552373,
-          "scenario_value_base_dkk": {
-            "0.5": 314.47975613279783,
-            "1.0": 628.9595122655957,
-            "2.0": 1257.9190245311913,
-            "5.0": 3144.797561327978,
-            "10.0": 6289.595122655956,
-            "20.0": 12579.190245311913
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.4178329365802253,
-      "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 63.12013020496848
+      "opportunity_score": 76.41902660447593
     },
     {
       "listing_id": "22032520",
@@ -2335,7 +1462,7 @@
       "model": "OnePlus 10 Pro",
       "ask": 1000,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:59.752104+00:00",
+      "verified_timestamp": "2026-08-31T12:06:18.180256+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "OnePlus flagship family supports Android 12+",
@@ -2362,13 +1489,13 @@
       "aae_ask_base": 0.20965317075519854,
       "aae_ask_low": 0.11740577562291117,
       "aae_100_ask_base": 20.965317075519856,
-      "start_bid": 150,
+      "start_bid": 125,
       "target": 175,
-      "hard_max": 250,
+      "hard_max": 275,
       "aae_target_base": 1.1980181186011345,
       "aae_target_low": 0.6708901464166352,
-      "aae_hard_max_base": 0.8386126830207942,
-      "aae_hard_max_low": 0.4696231024916447,
+      "aae_hard_max_base": 0.7623751663825402,
+      "aae_hard_max_low": 0.4269300931742224,
       "cumulative": {
         "12": {
           "acu_low_stress": 117.40577562291116,
@@ -2423,7 +1550,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.4178329365802253,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 56.80811718447164
+      "opportunity_score": 61.68891810112642
     },
     {
       "listing_id": "23858419",
@@ -2432,7 +1559,7 @@
       "model": "Samsung S21 Ultra",
       "ask": 1000,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:02:01.475716+00:00",
+      "verified_timestamp": "2026-08-31T12:06:20.058855+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
@@ -2459,13 +1586,13 @@
       "aae_ask_base": 0.20598162096564476,
       "aae_ask_low": 0.11534970774076103,
       "aae_100_ask_base": 20.598162096564476,
-      "start_bid": 150,
+      "start_bid": 125,
       "target": 175,
-      "hard_max": 250,
+      "hard_max": 275,
       "aae_target_base": 1.1770378340893985,
       "aae_target_low": 0.6591411870900631,
-      "aae_hard_max_base": 0.823926483862579,
-      "aae_hard_max_low": 0.4613988309630441,
+      "aae_hard_max_base": 0.7490240762387083,
+      "aae_hard_max_low": 0.4194534826936765,
       "cumulative": {
         "12": {
           "acu_low_stress": 115.34970774076103,
@@ -2520,104 +1647,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.4252806613975071,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 55.813265401680646
-    },
-    {
-      "listing_id": "24475837",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24475837",
-      "title": "Redmi 14C",
-      "model": "Xiaomi Redmi 14C",
-      "ask": 700,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:48.952509+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "Redmi model supports Android 12+",
-      "acurastbot_device": "Xiaomi Redmi 14C",
-      "configuration_id": 202,
-      "ram": "4GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.023722413245109653,
-      "acu_epoch_base": 0.023722413245109653,
-      "acu_epoch_conservative": 0.013284551417261401,
-      "acu_epoch_bid_basis": 0.00597804813776763,
-      "acu_epoch_high": 0.023722413245109653,
-      "acu_day_base": 0.37955861192175444,
-      "acu_month_base": 11.544907779286698,
-      "acu_year_base": 138.53889335144038,
-      "acu_year_conservative": 77.58178027680658,
-      "acu_year_bid_basis": 34.91180112456296,
-      "aae_ask_base": 0.19791270478777198,
-      "aae_ask_low": 0.11083111468115227,
-      "aae_100_ask_base": 19.791270478777196,
-      "start_bid": 100,
-      "target": 125,
-      "hard_max": 175,
-      "aae_target_base": 1.108311146811523,
-      "aae_target_low": 0.6206542422144526,
-      "aae_hard_max_base": 0.7916508191510879,
-      "aae_hard_max_low": 0.44332445872460907,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 77.58178027680658,
-          "acu_base": 138.53889335144038,
-          "acu_high": 138.53889335144038,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.7403341253765703,
-          "scenario_value_base_dkk": {
-            "0.5": 69.26944667572019,
-            "1.0": 138.53889335144038,
-            "2.0": 277.07778670288076,
-            "5.0": 692.6944667572019,
-            "10.0": 1385.3889335144038,
-            "20.0": 2770.7778670288076
-          }
-        },
-        "24": {
-          "acu_low_stress": 139.64720449825185,
-          "acu_base": 277.07778670288076,
-          "acu_high": 277.07778670288076,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.1497028965141802,
-          "scenario_value_base_dkk": {
-            "0.5": 138.53889335144038,
-            "1.0": 277.07778670288076,
-            "2.0": 554.1555734057615,
-            "5.0": 1385.3889335144038,
-            "10.0": 2770.7778670288076,
-            "20.0": 5541.555734057615
-          }
-        },
-        "36": {
-          "acu_low_stress": 189.29954387540806,
-          "acu_base": 415.61668005432114,
-          "acu_high": 415.61668005432114,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.0486050418338024,
-          "scenario_value_base_dkk": {
-            "0.5": 207.80834002716057,
-            "1.0": 415.61668005432114,
-            "2.0": 831.2333601086423,
-            "5.0": 2078.0834002716056,
-            "10.0": 4156.166800543211,
-            "20.0": 8312.333601086422
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.6323134094754139,
-      "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 53.626892860148686
+      "opportunity_score": 60.60859132402053
     },
     {
       "listing_id": "24479927",
@@ -2626,7 +1656,7 @@
       "model": "Samsung Galaxy S20 FE",
       "ask": 400,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:31.715121+00:00",
+      "verified_timestamp": "2026-08-31T12:05:48.997639+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Samsung S20+ family supports Android 12+",
@@ -2654,10 +1684,10 @@
       "aae_ask_low": 0.10848321272886627,
       "aae_100_ask_base": 19.372002273011837,
       "start_bid": 50,
-      "target": 75,
+      "target": 50,
       "hard_max": 100,
-      "aae_target_base": 1.0331734545606313,
-      "aae_target_low": 0.5785771345539534,
+      "aae_target_base": 1.549760181840947,
+      "aae_target_low": 0.8678657018309301,
       "aae_hard_max_base": 0.7748800909204735,
       "aae_hard_max_low": 0.4339328509154651,
       "cumulative": {
@@ -2667,7 +1697,7 @@
           "acu_high": 77.48800909204735,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 3.7471235389753033,
+          "break_even_acu_price_dkk_low_stress_at_target": 3.1709975335977965,
           "scenario_value_base_dkk": {
             "0.5": 38.744004546023675,
             "1.0": 77.48800909204735,
@@ -2683,7 +1713,7 @@
           "acu_high": 154.9760181840947,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 3.203260589898937,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.883190586911433,
           "scenario_value_base_dkk": {
             "0.5": 77.48800909204735,
             "1.0": 154.9760181840947,
@@ -2699,7 +1729,7 @@
           "acu_high": 232.46402727614202,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 3.190415813385602,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.954298598066952,
           "scenario_value_base_dkk": {
             "0.5": 116.23201363807101,
             "1.0": 232.46402727614202,
@@ -2714,7 +1744,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 1.1304974927919587,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 52.49083384997266
+      "opportunity_score": 57.00070537306815
     },
     {
       "listing_id": "23098313",
@@ -2723,7 +1753,7 @@
       "model": "OnePlus Nord CE 2",
       "ask": 1000,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:02:00.394124+00:00",
+      "verified_timestamp": "2026-08-31T12:06:19.278342+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "OnePlus Nord family supports Android 12+",
@@ -2750,13 +1780,13 @@
       "aae_ask_base": 0.17840936480876846,
       "aae_ask_low": 0.10721463946625306,
       "aae_100_ask_base": 17.840936480876845,
-      "start_bid": 175,
-      "target": 225,
-      "hard_max": 300,
-      "aae_target_base": 0.7929305102611931,
-      "aae_target_low": 0.4765095087389025,
-      "aae_hard_max_base": 0.5946978826958949,
-      "aae_hard_max_low": 0.35738213155417686,
+      "start_bid": 150,
+      "target": 200,
+      "hard_max": 350,
+      "aae_target_base": 0.8920468240438423,
+      "aae_target_low": 0.5360731973312653,
+      "aae_hard_max_base": 0.509741042310767,
+      "aae_hard_max_low": 0.3063275413321516,
       "cumulative": {
         "12": {
           "acu_low_stress": 107.21463946625306,
@@ -2764,7 +1794,7 @@
           "acu_high": 178.40936480876846,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.915646609047211,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.6824694969992895,
           "scenario_value_base_dkk": {
             "0.5": 89.20468240438423,
             "1.0": 178.40936480876846,
@@ -2780,7 +1810,7 @@
           "acu_high": 356.8187296175369,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.0737217831461825,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.9441789431195593,
           "scenario_value_base_dkk": {
             "0.5": 178.40936480876846,
             "1.0": 356.8187296175369,
@@ -2796,7 +1826,7 @@
           "acu_high": 535.2280944263053,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 1.8646523812619036,
+          "break_even_acu_price_dkk_low_stress_at_target": 1.7690879910783293,
           "scenario_value_base_dkk": {
             "0.5": 267.6140472131527,
             "1.0": 535.2280944263053,
@@ -2811,7 +1841,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.49100561561830447,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 51.87702027753751
+      "opportunity_score": 56.33415458638476
     },
     {
       "listing_id": "24342803",
@@ -2820,7 +1850,7 @@
       "model": "Samsung Z Flip 3",
       "ask": 900,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:56.428274+00:00",
+      "verified_timestamp": "2026-08-31T12:06:15.294113+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Samsung Z Fold/Flip family supports Android 12+",
@@ -2848,12 +1878,12 @@
       "aae_ask_low": 0.08248988441156922,
       "aae_100_ask_base": 16.367040557851038,
       "start_bid": 150,
-      "target": 200,
-      "hard_max": 275,
-      "aae_target_base": 0.7365168251032967,
-      "aae_target_low": 0.3712044798520615,
-      "aae_hard_max_base": 0.5356486000751249,
-      "aae_hard_max_low": 0.26996689443786287,
+      "target": 175,
+      "hard_max": 300,
+      "aae_target_base": 0.8417335144037678,
+      "aae_target_low": 0.42423369125949884,
+      "aae_hard_max_base": 0.49101121673553116,
+      "aae_hard_max_low": 0.24746965323470765,
       "cumulative": {
         "12": {
           "acu_low_stress": 74.2408959704123,
@@ -2861,7 +1891,7 @@
           "acu_high": 407.3687846128657,
           "electricity_kwh": 35.040000000000006,
           "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 3.8738756616652243,
+          "break_even_acu_price_dkk_low_stress_at_target": 3.537134035998915,
           "scenario_value_base_dkk": {
             "0.5": 73.65168251032969,
             "1.0": 147.30336502065938,
@@ -2877,7 +1907,7 @@
           "acu_high": 814.7375692257314,
           "electricity_kwh": 70.08000000000001,
           "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.8076768433333186,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.620598162407591,
           "scenario_value_base_dkk": {
             "0.5": 147.30336502065938,
             "1.0": 294.60673004131877,
@@ -2893,7 +1923,7 @@
           "acu_high": 1222.106353838597,
           "electricity_kwh": 105.12000000000002,
           "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.554820071448656,
+          "break_even_acu_price_dkk_low_stress_at_target": 2.4168112084706608,
           "scenario_value_base_dkk": {
             "0.5": 220.95504753098905,
             "1.0": 441.9100950619781,
@@ -2908,7 +1938,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 0.5946910987927132,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 39.91366689861104
+      "opportunity_score": 43.342942002962594
     },
     {
       "listing_id": "24142657",
@@ -2917,7 +1947,7 @@
       "model": "Samsung Galaxy A15 5G",
       "ask": 900,
       "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:01:56.226678+00:00",
+      "verified_timestamp": "2026-08-31T12:06:14.472892+00:00",
       "core_android_min": 12,
       "core_compatibility": true,
       "core_compatibility_reason": "Samsung A-series model supports Android 12+",
@@ -2944,13 +1974,13 @@
       "aae_ask_base": 0.08593154553033197,
       "aae_ask_low": 0.06015208187123238,
       "aae_100_ask_base": 8.593154553033196,
-      "start_bid": 150,
+      "start_bid": 125,
       "target": 175,
-      "hard_max": 250,
+      "hard_max": 275,
       "aae_target_base": 0.4419336627274216,
       "aae_target_low": 0.3093535639091951,
-      "aae_hard_max_base": 0.3093535639091951,
-      "aae_hard_max_low": 0.21654749473643656,
+      "aae_hard_max_base": 0.2812305126447228,
+      "aae_hard_max_low": 0.19686135885130596,
       "cumulative": {
         "12": {
           "acu_low_stress": 54.13687368410914,
@@ -3005,104 +2035,7 @@
       "electricity_dkk_month": 7.300000000000002,
       "energy_dkk_per_acu_base": 1.1326845424766252,
       "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 29.105267587568882
-    },
-    {
-      "listing_id": "22811018",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22811018",
-      "title": "samsung a15 som ny",
-      "model": "Samsung A15",
-      "ask": 1000,
-      "price_source": "DBA same-listing T1/T2 structured verification",
-      "verified_timestamp": "2026-08-31T12:02:00.345011+00:00",
-      "core_android_min": 12,
-      "core_compatibility": true,
-      "core_compatibility_reason": "Samsung A-series model supports Android 12+",
-      "acurastbot_device": "Samsung A15",
-      "configuration_id": 195,
-      "ram": "4GB",
-      "storage": "128GB",
-      "processor_count": 1,
-      "confidence": "LOW",
-      "confidence_factor": 0.7999999999999999,
-      "bid_evidence_factor": 0.45,
-      "spread_ratio": 0.0,
-      "absolute_reward_scale": 6.74198426228245,
-      "acu_epoch_low": 0.01725597387962669,
-      "acu_epoch_base": 0.01725597387962669,
-      "acu_epoch_conservative": 0.009663345372590944,
-      "acu_epoch_bid_basis": 0.004348505417665924,
-      "acu_epoch_high": 0.01725597387962669,
-      "acu_day_base": 0.276095582074027,
-      "acu_month_base": 8.397907288084989,
-      "acu_year_base": 100.77488745701986,
-      "acu_year_conservative": 56.43393697593112,
-      "acu_year_bid_basis": 25.395271639169,
-      "aae_ask_base": 0.10077488745701986,
-      "aae_ask_low": 0.05643393697593112,
-      "aae_100_ask_base": 10.077488745701984,
-      "start_bid": 75,
-      "target": 75,
-      "hard_max": 125,
-      "aae_target_base": 1.343665166093598,
-      "aae_target_low": 0.7524524930124149,
-      "aae_hard_max_base": 0.8061990996561589,
-      "aae_hard_max_low": 0.45147149580744894,
-      "cumulative": {
-        "12": {
-          "acu_low_stress": 56.43393697593112,
-          "acu_base": 100.77488745701987,
-          "acu_high": 100.77488745701987,
-          "electricity_kwh": 35.040000000000006,
-          "electricity_dkk": 87.60000000000002,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.8812450222877124,
-          "scenario_value_base_dkk": {
-            "0.5": 50.387443728509936,
-            "1.0": 100.77488745701987,
-            "2.0": 201.54977491403974,
-            "5.0": 503.87443728509936,
-            "10.0": 1007.7488745701987,
-            "20.0": 2015.4977491403974
-          }
-        },
-        "24": {
-          "acu_low_stress": 101.58108655667601,
-          "acu_base": 201.54977491403974,
-          "acu_high": 201.54977491403974,
-          "electricity_kwh": 70.08000000000001,
-          "electricity_dkk": 175.20000000000005,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.4630569378720297,
-          "scenario_value_base_dkk": {
-            "0.5": 100.77488745701987,
-            "1.0": 201.54977491403974,
-            "2.0": 403.0995498280795,
-            "5.0": 1007.7488745701987,
-            "10.0": 2015.4977491403974,
-            "20.0": 4030.995498280795
-          }
-        },
-        "36": {
-          "acu_low_stress": 137.69880622127192,
-          "acu_base": 302.3246623710596,
-          "acu_high": 302.3246623710596,
-          "electricity_kwh": 105.12000000000002,
-          "electricity_dkk": 262.80000000000007,
-          "break_even_acu_price_dkk_low_stress_at_target": 2.4531803090375393,
-          "scenario_value_base_dkk": {
-            "0.5": 151.1623311855298,
-            "1.0": 302.3246623710596,
-            "2.0": 604.6493247421192,
-            "5.0": 1511.6233118552982,
-            "10.0": 3023.2466237105964,
-            "20.0": 6046.493247421193
-          }
-        }
-      },
-      "electricity_kwh_month": 2.9200000000000004,
-      "electricity_dkk_month": 7.300000000000002,
-      "energy_dkk_per_acu_base": 0.8692641808938871,
-      "decision": "WATCH/NEGOTIATE",
-      "opportunity_score": 27.3062009760631
+      "opportunity_score": 31.60591404025082
     }
   ],
   "core_incompatible": [
@@ -3128,12 +2061,6 @@
       "listing_id": "18226895",
       "model": "Samsung Galaxy A51",
       "url": "https://www.dba.dk/recommerce/forsale/item/18226895",
-      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
-    },
-    {
-      "listing_id": "24225884",
-      "model": "Xiaomi Redmi 9A",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24225884",
       "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
@@ -3167,11 +2094,6 @@
       "reason": "no unique exact AcurastBot device match"
     },
     {
-      "listing_id": "23137203",
-      "model": "Samsung Galaxy S10",
-      "reason": "no unique exact AcurastBot device match"
-    },
-    {
       "listing_id": "22998960",
       "model": "Samsung Galaxy S20",
       "reason": "no unique exact AcurastBot device match"
@@ -3182,28 +2104,8 @@
       "reason": "no unique exact AcurastBot device match"
     },
     {
-      "listing_id": "24122824",
-      "model": "Samsung Galaxy S10",
-      "reason": "no unique exact AcurastBot device match"
-    },
-    {
       "listing_id": "24113148",
       "model": "Samsung Galaxy S10",
-      "reason": "no unique exact AcurastBot device match"
-    },
-    {
-      "listing_id": "22830832",
-      "model": "Samsung Galaxy S10",
-      "reason": "no unique exact AcurastBot device match"
-    },
-    {
-      "listing_id": "23795981",
-      "model": "Samsung Galaxy S10",
-      "reason": "no unique exact AcurastBot device match"
-    },
-    {
-      "listing_id": "8052202",
-      "model": "Samsung Galaxy S10+",
       "reason": "no unique exact AcurastBot device match"
     }
   ]
