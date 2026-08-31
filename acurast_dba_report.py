@@ -26,6 +26,7 @@ FUNCTION_RE=re.compile(r'\b(virker|fungerer|tænder|starter|defekt|revnet|ødela
 SPEC_RE=re.compile(r'\b(?:4|6|8|10|12|16|18|24)\s*gb\s*(?:ram)?\b|\b(?:64|128|256|512|1024)\s*gb\b',re.I)
 KNOWN_PHONE_BRANDS={'apple','iphone','huawei','nokia','htc','lg','zte','meizu','vivo','blackview','ulefone','cubot','fairphone','tecno','infinix'}
 VARIANT_WORDS=('ultra','pro','lite','fe','neo','fusion','plus')
+GENERIC_MODEL_TOKENS={'galaxy','phone','smartphone','mobile','mobil','5g','4g','lte','nr'}
 
 def getj(s,url,params=None):
     last=None
@@ -51,6 +52,29 @@ def norm(s): return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
 def compact(s):
     n=norm(s); n=re.sub(r'([a-z]+)(\d)',r'\1 \2',n); n=re.sub(r'(\d)([a-z]+)',r'\1 \2',n); return re.sub(r'\s+','',n)
 
+def alias_variants(brand,model,full):
+    """Generate conservative marketed-name aliases without weakening variant identity.
+
+    DBA sellers commonly omit connectivity suffixes (5G/LTE) and family words such as
+    Galaxy. AcurastBot may include them in its canonical model label. Keep marketed
+    variants such as FE/Ultra/Pro/Lite intact, but strip only non-distinguishing tokens.
+    """
+    b=norm(brand)
+    aliases={norm(model),norm(full)}
+    m_tokens=norm(model).split()
+    if m_tokens and m_tokens[0]==b:
+        aliases.add(' '.join(m_tokens[1:]))
+    reduced=[t for t in m_tokens if t!=b and t not in GENERIC_MODEL_TOKENS]
+    if reduced:
+        aliases.add(' '.join(reduced))
+    # Common seller wording: "Fan Edition" == marketed "FE".
+    expanded=set()
+    for a in aliases:
+        expanded.add(a)
+        if ' fe ' in f' {a} ':
+            expanded.add(re.sub(r'\bfe\b','fan edition',a))
+    return {a.strip() for a in expanded if len(a.strip())>=4}
+
 def build_catalog(s):
     devices=getj(s,BOT_BASE+'/devices/with-counts'); stats=getj(s,BOT_BASE+'/devices/pool-statistics')
     stats_by_cfg={int(x['deviceConfigurationId']):x for x in stats if x.get('deviceConfigurationId') is not None}; catalog=[]
@@ -66,9 +90,7 @@ def build_catalog(s):
             except Exception: continue
             best_reward=rw if best_reward is None else max(best_reward,rw)
         if best_reward is None: continue
-        full=f"{d.get('company','')} {model}".strip(); aliases={norm(model),norm(full)}
-        if norm(model).startswith(brand+' '): aliases.add(norm(model)[len(brand)+1:])
-        aliases={a for a in aliases if len(a)>=4}
+        full=f"{d.get('company','')} {model}".strip(); aliases=alias_variants(d.get('company',''),model,full)
         catalog.append({'label':full,'brand':d.get('company',''),'model':model,'aliases':aliases,'reward':best_reward,'processor_count':total_count})
     catalog.sort(key=lambda x:(-x['reward'],-x['processor_count'],x['label'])); return catalog
 
@@ -86,8 +108,6 @@ def detected_brand(text,catalog):
 
 def candidate_variant_ok(text,model):
     raw=(text or '').lower(); nt=' '+norm(text)+' '; nm=' '+norm(model)+' '
-    # A marketed variant present in the AcurastBot model must also be stated by the seller.
-    # This prevents base S10 -> S10+, S21 -> S21 Ultra, CE2 Lite -> CE2, etc.
     if '+' in str(model) and not ('+' in raw or ' plus ' in nt): return False
     for variant in VARIANT_WORDS:
         if f' {variant} ' in nm and f' {variant} ' not in nt:
@@ -95,6 +115,8 @@ def candidate_variant_ok(text,model):
     return True
 
 def model_of(text,catalog):
+    # Normalize common seller synonym before alias matching.
+    text=re.sub(r'\bfan\s+edition\b','fe',text or '',flags=re.I)
     nt=' '+norm(text)+' '; ct=compact(text); seller_brand=detected_brand(text,catalog); matches=[]
     if seller_brand=='apple': return None
     for x in catalog:
