@@ -107,8 +107,6 @@ def match_pulse(model:str,catalog:list[dict])->tuple[dict|None,str,float]:
 def evidence_factor(processors:int|None,match_conf:float,variant_count:int|None)->float:
     n=processors or 0
     f=1.00 if n>=50 else 0.97 if n>=20 else 0.93 if n>=10 else 0.88 if n>=5 else 0.82 if n>=3 else 0.76 if n==2 else 0.65
-    # Model-level Pulse earnings can aggregate several hardware/RAM/storage variants.
-    # This must affect bidding confidence, not the physical BASE estimate itself.
     vf=1.00 if not variant_count or variant_count<=1 else 0.95 if variant_count<=2 else 0.90
     return f*match_conf*vf
 
@@ -147,10 +145,6 @@ def main():
         observed_epoch=float(pr['observed_acu_epoch'])
         observed_day=float(pr['earnings_day'])
         raw_baseline_day=float(pr['baseline_day']) if pr.get('baseline_day') is not None else observed_day/1.10
-
-        # Pulse observed earnings can include the protocol's +10% deployment boost.
-        # Procurement must rank intrinsic hardware, so BASE strips that boost.
-        # Do not allow a noisy baseline aggregate to exceed observed earnings.
         baseline_day=min(observed_day,raw_baseline_day) if observed_day>0 else raw_baseline_day
         baseline_ratio=min(1.0,max(0.0,safe_div(baseline_day,observed_day) or (1/1.10)))
         base_epoch=observed_epoch*baseline_ratio
@@ -185,8 +179,6 @@ def main():
     if not valued:
         raise SystemExit('ACURAST PULSE MAINNET DATA GATE FAILED — no live DBA phones have unique Pulse rewards')
     coverage=len(valued)/max(1,len(src.get('ranked_by_verified_ask',[])))
-
-    # Hardware-baseline AAE, not deployment-boosted earnings, drives all acquisition thresholds.
     market=[x['aae_ask_base'] for x in valued if x['aae_ask_base'] and x['aae_ask_base']>0]
     target_h=v.percentile(market,0.75); hard_h=v.percentile(market,0.50); start_h=target_h*1.25
 
@@ -195,71 +187,42 @@ def main():
         sb=round25(by/start_h) if start_h>0 else 25
         tb=round25(by/target_h) if target_h>0 else x['ask']
         hb=round25(by/hard_h) if hard_h>0 else tb
-        x['start_bid']=min(x['ask'],sb)
-        x['target']=min(x['ask'],max(x['start_bid'],tb))
-        x['hard_max']=max(x['target'],hb)
-        x['aae_target_base']=safe_div(x['acu_year_base'],x['target'])
-        x['aae_target_low']=safe_div(x['acu_year_conservative'],x['target'])
-        x['aae_hard_max_base']=safe_div(x['acu_year_base'],x['hard_max'])
-        x['aae_hard_max_low']=safe_div(x['acu_year_conservative'],x['hard_max'])
-
+        x['start_bid']=min(x['ask'],sb); x['target']=min(x['ask'],max(x['start_bid'],tb)); x['hard_max']=max(x['target'],hb)
+        x['aae_target_base']=safe_div(x['acu_year_base'],x['target']); x['aae_target_low']=safe_div(x['acu_year_conservative'],x['target'])
+        x['aae_hard_max_base']=safe_div(x['acu_year_base'],x['hard_max']); x['aae_hard_max_low']=safe_div(x['acu_year_conservative'],x['hard_max'])
         cum={}
         for months in (12,24,36):
             elec=electricity(months)
             lc=cumulative_from_year1(x['acu_year_conservative'],months,ANNUAL_LOW_REWARD_DECAY)
             bc=cumulative_from_year1(x['acu_year_base'],months)
             hc=cumulative_from_year1(x['acu_year_high'],months)
-            cum[str(months)]={
-                'acu_low_stress':lc,'acu_base':bc,'acu_high':hc,
-                'electricity_kwh':elec['kwh'],'electricity_dkk':elec['dkk'],
-                'break_even_acu_price_dkk_low_stress_at_target':safe_div(x['target']+elec['dkk'],lc),
-                'scenario_value_base_dkk':{str(p):bc*p for p in PRICE_SCENARIOS},
-            }
+            cum[str(months)]={'acu_low_stress':lc,'acu_base':bc,'acu_high':hc,'electricity_kwh':elec['kwh'],'electricity_dkk':elec['dkk'],'break_even_acu_price_dkk_low_stress_at_target':safe_div(x['target']+elec['dkk'],lc),'scenario_value_base_dkk':{str(p):bc*p for p in PRICE_SCENARIOS}}
         x['cumulative']=cum
-        one=electricity(12)
-        x['electricity_kwh_month']=one['kwh']/12
-        x['electricity_dkk_month']=one['dkk']/12
-        x['energy_dkk_per_acu_base']=safe_div(one['dkk'],x['acu_year_base'])
+        one=electricity(12); x['electricity_kwh_month']=one['kwh']/12; x['electricity_dkk_month']=one['dkk']/12; x['energy_dkk_per_acu_base']=safe_div(one['dkk'],x['acu_year_base'])
         x['decision']='STRONG BID' if x['ask']<=x['target'] and x['aae_ask_base']>=target_h else ('BID' if x['ask']<=x['hard_max'] else 'WATCH/NEGOTIATE')
         x['opportunity_score']=100.0*(x['aae_ask_base']/hard_h) if hard_h>0 else 0.0
 
     valued.sort(key=lambda x:(-x['aae_ask_base'],-x['confidence_factor'],x['ask']))
-
     out={
-        'generated_at':datetime.now(timezone.utc).isoformat(),
-        'model_version':'V1.6-MAINNET-PULSE-BASELINE-AAE',
-        'valuation_gate':True,'dba_same_listing_gate':True,'reward_data_gate':True,
+        'generated_at':datetime.now(timezone.utc).isoformat(),'model_version':'V1.6-MAINNET-PULSE-BASELINE-AAE','valuation_gate':True,'dba_same_listing_gate':True,'reward_data_gate':True,
         'reward_source':{
-            'primary':'Acurast Pulse Mainnet chain-derived stake-neutral phone earnings',
-            'catalog_rows':len(pulse),'matched_listings':len(valued),'input_listings':len(src.get('ranked_by_verified_ask',[])),'coverage':coverage,
+            'primary':'Acurast Pulse Mainnet chain-derived stake-neutral phone earnings','catalog_rows':len(pulse),'matched_listings':len(valued),'input_listings':len(src.get('ranked_by_verified_ask',[])),'coverage':coverage,
             'canary_acurastbot_used_for_absolute_acu':False,'old_cacu_to_acu_0_01_conversion_retired':True,'old_partial_farm_scale_retired':True,
-            'base_definition':'Pulse chain-derived baseline/day and observed ACU/epoch with deployment boost stripped; BASE is intrinsic hardware baseline',
+            'base_is_deployment_neutral':True,
+            'base_definition':'Deployment-neutral Pulse chain-derived baseline/day and observed ACU/epoch with deployment boost stripped; BASE is intrinsic hardware baseline',
             'low_definition':'same current-epoch hardware baseline; 20% annual network/reward decay is applied only to long-horizon LOW accumulation',
             'high_definition':'observed deployment-boosted ACU/epoch or +10% over hardware baseline, whichever is higher',
-            'variant_policy':'model-level Pulse aggregates are allowed; multiple variants lower bid-confidence only and never inflate BASE reward',
-        },
+            'variant_policy':'model-level Pulse aggregates are allowed; multiple variants lower bid-confidence only and never inflate BASE reward'},
         'core_gate':{'minimum_android':v.CORE_MIN_ANDROID,'mode':'hard fail-closed allowlist','excluded_count':len(core_incompatible)},
         'economic_invariant':'Rank and bid on long-term ACU accumulation efficiency; ACU spot price is not a purchase gate.',
         'ranking_metric':'deployment-neutral Mainnet Pulse baseline annual ACU / verified DBA ASK DKK; evidence confidence only reduces bid basis',
         'reward_decay_stress':{'low_path_annual_decay':ANNUAL_LOW_REWARD_DECAY,'base_path_decay':0.0,'high_path_decay':0.0},
-        'electricity_assumption':{'wall_power_w':POWER_W_WALL,'dkk_per_kwh':DKK_PER_KWH},
-        'price_scenarios_dkk_per_acu':PRICE_SCENARIOS,
+        'electricity_assumption':{'wall_power_w':POWER_W_WALL,'dkk_per_kwh':DKK_PER_KWH},'price_scenarios_dkk_per_acu':PRICE_SCENARIOS,
         'hurdles':{'start_annual_baseline_aae':start_h,'target_annual_baseline_aae_p75':target_h,'hard_max_annual_baseline_aae_p50':hard_h},
-        'dba_counts':src.get('counts'),'ranked':valued,'core_incompatible':core_incompatible,'unsupported':unsupported,
-    }
+        'dba_counts':src.get('counts'),'ranked':valued,'core_incompatible':core_incompatible,'unsupported':unsupported}
     v.OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
 
-    lines=[
-        '# Acurast DBA Procurement V1.6 — Mainnet baseline ACU Accumulation Efficiency','',
-        f"Generated: {out['generated_at']}",'',
-        'DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.',
-        f"Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived rewards; {len(valued)}/{len(src.get('ranked_by_verified_ask',[]))} live listings matched.",
-        '**Retired permanently:** AcurastBot Canary cACU ×0.01 conversion and ×6.742 partial-farm calibration.',
-        'BASE = deployment-neutral Mainnet hardware baseline. HIGH may include the protocol deployment boost. Evidence confidence affects bid basis, not physical BASE ACU/epoch.',
-        f"Long-horizon LOW stress: {ANNUAL_LOW_REWARD_DECAY*100:.0f}% annual reward decay. Electricity: {POWER_W_WALL:.1f} W at {DKK_PER_KWH:.2f} DKK/kWh.",'',
-        '| # | Model | ASK | ACU/epoch BASE | HIGH | ACU/day BASE | ACU/år BASE | AAE BASE @ASK | Pulse n | Variants | Confidence | Start | Target | Hard max | Klasse | Link |',
-        '|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---:|---:|---:|---|---|',
-    ]
+    lines=['# Acurast DBA Procurement V1.6 — Mainnet baseline ACU Accumulation Efficiency','',f"Generated: {out['generated_at']}",'','DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.',f"Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived rewards; {len(valued)}/{len(src.get('ranked_by_verified_ask',[]))} live listings matched.",'**Retired permanently:** AcurastBot Canary cACU ×0.01 conversion and ×6.742 partial-farm calibration.','BASE = deployment-neutral Mainnet hardware baseline. HIGH may include the protocol deployment boost. Evidence confidence affects bid basis, not physical BASE ACU/epoch.',f"Long-horizon LOW stress: {ANNUAL_LOW_REWARD_DECAY*100:.0f}% annual reward decay. Electricity: {POWER_W_WALL:.1f} W at {DKK_PER_KWH:.2f} DKK/kWh.",'','| # | Model | ASK | ACU/epoch BASE | HIGH | ACU/day BASE | ACU/år BASE | AAE BASE @ASK | Pulse n | Variants | Confidence | Start | Target | Hard max | Klasse | Link |','|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---:|---:|---:|---|---|']
     for i,x in enumerate(valued,1):
         lines.append(f"| {i} | {x['model']} | {x['ask']} | {x['acu_epoch_base']:.5f} | {x['acu_epoch_high']:.5f} | {x['acu_day_base']:.4f} | {x['acu_year_base']:.1f} | {x['aae_ask_base']:.4f} | {x.get('pulse_processors') or 0} | {x.get('pulse_variant_count') or 0} | {x['confidence']} | {x['start_bid']} | {x['target']} | {x['hard_max']} | {x['decision']} | [DBA]({x['url']}) |")
     lines += ['', '## Topkandidater', '']
