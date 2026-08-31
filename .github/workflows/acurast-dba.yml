@@ -3,7 +3,9 @@ name: Acurast DBA Verified Report
 on:
   workflow_dispatch:
   schedule:
-    - cron: '7,37 * * * *'
+    # GitHub Actions cron uses UTC. During Danish summer time (CEST),
+    # 06:07-20:07 UTC corresponds to 08:07-22:07 local time.
+    - cron: '7 6-20 * * *'
   push:
     branches: [main]
     paths:
@@ -88,7 +90,7 @@ jobs:
           assert reward.get('canary_acurastbot_used_for_absolute_acu') is False, 'Canary AcurastBot absolute reward path re-enabled'
           assert reward.get('old_cacu_to_acu_0_01_conversion_retired') is True, 'Retired cACU ×0.01 conversion detected'
           assert reward.get('old_partial_farm_scale_retired') is True, 'Retired partial-farm calibration detected'
-          assert 'deployment-neutral' in reward.get('base_definition','').lower(), 'BASE is not deployment-neutral'
+          assert reward.get('base_is_deployment_neutral') is True, 'BASE is not deployment-neutral'
           coverage = float(reward.get('coverage') or 0)
           assert coverage >= 0.40, f'Mainnet Pulse reward coverage too low: {coverage:.1%}'
           ranked = valuation.get('ranked') or []
