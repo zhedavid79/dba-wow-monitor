@@ -3,7 +3,10 @@ name: Acurast DBA Verified Report
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 * * * *'
+    # Two independent scheduled opportunities per hour. This keeps the
+    # published dataset inside the 90-minute freshness SLA even if GitHub's
+    # scheduler delays or drops an individual scheduled event.
+    - cron: '7,37 * * * *'
   push:
     branches: [main]
     paths:
@@ -12,6 +15,7 @@ on:
       - 'acurast_valuation.py'
       - 'acurast_valuation_fixed.py'
       - 'acurastbot_probe.py'
+      - 'acurast_run_trigger.txt'
       - '.github/workflows/acurast-dba.yml'
 
 permissions:
@@ -73,14 +77,27 @@ jobs:
           assert latest.get('gate_passed') is True, 'DBA data gate is not PASS'
           assert latest.get('product_identity_gate') is True, 'Product identity gate is not PASS'
           assert int(latest.get('counts', {}).get('final_refetched', 0)) > 0, 'No final-refetched listings'
-          assert valuation, 'Valuation JSON is empty'
+          assert valuation.get('valuation_gate') is True, 'Valuation gate is not PASS'
+          assert valuation.get('dba_same_listing_gate') is True, 'Valuation same-listing gate is not PASS'
 
-          generated = latest.get('generated_at')
-          assert generated, 'Missing generated_at'
-          ts = datetime.fromisoformat(generated.replace('Z', '+00:00'))
-          age = (datetime.now(timezone.utc) - ts).total_seconds()
+          latest_generated = latest.get('generated_at')
+          valuation_generated = valuation.get('generated_at')
+          assert latest_generated, 'Missing latest generated_at'
+          assert valuation_generated, 'Missing valuation generated_at'
+
+          latest_ts = datetime.fromisoformat(latest_generated.replace('Z', '+00:00'))
+          valuation_ts = datetime.fromisoformat(valuation_generated.replace('Z', '+00:00'))
+          now = datetime.now(timezone.utc)
+          age = (now - latest_ts).total_seconds()
+          skew = abs((valuation_ts - latest_ts).total_seconds())
+
           assert age < 1800, f'Result already stale at publication: {age:.0f}s'
-          print(f'Publication contract PASS: {latest["counts"]["final_refetched"]} final listings, age={age:.0f}s')
+          assert skew < 300, f'Latest/valuation generation skew too large: {skew:.0f}s'
+          print(
+              f'Publication contract PASS: '
+              f'{latest["counts"]["final_refetched"]} final listings, '
+              f'age={age:.0f}s, generation_skew={skew:.0f}s'
+          )
           PY
 
       - name: Publish Acurast results
