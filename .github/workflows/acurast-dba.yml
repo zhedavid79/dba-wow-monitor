@@ -10,6 +10,7 @@ on:
     branches: [main]
     paths:
       - 'acurast_dba_report.py'
+      - 'acurast_dba_report_v2.py'
       - 'acurast_listing_quality.py'
       - 'acurast_valuation.py'
       - 'acurast_valuation_fixed.py'
@@ -50,7 +51,7 @@ jobs:
           set -e
           for attempt in 1 2 3; do
             echo "DBA verified report attempt $attempt/3"
-            if python acurast_dba_report.py; then
+            if python acurast_dba_report_v2.py; then
               exit 0
             fi
             if [ "$attempt" -lt 3 ]; then
