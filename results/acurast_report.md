@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-08-31T06:03:05.140825+00:00
+Generated: 2026-08-31T07:39:54.681752+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2482 | Product rejects: None | Bundle/variant/price rejects: 6 | Final: 23
+T0: 2484 | Product rejects: None | Bundle/variant/price rejects: 6 | Final: 23
 
 ## Lowest verified single-device listings
 
@@ -27,7 +27,7 @@ T0: 2482 | Product rejects: None | Bundle/variant/price rejects: 6 | Final: 23
 | 15 | Samsung Galaxy S10 | 800 kr. | [Samsung Galaxy S10 smartphone 128 GB hvid](https://www.dba.dk/recommerce/forsale/item/24113148) |
 | 16 | Nothing Phone 1 | 899 kr. | [NOTHING PHONE 1](https://www.dba.dk/recommerce/forsale/item/24086458) |
 | 17 | Xiaomi Redmi A5 | 899 kr. | [Xiaomi REDMI A5 - 4/128GB (NY/Uåbnet)](https://www.dba.dk/recommerce/forsale/item/23793233) |
-| 18 | Samsung Galaxy A15 5G | 900 kr. | [Samsung Galaxy A15 5G, 128GB](https://www.dba.dk/recommerce/forsale/item/24142657) |
+| 18 | Samsung Galaxy A15 5G | 900 kr. | [SOLGT ...Samsung Galaxy A15 5G, 128GB](https://www.dba.dk/recommerce/forsale/item/24142657) |
 | 19 | Samsung Z Flip 3 | 900 kr. | [Samsung Galaxy Z Flip3 mobil 128 GB beige](https://www.dba.dk/recommerce/forsale/item/24342803) |
 | 20 | Motorola Edge 40 Neo | 950 kr. | [Motorola mobil refurbed fra forsikring sælges](https://www.dba.dk/recommerce/forsale/item/17025084) |
 | 21 | OnePlus 10 Pro | 1000 kr. | [oneplus 10 pro 256gb](https://www.dba.dk/recommerce/forsale/item/22032520) |
