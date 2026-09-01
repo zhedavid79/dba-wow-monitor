@@ -11,9 +11,12 @@ on:
     paths:
       - 'acurast_dba_report.py'
       - 'acurast_dba_report_v2.py'
+      - 'acurast_dba_report_v3.py'
       - 'acurast_listing_quality.py'
       - 'acurast_valuation.py'
       - 'acurast_valuation_fixed.py'
+      - 'acurast_pulse_proxy.py'
+      - 'acurast_proxy_completion.py'
       - 'acurast_coverage_audit.py'
       - 'acurastbot_probe.py'
       - 'acurastpulse_probe.py'
@@ -52,7 +55,7 @@ jobs:
           set -e
           for attempt in 1 2 3; do
             echo "DBA verified report attempt $attempt/3"
-            if python acurast_dba_report_v2.py; then
+            if python acurast_dba_report_v3.py; then
               exit 0
             fi
             if [ "$attempt" -lt 3 ]; then
@@ -67,6 +70,9 @@ jobs:
 
       - name: Build Acurast procurement valuation
         run: python acurast_valuation_fixed.py
+
+      - name: Complete conservative Mainnet Pulse family proxies
+        run: python acurast_proxy_completion.py
 
       - name: Audit end-to-end candidate coverage
         run: python acurast_coverage_audit.py
