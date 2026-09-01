@@ -1,0 +1,75 @@
+name: WoW DBA Price-First Laptop A3 Report
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'dba_report_v6.py'
+      - 'dba_report_v8.py'
+      - 'dba_report_v9.py'
+      - 'dba_report_v10.py'
+      - '.github/workflows/wow-a3-dba.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wow-a3-dba-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run verified WoW laptop/A3 scanner
+        run: python dba_report_v10.py
+
+      - name: Validate publication gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
+          assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
+          ranked = d.get('ranked') or []
+          assert all(r.get('format_gate') in {'LAPTOP','A3_READY','A3_READY_PSU_CHECK'} for r in ranked)
+          assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
+          assert len({str(r['listing_id']) for r in ranked}) == len(ranked), 'Duplicate listing ID in ranked output'
+          print(f"PASS: {len(ranked)} ranked laptop/A3 candidates")
+          PY
+
+      - name: Publish WoW laptop/A3 results
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/wow-a3-results
+          cp results/wow_a3_latest.json /tmp/wow-a3-results/
+          cp results/wow_a3_report.md /tmp/wow-a3-results/
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp /tmp/wow-a3-results/* results/
+            git add results/wow_a3_latest.json results/wow_a3_report.md
+            if git diff --cached --quiet; then
+              echo "No WoW A3 result changes"
+              exit 0
+            fi
+            git commit -m "Update verified WoW laptop-A3 DBA report [skip ci]"
+            if git push origin main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
