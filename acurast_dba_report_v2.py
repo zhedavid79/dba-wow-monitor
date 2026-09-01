@@ -2,14 +2,37 @@ from __future__ import annotations
 
 """DBA discovery wrapper for the V1.6 Mainnet valuation pipeline.
 
-The legacy report module used AcurastBot Canary pool-statistics as a prerequisite
-for a model to enter the supported-device discovery catalog. V1.6 no longer uses
-those statistics for absolute ACU rewards; Acurast Pulse Mainnet is authoritative.
-Therefore a phone model present in AcurastBot's device registry must remain
-eligible for DBA discovery even when no current/legacy pool-stat row exists.
+V1.6 ranks only on deployment-neutral Acurast Pulse Mainnet reward data. Discovery
+therefore uses the union of the AcurastBot device registry and Pulse Mainnet model
+catalog. A conservative explicit-title fallback is allowed only when that model also
+has a unique Mainnet Pulse reward match. This avoids both registry blindspots and
+inflating the valuation denominator with models that cannot be ranked under V1.6.
 """
 
 import acurast_dba_report as base
+
+
+_PULSE_CATALOG = None
+_ORIGINAL_FALLBACK = base.fallback_core_model
+
+
+def pulse_catalog():
+    global _PULSE_CATALOG
+    if _PULSE_CATALOG is None:
+        from acurast_valuation_fixed import fetch_pulse_catalog
+        _PULSE_CATALOG = fetch_pulse_catalog()
+    return _PULSE_CATALOG
+
+
+def pulse_gated_fallback(title, description, catalog):
+    candidate = _ORIGINAL_FALLBACK(title, description, catalog)
+    if not candidate:
+        return None
+    from acurast_valuation_fixed import match_pulse
+    row, method, _confidence = match_pulse(candidate, pulse_catalog())
+    if row is None or method in {'NO_MATCH', 'AMBIGUOUS_EXACT', 'AMBIGUOUS_VARIANT'}:
+        return None
+    return candidate
 
 
 def build_catalog(session):
@@ -54,15 +77,31 @@ def build_catalog(session):
             # this field for absolute reward or ranking.
             'reward': best_reward,
             'processor_count': total_count,
+            'catalog_source': 'ACURASTBOT',
         })
 
-    catalog.sort(key=lambda x: (-x['reward'], -x['processor_count'], x['label']))
+    # The workflow wrapper must not override away Mainnet discovery. Merge Pulse
+    # models into the same resolver universe while retaining deterministic sorting.
+    by_key = {(base.norm(x['brand']), base.norm(x['model'])): x for x in catalog}
+    for row in base._pulse_discovery_rows(catalog):
+        key = (base.norm(row['brand']), base.norm(row['model']))
+        old = by_key.get(key)
+        if old is None:
+            row['reward'] = 0.0
+            catalog.append(row)
+            by_key[key] = row
+        else:
+            old['aliases'] |= row['aliases']
+            old['processor_count'] = max(old['processor_count'], row['processor_count'])
+            old['catalog_source'] = 'ACURASTBOT+ACURAST_PULSE_MAINNET'
+
+    catalog.sort(key=lambda x: (-x.get('reward', 0.0), -x['processor_count'], x['label']))
     return catalog
 
 
-# Patch only the discovery-catalog construction; all same-listing verification,
-# identity gates and DBA retrieval remain the proven legacy implementation.
+# Patch the authoritative V1.6 discovery path used by the workflow.
 base.build_catalog = build_catalog
+base.fallback_core_model = pulse_gated_fallback
 
 if __name__ == '__main__':
     base.main()
