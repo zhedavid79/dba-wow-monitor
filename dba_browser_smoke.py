@@ -1,9 +1,9 @@
 from __future__ import annotations
-import asyncio, json, re
+import asyncio, json
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-URL='https://www.dba.dk/recommerce/forsale/search?q=gaming%20pc'
+URL='https://www.dba.dk/recommerce/forsale/item/24520901'
 
 async def main():
     Path('results').mkdir(exist_ok=True)
@@ -14,13 +14,13 @@ async def main():
         r=await p.goto(URL, wait_until='domcontentloaded', timeout=30000)
         await p.wait_for_timeout(2500)
         title=await p.title()
-        body=(await p.locator('body').inner_text())[:12000]
-        links=await p.locator('a[href*="/recommerce/forsale/item/"]').evaluate_all("els=>els.slice(0,40).map(a=>({href:a.href,text:(a.innerText||'').trim()}))")
-        scripts=await p.locator('script').evaluate_all("els=>els.map(s=>s.textContent||'').filter(x=>x.includes('/recommerce/forsale/item/')||x.includes('itemData')||x.includes('listingId')).slice(0,8).map(x=>x.slice(0,4000))")
-        out={'status':r.status if r else None,'url':p.url,'title':title,'item_link_count':len(links),'links':links,'body':body,'scripts':scripts}
+        body=(await p.locator('body').inner_text())[:18000]
+        scripts=await p.locator('script').evaluate_all("els=>els.map(s=>s.textContent||'').filter(x=>x.includes('24520901')||x.includes('itemData')||x.includes('listingId')||x.includes('price')).slice(0,12).map(x=>x.slice(0,6000))")
+        metas=await p.locator('meta').evaluate_all("els=>els.map(m=>({name:m.name,prop:m.getAttribute('property'),content:m.content})).filter(x=>x.content&&(/24520901|kr|dkk|price/i.test(x.content)||/price|title|url/i.test((x.name||'')+' '+(x.prop||''))))")
+        out={'status':r.status if r else None,'url':p.url,'title':title,'body':body,'scripts':scripts,'metas':metas}
         Path('results/dba_smoke.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-        print(json.dumps({k:out[k] for k in ('status','url','title','item_link_count')},ensure_ascii=False))
-        print(body[:2500])
+        print(json.dumps({k:out[k] for k in ('status','url','title')},ensure_ascii=False))
+        print(body[:4000])
         await b.close()
 
 if __name__=='__main__': asyncio.run(main())
