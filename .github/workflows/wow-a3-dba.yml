@@ -7,7 +7,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'dba_browser_v1.py'
+      - 'dba_browser_v2.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -34,7 +34,7 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run browser-native verified WoW laptop/A3 scanner
-        run: python dba_browser_v1.py
+        run: python dba_browser_v2.py
 
       - name: Validate publication gate
         run: |
@@ -47,7 +47,9 @@ jobs:
           assert all(r.get('format_gate') in {'LAPTOP','A3_READY','A3_READY_PSU_CHECK'} for r in ranked)
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
           assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
-          assert all(r.get('t1_source') in {'embedded_listing_json','rendered_item_page'} for r in ranked)
+          assert all(r.get('t1_source') == 'dba_jsonld_product' for r in ranked)
+          assert all(r.get('currency') == 'DKK' for r in ranked)
+          assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
           assert len({str(r['listing_id']) for r in ranked}) == len(ranked), 'Duplicate listing ID in ranked output'
           print(f"PASS: {len(ranked)} ranked laptop/A3 candidates")
           PY
