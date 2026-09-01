@@ -7,10 +7,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'dba_report_v6.py'
-      - 'dba_report_v8.py'
-      - 'dba_report_v9.py'
-      - 'dba_report_v10.py'
+      - 'dba_browser_v1.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -23,7 +20,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
@@ -31,11 +28,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install requests
+      - name: Install browser dependencies
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
 
-      - name: Run verified WoW laptop/A3 scanner
-        run: python dba_report_v10.py
+      - name: Run browser-native verified WoW laptop/A3 scanner
+        run: python dba_browser_v1.py
 
       - name: Validate publication gate
         run: |
@@ -47,6 +46,8 @@ jobs:
           ranked = d.get('ranked') or []
           assert all(r.get('format_gate') in {'LAPTOP','A3_READY','A3_READY_PSU_CHECK'} for r in ranked)
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
+          assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
+          assert all(r.get('t1_source') in {'embedded_listing_json','rendered_item_page'} for r in ranked)
           assert len({str(r['listing_id']) for r in ranked}) == len(ranked), 'Duplicate listing ID in ranked output'
           print(f"PASS: {len(ranked)} ranked laptop/A3 candidates")
           PY
