@@ -1,6 +1,6 @@
 # Acurast DBA Procurement V1.6 — Mainnet baseline ACU Accumulation Efficiency
 
-Generated: 2026-09-01T19:04:41.753738+00:00
+Generated: 2026-09-01T19:07:26.537476+00:00
 
 DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.
 Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived rewards; 27/47 live listings matched.
@@ -16,14 +16,14 @@ Long-horizon LOW stress: 20% annual reward decay. Electricity: 4.0 W at 2.50 DKK
 | 4 | OnePlus Nord 2T | 499 | 0.04792 | 0.05271 | 0.7235 | 264.1 | 0.5292 | 2 | 2 | LOW | 425 | 499 | 625 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/23179862) |
 | 5 | Samsung Galaxy Z Flip 4 | 400 | 0.02912 | 0.03203 | 0.4397 | 160.5 | 0.4013 | 312 | 3 | MEDIUM | 325 | 400 | 475 | STRONG BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24156221) |
 | 6 | Samsung Galaxy S10 | 400 | 0.02636 | 0.02900 | 0.3981 | 145.3 | 0.3632 | 1 | 0 | LOW | 200 | 250 | 300 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24320383) |
-| 7 | Samsung Galaxy S20 FE | 400 | 0.02620 | 0.02882 | 0.3956 | 144.4 | 0.3610 | 2 | 1 | LOW | 250 | 300 | 350 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24479927) |
+| 7 | Samsung Galaxy S20 FE | 400 | 0.02620 | 0.02882 | 0.3956 | 144.4 | 0.3610 | 2 | 1 | LOW | 250 | 300 | 375 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24479927) |
 | 8 | OnePlus Nord 2 5G | 700 | 0.04448 | 0.04892 | 0.6715 | 245.1 | 0.3502 | 3 | 4 | LOW | 400 | 500 | 600 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23693040) |
 | 9 | OnePlus 8T | 800 | 0.04912 | 0.05404 | 0.7419 | 270.8 | 0.3385 | 45 | 4 | MEDIUM | 525 | 675 | 775 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24525008) |
 | 10 | OnePlus Nord 2T | 790 | 0.04792 | 0.05271 | 0.7235 | 264.1 | 0.3343 | 2 | 2 | LOW | 425 | 525 | 625 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/21612519) |
 | 11 | OnePlus Nord 2T | 800 | 0.04792 | 0.05271 | 0.7235 | 264.1 | 0.3301 | 2 | 2 | LOW | 425 | 525 | 625 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23992209) |
 | 12 | Motorola Edge 40 Neo | 600 | 0.03488 | 0.03837 | 0.5267 | 192.2 | 0.3204 | 2 | 1 | LOW | 325 | 400 | 475 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24293758) |
 | 13 | OnePlus Nord 2 5G | 799 | 0.04448 | 0.04892 | 0.6715 | 245.1 | 0.3068 | 3 | 4 | LOW | 400 | 500 | 600 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23749479) |
-| 14 | Motorola Edge 50 Fusion | 600 | 0.03299 | 0.03629 | 0.4983 | 181.9 | 0.3031 | 2 | 1 | LOW | 300 | 375 | 450 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23235041) |
+| 14 | Motorola Edge 50 Fusion | 600 | 0.03294 | 0.03623 | 0.4973 | 181.5 | 0.3025 | 2 | 1 | LOW | 300 | 375 | 450 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23235041) |
 | 15 | OnePlus Nord 2 5G | 899 | 0.04448 | 0.04892 | 0.6715 | 245.1 | 0.2726 | 3 | 4 | LOW | 400 | 500 | 600 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23588486) |
 | 16 | OnePlus 8T | 1000 | 0.04912 | 0.05404 | 0.7419 | 270.8 | 0.2708 | 45 | 4 | MEDIUM | 525 | 675 | 775 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23007415) |
 | 17 | Samsung Z Flip 3 | 800 | 0.03894 | 0.04284 | 0.5880 | 214.6 | 0.2683 | 31 | 2 | HIGH | 450 | 550 | 650 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24503932) |
@@ -34,7 +34,7 @@ Long-horizon LOW stress: 20% annual reward decay. Electricity: 4.0 W at 2.50 DKK
 | 22 | Samsung Galaxy S10 | 700 | 0.02636 | 0.02900 | 0.3981 | 145.3 | 0.2076 | 1 | 0 | LOW | 200 | 250 | 300 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/12922667) |
 | 23 | Samsung Galaxy S10 | 800 | 0.02636 | 0.02900 | 0.3981 | 145.3 | 0.1816 | 1 | 0 | LOW | 200 | 250 | 300 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24113148) |
 | 24 | OnePlus 10 Pro | 1000 | 0.03210 | 0.03531 | 0.4846 | 176.9 | 0.1769 | 2 | 5 | LOW | 275 | 350 | 400 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/22032520) |
-| 25 | Samsung Galaxy S21 | 1000 | 0.02953 | 0.03249 | 0.4460 | 162.8 | 0.1628 | 277 | 1 | HIGH | 375 | 450 | 525 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24524119) |
+| 25 | Samsung Galaxy S21 | 1000 | 0.02953 | 0.03249 | 0.4460 | 162.8 | 0.1628 | 277 | 1 | HIGH | 375 | 450 | 550 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24524119) |
 | 26 | Sony Xperia 10 III | 1000 | 0.02887 | 0.03176 | 0.4359 | 159.1 | 0.1591 | 1 | 2 | LOW | 225 | 275 | 325 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23658991) |
 | 27 | Samsung s10 | 1000 | 0.02636 | 0.02900 | 0.3981 | 145.3 | 0.1453 | 1 | 0 | LOW | 200 | 275 | 300 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23845886) |
 
@@ -46,7 +46,7 @@ Long-horizon LOW stress: 20% annual reward decay. Electricity: 4.0 W at 2.50 DKK
 - **OnePlus Nord 2T** — ASK 499 kr. — BASE 0.04792 ACU/epoch; 264.1 ACU/år; AAE 0.5292; Pulse n=2, variants=2, confidence=LOW; start 425 / target 499 / max 625 — **STRONG BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/23179862)
 - **Samsung Galaxy Z Flip 4** — ASK 400 kr. — BASE 0.02912 ACU/epoch; 160.5 ACU/år; AAE 0.4013; Pulse n=312, variants=3, confidence=MEDIUM; start 325 / target 400 / max 475 — **STRONG BID** — [DBA](https://www.dba.dk/recommerce/forsale/item/24156221)
 - **Samsung Galaxy S10** — ASK 400 kr. — BASE 0.02636 ACU/epoch; 145.3 ACU/år; AAE 0.3632; Pulse n=1, variants=0, confidence=LOW; start 200 / target 250 / max 300 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24320383)
-- **Samsung Galaxy S20 FE** — ASK 400 kr. — BASE 0.02620 ACU/epoch; 144.4 ACU/år; AAE 0.3610; Pulse n=2, variants=1, confidence=LOW; start 250 / target 300 / max 350 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24479927)
+- **Samsung Galaxy S20 FE** — ASK 400 kr. — BASE 0.02620 ACU/epoch; 144.4 ACU/år; AAE 0.3610; Pulse n=2, variants=1, confidence=LOW; start 250 / target 300 / max 375 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24479927)
 - **OnePlus Nord 2 5G** — ASK 700 kr. — BASE 0.04448 ACU/epoch; 245.1 ACU/år; AAE 0.3502; Pulse n=3, variants=4, confidence=LOW; start 400 / target 500 / max 600 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/23693040)
 - **OnePlus 8T** — ASK 800 kr. — BASE 0.04912 ACU/epoch; 270.8 ACU/år; AAE 0.3385; Pulse n=45, variants=4, confidence=MEDIUM; start 525 / target 675 / max 775 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/24525008)
 - **OnePlus Nord 2T** — ASK 790 kr. — BASE 0.04792 ACU/epoch; 264.1 ACU/år; AAE 0.3343; Pulse n=2, variants=2, confidence=LOW; start 425 / target 525 / max 625 — **WATCH/NEGOTIATE** — [DBA](https://www.dba.dk/recommerce/forsale/item/21612519)
