@@ -1,6 +1,6 @@
 # DBA WoW-PC verified price report v6
 
-Generated: 2026-09-01T19:00:56.760473+00:00
+Generated: 2026-09-01T19:03:29.144697+00:00
 
 Current schema/source gate: **PASS** — live item 24524580
 Historical price-binding regression: **PASS (static fixture; no live historical listing dependency)**
@@ -32,8 +32,8 @@ T1 verified complete systems with parsed GPU+CPU: 114
 | 18 | 6995 kr. | OVERKILL | RX 7800 XT | Core i5-14600K | [Powerful Gaming-PC – RX 7800 XT 16GB + Intel i5-14600KF | High FPS Gaming](https://www.dba.dk/recommerce/forsale/item/22990030) |
 | 19 | 6995 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | [Gaming PC – RTX 3070 | i7-12700KF | 16GB DDR5 | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/23858984) |
 | 20 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
-| 21 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
-| 22 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
+| 21 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
+| 22 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
 | 23 | 7000 kr. | OVERKILL | RX 7800 XT | Core i5-14600K | [Gaming Stationær - RX 7800 XT](https://www.dba.dk/recommerce/forsale/item/24398649) |
 | 24 | 7000 kr. | OVERKILL | RTX 4070 | Core i5-12400 | [Kraftig gaming pc - RTX 4070 - Komplet setup](https://www.dba.dk/recommerce/forsale/item/24403633) |
 | 25 | 7000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | [RTX 3080 - Kraftig gamer pc sælges 7000kr.](https://www.dba.dk/recommerce/forsale/item/21317324) |
