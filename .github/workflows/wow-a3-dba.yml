@@ -10,6 +10,7 @@ on:
       - 'dba_browser_v2.py'
       - 'dba_browser_v3.py'
       - 'dba_browser_v4.py'
+      - 'dba_browser_v5.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -36,12 +37,12 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run browser-native verified WoW laptop/A3 scanner
-        run: python dba_browser_v4.py
+        run: python dba_browser_v5.py
 
       - name: Validate publication gate
         run: |
           python - <<'PY'
-          import json
+          import json, re
           from pathlib import Path
           d = json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
@@ -53,7 +54,10 @@ jobs:
           assert all(r.get('currency') == 'DKK' for r in ranked)
           assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
           assert len({str(r['listing_id']) for r in ranked}) == len(ranked), 'Duplicate listing ID in ranked output'
-          print(f"PASS: {len(ranked)} ranked laptop/A3 candidates")
+          desktop_words = re.compile(r'\b(station(?:æ|a)r(?:e)?|desktop|tower)\b', re.I)
+          bad = [r for r in ranked if r.get('format_gate') == 'LAPTOP' and desktop_words.search(r.get('title',''))]
+          assert not bad, f'Desktop title misclassified as LAPTOP: {[(r.get("listing_id"), r.get("title")) for r in bad]}'
+          print(f"PASS: {len(ranked)} ranked laptop/A3 candidates; no desktop-title LAPTOP misclassifications")
           PY
 
       - name: Publish WoW laptop/A3 results
