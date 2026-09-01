@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-01T11:35:49.843898+00:00",
+  "generated_at": "2026-09-01T13:16:47.058611+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2521,
-    "verified_before_quality": 42,
-    "final_after_quality": 35,
+    "t0_unique": 2530,
+    "verified_before_quality": 43,
+    "final_after_quality": 36,
     "ranked": 16,
     "discovery_model_blindspots": 250,
     "quality_review": 7,
     "core_review": 11,
-    "pulse_review": 8
+    "pulse_review": 9
   },
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 250,
     "QUALITY": 7,
     "CORE": 11,
-    "PULSE": 8
+    "PULSE": 9
   },
   "suspects": [
     {
@@ -2463,6 +2463,14 @@
     {
       "stage": "PULSE",
       "severity": "MEDIUM",
+      "listing_id": "24515008",
+      "model": "Samsung Galaxy S10+",
+      "url": null,
+      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
+    },
+    {
+      "stage": "PULSE",
+      "severity": "MEDIUM",
       "listing_id": "23098313",
       "model": "OnePlus Nord CE 2",
       "url": null,
@@ -2486,12 +2494,12 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2431,
+    "PRODUCT_IDENTITY": 2439,
     "T1": 48
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 968,
-    "no supported model resolved": 1418,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 971,
+    "no supported model resolved": 1423,
     "weak complete-phone evidence": 6,
     "explicit brand mismatch: htc != realme": 1,
     "accessory/part title": 10,

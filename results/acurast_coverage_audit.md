@@ -1,10 +1,10 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T11:35:49.843898+00:00
+Generated: 2026-09-01T13:16:47.058611+00:00
 
-T0 listings <= ceiling: **2521**  
-Verified before quality: **42**  
-Final after quality: **35**  
+T0 listings <= ceiling: **2530**  
+Verified before quality: **43**  
+Final after quality: **36**  
 Mainnet ranked: **16**
 
 ## Review buckets
@@ -12,7 +12,7 @@ Mainnet ranked: **16**
 - Discovery/model blindspots: **250**
 - Quality-gate review: **7**
 - Core allowlist review: **11**
-- Pulse-match review: **8**
+- Pulse-match review: **9**
 
 ## Suspects
 
