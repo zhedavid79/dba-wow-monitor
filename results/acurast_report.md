@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-01T13:16:45.564345+00:00
+Generated: 2026-09-01T15:18:34.884383+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2530 | Product rejects: 2439 | Bundle/variant/price rejects: 7 | Final: 36
+T0: 2532 | Product rejects: 2438 | Bundle/variant/price rejects: 9 | Final: 37
 
 ## Lowest verified single-device listings
 
@@ -44,15 +44,18 @@ T0: 2530 | Product rejects: 2439 | Bundle/variant/price rejects: 7 | Final: 36
 | 32 | OnePlus Nord CE 2 | 1000 kr. | [OnePlus Nord CE 2](https://www.dba.dk/recommerce/forsale/item/23098313) |
 | 33 | Samsung A5 | 1000 kr. | [Samsung a52](https://www.dba.dk/recommerce/forsale/item/23947435) |
 | 34 | Samsung Galaxy S20 | 1000 kr. | [Samsung Galaxy S20-S22 smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24506237) |
-| 35 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |
-| 36 | Sumsung Galaxy s25 ultra | 1000 kr. | [Kinesisk S25 Ultra](https://www.dba.dk/recommerce/forsale/item/23880275) |
+| 35 | Samsung Galaxy s22 | 1000 kr. | [Samsung Galaxy s22](https://www.dba.dk/recommerce/forsale/item/24522863) |
+| 36 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |
+| 37 | Sumsung Galaxy s25 ultra | 1000 kr. | [Kinesisk S25 Ultra](https://www.dba.dk/recommerce/forsale/item/23880275) |
 
 ## Manual review — ambiguous variant/multi-device/price listings
 
 - 24436403: Samsung note 20 ultra Motorola Edge 40 — 299 kr. — BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['note', 'ultra'] absent from resolved model 'Motorola Edge 40'
+- 24523065: Google Pixel 6 — 500 kr. — BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']
 - 23875733: SAMSUNG GALAXY S21 FE + — 500 kr. — BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['plus'] absent from resolved model 'Samsung S21 FE'
 - 23715568: Oneplus nord Ce2 lite 128gb — 599 kr. — BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['lite'] absent from resolved model 'OnePlus Nord CE 2'
 - 20212101: Samsung Galaxy a21s — 600 kr. — BUNDLE/PRICE IDENTITY GATE: multiple explicit item prices in live description: [859, 1500]
 - 24317162: Xiaomi redmi note 12 pro 5G — 700 kr. — BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['note'] absent from resolved model 'Realme 12 Pro'
 - 23534379: OnePlus Nord CE 2 Lite 128GB Sort — 800 kr. — BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['lite'] absent from resolved model 'OnePlus Nord CE 2'
 - 23610267: Samsung Galaxy S10 Lite (128GB/8GB) — 849 kr. — BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['lite'] absent from resolved model 'Samsung Galaxy S10'
+- 24522985: Google Pixel 8 — 1000 kr. — BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']

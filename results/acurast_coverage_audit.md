@@ -1,18 +1,18 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T13:16:47.058611+00:00
+Generated: 2026-09-01T15:18:36.122435+00:00
 
-T0 listings <= ceiling: **2530**  
-Verified before quality: **43**  
-Final after quality: **36**  
+T0 listings <= ceiling: **2532**  
+Verified before quality: **46**  
+Final after quality: **37**  
 Mainnet ranked: **16**
 
 ## Review buckets
 
 - Discovery/model blindspots: **250**
-- Quality-gate review: **7**
+- Quality-gate review: **9**
 - Core allowlist review: **11**
-- Pulse-match review: **9**
+- Pulse-match review: **10**
 
 ## Suspects
 
@@ -52,6 +52,7 @@ Mainnet ranked: **16**
 | DISCOVERY/MODEL | 23715608 | Nokia 6100 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 23715664 | Nokia 6150 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 23715780 | Nokia 3310 | 50 | no supported model resolved |
+| DISCOVERY/MODEL | 24522841 | motorola C200 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 3532173 | Nokia oplader, Perfekt | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 6108654 | Nokia Oplader | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 843118 | Samsung Trådløs Ladestation, God | 50 | no supported model resolved |
@@ -217,4 +218,3 @@ Mainnet ranked: **16**
 | DISCOVERY/MODEL | 20952771 | Revolutionerende Nokia mobil | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 21099446 | Nokia 1209 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 23195118 | Samsung Galaxy GT-19070 | 125 | no supported model resolved |
-| DISCOVERY/MODEL | 23358689 | Nokia mobiltelefon klassisk model med kamera | 125 | no supported model resolved |

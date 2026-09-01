@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-01T13:16:47.058611+00:00",
+  "generated_at": "2026-09-01T15:18:36.122435+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2530,
-    "verified_before_quality": 43,
-    "final_after_quality": 36,
+    "t0_unique": 2532,
+    "verified_before_quality": 46,
+    "final_after_quality": 37,
     "ranked": 16,
     "discovery_model_blindspots": 250,
-    "quality_review": 7,
+    "quality_review": 9,
     "core_review": 11,
-    "pulse_review": 9
+    "pulse_review": 10
   },
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 250,
-    "QUALITY": 7,
+    "QUALITY": 9,
     "CORE": 11,
-    "PULSE": 9
+    "PULSE": 10
   },
   "suspects": [
     {
@@ -323,6 +323,15 @@
       "title": "Nokia 3310",
       "ask": 50,
       "url": "https://www.dba.dk/recommerce/forsale/item/23715780",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24522841",
+      "title": "motorola C200",
+      "ask": 50,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24522841",
       "reason": "no supported model resolved"
     },
     {
@@ -2261,15 +2270,6 @@
       "reason": "no supported model resolved"
     },
     {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24200707",
-      "title": "NOKIA 301",
-      "ask": 150,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24200707",
-      "reason": "no supported model resolved"
-    },
-    {
       "stage": "QUALITY",
       "severity": "MEDIUM",
       "listing_id": "24436403",
@@ -2277,6 +2277,15 @@
       "ask": 299,
       "url": "https://www.dba.dk/recommerce/forsale/item/24436403",
       "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['note', 'ultra'] absent from resolved model 'Motorola Edge 40'"
+    },
+    {
+      "stage": "QUALITY",
+      "severity": "MEDIUM",
+      "listing_id": "24523065",
+      "title": "Google Pixel 6",
+      "ask": 500,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24523065",
+      "reason": "BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']"
     },
     {
       "stage": "QUALITY",
@@ -2331,6 +2340,15 @@
       "ask": 849,
       "url": "https://www.dba.dk/recommerce/forsale/item/23610267",
       "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['lite'] absent from resolved model 'Samsung Galaxy S10'"
+    },
+    {
+      "stage": "QUALITY",
+      "severity": "MEDIUM",
+      "listing_id": "24522985",
+      "title": "Google Pixel 8",
+      "ask": 1000,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24522985",
+      "reason": "BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']"
     },
     {
       "stage": "CORE",
@@ -2487,6 +2505,14 @@
     {
       "stage": "PULSE",
       "severity": "MEDIUM",
+      "listing_id": "24522863",
+      "model": "Samsung Galaxy s22",
+      "url": null,
+      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
+    },
+    {
+      "stage": "PULSE",
+      "severity": "MEDIUM",
       "listing_id": "23858419",
       "model": "Samsung S21 Ultra",
       "url": null,
@@ -2494,11 +2520,11 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2439,
+    "PRODUCT_IDENTITY": 2438,
     "T1": 48
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 971,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 970,
     "no supported model resolved": 1423,
     "weak complete-phone evidence": 6,
     "explicit brand mismatch: htc != realme": 1,
