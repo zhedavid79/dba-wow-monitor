@@ -9,6 +9,7 @@ on:
     paths:
       - 'dba_browser_v2.py'
       - 'dba_browser_v3.py'
+      - 'dba_browser_v4.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -35,7 +36,7 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run browser-native verified WoW laptop/A3 scanner
-        run: python dba_browser_v3.py
+        run: python dba_browser_v4.py
 
       - name: Validate publication gate
         run: |
