@@ -1,13 +1,13 @@
 # DBA WoW-PC verified price report v6
 
-Generated: 2026-09-01T06:00:31.149807+00:00
+Generated: 2026-09-01T07:16:01.113614+00:00
 
 Current schema/source gate: **PASS** — live item 24487133
 Historical price-binding regression: **PASS (static fixture; no live historical listing dependency)**
 
 Discovery queries: 62
-Structured T0 unique records: 1589
-T0 GPU-promising records sent to T1 (no top-100 cap): 245
+Structured T0 unique records: 1588
+T0 GPU-promising records sent to T1 (no top-100 cap): 243
 T1 verified complete systems with parsed GPU+CPU: 106
 
 | Rank | ASK | Class | GPU | CPU | Listing |
@@ -30,8 +30,8 @@ T1 verified complete systems with parsed GPU+CPU: 106
 | 16 | 6500 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600X | [Gaming pc rtx 3070 8gb 5600x 32gb ram](https://www.dba.dk/recommerce/forsale/item/24376161) |
 | 17 | 6995 kr. | OVERKILL | RX 7800 XT | Core i5-14600K | [Powerful Gaming-PC – RX 7800 XT 16GB + Intel i5-14600KF | High FPS Gaming](https://www.dba.dk/recommerce/forsale/item/22990030) |
 | 18 | 6995 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | [Gaming PC – RTX 3070 | i7-12700KF | 16GB DDR5 | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/23858984) |
-| 19 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
-| 20 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
+| 19 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
+| 20 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
 | 21 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
 | 22 | 6999 kr. | SWEET SPOT | RTX 4060 Ti | Core i5-12400 | [Gaming PC RTX 4060 Ti | i5-12400F | 16GB | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/21761715) |
 | 23 | 7000 kr. | OVERKILL | RX 7800 XT | Core i5-14600K | [Gaming Stationær - RX 7800 XT](https://www.dba.dk/recommerce/forsale/item/24398649) |
@@ -65,4 +65,4 @@ T1 verified complete systems with parsed GPU+CPU: 106
 
 ## Rejection diagnostics
 
-{"CPU_PARSE_FAILED": 139}
+{"CPU_PARSE_FAILED": 137}
