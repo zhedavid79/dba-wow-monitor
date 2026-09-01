@@ -1,6 +1,6 @@
 {
   "model_version": "DBA-WOW-BROWSER-PRICE-FIRST-A3-V4",
-  "generated_at": "2026-09-01T22:20:54.279847+00:00",
+  "generated_at": "2026-09-01T22:38:53.445307+00:00",
   "gate_passed": true,
   "retrieval_method": "Rendered DBA article.sf-search-ad T0 + same-ID DBA Product JSON T1",
   "source_gate": {
@@ -15,8 +15,8 @@
     "status": "https://schema.org/InStock",
     "t0_source": "rendered_dba_card",
     "t1_source": "dba_jsonld_product_all_scripts",
-    "t0_at": "2026-09-01T22:16:01.684066+00:00",
-    "t1_at": "2026-09-01T22:16:43.136673+00:00"
+    "t0_at": "2026-09-01T22:34:27.515608+00:00",
+    "t1_at": "2026-09-01T22:35:05.363083+00:00"
   },
   "price_binding_regression": {
     "ok": true,
@@ -26,10 +26,10 @@
   },
   "counts": {
     "queries": 36,
-    "t0_unique": 805,
+    "t0_unique": 804,
     "t0_gpu_promising": 211,
-    "t1_ranked_format_verified": 9,
-    "t1_a3_uncertain_leads": 60,
+    "t1_ranked_format_verified": 7,
+    "t1_a3_uncertain_leads": 62,
     "rejected": 142
   },
   "ranked": [
@@ -49,37 +49,38 @@
       "cpu_score": 99,
       "performance_class": "ACCEPTABLE",
       "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
+      "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.565018+00:00",
-      "t1_at": "2026-09-01T22:20:19.779687+00:00",
+      "t0_at": "2026-09-01T22:34:38.366700+00:00",
+      "t1_at": "2026-09-01T22:38:21.211784+00:00",
       "source_queries": [
         "rtx 4060"
       ]
     },
     {
-      "listing_id": "24414352",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24414352",
-      "title": "PC Specialist Elimina Pro 16 – i7-12700H / RTX 3060 / 32GB RAM",
-      "ask_t0": 4500,
-      "ask_t1": 4500,
+      "listing_id": "24457719",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24457719",
+      "title": "MSI Katana GF66 | i7-11800H | RTX 3060 | 16GB RAM | 1TB NVMe SSD",
+      "ask_t0": 4000,
+      "ask_t1": 4000,
       "currency": "DKK",
       "price_changed": false,
       "status": "https://schema.org/InStock",
       "category": "Elektronik og hvidevarer > Computere > Bærbare computere og laptops",
       "gpu": "RTX 3060",
       "gpu_score": 54,
-      "cpu": "Core i7-12700",
-      "cpu_score": 98,
+      "cpu": "Core i7-11800H",
+      "cpu_score": 77,
       "performance_class": "ACCEPTABLE",
       "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
+      "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.684361+00:00",
-      "t1_at": "2026-09-01T22:18:54.169934+00:00",
+      "t0_at": "2026-09-01T22:33:53.071162+00:00",
+      "t1_at": "2026-09-01T22:35:29.836290+00:00",
       "source_queries": [
+        "gaming bærbar",
         "rtx 3060"
       ]
     },
@@ -99,68 +100,15 @@
       "cpu_score": 70,
       "performance_class": "ACCEPTABLE",
       "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
+      "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:27.022845+00:00",
-      "t1_at": "2026-09-01T22:17:17.121017+00:00",
+      "t0_at": "2026-09-01T22:33:56.012895+00:00",
+      "t1_at": "2026-09-01T22:35:35.000029+00:00",
       "source_queries": [
         "gaming laptop",
         "legion gaming",
         "rtx 3060"
-      ]
-    },
-    {
-      "listing_id": "23248956",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23248956",
-      "title": "Asus gaming stationær PC med i7 9700K og RTX 2060 Super",
-      "ask_t0": 4500,
-      "ask_t1": 4500,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "category": "Elektronik og hvidevarer > Computere > Stationære computere",
-      "gpu": "RTX 2060 Super",
-      "gpu_score": 50,
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "performance_class": "ACCEPTABLE",
-      "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:49.797295+00:00",
-      "t1_at": "2026-09-01T22:17:46.505381+00:00",
-      "source_queries": [
-        "rtx 2060 super"
-      ]
-    },
-    {
-      "listing_id": "24156419",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24156419",
-      "title": "MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram",
-      "ask_t0": 4795,
-      "ask_t1": 4795,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "category": "Elektronik og hvidevarer > Computere > Stationære computere",
-      "gpu": "RTX 2080 Super",
-      "gpu_score": 65,
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "performance_class": "SWEET SPOT",
-      "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:18.352729+00:00",
-      "t1_at": "2026-09-01T22:17:05.194985+00:00",
-      "source_queries": [
-        "gaming computer",
-        "mm vision",
-        "rtx 2080",
-        "rtx 2080 super"
       ]
     },
     {
@@ -179,11 +127,11 @@
       "cpu_score": 98,
       "performance_class": "SWEET SPOT",
       "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
+      "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.389810+00:00",
-      "t1_at": "2026-09-01T22:19:53.952541+00:00",
+      "t0_at": "2026-09-01T22:34:31.745193+00:00",
+      "t1_at": "2026-09-01T22:37:58.617803+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -204,11 +152,11 @@
       "cpu_score": 77,
       "performance_class": "ACCEPTABLE",
       "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
+      "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:24.430314+00:00",
-      "t1_at": "2026-09-01T22:17:12.100872+00:00",
+      "t0_at": "2026-09-01T22:33:53.071289+00:00",
+      "t1_at": "2026-09-01T22:35:30.854891+00:00",
       "source_queries": [
         "gaming bærbar",
         "legion gaming",
@@ -231,11 +179,11 @@
       "cpu_score": 108,
       "performance_class": "OVERKILL",
       "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
+      "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:29.465391+00:00",
-      "t1_at": "2026-09-01T22:17:25.230438+00:00",
+      "t0_at": "2026-09-01T22:33:58.628846+00:00",
+      "t1_at": "2026-09-01T22:35:43.184389+00:00",
       "source_queries": [
         "omen gaming",
         "rtx 3080"
@@ -257,13 +205,12 @@
       "cpu_score": 119,
       "performance_class": "ACCEPTABLE",
       "format_gate": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
+      "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:24.429974+00:00",
-      "t1_at": "2026-09-01T22:17:09.772696+00:00",
+      "t0_at": "2026-09-01T22:33:56.013545+00:00",
+      "t1_at": "2026-09-01T22:35:36.976052+00:00",
       "source_queries": [
-        "gaming bærbar",
         "gaming laptop",
         "rtx 4060"
       ]
@@ -289,8 +236,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.388925+00:00",
-      "t1_at": "2026-09-01T22:19:30.991182+00:00",
+      "t0_at": "2026-09-01T22:34:31.744635+00:00",
+      "t1_at": "2026-09-01T22:37:37.481438+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -314,8 +261,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.684159+00:00",
-      "t1_at": "2026-09-01T22:18:49.458845+00:00",
+      "t0_at": "2026-09-01T22:34:27.515679+00:00",
+      "t1_at": "2026-09-01T22:36:59.981938+00:00",
       "source_queries": [
         "rtx 3060"
       ]
@@ -339,8 +286,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:40.448725+00:00",
-      "t1_at": "2026-09-01T22:17:37.156232+00:00",
+      "t0_at": "2026-09-01T22:34:08.421707+00:00",
+      "t1_at": "2026-09-01T22:35:53.497706+00:00",
       "source_queries": [
         "rtx 2070",
         "sharkgaming"
@@ -365,8 +312,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:52.618847+00:00",
-      "t1_at": "2026-09-01T22:18:18.533990+00:00",
+      "t0_at": "2026-09-01T22:34:19.518736+00:00",
+      "t1_at": "2026-09-01T22:36:31.805209+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -391,8 +338,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:35.039375+00:00",
-      "t1_at": "2026-09-01T22:20:53.981188+00:00",
+      "t0_at": "2026-09-01T22:34:59.035229+00:00",
+      "t1_at": "2026-09-01T22:38:53.141651+00:00",
       "source_queries": [
         "rx 7600"
       ]
@@ -416,37 +363,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:52.618376+00:00",
-      "t1_at": "2026-09-01T22:17:59.555178+00:00",
+      "t0_at": "2026-09-01T22:34:19.518399+00:00",
+      "t1_at": "2026-09-01T22:36:14.659912+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
-      ]
-    },
-    {
-      "listing_id": "24457719",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24457719",
-      "title": "MSI Katana GF66 | i7-11800H | RTX 3060 | 16GB RAM | 1TB NVMe SSD",
-      "ask_t0": 4000,
-      "ask_t1": 4000,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "category": "Elektronik og hvidevarer > Computere > Bærbare computere og laptops",
-      "gpu": "RTX 3060",
-      "gpu_score": 54,
-      "cpu": "Core i7-11800H",
-      "cpu_score": 77,
-      "performance_class": "ACCEPTABLE",
-      "format_gate": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:24.430112+00:00",
-      "t1_at": "2026-09-01T22:17:10.953101+00:00",
-      "source_queries": [
-        "gaming bærbar",
-        "rtx 3060"
       ]
     },
     {
@@ -468,8 +389,8 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:21.570913+00:00",
-      "t1_at": "2026-09-01T22:17:07.352029+00:00",
+      "t0_at": "2026-09-01T22:33:50.669055+00:00",
+      "t1_at": "2026-09-01T22:35:27.722879+00:00",
       "source_queries": [
         "legion gaming",
         "rtx 3060",
@@ -495,8 +416,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:52.618436+00:00",
-      "t1_at": "2026-09-01T22:18:01.962490+00:00",
+      "t0_at": "2026-09-01T22:34:19.518442+00:00",
+      "t1_at": "2026-09-01T22:36:16.766366+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -520,8 +441,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:57.034772+00:00",
-      "t1_at": "2026-09-01T22:18:33.935772+00:00",
+      "t0_at": "2026-09-01T22:34:23.546465+00:00",
+      "t1_at": "2026-09-01T22:36:45.932463+00:00",
       "source_queries": [
         "rtx 2080",
         "rtx 2080 super"
@@ -546,8 +467,8 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:34.805494+00:00",
-      "t1_at": "2026-09-01T22:17:29.663356+00:00",
+      "t0_at": "2026-09-01T22:34:03.515632+00:00",
+      "t1_at": "2026-09-01T22:35:47.277369+00:00",
       "source_queries": [
         "nitro gaming",
         "rtx 3060"
@@ -572,8 +493,8 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.685056+00:00",
-      "t1_at": "2026-09-01T22:19:14.197694+00:00",
+      "t0_at": "2026-09-01T22:34:27.516336+00:00",
+      "t1_at": "2026-09-01T22:37:22.551078+00:00",
       "source_queries": [
         "rtx 3060"
       ]
@@ -597,8 +518,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.564827+00:00",
-      "t1_at": "2026-09-01T22:20:16.174321+00:00",
+      "t0_at": "2026-09-01T22:34:38.366569+00:00",
+      "t1_at": "2026-09-01T22:38:17.807260+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -622,12 +543,37 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:37.644447+00:00",
-      "t1_at": "2026-09-01T22:17:33.754175+00:00",
+      "t0_at": "2026-09-01T22:34:05.767019+00:00",
+      "t1_at": "2026-09-01T22:35:50.513840+00:00",
       "source_queries": [
         "predator gaming",
         "rtx 2070",
         "rtx 2070 super"
+      ]
+    },
+    {
+      "listing_id": "24414352",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24414352",
+      "title": "PC Specialist Elimina Pro 16 – i7-12700H / RTX 3060 / 32GB RAM",
+      "ask_t0": 4500,
+      "ask_t1": 4500,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "category": "Elektronik og hvidevarer > Computere > Bærbare computere og laptops",
+      "gpu": "RTX 3060",
+      "gpu_score": 54,
+      "cpu": "Core i7-12700",
+      "cpu_score": 98,
+      "performance_class": "ACCEPTABLE",
+      "format_gate": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-01T22:34:27.515801+00:00",
+      "t1_at": "2026-09-01T22:37:04.255559+00:00",
+      "source_queries": [
+        "rtx 3060"
       ]
     },
     {
@@ -649,8 +595,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:52.618289+00:00",
-      "t1_at": "2026-09-01T22:17:56.217761+00:00",
+      "t0_at": "2026-09-01T22:34:19.518337+00:00",
+      "t1_at": "2026-09-01T22:36:11.419464+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -674,8 +620,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:52.618509+00:00",
-      "t1_at": "2026-09-01T22:18:05.267092+00:00",
+      "t0_at": "2026-09-01T22:34:19.518497+00:00",
+      "t1_at": "2026-09-01T22:36:20.014217+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -699,11 +645,64 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:10.999145+00:00",
-      "t1_at": "2026-09-01T22:16:53.980805+00:00",
+      "t0_at": "2026-09-01T22:33:42.939990+00:00",
+      "t1_at": "2026-09-01T22:35:14.724191+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 2060 super"
+      ]
+    },
+    {
+      "listing_id": "23248956",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23248956",
+      "title": "Asus gaming stationær PC med i7 9700K og RTX 2060 Super",
+      "ask_t0": 4500,
+      "ask_t1": 4500,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "category": "Elektronik og hvidevarer > Computere > Stationære computere",
+      "gpu": "RTX 2060 Super",
+      "gpu_score": 50,
+      "cpu": "Core i7-9700",
+      "cpu_score": 67,
+      "performance_class": "ACCEPTABLE",
+      "format_gate": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-01T22:34:17.293031+00:00",
+      "t1_at": "2026-09-01T22:36:02.532190+00:00",
+      "source_queries": [
+        "rtx 2060 super"
+      ]
+    },
+    {
+      "listing_id": "24156419",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24156419",
+      "title": "MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram",
+      "ask_t0": 4795,
+      "ask_t1": 4795,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "category": "Elektronik og hvidevarer > Computere > Stationære computere",
+      "gpu": "RTX 2080 Super",
+      "gpu_score": 65,
+      "cpu": "Core i7-9700",
+      "cpu_score": 67,
+      "performance_class": "SWEET SPOT",
+      "format_gate": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-01T22:33:48.394025+00:00",
+      "t1_at": "2026-09-01T22:35:24.589942+00:00",
+      "source_queries": [
+        "gaming computer",
+        "mm vision",
+        "rtx 2080",
+        "rtx 2080 super"
       ]
     },
     {
@@ -725,8 +724,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:52.618555+00:00",
-      "t1_at": "2026-09-01T22:18:07.624049+00:00",
+      "t0_at": "2026-09-01T22:34:19.518530+00:00",
+      "t1_at": "2026-09-01T22:36:22.028422+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -750,8 +749,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:10.998840+00:00",
-      "t1_at": "2026-09-01T22:16:50.319388+00:00",
+      "t0_at": "2026-09-01T22:33:42.939783+00:00",
+      "t1_at": "2026-09-01T22:35:11.578450+00:00",
       "source_queries": [
         "gaming pc",
         "hurtig handel gaming",
@@ -778,8 +777,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:37.645071+00:00",
-      "t1_at": "2026-09-01T22:17:36.084964+00:00",
+      "t0_at": "2026-09-01T22:34:05.767540+00:00",
+      "t1_at": "2026-09-01T22:35:52.490009+00:00",
       "source_queries": [
         "predator gaming",
         "rtx 4060"
@@ -804,8 +803,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.684748+00:00",
-      "t1_at": "2026-09-01T22:19:07.132510+00:00",
+      "t0_at": "2026-09-01T22:34:27.516102+00:00",
+      "t1_at": "2026-09-01T22:37:16.104866+00:00",
       "source_queries": [
         "rtx 3060"
       ]
@@ -829,8 +828,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:49.797176+00:00",
-      "t1_at": "2026-09-01T22:17:42.961630+00:00",
+      "t0_at": "2026-09-01T22:34:17.292974+00:00",
+      "t1_at": "2026-09-01T22:35:58.624086+00:00",
       "source_queries": [
         "rtx 2060 super"
       ]
@@ -854,8 +853,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.684544+00:00",
-      "t1_at": "2026-09-01T22:18:58.972718+00:00",
+      "t0_at": "2026-09-01T22:34:27.515935+00:00",
+      "t1_at": "2026-09-01T22:37:08.742019+00:00",
       "source_queries": [
         "rtx 3060"
       ]
@@ -879,8 +878,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.684877+00:00",
-      "t1_at": "2026-09-01T22:19:08.347746+00:00",
+      "t0_at": "2026-09-01T22:34:27.516199+00:00",
+      "t1_at": "2026-09-01T22:37:17.170687+00:00",
       "source_queries": [
         "rtx 3060"
       ]
@@ -904,8 +903,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:57.034515+00:00",
-      "t1_at": "2026-09-01T22:18:25.708850+00:00",
+      "t0_at": "2026-09-01T22:34:23.546279+00:00",
+      "t1_at": "2026-09-01T22:36:38.245454+00:00",
       "source_queries": [
         "rtx 2080",
         "rtx 2080 super"
@@ -930,8 +929,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:21.570461+00:00",
-      "t1_at": "2026-09-01T22:17:06.324170+00:00",
+      "t0_at": "2026-09-01T22:33:50.668834+00:00",
+      "t1_at": "2026-09-01T22:35:26.609206+00:00",
       "source_queries": [
         "rtx 2080",
         "rtx 2080 super",
@@ -958,8 +957,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:14.900063+00:00",
-      "t1_at": "2026-09-01T22:17:00.391743+00:00",
+      "t0_at": "2026-09-01T22:33:46.013319+00:00",
+      "t1_at": "2026-09-01T22:35:20.552790+00:00",
       "source_queries": [
         "gamer pc",
         "rtx 3060"
@@ -984,8 +983,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.565933+00:00",
-      "t1_at": "2026-09-01T22:20:45.635488+00:00",
+      "t0_at": "2026-09-01T22:34:38.367331+00:00",
+      "t1_at": "2026-09-01T22:38:45.113949+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
@@ -1010,8 +1009,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.565347+00:00",
-      "t1_at": "2026-09-01T22:20:31.577691+00:00",
+      "t0_at": "2026-09-01T22:34:38.366907+00:00",
+      "t1_at": "2026-09-01T22:38:32.240584+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -1035,8 +1034,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.565314+00:00",
-      "t1_at": "2026-09-01T22:20:30.226216+00:00",
+      "t0_at": "2026-09-01T22:34:38.366886+00:00",
+      "t1_at": "2026-09-01T22:38:31.163497+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -1060,8 +1059,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.684985+00:00",
-      "t1_at": "2026-09-01T22:19:10.697795+00:00",
+      "t0_at": "2026-09-01T22:34:27.516284+00:00",
+      "t1_at": "2026-09-01T22:37:19.436275+00:00",
       "source_queries": [
         "rtx 3060"
       ]
@@ -1085,8 +1084,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.685034+00:00",
-      "t1_at": "2026-09-01T22:19:13.129852+00:00",
+      "t0_at": "2026-09-01T22:34:27.516319+00:00",
+      "t1_at": "2026-09-01T22:37:21.491383+00:00",
       "source_queries": [
         "rtx 3060"
       ]
@@ -1110,8 +1109,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:52.618205+00:00",
-      "t1_at": "2026-09-01T22:17:53.645773+00:00",
+      "t0_at": "2026-09-01T22:34:19.518289+00:00",
+      "t1_at": "2026-09-01T22:36:09.285289+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -1136,8 +1135,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.388851+00:00",
-      "t1_at": "2026-09-01T22:19:28.500613+00:00",
+      "t0_at": "2026-09-01T22:34:31.744583+00:00",
+      "t1_at": "2026-09-01T22:37:35.465984+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -1161,8 +1160,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.565583+00:00",
-      "t1_at": "2026-09-01T22:20:39.652356+00:00",
+      "t0_at": "2026-09-01T22:34:38.367082+00:00",
+      "t1_at": "2026-09-01T22:38:39.727579+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -1186,8 +1185,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.565438+00:00",
-      "t1_at": "2026-09-01T22:20:34.954598+00:00",
+      "t0_at": "2026-09-01T22:34:38.366967+00:00",
+      "t1_at": "2026-09-01T22:38:35.567033+00:00",
       "source_queries": [
         "hurtig handel gaming",
         "rtx 4060"
@@ -1212,8 +1211,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.389419+00:00",
-      "t1_at": "2026-09-01T22:19:43.007642+00:00",
+      "t0_at": "2026-09-01T22:34:31.744912+00:00",
+      "t1_at": "2026-09-01T22:37:48.799926+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -1237,8 +1236,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:10.955548+00:00",
-      "t1_at": "2026-09-01T22:20:08.103563+00:00",
+      "t0_at": "2026-09-01T22:34:36.232725+00:00",
+      "t1_at": "2026-09-01T22:38:11.417520+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -1262,8 +1261,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:45.202603+00:00",
-      "t1_at": "2026-09-01T22:17:39.516291+00:00",
+      "t0_at": "2026-09-01T22:34:12.799957+00:00",
+      "t1_at": "2026-09-01T22:35:55.504202+00:00",
       "source_queries": [
         "mm vision",
         "rtx 3070"
@@ -1288,8 +1287,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.685276+00:00",
-      "t1_at": "2026-09-01T22:19:22.383340+00:00",
+      "t0_at": "2026-09-01T22:34:27.516480+00:00",
+      "t1_at": "2026-09-01T22:37:30.031449+00:00",
       "source_queries": [
         "rtx 3060",
         "rtx 3060 ti"
@@ -1314,8 +1313,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.389015+00:00",
-      "t1_at": "2026-09-01T22:19:33.321116+00:00",
+      "t0_at": "2026-09-01T22:34:31.744702+00:00",
+      "t1_at": "2026-09-01T22:37:39.587724+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -1339,8 +1338,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.565098+00:00",
-      "t1_at": "2026-09-01T22:20:23.023770+00:00",
+      "t0_at": "2026-09-01T22:34:38.366758+00:00",
+      "t1_at": "2026-09-01T22:38:24.584194+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
@@ -1365,8 +1364,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.389105+00:00",
-      "t1_at": "2026-09-01T22:19:35.749534+00:00",
+      "t0_at": "2026-09-01T22:34:31.744767+00:00",
+      "t1_at": "2026-09-01T22:37:42.217259+00:00",
       "source_queries": [
         "hurtig handel gaming",
         "rtx 3070",
@@ -1392,8 +1391,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:40.449027+00:00",
-      "t1_at": "2026-09-01T22:17:38.418785+00:00",
+      "t0_at": "2026-09-01T22:34:08.421814+00:00",
+      "t1_at": "2026-09-01T22:35:54.470013+00:00",
       "source_queries": [
         "rtx 3070",
         "sharkgaming"
@@ -1418,8 +1417,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.389360+00:00",
-      "t1_at": "2026-09-01T22:19:41.638060+00:00",
+      "t0_at": "2026-09-01T22:34:31.744890+00:00",
+      "t1_at": "2026-09-01T22:37:47.746825+00:00",
       "source_queries": [
         "rtx 3070",
         "skal væk gaming"
@@ -1444,8 +1443,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:57.034626+00:00",
-      "t1_at": "2026-09-01T22:18:29.213484+00:00",
+      "t0_at": "2026-09-01T22:34:23.546361+00:00",
+      "t1_at": "2026-09-01T22:36:41.672876+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -1469,8 +1468,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:01.684415+00:00",
-      "t1_at": "2026-09-01T22:18:55.471143+00:00",
+      "t0_at": "2026-09-01T22:34:27.515839+00:00",
+      "t1_at": "2026-09-01T22:37:05.331474+00:00",
       "source_queries": [
         "rtx 3060"
       ]
@@ -1494,8 +1493,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:10.998952+00:00",
-      "t1_at": "2026-09-01T22:16:52.808969+00:00",
+      "t0_at": "2026-09-01T22:33:42.939858+00:00",
+      "t1_at": "2026-09-01T22:35:13.672178+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 3080"
@@ -1520,8 +1519,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:10.955663+00:00",
-      "t1_at": "2026-09-01T22:20:12.721476+00:00",
+      "t0_at": "2026-09-01T22:34:36.232804+00:00",
+      "t1_at": "2026-09-01T22:38:15.710987+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -1545,8 +1544,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.389044+00:00",
-      "t1_at": "2026-09-01T22:19:34.492961+00:00",
+      "t0_at": "2026-09-01T22:34:31.744723+00:00",
+      "t1_at": "2026-09-01T22:37:40.804823+00:00",
       "source_queries": [
         "rtx 3070",
         "rtx 3070 ti"
@@ -1571,8 +1570,8 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:29.463796+00:00",
-      "t1_at": "2026-09-01T22:17:19.339753+00:00",
+      "t0_at": "2026-09-01T22:33:58.627893+00:00",
+      "t1_at": "2026-09-01T22:35:37.984023+00:00",
       "source_queries": [
         "omen gaming",
         "rtx 4060",
@@ -1598,8 +1597,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:10.955157+00:00",
-      "t1_at": "2026-09-01T22:19:59.710750+00:00",
+      "t0_at": "2026-09-01T22:34:36.232455+00:00",
+      "t1_at": "2026-09-01T22:38:03.854801+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -1623,8 +1622,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:29.464731+00:00",
-      "t1_at": "2026-09-01T22:17:24.093878+00:00",
+      "t0_at": "2026-09-01T22:33:58.628460+00:00",
+      "t1_at": "2026-09-01T22:35:42.163201+00:00",
       "source_queries": [
         "omen gaming",
         "rtx 3070",
@@ -1650,8 +1649,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:10.955459+00:00",
-      "t1_at": "2026-09-01T22:20:05.586631+00:00",
+      "t0_at": "2026-09-01T22:34:36.232663+00:00",
+      "t1_at": "2026-09-01T22:38:09.236761+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -1675,8 +1674,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:10.954992+00:00",
-      "t1_at": "2026-09-01T22:19:56.260529+00:00",
+      "t0_at": "2026-09-01T22:34:36.232317+00:00",
+      "t1_at": "2026-09-01T22:38:00.615793+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -1700,8 +1699,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:10.998483+00:00",
-      "t1_at": "2026-09-01T22:16:46.764852+00:00",
+      "t0_at": "2026-09-01T22:33:42.939542+00:00",
+      "t1_at": "2026-09-01T22:35:08.409870+00:00",
       "source_queries": [
         "gaming pc",
         "mm vision",
@@ -1728,8 +1727,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:13.565553+00:00",
-      "t1_at": "2026-09-01T22:20:38.558693+00:00",
+      "t0_at": "2026-09-01T22:34:38.367059+00:00",
+      "t1_at": "2026-09-01T22:38:38.654365+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -1753,8 +1752,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:10.955023+00:00",
-      "t1_at": "2026-09-01T22:19:57.419819+00:00",
+      "t0_at": "2026-09-01T22:34:36.232340+00:00",
+      "t1_at": "2026-09-01T22:38:01.619759+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -1778,8 +1777,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:10.955492+00:00",
-      "t1_at": "2026-09-01T22:20:06.958966+00:00",
+      "t0_at": "2026-09-01T22:34:36.232687+00:00",
+      "t1_at": "2026-09-01T22:38:10.362586+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -1803,8 +1802,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:15:21.571043+00:00",
-      "t1_at": "2026-09-01T22:17:08.625701+00:00",
+      "t0_at": "2026-09-01T22:33:50.669109+00:00",
+      "t1_at": "2026-09-01T22:35:28.817110+00:00",
       "source_queries": [
         "rtx 3080",
         "stationær gaming"
@@ -1882,6 +1881,12 @@
       "listing_id": "24368882",
       "reason": "SPEC_PARSE_FAILED",
       "gpu": "RTX 3070",
+      "cpu": "Ukendt"
+    },
+    {
+      "listing_id": "23973362",
+      "reason": "SPEC_PARSE_FAILED",
+      "gpu": "RTX 4060 Ti",
       "cpu": "Ukendt"
     },
     {
@@ -2331,8 +2336,8 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-01T22:16:06.389132+00:00",
-      "t1_at": "2026-09-01T22:19:37.065374+00:00",
+      "t0_at": "2026-09-01T22:34:31.744786+00:00",
+      "t1_at": "2026-09-01T22:37:43.319447+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -2435,12 +2440,6 @@
     {
       "listing_id": "23059727",
       "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
-    },
-    {
-      "listing_id": "23973362",
-      "reason": "SPEC_PARSE_FAILED",
-      "gpu": "RTX 4060 Ti",
-      "cpu": "Ukendt"
     },
     {
       "listing_id": "24503994",
