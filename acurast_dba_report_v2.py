@@ -9,11 +9,15 @@ has a unique Mainnet Pulse reward match. This avoids both registry blindspots an
 inflating the valuation denominator with models that cannot be ranked under V1.6.
 """
 
+import json
+from pathlib import Path
+
 import acurast_dba_report as base
 
 
 _PULSE_CATALOG = None
 _ORIGINAL_FALLBACK = base.fallback_core_model
+_PULSE_FALLBACK_REJECTS = {}
 
 
 def pulse_catalog():
@@ -29,8 +33,16 @@ def pulse_gated_fallback(title, description, catalog):
     if not candidate:
         return None
     from acurast_valuation_fixed import match_pulse
-    row, method, _confidence = match_pulse(candidate, pulse_catalog())
+    row, method, confidence = match_pulse(candidate, pulse_catalog())
     if row is None or method in {'NO_MATCH', 'AMBIGUOUS_EXACT', 'AMBIGUOUS_VARIANT'}:
+        key=(base.norm(candidate), base.norm(title))
+        _PULSE_FALLBACK_REJECTS[key]={
+            'candidate_model': candidate,
+            'title': ' '.join((title or '').split()),
+            'pulse_match_method': method,
+            'pulse_match_confidence': confidence,
+            'reason': 'Core-compatible explicit model has no unique Acurast Pulse Mainnet reward match',
+        }
         return None
     return candidate
 
@@ -99,9 +111,24 @@ def build_catalog(session):
     return catalog
 
 
+def persist_fallback_audit():
+    path=Path('results/acurast_discovery_audit.json')
+    if not path.exists():
+        return
+    try:
+        audit=json.loads(path.read_text(encoding='utf-8'))
+    except Exception:
+        return
+    rows=sorted(_PULSE_FALLBACK_REJECTS.values(),key=lambda x:(base.norm(x.get('candidate_model')),base.norm(x.get('title'))))
+    audit['pulse_gated_fallback_rejects']=rows
+    audit['pulse_gated_fallback_reject_count']=len(rows)
+    path.write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
+
+
 # Patch the authoritative V1.6 discovery path used by the workflow.
 base.build_catalog = build_catalog
 base.fallback_core_model = pulse_gated_fallback
 
 if __name__ == '__main__':
     base.main()
+    persist_fallback_audit()
