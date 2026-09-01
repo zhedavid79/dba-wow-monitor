@@ -1,25 +1,24 @@
 {
-  "generated_at": "2026-09-01T19:56:16.947575+00:00",
+  "generated_at": "2026-09-01T20:31:26.911446+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2542,
+    "t0_unique": 2537,
     "verified_before_quality": 49,
-    "final_after_quality": 46,
-    "ranked": 30,
+    "final_after_quality": 49,
+    "ranked": 32,
     "discovery_model_blindspots": 250,
     "pulse_gated_discovery_review": 25,
-    "t1_exit_review": 52,
-    "quality_review": 3,
-    "core_review": 10,
+    "t1_exit_review": 51,
+    "quality_review": 0,
+    "core_review": 11,
     "pulse_review": 6
   },
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 250,
     "DISCOVERY/PULSE": 25,
-    "T1": 52,
-    "QUALITY": 3,
-    "CORE": 10,
+    "T1": 51,
+    "CORE": 11,
     "PULSE": 6
   },
   "suspects": [
@@ -2526,9 +2525,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask": 0,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2546,9 +2545,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2596,9 +2595,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "10671878",
+      "listing_id": "10676882",
       "model": null,
-      "title": "⭐️- Ericsson R600",
+      "title": "⭐️-  Nokia 6230",
       "ask": 149,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2606,9 +2605,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "10676882",
+      "listing_id": "10671878",
       "model": null,
-      "title": "⭐️-  Nokia 6230",
+      "title": "⭐️- Ericsson R600",
       "ask": 149,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2636,9 +2635,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "16517003",
+      "listing_id": "16497761",
       "model": null,
-      "title": "⭐️· 📱 Utestet iPhone 6 (Model A1586) - Reservedele/Reparation",
+      "title": "⭐️· 📱 Defekt iPhone 7 (Model A1778) - Til reservedele/reparation",
       "ask": 195,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2646,9 +2645,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "16497761",
+      "listing_id": "16517003",
       "model": null,
-      "title": "⭐️· 📱 Defekt iPhone 7 (Model A1778) - Til reservedele/reparation",
+      "title": "⭐️· 📱 Utestet iPhone 6 (Model A1586) - Reservedele/Reparation",
       "ask": 195,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2686,9 +2685,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "16660481",
+      "listing_id": "10617030",
       "model": null,
-      "title": "⭐️· 📱 iPhone 5S (Model A1457) inkl. Sort Etui",
+      "title": "Stærk telelinse til din iPhone 5 og 5S",
       "ask": 295,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2696,9 +2695,19 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "10617030",
+      "listing_id": "10677878",
       "model": null,
-      "title": "Stærk telelinse til din iPhone 5 og 5S",
+      "title": "⭐️· Doro 8050 - Brugervenlig mobiltelefon (DEFEKT)",
+      "ask": 295,
+      "url": null,
+      "reason": "same-listing identity failed"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "16660481",
+      "model": null,
+      "title": "⭐️· 📱 iPhone 5S (Model A1457) inkl. Sort Etui",
       "ask": 295,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2720,16 +2729,6 @@
       "model": null,
       "title": "Billigt guldnummer 71 34 44 23",
       "ask": 299,
-      "url": null,
-      "reason": "same-listing identity failed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "10677878",
-      "model": null,
-      "title": "⭐️· Doro 8050 - Brugervenlig mobiltelefon (DEFEKT)",
-      "ask": 295,
       "url": null,
       "reason": "same-listing identity failed"
     },
@@ -2806,16 +2805,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24506186",
-      "model": null,
-      "title": "Apple Iphone SE 2.Gen 64GB | C",
-      "ask": 595,
-      "url": null,
-      "reason": "same-listing identity failed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "23908379",
       "model": null,
       "title": "Apple iPhone 8 - 64 GB Space Grey",
@@ -2826,9 +2815,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24506193",
+      "listing_id": "24506186",
       "model": null,
-      "title": "Apple Iphone SE 2 gen 128GB Rød | B",
+      "title": "Apple Iphone SE 2.Gen 64GB | C",
       "ask": 595,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2840,6 +2829,16 @@
       "model": null,
       "title": "Huawei P20 Pro 128gb",
       "ask": 599,
+      "url": null,
+      "reason": "same-listing identity failed"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24506193",
+      "model": null,
+      "title": "Apple Iphone SE 2 gen 128GB Rød | B",
+      "ask": 595,
       "url": null,
       "reason": "same-listing identity failed"
     },
@@ -2906,9 +2905,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23488917",
+      "listing_id": "23489080",
       "model": null,
-      "title": "Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort",
+      "title": "Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød.",
       "ask": 799,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2916,9 +2915,9 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23489080",
+      "listing_id": "23488917",
       "model": null,
-      "title": "Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød.",
+      "title": "Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort",
       "ask": 799,
       "url": null,
       "reason": "same-listing identity failed"
@@ -2942,16 +2941,6 @@
       "ask": 800,
       "url": null,
       "reason": "same-listing identity failed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24503932",
-      "model": "Samsung Z Flip 3",
-      "title": "Samsung Galaxy Z Flip 3 smartphone 128 GB beige",
-      "ask": 800,
-      "url": null,
-      "reason": "HTTPError"
     },
     {
       "stage": "T1",
@@ -2986,16 +2975,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23049288",
-      "model": "Motorola Edge 40 Neo",
-      "title": "Motorola Edge 40 Neo 5G 256GB Black",
-      "ask": 900,
-      "url": null,
-      "reason": "same-listing identity failed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "23661735",
       "model": "OnePlus 8T",
       "title": "OnePlus 8T",
@@ -3006,10 +2985,10 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23847948",
-      "model": null,
-      "title": "Doro Leva L31s 4G, Red/White",
-      "ask": 991,
+      "listing_id": "23049288",
+      "model": "Motorola Edge 40 Neo",
+      "title": "Motorola Edge 40 Neo 5G 256GB Black",
+      "ask": 900,
       "url": null,
       "reason": "same-listing identity failed"
     },
@@ -3020,6 +2999,16 @@
       "model": null,
       "title": "Ulefone Armor X12 Pro, Black/Orange",
       "ask": 984,
+      "url": null,
+      "reason": "same-listing identity failed"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23847948",
+      "model": null,
+      "title": "Doro Leva L31s 4G, Red/White",
+      "ask": 991,
       "url": null,
       "reason": "same-listing identity failed"
     },
@@ -3044,33 +3033,6 @@
       "reason": "same-listing identity failed"
     },
     {
-      "stage": "QUALITY",
-      "severity": "MEDIUM",
-      "listing_id": "24523065",
-      "title": "Google Pixel 6",
-      "ask": 500,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24523065",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']"
-    },
-    {
-      "stage": "QUALITY",
-      "severity": "MEDIUM",
-      "listing_id": "20212101",
-      "title": "Samsung Galaxy a21s",
-      "ask": 600,
-      "url": "https://www.dba.dk/recommerce/forsale/item/20212101",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: multiple explicit item prices in live description: [859, 1500]"
-    },
-    {
-      "stage": "QUALITY",
-      "severity": "MEDIUM",
-      "listing_id": "24522985",
-      "title": "Google Pixel 8",
-      "ask": 1000,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24522985",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']"
-    },
-    {
       "stage": "CORE",
       "severity": "MEDIUM",
       "listing_id": "22610659",
@@ -3084,6 +3046,14 @@
       "listing_id": "21698235",
       "model": "Xiaomi Redmi 9",
       "url": "https://www.dba.dk/recommerce/forsale/item/21698235",
+      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
+    },
+    {
+      "stage": "CORE",
+      "severity": "MEDIUM",
+      "listing_id": "20212101",
+      "model": "Samsung Galaxy A21s",
+      "url": "https://www.dba.dk/recommerce/forsale/item/20212101",
       "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
@@ -3378,13 +3348,13 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
       "sources": [
-        "brand-mobile:huawei:2"
+        "brand-mobile:google:2"
       ],
       "stage": "T1",
       "reason": "same-listing identity failed"
@@ -3402,13 +3372,13 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
+      "model_t0": null,
+      "brand_t0": "huawei",
       "sources": [
-        "brand-mobile:google:2"
+        "brand-mobile:huawei:2"
       ],
       "stage": "T1",
       "reason": "same-listing identity failed"
@@ -3466,19 +3436,6 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "10671878",
-      "title_t0": "⭐️- Ericsson R600",
-      "ask_t0": 149,
-      "model_t0": null,
-      "brand_t0": null,
-      "sources": [
-        "category:10",
-        "brand-mobile:sony:2"
-      ],
-      "stage": "T1",
-      "reason": "same-listing identity failed"
-    },
-    {
       "listing_id": "10676882",
       "title_t0": "⭐️-  Nokia 6230",
       "ask_t0": 149,
@@ -3487,6 +3444,19 @@
       "sources": [
         "category:10",
         "brand-mobile:nokia:3",
+        "brand-mobile:sony:2"
+      ],
+      "stage": "T1",
+      "reason": "same-listing identity failed"
+    },
+    {
+      "listing_id": "10671878",
+      "title_t0": "⭐️- Ericsson R600",
+      "ask_t0": 149,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:10",
         "brand-mobile:sony:2"
       ],
       "stage": "T1",
@@ -3520,8 +3490,8 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "16517003",
-      "title_t0": "⭐️· 📱 Utestet iPhone 6 (Model A1586) - Reservedele/Reparation",
+      "listing_id": "16497761",
+      "title_t0": "⭐️· 📱 Defekt iPhone 7 (Model A1778) - Til reservedele/reparation",
       "ask_t0": 195,
       "model_t0": null,
       "brand_t0": "apple",
@@ -3532,8 +3502,8 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "16497761",
-      "title_t0": "⭐️· 📱 Defekt iPhone 7 (Model A1778) - Til reservedele/reparation",
+      "listing_id": "16517003",
+      "title_t0": "⭐️· 📱 Utestet iPhone 6 (Model A1586) - Reservedele/Reparation",
       "ask_t0": 195,
       "model_t0": null,
       "brand_t0": "apple",
@@ -3585,8 +3555,8 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262"
     },
     {
-      "listing_id": "16660481",
-      "title_t0": "⭐️· 📱 iPhone 5S (Model A1457) inkl. Sort Etui",
+      "listing_id": "10617030",
+      "title_t0": "Stærk telelinse til din iPhone 5 og 5S",
       "ask_t0": 295,
       "model_t0": null,
       "brand_t0": "apple",
@@ -3597,8 +3567,20 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "10617030",
-      "title_t0": "Stærk telelinse til din iPhone 5 og 5S",
+      "listing_id": "10677878",
+      "title_t0": "⭐️· Doro 8050 - Brugervenlig mobiltelefon (DEFEKT)",
+      "ask_t0": 295,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:20"
+      ],
+      "stage": "T1",
+      "reason": "same-listing identity failed"
+    },
+    {
+      "listing_id": "16660481",
+      "title_t0": "⭐️· 📱 iPhone 5S (Model A1457) inkl. Sort Etui",
       "ask_t0": 295,
       "model_t0": null,
       "brand_t0": "apple",
@@ -3628,18 +3610,6 @@
       "brand_t0": null,
       "sources": [
         "category:21"
-      ],
-      "stage": "T1",
-      "reason": "same-listing identity failed"
-    },
-    {
-      "listing_id": "10677878",
-      "title_t0": "⭐️· Doro 8050 - Brugervenlig mobiltelefon (DEFEKT)",
-      "ask_t0": 295,
-      "model_t0": null,
-      "brand_t0": null,
-      "sources": [
-        "category:20"
       ],
       "stage": "T1",
       "reason": "same-listing identity failed"
@@ -3734,18 +3704,6 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "24506186",
-      "title_t0": "Apple Iphone SE 2.Gen 64GB | C",
-      "ask_t0": 595,
-      "model_t0": null,
-      "brand_t0": "apple",
-      "sources": [
-        "category:35"
-      ],
-      "stage": "T1",
-      "reason": "same-listing identity failed"
-    },
-    {
       "listing_id": "23908379",
       "title_t0": "Apple iPhone 8 - 64 GB Space Grey",
       "ask_t0": 595,
@@ -3758,8 +3716,8 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "24506193",
-      "title_t0": "Apple Iphone SE 2 gen 128GB Rød | B",
+      "listing_id": "24506186",
+      "title_t0": "Apple Iphone SE 2.Gen 64GB | C",
       "ask_t0": 595,
       "model_t0": null,
       "brand_t0": "apple",
@@ -3778,6 +3736,18 @@
       "sources": [
         "category:35",
         "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "same-listing identity failed"
+    },
+    {
+      "listing_id": "24506193",
+      "title_t0": "Apple Iphone SE 2 gen 128GB Rød | B",
+      "ask_t0": 595,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:35"
       ],
       "stage": "T1",
       "reason": "same-listing identity failed"
@@ -3856,18 +3826,6 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "23488917",
-      "title_t0": "Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort",
-      "ask_t0": 799,
-      "model_t0": null,
-      "brand_t0": null,
-      "sources": [
-        "category:41"
-      ],
-      "stage": "T1",
-      "reason": "same-listing identity failed"
-    },
-    {
       "listing_id": "23489080",
       "title_t0": "Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød.",
       "ask_t0": 799,
@@ -3875,6 +3833,18 @@
       "brand_t0": null,
       "sources": [
         "category:40"
+      ],
+      "stage": "T1",
+      "reason": "same-listing identity failed"
+    },
+    {
+      "listing_id": "23488917",
+      "title_t0": "Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:41"
       ],
       "stage": "T1",
       "reason": "same-listing identity failed"
@@ -3904,26 +3874,13 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "24503932",
-      "title_t0": "Samsung Galaxy Z Flip 3 smartphone 128 GB beige",
-      "ask_t0": 800,
-      "model_t0": "Samsung Z Flip 3",
-      "brand_t0": "samsung",
-      "sources": [
-        "category:41",
-        "brand-mobile:samsung:5"
-      ],
-      "stage": "T1_ERROR",
-      "reason": "HTTPError"
-    },
-    {
       "listing_id": "24182944",
       "title_t0": "Honor 200 Smart 5G, Forest Green",
       "ask_t0": 832,
       "model_t0": null,
       "brand_t0": "honor",
       "sources": [
-        "category:43",
+        "category:42",
         "brand-mobile:honor:1"
       ],
       "stage": "T1",
@@ -3955,19 +3912,6 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "23049288",
-      "title_t0": "Motorola Edge 40 Neo 5G 256GB Black",
-      "ask_t0": 900,
-      "model_t0": "Motorola Edge 40 Neo",
-      "brand_t0": "motorola",
-      "sources": [
-        "category:44",
-        "brand-mobile:motorola:2"
-      ],
-      "stage": "T1",
-      "reason": "same-listing identity failed"
-    },
-    {
       "listing_id": "23661735",
       "title_t0": "OnePlus 8T",
       "ask_t0": 900,
@@ -3981,13 +3925,14 @@
       "reason": "same-listing identity failed"
     },
     {
-      "listing_id": "23847948",
-      "title_t0": "Doro Leva L31s 4G, Red/White",
-      "ask_t0": 991,
-      "model_t0": null,
-      "brand_t0": null,
+      "listing_id": "23049288",
+      "title_t0": "Motorola Edge 40 Neo 5G 256GB Black",
+      "ask_t0": 900,
+      "model_t0": "Motorola Edge 40 Neo",
+      "brand_t0": "motorola",
       "sources": [
-        "category:45"
+        "category:44",
+        "brand-mobile:motorola:2"
       ],
       "stage": "T1",
       "reason": "same-listing identity failed"
@@ -4001,6 +3946,18 @@
       "sources": [
         "category:45",
         "brand-mobile:sony:4"
+      ],
+      "stage": "T1",
+      "reason": "same-listing identity failed"
+    },
+    {
+      "listing_id": "23847948",
+      "title_t0": "Doro Leva L31s 4G, Red/White",
+      "ask_t0": 991,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:45"
       ],
       "stage": "T1",
       "reason": "same-listing identity failed"
@@ -4031,19 +3988,17 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2441,
-    "T1": 51,
-    "T1_ERROR": 1
+    "PRODUCT_IDENTITY": 2437,
+    "T1": 51
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 975,
-    "no supported model resolved": 1418,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 972,
     "same-listing identity failed": 49,
+    "no supported model resolved": 1417,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 9,
     "listing disposed": 2,
-    "description indicates part without explicit functional phone evidence": 23,
-    "HTTPError": 1
+    "description indicates part without explicit functional phone evidence": 23
   }
 }
