@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-01T07:17:39.172069+00:00",
+  "generated_at": "2026-09-01T09:20:16.814891+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2506,
+    "t0_unique": 2509,
     "verified_before_quality": 42,
     "final_after_quality": 35,
     "ranked": 16,
@@ -1106,6 +1106,15 @@
       "title": "Samsung SAMSUNG GALAXY S6 EDGE+, Perfekt",
       "ask": 100,
       "url": "https://www.dba.dk/recommerce/forsale/item/1663701",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "17132586",
+      "title": "Nokia 310 (RM-850) mobiltelefon",
+      "ask": 100,
+      "url": "https://www.dba.dk/recommerce/forsale/item/17132586",
       "reason": "no supported model resolved"
     },
     {
@@ -2261,15 +2270,6 @@
       "reason": "no supported model resolved"
     },
     {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24259505",
-      "title": "Samsung Galaxy A-serie smartphone 32 GB",
-      "ask": 150,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24259505",
-      "reason": "no supported model resolved"
-    },
-    {
       "stage": "QUALITY",
       "severity": "MEDIUM",
       "listing_id": "24436403",
@@ -2486,20 +2486,18 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2415,
-    "T1": 48,
-    "T1_ERROR": 1
+    "PRODUCT_IDENTITY": 2419,
+    "T1": 48
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 964,
-    "no supported model resolved": 1405,
+    "no supported model resolved": 1407,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 967,
     "weak complete-phone evidence": 6,
     "explicit brand mismatch: htc != realme": 1,
     "accessory/part title": 10,
     "same-listing identity failed": 46,
     "listing disposed": 2,
-    "description indicates part without explicit functional phone evidence": 25,
-    "HTTPError": 1,
+    "description indicates part without explicit functional phone evidence": 24,
     "explicit brand mismatch: motorola != oppo": 2,
     "explicit brand mismatch: oneplus != one plus": 2
   }

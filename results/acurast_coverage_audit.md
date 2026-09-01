@@ -1,8 +1,8 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T07:17:39.172069+00:00
+Generated: 2026-09-01T09:20:16.814891+00:00
 
-T0 listings <= ceiling: **2506**  
+T0 listings <= ceiling: **2509**  
 Verified before quality: **42**  
 Final after quality: **35**  
 Mainnet ranked: **16**
@@ -139,6 +139,7 @@ Mainnet ranked: **16**
 | DISCOVERY/MODEL | 16222310 | Blå Nokia 2310 Type RM-189 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 16257186 | LG W7000 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1663701 | Samsung SAMSUNG GALAXY S6 EDGE+, Perfekt | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 17132586 | Nokia 310 (RM-850) mobiltelefon | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1864318 | Nokia BH-600, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 18689433 | HTC wildfire a3333 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 19080086 | LG G Pro Lite Dual 8GB 1GB RAM | 100 | no supported model resolved |
@@ -217,4 +218,3 @@ Mainnet ranked: **16**
 | DISCOVERY/MODEL | 21099446 | Nokia 1209 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 23195118 | Samsung Galaxy GT-19070 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 23358689 | Nokia mobiltelefon klassisk model med kamera | 125 | no supported model resolved |
-| DISCOVERY/MODEL | 23853426 | Nokia 1661 | 125 | no supported model resolved |
