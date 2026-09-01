@@ -1,6 +1,6 @@
 # DBA WoW-PC verified price report v9
 
-Generated: 2026-09-01T18:56:50.031415+00:00
+Generated: 2026-09-01T19:00:56.760473+00:00
 
 Current schema/source gate: **PASS** — live item 24524580 — 5400 kr.
 Historical price-binding regression: **PASS (static_fixture; no dependency on historical live listing)**
@@ -44,10 +44,10 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 24 | 4500 kr. | ACCEPTABLE | RTX 3060 | Core i7-10700 | 65–90 FPS | [MM Vision - gaming computer - RTX 3060 - I7 processor - april 2021 god stand](https://www.dba.dk/recommerce/forsale/item/24467994) |
 | 25 | 4500 kr. | ACCEPTABLE | RTX 3060 | Core i5-11400H | 65–85 FPS | [Lenovo Legion 5 Gaming Laptop – RTX 3060 / i5 / 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23688401) |
 | 26 | 4500 kr. | ACCEPTABLE | RTX 2070 | Ryzen 5 5600X | 65–90 FPS | [🎮 Kraftig gaming-PC – Perfekt til 1080p gaming | RTX 2070 | Ryzen 5 5600X](https://www.dba.dk/recommerce/forsale/item/22484336) |
-| 27 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
-| 28 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
-| 29 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB NVME SSD](https://www.dba.dk/recommerce/forsale/item/24501866) |
-| 30 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Asus gaming stationær PC med i7 9700K og RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/23248956) |
+| 27 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
+| 28 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
+| 29 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Asus gaming stationær PC med i7 9700K og RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/23248956) |
+| 30 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB NVME SSD](https://www.dba.dk/recommerce/forsale/item/24501866) |
 | 31 | 4795 kr. | SWEET SPOT | RTX 2080 Super | Core i7-9700 | 70–90 FPS | [MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram](https://www.dba.dk/recommerce/forsale/item/24156419) |
 | 32 | 4900 kr. | ACCEPTABLE | RTX 2070 | Core i7-9700 | 65–85 FPS | [Gamer i7 9700 32gb rtx 2070..](https://www.dba.dk/recommerce/forsale/item/23730233) |
 | 33 | 4950 kr. | ACCEPTABLE | RTX 2080 | Core i5-8600K | 60–85 FPS | [Gaming PC RTX 2080](https://www.dba.dk/recommerce/forsale/item/24414710) |
