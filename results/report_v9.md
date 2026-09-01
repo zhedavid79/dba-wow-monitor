@@ -1,6 +1,6 @@
 # DBA WoW-PC verified price report v9
 
-Generated: 2026-09-01T21:52:04.159536+00:00
+Generated: 2026-09-01T21:53:40.591738+00:00
 
 Current schema/source gate: **PASS** — live item 24524580 — 5400 kr.
 Historical price-binding regression: **PASS (static_fixture; no dependency on historical live listing)**
@@ -82,8 +82,8 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 62 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
 | 63 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i7-14650HX | 80–100 FPS | [Lenovo Thinkbook i7, RTX 4060](https://www.dba.dk/recommerce/forsale/item/13043596) |
 | 64 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/8888151) |
-| 65 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
-| 66 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
+| 65 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
+| 66 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
 | 67 | 7000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | 80–100 FPS | [RTX 3080 - Kraftig gamer pc sælges 7000kr.](https://www.dba.dk/recommerce/forsale/item/21317324) |
 | 68 | 7000 kr. | SWEET SPOT | RTX 3070 | Ryzen 7 5800H | 75–95 FPS | [Gamer Bærbar 17,3” 144 Hz –  Ryzen 7 5800H / RTX 3070 / 16 GB / 1 TB](https://www.dba.dk/recommerce/forsale/item/24461236) |
 | 69 | 7000 kr. | SWEET SPOT | RTX 3070 | Core i7-10700 | 75–95 FPS | [Kraftig Vision Gaming PC – RTX 3070, i7-10700F, 1TB NVMe SSD Bygget af MM-Vision](https://www.dba.dk/recommerce/forsale/item/22873086) |
