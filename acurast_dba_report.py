@@ -66,18 +66,69 @@ def alias_variants(brand,model,full):
     return {a.strip() for a in expanded if len(a.strip())>=4}
 
 
+def _catalog_row(brand,model,processor_count=0,source='ACURASTBOT'):
+    brand=str(brand or '').strip(); model=str(model or '').strip()
+    full=f'{brand} {model}'.strip()
+    return {'label':full,'brand':brand,'model':model,
+            'aliases':alias_variants(brand,model,full),
+            'processor_count':int(processor_count or 0),'catalog_source':source}
+
+
+def _pulse_discovery_rows(bot_catalog):
+    # V1.6 ranks on Mainnet Pulse. Therefore a model present in Pulse must be able
+    # to reach T1 even when the legacy AcurastBot supported-device registry has no
+    # row for it. Pulse is used only for model discovery here; Core compatibility,
+    # same-listing identity and reward gates remain downstream fail-closed gates.
+    try:
+        from acurast_valuation_fixed import fetch_pulse_catalog
+        pulse=fetch_pulse_catalog()
+    except Exception:
+        return []
+
+    brand_names={norm(x['brand']):x['brand'] for x in bot_catalog if norm(x.get('brand'))}
+    for b in KNOWN_PHONE_BRANDS:
+        brand_names.setdefault(norm(b),b)
+    # Common Pulse brands may not currently have an AcurastBot registry row.
+    for b in ('Samsung','Google','Xiaomi','Motorola','OnePlus','Nothing','Poco','Asus','Sony','Oppo','Realme','Honor'):
+        brand_names.setdefault(norm(b),b)
+
+    out=[]
+    for p in pulse:
+        full=str(p.get('pulse_model') or '').strip()
+        nf=norm(full)
+        if not nf: continue
+        hits=[(len(nb),nb,display) for nb,display in brand_names.items() if nf.startswith(nb+' ')]
+        if not hits: continue
+        _,nb,display=max(hits)
+        parts=full.split()
+        brand_words=len(nb.split())
+        model=' '.join(parts[brand_words:]).strip()
+        if not model: continue
+        out.append(_catalog_row(display,model,p.get('processors') or 0,'ACURAST_PULSE_MAINNET'))
+    return out
+
+
 def build_catalog(s):
-    # Discovery eligibility is the supported-device registry itself. Legacy Canary
-    # pool-statistics must never decide whether a model can reach the Mainnet Pulse gate.
+    # Discovery is the union of the AcurastBot supported-device registry and the
+    # authoritative V1.6 Mainnet Pulse model universe. Legacy Canary pool rewards
+    # never decide whether a model can reach the Mainnet Pulse reward gate.
     devices=getj(s,BOT_BASE+'/devices/with-counts')
     catalog=[]
     for d in devices:
-        brand=norm(d.get('company','')); model=str(d.get('model') or '').strip()
-        if not brand or not model: continue
-        full=f"{d.get('company','')} {model}".strip()
-        catalog.append({'label':full,'brand':d.get('company',''),'model':model,
-                        'aliases':alias_variants(d.get('company',''),model,full),
-                        'processor_count':int(d.get('totalProcessorCount') or 0)})
+        brand=str(d.get('company') or '').strip(); model=str(d.get('model') or '').strip()
+        if not norm(brand) or not model: continue
+        catalog.append(_catalog_row(brand,model,d.get('totalProcessorCount') or 0,'ACURASTBOT'))
+
+    by_key={(norm(x['brand']),norm(x['model'])):x for x in catalog}
+    for row in _pulse_discovery_rows(catalog):
+        key=(norm(row['brand']),norm(row['model']))
+        old=by_key.get(key)
+        if old is None:
+            catalog.append(row); by_key[key]=row
+        else:
+            old['aliases'] |= row['aliases']
+            old['processor_count']=max(old['processor_count'],row['processor_count'])
+            if old.get('catalog_source')!='ACURAST_PULSE_MAINNET': old['catalog_source']='ACURASTBOT+ACURAST_PULSE_MAINNET'
     catalog.sort(key=lambda x:(-x['processor_count'],x['label']))
     return catalog
 
@@ -134,7 +185,7 @@ def product_identity(title,description,model,price,catalog):
     complete=bool(COMPLETE_PHONE_RE.search(both)); functional=bool(FUNCTION_RE.search(both)); specs=bool(SPEC_RE.search(both)); explicit_model_title=bool(model_of(t,catalog))
     if price is not None and price<150 and not (complete and (functional or specs)):return False,'weak complete-phone evidence'
     if ACCESSORY_RE.search(d) and not (complete and functional) and not (explicit_model_title and functional):return False,'description indicates part without explicit functional phone evidence'
-    return True,'supported-device registry + strict brand/model/variant identity + live product identity passed'
+    return True,'supported-device registry + Mainnet Pulse discovery + strict brand/model/variant identity + live product identity passed'
 
 
 def canonical_id_from_payload(payload):
@@ -206,7 +257,7 @@ def main():
     audit={'generated_at':datetime.now(timezone.utc).isoformat(),'catalog_models':len(catalog),'t0_unique':len(pool),'verified_before_quality':len(verified),'reject_stage_counts':dict(stage_counts),'reject_reason_counts':dict(reason_counts),'likely_model_blindspots':sorted(likely_unresolved,key=lambda r:(r.get('ask_t0') or 999999,r.get('listing_id')))[:250],'all_rejects':rejects}
     Path('results/acurast_discovery_audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
 
-    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'max_ask_dkk':MAX_ASK_DKK,'data_gate':'AcurastBot supported-device registry + DBA category + same-listing verification','counts':{'category_pages':category_pages,'category_docs':category_docs,'catalog_models':len(catalog),'t0_unique':len(found),'t1_attempted':len(pool),'t1_verified_active_product':len(verified),'product_identity_excluded':stage_counts.get('PRODUCT_IDENTITY',0),'final_refetched':len(verified)},'ranked_by_verified_ask':verified,'excluded':[],'search_errors':[]}
+    out={'generated_at':datetime.now(timezone.utc).isoformat(),'gate_passed':True,'product_identity_gate':True,'max_ask_dkk':MAX_ASK_DKK,'data_gate':'AcurastBot supported-device registry + Acurast Pulse Mainnet model discovery + DBA category + same-listing verification','counts':{'category_pages':category_pages,'category_docs':category_docs,'catalog_models':len(catalog),'t0_unique':len(found),'t1_attempted':len(pool),'t1_verified_active_product':len(verified),'product_identity_excluded':stage_counts.get('PRODUCT_IDENTITY',0),'final_refetched':len(verified)},'ranked_by_verified_ask':verified,'excluded':[],'search_errors':[]}
     Path('results/acurast_latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({'gate':True,'catalog_models':len(catalog),'category_pages':category_pages,'verified':len(verified),'reject_stages':dict(stage_counts),'likely_model_blindspots':len(likely_unresolved)},indent=2))
 
