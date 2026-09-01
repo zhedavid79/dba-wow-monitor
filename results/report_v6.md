@@ -1,6 +1,6 @@
 # DBA WoW-PC verified price report v6
 
-Generated: 2026-09-01T19:11:00.454357+00:00
+Generated: 2026-09-01T19:34:39.603985+00:00
 
 Current schema/source gate: **PASS** — live item 24524580
 Historical price-binding regression: **PASS (static fixture; no live historical listing dependency)**
