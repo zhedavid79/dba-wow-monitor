@@ -4,8 +4,10 @@ import re
 from typing import Any
 
 
-NOISE={'galaxy','phone','smartphone','mobile','mobil','5g','4g','lte','nr'}
+NOISE={'galaxy','smartphone','mobile','mobil','5g','4g','lte','nr'}
 VARIANTS={'ultra','pro','lite','fe','neo','fusion','plus','ce','gt','master','max','mini','fold','flip','note'}
+ROMAN={'i':1,'ii':2,'iii':3,'iv':4,'v':5,'vi':6,'vii':7,'viii':8,'ix':9,'x':10}
+SHORT_FAMILIES={'s','a','g','e','f','x','m','n'}
 
 
 def pnorm(s:str)->str:
@@ -18,24 +20,38 @@ def pnorm(s:str)->str:
 
 
 def signature(model:str)->tuple[str,str,int]|None:
-    toks=[t for t in pnorm(model).split() if t not in NOISE]
-    if len(toks)<3:
+    raw=pnorm(model).split()
+    if len(raw)<2:
         return None
-    brand=toks[0]
+    brand=raw[0]
+    toks=[t for t in raw[1:] if t not in NOISE]
+    if not toks:
+        return None
+
+    # Sony Xperia 1/5/10 II..VI: the Roman token is the actual generation while
+    # the preceding number is the product line. Keep that line in the family.
+    if brand=='sony' and toks and toks[0]=='xperia':
+        for i,t in enumerate(toks[1:],1):
+            if t in ROMAN and i>1 and re.fullmatch(r'\d{1,2}',toks[i-1]):
+                return brand,f'xperia {toks[i-1]}',ROMAN[t]
+
     number_idx=None
     generation=None
-    for i,t in enumerate(toks[1:],1):
-        m=re.fullmatch(r'(\d{1,2})',t)
-        if m:
-            number_idx=i; generation=int(m.group(1)); break
+    for i,t in enumerate(toks):
+        if re.fullmatch(r'\d{1,4}',t):
+            number_idx=i; generation=int(t); break
     if number_idx is None or generation is None:
         return None
-    family_tokens=[t for t in toks[1:number_idx] if t not in VARIANTS]
+
+    family_tokens=[t for t in toks[:number_idx] if t not in VARIANTS]
+    # Model lines such as Samsung S21 / Motorola G53 become s/g + generation.
+    # Direct numeric flagships such as Xiaomi 13 use an explicit flagship family.
     if not family_tokens:
-        return None
-    family=' '.join(family_tokens[:2])
-    if len(family)<3:
-        return None
+        family='flagship'
+    else:
+        family=' '.join(family_tokens[:2])
+        if len(family)<3 and family not in SHORT_FAMILIES:
+            return None
     return brand,family,generation
 
 
