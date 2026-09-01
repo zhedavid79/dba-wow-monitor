@@ -1,6 +1,6 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T18:58:18.191234+00:00
+Generated: 2026-09-01T19:01:59.968079+00:00
 
 T0 listings <= ceiling: **2538**  
 Verified before quality: **63**  
