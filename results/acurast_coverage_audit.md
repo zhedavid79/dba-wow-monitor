@@ -1,19 +1,19 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T19:37:18.050190+00:00
+Generated: 2026-09-01T19:44:31.830378+00:00
 
 T0 listings <= ceiling: **2542**  
-Verified before quality: **45**  
-Final after quality: **42**  
-Mainnet ranked: **25**
+Verified before quality: **50**  
+Final after quality: **47**  
+Mainnet ranked: **31**
 
 ## Review buckets
 
 - Discovery/model blindspots: **250**
-- Core-compatible explicit models stopped by Pulse gate: **33**
+- Core-compatible explicit models stopped by Pulse gate: **26**
 - Quality-gate review: **3**
 - Core allowlist review: **10**
-- Pulse-match review: **7**
+- Pulse-match review: **6**
 
 ## Core-compatible discovery models without unique Mainnet Pulse match
 
@@ -31,13 +31,6 @@ Mainnet ranked: **25**
 | Motorola G31 | Motorola G31 | NO_MATCH |
 | Motorola G53 sort | Motorola G53 128 GB sort | NO_MATCH |
 | Motorola g62 | Motorola g62 | NO_MATCH |
-| OnePlus Nord CE 2 Lite Sort | OnePlus Nord CE 2 Lite 128GB Sort | NO_MATCH |
-| OnePlus Nord CE 3 | OnePlus Nord CE 3 256GB | NO_MATCH |
-| OnePlus Nord CE 3 Lite 5G, 128/8 GB, Pastel | OnePlus Nord CE 3 Lite 5G, 128/8 GB, Pastel | NO_MATCH |
-| Oneplus Nord CE 3 Lite 5G (MED NY SKÆRM ) | Oneplus Nord CE 3 Lite 5G (MED NY SKÆRM ) | NO_MATCH |
-| OnePlus Nord CE 3 Lite 5G – SOM NY! | OnePlus Nord CE 3 Lite 5G – SOM NY! | NO_MATCH |
-| OnePlus Nord CE 3 Lite 5G – – Velholdt | OnePlus Nord CE 3 Lite 5G – 128 GB – Velholdt | NO_MATCH |
-| Oneplus nord Ce2 lite | Oneplus nord Ce2 lite 128gb | NO_MATCH |
 | OnePlus OnePlus 7 Pro, Perfekt | OnePlus OnePlus 7 Pro, Perfekt | NO_MATCH |
 | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse | NO_MATCH |
 | Poco X3 PRO " " | Poco X3 PRO "256GB" | NO_MATCH |

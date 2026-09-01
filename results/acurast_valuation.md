@@ -1,9 +1,9 @@
 # Acurast DBA Procurement V1.6 — Mainnet baseline ACU Accumulation Efficiency
 
-Generated: 2026-09-01T19:37:18.050190+00:00
+Generated: 2026-09-01T19:44:30.953800+00:00
 
 DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.
-Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived rewards; 25/42 live listings matched.
+Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived rewards; 25/47 live listings matched.
 **Retired permanently:** AcurastBot Canary cACU ×0.01 conversion and ×6.742 partial-farm calibration.
 BASE = deployment-neutral Mainnet hardware baseline. HIGH may include the protocol deployment boost. Evidence confidence affects bid basis, not physical BASE ACU/epoch.
 Long-horizon LOW stress: 20% annual reward decay. Electricity: 4.0 W at 2.50 DKK/kWh.
