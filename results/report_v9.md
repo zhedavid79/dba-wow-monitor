@@ -1,13 +1,13 @@
 # DBA WoW-PC verified price report v9
 
-Generated: 2026-09-01T18:14:52.713084+00:00
+Generated: 2026-09-01T18:56:50.031415+00:00
 
 Current schema/source gate: **PASS** — live item 24524580 — 5400 kr.
 Historical price-binding regression: **PASS (static_fixture; no dependency on historical live listing)**
 
 Discovery queries: 62
-Structured T0 unique records: 1595
-T0 GPU-promising records sent to T1 (no top-100 cap): 249
+Structured T0 unique records: 1597
+T0 GPU-promising records sent to T1 (no top-100 cap): 247
 T1 verified systems with parsed GPU+CPU: 114
 
 ## Price-first ranking
@@ -21,7 +21,7 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 1 | 2500 kr. | ACCEPTABLE | RTX 2060 Super | Core i5-10400 | 60–85 FPS | [Super Gaming PC med skærm -  Nvidia GeForce RTX 2060 Super grafikkort](https://www.dba.dk/recommerce/forsale/item/24523230) |
 | 2 | 3000 kr. | SWEET SPOT | RTX 3070 | Core i5-10400 | 70–95 FPS | [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) |
 | 3 | 3500 kr. | ACCEPTABLE | RTX 4060 | Core i7-13620H | 75–100 FPS | [HP Omen 16, i7-13620H, RTX 4060, 512 gb SSD, 16GB Ram](https://www.dba.dk/recommerce/forsale/item/24295512) |
-| 4 | 3900 kr. | ACCEPTABLE | RTX 3060 | Core i7-10700 | 65–90 FPS | [Intel i7 10700K-RTX 3060-16 GB ram-M2 SSD+ 1TB HD-vandkøling-Wifi 6 & Bluetooth](https://www.dba.dk/recommerce/forsale/item/24501378) |
+| 4 | 3900 kr. | ACCEPTABLE | RTX 3060 | Core i7-10700 | 65–90 FPS | [Intel i7 10700K-RTX 3060-16 GB ram-M2 SSD + 1TB HD-vandkøling-Wifi 6 & Bluetooth](https://www.dba.dk/recommerce/forsale/item/24501378) |
 | 5 | 3900 kr. | ACCEPTABLE | RTX 2070 | Core i7-8700 | 60–85 FPS | [Shark Gaming E-sport Edition - RTX 2070 / i7-8700 / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/19471655) |
 | 6 | 3999 kr. | ACCEPTABLE | RTX 2070 | Core i7-9700 | 65–85 FPS | [MSI stationær gaming PC Intel i7-9700K RTX 2070 16GB RAM](https://www.dba.dk/recommerce/forsale/item/22701831) |
 | 7 | 4000 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | 80–100 FPS | [RTX 3070 Stationær med defekte dele](https://www.dba.dk/recommerce/forsale/item/22950485) |
@@ -46,8 +46,8 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 26 | 4500 kr. | ACCEPTABLE | RTX 2070 | Ryzen 5 5600X | 65–90 FPS | [🎮 Kraftig gaming-PC – Perfekt til 1080p gaming | RTX 2070 | Ryzen 5 5600X](https://www.dba.dk/recommerce/forsale/item/22484336) |
 | 27 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
 | 28 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
-| 29 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Asus gaming stationær PC med i7 9700K og RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/23248956) |
-| 30 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB NVME SSD](https://www.dba.dk/recommerce/forsale/item/24501866) |
+| 29 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB NVME SSD](https://www.dba.dk/recommerce/forsale/item/24501866) |
+| 30 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Asus gaming stationær PC med i7 9700K og RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/23248956) |
 | 31 | 4795 kr. | SWEET SPOT | RTX 2080 Super | Core i7-9700 | 70–90 FPS | [MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram](https://www.dba.dk/recommerce/forsale/item/24156419) |
 | 32 | 4900 kr. | ACCEPTABLE | RTX 2070 | Core i7-9700 | 65–85 FPS | [Gamer i7 9700 32gb rtx 2070..](https://www.dba.dk/recommerce/forsale/item/23730233) |
 | 33 | 4950 kr. | ACCEPTABLE | RTX 2080 | Core i5-8600K | 60–85 FPS | [Gaming PC RTX 2080](https://www.dba.dk/recommerce/forsale/item/24414710) |
@@ -81,33 +81,33 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 61 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
 | 62 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
 | 63 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
-| 64 | 6999 kr. | SWEET SPOT | RTX 4060 Ti | Core i5-12400 | 75–100 FPS | [Gaming PC RTX 4060 Ti | i5-12400F | 16GB | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/21761715) |
-| 65 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i7-14650HX | 80–100 FPS | [Lenovo Thinkbook i7, RTX 4060](https://www.dba.dk/recommerce/forsale/item/13043596) |
-| 66 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/8888151) |
-| 67 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
-| 68 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
-| 69 | 7000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | 80–100 FPS | [RTX 3080 - Kraftig gamer pc sælges 7000kr.](https://www.dba.dk/recommerce/forsale/item/21317324) |
-| 70 | 7000 kr. | SWEET SPOT | RTX 3070 | Ryzen 7 5800H | 75–95 FPS | [Gamer Bærbar 17,3” 144 Hz –  Ryzen 7 5800H / RTX 3070 / 16 GB / 1 TB](https://www.dba.dk/recommerce/forsale/item/24461236) |
-| 71 | 7000 kr. | SWEET SPOT | RTX 3070 | Core i7-10700 | 75–95 FPS | [Kraftig Vision Gaming PC – RTX 3070, i7-10700F, 1TB NVMe SSD Bygget af MM-Vision](https://www.dba.dk/recommerce/forsale/item/22873086) |
-| 72 | 7000 kr. | SWEET SPOT | RTX 3060 Ti | Core i7-10700 | 70–95 FPS | [Komplet gaming-PC – i7-10700K / RTX 3060 Ti / 32GB RAM](https://www.dba.dk/recommerce/forsale/item/22797151) |
-| 73 | 7000 kr. | OVERKILL | RX 7800 XT | Core i5-14600K | 80–100 FPS | [Gaming Stationær - RX 7800 XT](https://www.dba.dk/recommerce/forsale/item/24398649) |
-| 74 | 7000 kr. | OVERKILL | RTX 4070 | Core i5-12400 | 80–100 FPS | [Kraftig gaming pc - RTX 4070 - Komplet setup](https://www.dba.dk/recommerce/forsale/item/24403633) |
-| 75 | 7250 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600 | 75–95 FPS | [🔥 Gaming PC – 32gb Ram / RTX 3070 / Ryzen 5 5600 🔥](https://www.dba.dk/recommerce/forsale/item/24093124) |
-| 76 | 7495 kr. | SWEET SPOT | RTX 4060 Ti | Core i5-12400 | 75–100 FPS | [Gamer PC – RTX 4060 Ti / i5-12400F / 32GB / 2TB Samsung 990 PRO](https://www.dba.dk/recommerce/forsale/item/24194168) |
-| 77 | 7499 kr. | SWEET SPOT | RTX 3070 | Core i7-8700 | 70–90 FPS | [Vandkølet gaming-PC med Intel i7-8700, RTX 3070 8GB og 48GB RAM](https://www.dba.dk/recommerce/forsale/item/23973412) |
-| 78 | 7500 kr. | ACCEPTABLE | RTX 3080 | Ryzen 5 3600 | 75–100 FPS | [Compact Gaming PC RTX 3080 STRIX / 5800X / NR200P / Noctua / RGB](https://www.dba.dk/recommerce/forsale/item/21452402) |
-| 79 | 7566 kr. | SWEET SPOT | RTX 3070 Ti | Core i7-12700 | 80–100 FPS | [Komplet gaming setup – RTX 3070 Ti / i7-12700K / 240Hz skærm - AFHENTIDAGTIL7099](https://www.dba.dk/recommerce/forsale/item/24014132) |
-| 80 | 7800 kr. | SWEET SPOT | RTX 3070 | Core i5-13600K | 80–100 FPS | [Shark Gaming RTX 3070 / i5-13600KF  – 1TB](https://www.dba.dk/recommerce/forsale/item/21083443) |
-| 81 | 7995 kr. | SWEET SPOT | RTX 2080 Ti | Ryzen 5 5600 | 75–95 FPS | [ASUS ROG STRIX AMD 9 7900X GAMING Rtx 2080 Ti 11 Gb](https://www.dba.dk/recommerce/forsale/item/24469995) |
-| 82 | 7995 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600 | 75–95 FPS | [Komplet Gaming Setup – RTX 3070 – 144Hz – Klar til brug](https://www.dba.dk/recommerce/forsale/item/23859462) |
-| 83 | 7999 kr. | ACCEPTABLE | RTX 2080 | Core i7-12700 | 80–100 FPS | [Kraftig i7-12700KF PC – RTX 2080 – 32GB DDR5 – 3,6TB SSD – ASUS Z690](https://www.dba.dk/recommerce/forsale/item/24392277) |
-| 84 | 8000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | 80–100 FPS | [Kraftig gamer Pc ( Rtx 3080 )](https://www.dba.dk/recommerce/forsale/item/22697925) |
-| 85 | 8000 kr. | SWEET SPOT | RTX 3070 Ti | Core i9-12900K | 80–100 FPS | [Gaming PC – i9-12900K / RTX 3070 Ti / 32GB DDR5 / 3,5TB](https://www.dba.dk/recommerce/forsale/item/24046078) |
-| 86 | 8000 kr. | SWEET SPOT | RTX 4060 Ti | Core i7-14700K | 80–100 FPS | [Gaming PC HP OMEN 25L | i7-14700F | RTX 4060Ti | 32GB RAM | 1TB](https://www.dba.dk/recommerce/forsale/item/24398046) |
-| 87 | 8000 kr. | OVERKILL | RTX 3080 | Core i7-12700 | 80–100 FPS | [Kraftig ASUS TUF Gaming-PC – i7-12700F • RTX 3080 10GB • 32GB RAM • 2TB NVMe](https://www.dba.dk/recommerce/forsale/item/24507497) |
-| 88 | 8250 kr. | OVERKILL | RTX 4070 Ti | Core i9-11900K | 80–100 FPS | [RTX 4070TI Gamer PC](https://www.dba.dk/recommerce/forsale/item/24494219) |
-| 89 | 8300 kr. | OVERKILL | RTX 4070 | Ryzen 7 5700X | 80–100 FPS | [Gaming-PC med RTX 4070 og Ryzen 7 5700X](https://www.dba.dk/recommerce/forsale/item/22615481) |
-| 90 | 8500 kr. | SWEET SPOT | RTX 3070 | Core i5-11400 | 75–95 FPS | [vandkølet RTX 3070](https://www.dba.dk/recommerce/forsale/item/24366871) |
+| 64 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i7-14650HX | 80–100 FPS | [Lenovo Thinkbook i7, RTX 4060](https://www.dba.dk/recommerce/forsale/item/13043596) |
+| 65 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/8888151) |
+| 66 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
+| 67 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
+| 68 | 7000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | 80–100 FPS | [RTX 3080 - Kraftig gamer pc sælges 7000kr.](https://www.dba.dk/recommerce/forsale/item/21317324) |
+| 69 | 7000 kr. | SWEET SPOT | RTX 3070 | Ryzen 7 5800H | 75–95 FPS | [Gamer Bærbar 17,3” 144 Hz –  Ryzen 7 5800H / RTX 3070 / 16 GB / 1 TB](https://www.dba.dk/recommerce/forsale/item/24461236) |
+| 70 | 7000 kr. | SWEET SPOT | RTX 3070 | Core i7-10700 | 75–95 FPS | [Kraftig Vision Gaming PC – RTX 3070, i7-10700F, 1TB NVMe SSD Bygget af MM-Vision](https://www.dba.dk/recommerce/forsale/item/22873086) |
+| 71 | 7000 kr. | SWEET SPOT | RTX 3060 Ti | Core i7-10700 | 70–95 FPS | [Komplet gaming-PC – i7-10700K / RTX 3060 Ti / 32GB RAM](https://www.dba.dk/recommerce/forsale/item/22797151) |
+| 72 | 7000 kr. | OVERKILL | RX 7800 XT | Core i5-14600K | 80–100 FPS | [Gaming Stationær - RX 7800 XT](https://www.dba.dk/recommerce/forsale/item/24398649) |
+| 73 | 7000 kr. | OVERKILL | RTX 4070 | Core i5-12400 | 80–100 FPS | [Kraftig gaming pc - RTX 4070 - Komplet setup](https://www.dba.dk/recommerce/forsale/item/24403633) |
+| 74 | 7250 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600 | 75–95 FPS | [🔥 Gaming PC – 32gb Ram / RTX 3070 / Ryzen 5 5600 🔥](https://www.dba.dk/recommerce/forsale/item/24093124) |
+| 75 | 7495 kr. | SWEET SPOT | RTX 4060 Ti | Core i5-12400 | 75–100 FPS | [Gamer PC – RTX 4060 Ti / i5-12400F / 32GB / 2TB Samsung 990 PRO](https://www.dba.dk/recommerce/forsale/item/24194168) |
+| 76 | 7499 kr. | SWEET SPOT | RTX 3070 | Core i7-8700 | 70–90 FPS | [Vandkølet gaming-PC med Intel i7-8700, RTX 3070 8GB og 48GB RAM](https://www.dba.dk/recommerce/forsale/item/23973412) |
+| 77 | 7500 kr. | ACCEPTABLE | RTX 3080 | Ryzen 5 3600 | 75–100 FPS | [Compact Gaming PC RTX 3080 STRIX / 5800X / NR200P / Noctua / RGB](https://www.dba.dk/recommerce/forsale/item/21452402) |
+| 78 | 7566 kr. | SWEET SPOT | RTX 3070 Ti | Core i7-12700 | 80–100 FPS | [Komplet gaming setup – RTX 3070 Ti / i7-12700K / 240Hz skærm - AFHENTIDAGTIL7099](https://www.dba.dk/recommerce/forsale/item/24014132) |
+| 79 | 7800 kr. | SWEET SPOT | RTX 3070 | Core i5-13600K | 80–100 FPS | [Shark Gaming RTX 3070 / i5-13600KF  – 1TB](https://www.dba.dk/recommerce/forsale/item/21083443) |
+| 80 | 7995 kr. | SWEET SPOT | RTX 2080 Ti | Ryzen 5 5600 | 75–95 FPS | [ASUS ROG STRIX AMD 9 7900X GAMING Rtx 2080 Ti 11 Gb](https://www.dba.dk/recommerce/forsale/item/24469995) |
+| 81 | 7995 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600 | 75–95 FPS | [Komplet Gaming Setup – RTX 3070 – 144Hz – Klar til brug](https://www.dba.dk/recommerce/forsale/item/23859462) |
+| 82 | 7999 kr. | ACCEPTABLE | RTX 2080 | Core i7-12700 | 80–100 FPS | [Kraftig i7-12700KF PC – RTX 2080 – 32GB DDR5 – 3,6TB SSD – ASUS Z690](https://www.dba.dk/recommerce/forsale/item/24392277) |
+| 83 | 8000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | 80–100 FPS | [Kraftig gamer Pc ( Rtx 3080 )](https://www.dba.dk/recommerce/forsale/item/22697925) |
+| 84 | 8000 kr. | SWEET SPOT | RTX 3070 Ti | Core i9-12900K | 80–100 FPS | [Gaming PC – i9-12900K / RTX 3070 Ti / 32GB DDR5 / 3,5TB](https://www.dba.dk/recommerce/forsale/item/24046078) |
+| 85 | 8000 kr. | SWEET SPOT | RTX 4060 Ti | Core i7-14700K | 80–100 FPS | [Gaming PC HP OMEN 25L | i7-14700F | RTX 4060Ti | 32GB RAM | 1TB](https://www.dba.dk/recommerce/forsale/item/24398046) |
+| 86 | 8000 kr. | OVERKILL | RTX 3080 | Core i7-12700 | 80–100 FPS | [Kraftig ASUS TUF Gaming-PC – i7-12700F • RTX 3080 10GB • 32GB RAM • 2TB NVMe](https://www.dba.dk/recommerce/forsale/item/24507497) |
+| 87 | 8250 kr. | OVERKILL | RTX 4070 Ti | Core i9-11900K | 80–100 FPS | [RTX 4070TI Gamer PC](https://www.dba.dk/recommerce/forsale/item/24494219) |
+| 88 | 8300 kr. | OVERKILL | RTX 4070 | Ryzen 7 5700X | 80–100 FPS | [Gaming-PC med RTX 4070 og Ryzen 7 5700X](https://www.dba.dk/recommerce/forsale/item/22615481) |
+| 89 | 8500 kr. | SWEET SPOT | RTX 3070 | Core i5-11400 | 75–95 FPS | [vandkølet RTX 3070](https://www.dba.dk/recommerce/forsale/item/24366871) |
+| 90 | 8500 kr. | OVERKILL | RTX 4070 | Core i7-12700 | 80–100 FPS | [PC INTEL 12700K RTX4070 RAM 32 GB](https://www.dba.dk/recommerce/forsale/item/24528951) |
 | 91 | 8500 kr. | OVERKILL | RTX 3080 | Core i7-12700 | 80–100 FPS | [Gaming PC – RTX 3080 10GB, i7-12700F, 32GB RAM, 1,5TB SSD](https://www.dba.dk/recommerce/forsale/item/24198408) |
 | 92 | 8900 kr. | OVERKILL | RTX 4070 | Ryzen 5 5600 | 80–100 FPS | [Gaming PC - Ryzen 5600 | RTX 4070 | 32GB RAM | 1TB NVMe](https://www.dba.dk/recommerce/forsale/item/24507712) |
 | 93 | 8999 kr. | SWEET SPOT | RTX 3070 Ti | Core i7-12700 | 80–100 FPS | [Billig Gaming PC – RTX 3070 Ti / i7-12700K / 2TB SSD](https://www.dba.dk/recommerce/forsale/item/23110502) |
@@ -133,4 +133,4 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 
 ## Rejection diagnostics
 
-{"CPU_PARSE_FAILED": 135}
+{"CPU_PARSE_FAILED": 133}
