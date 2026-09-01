@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-01T15:18:36.122435+00:00",
+  "generated_at": "2026-09-01T16:33:48.841749+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2532,
+    "t0_unique": 2537,
     "verified_before_quality": 46,
     "final_after_quality": 37,
-    "ranked": 16,
+    "ranked": 18,
     "discovery_model_blindspots": 250,
     "quality_review": 9,
-    "core_review": 11,
-    "pulse_review": 10
+    "core_review": 10,
+    "pulse_review": 9
   },
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 250,
     "QUALITY": 9,
-    "CORE": 11,
-    "PULSE": 10
+    "CORE": 10,
+    "PULSE": 9
   },
   "suspects": [
     {
@@ -1462,6 +1462,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24524578",
+      "title": "Nokia c2 mobil tlf",
+      "ask": 100,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24524578",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "3514464",
       "title": "Samsung Gear VR, Perfekt",
       "ask": 100,
@@ -2261,15 +2270,6 @@
       "reason": "no supported model resolved"
     },
     {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24137820",
-      "title": "Nokia 6110 inkl. lader",
-      "ask": 150,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24137820",
-      "reason": "no supported model resolved"
-    },
-    {
       "stage": "QUALITY",
       "severity": "MEDIUM",
       "listing_id": "24436403",
@@ -2349,14 +2349,6 @@
       "ask": 1000,
       "url": "https://www.dba.dk/recommerce/forsale/item/24522985",
       "reason": "BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']"
-    },
-    {
-      "stage": "CORE",
-      "severity": "MEDIUM",
-      "listing_id": "24316188",
-      "model": "Samsung A5",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24316188",
-      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
       "stage": "CORE",
@@ -2497,14 +2489,6 @@
     {
       "stage": "PULSE",
       "severity": "MEDIUM",
-      "listing_id": "24506237",
-      "model": "Samsung Galaxy S20",
-      "url": null,
-      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
-    },
-    {
-      "stage": "PULSE",
-      "severity": "MEDIUM",
       "listing_id": "24522863",
       "model": "Samsung Galaxy s22",
       "url": null,
@@ -2520,16 +2504,16 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2438,
-    "T1": 48
+    "PRODUCT_IDENTITY": 2442,
+    "T1": 49
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 970,
-    "no supported model resolved": 1423,
-    "weak complete-phone evidence": 6,
+    "no supported model resolved": 1421,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 975,
+    "weak complete-phone evidence": 7,
     "explicit brand mismatch: htc != realme": 1,
     "accessory/part title": 10,
-    "same-listing identity failed": 46,
+    "same-listing identity failed": 47,
     "listing disposed": 2,
     "description indicates part without explicit functional phone evidence": 24,
     "explicit brand mismatch: motorola != oppo": 2,

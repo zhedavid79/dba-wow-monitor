@@ -1,18 +1,18 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T15:18:36.122435+00:00
+Generated: 2026-09-01T16:33:48.841749+00:00
 
-T0 listings <= ceiling: **2532**  
+T0 listings <= ceiling: **2537**  
 Verified before quality: **46**  
 Final after quality: **37**  
-Mainnet ranked: **16**
+Mainnet ranked: **18**
 
 ## Review buckets
 
 - Discovery/model blindspots: **250**
 - Quality-gate review: **9**
-- Core allowlist review: **11**
-- Pulse-match review: **10**
+- Core allowlist review: **10**
+- Pulse-match review: **9**
 
 ## Suspects
 
@@ -178,6 +178,7 @@ Mainnet ranked: **16**
 | DISCOVERY/MODEL | 24414071 | Motorola One Vision | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24437849 | Samsung GT-E1080W – Som ny i original emballage (Ubrugt) | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24469516 | Original Nokia 3510i i blå | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24524578 | Nokia c2 mobil tlf | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 3514464 | Samsung Gear VR, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 3524021 | Nokia Nokia | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 3525242 | Samsung Tilbehør, Perfekt | 100 | no supported model resolved |
@@ -217,4 +218,3 @@ Mainnet ranked: **16**
 | DISCOVERY/MODEL | 20941359 | Nokia 1661-2 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 20952771 | Revolutionerende Nokia mobil | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 21099446 | Nokia 1209 | 125 | no supported model resolved |
-| DISCOVERY/MODEL | 23195118 | Samsung Galaxy GT-19070 | 125 | no supported model resolved |
