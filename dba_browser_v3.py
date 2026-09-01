@@ -2,18 +2,68 @@ from __future__ import annotations
 
 import asyncio
 import json
+from urllib.parse import quote
 
 import dba_browser_v2 as v2
 
 
-async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
-    """Read DBA's Product JSON from any script element.
+async def discover_cards_by_article(page, query: str) -> list[dict]:
+    """Bind id/url/title/price from one rendered DBA search-card article."""
+    url = f"{v2.BASE}/recommerce/forsale/search?q={quote(query)}"
+    response = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+    if response and response.status >= 400:
+        return []
+    await v2.dismiss_consent(page)
+    try:
+        await page.wait_for_selector("article.sf-search-ad", timeout=6000)
+    except Exception:
+        return []
+    for _ in range(3):
+        await page.mouse.wheel(0, 1700)
+        await page.wait_for_timeout(250)
 
-    DBA currently emits the canonical Product payload as valid JSON containing
-    @type=Product, sku, canonical url and nested offers. The script's `type`
-    attribute is not stable in headless rendering, so source validation is based
-    on the JSON object's own schema/identity, not a DOM attribute.
-    """
+    rows = await page.locator("article.sf-search-ad").evaluate_all(
+        """articles => articles.map(article => {
+          const link = article.querySelector('a.sf-search-ad-link[href*="/recommerce/forsale/item/"]')
+                    || article.querySelector('a[href*="/recommerce/forsale/item/"]');
+          if (!link) return null;
+          const m = link.href.match(/\/recommerce\/forsale\/item\/(\d+)/);
+          if (!m) return null;
+          return {listing_id:m[1], href:link.href, card_text:(article.innerText || '').trim()};
+        }).filter(Boolean)"""
+    )
+
+    out = []
+    seen = set()
+    for row in rows:
+        lid = str(row.get("listing_id") or "")
+        if not lid or lid in seen:
+            continue
+        seen.add(lid)
+        text = row.get("card_text") or ""
+        ask = v2.parse_dkk(text)
+        title = v2.card_title(text)
+        if ask is None or not title or not (500 <= ask <= v2.MAX_PRICE):
+            continue
+        out.append(
+            {
+                "listing_id": lid,
+                "canonical_url": v2.ITEM_URL.format(listing_id=lid),
+                "title": title,
+                "ask_t0": ask,
+                "currency_t0": "DKK",
+                "status_t0": "VISIBLE_LIVE_SEARCH_CARD",
+                "card_text": text[:2400],
+                "query": query,
+                "t0_at": v2.utcnow(),
+                "t0_source": "rendered_dba_card",
+            }
+        )
+    return out
+
+
+async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
+    """Read the same listing's canonical Product JSON object for T1."""
     url = v2.ITEM_URL.format(listing_id=listing_id)
     response = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
     if response and response.status >= 400:
@@ -73,6 +123,7 @@ async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
     return None
 
 
+v2.discover_cards = discover_cards_by_article
 v2.fetch_jsonld_item = fetch_jsonld_item_all_scripts
 
 
