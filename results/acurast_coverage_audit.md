@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T19:53:07.544537+00:00
+Generated: 2026-09-01T19:56:16.947575+00:00
 
 T0 listings <= ceiling: **2542**  
-Verified before quality: **50**  
-Final after quality: **47**  
-Mainnet ranked: **31**
+Verified before quality: **49**  
+Final after quality: **46**  
+Mainnet ranked: **30**
 
 ## Review buckets
 
 - Discovery/model blindspots: **250**
 - Core-compatible explicit models stopped by Pulse gate: **25**
-- T1 exits/errors: **51**
+- T1 exits/errors: **52**
 - Quality-gate review: **3**
 - Core allowlist review: **10**
 - Pulse-match review: **6**
@@ -91,6 +91,7 @@ Samsung Galaxy M12 | 100 | same-listing identity failed |
 | 23489080 | Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød. | 799 | same-listing identity failed |
 | 23461259 | Iphone 12 til salg | 800 | same-listing identity failed |
 | 24267594 | Blackberry 9000 NY | 800 | same-listing identity failed |
+| 24503932 | Samsung Galaxy Z Flip 3 smartphone 128 GB beige | 800 | HTTPError |
 | 24182944 | Honor 200 Smart 5G, Forest Green | 832 | same-listing identity failed |
 | 23426246 | Moto G84 5g | 849 | same-listing identity failed |
 | 22832399 | iPhone 13 – 6.1″ / Dual-kamera / Grade D Defekt skærm | 875 | same-listing identity failed |
@@ -385,32 +386,32 @@ Pris: 10.999 kr. | 0 | same-listing identity failed |
 | DISCOVERY/PULSE |  | Telefon - Samsung a13 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet, Perfekt |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | same-listing identity failed |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | same-listing identity failed |
 | T1 | 23524084 | Sony Erikson X10i | 0 | same-listing identity failed |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | same-listing identity failed |
 | T1 | 21890417 | NOKIA 101 - ALDRIG TAGET I BRUG, MEN OPLADET. | 80 | same-listing identity failed |
 | T1 | 21915570 | Nokia 105 4th edition | 100 | same-listing identity failed |
 | T1 | 23105113 | ￼
 
 Samsung Galaxy M12 | 100 | same-listing identity failed |
 | T1 | 5028465 | Samsung dumfone, God | 125 | same-listing identity failed |
-| T1 | 10676882 | ⭐️-  Nokia 6230 | 149 | same-listing identity failed |
 | T1 | 10671878 | ⭐️- Ericsson R600 | 149 | same-listing identity failed |
+| T1 | 10676882 | ⭐️-  Nokia 6230 | 149 | same-listing identity failed |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 10661446 | ⭐️· iPhone 4S - LÅST | 195 | same-listing identity failed |
-| T1 | 16497761 | ⭐️· 📱 Defekt iPhone 7 (Model A1778) - Til reservedele/reparation | 195 | same-listing identity failed |
 | T1 | 16517003 | ⭐️· 📱 Utestet iPhone 6 (Model A1586) - Reservedele/Reparation | 195 | same-listing identity failed |
+| T1 | 16497761 | ⭐️· 📱 Defekt iPhone 7 (Model A1778) - Til reservedele/reparation | 195 | same-listing identity failed |
 | T1 | 21721104 | Nokia 105 4th gen. | 200 | same-listing identity failed |
 | T1 | 1674771 | Nokia 2600, God | 250 | same-listing identity failed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| T1 | 10617030 | Stærk telelinse til din iPhone 5 og 5S | 295 | same-listing identity failed |
-| T1 | 10677878 | ⭐️· Doro 8050 - Brugervenlig mobiltelefon (DEFEKT) | 295 | same-listing identity failed |
 | T1 | 16660481 | ⭐️· 📱 iPhone 5S (Model A1457) inkl. Sort Etui | 295 | same-listing identity failed |
+| T1 | 10617030 | Stærk telelinse til din iPhone 5 og 5S | 295 | same-listing identity failed |
 | T1 | 23908460 | Apple iPhone 7 - 32 GB Black | 295 | same-listing identity failed |
 | T1 | 13663175 | Billigt guldnummer 71 34 44 23 | 299 | same-listing identity failed |
+| T1 | 10677878 | ⭐️· Doro 8050 - Brugervenlig mobiltelefon (DEFEKT) | 295 | same-listing identity failed |
 | T1 | 23975451 | Mobil som virker godt. | 300 | same-listing identity failed |
 | T1 | 24466307 | Mobiltelefon | 350 | same-listing identity failed |
-| T1 | 16496467 | ⭐️· 📱 iPhone 6 - Nulstillet og Klar til Ny Ejer! | 495 | same-listing identity failed |
 | T1 | 10666492 | ⭐️- iPhone 6 i original æske | 495 | same-listing identity failed |
+| T1 | 16496467 | ⭐️· 📱 iPhone 6 - Nulstillet og Klar til Ny Ejer! | 495 | same-listing identity failed |
 | T1 | 22742446 | Xiaomi a5 | 500 | same-listing identity failed |
 | T1 | 22946974 | Helt ny mobil brugt i 2 måneder | 500 | same-listing identity failed |
 | T1 | 23137399 | Nokia 2720a-2 i perfekt stand | 500 | same-listing identity failed |
@@ -428,13 +429,14 @@ Samsung Galaxy M12 | 100 | same-listing identity failed |
 | T1 | 23489080 | Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød. | 799 | same-listing identity failed |
 | T1 | 23461259 | Iphone 12 til salg | 800 | same-listing identity failed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | same-listing identity failed |
-| T1 | 23426246 | Moto G84 5g | 849 | same-listing identity failed |
+| T1 | 24503932 | Samsung Z Flip 3 | 800 | HTTPError |
 | T1 | 24182944 | Honor 200 Smart 5G, Forest Green | 832 | same-listing identity failed |
+| T1 | 23426246 | Moto G84 5g | 849 | same-listing identity failed |
 | T1 | 22832399 | iPhone 13 – 6.1″ / Dual-kamera / Grade D Defekt skærm | 875 | same-listing identity failed |
 | T1 | 23049288 | Motorola Edge 40 Neo | 900 | same-listing identity failed |
 | T1 | 23661735 | OnePlus 8T | 900 | same-listing identity failed |
-| T1 | 23715490 | Ulefone Armor X12 Pro, Black/Orange | 984 | same-listing identity failed |
 | T1 | 23847948 | Doro Leva L31s 4G, Red/White | 991 | same-listing identity failed |
+| T1 | 23715490 | Ulefone Armor X12 Pro, Black/Orange | 984 | same-listing identity failed |
 | T1 | 20096034 | Apple iPhone SE 2.gen 128GB (Sort) - Grade B | 995 | same-listing identity failed |
 | T1 | 21899115 | Apple iPhone SE 3.gen 64GB (Starlight) - Grade C | 1000 | same-listing identity failed |
 | QUALITY | 24523065 | Google Pixel 6 | 500 | BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel'] |
