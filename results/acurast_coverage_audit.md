@@ -1,8 +1,8 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T11:19:14.050504+00:00
+Generated: 2026-09-01T11:35:49.843898+00:00
 
-T0 listings <= ceiling: **2523**  
+T0 listings <= ceiling: **2521**  
 Verified before quality: **42**  
 Final after quality: **35**  
 Mainnet ranked: **16**
