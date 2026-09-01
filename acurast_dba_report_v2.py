@@ -4,9 +4,9 @@ from __future__ import annotations
 
 V1.6 ranks only on deployment-neutral Acurast Pulse Mainnet reward data. Discovery
 uses the union of the AcurastBot device registry and Pulse Mainnet model catalog,
-plus independent DBA brand-query discovery so one category feed is not a single
-point of failure. Explicit-title fallbacks are allowed only when the model also has
-a unique Mainnet Pulse reward match.
+plus independent DBA brand-query discovery inside the mobile-phone category so one
+category feed is not a single point of failure. Explicit-title fallbacks are allowed
+only when the model also has a unique Mainnet Pulse reward match.
 """
 
 import json
@@ -24,7 +24,7 @@ import acurast_dba_report as base
 _PULSE_CATALOG = None
 _ORIGINAL_FALLBACK = base.fallback_core_model
 _PULSE_FALLBACK_REJECTS = {}
-BRAND_QUERY_MAX_PAGES = 8
+BRAND_QUERY_MAX_PAGES = 12
 IDENTITY_VARIANTS = {
     'ultra','pro','lite','fe','neo','fusion','plus','ce','gt','master',
     'max','mini','fold','flip','note'
@@ -54,14 +54,41 @@ def strict_candidate_variant_ok(text, model):
         return False
     model_variants=model_tokens & IDENTITY_VARIANTS
     title_variants=text_tokens & IDENTITY_VARIANTS
-    # A variant named by the resolved model must be present in seller text.
     if model_variants - title_variants:
         return False
-    # Conversely, a seller-declared identity variant may not be silently dropped
-    # by resolving to a broader base model (e.g. Nord CE -> Nord).
     if title_variants - model_variants:
         return False
     return True
+
+
+def strict_model_of(text,catalog):
+    """Resolve catalog models without letting whitespace compaction create brands/models.
+
+    Compact matching is retained for genuine spellings such as S20FE/8T, but it is
+    allowed only when the seller brand is explicit or the model alias contains a
+    digit. This prevents prose such as 'one plus ...' from becoming OnePlus Nord.
+    """
+    text=re.sub(r'\bfan\s+edition\b','fe',text or '',flags=re.I)
+    nt=' '+base.norm(text)+' '
+    ct=base.compact(text)
+    seller_brand=base.detected_brand(text,catalog)
+    matches=[]
+    if seller_brand=='apple':
+        return None
+    for x in catalog:
+        xb=base.norm(x['brand'])
+        if seller_brand and xb!=seller_brand:
+            continue
+        if not strict_candidate_variant_ok(text,x['model']):
+            continue
+        for a in x['aliases']:
+            ca=base.compact(a)
+            boundary_hit=f' {a} ' in nt
+            compact_hit=(len(ca)>=5 and ca in ct and (seller_brand==xb or bool(re.search(r'\d',a))))
+            if boundary_hit or compact_hit:
+                toks=[t for t in base.norm(x['model']).split() if t not in {xb,'galaxy','phone','smartphone','5g','lte'}]
+                matches.append((sum(len(t) for t in toks),len(toks),len(ca),x['label']))
+    return max(matches)[3] if matches else None
 
 
 def pulse_gated_fallback(title, description, catalog):
@@ -161,8 +188,6 @@ def discover_category(session, found, catalog):
 
 
 def discovery_brands(catalog):
-    # Query every represented Android manufacturer once. This is dynamic and grows
-    # automatically with the authoritative registry/Pulse union.
     names={}
     for row in catalog:
         n=base.norm(row.get('brand'))
@@ -179,7 +204,10 @@ def discover_brand_queries(session, found, catalog):
         for page in range(1,BRAND_QUERY_MAX_PAGES+1):
             try:
                 payload=base.getj(session,base.SEARCH_API,{
-                    'q':brand,'sort':'PRICE_ASC','page':page
+                    'q':brand,
+                    'product_category':base.MOBILE_CATEGORY,
+                    'sort':'PRICE_ASC',
+                    'page':page
                 })
             except Exception as exc:
                 errors.append({'brand':brand,'page':page,'error':type(exc).__name__})
@@ -189,7 +217,7 @@ def discover_brand_queries(session, found, catalog):
             ids=tuple(str(d.get('id') or '') for d in docs)
             if ids==previous: break
             previous=ids; pages+=1; docs_total+=len(docs)
-            base.add_search_docs(found,docs,f'brand:{base.norm(brand)}:{page}',catalog)
+            base.add_search_docs(found,docs,f'brand-mobile:{base.norm(brand)}:{page}',catalog)
             prices=[base.amount(d.get('price')) for d in docs if base.amount(d.get('price')) is not None]
             if prices and min(prices)>base.MAX_ASK_DKK: break
     return pages,docs_total,errors
@@ -248,7 +276,7 @@ def main():
         'generated_at':datetime.now(timezone.utc).isoformat(),
         'gate_passed':True,'product_identity_gate':True,
         'max_ask_dkk':base.MAX_ASK_DKK,
-        'data_gate':'AcurastBot registry + Acurast Pulse Mainnet model discovery + DBA category/brand-query union + same-listing verification',
+        'data_gate':'AcurastBot registry + Acurast Pulse Mainnet model discovery + DBA mobile-category/brand-query union + same-listing verification',
         'counts':{
             'category_pages':category_pages,'category_docs':category_docs,
             'brand_query_pages':brand_pages,'brand_query_docs':brand_docs,
@@ -268,8 +296,8 @@ def main():
     },ensure_ascii=False,indent=2))
 
 
-# Patch the authoritative V1.6 resolver functions used by verification.
 base.build_catalog = build_catalog
+base.model_of = strict_model_of
 base.candidate_variant_ok = strict_candidate_variant_ok
 base.fallback_core_model = pulse_gated_fallback
 
