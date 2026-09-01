@@ -1,6 +1,6 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T19:44:31.830378+00:00
+Generated: 2026-09-01T19:49:40.291686+00:00
 
 T0 listings <= ceiling: **2542**  
 Verified before quality: **50**  
@@ -10,7 +10,7 @@ Mainnet ranked: **31**
 ## Review buckets
 
 - Discovery/model blindspots: **250**
-- Core-compatible explicit models stopped by Pulse gate: **26**
+- Core-compatible explicit models stopped by Pulse gate: **25**
 - Quality-gate review: **3**
 - Core allowlist review: **10**
 - Pulse-match review: **6**
@@ -19,19 +19,18 @@ Mainnet ranked: **31**
 
 | Candidate model | DBA title | Pulse result |
 |---|---|---|
-| 360° Beskyttelsescover m. film – Samsung S25 Edge – Helt nyt! | 360° Beskyttelsescover m. film – Samsung S25 Edge – Helt nyt! | NO_MATCH |
 | CMF by Nothing Phone 2 Pro | CMF by Nothing Phone 2 Pro | NO_MATCH |
 | FEIL! Poco x3 PRO! | FEIL! Poco x3 PRO! 256GB | NO_MATCH |
-| flot Motorola Edge 50 sælges. | flot Motorola Edge 50 sælges. | NO_MATCH |
+| flot Motorola Edge 50 | flot Motorola Edge 50 sælges. | NO_MATCH |
 | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus | NO_MATCH |
-| Honor 200 Smart 5G, Forest Green | Honor 200 Smart 5G, Forest Green | NO_MATCH |
+| Honor 200 | Honor 200 Smart 5G, Forest Green | NO_MATCH |
 | Motorola e14 med panserglas til salg | Motorola e14 med panserglas til salg | NO_MATCH |
 | Motorola Edge 20 | Motorola Edge 20 | NO_MATCH |
-| Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri | Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri | NO_MATCH |
+| Motorola Edge 50 Ultra | Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri | NO_MATCH |
 | Motorola G31 | Motorola G31 | NO_MATCH |
 | Motorola G53 sort | Motorola G53 128 GB sort | NO_MATCH |
 | Motorola g62 | Motorola g62 | NO_MATCH |
-| OnePlus OnePlus 7 Pro, Perfekt | OnePlus OnePlus 7 Pro, Perfekt | NO_MATCH |
+| OnePlus OnePlus 7 Pro | OnePlus OnePlus 7 Pro, Perfekt | NO_MATCH |
 | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse | NO_MATCH |
 | Poco X3 PRO " " | Poco X3 PRO "256GB" | NO_MATCH |
 | Samsung A23 | Samsung A23, 64 GB | NO_MATCH |
@@ -40,7 +39,7 @@ Mainnet ranked: **31**
 | Samsung Galaxy A15 blå | Samsung Galaxy A15 smartphone 128 GB blå | NO_MATCH |
 | Samsung galaxy A54. | Samsung galaxy A54. 128gb | NO_MATCH |
 | Samsung Galaxy A54 5G – – Sort | Samsung Galaxy A54 5G – 128 GB – Sort | NO_MATCH |
-| Samsung Galaxy S10 Lite ( /8GB) | Samsung Galaxy S10 Lite (128GB/8GB) | NO_MATCH |
+| Samsung Galaxy S10 Lite ( / | Samsung Galaxy S10 Lite (128GB/8GB) | NO_MATCH |
 | SAMSUNG GALAXY S21 FE + | SAMSUNG GALAXY S21 FE + | NO_MATCH |
 | Samsung S20 | Samsung S20 | NO_MATCH |
 | Telefon - Samsung a13 | Telefon - Samsung a13 | NO_MATCH |
