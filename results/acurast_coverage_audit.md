@@ -1,6 +1,6 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T19:01:59.968079+00:00
+Generated: 2026-09-01T19:04:41.753738+00:00
 
 T0 listings <= ceiling: **2538**  
 Verified before quality: **63**  
@@ -10,9 +10,37 @@ Mainnet ranked: **27**
 ## Review buckets
 
 - Discovery/model blindspots: **250**
+- Core-compatible explicit models stopped by Pulse gate: **22**
 - Quality-gate review: **16**
 - Core allowlist review: **11**
 - Pulse-match review: **9**
+
+## Core-compatible discovery models without unique Mainnet Pulse match
+
+| Candidate model | DBA title | Pulse result |
+|---|---|---|
+| 360° Beskyttelsescover m. film – Samsung S25 Edge – Helt nyt! | 360° Beskyttelsescover m. film – Samsung S25 Edge – Helt nyt! | NO_MATCH |
+| CMF by Nothing Phone 2 Pro | CMF by Nothing Phone 2 Pro | NO_MATCH |
+| FEIL! Poco x3 PRO! | FEIL! Poco x3 PRO! 256GB | NO_MATCH |
+| flot Motorola Edge 50 sælges. | flot Motorola Edge 50 sælges. | NO_MATCH |
+| Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus | NO_MATCH |
+| Honor 200 Smart 5G, Forest Green | Honor 200 Smart 5G, Forest Green | NO_MATCH |
+| Motorola e14 med panserglas til salg | Motorola e14 med panserglas til salg | NO_MATCH |
+| Motorola Edge 20 | Motorola Edge 20 | NO_MATCH |
+| Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri | Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri | NO_MATCH |
+| Motorola G31 | Motorola G31 | NO_MATCH |
+| Motorola G53 sort | Motorola G53 128 GB sort | NO_MATCH |
+| Motorola g62 | Motorola g62 | NO_MATCH |
+| Poco X3 PRO " " | Poco X3 PRO "256GB" | NO_MATCH |
+| Samsung A23 | Samsung A23, 64 GB | NO_MATCH |
+| Samsung A33 | Samsung A33 | NO_MATCH |
+| Samsung Galaxy A14 | Samsung Galaxy A14 | NO_MATCH |
+| Samsung Galaxy A15 blå | Samsung Galaxy A15 smartphone 128 GB blå | NO_MATCH |
+| Samsung galaxy A54. | Samsung galaxy A54. 128gb | NO_MATCH |
+| Samsung Galaxy A54 5G – – Sort | Samsung Galaxy A54 5G – 128 GB – Sort | NO_MATCH |
+| Samsung S20 | Samsung S20 | NO_MATCH |
+| Telefon - Samsung a13 | Telefon - Samsung a13 | NO_MATCH |
+| Xiaomi 13TPro Wallet, Perfekt | Xiaomi 13TPro Wallet, Perfekt | NO_MATCH |
 
 ## Suspects
 
@@ -218,3 +246,53 @@ Mainnet ranked: **27**
 | DISCOVERY/MODEL | 24202163 | mobiltelefon LG KG275 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24252212 | Samsung Xcover 3 VE | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24258890 | sony Ericsson | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24318487 | Nokia 105 Classic mobiltelefon | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24401127 | Nokia | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24414071 | Motorola One Vision | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24437849 | Samsung GT-E1080W – Som ny i original emballage (Ubrugt) | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24469516 | Original Nokia 3510i i blå | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24524578 | Nokia c2 mobil tlf | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 3514464 | Samsung Gear VR, Perfekt | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 3524021 | Nokia Nokia | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 3525242 | Samsung Tilbehør, Perfekt | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 3629913 | Nokia Bil lader, Perfekt | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 6828771 | HTC HTC Wildfire A3333, God | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 8238357 | Galaxy XCover 3 | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 877917 | HTC Smart, 256mb rom/256mb ram , God | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 22071573 | Nokia BL-5J mobilbatteri 1430mAh | 110 | no supported model resolved |
+| DISCOVERY/MODEL | 410310 | Andet mærke cover til HTC U11, Perfekt | 110 | no supported model resolved |
+| DISCOVERY/MODEL | 9903111 | HUAWEI y360-u61 | 110 | no supported model resolved |
+| DISCOVERY/MODEL | 23776613 | HTC mobile | 115 | no supported model resolved |
+| DISCOVERY/MODEL | 7711073 | Sony Ericsson mobil klassisk model i sølv | 115 | no supported model resolved |
+| DISCOVERY/MODEL | 15230408 | Nokia | 120 | no supported model resolved |
+| DISCOVERY/MODEL | 20659664 | Aldre model Samsung | 120 | no supported model resolved |
+| DISCOVERY/MODEL | 23921123 | Sony Ericsson T230 | 120 | no supported model resolved |
+| DISCOVERY/MODEL | 23940090 | Sony Ericsson J10i2 | 120 | no supported model resolved |
+| DISCOVERY/MODEL | 24070339 | Sony Ericsson Cyber-shot C702 | 120 | no supported model resolved |
+| DISCOVERY/MODEL | 2763429 | Motorola C139, Perfekt | 120 | no supported model resolved |
+| DISCOVERY/MODEL | 12911893 | HTC | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 14193193 | Sony Ericsson E15i | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 14451530 | Nokia 5230 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 14749004 | HUAWEI Y210-0100 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 14863438 | Sony Ericsson E15i | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 14928555 | Sony Ericsson T630 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 14948820 | LG P-990 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 14981718 | LG-P880 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 15137549 | Nokia 6021 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 15411328 | Samsung GT-B2710 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 15443037 | Nokia 3120 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 15492872 | Nokia 1680c | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 15743825 | HUAWEI Y360-U31 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 15819984 | Nokia 2600 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 16374406 | Nokia 1200 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 16866624 | Sony Ericsson K700i | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 17648279 | Nokia Lumia 520 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 17966865 | Sony Ericsson P1i | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 18136431 | Nokia 3120c-1c | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 18689761 | Nokia 2310 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 18824000 | Nokia 2626 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 18824751 | Nokia 6230 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 18843961 | Htc VOX | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 19167686 | Samsung E1120 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 19627882 | Nokia 6070 | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 19773863 | Nokia Corporation | 125 | no supported model resolved |
