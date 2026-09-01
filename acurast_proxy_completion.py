@@ -6,10 +6,16 @@ from pathlib import Path
 
 import acurast_valuation as compat
 import acurast_valuation_fixed as f
+from acurast_core_compat import core_compatibility as enhanced_core_compatibility
 from acurast_pulse_proxy import build_family_proxy
 
 LATEST=Path('results/acurast_latest.json')
 VALUATION=Path('results/acurast_valuation.json')
+_LEGACY_CORE=compat.core_compatibility
+
+
+def core_compatibility(model:str,title:str='',description:str=''):
+    return enhanced_core_compatibility(model,title,description,_LEGACY_CORE)
 
 
 def valued_from_proxy(row:dict, proxy:dict, hurdles:dict)->dict:
@@ -24,17 +30,18 @@ def valued_from_proxy(row:dict, proxy:dict, hurdles:dict)->dict:
     high_day=max(observed_day,baseline_day*1.10)
     high_year=high_day*f.DAYS_YEAR
 
-    # Deliberately low bid confidence: the absolute reward remains Mainnet-Pulse
-    # derived, but it is a conservative family proxy rather than an exact device row.
     confidence_factor=0.50
     bid_year=base_year*confidence_factor
+    core_ok,core_reason=core_compatibility(row['model'],row.get('title',''),row.get('description',''))
+    if not core_ok:
+        raise ValueError('proxy valuation attempted for Core-incompatible model')
 
     x={
         'listing_id':row['listing_id'],'url':row['url'],'title':row['title'],'model':row['model'],'ask':ask,
         'price_source':'DBA same-listing T1/T2 structured verification',
         'verified_timestamp':row.get('final_timestamp') or datetime.now(timezone.utc).isoformat(),
         'core_android_min':compat.CORE_MIN_ANDROID,'core_compatibility':True,
-        'core_compatibility_reason':compat.core_compatibility(row['model'],row.get('title',''),row.get('description',''))[1],
+        'core_compatibility_reason':core_reason,
         'reward_source':'ACURAST_PULSE_MAINNET_CHAIN_DERIVED',
         'reward_match_method':'FAMILY_CONSERVATIVE_PROXY','reward_match_confidence':proxy.get('proxy_confidence',0.55),
         'pulse_model_id':proxy['pulse_model_id'],'pulse_model':proxy['pulse_model'],'pulse_url':proxy.get('pulse_url'),
@@ -107,7 +114,7 @@ def main()->None:
         direct,method,_=f.match_pulse(model,pulse)
         if direct is not None and method not in {'NO_MATCH','AMBIGUOUS_EXACT','AMBIGUOUS_VARIANT'}:
             continue
-        core_ok,_=compat.core_compatibility(model,row.get('title',''),row.get('description',''))
+        core_ok,_=core_compatibility(model,row.get('title',''),row.get('description',''))
         if not core_ok:
             continue
         proxy=build_family_proxy(model,pulse)
@@ -124,11 +131,12 @@ def main()->None:
     val['ranked']=ranked
     added_ids={str(x['listing_id']) for x in added}
     val['unsupported']=[x for x in (val.get('unsupported') or []) if str(x.get('listing_id')) not in added_ids]
+    val['core_incompatible']=[x for x in (val.get('core_incompatible') or []) if str(x.get('listing_id')) not in added_ids]
     reward=val.setdefault('reward_source',{})
     reward['matched_listings']=len(ranked)
     reward['input_listings']=len(latest.get('ranked_by_verified_ask') or [])
     reward['coverage']=len(ranked)/max(1,reward['input_listings'])
-    reward['family_proxy_listings']=len(added)
+    reward['family_proxy_listings']=sum(1 for x in ranked if x.get('reward_match_method')=='FAMILY_CONSERVATIVE_PROXY')
     reward['family_proxy_policy']='same manufacturer/family + generation ±1; >=2 Mainnet Pulse references; minimum observed/baseline reward; LOW confidence and 0.50 bid factor'
     val['generated_at']=datetime.now(timezone.utc).isoformat()
     VALUATION.write_text(json.dumps(val,ensure_ascii=False,indent=2),encoding='utf-8')
