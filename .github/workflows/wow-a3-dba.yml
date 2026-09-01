@@ -1,4 +1,4 @@
-name: WoW DBA Price-First Laptop A3 Report
+name: WoW DBA Price-First Report
 
 on:
   workflow_dispatch:
@@ -11,13 +11,14 @@ on:
       - 'dba_browser_v3.py'
       - 'dba_browser_v4.py'
       - 'dba_browser_v5.py'
+      - 'dba_browser_v6.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: wow-a3-dba-report
+  group: wow-dba-price-first-report
   cancel-in-progress: false
 
 jobs:
@@ -36,48 +37,48 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
 
-      - name: Run browser-native verified WoW laptop/A3 scanner
-        run: python dba_browser_v5.py
+      - name: Run browser-native verified WoW price-first scanner
+        run: python dba_browser_v6.py
 
       - name: Validate publication gate
         run: |
           python - <<'PY'
-          import json, re
+          import json
           from pathlib import Path
           d = json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
           ranked = d.get('ranked') or []
-          assert all(r.get('format_gate') in {'LAPTOP','A3_READY','A3_READY_PSU_CHECK'} for r in ranked)
+          assert d.get('model_version') == 'DBA-WOW-BROWSER-PRICE-FIRST-SIMPLE-V6'
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
           assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
           assert all(r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
           assert all(r.get('currency') == 'DKK' for r in ranked)
           assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
+          assert all(r.get('form_factor') in {'LAPTOP','DESKTOP'} for r in ranked)
+          assert all(r.get('case_check') == ('NOT_NEEDED' if r.get('form_factor') == 'LAPTOP' else 'MANUAL_A3_CHECK') for r in ranked)
           assert len({str(r['listing_id']) for r in ranked}) == len(ranked), 'Duplicate listing ID in ranked output'
-          desktop_words = re.compile(r'\b(station(?:æ|a)r(?:e)?|desktop|tower)\b', re.I)
-          bad = [r for r in ranked if r.get('format_gate') == 'LAPTOP' and desktop_words.search(r.get('title',''))]
-          assert not bad, f'Desktop title misclassified as LAPTOP: {[(r.get("listing_id"), r.get("title")) for r in bad]}'
-          print(f"PASS: {len(ranked)} ranked laptop/A3 candidates; no desktop-title LAPTOP misclassifications")
+          assert all(ranked[i]['ask_t1'] <= ranked[i+1]['ask_t1'] for i in range(len(ranked)-1)), 'Ranking is not price-first'
+          print(f"PASS: {len(ranked)} verified price-first candidates; desktop case compatibility is informational only")
           PY
 
-      - name: Publish WoW laptop/A3 results
+      - name: Publish WoW price-first results
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p /tmp/wow-a3-results
-          cp results/wow_a3_latest.json /tmp/wow-a3-results/
-          cp results/wow_a3_report.md /tmp/wow-a3-results/
+          mkdir -p /tmp/wow-results
+          cp results/wow_a3_latest.json /tmp/wow-results/
+          cp results/wow_a3_report.md /tmp/wow-results/
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
-            cp /tmp/wow-a3-results/* results/
+            cp /tmp/wow-results/* results/
             git add results/wow_a3_latest.json results/wow_a3_report.md
             if git diff --cached --quiet; then
-              echo "No WoW A3 result changes"
+              echo "No WoW result changes"
               exit 0
             fi
-            git commit -m "Update verified WoW laptop-A3 DBA report [skip ci]"
+            git commit -m "Update verified WoW price-first DBA report [skip ci]"
             if git push origin main; then exit 0; fi
             sleep 2
           done
