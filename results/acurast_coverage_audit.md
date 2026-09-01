@@ -1,10 +1,10 @@
 # Acurast coverage audit
 
-Generated: 2026-08-31T21:23:29.291833+00:00
+Generated: 2026-09-01T07:17:39.172069+00:00
 
-T0 listings <= ceiling: **2494**  
-Verified before quality: **41**  
-Final after quality: **34**  
+T0 listings <= ceiling: **2506**  
+Verified before quality: **42**  
+Final after quality: **35**  
 Mainnet ranked: **16**
 
 ## Review buckets
@@ -12,7 +12,7 @@ Mainnet ranked: **16**
 - Discovery/model blindspots: **250**
 - Quality-gate review: **7**
 - Core allowlist review: **11**
-- Pulse-match review: **7**
+- Pulse-match review: **8**
 
 ## Suspects
 
@@ -178,6 +178,7 @@ Mainnet ranked: **16**
 | DISCOVERY/MODEL | 24469516 | Original Nokia 3510i i blå | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 3514464 | Samsung Gear VR, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 3524021 | Nokia Nokia | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 3525242 | Samsung Tilbehør, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 3629913 | Nokia Bil lader, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 6828771 | HTC HTC Wildfire A3333, God | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 8238357 | Galaxy XCover 3 | 100 | no supported model resolved |
@@ -217,4 +218,3 @@ Mainnet ranked: **16**
 | DISCOVERY/MODEL | 23195118 | Samsung Galaxy GT-19070 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 23358689 | Nokia mobiltelefon klassisk model med kamera | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 23853426 | Nokia 1661 | 125 | no supported model resolved |
-| DISCOVERY/MODEL | 24025535 | Nokia C1-01 retro mobil – original æske + lader | 125 | no supported model resolved |

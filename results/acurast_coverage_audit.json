@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-31T21:23:29.291833+00:00",
+  "generated_at": "2026-09-01T07:17:39.172069+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2494,
-    "verified_before_quality": 41,
-    "final_after_quality": 34,
+    "t0_unique": 2506,
+    "verified_before_quality": 42,
+    "final_after_quality": 35,
     "ranked": 16,
     "discovery_model_blindspots": 250,
     "quality_review": 7,
     "core_review": 11,
-    "pulse_review": 7
+    "pulse_review": 8
   },
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 250,
     "QUALITY": 7,
     "CORE": 11,
-    "PULSE": 7
+    "PULSE": 8
   },
   "suspects": [
     {
@@ -1462,6 +1462,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "3525242",
+      "title": "Samsung Tilbehør, Perfekt",
+      "ask": 100,
+      "url": "https://www.dba.dk/recommerce/forsale/item/3525242",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "3629913",
       "title": "Nokia Bil lader, Perfekt",
       "ask": 100,
@@ -2261,15 +2270,6 @@
       "reason": "no supported model resolved"
     },
     {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24448849",
-      "title": "Samsung Galaxy S 4 mini",
-      "ask": 150,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24448849",
-      "reason": "no supported model resolved"
-    },
-    {
       "stage": "QUALITY",
       "severity": "MEDIUM",
       "listing_id": "24436403",
@@ -2471,6 +2471,14 @@
     {
       "stage": "PULSE",
       "severity": "MEDIUM",
+      "listing_id": "24506237",
+      "model": "Samsung Galaxy S20",
+      "url": null,
+      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
+    },
+    {
+      "stage": "PULSE",
+      "severity": "MEDIUM",
       "listing_id": "23858419",
       "model": "Samsung S21 Ultra",
       "url": null,
@@ -2478,21 +2486,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2410,
-    "T1": 42,
+    "PRODUCT_IDENTITY": 2415,
+    "T1": 48,
     "T1_ERROR": 1
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1402,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 962,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 964,
+    "no supported model resolved": 1405,
     "weak complete-phone evidence": 6,
     "explicit brand mismatch: htc != realme": 1,
     "accessory/part title": 10,
-    "same-listing identity failed": 40,
+    "same-listing identity failed": 46,
     "listing disposed": 2,
     "description indicates part without explicit functional phone evidence": 25,
+    "HTTPError": 1,
     "explicit brand mismatch: motorola != oppo": 2,
-    "explicit brand mismatch: oneplus != one plus": 2,
-    "HTTPError": 1
+    "explicit brand mismatch: oneplus != one plus": 2
   }
 }
