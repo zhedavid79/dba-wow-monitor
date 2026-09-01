@@ -1,19 +1,21 @@
 {
-  "generated_at": "2026-09-01T19:07:24.447420+00:00",
+  "generated_at": "2026-09-01T19:19:03.014451+00:00",
   "gate_passed": true,
   "product_identity_gate": true,
   "max_ask_dkk": 1000,
-  "data_gate": "AcurastBot registry + Acurast Pulse Mainnet model discovery + conservative Core-compatible title fallback + DBA same-listing verification",
+  "data_gate": "AcurastBot registry + Acurast Pulse Mainnet model discovery + DBA category/brand-query union + same-listing verification",
   "counts": {
     "category_pages": 49,
     "category_docs": 2597,
+    "brand_query_pages": 130,
+    "brand_query_docs": 6147,
     "catalog_models": 307,
-    "t0_unique": 2538,
-    "t1_attempted": 2538,
-    "t1_verified_active_product": 63,
-    "product_identity_excluded": 2427,
-    "final_refetched": 47,
-    "bundle_price_identity_excluded": 16
+    "t0_unique": 7616,
+    "t1_attempted": 7616,
+    "t1_verified_active_product": 49,
+    "product_identity_excluded": 7101,
+    "final_refetched": 45,
+    "bundle_price_identity_excluded": 4
   },
   "ranked_by_verified_ask": [
     {
@@ -23,7 +25,8 @@
       "model_t0": "Motorola E13",
       "brand_t0": "motorola",
       "sources": [
-        "category:11"
+        "category:11",
+        "brand:motorola:2"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/22585550",
@@ -36,7 +39,55 @@
       "ask_t1": 150,
       "ask_t2": 150,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:16.596233+00:00",
+      "final_timestamp": "2026-09-01T19:17:20.013250+00:00",
+      "bundle_price_identity_ok": true,
+      "bundle_price_identity_reason": "single-device price + variant identity passed"
+    },
+    {
+      "listing_id": "18853378",
+      "title_t0": "Dragonlance Krøniker 2-3 (helt nye og ulæste), af Margareth Weis & Tracy Hickman",
+      "ask_t0": 175,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "brand:realme:5"
+      ],
+      "identity_ok": true,
+      "url": "https://www.dba.dk/recommerce/forsale/item/18853378",
+      "title": "Dragonlance Krøniker 2-3 (helt nye og ulæste), af Margareth Weis & Tracy Hickman",
+      "price": 175,
+      "disposed": false,
+      "trade_type": "Til salg",
+      "description": "Splinternye, perfekt stand.\n\nPå dansk. Indbunden hardback.\n\n- Krøniker bind 2: Dragons of Winter Night\n- Krøniker bind 3: Dragons of Spring dawning\n\nSælges samlet til prisen. \n\nSender gerne, blot modtager betaler portoen.\nSikker handel via mobilepay. \n\n\nBeskrivelse:\n\nFra det fjerne nord rykker de frem – Drageherrerne med deres hære af skællede krigere. De er fortrop for Mørkets Dronning, som vil underlægge sig verden én gang for alle.\n\nMennesker, elvere og dværge er splittet af gensidig mistro og fordomme og formår ikke at holde sammen mod den fælles fjende.\n\nHåbet står til Tanis og hans venner, der strejfer om i deres søgen efter de magiske drageorber – det eneste der måske kan standse Mørkets dragehær.\n\n\n\nSøgeord: superbøger bog bøger roman børnebøger børnebog ungdomsbog ungdomsbøger fiks færdig fiks/færdig fantasy science fiction krimi thriller sci-fi horror gys sci fi pulp forgotten realms weiss hickmann legender.",
+      "model": "OnePlus Nord",
+      "ask_t1": 175,
+      "ask_t2": 175,
+      "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
+      "final_timestamp": "2026-09-01T19:17:26.970889+00:00",
+      "bundle_price_identity_ok": true,
+      "bundle_price_identity_reason": "single-device price + variant identity passed"
+    },
+    {
+      "listing_id": "19448293",
+      "title_t0": "Høretelefoner Redmi Buds 5 Pro",
+      "ask_t0": 270,
+      "model_t0": "Realme 5 Pro",
+      "brand_t0": null,
+      "sources": [
+        "brand:redmi:1"
+      ],
+      "identity_ok": true,
+      "url": "https://www.dba.dk/recommerce/forsale/item/19448293",
+      "title": "Høretelefoner Redmi Buds 5 Pro",
+      "price": 270,
+      "disposed": false,
+      "trade_type": "Til salg",
+      "description": "Høretelefoner Redmi Buds 5 Pro",
+      "model": "Realme 5 Pro",
+      "ask_t1": 270,
+      "ask_t2": 270,
+      "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
+      "final_timestamp": "2026-09-01T19:17:54.233708+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -47,7 +98,8 @@
       "model_t0": "OnePlus 8T",
       "brand_t0": "oneplus",
       "sources": [
-        "category:24"
+        "category:24",
+        "brand:oneplus:2"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24483101",
@@ -60,7 +112,7 @@
       "ask_t1": 350,
       "ask_t2": 350,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:44.154221+00:00",
+      "final_timestamp": "2026-09-01T19:18:10.215339+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -71,7 +123,10 @@
       "model_t0": "Redmi 12C",
       "brand_t0": null,
       "sources": [
-        "category:26"
+        "category:26",
+        "brand:redmi:1",
+        "brand:xiaomi:6",
+        "brand:xiaomi redmi:1"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/22610659",
@@ -84,7 +139,7 @@
       "ask_t1": 396,
       "ask_t2": 396,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:45.161595+00:00",
+      "final_timestamp": "2026-09-01T19:18:12.130554+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -95,7 +150,8 @@
       "model_t0": "OnePlus 9",
       "brand_t0": "oneplus",
       "sources": [
-        "category:27"
+        "category:27",
+        "brand:oneplus:3"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24099425",
@@ -108,7 +164,7 @@
       "ask_t1": 400,
       "ask_t2": 400,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:48.147851+00:00",
+      "final_timestamp": "2026-09-01T19:18:16.297843+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -132,7 +188,7 @@
       "ask_t1": 400,
       "ask_t2": 400,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:48.616800+00:00",
+      "final_timestamp": "2026-09-01T19:18:17.046158+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -156,7 +212,7 @@
       "ask_t1": 400,
       "ask_t2": 400,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:49.800107+00:00",
+      "final_timestamp": "2026-09-01T19:18:17.556161+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -180,7 +236,31 @@
       "ask_t1": 400,
       "ask_t2": 400,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:48.385810+00:00",
+      "final_timestamp": "2026-09-01T19:18:16.519796+00:00",
+      "bundle_price_identity_ok": true,
+      "bundle_price_identity_reason": "single-device price + variant identity passed"
+    },
+    {
+      "listing_id": "21978066",
+      "title_t0": "Dune part one to six af Frank Herbert (paperbacks)",
+      "ask_t0": 429,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "brand:one plus:6"
+      ],
+      "identity_ok": true,
+      "url": "https://www.dba.dk/recommerce/forsale/item/21978066",
+      "title": "Dune part one to six af Frank Herbert (paperbacks)",
+      "price": 429,
+      "disposed": false,
+      "trade_type": "Til salg",
+      "description": "Bøgerne er på engelsk fra Hodder (bind 1+2 fra 2008'ish) og Gallanz (bind 3 til 6 fra 2005'ish). For de respektive forlag er forsiderne illustreret af Dominic Harman og siden Robert Nicholls.\nDe sælges kun samlet for kr. 429,- plus fragt.\nKan sendes for kr. 50,-\n\n1. Dune\n2. Dune Messiah\n3. Children of Dune\n4. God Emperor of Dune\n5. Heretics of Dune\n6. Chapter House Dune",
+      "model": "OnePlus 9 Plus",
+      "ask_t1": 429,
+      "ask_t2": 429,
+      "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
+      "final_timestamp": "2026-09-01T19:18:18.879372+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -191,7 +271,8 @@
       "model_t0": "OnePlus 8 Pro",
       "brand_t0": "oneplus",
       "sources": [
-        "category:29"
+        "category:29",
+        "brand:oneplus:3"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24452651",
@@ -204,7 +285,7 @@
       "ask_t1": 450,
       "ask_t2": 450,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:51.724083+00:00",
+      "final_timestamp": "2026-09-01T19:18:20.935296+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -228,7 +309,7 @@
       "ask_t1": 450,
       "ask_t2": 450,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:51.396680+00:00",
+      "final_timestamp": "2026-09-01T19:18:20.537614+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -239,7 +320,8 @@
       "model_t0": "OnePlus Nord 2T",
       "brand_t0": "oneplus",
       "sources": [
-        "category:30"
+        "category:30",
+        "brand:oneplus:3"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/23179862",
@@ -252,31 +334,7 @@
       "ask_t1": 499,
       "ask_t2": 499,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:52.630705+00:00",
-      "bundle_price_identity_ok": true,
-      "bundle_price_identity_reason": "single-device price + variant identity passed"
-    },
-    {
-      "listing_id": "23455321",
-      "title_t0": "Xiamoni Redmi 14C ( med ny skærm )",
-      "ask_t0": 500,
-      "model_t0": "Xiaomi Redmi 14C",
-      "brand_t0": null,
-      "sources": [
-        "category:33"
-      ],
-      "identity_ok": true,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23455321",
-      "title": "Xiamoni Redmi 14C ( med ny skærm )",
-      "price": 500,
-      "disposed": false,
-      "trade_type": "Til salg",
-      "description": "Utrolig flot Xiaomi Redmi 14C, med helt ny skærm.\n\nTelefonen indeholder 4GB RAM + 4GB virtuelle RAM, og den har 128GB lagerplads.\n\nSoftware er sidst opdateret juli 2026\nTelefonen er nulstillet og den er klar til en ny bruger\n\nØnskes der mere info omkring dens muligheder. Så søg da på: xiaomi redmi 14C specs\nOg find den på gsmarena.\n\nPrisen er fastsat ud fra telefonens stand, og alder.\n\nDerfor tager jeg desværre ikke imod bud.",
-      "model": "Xiaomi Redmi 14C",
-      "ask_t1": 500,
-      "ask_t2": 500,
-      "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:56.286229+00:00",
+      "final_timestamp": "2026-09-01T19:18:22.218418+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -287,7 +345,10 @@
       "model_t0": "Xiaomi Redmi 9",
       "brand_t0": null,
       "sources": [
-        "category:33"
+        "category:33",
+        "brand:redmi:1",
+        "brand:xiaomi:7",
+        "brand:xiaomi redmi:1"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/21698235",
@@ -300,7 +361,7 @@
       "ask_t1": 500,
       "ask_t2": 500,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:06:54.883851+00:00",
+      "final_timestamp": "2026-09-01T19:18:25.853870+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -311,7 +372,8 @@
       "model_t0": "Motorola Edge 40 Neo",
       "brand_t0": "motorola",
       "sources": [
-        "category:35"
+        "category:35",
+        "brand:motorola:4"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24293758",
@@ -324,7 +386,7 @@
       "ask_t1": 600,
       "ask_t2": 600,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:03.633453+00:00",
+      "final_timestamp": "2026-09-01T19:18:37.368519+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -335,7 +397,8 @@
       "model_t0": "Motorola Edge 50 Fusion",
       "brand_t0": "motorola",
       "sources": [
-        "category:36"
+        "category:36",
+        "brand:motorola:4"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/23235041",
@@ -348,7 +411,7 @@
       "ask_t1": 600,
       "ask_t2": 600,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:02.779421+00:00",
+      "final_timestamp": "2026-09-01T19:18:35.967571+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -372,31 +435,31 @@
       "ask_t1": 600,
       "ask_t2": 600,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:02.624417+00:00",
+      "final_timestamp": "2026-09-01T19:18:36.500301+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
     {
-      "listing_id": "22998960",
-      "title_t0": "Samsung Galaxy S20, 128 GB, grå 📳",
+      "listing_id": "24489757",
+      "title_t0": "Samsung Galaxy s20+ 5G",
       "ask_t0": 600,
-      "model_t0": "Samsung Galaxy S20",
+      "model_t0": "Samsung Galaxy S20+",
       "brand_t0": "samsung",
       "sources": [
-        "category:36"
+        "category:35"
       ],
       "identity_ok": true,
-      "url": "https://www.dba.dk/recommerce/forsale/item/22998960",
-      "title": "Samsung Galaxy S20, 128 GB, grå 📳",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24489757",
+      "title": "Samsung Galaxy s20+ 5G",
       "price": 600,
       "disposed": false,
       "trade_type": "Til salg",
-      "description": "Telefonen er i pæn stand, men batteriet trænger til udskiftning (holder ikke hele dagen længere). \n\nDer er en svag farveforskel på skærmen fra ca. 1/4 fra toppen, (forsøgt vist på billede med 'Velkommen' tekst), men ikke noget, som påvirker brugen eller som ses tydeligt.\n\nDen er nulstillet og der medfølger et cover.",
-      "model": "Samsung Galaxy S20",
+      "description": "Samsung Galaxy s20+ 5G med revne i skærm sælges.  Telefonen fungerer fint men som det kan ses på billederne har telefonen ramt en dørkarm og dermed er der kommet et sted hvor skærmen er revnet - se billeder.   Telefonen fungerer fint og der medfølger headset, cover samt oplader.  Den holder fint på batteri og er opdateret så meget det er muligt, den er med andre ord klar til brug hvis man kan leve med revnen.",
+      "model": "Samsung Galaxy S20+",
       "ask_t1": 600,
       "ask_t2": 600,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:02.181118+00:00",
+      "final_timestamp": "2026-09-01T19:18:37.683655+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -420,31 +483,7 @@
       "ask_t1": 650,
       "ask_t2": 650,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:04.763095+00:00",
-      "bundle_price_identity_ok": true,
-      "bundle_price_identity_reason": "single-device price + variant identity passed"
-    },
-    {
-      "listing_id": "23693040",
-      "title_t0": "OnePlus Nord 2 5G",
-      "ask_t0": 700,
-      "model_t0": "OnePlus Nord 2 5G",
-      "brand_t0": "oneplus",
-      "sources": [
-        "category:39"
-      ],
-      "identity_ok": true,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23693040",
-      "title": "OnePlus Nord 2 5G",
-      "price": 700,
-      "disposed": false,
-      "trade_type": "Til salg",
-      "description": "Sælger denne OnePlus Nord 2 5G i den flotte blå farve. Telefonen fungerer fint og er nulstillet og klar til en ny ejer.\n\nSpecifikationer:\n- 128 GB lagerplads\n- RAM: 8 GB\n- 4,500 mAh dual-cell batteri\n- 50+8+2Mpx kamera\n\nTelefonen er i god stand, men har en lille ridse og en mindre bule i øverste højre hjørne. Dette er udelukkende kosmetisk og påvirker absolut ikke brugen, skærmen eller kameraet.\n\nSælges kun telefonen (intet tilbehør/oplader). Original købskvittering haves og kan fremvises ved salg.",
-      "model": "OnePlus Nord 2 5G",
-      "ask_t1": 700,
-      "ask_t2": 700,
-      "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:07.366266+00:00",
+      "final_timestamp": "2026-09-01T19:18:38.579012+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -468,7 +507,7 @@
       "ask_t1": 700,
       "ask_t2": 700,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:07.758455+00:00",
+      "final_timestamp": "2026-09-01T19:18:42.797270+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -492,7 +531,7 @@
       "ask_t1": 700,
       "ask_t2": 700,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:06.244665+00:00",
+      "final_timestamp": "2026-09-01T19:18:40.831437+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -516,7 +555,7 @@
       "ask_t1": 700,
       "ask_t2": 700,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:08.508490+00:00",
+      "final_timestamp": "2026-09-01T19:18:43.591756+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -540,7 +579,7 @@
       "ask_t1": 700,
       "ask_t2": 700,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:08.277068+00:00",
+      "final_timestamp": "2026-09-01T19:18:43.384669+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -551,7 +590,8 @@
       "model_t0": "Motorola G85",
       "brand_t0": "motorola",
       "sources": [
-        "category:40"
+        "category:40",
+        "brand:motorola:4"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24114191",
@@ -564,7 +604,7 @@
       "ask_t1": 750,
       "ask_t2": 750,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:10.093534+00:00",
+      "final_timestamp": "2026-09-01T19:18:45.456054+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -575,7 +615,8 @@
       "model_t0": "OnePlus Nord",
       "brand_t0": "oneplus",
       "sources": [
-        "category:40"
+        "category:40",
+        "brand:oneplus:3"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/23537344",
@@ -588,7 +629,7 @@
       "ask_t1": 750,
       "ask_t2": 750,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:09.566988+00:00",
+      "final_timestamp": "2026-09-01T19:18:45.037148+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -599,7 +640,8 @@
       "model_t0": "OnePlus Nord 2T",
       "brand_t0": "oneplus",
       "sources": [
-        "category:40"
+        "category:40",
+        "brand:oneplus:3"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/21612519",
@@ -612,31 +654,7 @@
       "ask_t1": 790,
       "ask_t2": 790,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:10.862050+00:00",
-      "bundle_price_identity_ok": true,
-      "bundle_price_identity_reason": "single-device price + variant identity passed"
-    },
-    {
-      "listing_id": "23749479",
-      "title_t0": "OnePlus Nord 2.  12 / 256 gb",
-      "ask_t0": 799,
-      "model_t0": "OnePlus Nord 2 5G",
-      "brand_t0": "oneplus",
-      "sources": [
-        "category:41"
-      ],
-      "identity_ok": true,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23749479",
-      "title": "OnePlus Nord 2.  12 / 256 gb",
-      "price": 799,
-      "disposed": false,
-      "trade_type": "Til salg",
-      "description": "Model DN2103\nMed rigeligt plads og hukommelse:\n12 gb ram\n256 gb inter plads (HDD)\n\nObs: front skærmen har ridser, se billeder. Den fungere fint, og se ses ikke ved lys skærm. Ses ved bestemte vi vinkler \nMan kan ikke rigtig mærke dem når finger kører over glasset.\nKun hvis man med sine negle kører hen over glasset kan man mærke ridserne\n\nAndroid model DN2103\n\n128 gb lager\n8 gb ram\n4500 mAh batteri\nKamera:\nForside 32MP\nBagside 50mp + 8mp + 2mp\n\nFront har stadig \"panzerglas\" på\n\nSpecs:\n\nBody\nDimensions 159.1 x 73.3 x 8.3 mm (6.26 x 2.89 x 0.33 in)\nWeight 189 g (6.67 oz)\nBuild Glass front (Gorilla Glass 5), glass back (Gorilla Glass 5), plastic frame\nSIM Nano-SIM + Nano-SIM\nDisplay\nType Fluid AMOLED, 90Hz, HDR10+\nSize 6.43 inches, 99.8 cm2 (~85.6% screen-to-body ratio)\nResolution 1080 x 2400 pixels, 20:9 ratio (~409 ppi density)\nProtection Corning Gorilla Glass 5\nPlatform\nOS Android 11, upgradable to Android 13, OxygenOS 13\nChipset Mediatek Dimensity 1200 (6 nm)\nCPU Octa-core (1x3.0 GHz Cortex-A78 & 3x2.6 GHz Cortex-A78 & 4x2.0 GHz Cortex-A55)\nGPU Mali-G77 MC9\nMemory\nCard slot No\nInternal 128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM, 256GB 12GB RAM\nUFS 3.1\nMain Camera\nTriple 50 MP, f/1.9, 24mm (wide), 1/1.56\", 1.0µm, PDAF, OIS\n8 MP, f/2.3, 120˚ (ultrawide)\nAuxiliary lens\nFeatures Dual-LED flash, HDR, panorama\nVideo 4K@30fps, 1080p@30/60/120fps, gyro-EIS\nSelfie Camera\nSingle 32 MP, f/2.5, (wide), 1/2.8\", 0.8µm\nFeatures Auto HDR\nVideo 1080p@30fps, gyro-EIS\nSound\nLoudspeaker Yes, with stereo speakers\n3.5mm jack No\nComms\nWLAN Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct\nBluetooth 5.2, A2DP, LE, aptX HD\nPositioning GPS, GLONASS, GALILEO, BDS, SBAS, NavIC\nNFC Yes\nRadio No\nUSB USB Type-C 2.0, OTG\nFeatures\nSensors Fingerprint (under display, optical), accelerometer, gyro, proximity, compass\nBattery\nType Li-Po 4500 mAh\nCharging 65W wired, PD, 100% in 30 min\nMisc\nColors Gray Sierra, Blue Haze, Green Wood, Pac-Man Edition\nModels DN2101, DN2103",
-      "model": "OnePlus Nord 2 5G",
-      "ask_t1": 799,
-      "ask_t2": 799,
-      "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:10.990152+00:00",
+      "final_timestamp": "2026-09-01T19:18:46.294219+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -647,7 +665,8 @@
       "model_t0": "OnePlus 10 Pro",
       "brand_t0": "oneplus",
       "sources": [
-        "category:41"
+        "category:41",
+        "brand:oneplus:3"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24453052",
@@ -660,7 +679,7 @@
       "ask_t1": 800,
       "ask_t2": 800,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:13.826801+00:00",
+      "final_timestamp": "2026-09-01T19:18:49.835385+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -671,7 +690,8 @@
       "model_t0": "OnePlus 8T",
       "brand_t0": "oneplus",
       "sources": [
-        "category:41"
+        "category:41",
+        "brand:oneplus:3"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24525008",
@@ -684,7 +704,7 @@
       "ask_t1": 800,
       "ask_t2": 800,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:14.163424+00:00",
+      "final_timestamp": "2026-09-01T19:18:50.530883+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -695,7 +715,8 @@
       "model_t0": "OnePlus Nord 2T",
       "brand_t0": "oneplus",
       "sources": [
-        "category:42"
+        "category:42",
+        "brand:oneplus:3"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/23992209",
@@ -708,7 +729,7 @@
       "ask_t1": 800,
       "ask_t2": 800,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:13.108501+00:00",
+      "final_timestamp": "2026-09-01T19:18:49.054479+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -732,7 +753,7 @@
       "ask_t1": 800,
       "ask_t2": 800,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:13.783000+00:00",
+      "final_timestamp": "2026-09-01T19:18:49.813551+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -756,7 +777,7 @@
       "ask_t1": 800,
       "ask_t2": 800,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:13.401054+00:00",
+      "final_timestamp": "2026-09-01T19:18:49.320436+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -780,7 +801,7 @@
       "ask_t1": 800,
       "ask_t2": 800,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:13.955657+00:00",
+      "final_timestamp": "2026-09-01T19:18:49.953247+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -791,7 +812,8 @@
       "model_t0": "Nothing Phone 1",
       "brand_t0": "nothing phone",
       "sources": [
-        "category:43"
+        "category:43",
+        "brand:nothing phone:1"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24086458",
@@ -804,55 +826,7 @@
       "ask_t1": 899,
       "ask_t2": 899,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:15.650812+00:00",
-      "bundle_price_identity_ok": true,
-      "bundle_price_identity_reason": "single-device price + variant identity passed"
-    },
-    {
-      "listing_id": "23588486",
-      "title_t0": "OnePlus Nord 2 5g smartphone 128 GB grå",
-      "ask_t0": 899,
-      "model_t0": "OnePlus Nord 2 5G",
-      "brand_t0": "oneplus",
-      "sources": [
-        "category:43"
-      ],
-      "identity_ok": true,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23588486",
-      "title": "OnePlus Nord 2 5g smartphone 128 GB grå",
-      "price": 899,
-      "disposed": false,
-      "trade_type": "Til salg",
-      "description": "OnePlus mobil med 128 GB lagerplads i grå farve. Har stor skærm, triple kamera bagpå og USB-C stik i bunden.\n\nStår som ny\nBack bumper følger med\n\nAndroid model DN2103\n\n128 gb lager\n8 gb ram\n4500 mAh batteri\nKamera:\nForside 32MP\nBagside 50mp + 8mp + 2mp\n\nFront har stadig \"panzerglas\" på\n\nSpecs:\n\nBody\nDimensions 159.1 x 73.3 x 8.3 mm (6.26 x 2.89 x 0.33 in)\nWeight 189 g (6.67 oz)\nBuild Glass front (Gorilla Glass 5), glass back (Gorilla Glass 5), plastic frame\nSIM Nano-SIM + Nano-SIM\nDisplay\nType Fluid AMOLED, 90Hz, HDR10+\nSize 6.43 inches, 99.8 cm2 (~85.6% screen-to-body ratio)\nResolution 1080 x 2400 pixels, 20:9 ratio (~409 ppi density)\nProtection Corning Gorilla Glass 5\nPlatform\nOS Android 11, upgradable to Android 13, OxygenOS 13\nChipset Mediatek Dimensity 1200 (6 nm)\nCPU Octa-core (1x3.0 GHz Cortex-A78 & 3x2.6 GHz Cortex-A78 & 4x2.0 GHz Cortex-A55)\nGPU Mali-G77 MC9\nMemory\nCard slot No\nInternal 128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM, 256GB 12GB RAM\n  UFS 3.1\nMain Camera\nTriple 50 MP, f/1.9, 24mm (wide), 1/1.56\", 1.0µm, PDAF, OIS\n8 MP, f/2.3, 120˚ (ultrawide)\nAuxiliary lens\nFeatures Dual-LED flash, HDR, panorama\nVideo 4K@30fps, 1080p@30/60/120fps, gyro-EIS\nSelfie Camera\nSingle 32 MP, f/2.5, (wide), 1/2.8\", 0.8µm\nFeatures Auto HDR\nVideo 1080p@30fps, gyro-EIS\nSound\nLoudspeaker Yes, with stereo speakers\n3.5mm jack No\nComms\nWLAN Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct\nBluetooth 5.2, A2DP, LE, aptX HD\nPositioning GPS, GLONASS, GALILEO, BDS, SBAS, NavIC\nNFC Yes\nRadio No\nUSB USB Type-C 2.0, OTG\nFeatures\nSensors Fingerprint (under display, optical), accelerometer, gyro, proximity, compass\nBattery\nType Li-Po 4500 mAh\nCharging 65W wired, PD, 100% in 30 min\nMisc\nColors Gray Sierra, Blue Haze, Green Wood, Pac-Man Edition\nModels DN2101, DN2103",
-      "model": "OnePlus Nord 2 5G",
-      "ask_t1": 899,
-      "ask_t2": 899,
-      "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:15.561878+00:00",
-      "bundle_price_identity_ok": true,
-      "bundle_price_identity_reason": "single-device price + variant identity passed"
-    },
-    {
-      "listing_id": "23793233",
-      "title_t0": "Xiaomi REDMI A5 - 4/128GB (NY/Uåbnet)",
-      "ask_t0": 899,
-      "model_t0": "Xiaomi Redmi A5",
-      "brand_t0": null,
-      "sources": [
-        "category:43"
-      ],
-      "identity_ok": true,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23793233",
-      "title": "Xiaomi REDMI A5 - 4/128GB (NY/Uåbnet)",
-      "price": 899,
-      "disposed": false,
-      "trade_type": "Til salg",
-      "description": "Helt ny Uåbnet, og Forseglet.\n\nModerne Smartphone årgang 2025. \nXiaomi REDMI A5 4/128GB\nFarve - Midnight Black. \n\nsælges, fra det velkendte kvalitets mærke Xiaomi. \nEn meget udstyret model med bl.a. Face Unlock og Finger print.\ngod skærm, og et godt batteri med hurtigt opladning muligt. AUX port. Kraftig processer. AI dual kamera. Og meget mere. Her er specifikke detaljer noteret om den.\n\n\n• Skærm: 6,88” LCD HD+\n• Opløsning: 1640 × 720 pixels\n• Opdateringshastighed: Op til 120Hz\n• Touch sampling: Op til 240Hz\n• Processor: Unisoc T7250 Octa-Core\n• CPU: Op til 1,8GHz\n• GPU: ARM Mali-G57 MP1\n• RAM: 4GB\n• Lager: 128GB eMMC 5.1\n• microSD: Ja\n• System: Android 15 Go Edition\n• Hovedkamera: 32MP\n• Frontkamera: 8MP\n• Video: Op til 1080p / 30fps\n• Batteri: 5200 mAh\n• Opladning: 15W USB-C\n• Mobilnetværk: 4G LTE\n• Wi-Fi: 802.11 a/b/g/n/ac, 2,4GHz + 5GHz\n• Bluetooth: 5.2\n• GPS: GPS / Galileo / GLONASS / BeiDou\n• SIM: Dual Nano-SIM\n• Fingeraftryk: Ja, sideplaceret\n• Ansigtsoplåsning: Ja\n• 3,5mm jack: Ja\n• FM-radio: Ja\n• Højttaler: Mono\n• USB: USB-C\n• Sensorer: Accelerometer, elektronisk kompas, virtuel proximity, virtuel ambient light\n• Mål: 171,7 × 77,8 × 8,26 mm\n• Vægt: ca. 193g",
-      "model": "Xiaomi Redmi A5",
-      "ask_t1": 899,
-      "ask_t2": 899,
-      "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:15.585356+00:00",
+      "final_timestamp": "2026-09-01T19:18:52.156950+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -876,7 +850,7 @@
       "ask_t1": 900,
       "ask_t2": 900,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:17.378895+00:00",
+      "final_timestamp": "2026-09-01T19:18:54.155236+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -887,7 +861,10 @@
       "model_t0": "Redmi Note 13 Pro",
       "brand_t0": null,
       "sources": [
-        "category:45"
+        "category:45",
+        "brand:redmi:1",
+        "brand:xiaomi:8",
+        "brand:xiaomi redmi:1"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/24396538",
@@ -900,7 +877,7 @@
       "ask_t1": 999,
       "ask_t2": 999,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:19.825942+00:00",
+      "final_timestamp": "2026-09-01T19:18:56.370125+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -911,7 +888,8 @@
       "model_t0": "OnePlus 10 Pro",
       "brand_t0": "oneplus",
       "sources": [
-        "category:47"
+        "category:47",
+        "brand:oneplus:4"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/22032520",
@@ -924,7 +902,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:20.410353+00:00",
+      "final_timestamp": "2026-09-01T19:18:58.015281+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -935,7 +913,8 @@
       "model_t0": "OnePlus 8T",
       "brand_t0": "oneplus",
       "sources": [
-        "category:48"
+        "category:48",
+        "brand:oneplus:4"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/23007415",
@@ -948,7 +927,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:21.017621+00:00",
+      "final_timestamp": "2026-09-01T19:18:58.892519+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -959,7 +938,8 @@
       "model_t0": "OnePlus Nord CE 2",
       "brand_t0": "oneplus",
       "sources": [
-        "category:48"
+        "category:48",
+        "brand:oneplus:4"
       ],
       "identity_ok": true,
       "url": "https://www.dba.dk/recommerce/forsale/item/23098313",
@@ -972,7 +952,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:21.630962+00:00",
+      "final_timestamp": "2026-09-01T19:18:58.967522+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -996,7 +976,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:22.463832+00:00",
+      "final_timestamp": "2026-09-01T19:19:00.153208+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -1020,7 +1000,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:23.794881+00:00",
+      "final_timestamp": "2026-09-01T19:19:01.911644+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -1044,7 +1024,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:23.652425+00:00",
+      "final_timestamp": "2026-09-01T19:19:01.830138+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -1068,7 +1048,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:22.299540+00:00",
+      "final_timestamp": "2026-09-01T19:19:00.144764+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -1092,7 +1072,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:22.769237+00:00",
+      "final_timestamp": "2026-09-01T19:19:00.112111+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -1116,7 +1096,7 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:22.178970+00:00",
+      "final_timestamp": "2026-09-01T19:18:59.596384+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     },
@@ -1140,53 +1120,18 @@
       "ask_t1": 1000,
       "ask_t2": 1000,
       "product_identity_reason": "registry/Pulse catalog + strict brand/model/variant identity + live product identity passed",
-      "final_timestamp": "2026-09-01T19:07:22.348433+00:00",
+      "final_timestamp": "2026-09-01T19:19:00.136761+00:00",
       "bundle_price_identity_ok": true,
       "bundle_price_identity_reason": "single-device price + variant identity passed"
     }
   ],
   "excluded": [
     {
-      "listing_id": "24436403",
-      "title": "Samsung note 20 ultra Motorola Edge 40",
-      "ask": 299,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24436403",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['note', 'ultra'] absent from resolved model 'Motorola Edge 40'"
-    },
-    {
-      "listing_id": "5187616",
-      "title": "OnePlus Nord N100 BE2013, 64 gb + 4gb",
-      "ask": 300,
-      "url": "https://www.dba.dk/recommerce/forsale/item/5187616",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['plus'] absent from resolved model 'OnePlus Nord'"
-    },
-    {
       "listing_id": "24523065",
       "title": "Google Pixel 6",
       "ask": 500,
       "url": "https://www.dba.dk/recommerce/forsale/item/24523065",
       "reason": "BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']"
-    },
-    {
-      "listing_id": "23875733",
-      "title": "SAMSUNG GALAXY S21 FE +",
-      "ask": 500,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23875733",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['plus'] absent from resolved model 'Samsung S21 FE'"
-    },
-    {
-      "listing_id": "23715568",
-      "title": "Oneplus nord Ce2 lite 128gb",
-      "ask": 599,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23715568",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['lite'] absent from resolved model 'OnePlus Nord CE 2'"
-    },
-    {
-      "listing_id": "23651092",
-      "title": "OnePlus Nord CE 3 Lite 5G – 128 GB – Velholdt",
-      "ask": 600,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23651092",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['ce', 'lite'] absent from resolved model 'OnePlus Nord'"
     },
     {
       "listing_id": "20212101",
@@ -1196,53 +1141,11 @@
       "reason": "BUNDLE/PRICE IDENTITY GATE: multiple explicit item prices in live description: [859, 1500]"
     },
     {
-      "listing_id": "24489757",
-      "title": "Samsung Galaxy s20+ 5G",
-      "ask": 600,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24489757",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['plus'] absent from resolved model 'Samsung Galaxy S20 5G'"
-    },
-    {
-      "listing_id": "1614374",
-      "title": "Andet mærke EMPORIA LIFE PLUS, God",
-      "ask": 650,
-      "url": "https://www.dba.dk/recommerce/forsale/item/1614374",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['plus'] absent from resolved model 'OnePlus Nord'"
-    },
-    {
-      "listing_id": "24317162",
-      "title": "Xiaomi redmi note 12 pro 5G",
-      "ask": 700,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24317162",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['pro'] absent from resolved model 'Redmi Note 12 5G'"
-    },
-    {
-      "listing_id": "23293025",
-      "title": "Oneplus Nord CE 3 Lite 5G (MED NY SKÆRM )",
-      "ask": 800,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23293025",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['ce', 'lite'] absent from resolved model 'OnePlus Nord'"
-    },
-    {
-      "listing_id": "23534379",
-      "title": "OnePlus Nord CE 2 Lite 128GB Sort",
-      "ask": 800,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23534379",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['lite'] absent from resolved model 'OnePlus Nord CE 2'"
-    },
-    {
-      "listing_id": "23610267",
-      "title": "Samsung Galaxy S10 Lite (128GB/8GB)",
-      "ask": 849,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23610267",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['lite'] absent from resolved model 'Samsung Galaxy S10'"
-    },
-    {
-      "listing_id": "22999374",
-      "title": "OnePlus Nord CE 3 Lite 5G – SOM NY!",
-      "ask": 850,
-      "url": "https://www.dba.dk/recommerce/forsale/item/22999374",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['ce', 'lite'] absent from resolved model 'OnePlus Nord'"
+      "listing_id": "18245208",
+      "title": "2 ipad og 2 mobiltelefoner",
+      "ask": 625,
+      "url": "https://www.dba.dk/recommerce/forsale/item/18245208",
+      "reason": "BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type"
     },
     {
       "listing_id": "24522985",
@@ -1250,13 +1153,6 @@
       "ask": 1000,
       "url": "https://www.dba.dk/recommerce/forsale/item/24522985",
       "reason": "BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['google', 'pixel']"
-    },
-    {
-      "listing_id": "21847153",
-      "title": "OnePlus Nord CE 3 Lite 5G, 128/8 GB, Pastel",
-      "ask": 1000,
-      "url": "https://www.dba.dk/recommerce/forsale/item/21847153",
-      "reason": "BUNDLE/PRICE IDENTITY GATE: variant/model conflict: live title variant(s) ['ce', 'lite'] absent from resolved model 'OnePlus Nord'"
     }
   ],
   "search_errors": [],
@@ -1325,18 +1221,18 @@
       "max_ask": 400
     },
     {
-      "model": "OnePlus Nord",
+      "model": "OnePlus 9 Plus",
       "n": 1,
-      "min_ask": 750,
-      "median_ask": 750,
-      "max_ask": 750
+      "min_ask": 429,
+      "median_ask": 429,
+      "max_ask": 429
     },
     {
-      "model": "OnePlus Nord 2 5G",
-      "n": 3,
-      "min_ask": 700,
-      "median_ask": 799,
-      "max_ask": 899
+      "model": "OnePlus Nord",
+      "n": 2,
+      "min_ask": 175,
+      "median_ask": 462.5,
+      "max_ask": 750
     },
     {
       "model": "OnePlus Nord 2T",
@@ -1351,6 +1247,13 @@
       "min_ask": 1000,
       "median_ask": 1000,
       "max_ask": 1000
+    },
+    {
+      "model": "Realme 5 Pro",
+      "n": 1,
+      "min_ask": 270,
+      "median_ask": 270,
+      "max_ask": 270
     },
     {
       "model": "Redmi 12C",
@@ -1402,13 +1305,6 @@
       "max_ask": 900
     },
     {
-      "model": "Samsung Galaxy S20",
-      "n": 1,
-      "min_ask": 600,
-      "median_ask": 600,
-      "max_ask": 600
-    },
-    {
       "model": "Samsung Galaxy S20 FE",
       "n": 1,
       "min_ask": 400,
@@ -1421,6 +1317,13 @@
       "min_ask": 700,
       "median_ask": 700,
       "max_ask": 700
+    },
+    {
+      "model": "Samsung Galaxy S20+",
+      "n": 1,
+      "min_ask": 600,
+      "median_ask": 600,
+      "max_ask": 600
     },
     {
       "model": "Samsung Galaxy S21",
@@ -1479,25 +1382,11 @@
       "max_ask": 1000
     },
     {
-      "model": "Xiaomi Redmi 14C",
-      "n": 1,
-      "min_ask": 500,
-      "median_ask": 500,
-      "max_ask": 500
-    },
-    {
       "model": "Xiaomi Redmi 9",
       "n": 1,
       "min_ask": 500,
       "median_ask": 500,
       "max_ask": 500
-    },
-    {
-      "model": "Xiaomi Redmi A5",
-      "n": 1,
-      "min_ask": 899,
-      "median_ask": 899,
-      "max_ask": 899
     }
   ],
   "bundle_price_identity_gate": true
