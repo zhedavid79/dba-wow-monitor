@@ -1,13 +1,13 @@
 # DBA WoW-PC verified price report v6
 
-Generated: 2026-09-01T19:34:39.603985+00:00
+Generated: 2026-09-01T19:48:00.541303+00:00
 
 Current schema/source gate: **PASS** — live item 24524580
 Historical price-binding regression: **PASS (static fixture; no live historical listing dependency)**
 
 Discovery queries: 62
-Structured T0 unique records: 1597
-T0 GPU-promising records sent to T1 (no top-100 cap): 247
+Structured T0 unique records: 1598
+T0 GPU-promising records sent to T1 (no top-100 cap): 248
 T1 verified complete systems with parsed GPU+CPU: 114
 
 | Rank | ASK | Class | GPU | CPU | Listing |
@@ -65,4 +65,4 @@ T1 verified complete systems with parsed GPU+CPU: 114
 
 ## Rejection diagnostics
 
-{"CPU_PARSE_FAILED": 133}
+{"CPU_PARSE_FAILED": 134}
