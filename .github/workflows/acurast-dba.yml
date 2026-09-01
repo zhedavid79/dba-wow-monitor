@@ -13,8 +13,10 @@ on:
       - 'acurast_dba_report_v2.py'
       - 'acurast_dba_report_v3.py'
       - 'acurast_listing_quality.py'
+      - 'acurast_core_compat.py'
       - 'acurast_valuation.py'
       - 'acurast_valuation_fixed.py'
+      - 'acurast_valuation_v16.py'
       - 'acurast_pulse_proxy.py'
       - 'acurast_proxy_completion.py'
       - 'acurast_coverage_audit.py'
@@ -69,7 +71,7 @@ jobs:
         run: python acurast_listing_quality.py
 
       - name: Build Acurast procurement valuation
-        run: python acurast_valuation_fixed.py
+        run: python acurast_valuation_v16.py
 
       - name: Complete conservative Mainnet Pulse family proxies
         run: python acurast_proxy_completion.py
@@ -88,10 +90,12 @@ jobs:
           latest = json.loads(Path('results/acurast_latest.json').read_text(encoding='utf-8'))
           valuation = json.loads(Path('results/acurast_valuation.json').read_text(encoding='utf-8'))
           audit = json.loads(Path('results/acurast_coverage_audit.json').read_text(encoding='utf-8'))
+          discovery = json.loads(Path('results/acurast_discovery_audit.json').read_text(encoding='utf-8'))
 
           assert latest.get('gate_passed') is True, 'DBA data gate is not PASS'
           assert latest.get('product_identity_gate') is True, 'Product identity gate is not PASS'
           assert int(latest.get('counts', {}).get('final_refetched', 0)) > 0, 'No final-refetched listings'
+          assert latest.get('max_ask_dkk') == 1000, 'User-selected 1,000 DKK hard ceiling changed'
           assert valuation.get('valuation_gate') is True, 'Valuation gate is not PASS'
           assert valuation.get('dba_same_listing_gate') is True, 'Valuation same-listing gate is not PASS'
           assert audit.get('audit_gate') is True, 'Coverage audit gate is not PASS'
@@ -105,12 +109,30 @@ jobs:
           assert reward.get('base_is_deployment_neutral') is True, 'BASE is not deployment-neutral'
           coverage = float(reward.get('coverage') or 0)
           assert coverage >= 0.40, f'Mainnet Pulse reward coverage too low: {coverage:.1%}'
+
           ranked = valuation.get('ranked') or []
           assert ranked, 'No Mainnet Pulse-ranked listings'
           assert all(x.get('reward_source') == 'ACURAST_PULSE_MAINNET_CHAIN_DERIVED' for x in ranked), 'Mixed/unknown absolute reward source in ranked output'
           assert all(float(x.get('acu_epoch_base') or 0) > 0 for x in ranked), 'Non-positive BASE ACU/epoch in ranked output'
           assert all(float(x.get('acu_epoch_high') or 0) >= float(x.get('acu_epoch_base') or 0) for x in ranked), 'HIGH below BASE'
           assert all(float(x.get('pulse_observed_acu_epoch') or 0) >= float(x.get('acu_epoch_base') or 0) for x in ranked), 'BASE includes boost or exceeds observed epoch'
+
+          latest_rows = latest.get('ranked_by_verified_ask') or []
+          latest_ids = {str(x.get('listing_id')) for x in latest_rows}
+          ranked_ids = {str(x.get('listing_id')) for x in ranked}
+          assert ranked_ids <= latest_ids, 'Ranked listing does not belong to the same latest generation'
+          assert len(ranked_ids) == len(ranked), 'Duplicate listing IDs in ranked output'
+
+          core_ids = {str(x.get('listing_id')) for x in (valuation.get('core_incompatible') or [])}
+          unsupported_ids = {str(x.get('listing_id')) for x in (valuation.get('unsupported') or [])}
+          explained = ranked_ids | core_ids | unsupported_ids
+          assert latest_ids <= explained, 'A final-refetched listing disappeared without ranked/core/unsupported disposition'
+
+          all_rejects = discovery.get('all_rejects') or []
+          raw_blind = [r for r in all_rejects if r.get('stage') == 'PRODUCT_IDENTITY' and r.get('reason') == 'no supported model resolved' and r.get('brand_t0') not in (None, 'apple')]
+          assert audit.get('audit_integrity', {}).get('blindspots_reconstructed_from_all_rejects') is True, 'Coverage audit is not reconstructed from full reject stream'
+          assert int(audit.get('counts', {}).get('discovery_model_blindspots', -1)) == len(raw_blind), 'Coverage audit truncates or loses model blindspots'
+          assert len(audit.get('suspects') or []) >= len(raw_blind), 'Coverage suspect list is truncated below model-blindspot count'
 
           latest_ts = datetime.fromisoformat(latest['generated_at'].replace('Z', '+00:00'))
           valuation_ts = datetime.fromisoformat(valuation['generated_at'].replace('Z', '+00:00'))
@@ -119,7 +141,7 @@ jobs:
           skew = abs((valuation_ts - latest_ts).total_seconds())
           assert age < 1800, f'Result already stale at publication: {age:.0f}s'
           assert skew < 300, f'Latest/valuation generation skew too large: {skew:.0f}s'
-          print(f'Publication contract PASS: {latest["counts"]["final_refetched"]} final listings, Pulse coverage={coverage:.1%}, age={age:.0f}s, generation_skew={skew:.0f}s')
+          print(f'Publication contract PASS: {latest["counts"]["final_refetched"]} final listings, Pulse coverage={coverage:.1%}, age={age:.0f}s, generation_skew={skew:.0f}s, blindspots={len(raw_blind)}')
           PY
 
       - name: Publish Acurast results
