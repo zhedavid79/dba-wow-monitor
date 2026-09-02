@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-02T08:21:54.358784+00:00",
+  "generated_at": "2026-09-02T10:18:38.814674+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2539,
-    "verified_before_quality": 52,
-    "final_after_quality": 52,
-    "ranked": 38,
-    "discovery_model_blindspots": 975,
+    "t0_unique": 2541,
+    "verified_before_quality": 53,
+    "final_after_quality": 53,
+    "ranked": 39,
+    "discovery_model_blindspots": 976,
     "pulse_gated_discovery_review": 23,
     "t1_exit_review": 6,
     "quality_review": 0,
@@ -15,7 +15,7 @@
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 975,
+    "DISCOVERY/MODEL": 976,
     "DISCOVERY/PULSE": 23,
     "T1": 6,
     "CORE": 5,
@@ -7693,6 +7693,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24537816",
+      "title": "BlackView BV6200 Pro sælges",
+      "ask": 650,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24537816",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "23582479",
       "title": "Motorola Moto G41 128 gb",
       "ask": 665,
@@ -9030,16 +9039,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "23524084",
       "model": null,
       "title": "Sony Erikson X10i",
@@ -9055,6 +9054,16 @@
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9365,20 +9374,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
-      "sources": [
-        "brand-mobile:huawei:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
@@ -9405,6 +9400,20 @@
       "reason": "live price missing",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+    },
+    {
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "17621913",
@@ -9451,21 +9460,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 6,
-    "PRODUCT_IDENTITY": 2481
+    "PRODUCT_IDENTITY": 2482,
+    "T1": 6
   },
   "discovery_reject_reason_counts": {
+    "no supported model resolved": 1439,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 993,
     "live price missing": 3,
-    "no supported model resolved": 1437,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 995,
     "weak complete-phone evidence": 5,
-    "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 9,
+    "resolved model variant is not supported by seller text": 11,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 24
+    "description indicates part without explicit functional phone evidence": 25
   },
   "audit_integrity": {
-    "all_rejects_count": 2487,
+    "all_rejects_count": 2488,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
