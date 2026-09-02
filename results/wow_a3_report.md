@@ -1,6 +1,6 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Generated: 2026-09-01T22:59:14.106686+00:00
+Generated: 2026-09-02T06:08:29.778233+00:00
 Retrieval: Rendered DBA article.sf-search-ad T0 + same-ID DBA Product JSON T1
 Verified ranked records: 70
 Ranking: pris først; kabinet/A3 undersøges manuelt efter ranking.
@@ -42,7 +42,7 @@ Ranking: pris først; kabinet/A3 undersøges manuelt efter ranking.
 | 27 | 5499 kr. | DESKTOP | MANUAL_A3_CHECK | ACCEPTABLE | RTX 2060 Super | Core i7-8700 | 22590297 | [Kraftig Gaming PC – i7-8700 / RTX 2060 SUPER 8GB / 500gb ssd / 24](https://www.dba.dk/recommerce/forsale/item/22590297) |
 | 28 | 5500 kr. | DESKTOP | MANUAL_A3_CHECK | ACCEPTABLE | RTX 3060 | Ryzen 5 5600 | 24347213 | [Ryzen 5 5600 | RTX 3060 12GB | 16GB RAM | 1TB SSD | B550 | 750W |](https://www.dba.dk/recommerce/forsale/item/24347213) |
 | 29 | 5500 kr. | DESKTOP | MANUAL_A3_CHECK | ACCEPTABLE | RTX 3060 | Core i7-10700 | 24046654 | [Gaming PC – RTX 3060 12GB & i7-10700K](https://www.dba.dk/recommerce/forsale/item/24046654) |
-| 30 | 5600 kr. | DESKTOP | MANUAL_A3_CHECK | SWEET SPOT | RTX 2080 Super | Core i7-10700 | 24400931 | [Gaming Pc 32gb ram rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24400931) |
+| 30 | 5600 kr. | DESKTOP | MANUAL_A3_CHECK | ACCEPTABLE | RTX 2080 | Core i7-10700 | 24400931 | [Gaming Pc 32gb ram rtx 2080](https://www.dba.dk/recommerce/forsale/item/24400931) |
 | 31 | 5750 kr. | DESKTOP | MANUAL_A3_CHECK | SWEET SPOT | RTX 2080 Super | Core i5-13600 | 24377907 | [i5-13600KF, RTX 2080 Super Founders Edition, Gaming stationær](https://www.dba.dk/recommerce/forsale/item/24377907) |
 | 32 | 5995 kr. | LAPTOP | NOT_NEEDED | SWEET SPOT | RTX 3070 | Core i7-12700 | 22747652 | [ASUS TUF Gaming F17 – i7-12700H / RTX 3070 / 16 GB RAM / 1 TB SSD](https://www.dba.dk/recommerce/forsale/item/22747652) |
 | 33 | 5999 kr. | DESKTOP | MANUAL_A3_CHECK | ACCEPTABLE | RTX 3060 | Ryzen 5 3600 | 24376084 | [Kompakt gamer pc m. RTX 3060, R5 3600 mm.](https://www.dba.dk/recommerce/forsale/item/24376084) |
@@ -86,4 +86,4 @@ Ranking: pris først; kabinet/A3 undersøges manuelt efter ranking.
 
 ## Objektive diskvalifikationer
 
-{"SPEC_PARSE_FAILED": 82, "NOT_VERIFIED_COMPLETE_PC_CATEGORY": 57, "T1_IDENTITY_UNVERIFIED": 2}
+{"SPEC_PARSE_FAILED": 82, "NOT_VERIFIED_COMPLETE_PC_CATEGORY": 58, "T1_IDENTITY_UNVERIFIED": 2}
