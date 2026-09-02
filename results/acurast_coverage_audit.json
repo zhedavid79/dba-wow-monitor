@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-02T06:20:46.527284+00:00",
+  "generated_at": "2026-09-02T08:21:54.358784+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
     "t0_unique": 2539,
-    "verified_before_quality": 53,
-    "final_after_quality": 53,
-    "ranked": 39,
-    "discovery_model_blindspots": 977,
-    "pulse_gated_discovery_review": 24,
+    "verified_before_quality": 52,
+    "final_after_quality": 52,
+    "ranked": 38,
+    "discovery_model_blindspots": 975,
+    "pulse_gated_discovery_review": 23,
     "t1_exit_review": 6,
     "quality_review": 0,
     "core_review": 5,
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 977,
-    "DISCOVERY/PULSE": 24,
+    "DISCOVERY/MODEL": 975,
+    "DISCOVERY/PULSE": 23,
     "T1": 6,
     "CORE": 5,
     "PULSE": 9
@@ -6001,15 +6001,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "11963180",
-      "title": "Samsung GALAXY S4 GT-19505",
-      "ask": 400,
-      "url": "https://www.dba.dk/recommerce/forsale/item/11963180",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "14021674",
       "title": "Nokia 6101 og 6300",
       "ask": 400,
@@ -6680,15 +6671,6 @@
       "title": "Nokia 8210",
       "ask": 500,
       "url": "https://www.dba.dk/recommerce/forsale/item/18357123",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "18879281",
-      "title": "Samsung Galaxy A14",
-      "ask": 500,
-      "url": "https://www.dba.dk/recommerce/forsale/item/18879281",
       "reason": "no supported model resolved"
     },
     {
@@ -8260,6 +8242,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24457198",
+      "title": "nubia air",
+      "ask": 800,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24457198",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "3293691",
       "title": "Motorola G, Perfekt",
       "ask": 800,
@@ -8773,15 +8764,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24457198",
-      "title": "nubia air",
-      "ask": 1000,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24457198",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24494285",
       "title": "Samsung Watch 8",
       "ask": 1000,
@@ -8989,16 +8971,6 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
-      "model": "Samsung Galaxy A14",
-      "title": "Samsung Galaxy A14",
-      "ask": null,
-      "url": null,
-      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
-    },
-    {
-      "stage": "DISCOVERY/PULSE",
-      "severity": "MEDIUM",
-      "listing_id": null,
       "model": "Samsung Galaxy A15",
       "title": "Samsung Galaxy A15 smartphone 128 GB blå",
       "ask": null,
@@ -9058,6 +9030,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "23524084",
       "model": null,
       "title": "Sony Erikson X10i",
@@ -9073,16 +9055,6 @@
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9349,13 +9321,6 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
-      "candidate_model": "Samsung Galaxy A14",
-      "title": "Samsung Galaxy A14",
-      "pulse_match_method": "NO_MATCH",
-      "pulse_match_confidence": 0.0,
-      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
-    },
-    {
       "candidate_model": "Samsung Galaxy A15",
       "title": "Samsung Galaxy A15 smartphone 128 GB blå",
       "pulse_match_method": "NO_MATCH",
@@ -9400,6 +9365,20 @@
   ],
   "t1_exits": [
     {
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
@@ -9426,20 +9405,6 @@
       "reason": "live price missing",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
-    },
-    {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
-      "sources": [
-        "brand-mobile:huawei:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "17621913",
@@ -9486,13 +9451,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2480,
-    "T1": 6
+    "T1": 6,
+    "PRODUCT_IDENTITY": 2481
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 991,
     "live price missing": 3,
-    "no supported model resolved": 1440,
+    "no supported model resolved": 1437,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 995,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 9,
@@ -9500,7 +9465,7 @@
     "description indicates part without explicit functional phone evidence": 24
   },
   "audit_integrity": {
-    "all_rejects_count": 2486,
+    "all_rejects_count": 2487,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

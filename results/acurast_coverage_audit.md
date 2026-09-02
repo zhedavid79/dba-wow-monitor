@@ -1,16 +1,16 @@
 # Acurast coverage audit
 
-Generated: 2026-09-02T06:20:46.527284+00:00
+Generated: 2026-09-02T08:21:54.358784+00:00
 
 T0 listings <= ceiling: **2539**  
-Verified before quality: **53**  
-Final after quality: **53**  
-Mainnet ranked: **39**
+Verified before quality: **52**  
+Final after quality: **52**  
+Mainnet ranked: **38**
 
 ## Review buckets
 
-- Discovery/model blindspots: **977**
-- Core-compatible explicit models stopped by Pulse gate: **24**
+- Discovery/model blindspots: **975**
+- Core-compatible explicit models stopped by Pulse gate: **23**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
 - Core compatibility review: **5**
@@ -37,7 +37,6 @@ Mainnet ranked: **39**
 | Samsung A23 | Samsung A23, 64 GB | NO_MATCH |
 | Samsung A33 | Samsung A33 | NO_MATCH |
 | Samsung Galaxy A 14 | Samsung Galaxy A-14 | NO_MATCH |
-| Samsung Galaxy A14 | Samsung Galaxy A14 | NO_MATCH |
 | Samsung Galaxy A15 | Samsung Galaxy A15 smartphone 128 GB blå | NO_MATCH |
 | Samsung galaxy A54 | Samsung galaxy A54. 128gb | NO_MATCH |
 | Samsung Galaxy A54 5G | Samsung Galaxy A54 5G – 128 GB – Sort | NO_MATCH |
@@ -727,7 +726,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 6004220 | HUAWEI P10 lite, 3 , God | 399 | no supported model resolved |
 | DISCOVERY/MODEL | 9151989 | 2 stk Nokia 3110 NH8 | 399 | no supported model resolved |
 | DISCOVERY/MODEL | 11337478 | Huawei P10 Lite smartphone (sort) | 400 | no supported model resolved |
-| DISCOVERY/MODEL | 11963180 | Samsung GALAXY S4 GT-19505 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 14021674 | Nokia 6101 og 6300 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 1782229 | Samsung Galaxy xcover 2 , Perfekt | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 1792703 | Sony Ericsson Z600, Rimelig | 400 | no supported model resolved |
@@ -803,7 +801,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1776846 | Samsung Nexus S, Perfekt | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 18270326 | Nokia 6210 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 18357123 | Nokia 8210 | 500 | no supported model resolved |
-| DISCOVERY/MODEL | 18879281 | Samsung Galaxy A14 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 18938812 | Nokia n80 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 18940254 | Nokia samling | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 19148275 | Nokia mobiler flere slags | 500 | no supported model resolved |
@@ -978,6 +975,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24243621 | Sony Xperia Play (Playstation telefonen) | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24316564 | Samsung A33 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24337500 | Moto g77 | 800 | no supported model resolved |
+| DISCOVERY/MODEL | 24457198 | nubia air | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 3293691 | Motorola G, Perfekt | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 3408188 | Nokia 6.2, 64gb , Perfekt | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 3608942 | HUAWEI Y6 2019, 32 , Perfekt | 800 | no supported model resolved |
@@ -1035,7 +1033,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24301662 | Samsung Galaxy A26 5G smartphone 128 GB sort - helt ny og uåbnet | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24303310 | Samsung galaxy A54. 128gb | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24396508 | Motorola G 67 | 1000 | no supported model resolved |
-| DISCOVERY/MODEL | 24457198 | nubia air | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24494285 | Samsung Watch 8 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24524436 | Samsung Galaxy A54 5G – 128 GB – Sort | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 8144576 | Samsung A40 | 1000 | no supported model resolved |
@@ -1057,16 +1054,15 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung A23 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung A33 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy A 14 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| DISCOVERY/PULSE |  | Samsung Galaxy A14 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy A15 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung galaxy A54 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Telefon Samsung a13 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
