@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-02T15:16:37.055603+00:00
+Generated: 2026-09-02T16:32:30.568329+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2537 | Product rejects: 2478 | Bundle/variant/price rejects: 0 | Final: 53
+T0: 2535 | Product rejects: 2476 | Bundle/variant/price rejects: 0 | Final: 53
 
 ## Lowest verified single-device listings
 
@@ -42,7 +42,7 @@ T0: 2537 | Product rejects: 2478 | Bundle/variant/price rejects: 0 | Final: 53
 | 30 | OnePlus Nord CE 2 Lite | 800 kr. | [OnePlus Nord CE 2 Lite 128GB Sort](https://www.dba.dk/recommerce/forsale/item/23534379) |
 | 31 | Samsung A52s | 800 kr. | [Samsung A52s 5g](https://www.dba.dk/recommerce/forsale/item/24398197) |
 | 32 | Samsung Galaxy S10 | 800 kr. | [Samsung Galaxy S10 smartphone 128 GB hvid](https://www.dba.dk/recommerce/forsale/item/24113148) |
-| 33 | Motorola G84 | 849 kr. | [Moto G84 5g](https://www.dba.dk/recommerce/forsale/item/23426246) |
+| 33 | Motorola G84 | 829 kr. | [Moto G84 5g](https://www.dba.dk/recommerce/forsale/item/23426246) |
 | 34 | OnePlus Nord CE 3 Lite 5G | 850 kr. | [OnePlus Nord CE 3 Lite 5G – SOM NY!](https://www.dba.dk/recommerce/forsale/item/22999374) |
 | 35 | Samsung Galaxy S21 | 850 kr. | [Hvis Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/23058953) |
 | 36 | Nothing Phone 1 | 899 kr. | [NOTHING PHONE 1](https://www.dba.dk/recommerce/forsale/item/24086458) |

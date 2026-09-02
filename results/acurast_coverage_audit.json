@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-02T15:16:41.991158+00:00",
+  "generated_at": "2026-09-02T16:32:35.190315+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2537,
+    "t0_unique": 2535,
     "verified_before_quality": 53,
     "final_after_quality": 53,
     "ranked": 39,
-    "discovery_model_blindspots": 972,
+    "discovery_model_blindspots": 971,
     "pulse_gated_discovery_review": 21,
     "t1_exit_review": 6,
     "quality_review": 0,
@@ -15,7 +15,7 @@
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 972,
+    "DISCOVERY/MODEL": 971,
     "DISCOVERY/PULSE": 21,
     "T1": 6,
     "CORE": 5,
@@ -2216,15 +2216,6 @@
       "title": "Nokia 2600",
       "ask": 125,
       "url": "https://www.dba.dk/recommerce/forsale/item/15819984",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "16374406",
-      "title": "Nokia 1200",
-      "ask": 125,
-      "url": "https://www.dba.dk/recommerce/forsale/item/16374406",
       "reason": "no supported model resolved"
     },
     {
@@ -7936,19 +7927,19 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "19023980",
-      "title": "Motorola g62",
-      "ask": 735,
-      "url": "https://www.dba.dk/recommerce/forsale/item/19023980",
+      "listing_id": "23426203",
+      "title": "Huawei p20",
+      "ask": 729,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23426203",
       "reason": "no supported model resolved"
     },
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "23426203",
-      "title": "Huawei p20",
-      "ask": 749,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23426203",
+      "listing_id": "19023980",
+      "title": "Motorola g62",
+      "ask": 735,
+      "url": "https://www.dba.dk/recommerce/forsale/item/19023980",
       "reason": "no supported model resolved"
     },
     {
@@ -9390,13 +9381,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2478,
-    "T1": 6
+    "T1": 6,
+    "PRODUCT_IDENTITY": 2476
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 989,
-    "no supported model resolved": 1439,
     "live price missing": 3,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 987,
+    "no supported model resolved": 1439,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 12,
     "accessory/part title": 9,
@@ -9404,7 +9395,7 @@
     "description indicates part without explicit functional phone evidence": 24
   },
   "audit_integrity": {
-    "all_rejects_count": 2484,
+    "all_rejects_count": 2482,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

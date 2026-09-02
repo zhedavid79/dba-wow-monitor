@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-02T15:16:41.991158+00:00
+Generated: 2026-09-02T16:32:35.190315+00:00
 
-T0 listings <= ceiling: **2537**  
+T0 listings <= ceiling: **2535**  
 Verified before quality: **53**  
 Final after quality: **53**  
 Mainnet ranked: **39**
 
 ## Review buckets
 
-- Discovery/model blindspots: **972**
+- Discovery/model blindspots: **971**
 - Core-compatible explicit models stopped by Pulse gate: **21**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
@@ -304,7 +304,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15492872 | Nokia 1680c | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 15743825 | HUAWEI Y360-U31 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 15819984 | Nokia 2600 | 125 | no supported model resolved |
-| DISCOVERY/MODEL | 16374406 | Nokia 1200 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 16866624 | Sony Ericsson K700i | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 17648279 | Nokia Lumia 520 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 17966865 | Sony Ericsson P1i | 125 | no supported model resolved |
@@ -939,8 +938,8 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24441195 | CMF by Nothing Phone 2 Pro | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 3292825 | HUAWEI Y 7, 2 GB , Perfekt | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 7074892 | Nokia n95 | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 23426203 | Huawei p20 | 729 | no supported model resolved |
 | DISCOVERY/MODEL | 19023980 | Motorola g62 | 735 | no supported model resolved |
-| DISCOVERY/MODEL | 23426203 | Huawei p20 | 749 | no supported model resolved |
 | DISCOVERY/MODEL | 7995233 | Huawei 30 pro | 749 | no supported model resolved |
 | DISCOVERY/MODEL | 15525919 | Motorola Moto g71 128/6 gb | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 1881325 | Nokia N810, Perfekt | 750 | no supported model resolved |
