@@ -1,12 +1,12 @@
 # DBA WoW-PC verified price report v6
 
-Generated: 2026-09-02T08:17:55.901290+00:00
+Generated: 2026-09-02T13:17:03.655300+00:00
 
 Current schema/source gate: **PASS** — live item 24524580
 Historical price-binding regression: **PASS (static fixture; no live historical listing dependency)**
 
 Discovery queries: 62
-Structured T0 unique records: 1595
+Structured T0 unique records: 1594
 T0 GPU-promising records sent to T1 (no top-100 cap): 247
 T1 verified complete systems with parsed GPU+CPU: 112
 
@@ -14,7 +14,7 @@ T1 verified complete systems with parsed GPU+CPU: 112
 |---:|---:|---|---|---|---|
 | 1 | 3000 kr. | SWEET SPOT | RTX 3070 | Core i5-10400 | [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) |
 | 2 | 4000 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | [RTX 3070 Stationær med defekte dele](https://www.dba.dk/recommerce/forsale/item/22950485) |
-| 3 | 4300 kr. | SWEET SPOT | RTX 2080 Super | Core i7-9700 | [Gaming PC – i7-9700 + RTX 2080 SUPER + 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23295014) |
+| 3 | 4200 kr. | SWEET SPOT | RTX 2080 Super | Core i7-9700 | [Gaming PC – i7-9700 + RTX 2080 SUPER + 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23295014) |
 | 4 | 4495 kr. | SWEET SPOT | RTX 3060 Ti | Ryzen 5 5600G | [HP Pavilion Gaming PC – RTX 3060 Ti 8GB / Ryzen 5 / 16GB / 1TB](https://www.dba.dk/recommerce/forsale/item/24509810) |
 | 5 | 4795 kr. | SWEET SPOT | RTX 2080 Super | Core i7-9700 | [MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram](https://www.dba.dk/recommerce/forsale/item/24156419) |
 | 6 | 5000 kr. | SWEET SPOT | RTX 3070 | Core i7-10700 | [LENOVO Legion T5 28IMB05 RTX3070](https://www.dba.dk/recommerce/forsale/item/22894303) |
