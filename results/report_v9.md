@@ -1,13 +1,13 @@
 # DBA WoW-PC verified price report v9
 
-Generated: 2026-09-01T22:53:58.848287+00:00
+Generated: 2026-09-02T06:18:35.140032+00:00
 
 Current schema/source gate: **PASS** — live item 24524580 — 5400 kr.
 Historical price-binding regression: **PASS (static_fixture; no dependency on historical live listing)**
 
 Discovery queries: 62
-Structured T0 unique records: 1598
-T0 GPU-promising records sent to T1 (no top-100 cap): 248
+Structured T0 unique records: 1596
+T0 GPU-promising records sent to T1 (no top-100 cap): 249
 T1 verified systems with parsed GPU+CPU: 113
 
 ## Price-first ranking
@@ -44,10 +44,10 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 24 | 4500 kr. | ACCEPTABLE | RTX 3060 | Core i7-10700 | 65–90 FPS | [MM Vision - gaming computer - RTX 3060 - I7 processor - april 2021 god stand](https://www.dba.dk/recommerce/forsale/item/24467994) |
 | 25 | 4500 kr. | ACCEPTABLE | RTX 3060 | Core i5-11400H | 65–85 FPS | [Lenovo Legion 5 Gaming Laptop – RTX 3060 / i5 / 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23688401) |
 | 26 | 4500 kr. | ACCEPTABLE | RTX 2070 | Ryzen 5 5600X | 65–90 FPS | [🎮 Kraftig gaming-PC – Perfekt til 1080p gaming | RTX 2070 | Ryzen 5 5600X](https://www.dba.dk/recommerce/forsale/item/22484336) |
-| 27 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
-| 28 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
-| 29 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB NVME SSD](https://www.dba.dk/recommerce/forsale/item/24501866) |
-| 30 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Asus gaming stationær PC med i7 9700K og RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/23248956) |
+| 27 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC I5-9600K + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24285167) |
+| 28 | 4500 kr. | ACCEPTABLE | RTX 2070 | Core i5-9600K | 60–80 FPS | [Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K](https://www.dba.dk/recommerce/forsale/item/23960362) |
+| 29 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Asus gaming stationær PC med i7 9700K og RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/23248956) |
+| 30 | 4500 kr. | ACCEPTABLE | RTX 2060 Super | Core i7-9700 | 60–85 FPS | [Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB NVME SSD](https://www.dba.dk/recommerce/forsale/item/24501866) |
 | 31 | 4795 kr. | SWEET SPOT | RTX 2080 Super | Core i7-9700 | 70–90 FPS | [MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram](https://www.dba.dk/recommerce/forsale/item/24156419) |
 | 32 | 4900 kr. | ACCEPTABLE | RTX 2070 | Core i7-9700 | 65–85 FPS | [Gamer i7 9700 32gb rtx 2070..](https://www.dba.dk/recommerce/forsale/item/23730233) |
 | 33 | 4950 kr. | ACCEPTABLE | RTX 2080 | Core i5-8600K | 60–85 FPS | [Gaming PC RTX 2080](https://www.dba.dk/recommerce/forsale/item/24414710) |
@@ -62,7 +62,7 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 42 | 5500 kr. | SWEET SPOT | RTX 3060 Ti | Core i9-9900K | 70–95 FPS | [Kraftig gaming-PC – i9-9900K, RTX 3060 Ti, 32 GB RAM](https://www.dba.dk/recommerce/forsale/item/24286242) |
 | 43 | 5500 kr. | SWEET SPOT | RTX 3060 Ti | Core i7-8700 | 65–90 FPS | [i7 RTX 3060 TI Gamer PC](https://www.dba.dk/recommerce/forsale/item/23231268) |
 | 44 | 5500 kr. | ACCEPTABLE | RTX 4060 | Ryzen 7 8845HS | 80–100 FPS | [MSI Katana A15, RTX 4060, 1TB SSD, 165hz QHD](https://www.dba.dk/recommerce/forsale/item/24293467) |
-| 45 | 5600 kr. | SWEET SPOT | RTX 2080 Super | Core i7-10700 | 70–90 FPS | [Gaming Pc 32gb ram rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24400931) |
+| 45 | 5600 kr. | ACCEPTABLE | RTX 2080 | Core i7-10700 | 70–90 FPS | [Gaming Pc 32gb ram rtx 2080](https://www.dba.dk/recommerce/forsale/item/24400931) |
 | 46 | 5750 kr. | SWEET SPOT | RTX 2080 Super | Core i5-13600K | 80–100 FPS | [i5-13600KF, RTX 2080 Super Founders Edition, Gaming stationær](https://www.dba.dk/recommerce/forsale/item/24377907) |
 | 47 | 5900 kr. | SWEET SPOT | RTX 3070 Ti | Core i7-11700 | 80–100 FPS | [HP OMEN 30L GT13-1472no – RTX 3070 Ti – Klar til 1440p/4K Gaming - Gamer PC](https://www.dba.dk/recommerce/forsale/item/19011254) |
 | 48 | 5995 kr. | SWEET SPOT | RTX 3070 | Core i7-12700H | 80–100 FPS | [ASUS TUF Gaming F17 – i7-12700H / RTX 3070 / 16 GB RAM / 1 TB SSD](https://www.dba.dk/recommerce/forsale/item/22747652) |
@@ -78,12 +78,12 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 | 58 | 6995 kr. | SWEET SPOT | RTX 3070 | Core i7-12700 | 80–100 FPS | [Gaming PC – RTX 3070 | i7-12700KF | 16GB DDR5 | 1TB SSD](https://www.dba.dk/recommerce/forsale/item/23858984) |
 | 59 | 6995 kr. | OVERKILL | RX 7800 XT | Core i5-14600K | 80–100 FPS | [Powerful Gaming-PC – RX 7800 XT 16GB + Intel i5-14600KF | High FPS Gaming](https://www.dba.dk/recommerce/forsale/item/22990030) |
 | 60 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Asus gamer stationær PC i9 9900K / 32GB RAM / RTX 2080 Ti](https://www.dba.dk/recommerce/forsale/item/23934494) |
-| 61 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
-| 62 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
+| 61 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [Komplet Gaming Setup - RTX 2080 Ti 11GB / i9-9900K / 32GB RAM + Andet](https://www.dba.dk/recommerce/forsale/item/22126311) |
+| 62 | 6999 kr. | SWEET SPOT | RTX 2080 Ti | Core i9-9900K | 75–95 FPS | [MSI gamer stationær pc i9 9900K RTX 2080 Ti 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24409665) |
 | 63 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i7-14650HX | 80–100 FPS | [Lenovo Thinkbook i7, RTX 4060](https://www.dba.dk/recommerce/forsale/item/13043596) |
 | 64 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/8888151) |
-| 65 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
-| 66 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
+| 65 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/15613342) |
+| 66 | 6999 kr. | ACCEPTABLE | RTX 4060 | Core i5-12450H | 70–90 FPS | [Asus Vivobook 16X i5-12450H/32 GB RAM/512/144 Hz/RTX 4060 16" bærbar computer](https://www.dba.dk/recommerce/forsale/item/9766580) |
 | 67 | 7000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | 80–100 FPS | [RTX 3080 - Kraftig gamer pc sælges 7000kr.](https://www.dba.dk/recommerce/forsale/item/21317324) |
 | 68 | 7000 kr. | SWEET SPOT | RTX 3070 | Ryzen 7 5800H | 75–95 FPS | [Gamer Bærbar 17,3” 144 Hz –  Ryzen 7 5800H / RTX 3070 / 16 GB / 1 TB](https://www.dba.dk/recommerce/forsale/item/24461236) |
 | 69 | 7000 kr. | SWEET SPOT | RTX 3070 | Core i7-10700 | 75–95 FPS | [Kraftig Vision Gaming PC – RTX 3070, i7-10700F, 1TB NVMe SSD Bygget af MM-Vision](https://www.dba.dk/recommerce/forsale/item/22873086) |
@@ -132,4 +132,4 @@ WoW estimate targets **WoW Classic through Cataclysm Classic, Ultra, 3840×1600,
 
 ## Rejection diagnostics
 
-{"CPU_PARSE_FAILED": 135}
+{"CPU_PARSE_FAILED": 136}
