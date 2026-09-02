@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-02T18:20:24.515391+00:00",
+  "generated_at": "2026-09-02T19:46:11.408522+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2549,
-    "verified_before_quality": 54,
-    "final_after_quality": 54,
-    "ranked": 39,
+    "t0_unique": 2542,
+    "verified_before_quality": 49,
+    "final_after_quality": 49,
+    "ranked": 34,
     "discovery_model_blindspots": 978,
     "pulse_gated_discovery_review": 21,
     "t1_exit_review": 6,
@@ -2501,7 +2501,7 @@
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
       "listing_id": "24410609",
-      "title": "Huawei Y 6 Smartphone \" Festifon\" måske?",
+      "title": "Huawei Y 6 Smartphone",
       "ask": 149,
       "url": "https://www.dba.dk/recommerce/forsale/item/24410609",
       "reason": "no supported model resolved"
@@ -6253,6 +6253,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24079666",
+      "title": "Samsung Galaxy S9 smartphone 128 GB lilla",
+      "ask": 400,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24079666",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "24098137",
       "title": "Moto G9 Plus (kan bringes)",
       "ask": 400,
@@ -6614,7 +6623,7 @@
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
       "listing_id": "24393984",
-      "title": "Samsung Galaxy A22 5G Smartphone 64 GB   Dual-SIM",
+      "title": "Samsung Galaxy A22 5G Smartphone 64 GB  Dual-SIM",
       "ask": 499,
       "url": "https://www.dba.dk/recommerce/forsale/item/24393984",
       "reason": "no supported model resolved"
@@ -6977,15 +6986,6 @@
       "title": "Huawei Mate 10 Pro",
       "ask": 500,
       "url": "https://www.dba.dk/recommerce/forsale/item/24022698",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24079666",
-      "title": "Samsung Galaxy S9 smartphone 128 GB lilla",
-      "ask": 500,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24079666",
       "reason": "no supported model resolved"
     },
     {
@@ -8485,6 +8485,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24481120",
+      "title": "Honor 400 Smart",
+      "ask": 950,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24481120",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "4917688",
       "title": "Samsung A23, 64 GB",
       "ask": 950,
@@ -8570,15 +8579,6 @@
       "title": "Samsung Galaxy A17 5G – 128GB",
       "ask": 999,
       "url": "https://www.dba.dk/recommerce/forsale/item/24334069",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24481120",
-      "title": "Honor 400 Smart",
-      "ask": 999,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24481120",
       "reason": "no supported model resolved"
     },
     {
@@ -9037,6 +9037,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "23524084",
+      "model": null,
+      "title": "Sony Erikson X10i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "24164735",
       "model": "Google Pixel 9 Pro XL",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
@@ -9052,16 +9062,6 @@
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9366,6 +9366,20 @@
   ],
   "t1_exits": [
     {
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "brand-mobile:sony:5"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+    },
+    {
       "listing_id": "24164735",
       "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask_t0": 0,
@@ -9392,20 +9406,6 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "17621913",
@@ -9452,11 +9452,11 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2489,
+    "PRODUCT_IDENTITY": 2487,
     "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 992,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 990,
     "live price missing": 3,
     "no supported model resolved": 1447,
     "weak complete-phone evidence": 5,
@@ -9466,7 +9466,7 @@
     "description indicates part without explicit functional phone evidence": 24
   },
   "audit_integrity": {
-    "all_rejects_count": 2495,
+    "all_rejects_count": 2493,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
