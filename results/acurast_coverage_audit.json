@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-02T10:18:38.814674+00:00",
+  "generated_at": "2026-09-02T11:12:45.490156+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2541,
+    "t0_unique": 2534,
     "verified_before_quality": 53,
     "final_after_quality": 53,
     "ranked": 39,
@@ -5164,6 +5164,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "20499599",
+      "title": "Nokia 235 4G",
+      "ask": 300,
+      "url": "https://www.dba.dk/recommerce/forsale/item/20499599",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "20619946",
       "title": "Sony Ericsson w595",
       "ask": 300,
@@ -5366,15 +5375,6 @@
       "title": "Nokia Lumia 800",
       "ask": 300,
       "url": "https://www.dba.dk/recommerce/forsale/item/24295996",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24380792",
-      "title": "Samsung Galaxy A40",
-      "ask": 300,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24380792",
       "reason": "no supported model resolved"
     },
     {
@@ -9049,21 +9049,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
       "reason": "live price missing"
     },
     {
@@ -9388,20 +9388,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
-      "sources": [
-        "brand-mobile:google:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
-    },
-    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9414,6 +9400,20 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask_t0": 0,
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
+      "sources": [
+        "brand-mobile:google:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
       "listing_id": "17621913",
@@ -9460,21 +9460,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2482,
-    "T1": 6
+    "T1": 6,
+    "PRODUCT_IDENTITY": 2475
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1439,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 993,
     "live price missing": 3,
+    "no supported model resolved": 1439,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 987,
     "weak complete-phone evidence": 5,
-    "accessory/part title": 9,
     "resolved model variant is not supported by seller text": 11,
+    "accessory/part title": 9,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 25
+    "description indicates part without explicit functional phone evidence": 24
   },
   "audit_integrity": {
-    "all_rejects_count": 2488,
+    "all_rejects_count": 2481,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

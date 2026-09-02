@@ -1,8 +1,8 @@
 # Acurast coverage audit
 
-Generated: 2026-09-02T10:18:38.814674+00:00
+Generated: 2026-09-02T11:12:45.490156+00:00
 
-T0 listings <= ceiling: **2541**  
+T0 listings <= ceiling: **2534**  
 Verified before quality: **53**  
 Final after quality: **53**  
 Mainnet ranked: **39**
@@ -633,6 +633,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 20080021 | Sony Ericsson P1i | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 2010028 | Samsung Galaxy S3 og S3 neo, Perfekt | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 20132377 | Flot Nokia 8 inkl. lader og ledning | 300 | no supported model resolved |
+| DISCOVERY/MODEL | 20499599 | Nokia 235 4G | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 20619946 | Sony Ericsson w595 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 20772615 | Samsung S6 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 21677325 | OPPO F5 | 300 | no supported model resolved |
@@ -656,7 +657,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24115730 | NOKIA 6230 i | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24257796 | Nokia 113 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24295996 | Nokia Lumia 800 | 300 | no supported model resolved |
-| DISCOVERY/MODEL | 24380792 | Samsung Galaxy A40 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24401154 | Nokia | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24401169 | Nokia | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24416541 | Original Samsung Galaxy S5 med emballage | 300 | no supported model resolved |
@@ -1062,8 +1062,8 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Telefon Samsung a13 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
