@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-01T22:36:10.201570+00:00
+Generated: 2026-09-02T06:20:46.527284+00:00
 
-T0 listings <= ceiling: **2537**  
+T0 listings <= ceiling: **2539**  
 Verified before quality: **53**  
 Final after quality: **53**  
 Mainnet ranked: **39**
 
 ## Review buckets
 
-- Discovery/model blindspots: **976**
+- Discovery/model blindspots: **977**
 - Core-compatible explicit models stopped by Pulse gate: **24**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
@@ -503,6 +503,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24524393 | NOKIA 225 Dual Sim Blå | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2594591 | Nokia 215, Perfekt | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2662666 | LG Digital communication, Perfekt | 200 | no supported model resolved |
+| DISCOVERY/MODEL | 3567808 | HTC Diverse, Diverse , God | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 6216310 | Nokia 301.1, God | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 1667878 | Nokia 6210, God | 204 | no supported model resolved |
 | DISCOVERY/MODEL | 21334473 | Nokia 2.2 android | 210 | no supported model resolved |
@@ -793,7 +794,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2190516 | Samsung J6, God | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 24081537 | TCL T517D 128 GB | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 24197294 | Motorola one Vision | 499 | no supported model resolved |
-| DISCOVERY/MODEL | 24393984 | Samsung Galaxy A22 5G Smartphone 64 GB  Dual-SIM | 499 | no supported model resolved |
+| DISCOVERY/MODEL | 24393984 | Samsung Galaxy A22 5G Smartphone 64 GB   Dual-SIM | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 1197425 | Nokia 5110i, God | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 14160104 | Google Nexus S | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 1589071 | Motorola Mctorola C350 | 500 | no supported model resolved |
@@ -1063,9 +1064,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Telefon Samsung a13 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
