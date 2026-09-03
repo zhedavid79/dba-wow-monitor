@@ -30,6 +30,8 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install requests beautifulsoup4
+      - name: Run WoW scanner regression tests
+        run: python -m unittest test_dba_report_v6.py
       - name: Build verified WoW price report v9
         run: python dba_report_v9.py
       - name: Commit results
