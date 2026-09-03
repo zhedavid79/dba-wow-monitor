@@ -16,7 +16,18 @@ MAX_DONORS = 30
 
 MATX = re.compile(r"\b(?:micro[- ]?atx|m[- ]?atx|matx|b365m|b450m|b550m|a520m|b560m|h510m|h610m|b660m|b650m|a620m|b760m)\b", re.I)
 ITX = re.compile(r"\b(?:mini[- ]?itx|miniitx|m[- ]?itx)\b", re.I)
-ATX = re.compile(r"\b(?:e[- ]?atx|extended[- ]?atx|atx)\b", re.I)
+# Full-size ATX must be motherboard-context evidence. A donor description saying "ATX PSU"
+# must not be rejected as an ATX motherboard.
+ATX_BOARD_CONTEXT = re.compile(
+    r"\b(?:atx|e[- ]?atx|extended[- ]?atx)\b.{0,30}\b(?:bundkort|motherboard|mainboard)\b|"
+    r"\b(?:bundkort|motherboard|mainboard)\b.{0,30}\b(?:atx|e[- ]?atx|extended[- ]?atx)\b",
+    re.I | re.S,
+)
+KNOWN_FULL_ATX_BOARD = re.compile(
+    r"\b(?:msi\s+z390-a\s+pro|gigabyte\s+z390\s+aorus\s+pro|asus\s+prime\s+z390-a|"
+    r"msi\s+z490-a\s+pro|msi\s+z590-a\s+pro|asus\s+prime\s+z690-p|asus\s+prime\s+z790-p)\b",
+    re.I,
+)
 BOARD_MODEL = re.compile(r"\b(?:asus|msi|gigabyte|asrock)\s+[a-z0-9 -]*(?:b365m|b450m|b550m|a520m|b560m|h510m|h610m|b660m|b650m|a620m|b760m|z390|z490|z590|z690|z790)[a-z0-9 .+/-]*", re.I)
 PSU_EVIDENCE = re.compile(r"\b(?:corsair|seasonic|be\s*quiet!?|evga|cooler\s*master|nzxt|asus|msi|fsp|super\s*flower)\b.{0,50}\b([5-9]\d{2}|1\d{3})\s*w\b", re.I | re.S)
 RAM_DESKTOP = re.compile(r"\b(?:ddr4|ddr5)\b.{0,35}\b(?:2\s*x\s*(?:8|16|32)|16\s*gb|32\s*gb|64\s*gb)\b|\b(?:2\s*x\s*(?:8|16|32)|16\s*gb|32\s*gb|64\s*gb)\b.{0,35}\b(?:ddr4|ddr5)\b", re.I | re.S)
@@ -34,9 +45,25 @@ def motherboard_evidence(text: str) -> tuple[str, str | None]:
     model_text = re.sub(r"\s+", " ", model.group(0)).strip() if model else None
     if ITX.search(text): return "COMPATIBLE", model_text
     if MATX.search(text): return "COMPATIBLE", model_text
-    cleaned = re.sub(r"\b(?:micro[- ]?atx|m[- ]?atx|matx|mini[- ]?itx|miniitx|m[- ]?itx)\b", " ", text, flags=re.I)
-    if ATX.search(cleaned): return "INCOMPATIBLE", model_text
+    if KNOWN_FULL_ATX_BOARD.search(text) or ATX_BOARD_CONTEXT.search(text): return "INCOMPATIBLE", model_text
     return "UNVERIFIED", model_text
+
+
+def donor_regression() -> dict:
+    cases = [
+        ("MSI B550M PRO-VDH motherboard, Corsair ATX PSU 650W", "COMPATIBLE"),
+        ("Corsair RM650e ATX strømforsyning 650W, motherboard unknown", "UNVERIFIED"),
+        ("ATX motherboard ASUS model, RTX 3070", "INCOMPATIBLE"),
+        ("MSI Z390-A Pro + i5-9600K", "INCOMPATIBLE"),
+        ("B650M motherboard + Ryzen 7600", "COMPATIBLE"),
+    ]
+    out = []
+    for text, expected in cases:
+        got, _ = motherboard_evidence(text)
+        if got != expected:
+            raise SystemExit(f"DONOR BOARD REGRESSION FAILED: {text}: {got} != {expected}")
+        out.append({"text": text, "fit": got, "ok": True})
+    return {"ok": True, "cases": out}
 
 
 def gpu_sku(text: str) -> dict:
@@ -57,6 +84,7 @@ def platform_upgradeability(cpu: str, text: str) -> str:
 
 
 async def main() -> None:
+    reg = donor_regression()
     doc = json.loads(INPUT.read_text(encoding="utf-8"))
     seeds = []
     for r in doc.get("ranked") or []:
@@ -98,8 +126,9 @@ async def main() -> None:
 
     donors.sort(key=lambda r: (r["ask_t1"], -r["gpu_score"], -r["cpu_score"]))
     out = {
-        "model_version": "DBA-Z20-DONOR-RESOLVER-V1", "generated_at": v2.utcnow(), "gate_passed": True,
-        "policy": "Re-fetch live donor PCs and expose only explicit component evidence. Unknown motherboard/GPU SKU remains unresolved and never becomes proven fit.",
+        "model_version": "DBA-Z20-DONOR-RESOLVER-V2", "generated_at": v2.utcnow(), "gate_passed": True,
+        "policy": "Re-fetch live donor PCs and expose only explicit component evidence. ATX PSU text cannot prove an ATX motherboard. Unknown motherboard/GPU SKU remains unresolved and never becomes proven fit.",
+        "classifier_regression": reg,
         "count": len(donors), "donors": donors,
     }
     OUTPUT.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
