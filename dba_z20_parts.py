@@ -9,8 +9,7 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 
 import dba_browser_v2 as v2
-import dba_browser_v4 as v4
-from dba_browser_v3 import discover_cards_by_article
+import dba_browser_v6 as runtime
 
 QUERIES = [
     "rtx 3060 ti", "rtx 3070", "rtx 3070 ti", "rtx 3080", "rtx 4060", "rtx 4060 ti",
@@ -24,6 +23,10 @@ QUERIES = [
     "sfx strømforsyning", "atx strømforsyning 650w",
 ]
 MAX_PRICE = 6000
+DISCOVERY_CONCURRENCY = 6
+DISCOVERY_TOTAL_DEADLINE_SECONDS = 180
+T1_CONCURRENCY = 8
+T1_TOTAL_DEADLINE_SECONDS = 300
 
 GPU_NOUN = re.compile(r"\b(grafikkort|gpu|videokort|geforce|radeon)\b", re.I)
 CPU_NOUN = re.compile(r"\b(cpu|processor|core\s+i[3579]|ryzen\s+[3579])\b", re.I)
@@ -37,7 +40,6 @@ DEFECT = re.compile(r"\b(defekt|delvist\s+defekt|virker\s+ikke|fejl|artifact|art
 RAM_INCOMPATIBLE = re.compile(r"\b(so[- ]?dimm|sodimm|lrdimm|rdimm|registered|server\s*ram|ecc\s*(?:registered|lrdimm|rdimm))\b", re.I)
 RAM_KIT = re.compile(r"\b(?:2\s*x\s*(?:8|16|32)|kit|dual\s*channel|dimm)\b", re.I)
 
-# Explicit model evidence. Z20 supports only Mini-ITX / Micro-ATX; ATX is a hard rejection.
 MATX_MODEL = re.compile(r"\b(?:b450m|b550m|a520m|x570m|b650m|a620m|x670m|h410m|b460m|h510m|b560m|h610m|b660m|b760m|z690m|z790m|b365m|h370m|z390m)\b", re.I)
 MATX_WORD = re.compile(r"\b(?:m-?atx|micro[- ]?atx|microatx)\b", re.I)
 ITX_WORD = re.compile(r"\b(?:mini[- ]?itx|miniitx|m-?itx)\b", re.I)
@@ -68,7 +70,6 @@ def classify(title: str) -> tuple[str | None, str]:
 
 
 def motherboard_fit(title: str, kind: str) -> tuple[str, str]:
-    """Fit evidence is title-only to prevent unrelated description text from proving a board."""
     if kind != "PLATFORM_BUNDLE": return "NOT_APPLICABLE", "NO_MOTHERBOARD_REQUIRED"
     if KNOWN_ATX.search(title): return "INCOMPATIBLE", "KNOWN_FULL_SIZE_ATX_MODEL"
     if ITX_WORD.search(title): return "COMPATIBLE", "TITLE_EXPLICIT_MINI_ITX_EVIDENCE"
@@ -126,31 +127,103 @@ def regression() -> dict:
     return {"ok": True, "cases": results}
 
 
+def plausible_at_t0(row: dict) -> bool:
+    title = row.get("title") or ""
+    if classify(title)[0]:
+        return True
+    text = f"{title}\n{row.get('card_text','')}"
+    _, gs = v2.match_rule(text, v2.GPU_RULES)
+    _, cs = v2.match_rule(text, v2.CPU_RULES)
+    return bool(
+        gs >= 50
+        or (cs >= 50 and BOARD.search(text))
+        or (RAM_NOUN.search(text) and RAM_CAPACITY.search(text))
+        or PSU_NOUN.search(text)
+        or PSU_WATT.search(text)
+    ) and not bool(COMPLETE_PC.search(text))
+
+
+async def discover_all(context) -> tuple[dict[str, dict], list[dict], dict]:
+    sem = asyncio.Semaphore(DISCOVERY_CONCURRENCY)
+
+    async def run_query(query: str):
+        async with sem:
+            rows, error, attempts = await runtime.discover_one(context, query)
+            print(json.dumps({"stage": "PART_DISCOVERY", "query": query, "rows": len(rows), "attempts": attempts, "error": error["error"] if error else None}, ensure_ascii=False), flush=True)
+            return query, rows, error
+
+    tasks = [asyncio.create_task(run_query(q)) for q in QUERIES]
+    timed_out = False
+    try:
+        results = await asyncio.wait_for(asyncio.gather(*tasks), timeout=DISCOVERY_TOTAL_DEADLINE_SECONDS)
+    except asyncio.TimeoutError:
+        timed_out = True
+        for task in tasks: task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+        results = []
+
+    found: dict[str, dict] = {}; errors: list[dict] = []
+    completed = set()
+    for query, rows, error in results:
+        completed.add(query)
+        if error: errors.append(error)
+        for row in rows:
+            if not isinstance(row.get("ask_t0"), int) or row["ask_t0"] > MAX_PRICE or not plausible_at_t0(row): continue
+            old = found.get(row["listing_id"])
+            if old is None:
+                row["source_queries"] = [query]; found[row["listing_id"]] = row
+            else: old["source_queries"].append(query)
+    missing = sorted(set(QUERIES) - completed)
+    coverage = {"query_total": len(QUERIES), "query_completed": len(completed), "query_failed": len(errors), "missing_queries": missing, "deadline_exceeded": timed_out, "complete": not timed_out and not missing and not errors}
+    return found, errors, coverage
+
+
+async def fetch_all_t1(context, rows: list[dict]) -> tuple[dict[str, dict | None], list[dict], dict]:
+    sem = asyncio.Semaphore(T1_CONCURRENCY)
+
+    async def run_row(row: dict):
+        async with sem:
+            t1, error = await runtime.fetch_t1_one(context, str(row["listing_id"]))
+            return str(row["listing_id"]), t1, error
+
+    tasks = [asyncio.create_task(run_row(r)) for r in rows]
+    timed_out = False
+    try:
+        results = await asyncio.wait_for(asyncio.gather(*tasks), timeout=T1_TOTAL_DEADLINE_SECONDS)
+    except asyncio.TimeoutError:
+        timed_out = True
+        for task in tasks: task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+        results = []
+
+    by_id: dict[str, dict | None] = {}; errors: list[dict] = []; completed = set()
+    for lid, t1, error in results:
+        completed.add(lid); by_id[lid] = t1
+        if error: errors.append(error)
+    expected = {str(r["listing_id"]) for r in rows}; missing = sorted(expected - completed)
+    coverage = {"candidate_total": len(rows), "candidate_completed": len(completed), "candidate_fetch_errors": len(errors), "missing_listing_ids": missing, "deadline_exceeded": timed_out, "complete": not timed_out and not missing}
+    return by_id, errors, coverage
+
+
 async def main() -> None:
     Path("results").mkdir(exist_ok=True)
     reg = regression()
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
         context = await browser.new_context(locale="da-DK", viewport={"width": 1440, "height": 1100})
-        search_page, item_page = await context.new_page(), await context.new_page()
         try:
-            found: dict[str, dict] = {}; errors: list[dict] = []
-            for query in QUERIES:
-                try: cards = await discover_cards_by_article(search_page, query)
-                except Exception as exc:
-                    errors.append({"query": query, "error": type(exc).__name__, "detail": str(exc)[:300]}); continue
-                for row in cards:
-                    if not isinstance(row.get("ask_t0"), int) or row["ask_t0"] > MAX_PRICE: continue
-                    old = found.get(row["listing_id"])
-                    if old is None:
-                        row["source_queries"] = [query]; found[row["listing_id"]] = row
-                    else: old["source_queries"].append(query)
+            found, errors, discovery_coverage = await discover_all(context)
+            if not discovery_coverage["complete"]:
+                raise SystemExit(f"Z20 PARTS DATA GATE FAILED — discovery coverage incomplete: {json.dumps(discovery_coverage, ensure_ascii=False)}")
+
+            rows = sorted(found.values(), key=lambda x: (x["ask_t0"], x["listing_id"]))
+            t1_by_id, t1_errors, t1_coverage = await fetch_all_t1(context, rows)
+            if not t1_coverage["complete"]:
+                raise SystemExit(f"Z20 PARTS DATA GATE FAILED — T1 coverage incomplete: {json.dumps(t1_coverage, ensure_ascii=False)}")
 
             opportunities: list[dict] = []; rejected: list[dict] = []
-            for row in sorted(found.values(), key=lambda x: (x["ask_t0"], x["listing_id"])):
-                try: t1 = await v4.fetch_jsonld_item_all_scripts(item_page, row["listing_id"])
-                except Exception as exc:
-                    rejected.append({"listing_id": row["listing_id"], "reason": "T1_FETCH_FAILED", "detail": type(exc).__name__}); continue
+            for row in rows:
+                t1 = t1_by_id.get(str(row["listing_id"]))
                 if not t1 or not t1.get("identity_ok"):
                     rejected.append({"listing_id": row["listing_id"], "reason": "T1_IDENTITY_UNVERIFIED"}); continue
                 if not t1.get("active_t1"):
@@ -187,19 +260,20 @@ async def main() -> None:
                     "source_queries": sorted(set(row.get("source_queries") or [])),
                 })
         finally:
-            await search_page.close(); await item_page.close(); await context.close(); await browser.close()
+            await context.close(); await browser.close()
 
     opportunities.sort(key=lambda r: (r["ask_t1"], -r["gpu_score"], -r["cpu_score"]))
     out = {
         "model_version": "DBA-Z20-PARTS-V4", "generated_at": v2.utcnow(), "gate_passed": True,
         "target_case": "Jonsbo Z20",
         "target_case_rules": {"motherboard": ["Micro-ATX", "Mini-ITX"], "gpu_max_mm": 363, "cpu_cooler_max_mm_intel": 164, "cpu_cooler_max_mm_amd": 163, "atx_psu_recommended_max_mm": 140, "psu": ["ATX", "SFX", "SFX-L"]},
-        "policy": "Fail closed on title-proven component identity and Z20 motherboard fit. RAM must be desktop-compatible DIMM evidence, never SO-DIMM/server memory. Full-size ATX is incompatible. Upgradeability is separately classified.",
+        "policy": "Fail closed on title-proven component identity and Z20 motherboard fit. Discovery is bounded and complete-coverage gated; final identity always comes from T1 title. RAM must be desktop-compatible DIMM evidence, never SO-DIMM/server memory. Full-size ATX is incompatible.",
         "classifier_regression": reg,
-        "counts": {"queries": len(QUERIES), "t0_unique": len(found), "opportunities": len(opportunities), "rejected": len(rejected)},
-        "opportunities": opportunities, "rejection_reason_counts": dict(Counter(x["reason"] for x in rejected)), "search_errors": errors,
+        "coverage": {"discovery": discovery_coverage, "t1": t1_coverage},
+        "counts": {"queries": len(QUERIES), "t0_unique": len(found), "opportunities": len(opportunities), "rejected": len(rejected), "t1_fetch_errors": len(t1_errors)},
+        "opportunities": opportunities, "rejection_reason_counts": dict(Counter(x["reason"] for x in rejected)), "search_errors": errors, "t1_diagnostics": t1_errors,
     }
     Path("results/z20_parts_latest.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps(out["counts"], ensure_ascii=False))
+    print(json.dumps({**out["counts"], "coverage_complete": discovery_coverage["complete"] and t1_coverage["complete"]}, ensure_ascii=False), flush=True)
 
 if __name__ == "__main__": asyncio.run(main())
