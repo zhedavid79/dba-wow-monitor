@@ -1,26 +1,50 @@
-# DBA WoW-PC — TOP 10 VALUE RANKING
+# DBA WoW / Jonsbo Z20 — HYBRID VALUE REPORT V10
 
-Generated: 2026-09-03T18:16:46.370392+00:00
-Retrieval: Rendered DBA article.sf-search-ad T0 + same-ID DBA Product JSON T1
-Target: WoW Classic/progression at 3840×1600 / up to 75 Hz.
-Platform/A3 suitability is secondary and never guessed; unknown compatibility does not remove bargains.
+Generated: 2026-09-03T18:58:26.759921+00:00
+Target: WoW Classic/progression at 3840×1600 / up to 75 Hz in Jonsbo Z20.
+Strategy: compare complete donor PCs with live DBA components/bundles; never infer missing compatibility.
 
-## Top 10 — price first
+## Top 10 complete-PC safety net
 
-| # | T1 ASK | Value | GPU | CPU | Platform | ID | DBA |
+| # | T1 ASK | Value | GPU | CPU | Z20 | ID | DBA |
 |---:|---:|---|---|---|---|---|---|
-| 1 | 3000 kr. | SWEET SPOT | RTX 3070 | Core i5-10400 | POTENTIAL_DONOR_CHECK_REQUIRED | 7969913 | [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) |
-| 2 | 3500 kr. | GOOD VALUE | RTX 2070 Super | Core i7-9700 | POTENTIAL_DONOR_CHECK_REQUIRED | 23234380 | [GAMING COMPUTER](https://www.dba.dk/recommerce/forsale/item/23234380) |
-| 3 | 3900 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 3060 | Core i7-10700 | POTENTIAL_DONOR_CHECK_REQUIRED | 24501378 | [Intel i7 10700K-RTX 3060-16 GB ram-M2 SSD + 1TB HD-vandkøling-Wif](https://www.dba.dk/recommerce/forsale/item/24501378) |
-| 4 | 3900 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 2070 | Core i7-8700 | POTENTIAL_DONOR_CHECK_REQUIRED | 19471655 | [Shark Gaming E-sport Edition - RTX 2070 / i7-8700 / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/19471655) |
-| 5 | 3999 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 2070 | Core i7-9700 | POTENTIAL_DONOR_CHECK_REQUIRED | 22701831 | [MSI stationær gaming PC Intel i7-9700K RTX 2070 16GB RAM](https://www.dba.dk/recommerce/forsale/item/22701831) |
-| 6 | 4000 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 3060 | Core i7-11800H | NOT_A3_DONOR | 24457719 | [MSI Katana GF66 | i7-11800H | RTX 3060 | 16GB RAM | 1TB NVMe SSD](https://www.dba.dk/recommerce/forsale/item/24457719) |
-| 7 | 4000 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 3060 | Core i5-11400 | POTENTIAL_DONOR_CHECK_REQUIRED | 24553584 | [Gaming PC RTX 3060 12GB / i5-11400F / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/24553584) |
-| 8 | 4000 kr. | EXCESS SPEND FOR THIS USE CASE | RX 7600 | Core i5-8600 | POTENTIAL_DONOR_CHECK_REQUIRED | 23487340 | [Gaming PC – RX 7600 8GB / i5-8600K / 32 GB RAM](https://www.dba.dk/recommerce/forsale/item/23487340) |
-| 9 | 4195 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 2070 Super | Core i5-9600 | POTENTIAL_DONOR_CHECK_REQUIRED | 24546731 | [Gaming PC – RTX 2070 SUPER / i5-9600KF / 16GB RAM / 1TB SSD](https://www.dba.dk/recommerce/forsale/item/24546731) |
-| 10 | 4200 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 2080 Super | Core i7-9700 | POTENTIAL_DONOR_CHECK_REQUIRED | 23295014 | [Gaming PC – i7-9700 + RTX 2080 SUPER + 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23295014) |
+| 1 | 3000 kr. | SWEET SPOT | RTX 3070 | Core i5-10400 | Z20_DONOR_CHECK_REQUIRED | 7969913 | [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) |
+| 2 | 3500 kr. | GOOD VALUE | RTX 2070 Super | Core i7-9700 | Z20_DONOR_CHECK_REQUIRED | 23234380 | [GAMING COMPUTER](https://www.dba.dk/recommerce/forsale/item/23234380) |
+| 3 | 3900 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 3060 | Core i7-10700 | Z20_DONOR_CHECK_REQUIRED | 24501378 | [Intel i7 10700K-RTX 3060-16 GB ram-M2 SSD + 1TB HD-vandkøling-Wif](https://www.dba.dk/recommerce/forsale/item/24501378) |
+| 4 | 3900 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 2070 | Core i7-8700 | Z20_DONOR_CHECK_REQUIRED | 19471655 | [Shark Gaming E-sport Edition - RTX 2070 / i7-8700 / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/19471655) |
+| 5 | 3999 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 2070 | Core i7-9700 | Z20_DONOR_CHECK_REQUIRED | 22701831 | [MSI stationær gaming PC Intel i7-9700K RTX 2070 16GB RAM](https://www.dba.dk/recommerce/forsale/item/22701831) |
+| 6 | 4000 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 3060 | Core i7-11800H | NOT_Z20_DONOR | 24457719 | [MSI Katana GF66 | i7-11800H | RTX 3060 | 16GB RAM | 1TB NVMe SSD](https://www.dba.dk/recommerce/forsale/item/24457719) |
+| 7 | 4000 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 3060 | Core i5-11400 | Z20_DONOR_CHECK_REQUIRED | 24553584 | [Gaming PC RTX 3060 12GB / i5-11400F / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/24553584) |
+| 8 | 4000 kr. | EXCESS SPEND FOR THIS USE CASE | RX 7600 | Core i5-8600 | Z20_DONOR_CHECK_REQUIRED | 23487340 | [Gaming PC – RX 7600 8GB / i5-8600K / 32 GB RAM](https://www.dba.dk/recommerce/forsale/item/23487340) |
+| 9 | 4195 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 2070 Super | Core i5-9600 | Z20_DONOR_CHECK_REQUIRED | 24546731 | [Gaming PC – RTX 2070 SUPER / i5-9600KF / 16GB RAM / 1TB SSD](https://www.dba.dk/recommerce/forsale/item/24546731) |
+| 10 | 4200 kr. | EXCESS SPEND FOR THIS USE CASE | RTX 2080 Super | Core i7-9700 | Z20_DONOR_CHECK_REQUIRED | 23295014 | [Gaming PC – i7-9700 + RTX 2080 SUPER + 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23295014) |
 
-## POTENTIAL BARGAINS — NEEDS SPEC RESOLUTION
+## Z20 parts / bundle opportunities
+
+| Type | ASK | GPU | CPU | Efficiency | DBA |
+|---|---:|---|---|---:|---|
+| CPU | 550 kr. | Ukendt | Ryzen 5 3600 | 101.818 | [G.Skill Ripjaws V DDR4-8x2 RAM rød 16gb 2022](https://www.dba.dk/recommerce/forsale/item/22584183) |
+| CPU | 1499 kr. | Ukendt | Ryzen 7 5800X3D | 66.711 | [32GB (2x16GB) DDR4 3600 RAM](https://www.dba.dk/recommerce/forsale/item/23884330) |
+| PLATFORM_BUNDLE | 1000 kr. | Ukendt | Core i7-8700 | 61.0 | [RAM, CPU, BUNDKORT, PSU](https://www.dba.dk/recommerce/forsale/item/24457094) |
+| GPU | 1500 kr. | RTX 3080 | Ukendt | 60.0 | [**DELVIST DEFEKT** - RTX 3080 10 GB](https://www.dba.dk/recommerce/forsale/item/24571843) |
+| CPU | 3000 kr. | Ukendt | Ryzen 7 7800X3D | 41.667 | [AMD Ryzen 9 7950X3D](https://www.dba.dk/recommerce/forsale/item/23355874) |
+| GPU | 1700 kr. | RTX 3060 Ti | Ukendt | 38.824 | [Gigabyte GeForce RTX  3060 ti](https://www.dba.dk/recommerce/forsale/item/24558016) |
+| PLATFORM_BUNDLE | 3200 kr. | Ukendt | Core i7-14700 | 37.5 | [Bundkort og CPU](https://www.dba.dk/recommerce/forsale/item/21776342) |
+| CPU | 1499 kr. | Ukendt | Ryzen 5 3600 | 37.358 | [Kingston FURY Beast 32GB DDR4 RAM kit](https://www.dba.dk/recommerce/forsale/item/24472451) |
+| PLATFORM_BUNDLE | 1600 kr. | Ukendt | Core i5-9600 | 36.875 | [Intel Core i5-9600K + Gigabyte Z390 AORUS PRO + 16GB DDR4](https://www.dba.dk/recommerce/forsale/item/24585277) |
+| GPU | 2000 kr. | RTX 3070 | Ukendt | 36.5 | [Geforce rtx 3070 Gigabyte Auros master](https://www.dba.dk/recommerce/forsale/item/24584822) |
+| GPU | 1900 kr. | RTX 3060 Ti | Ukendt | 34.737 | [RTX 3060 TI OC](https://www.dba.dk/recommerce/forsale/item/24273640) |
+| GPU | 1900 kr. | RTX 3060 Ti | Ukendt | 34.737 | [MSI Geforce Rtx 3060 Ti Ventus 2X 8GB](https://www.dba.dk/recommerce/forsale/item/24293041) |
+| GPU | 2649 kr. | RX 6800 XT | Ukendt | 33.975 | [ASUS TUF Gaming Radeon RX 6800 XT OC Edition 16G](https://www.dba.dk/recommerce/forsale/item/7933239) |
+| GPU | 2000 kr. | RTX 3060 Ti | Ukendt | 33.0 | [Nividia RTX 3060 TI 8GB](https://www.dba.dk/recommerce/forsale/item/24316091) |
+| GPU | 2800 kr. | RTX 3080 | Ukendt | 32.143 | [Lenovo Legion NVIDIA GeForce RTX 3080 10GB (MSI OEM)](https://www.dba.dk/recommerce/forsale/item/24578155) |
+| GPU | 2899 kr. | RTX 3080 | Ukendt | 31.045 | [NVIDIA GeForce RTX 3080 10 GB – Dell / Alienware OEM – kompakt 26](https://www.dba.dk/recommerce/forsale/item/24218142) |
+| PLATFORM_BUNDLE | 2000 kr. | Ukendt | Core i7-8700 | 30.5 | [Gaming PC Dele: 8700K MSI Gaming M5 og 16GB G.Skill DDR4](https://www.dba.dk/recommerce/forsale/item/17106719) |
+| GPU | 2999 kr. | RTX 3080 | Ukendt | 30.01 | [rtx 3080 msi gaming z trio](https://www.dba.dk/recommerce/forsale/item/23302398) |
+| GPU | 3000 kr. | RTX 3080 | Ukendt | 30.0 | [Nvidia GeForce RTX 3080 - 10GB Grafikkort](https://www.dba.dk/recommerce/forsale/item/23059727) |
+| GPU | 2000 kr. | RX 7600 | Ukendt | 29.5 | [Sapphire Pulse Radeon RX 7600 grafikkort](https://www.dba.dk/recommerce/forsale/item/23538375) |
+
+## Potential bargains needing spec resolution
 
 - [HP stationær computer sort - Begynder Gaming Computer](https://www.dba.dk/recommerce/forsale/item/22586203) — 500 kr. — GPU_PARSE_FAILED — ID 22586203
 - [gamer pc](https://www.dba.dk/recommerce/forsale/item/24469137) — 700 kr. — GPU_PARSE_FAILED — ID 24469137
@@ -45,18 +69,20 @@ Platform/A3 suitability is secondary and never guessed; unknown compatibility do
 - [Alienware gaming bærbar 15" sort](https://www.dba.dk/recommerce/forsale/item/23408566) — 1500 kr. — GPU_PARSE_FAILED — ID 23408566
 - [Stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24218273) — 1500 kr. — GPU_PARSE_FAILED — ID 24218273
 - [MSI stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24516799) — 1500 kr. — GPU_PARSE_FAILED — ID 24516799
+- [Gaming PC – i5-9400F / GTX 1650 4GB / SSD – klar til brug](https://www.dba.dk/recommerce/forsale/item/24565994) — 1500 kr. — GPU_PARSE_FAILED — ID 24565994
 - [Gaming pc](https://www.dba.dk/recommerce/forsale/item/24583084) — 1500 kr. — GPU_PARSE_FAILED — ID 24583084
 - [Hurtig Gamer PC – Kan testes med Roblox (SSD](https://www.dba.dk/recommerce/forsale/item/18454787) — 1582 kr. — GPU_PARSE_FAILED — ID 18454787
 - [Asus Gaming Computer - i5 1060 GTX](https://www.dba.dk/recommerce/forsale/item/23952876) — 1600 kr. — GPU_PARSE_FAILED — ID 23952876
 - [MSI gamer bærbar computer 15" sort](https://www.dba.dk/recommerce/forsale/item/24385418) — 1700 kr. — GPU_PARSE_FAILED — ID 24385418
-- [Gaming PC – i5-9400F / GTX 1650 4GB / SSD – klar til brug](https://www.dba.dk/recommerce/forsale/item/24565994) — 1700 kr. — GPU_PARSE_FAILED — ID 24565994
 - [Acer Nitro N50-600](https://www.dba.dk/recommerce/forsale/item/24070455) — 1750 kr. — GPU_PARSE_FAILED — ID 24070455
 - [MSI stationær gamer pc kabinet sort](https://www.dba.dk/recommerce/forsale/item/24261254) — 1799 kr. — GPU_PARSE_FAILED — ID 24261254
 - [MSI stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/23844389) — 1800 kr. — GPU_PARSE_FAILED — ID 23844389
 - [HP stationær gaming  PC - TG01-0010no](https://www.dba.dk/recommerce/forsale/item/24231514) — 1800 kr. — GPU_PARSE_FAILED — ID 24231514
 - [God gaming laptop](https://www.dba.dk/recommerce/forsale/item/24415794) — 1800 kr. — GPU_PARSE_FAILED — ID 24415794
 - [Gaming pc](https://www.dba.dk/recommerce/forsale/item/24573235) — 1800 kr. — GPU_PARSE_FAILED — ID 24573235
+- [Begynder Gamer Pc](https://www.dba.dk/recommerce/forsale/item/24585075) — 1899 kr. — GPU_PARSE_FAILED — ID 24585075
 - [Shark Gaming stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/22923263) — 1900 kr. — GPU_PARSE_FAILED — ID 22923263
+- [Gaming PC – GTX 1070 8GB / i5-7600K / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/24520167) — 1900 kr. — GPU_PARSE_FAILED — ID 24520167
 - [Lenovo Legion Gaming-PC](https://www.dba.dk/recommerce/forsale/item/15298896) — 1995 kr. — GPU_PARSE_FAILED — ID 15298896
 - [Gamer PC i7, Rød LED Setup, CS, Fortnite, Minecraft](https://www.dba.dk/recommerce/forsale/item/24169341) — 1999 kr. — GPU_PARSE_FAILED — ID 24169341
 - [Acer Nitro N50-600 Gaming PC – i5, GTX, 16GB RAM, 512GB SSD](https://www.dba.dk/recommerce/forsale/item/12271169) — 2000 kr. — GPU_PARSE_FAILED — ID 12271169
@@ -191,7 +217,6 @@ Platform/A3 suitability is secondary and never guessed; unknown compatibility do
 - [Kraftig stationær PC — i9-7900X, RTX 2080 Ti, 32 GB RAM, 9 TB lag](https://www.dba.dk/recommerce/forsale/item/24504473) — 4000 kr. — CPU_PARSE_FAILED — ID 24504473
 - [HP OMEN](https://www.dba.dk/recommerce/forsale/item/24523806) — 4000 kr. — CPU_PARSE_FAILED — ID 24523806
 - [DUTZO Gaming PC – RTX 3050 8GB / i5-10400F / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/24554117) — 4000 kr. — GPU_PARSE_FAILED — ID 24554117
-- [Stærk gamer pc med RTX 2080, Ryzen 5 4500 og 16GB ram](https://www.dba.dk/recommerce/forsale/item/24557943) — 4000 kr. — CPU_PARSE_FAILED — ID 24557943
 - [MM-vision gamer pc - entrylevel til nybegynderen](https://www.dba.dk/recommerce/forsale/item/24565829) — 4000 kr. — GPU_PARSE_FAILED — ID 24565829
 - [HP Omen stationær gaming PC sort](https://www.dba.dk/recommerce/forsale/item/24568900) — 4000 kr. — CPU_PARSE_FAILED — ID 24568900
 - [Sharkgaming stationær pc](https://www.dba.dk/recommerce/forsale/item/24023533) — 4100 kr. — GPU_PARSE_FAILED — ID 24023533
@@ -220,6 +245,7 @@ Platform/A3 suitability is secondary and never guessed; unknown compatibility do
 - [Gaming PC - Ryzen 5 / RTX 2080 Super / 1TB NVME](https://www.dba.dk/recommerce/forsale/item/24515346) — 4500 kr. — CPU_PARSE_FAILED — ID 24515346
 - [Prisvenlig Gamer PC](https://www.dba.dk/recommerce/forsale/item/24537838) — 4500 kr. — GPU_PARSE_FAILED — ID 24537838
 - [Gamer pc 5600x, 16gb 3600mhz, 1080ti,](https://www.dba.dk/recommerce/forsale/item/24555140) — 4500 kr. — GPU_PARSE_FAILED — ID 24555140
+- [Stærk gamer pc med RTX 2080, Ryzen 5 4500 og 16GB ram](https://www.dba.dk/recommerce/forsale/item/24557943) — 4500 kr. — CPU_PARSE_FAILED — ID 24557943
 - [Gaming computer i7 7700k Nvidia gtx 1080 8 gb](https://www.dba.dk/recommerce/forsale/item/24559379) — 4500 kr. — GPU_PARSE_FAILED — ID 24559379
 - [MM VISION PC MINI INFINITY](https://www.dba.dk/recommerce/forsale/item/24571001) — 4800 kr. — GPU_PARSE_FAILED — ID 24571001
 - [MSI bærbar gaming laptop med bagbelyst tastatur](https://www.dba.dk/recommerce/forsale/item/22987501) — 4900 kr. — GPU_PARSE_FAILED — ID 22987501
@@ -301,3 +327,4 @@ Platform/A3 suitability is secondary and never guessed; unknown compatibility do
 - [Alienware stationær gamer pc med EVGA GTX 1070 og RGB](https://www.dba.dk/recommerce/forsale/item/24474935) — 6000 kr. — GPU_PARSE_FAILED — ID 24474935
 - [Stærk Gaming PC - Ryzen 9 3900x - RTX 3070 - 16 GB DDR4 - 1 TB SS](https://www.dba.dk/recommerce/forsale/item/24562932) — 6000 kr. — CPU_PARSE_FAILED — ID 24562932
 - [Gigabyte AORUS 17X (RX7) – Gaming Bærbar](https://www.dba.dk/recommerce/forsale/item/24574809) — 6000 kr. — GPU_PARSE_FAILED — ID 24574809
+- [Asus bærbar gaming laptop med Nvidia GeForce RTX](https://www.dba.dk/recommerce/forsale/item/24585016) — 6000 kr. — GPU_PARSE_FAILED — ID 24585016
