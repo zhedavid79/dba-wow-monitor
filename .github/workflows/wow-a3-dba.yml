@@ -51,7 +51,7 @@ jobs:
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
           ranked = d.get('ranked') or []
           unresolved = d.get('potential_sweet_spots_unresolved') or []
-          assert d.get('model_version') == 'DBA-WOW-VALUE-AWARE-V8'
+          assert d.get('model_version') == 'DBA-WOW-VALUE-AWARE-V9'
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
           assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
           assert all(r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
@@ -59,6 +59,7 @@ jobs:
           assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
           assert all(r.get('performance_status') == 'SUFFICIENT' for r in ranked)
           assert all(r.get('value_class') in {'SWEET SPOT','GOOD VALUE','EXCESS SPEND FOR THIS USE CASE'} for r in ranked)
+          assert all(r.get('platform_value') in {'POTENTIAL_DONOR_CHECK_REQUIRED','NOT_A3_DONOR','UNKNOWN'} for r in ranked)
           assert len({str(r['listing_id']) for r in ranked}) == len(ranked)
           assert all(ranked[i]['ask_t1'] <= ranked[i+1]['ask_t1'] for i in range(len(ranked)-1))
           ceiling = d['value_model']['sweet_spot_price_ceiling']
@@ -66,7 +67,7 @@ jobs:
           assert all(r['ask_t1'] > ceiling for r in ranked if r['value_class'] == 'EXCESS SPEND FOR THIS USE CASE')
           ranked_ids = {str(r['listing_id']) for r in ranked}
           assert not ranked_ids.intersection(str(r['listing_id']) for r in unresolved)
-          print(f"PASS V8: {len(ranked)} ranked; sweet-spot ceiling {ceiling} DKK; {len(unresolved)} unresolved")
+          print(f"PASS V9: {len(ranked)} ranked; Top 10 report; sweet-spot ceiling {ceiling} DKK; {len(unresolved)} unresolved")
           PY
       - name: Publish authoritative WoW results
         run: |
@@ -82,7 +83,7 @@ jobs:
             cp /tmp/wow-results/* results/
             git add results/wow_a3_latest.json results/wow_a3_report.md
             if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Update verified WoW value-aware DBA report [skip ci]"
+            git commit -m "Update verified WoW V9 DBA report [skip ci]"
             if git push origin main; then exit 0; fi
           done
           exit 1
