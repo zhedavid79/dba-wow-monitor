@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-03T10:19:14.124113+00:00
+Generated: 2026-09-03T11:09:23.178472+00:00
 
-T0 listings <= ceiling: **2544**  
+T0 listings <= ceiling: **2542**  
 Verified before quality: **51**  
 Final after quality: **51**  
 Mainnet ranked: **36**
 
 ## Review buckets
 
-- Discovery/model blindspots: **981**
+- Discovery/model blindspots: **980**
 - Core-compatible explicit models stopped by Pulse gate: **22**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
@@ -148,7 +148,6 @@ Pris: 10.999 kr. | 0 | live price missing |
 | DISCOVERY/MODEL | 23716944 | Nokia 6111 | 75 | no supported model resolved |
 | DISCOVERY/MODEL | 2371755 | Xiaomi 13TPro Wallet, Perfekt | 75 | no supported model resolved |
 | DISCOVERY/MODEL | 23743514 | 9 stk ældre Nokia telefoner | 75 | no supported model resolved |
-| DISCOVERY/MODEL | 24344840 | Nokia | 75 | no supported model resolved |
 | DISCOVERY/MODEL | 341654 | Samsung SGH-i780 & SGH-i200, Perfekt | 75 | no supported model resolved |
 | DISCOVERY/MODEL | 7084039 | Samsung D600E | 75 | no supported model resolved |
 | DISCOVERY/MODEL | 835199 | Samsung Samsung Galaxy s 5, Perfekt | 75 | no supported model resolved |
@@ -270,6 +269,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24258890 | sony Ericsson | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24318487 | Nokia 105 Classic mobiltelefon | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24401127 | Nokia | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24410609 | Huawei Y 6 Smartphone | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24414071 | Motorola One Vision | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24437849 | Samsung GT-E1080W – Som ny i original emballage (Ubrugt) | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24469516 | Original Nokia 3510i i blå | 100 | no supported model resolved |
@@ -335,7 +335,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 14495487 | Gammel Nokia mobil | 140 | no supported model resolved |
 | DISCOVERY/MODEL | 14495780 | Sort Nokia mobil arvestykke | 140 | no supported model resolved |
 | DISCOVERY/MODEL | 10676882 | ⭐️-  Nokia 6230 | 149 | no supported model resolved |
-| DISCOVERY/MODEL | 24410609 | Huawei Y 6 Smartphone | 149 | no supported model resolved |
 | DISCOVERY/MODEL | 24450320 | Samsung Note 9 - 128 GB | 149 | no supported model resolved |
 | DISCOVERY/MODEL | 1003856 | Nokia 7110, Perfekt | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 1083870 | Mobil LG nexus 5X, 32 , Perfekt | 150 | no supported model resolved |
@@ -1064,9 +1063,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A56 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |

@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-03T10:19:14.124113+00:00",
+  "generated_at": "2026-09-03T11:09:23.178472+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2544,
+    "t0_unique": 2542,
     "verified_before_quality": 51,
     "final_after_quality": 51,
     "ranked": 36,
-    "discovery_model_blindspots": 981,
+    "discovery_model_blindspots": 980,
     "pulse_gated_discovery_review": 22,
     "t1_exit_review": 6,
     "quality_review": 0,
@@ -15,7 +15,7 @@
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 981,
+    "DISCOVERY/MODEL": 980,
     "DISCOVERY/PULSE": 22,
     "T1": 6,
     "CORE": 6,
@@ -821,15 +821,6 @@
       "title": "9 stk ældre Nokia telefoner",
       "ask": 75,
       "url": "https://www.dba.dk/recommerce/forsale/item/23743514",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24344840",
-      "title": "Nokia",
-      "ask": 75,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24344840",
       "reason": "no supported model resolved"
     },
     {
@@ -1906,6 +1897,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24410609",
+      "title": "Huawei Y 6 Smartphone",
+      "ask": 100,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24410609",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "24414071",
       "title": "Motorola One Vision",
       "ask": 100,
@@ -2486,15 +2486,6 @@
       "title": "⭐️-  Nokia 6230",
       "ask": 149,
       "url": "https://www.dba.dk/recommerce/forsale/item/10676882",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24410609",
-      "title": "Huawei Y 6 Smartphone",
-      "ask": 149,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24410609",
       "reason": "no supported model resolved"
     },
     {
@@ -9074,6 +9065,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
@@ -9089,16 +9090,6 @@
       "title": "Sony Erikson X10i",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
       "reason": "live price missing"
     },
     {
@@ -9410,6 +9401,20 @@
   ],
   "t1_exits": [
     {
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask_t0": 0,
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
+      "sources": [
+        "brand-mobile:google:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+    },
+    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9436,20 +9441,6 @@
       "reason": "live price missing",
       "title": "Sony Erikson X10i",
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
-    },
-    {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
-      "sources": [
-        "brand-mobile:google:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
       "listing_id": "17621913",
@@ -9496,13 +9487,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2487,
+    "PRODUCT_IDENTITY": 2485,
     "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 989,
-    "no supported model resolved": 1448,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 988,
     "live price missing": 3,
+    "no supported model resolved": 1447,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 9,
@@ -9510,7 +9501,7 @@
     "description indicates part without explicit functional phone evidence": 25
   },
   "audit_integrity": {
-    "all_rejects_count": 2493,
+    "all_rejects_count": 2491,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
