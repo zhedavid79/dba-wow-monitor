@@ -15,13 +15,14 @@ on:
       - 'dba_browser_v5.py'
       - 'dba_browser_v6.py'
       - 'wow_value_model.py'
+      - '.github/workflows/probe.yml'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: wow-dba-price-first-report
+  group: wow-dba-authoritative-report
   cancel-in-progress: true
 
 jobs:
@@ -67,7 +68,7 @@ jobs:
           assert not ranked_ids.intersection(str(r['listing_id']) for r in unresolved)
           print(f"PASS V8: {len(ranked)} ranked; sweet-spot ceiling {ceiling} DKK; {len(unresolved)} unresolved")
           PY
-      - name: Publish WoW price-first results
+      - name: Publish authoritative WoW results
         run: |
           set -e
           git config user.name "github-actions[bot]"
