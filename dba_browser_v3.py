@@ -7,6 +7,58 @@ from urllib.parse import quote
 import dba_browser_v2 as v2
 
 
+def flatten_jsonld(value):
+    """Yield every dict contained in arbitrary JSON-LD list/graph nesting."""
+    if isinstance(value, dict):
+        yield value
+        graph = value.get("@graph")
+        if isinstance(graph, (dict, list)):
+            yield from flatten_jsonld(graph)
+        for key, child in value.items():
+            if key == "@graph":
+                continue
+            if isinstance(child, (dict, list)):
+                yield from flatten_jsonld(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from flatten_jsonld(child)
+
+
+def offer_from_product(product: dict) -> dict | None:
+    """Return one concrete Offer/AggregateOffer-like dict without guessing values."""
+    offers = product.get("offers")
+    if isinstance(offers, dict):
+        return offers
+    if isinstance(offers, list):
+        for offer in offers:
+            if isinstance(offer, dict):
+                return offer
+    return None
+
+
+def category_from_product(product: dict) -> str:
+    """Normalize only explicit Product category evidence."""
+    category = product.get("category")
+    if isinstance(category, str):
+        return category.strip()
+    if isinstance(category, dict):
+        for key in ("name", "value", "@id"):
+            value = category.get(key)
+            if isinstance(value, str) and value.strip():
+                return value.strip()
+    if isinstance(category, list):
+        values = []
+        for item in category:
+            if isinstance(item, str) and item.strip():
+                values.append(item.strip())
+            elif isinstance(item, dict):
+                value = item.get("name") or item.get("value") or item.get("@id")
+                if isinstance(value, str) and value.strip():
+                    values.append(value.strip())
+        return " > ".join(values)
+    return ""
+
+
 async def discover_cards_by_article(page, query: str) -> list[dict]:
     """Bind id/url/title/price from one rendered DBA search-card article."""
     url = f"{v2.BASE}/recommerce/forsale/search?q={quote(query)}"
@@ -63,14 +115,7 @@ async def discover_cards_by_article(page, query: str) -> list[dict]:
 
 
 async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
-    """Read the same listing's Product JSON-LD for T1 with fail-closed identity binding.
-
-    DBA has historically exposed both sku/productID and a canonical item URL, but either
-    field may disappear independently during schema changes. The requested rendered page
-    URL must always still resolve to the same listing ID, and at least one Product-level
-    identifier must independently match that ID. This preserves same-ID binding without
-    requiring two redundant JSON-LD fields to exist forever.
-    """
+    """Read the same listing's Product JSON-LD for T1 with fail-closed identity binding."""
     url = v2.ITEM_URL.format(listing_id=listing_id)
     response = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
     if response and response.status >= 400:
@@ -93,7 +138,7 @@ async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
             parsed = json.loads(raw)
         except Exception:
             continue
-        for obj in v2._flatten_jsonld(parsed):
+        for obj in flatten_jsonld(parsed):
             typ = obj.get("@type")
             types = typ if isinstance(typ, list) else [typ]
             if any(str(x).lower() == "product" for x in types if x is not None):
@@ -110,7 +155,7 @@ async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
         if not (sku_match or canonical_match):
             continue
 
-        offer = v2._offer_from_product(product)
+        offer = offer_from_product(product)
         if not offer:
             continue
         ask = v2.parse_number(offer.get("price"))
@@ -140,7 +185,7 @@ async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
             "currency_t1": currency,
             "availability_t1": availability,
             "active_t1": bool(active and not inactive and ask is not None and currency == "DKK"),
-            "category": v2._category_from_product(product),
+            "category": category_from_product(product),
             "brand": str(product.get("brand") or ""),
             "t1_at": v2.utcnow(),
             "t1_source": "dba_jsonld_product_all_scripts",
