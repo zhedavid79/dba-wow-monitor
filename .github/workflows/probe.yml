@@ -16,6 +16,10 @@ on:
       - 'results/acurast_valuation.md'
   workflow_dispatch:
 
+concurrency:
+  group: dba-wow-verified-report
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
