@@ -1,13 +1,49 @@
 {
-  "model_version": "DBA-Z20-PARTS-V1",
-  "generated_at": "2026-09-03T19:04:34.531037+00:00",
+  "model_version": "DBA-Z20-PARTS-V2",
+  "generated_at": "2026-09-03T20:05:17.280502+00:00",
   "gate_passed": true,
   "target_case": "Jonsbo Z20",
-  "policy": "Live T0/T1 verified component, bundle and PSU opportunities; no compatibility is inferred from missing evidence.",
+  "policy": "Fail-closed component identity: title must prove listing type/model; description can enrich but cannot reclassify. Live same-ID T0/T1 price/status required. Defects are surfaced explicitly.",
+  "classifier_regression": {
+    "ok": true,
+    "cases": [
+      {
+        "title": "G.Skill Ripjaws V DDR4-8x2 RAM rød 16gb 2022",
+        "kind": "RAM",
+        "ok": true
+      },
+      {
+        "title": "32GB (2x16GB) DDR4 3600 RAM",
+        "kind": null,
+        "ok": true
+      },
+      {
+        "title": "AMD Ryzen 9 7950X3D",
+        "kind": null,
+        "ok": true
+      },
+      {
+        "title": "Gigabyte GeForce RTX 3060 Ti",
+        "kind": "GPU",
+        "ok": true
+      },
+      {
+        "title": "RAM, CPU, BUNDKORT, PSU i7-8700",
+        "kind": "PLATFORM_BUNDLE",
+        "ok": true
+      },
+      {
+        "title": "Intel Core i5-9600K + Gigabyte Z390 AORUS PRO + 16GB DDR4",
+        "kind": "PLATFORM_BUNDLE",
+        "ok": true
+      }
+    ]
+  },
   "counts": {
     "queries": 26,
-    "t0_unique": 258,
-    "opportunities": 186
+    "t0_unique": 257,
+    "opportunities": 115,
+    "rejected": 142
   },
   "opportunities": [
     {
@@ -17,8 +53,11 @@
       "ask_t0": 500,
       "ask_t1": 500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PSU",
+      "identity_evidence": "TITLE_PROVES_PSU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -27,69 +66,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "atx strømforsyning 650w"
-      ]
-    },
-    {
-      "listing_id": "21848994",
-      "url": "https://www.dba.dk/recommerce/forsale/item/21848994",
-      "title": "Komplet startkit til en budget gaming-PC eller alm Stationær",
-      "ask_t0": 500,
-      "ask_t1": 500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "micro atx bundkort cpu"
-      ]
-    },
-    {
-      "listing_id": "23586179",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23586179",
-      "title": "Strømforsyninger til PC, forskellige",
-      "ask_t0": 500,
-      "ask_t1": 500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PSU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_INCOMPATIBLE",
-      "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "atx strømforsyning 650w"
-      ]
-    },
-    {
-      "listing_id": "24218982",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24218982",
-      "title": "MSI MPG A650GF 650W modulær strømforsyning 80+ Gold",
-      "ask_t0": 500,
-      "ask_t1": 500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PSU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:40.557339+00:00",
+      "t1_at": "2026-09-03T20:00:42.304216+00:00",
       "source_queries": [
         "atx strømforsyning 650w"
       ]
@@ -101,8 +79,11 @@
       "ask_t0": 500,
       "ask_t1": 500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -111,27 +92,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb"
-      ]
-    },
-    {
-      "listing_id": "22584183",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22584183",
-      "title": "G.Skill Ripjaws V DDR4-8x2 RAM rød 16gb 2022",
-      "ask_t0": 550,
-      "ask_t1": 550,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "CPU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ryzen 5 3600",
-      "cpu_score": 56,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860365+00:00",
+      "t1_at": "2026-09-03T20:00:49.840336+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -143,8 +105,11 @@
       "ask_t0": 550,
       "ask_t1": 550,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -153,6 +118,34 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860736+00:00",
+      "t1_at": "2026-09-03T20:00:50.913414+00:00",
+      "source_queries": [
+        "ddr4 16gb"
+      ]
+    },
+    {
+      "listing_id": "22584183",
+      "url": "https://www.dba.dk/recommerce/forsale/item/22584183",
+      "title": "G.Skill Ripjaws V DDR4-8x2 RAM rød 16gb 2022",
+      "ask_t0": 550,
+      "ask_t1": 550,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860565+00:00",
+      "t1_at": "2026-09-03T20:00:52.249820+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -164,8 +157,11 @@
       "ask_t0": 599,
       "ask_t1": 599,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PSU",
+      "identity_evidence": "TITLE_PROVES_PSU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -174,6 +170,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:37.192078+00:00",
+      "t1_at": "2026-09-03T20:00:53.346906+00:00",
       "source_queries": [
         "sfx strømforsyning"
       ]
@@ -185,8 +183,11 @@
       "ask_t0": 600,
       "ask_t1": 600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -195,29 +196,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860388+00:00",
+      "t1_at": "2026-09-03T20:00:55.346810+00:00",
       "source_queries": [
         "ddr4 16gb"
-      ]
-    },
-    {
-      "listing_id": "23360972",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23360972",
-      "title": "Ny/Ubrugt Corsair RM650x strømforsyning 650W til desktop pc",
-      "ask_t0": 600,
-      "ask_t1": 600,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PSU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "atx strømforsyning 650w"
       ]
     },
     {
@@ -227,8 +209,11 @@
       "ask_t0": 600,
       "ask_t1": 600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -237,6 +222,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860885+00:00",
+      "t1_at": "2026-09-03T20:00:57.525618+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -248,8 +235,11 @@
       "ask_t0": 600,
       "ask_t1": 600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -258,6 +248,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860927+00:00",
+      "t1_at": "2026-09-03T20:00:58.523766+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -269,8 +261,11 @@
       "ask_t0": 600,
       "ask_t1": 600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -279,6 +274,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860586+00:00",
+      "t1_at": "2026-09-03T20:00:59.505970+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -290,8 +287,11 @@
       "ask_t0": 600,
       "ask_t1": 600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PSU",
+      "identity_evidence": "TITLE_PROVES_PSU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -300,6 +300,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:40.557108+00:00",
+      "t1_at": "2026-09-03T20:01:00.722649+00:00",
       "source_queries": [
         "atx strømforsyning 650w"
       ]
@@ -311,8 +313,11 @@
       "ask_t0": 650,
       "ask_t1": 650,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -321,6 +326,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187485+00:00",
+      "t1_at": "2026-09-03T20:01:02.878732+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -332,8 +339,11 @@
       "ask_t0": 650,
       "ask_t1": 650,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PSU",
+      "identity_evidence": "TITLE_PROVES_PSU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -342,6 +352,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.456772+00:00",
+      "t1_at": "2026-09-03T20:01:03.921712+00:00",
       "source_queries": [
         "rtx 3060 ti",
         "rtx 4060 ti"
@@ -354,8 +366,11 @@
       "ask_t0": 695,
       "ask_t1": 695,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -364,6 +379,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861127+00:00",
+      "t1_at": "2026-09-03T20:01:08.270606+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -375,8 +392,11 @@
       "ask_t0": 700,
       "ask_t1": 700,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -385,6 +405,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860799+00:00",
+      "t1_at": "2026-09-03T20:01:10.225911+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -396,8 +418,11 @@
       "ask_t0": 700,
       "ask_t1": 700,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -406,6 +431,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860755+00:00",
+      "t1_at": "2026-09-03T20:01:11.249632+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -417,8 +444,11 @@
       "ask_t0": 700,
       "ask_t1": 700,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -427,6 +457,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860155+00:00",
+      "t1_at": "2026-09-03T20:01:12.300402+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -438,8 +470,11 @@
       "ask_t0": 740,
       "ask_t1": 740,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -448,6 +483,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860968+00:00",
+      "t1_at": "2026-09-03T20:01:13.493963+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -459,8 +496,11 @@
       "ask_t0": 750,
       "ask_t1": 750,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -469,6 +509,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861254+00:00",
+      "t1_at": "2026-09-03T20:01:16.541531+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -480,8 +522,11 @@
       "ask_t0": 750,
       "ask_t1": 750,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -490,6 +535,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860947+00:00",
+      "t1_at": "2026-09-03T20:01:17.572311+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -501,8 +548,11 @@
       "ask_t0": 795,
       "ask_t1": 795,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -511,6 +561,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861082+00:00",
+      "t1_at": "2026-09-03T20:01:19.632042+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -522,8 +574,11 @@
       "ask_t0": 800,
       "ask_t1": 800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PSU",
+      "identity_evidence": "TITLE_PROVES_PSU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -532,6 +587,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:40.557843+00:00",
+      "t1_at": "2026-09-03T20:01:21.612284+00:00",
       "source_queries": [
         "atx strømforsyning 650w"
       ]
@@ -543,8 +600,11 @@
       "ask_t0": 800,
       "ask_t1": 800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -553,6 +613,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861034+00:00",
+      "t1_at": "2026-09-03T20:01:22.710496+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -564,8 +626,11 @@
       "ask_t0": 800,
       "ask_t1": 800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -574,6 +639,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861318+00:00",
+      "t1_at": "2026-09-03T20:01:23.696510+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -585,8 +652,11 @@
       "ask_t0": 800,
       "ask_t1": 800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -595,6 +665,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861207+00:00",
+      "t1_at": "2026-09-03T20:01:24.811595+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -606,8 +678,11 @@
       "ask_t0": 800,
       "ask_t1": 800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -616,6 +691,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861106+00:00",
+      "t1_at": "2026-09-03T20:01:25.846804+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -627,8 +704,11 @@
       "ask_t0": 800,
       "ask_t1": 800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -637,6 +717,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860696+00:00",
+      "t1_at": "2026-09-03T20:01:27.917773+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -648,8 +730,11 @@
       "ask_t0": 800,
       "ask_t1": 800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "DEFECT_DISCLOSED",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -658,6 +743,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186679+00:00",
+      "t1_at": "2026-09-03T20:01:28.950437+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -669,8 +756,11 @@
       "ask_t0": 830,
       "ask_t1": 830,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -679,8 +769,37 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186962+00:00",
+      "t1_at": "2026-09-03T20:01:33.236711+00:00",
       "source_queries": [
         "ddr4 32gb"
+      ]
+    },
+    {
+      "listing_id": "24586167",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24586167",
+      "title": "MSI Z390-A Pro ATX bundkort + Intel i5-8600K CPU",
+      "ask_t0": 850,
+      "ask_t1": 850,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "PLATFORM_BUNDLE",
+      "identity_evidence": "TITLE_PROVES_BOARD_AND_CPU",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Core i5-8600",
+      "cpu_score": 53,
+      "format_evidence": "A3_INCOMPATIBLE",
+      "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:27.272234+00:00",
+      "t1_at": "2026-09-03T20:01:39.474859+00:00",
+      "source_queries": [
+        "matx bundkort cpu",
+        "micro atx bundkort cpu"
       ]
     },
     {
@@ -690,8 +809,11 @@
       "ask_t0": 850,
       "ask_t1": 850,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -700,53 +822,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187149+00:00",
+      "t1_at": "2026-09-03T20:01:34.210724+00:00",
       "source_queries": [
         "ddr4 32gb"
-      ]
-    },
-    {
-      "listing_id": "24411752",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24411752",
-      "title": "CPU + RAM + bundkort + strømforsyning + CPU-køler BUNDLE",
-      "ask_t0": 850,
-      "ask_t1": 850,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_INCOMPATIBLE",
-      "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "bundkort ram cpu",
-        "cpu bundkort ram",
-        "micro atx bundkort cpu"
-      ]
-    },
-    {
-      "listing_id": "24549500",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24549500",
-      "title": "ASUS X99 bundkort med Intel Core i7-5930K",
-      "ask_t0": 850,
-      "ask_t1": 850,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "bundkort ram cpu",
-        "cpu bundkort ram"
       ]
     },
     {
@@ -756,8 +835,11 @@
       "ask_t0": 850,
       "ask_t1": 850,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -766,6 +848,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860194+00:00",
+      "t1_at": "2026-09-03T20:01:37.386597+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -777,8 +861,11 @@
       "ask_t0": 899,
       "ask_t1": 899,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -787,51 +874,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861272+00:00",
+      "t1_at": "2026-09-03T20:01:40.555905+00:00",
       "source_queries": [
         "ddr4 16gb"
-      ]
-    },
-    {
-      "listing_id": "20594330",
-      "url": "https://www.dba.dk/recommerce/forsale/item/20594330",
-      "title": "Lot med 12 stk. vintage PC strømforsyninger – AT & ATX PSU’er til",
-      "ask_t0": 900,
-      "ask_t1": 900,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PSU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_INCOMPATIBLE",
-      "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "atx strømforsyning 650w"
-      ]
-    },
-    {
-      "listing_id": "24037365",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24037365",
-      "title": "Mining Rig Bundkort G1610 4GB RAM SSD 30-60GB + 1600W PSU",
-      "ask_t0": 900,
-      "ask_t1": 900,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PSU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "bundkort ram cpu",
-        "cpu bundkort ram"
       ]
     },
     {
@@ -841,8 +887,11 @@
       "ask_t0": 900,
       "ask_t1": 900,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -851,6 +900,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860487+00:00",
+      "t1_at": "2026-09-03T20:01:44.753739+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -862,8 +913,11 @@
       "ask_t0": 900,
       "ask_t1": 900,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -872,6 +926,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860464+00:00",
+      "t1_at": "2026-09-03T20:01:46.012534+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -883,8 +939,11 @@
       "ask_t0": 910,
       "ask_t1": 910,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -893,6 +952,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187438+00:00",
+      "t1_at": "2026-09-03T20:01:46.927608+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -904,8 +965,11 @@
       "ask_t0": 910,
       "ask_t1": 910,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -914,6 +978,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187416+00:00",
+      "t1_at": "2026-09-03T20:01:47.943001+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -925,8 +991,11 @@
       "ask_t0": 920,
       "ask_t1": 920,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -935,6 +1004,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186915+00:00",
+      "t1_at": "2026-09-03T20:01:48.965627+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -946,8 +1017,11 @@
       "ask_t0": 950,
       "ask_t1": 950,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -956,6 +1030,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860846+00:00",
+      "t1_at": "2026-09-03T20:01:49.968627+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -967,8 +1043,11 @@
       "ask_t0": 995,
       "ask_t1": 995,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -977,32 +1056,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860265+00:00",
+      "t1_at": "2026-09-03T20:01:51.232640+00:00",
       "source_queries": [
         "ddr4 16gb"
-      ]
-    },
-    {
-      "listing_id": "24457094",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24457094",
-      "title": "RAM, CPU, BUNDKORT, PSU",
-      "ask_t0": 1000,
-      "ask_t1": 1000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PLATFORM_BUNDLE",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "bundkort ram cpu",
-        "cpu bundkort ram",
-        "matx bundkort cpu",
-        "micro atx bundkort cpu"
       ]
     },
     {
@@ -1012,8 +1069,11 @@
       "ask_t0": 1000,
       "ask_t1": 1000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1022,6 +1082,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:22.481021+00:00",
+      "t1_at": "2026-09-03T20:01:54.438231+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
@@ -1034,8 +1096,11 @@
       "ask_t0": 1000,
       "ask_t1": 1000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1044,6 +1109,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860715+00:00",
+      "t1_at": "2026-09-03T20:01:55.663123+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1055,8 +1122,11 @@
       "ask_t0": 1000,
       "ask_t1": 1000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1065,6 +1135,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187326+00:00",
+      "t1_at": "2026-09-03T20:01:56.662335+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1076,8 +1148,11 @@
       "ask_t0": 1000,
       "ask_t1": 1000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1086,6 +1161,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187033+00:00",
+      "t1_at": "2026-09-03T20:01:57.740047+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1097,8 +1174,11 @@
       "ask_t0": 1000,
       "ask_t1": 1000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1107,6 +1187,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186988+00:00",
+      "t1_at": "2026-09-03T20:01:58.718980+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1118,8 +1200,11 @@
       "ask_t0": 1100,
       "ask_t1": 1100,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PSU",
+      "identity_evidence": "TITLE_PROVES_PSU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1128,6 +1213,8 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.456297+00:00",
+      "t1_at": "2026-09-03T20:02:02.770139+00:00",
       "source_queries": [
         "atx strømforsyning 650w",
         "rtx 3060 ti",
@@ -1141,8 +1228,11 @@
       "ask_t0": 1100,
       "ask_t1": 1100,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PSU",
+      "identity_evidence": "TITLE_PROVES_PSU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1151,6 +1241,8 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.456221+00:00",
+      "t1_at": "2026-09-03T20:02:03.784489+00:00",
       "source_queries": [
         "atx strømforsyning 650w",
         "rtx 3060 ti",
@@ -1164,8 +1256,11 @@
       "ask_t0": 1100,
       "ask_t1": 1100,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1174,6 +1269,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187170+00:00",
+      "t1_at": "2026-09-03T20:02:04.796174+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1185,8 +1282,11 @@
       "ask_t0": 1100,
       "ask_t1": 1100,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PSU",
+      "identity_evidence": "TITLE_PROVES_PSU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1195,10 +1295,39 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.456261+00:00",
+      "t1_at": "2026-09-03T20:02:05.815417+00:00",
       "source_queries": [
         "atx strømforsyning 650w",
         "rtx 3060 ti",
         "rtx 3080"
+      ]
+    },
+    {
+      "listing_id": "8990713",
+      "url": "https://www.dba.dk/recommerce/forsale/item/8990713",
+      "title": "Supermicro X10SLM+-F + Intel Xeon E3-1245 V3 CPU + 16GB DDR3 UDIM",
+      "ask_t0": 1149,
+      "ask_t1": 1149,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:22.481134+00:00",
+      "t1_at": "2026-09-03T20:02:06.779302+00:00",
+      "source_queries": [
+        "bundkort ram cpu",
+        "cpu bundkort ram"
       ]
     },
     {
@@ -1208,8 +1337,11 @@
       "ask_t0": 1200,
       "ask_t1": 1200,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1218,6 +1350,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186938+00:00",
+      "t1_at": "2026-09-03T20:02:09.855802+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1229,8 +1363,11 @@
       "ask_t0": 1200,
       "ask_t1": 1200,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1239,6 +1376,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187251+00:00",
+      "t1_at": "2026-09-03T20:02:10.887462+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1250,8 +1389,11 @@
       "ask_t0": 1200,
       "ask_t1": 1200,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1260,6 +1402,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187125+00:00",
+      "t1_at": "2026-09-03T20:02:11.838804+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1271,8 +1415,11 @@
       "ask_t0": 1200,
       "ask_t1": 1200,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1281,6 +1428,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860778+00:00",
+      "t1_at": "2026-09-03T20:02:13.896810+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1292,8 +1441,11 @@
       "ask_t0": 1300,
       "ask_t1": 1300,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1302,6 +1454,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187102+00:00",
+      "t1_at": "2026-09-03T20:02:17.013714+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1313,8 +1467,11 @@
       "ask_t0": 1300,
       "ask_t1": 1300,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1323,6 +1480,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187462+00:00",
+      "t1_at": "2026-09-03T20:02:17.952572+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1334,8 +1493,11 @@
       "ask_t0": 1300,
       "ask_t1": 1300,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1344,6 +1506,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187305+00:00",
+      "t1_at": "2026-09-03T20:02:18.937896+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1355,8 +1519,11 @@
       "ask_t0": 1400,
       "ask_t1": 1400,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1365,6 +1532,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187227+00:00",
+      "t1_at": "2026-09-03T20:02:20.061423+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1376,8 +1545,11 @@
       "ask_t0": 1400,
       "ask_t1": 1400,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1386,48 +1558,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 32gb"
-      ]
-    },
-    {
-      "listing_id": "23884330",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23884330",
-      "title": "32GB (2x16GB) DDR4 3600 RAM",
-      "ask_t0": 1499,
-      "ask_t1": 1499,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "CPU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ryzen 7 5800X3D",
-      "cpu_score": 100,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 32gb"
-      ]
-    },
-    {
-      "listing_id": "24472451",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24472451",
-      "title": "Kingston FURY Beast 32GB DDR4 RAM kit",
-      "ask_t0": 1499,
-      "ask_t1": 1499,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "CPU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ryzen 5 3600",
-      "cpu_score": 56,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187280+00:00",
+      "t1_at": "2026-09-03T20:02:21.158464+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1439,8 +1571,11 @@
       "ask_t0": 1499,
       "ask_t1": 1499,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1449,6 +1584,34 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187529+00:00",
+      "t1_at": "2026-09-03T20:02:23.214689+00:00",
+      "source_queries": [
+        "ddr4 32gb"
+      ]
+    },
+    {
+      "listing_id": "24472451",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24472451",
+      "title": "Kingston FURY Beast 32GB DDR4 RAM kit",
+      "ask_t0": 1499,
+      "ask_t1": 1499,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186775+00:00",
+      "t1_at": "2026-09-03T20:02:25.172217+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1460,8 +1623,11 @@
       "ask_t0": 1500,
       "ask_t1": 1500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "DEFECT_DISCLOSED",
       "gpu": "RTX 3080",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -1470,53 +1636,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:37.845362+00:00",
+      "t1_at": "2026-09-03T20:02:33.655438+00:00",
       "source_queries": [
         "rtx 3080"
-      ]
-    },
-    {
-      "listing_id": "23356074",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23356074",
-      "title": "Corsair Crystal 280X kabinet m/ mATX bundkort (m/ Wi-Fi), i5-8400",
-      "ask_t0": 1500,
-      "ask_t1": 1500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PSU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_READY",
-      "format_rationale": "Explicit mATX/ITX evidence plus standard PSU brand/wattage evidence.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "matx bundkort cpu",
-        "micro atx bundkort cpu"
-      ]
-    },
-    {
-      "listing_id": "24327028",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24327028",
-      "title": "Bundkort Fatal1ty X99 Professional, CPU i7 5820k, RAM CORSAIR 16G",
-      "ask_t0": 1500,
-      "ask_t1": 1500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "bundkort ram cpu",
-        "cpu bundkort ram",
-        "ddr4 16gb"
       ]
     },
     {
@@ -1526,8 +1649,11 @@
       "ask_t0": 1500,
       "ask_t1": 1500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "DEFECT_DISCLOSED",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1536,6 +1662,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186890+00:00",
+      "t1_at": "2026-09-03T20:02:29.463957+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1547,8 +1675,11 @@
       "ask_t0": 1500,
       "ask_t1": 1500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1557,6 +1688,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186653+00:00",
+      "t1_at": "2026-09-03T20:02:30.458082+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1568,8 +1701,11 @@
       "ask_t0": 1500,
       "ask_t1": 1500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1578,6 +1714,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186867+00:00",
+      "t1_at": "2026-09-03T20:02:31.479466+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1589,8 +1727,11 @@
       "ask_t0": 1600,
       "ask_t1": 1600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "PLATFORM_BUNDLE",
+      "identity_evidence": "TITLE_PROVES_BOARD_AND_CPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Core i5-9600",
@@ -1599,6 +1740,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860097+00:00",
+      "t1_at": "2026-09-03T20:02:38.920974+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1610,8 +1753,11 @@
       "ask_t0": 1600,
       "ask_t1": 1600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1620,6 +1766,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187390+00:00",
+      "t1_at": "2026-09-03T20:02:34.695517+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1631,8 +1779,11 @@
       "ask_t0": 1600,
       "ask_t1": 1600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1641,6 +1792,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187347+00:00",
+      "t1_at": "2026-09-03T20:02:35.681854+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1652,8 +1805,11 @@
       "ask_t0": 1600,
       "ask_t1": 1600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1662,6 +1818,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186729+00:00",
+      "t1_at": "2026-09-03T20:02:36.637417+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1673,8 +1831,11 @@
       "ask_t0": 1600,
       "ask_t1": 1600,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1683,6 +1844,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860292+00:00",
+      "t1_at": "2026-09-03T20:02:37.650986+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1694,8 +1857,11 @@
       "ask_t0": 1625,
       "ask_t1": 1625,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1704,6 +1870,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186844+00:00",
+      "t1_at": "2026-09-03T20:02:40.012502+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1715,8 +1883,11 @@
       "ask_t0": 1650,
       "ask_t1": 1650,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1725,6 +1896,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186798+00:00",
+      "t1_at": "2026-09-03T20:02:42.094236+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1736,8 +1909,11 @@
       "ask_t0": 1700,
       "ask_t1": 1700,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3060 Ti",
       "gpu_score": 66,
       "cpu": "Ukendt",
@@ -1746,6 +1922,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.455019+00:00",
+      "t1_at": "2026-09-03T20:02:47.218829+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ]
@@ -1757,8 +1935,11 @@
       "ask_t0": 1700,
       "ask_t1": 1700,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1767,6 +1948,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187368+00:00",
+      "t1_at": "2026-09-03T20:02:44.145354+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1778,8 +1961,11 @@
       "ask_t0": 1700,
       "ask_t1": 1700,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1788,29 +1974,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187077+00:00",
+      "t1_at": "2026-09-03T20:02:45.151104+00:00",
       "source_queries": [
         "ddr4 32gb"
-      ]
-    },
-    {
-      "listing_id": "24107062",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24107062",
-      "title": "Gamer PC til små penge - Intel i5, GTX 970, 16GB DDR4",
-      "ask_t0": 1700,
-      "ask_t1": 1700,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb"
       ]
     },
     {
@@ -1820,8 +1987,11 @@
       "ask_t0": 1749,
       "ask_t1": 1749,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1830,6 +2000,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187509+00:00",
+      "t1_at": "2026-09-03T20:02:48.243970+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1841,8 +2013,11 @@
       "ask_t0": 1750,
       "ask_t1": 1750,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1851,6 +2026,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187053+00:00",
+      "t1_at": "2026-09-03T20:02:49.332337+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1862,8 +2039,11 @@
       "ask_t0": 1800,
       "ask_t1": 1800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1872,6 +2052,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861172+00:00",
+      "t1_at": "2026-09-03T20:02:50.355839+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1883,8 +2065,11 @@
       "ask_t0": 1800,
       "ask_t1": 1800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1893,6 +2078,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187012+00:00",
+      "t1_at": "2026-09-03T20:02:51.372606+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1904,8 +2091,11 @@
       "ask_t0": 1800,
       "ask_t1": 1800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -1914,6 +2104,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860609+00:00",
+      "t1_at": "2026-09-03T20:02:52.426981+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1925,8 +2117,11 @@
       "ask_t0": 1900,
       "ask_t1": 1900,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3060 Ti",
       "gpu_score": 66,
       "cpu": "Ukendt",
@@ -1935,6 +2130,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.455786+00:00",
+      "t1_at": "2026-09-03T20:02:53.440125+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ]
@@ -1946,8 +2143,11 @@
       "ask_t0": 1900,
       "ask_t1": 1900,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3060 Ti",
       "gpu_score": 66,
       "cpu": "Ukendt",
@@ -1956,30 +2156,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.455656+00:00",
+      "t1_at": "2026-09-03T20:02:54.583936+00:00",
       "source_queries": [
         "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "8992619",
-      "url": "https://www.dba.dk/recommerce/forsale/item/8992619",
-      "title": "Supermicro X9DR3-LN4F+ + 2 x Intel Xeon E5-2670 (v1) + 128GB DDR3",
-      "ask_t0": 1959,
-      "ask_t1": 1959,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "bundkort ram cpu",
-        "cpu bundkort ram"
       ]
     },
     {
@@ -1989,8 +2169,11 @@
       "ask_t0": 2000,
       "ask_t1": 2000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3070",
       "gpu_score": 73,
       "cpu": "Ukendt",
@@ -1999,6 +2182,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:33.371006+00:00",
+      "t1_at": "2026-09-03T20:03:06.293392+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -2010,8 +2195,11 @@
       "ask_t0": 2000,
       "ask_t1": 2000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3060 Ti",
       "gpu_score": 66,
       "cpu": "Ukendt",
@@ -2020,6 +2208,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.455540+00:00",
+      "t1_at": "2026-09-03T20:03:03.003096+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ]
@@ -2031,8 +2221,11 @@
       "ask_t0": 2000,
       "ask_t1": 2000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RX 7600",
       "gpu_score": 59,
       "cpu": "Ukendt",
@@ -2041,6 +2234,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:51.297844+00:00",
+      "t1_at": "2026-09-03T20:03:00.915015+00:00",
       "source_queries": [
         "rx 7600"
       ]
@@ -2052,8 +2247,11 @@
       "ask_t0": 2000,
       "ask_t1": 2000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RX 7600",
       "gpu_score": 59,
       "cpu": "Ukendt",
@@ -2062,6 +2260,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:51.297800+00:00",
+      "t1_at": "2026-09-03T20:03:05.190670+00:00",
       "source_queries": [
         "rx 7600"
       ]
@@ -2073,8 +2273,11 @@
       "ask_t0": 2000,
       "ask_t1": 2000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3060",
       "gpu_score": 54,
       "cpu": "Ukendt",
@@ -2083,6 +2286,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.456049+00:00",
+      "t1_at": "2026-09-03T20:03:01.980866+00:00",
       "source_queries": [
         "rtx 3060 ti",
         "rtx 4060",
@@ -2092,35 +2297,17 @@
       ]
     },
     {
-      "listing_id": "17106719",
-      "url": "https://www.dba.dk/recommerce/forsale/item/17106719",
-      "title": "Gaming PC Dele: 8700K MSI Gaming M5 og 16GB G.Skill DDR4",
-      "ask_t0": 2000,
-      "ask_t1": 2000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PLATFORM_BUNDLE",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb"
-      ]
-    },
-    {
       "listing_id": "22675923",
       "url": "https://www.dba.dk/recommerce/forsale/item/22675923",
       "title": "HP Elitebook 755 G5 32GB RAM – 512GB SSD – Win 11 Pro",
       "ask_t0": 2000,
       "ask_t1": 2000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -2129,6 +2316,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187833+00:00",
+      "t1_at": "2026-09-03T20:02:59.809586+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -2140,8 +2329,11 @@
       "ask_t0": 2200,
       "ask_t1": 2200,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -2150,6 +2342,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.186819+00:00",
+      "t1_at": "2026-09-03T20:03:08.261476+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -2161,8 +2355,11 @@
       "ask_t0": 2300,
       "ask_t1": 2300,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 4060",
       "gpu_score": 60,
       "cpu": "Ukendt",
@@ -2171,51 +2368,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:40.617155+00:00",
+      "t1_at": "2026-09-03T20:03:09.291089+00:00",
       "source_queries": [
         "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "19456167",
-      "url": "https://www.dba.dk/recommerce/forsale/item/19456167",
-      "title": "Bundkort kit med ram, cpu, køler i7, 32gb ram, vandkøler",
-      "ask_t0": 2500,
-      "ask_t1": 2500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "bundkort ram cpu",
-        "cpu bundkort ram"
-      ]
-    },
-    {
-      "listing_id": "24160260",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24160260",
-      "title": "Flot begynder gamer pc sæt, i5, 16gb ddr4, GTX 980TI, nyt win 11+",
-      "ask_t0": 2500,
-      "ask_t1": 2500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb"
       ]
     },
     {
@@ -2225,8 +2381,11 @@
       "ask_t0": 2550,
       "ask_t1": 2550,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 4060",
       "gpu_score": 60,
       "cpu": "Ukendt",
@@ -2235,29 +2394,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:40.616969+00:00",
+      "t1_at": "2026-09-03T20:03:13.647220+00:00",
       "source_queries": [
         "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "24474268",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24474268",
-      "title": "Flot gamer pc sæt, i5, 16gb ddr4,.gtx 1070 grafik,nyt win 11",
-      "ask_t0": 2600,
-      "ask_t1": 2600,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb"
       ]
     },
     {
@@ -2267,8 +2407,11 @@
       "ask_t0": 2649,
       "ask_t1": 2649,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RX 6800 XT",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -2277,6 +2420,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:47.976507+00:00",
+      "t1_at": "2026-09-03T20:03:17.858059+00:00",
       "source_queries": [
         "rx 6800",
         "rx 6800 xt"
@@ -2289,8 +2434,11 @@
       "ask_t0": 2800,
       "ask_t1": 2800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3080",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -2299,71 +2447,10 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:37.845339+00:00",
+      "t1_at": "2026-09-03T20:03:22.240894+00:00",
       "source_queries": [
         "rtx 3080"
-      ]
-    },
-    {
-      "listing_id": "24503994",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24503994",
-      "title": "Stationær pc med Rtx 4060 og 500gb Nvme",
-      "ask_t0": 2800,
-      "ask_t1": 2800,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "24557765",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24557765",
-      "title": "Stationær gaming computer med 32gb ram",
-      "ask_t0": 2800,
-      "ask_t1": 2800,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "CPU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 32gb"
-      ]
-    },
-    {
-      "listing_id": "24478367",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24478367",
-      "title": "\\u{d83d}\\u{dcbb} Kraftig Gaming PC – i7-7700K / 32GB RAM / Z270 T",
-      "ask_t0": 2895,
-      "ask_t1": 2895,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 32gb"
       ]
     },
     {
@@ -2373,8 +2460,11 @@
       "ask_t0": 2899,
       "ask_t1": 2899,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3080",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -2383,6 +2473,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:37.845595+00:00",
+      "t1_at": "2026-09-03T20:03:24.463384+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -2394,8 +2486,11 @@
       "ask_t0": 2900,
       "ask_t1": 2900,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 4060 Ti",
       "gpu_score": 72,
       "cpu": "Ukendt",
@@ -2404,30 +2499,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:40.618004+00:00",
+      "t1_at": "2026-09-03T20:03:25.571001+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
-      ]
-    },
-    {
-      "listing_id": "24443406",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24443406",
-      "title": "RTX 2060 gaming pc",
-      "ask_t0": 2900,
-      "ask_t1": 2900,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb"
       ]
     },
     {
@@ -2437,8 +2513,11 @@
       "ask_t0": 2995,
       "ask_t1": 2995,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -2447,6 +2526,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860514+00:00",
+      "t1_at": "2026-09-03T20:03:29.200065+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2458,8 +2539,11 @@
       "ask_t0": 2999,
       "ask_t1": 2999,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3080",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -2468,29 +2552,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:37.845924+00:00",
+      "t1_at": "2026-09-03T20:03:31.380111+00:00",
       "source_queries": [
         "rtx 3080"
-      ]
-    },
-    {
-      "listing_id": "24467564",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24467564",
-      "title": "Komplet PC sæt: Fractal Define R5 + MSI B550 + 32GB DDR4 + Arctic",
-      "ask_t0": 2999,
-      "ask_t1": 2999,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_INCOMPATIBLE",
-      "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 32gb"
       ]
     },
     {
@@ -2500,8 +2565,11 @@
       "ask_t0": 3000,
       "ask_t1": 3000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3080",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -2510,6 +2578,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:37.845945+00:00",
+      "t1_at": "2026-09-03T20:03:33.602212+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -2521,8 +2591,11 @@
       "ask_t0": 3000,
       "ask_t1": 3000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3070 Ti",
       "gpu_score": 79,
       "cpu": "Ukendt",
@@ -2531,52 +2604,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:33.371971+00:00",
+      "t1_at": "2026-09-03T20:03:35.725347+00:00",
       "source_queries": [
         "rtx 3070",
         "rtx 3070 ti"
-      ]
-    },
-    {
-      "listing_id": "7969913",
-      "url": "https://www.dba.dk/recommerce/forsale/item/7969913",
-      "title": "Gaming PC – RTX 3070 & i5-10400F",
-      "ask_t0": 3000,
-      "ask_t1": 3000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Core i5-10400",
-      "cpu_score": 65,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "23355874",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23355874",
-      "title": "AMD Ryzen 9 7950X3D",
-      "ask_t0": 3000,
-      "ask_t1": 3000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "CPU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ryzen 7 7800X3D",
-      "cpu_score": 125,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ryzen 5700x3d bundkort",
-        "ryzen 5800x3d bundkort"
       ]
     },
     {
@@ -2586,8 +2618,11 @@
       "ask_t0": 3000,
       "ask_t1": 3000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -2596,6 +2631,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.860219+00:00",
+      "t1_at": "2026-09-03T20:03:37.904294+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2607,8 +2644,11 @@
       "ask_t0": 3150,
       "ask_t1": 3150,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3080",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -2617,29 +2657,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:37.845665+00:00",
+      "t1_at": "2026-09-03T20:03:41.117436+00:00",
       "source_queries": [
         "rtx 3080"
-      ]
-    },
-    {
-      "listing_id": "21776342",
-      "url": "https://www.dba.dk/recommerce/forsale/item/21776342",
-      "title": "Bundkort og CPU",
-      "ask_t0": 3200,
-      "ask_t1": 3200,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PLATFORM_BUNDLE",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Core i7-14700",
-      "cpu_score": 120,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "micro atx bundkort cpu"
       ]
     },
     {
@@ -2649,8 +2670,11 @@
       "ask_t0": 3200,
       "ask_t1": 3200,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -2659,6 +2683,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:35.187577+00:00",
+      "t1_at": "2026-09-03T20:03:44.400230+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -2670,8 +2696,11 @@
       "ask_t0": 3250,
       "ask_t1": 3250,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3080",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -2680,6 +2709,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:37.845736+00:00",
+      "t1_at": "2026-09-03T20:03:45.432609+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -2691,8 +2722,11 @@
       "ask_t0": 3500,
       "ask_t1": 3500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3060 Ti",
       "gpu_score": 66,
       "cpu": "Ukendt",
@@ -2701,72 +2735,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.455912+00:00",
+      "t1_at": "2026-09-03T20:03:47.422646+00:00",
       "source_queries": [
         "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "23954622",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23954622",
-      "title": "HP 3060ti gamer pc",
-      "ask_t0": 3500,
-      "ask_t1": 3500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "24454130",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24454130",
-      "title": "PC med I9-9900 CPU, ASUS TUF Z390-PlUS GAMING BUNDKORT og 32GB 30",
-      "ask_t0": 3500,
-      "ask_t1": 3500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "bundkort ram cpu",
-        "cpu bundkort ram"
-      ]
-    },
-    {
-      "listing_id": "22959433",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22959433",
-      "title": "ASUS ROG Strix GeForce RTX grafikkort + ASUS ROG gaming skærm",
-      "ask_t0": 3600,
-      "ask_t1": 3600,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
       ]
     },
     {
@@ -2776,8 +2748,11 @@
       "ask_t0": 3800,
       "ask_t1": 3800,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3080",
       "gpu_score": 90,
       "cpu": "Ukendt",
@@ -2786,115 +2761,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:37.845384+00:00",
+      "t1_at": "2026-09-03T20:03:52.774827+00:00",
       "source_queries": [
         "rtx 3080"
-      ]
-    },
-    {
-      "listing_id": "22950485",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22950485",
-      "title": "RTX 3070 Stationær med defekte dele",
-      "ask_t0": 4000,
-      "ask_t1": 4000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "23487340",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23487340",
-      "title": "Gaming PC – RX 7600 8GB / i5-8600K / 32 GB RAM",
-      "ask_t0": 4000,
-      "ask_t1": 4000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RX 7600",
-      "gpu_score": 59,
-      "cpu": "Core i5-8600",
-      "cpu_score": 53,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rx 7600"
-      ]
-    },
-    {
-      "listing_id": "24433165",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24433165",
-      "title": "Gaming pc, RTX 3060 12GB, Ryzen 5 5600G, HP Victus",
-      "ask_t0": 4200,
-      "ask_t1": 4200,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3060",
-      "gpu_score": 54,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti",
-        "rtx 4060",
-        "rtx 4060 ti"
-      ]
-    },
-    {
-      "listing_id": "22552225",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22552225",
-      "title": "Perfomance Esport Gamer pc med i7 og Rtx 2070 !",
-      "ask_t0": 4499,
-      "ask_t1": 4499,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 2070",
-      "gpu_score": 52,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "24493146",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24493146",
-      "title": "Lækker selvbygget gamer PC",
-      "ask_t0": 4500,
-      "ask_t1": 4500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PLATFORM_BUNDLE",
-      "gpu": "RX 6700 XT",
-      "gpu_score": 68,
-      "cpu": "Ryzen 5 3600",
-      "cpu_score": 56,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rx 6700 xt"
       ]
     },
     {
@@ -2904,262 +2774,11 @@
       "ask_t0": 4500,
       "ask_t1": 4500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Ryzen 5 3600",
-      "cpu_score": 56,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "23960362",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23960362",
-      "title": "Gaming PC - RTX 2070 - 32 gb RAM - 1 TB SSD + 2 TB HDD - i5-9600K",
-      "ask_t0": 4500,
-      "ask_t1": 4500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 2070",
-      "gpu_score": 52,
-      "cpu": "Core i5-9600",
-      "cpu_score": 59,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "atx strømforsyning 650w"
-      ]
-    },
-    {
-      "listing_id": "24501866",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24501866",
-      "title": "Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB",
-      "ask_t0": 4500,
-      "ask_t1": 4500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 2060 Super",
-      "gpu_score": 50,
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 32gb"
-      ]
-    },
-    {
-      "listing_id": "24567410",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24567410",
-      "title": "Acer Nitro N50-620 stationær gaming pc i5-11400F, RTX 3060 Ti, 32",
-      "ask_t0": 4750,
-      "ask_t1": 4750,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "cpu": "Core i5-11400",
-      "cpu_score": 70,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "24512170",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24512170",
-      "title": "Gaming PC | RTX 3060 Ti 8GB | Ryzen 5 3600 | 16GB | WiFi | RGB",
-      "ask_t0": 4750,
-      "ask_t1": 4750,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "cpu": "Ryzen 5 3600",
-      "cpu_score": 56,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "22605807",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22605807",
-      "title": "3060 ti gaming-PC med mange nye kvalitetsdele – klar til brug!",
-      "ask_t0": 4995,
-      "ask_t1": 4995,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PLATFORM_BUNDLE",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Core i5-9600",
-      "cpu_score": 59,
-      "format_evidence": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "22697796",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22697796",
-      "title": "Fuldt Stationær Gaming setup",
-      "ask_t0": 4999,
-      "ask_t1": 4999,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_READY_PSU_CHECK",
-      "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "micro atx bundkort cpu"
-      ]
-    },
-    {
-      "listing_id": "24564237",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24564237",
-      "title": "Gamer PC, i9, 32GB RAM, Geforce 1080TI med alt tilbehør.",
-      "ask_t0": 4999,
-      "ask_t1": 4999,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 32gb"
-      ]
-    },
-    {
-      "listing_id": "24580005",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24580005",
-      "title": "Gaming PC – Lenovo Legion Tower – Ryzen 7 3700X – RTX 3070",
-      "ask_t0": 5000,
-      "ask_t1": 5000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "23445308",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23445308",
-      "title": "Gaming PC – RTX 4060 Ti 8GB / i5-10600KF / 32GB RAM / 1TB",
-      "ask_t0": 5000,
-      "ask_t1": 5000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060 Ti",
-      "gpu_score": 72,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060",
-        "rtx 4060 ti"
-      ]
-    },
-    {
-      "listing_id": "24464862",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24464862",
-      "title": "Gaming PC - RTX 3060 TI med alt tilbehør",
-      "ask_t0": 5000,
-      "ask_t1": 5000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_READY_PSU_CHECK",
-      "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "24550317",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24550317",
-      "title": "Gaming pc - RTX 4060 / I5-12400f / 16GB DDR4 / 1TB NVMe",
-      "ask_t0": 5000,
-      "ask_t1": 5000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Core i5-12400",
-      "cpu_score": 81,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb",
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "18661384",
-      "url": "https://www.dba.dk/recommerce/forsale/item/18661384",
-      "title": "Gaming PC - RTX 4060 | i5-13400F | 16GB RAM",
-      "ask_t0": 5000,
-      "ask_t1": 5000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 4060",
       "gpu_score": 60,
       "cpu": "Ukendt",
@@ -3168,90 +2787,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "23454715",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23454715",
-      "title": "Acer Nitro N50 gaming stationær pc",
-      "ask_t0": 5000,
-      "ask_t1": 5000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "24516125",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24516125",
-      "title": "MSI stationær gaming PC AMD Ryzen 7 5700X 16GB DDR4 RAM",
-      "ask_t0": 5000,
-      "ask_t1": 5000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "CPU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ryzen 7 5700X",
-      "cpu_score": 82,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb"
-      ]
-    },
-    {
-      "listing_id": "24383685",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24383685",
-      "title": "Gaming PC - mid tier",
-      "ask_t0": 5000,
-      "ask_t1": 5000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "CPU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ryzen 5 5600X",
-      "cpu_score": 79,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "24400646",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24400646",
-      "title": "\\u{d83d}\\u{dd25} RTX 4060 8GB | i5-12400F | 1.250GB SSD | 16GB RA",
-      "ask_t0": 5199,
-      "ask_t1": 5199,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Core i5-12400",
-      "cpu_score": 81,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:40.616947+00:00",
+      "t1_at": "2026-09-03T20:04:04.458296+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -3263,8 +2800,11 @@
       "ask_t0": 5199,
       "ask_t1": 5199,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 4060",
       "gpu_score": 60,
       "cpu": "Ukendt",
@@ -3273,51 +2813,36 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:40.618106+00:00",
+      "t1_at": "2026-09-03T20:04:28.555098+00:00",
       "source_queries": [
         "rtx 4060"
       ]
     },
     {
-      "listing_id": "24007758",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24007758",
-      "title": "RX 6700 XT gamer PC",
-      "ask_t0": 5300,
-      "ask_t1": 5300,
+      "listing_id": "24400646",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24400646",
+      "title": "\\u{d83d}\\u{dd25} RTX 4060 8GB | i5-12400F | 1.250GB SSD | 16GB RA",
+      "ask_t0": 5199,
+      "ask_t1": 5199,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "RTX 4060",
+      "gpu_score": 60,
       "cpu": "Ukendt",
       "cpu_score": 0,
       "format_evidence": "A3_UNCERTAIN",
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:40.617083+00:00",
+      "t1_at": "2026-09-03T20:04:29.646893+00:00",
       "source_queries": [
-        "rtx 3060 ti",
-        "rx 6700 xt"
-      ]
-    },
-    {
-      "listing_id": "24524580",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24524580",
-      "title": "Gaming PC - RTX 3070",
-      "ask_t0": 5400,
-      "ask_t1": 5400,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
+        "rtx 4060"
       ]
     },
     {
@@ -3327,8 +2852,11 @@
       "ask_t0": 5400,
       "ask_t1": 5400,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "Ukendt",
       "gpu_score": 0,
       "cpu": "Ukendt",
@@ -3337,48 +2865,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 16gb"
-      ]
-    },
-    {
-      "listing_id": "24377907",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24377907",
-      "title": "i5-13600KF, RTX 2080 Super Founders Edition, Gaming stationær",
-      "ask_t0": 5499,
-      "ask_t1": 5499,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 2080 Super",
-      "gpu_score": 65,
-      "cpu": "Core i5-13600",
-      "cpu_score": 105,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "24527656",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24527656",
-      "title": "Gaming PC | RTX 2070 SUPER | i7-10700K | 16GB DDR4 | 512GB NVMe +",
-      "ask_t0": 5499,
-      "ask_t1": 5499,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 2070 Super",
-      "gpu_score": 57,
-      "cpu": "Core i7-10700",
-      "cpu_score": 72,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T20:00:32.861012+00:00",
+      "t1_at": "2026-09-03T20:04:32.918718+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -3390,8 +2878,11 @@
       "ask_t0": 5500,
       "ask_t1": 5500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3070",
       "gpu_score": 73,
       "cpu": "Ukendt",
@@ -3400,27 +2891,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "23241609",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23241609",
-      "title": "CPU Ryzen 7 3700x Gpu Rtx 3070 Gaming computer",
-      "ask_t0": 5500,
-      "ask_t1": 5500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_READY_PSU_CHECK",
-      "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:33.371126+00:00",
+      "t1_at": "2026-09-03T20:04:37.250244+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -3432,8 +2904,11 @@
       "ask_t0": 5500,
       "ask_t1": 5500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3070",
       "gpu_score": 73,
       "cpu": "Ukendt",
@@ -3442,27 +2917,8 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "23334886",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23334886",
-      "title": "Acer Predator gaming desktop med Intel Core i7 og GeForce RTX 307",
-      "ask_t0": 5500,
-      "ask_t1": 5500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:33.372023+00:00",
+      "t1_at": "2026-09-03T20:04:39.472967+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -3474,8 +2930,11 @@
       "ask_t0": 5500,
       "ask_t1": 5500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3070",
       "gpu_score": 73,
       "cpu": "Ukendt",
@@ -3484,50 +2943,10 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:33.371740+00:00",
+      "t1_at": "2026-09-03T20:04:44.875408+00:00",
       "source_queries": [
         "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "24534814",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24534814",
-      "title": "Gaming PC – RTX 3060 Ti / i7-11700F / 16 GB / 1 TB NVMe",
-      "ask_t0": 5500,
-      "ask_t1": 5500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "cpu": "Core i7-11700",
-      "cpu_score": 79,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "23828197",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23828197",
-      "title": "\\u{d83c}\\u{dfae} Gaming PC – RTX 3060 Ti / Ryzen 7 / 32 GB RAM",
-      "ask_t0": 5500,
-      "ask_t1": 5500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
       ]
     },
     {
@@ -3537,8 +2956,11 @@
       "ask_t0": 5500,
       "ask_t1": 5500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3060 Ti",
       "gpu_score": 66,
       "cpu": "Ukendt",
@@ -3547,29 +2969,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:30.455744+00:00",
+      "t1_at": "2026-09-03T20:04:45.946043+00:00",
       "source_queries": [
         "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "24400931",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24400931",
-      "title": "Gaming Pc 32gb ram rtx 2080",
-      "ask_t0": 5500,
-      "ask_t1": 5500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 2080",
-      "gpu_score": 61,
-      "cpu": "Core i7-10700",
-      "cpu_score": 72,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "ddr4 32gb"
       ]
     },
     {
@@ -3579,8 +2982,11 @@
       "ask_t0": 5500,
       "ask_t1": 5500,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 4060",
       "gpu_score": 60,
       "cpu": "Ukendt",
@@ -3589,113 +2995,10 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:40.618345+00:00",
+      "t1_at": "2026-09-03T20:04:41.647694+00:00",
       "source_queries": [
         "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "24028514",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24028514",
-      "title": "Komplet Gaming Setup! (Pc, 2 Skærme, Tastatur, Mus, Headset, Bord",
-      "ask_t0": 5500,
-      "ask_t1": 5500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RX 5700 XT",
-      "gpu_score": 55,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rx 6700 xt"
-      ]
-    },
-    {
-      "listing_id": "22950057",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22950057",
-      "title": "RTX 4060 Gamer PC",
-      "ask_t0": 5600,
-      "ask_t1": 5600,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "23481787",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23481787",
-      "title": "4060  i5 13420H msi gamer bærbar laptop",
-      "ask_t0": 5799,
-      "ask_t1": 5799,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "24393745",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24393745",
-      "title": "Kraftig high-end Gaming PC - RTX 3070",
-      "ask_t0": 5800,
-      "ask_t1": 5800,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "24410716",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24410716",
-      "title": "Meget Kraftig Gaming computer - RTX 3070",
-      "ask_t0": 5800,
-      "ask_t1": 5800,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
       ]
     },
     {
@@ -3705,8 +3008,11 @@
       "ask_t0": 5900,
       "ask_t1": 5900,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3070 Ti",
       "gpu_score": 79,
       "cpu": "Ukendt",
@@ -3715,73 +3021,11 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:33.371627+00:00",
+      "t1_at": "2026-09-03T20:05:01.630493+00:00",
       "source_queries": [
         "rtx 3070",
         "rtx 3070 ti"
-      ]
-    },
-    {
-      "listing_id": "24575303",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24575303",
-      "title": "Gaming pc Acer nitro n50 656",
-      "ask_t0": 5900,
-      "ask_t1": 5900,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060 Ti",
-      "gpu_score": 72,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060",
-        "rtx 4060 ti"
-      ]
-    },
-    {
-      "listing_id": "24376161",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24376161",
-      "title": "Gaming pc rtx 3070 8gb 5600x 32gb ram",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ryzen 5 5600X",
-      "cpu_score": 79,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "23800548",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23800548",
-      "title": "Asus ROG stationær pc",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
       ]
     },
     {
@@ -3791,8 +3035,11 @@
       "ask_t0": 6000,
       "ask_t1": 6000,
       "currency": "DKK",
+      "price_changed": false,
       "status": "https://schema.org/InStock",
       "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
       "gpu": "RTX 3070",
       "gpu_score": 73,
       "cpu": "Ukendt",
@@ -3801,158 +3048,17 @@
       "format_rationale": "Portable complete system; no case transfer required.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-03T19:59:33.371548+00:00",
+      "t1_at": "2026-09-03T20:05:11.537517+00:00",
       "source_queries": [
         "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "24562932",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24562932",
-      "title": "Stærk Gaming PC - Ryzen 9 3900x - RTX 3070 - 16 GB DDR4 - 1 TB SS",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "23538351",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23538351",
-      "title": "Gaming computer - rtx 4060ti",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060 Ti",
-      "gpu_score": 72,
-      "cpu": "Core i5-10400",
-      "cpu_score": 65,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060",
-        "rtx 4060 ti"
-      ]
-    },
-    {
-      "listing_id": "24084752",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24084752",
-      "title": "God Gaming PC",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "cpu": "Core i7-12700",
-      "cpu_score": 98,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3060 ti"
-      ]
-    },
-    {
-      "listing_id": "23724318",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23724318",
-      "title": "Gaming PC – i5-12400F | RTX 4060 | 16 GB RAM | 1 TB SSD",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Core i5-12400",
-      "cpu_score": 81,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "22050046",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22050046",
-      "title": "Kraftig RTX 4060 Gamer PC",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 4060"
-      ]
-    },
-    {
-      "listing_id": "24410313",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24410313",
-      "title": "Gaming PC - Ryzen 6 5600x - ASUS 3070 TUF - 2+TB SSD",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "CPU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ryzen 5 5600X",
-      "cpu_score": 79,
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3070"
-      ]
-    },
-    {
-      "listing_id": "24574809",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24574809",
-      "title": "Gigabyte AORUS 17X (RX7) – Gaming Bærbar",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "kind": "PSU",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "format_evidence": "LAPTOP",
-      "format_rationale": "Portable complete system; no case transfer required.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "source_queries": [
-        "rtx 3080"
       ]
     }
   ],
+  "rejection_reason_counts": {
+    "TITLE_IDENTITY_AMBIGUOUS": 73,
+    "COMPLETE_PC_NOT_COMPONENT": 67,
+    "T1_IDENTITY_UNVERIFIED": 2
+  },
   "search_errors": []
 }
