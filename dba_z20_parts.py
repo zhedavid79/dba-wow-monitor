@@ -16,11 +16,12 @@ QUERIES = [
     "rtx 3060 ti", "rtx 3070", "rtx 3070 ti", "rtx 3080", "rtx 4060", "rtx 4060 ti",
     "rx 6700 xt", "rx 6750 xt", "rx 6800", "rx 6800 xt", "rx 7600",
     "ryzen 5600 bundkort", "ryzen 5700x3d bundkort", "ryzen 5800x3d bundkort",
-    "b550m ryzen", "b450m ryzen", "am5 b650m", "ryzen matx bundkort",
+    "b550m ryzen", "b450m ryzen", "am5 b650m", "b650m 7500f", "b650m 7600", "ryzen matx bundkort",
     "i5 10400 bundkort", "i5 11400 bundkort", "i5 12400 bundkort", "i5 12600 bundkort",
     "b560m i5", "b660m i5", "b760m i5", "intel matx bundkort cpu",
     "cpu bundkort ram", "bundkort ram cpu", "matx bundkort cpu", "micro atx bundkort cpu",
-    "ddr4 16gb", "ddr4 32gb", "sfx strømforsyning", "atx strømforsyning 650w",
+    "ddr4 16gb", "ddr4 32gb", "ddr5 16gb", "ddr5 32gb", "ddr5 6000 32gb",
+    "sfx strømforsyning", "atx strømforsyning 650w",
 ]
 MAX_PRICE = 6000
 
@@ -33,13 +34,14 @@ PSU_NOUN = re.compile(r"\b(strømforsyning|psu|power\s*supply)\b", re.I)
 PSU_WATT = re.compile(r"\b[5-9]\d{2}\s*w(?:att)?\b", re.I)
 COMPLETE_PC = re.compile(r"\b(gaming|gamer)\s*(pc|computer)|\bstationær\b|\bdesktop\b|\bkomplet\s+pc\b", re.I)
 DEFECT = re.compile(r"\b(defekt|delvist\s+defekt|virker\s+ikke|fejl|artifact|artefakt|til\s+dele|reservedele)\b", re.I)
+RAM_INCOMPATIBLE = re.compile(r"\b(so[- ]?dimm|sodimm|lrdimm|rdimm|registered|server\s*ram|ecc\s*(?:registered|lrdimm|rdimm))\b", re.I)
+RAM_KIT = re.compile(r"\b(?:2\s*x\s*(?:8|16|32)|kit|dual\s*channel|dimm)\b", re.I)
 
 # Explicit model evidence. Z20 supports only Mini-ITX / Micro-ATX; ATX is a hard rejection.
 MATX_MODEL = re.compile(r"\b(?:b450m|b550m|a520m|x570m|b650m|a620m|x670m|h410m|b460m|h510m|b560m|h610m|b660m|b760m|z690m|z790m|b365m|h370m|z390m)\b", re.I)
 MATX_WORD = re.compile(r"\b(?:m-?atx|micro[- ]?atx|microatx)\b", re.I)
 ITX_WORD = re.compile(r"\b(?:mini[- ]?itx|miniitx|m-?itx)\b", re.I)
 ATX_WORD = re.compile(r"\b(?:atx)\b", re.I)
-# Known full-size boards observed / common naming where model evidence is decisive.
 KNOWN_ATX = re.compile(r"\b(?:msi\s+z390-a\s+pro|z390\s+aorus\s+pro)(?!\s+(?:wifi\s+)?mini)\b", re.I)
 
 
@@ -65,26 +67,37 @@ def classify(title: str) -> tuple[str | None, str]:
     return None, "TITLE_IDENTITY_AMBIGUOUS"
 
 
-def motherboard_fit(text: str, kind: str) -> tuple[str, str]:
+def motherboard_fit(title: str, kind: str) -> tuple[str, str]:
+    """Fit evidence is title-only to prevent unrelated description text from proving a board."""
     if kind != "PLATFORM_BUNDLE": return "NOT_APPLICABLE", "NO_MOTHERBOARD_REQUIRED"
-    if KNOWN_ATX.search(text): return "INCOMPATIBLE", "KNOWN_FULL_SIZE_ATX_MODEL"
-    if ITX_WORD.search(text): return "COMPATIBLE", "EXPLICIT_MINI_ITX_EVIDENCE"
-    if MATX_WORD.search(text) or MATX_MODEL.search(text): return "COMPATIBLE", "EXPLICIT_MICRO_ATX_EVIDENCE"
-    # Generic 'ATX' without micro/mini qualification is full-size and cannot fit Z20.
-    if ATX_WORD.search(text): return "INCOMPATIBLE", "EXPLICIT_ATX_EVIDENCE"
-    return "UNVERIFIED", "MOTHERBOARD_FORM_FACTOR_NOT_PROVEN"
+    if KNOWN_ATX.search(title): return "INCOMPATIBLE", "KNOWN_FULL_SIZE_ATX_MODEL"
+    if ITX_WORD.search(title): return "COMPATIBLE", "TITLE_EXPLICIT_MINI_ITX_EVIDENCE"
+    if MATX_WORD.search(title) or MATX_MODEL.search(title): return "COMPATIBLE", "TITLE_EXPLICIT_MICRO_ATX_EVIDENCE"
+    cleaned = re.sub(r"\b(?:micro[- ]?atx|m[- ]?atx|matx|mini[- ]?itx|miniitx|m[- ]?itx)\b", " ", title, flags=re.I)
+    if ATX_WORD.search(cleaned): return "INCOMPATIBLE", "TITLE_EXPLICIT_FULL_SIZE_ATX_EVIDENCE"
+    return "UNVERIFIED", "MOTHERBOARD_FORM_FACTOR_NOT_PROVEN_IN_TITLE"
 
 
-def upgradeability(cpu: str, text: str, kind: str) -> tuple[str, str]:
+def upgradeability(cpu: str, title: str, kind: str) -> tuple[str, str]:
     if kind not in {"CPU", "PLATFORM_BUNDLE"}: return "NOT_APPLICABLE", "NOT_A_PLATFORM"
-    t = text.lower()
-    # Prefer platforms with meaningful drop-in or modern forward upgrade options.
-    if any(x in t for x in ("b650", "a620", "x670", "am5")): return "EXCELLENT", "AM5_PLATFORM"
+    t = title.lower()
+    if any(x in t for x in ("b650", "a620", "x670", "am5")) or any(x in cpu for x in ("7500F", "7600", "7700", "7800X3D", "7900", "7950", "9600X", "9700X", "9800X3D", "9900X3D", "9950X3D")):
+        return "EXCELLENT", "AM5_PLATFORM"
     if any(x in t for x in ("b450", "b550", "x570", "am4")): return "GOOD", "AM4_HAS_STRONG_X3D_ENDGAME"
     if any(x in t for x in ("b660", "b760", "z690", "z790", "lga1700")): return "GOOD", "LGA1700_MULTI_GENERATION_UPGRADE_PATH"
     if any(x in t for x in ("b560", "h510", "lga1200")) or any(x in cpu for x in ("10400", "11400")): return "LIMITED", "LGA1200_END_OF_LINE"
     if any(x in t for x in ("z390", "b365", "h370")) or any(x in cpu for x in ("8600", "9600", "9700")): return "POOR", "LEGACY_LGA1151_NO_MEANINGFUL_DROP_IN_PATH"
     return "UNVERIFIED", "PLATFORM_UPGRADE_PATH_NOT_PROVEN"
+
+
+def ram_compatibility(title: str, kind: str) -> tuple[str, str]:
+    if kind != "RAM": return "NOT_APPLICABLE", "NOT_RAM"
+    if RAM_INCOMPATIBLE.search(title): return "INCOMPATIBLE", "TITLE_PROVES_LAPTOP_OR_SERVER_MEMORY"
+    generation = "DDR5" if re.search(r"\bddr5\b", title, re.I) else "DDR4" if re.search(r"\bddr4\b", title, re.I) else None
+    if not generation: return "UNVERIFIED", "DDR_GENERATION_NOT_PROVEN"
+    if RAM_KIT.search(title) or re.search(r"\b(?:corsair\s+vengeance|g\.?skill|kingston\s+fury|teamgroup|t-force)\b", title, re.I):
+        return "DESKTOP_COMPATIBLE", f"TITLE_PROVES_DESKTOP_{generation}_MEMORY"
+    return "UNVERIFIED", "DESKTOP_DIMM_FORM_NOT_PROVEN"
 
 
 def regression() -> dict:
@@ -97,11 +110,19 @@ def regression() -> dict:
     ]
     results = []
     for title, expected_kind, expected_fit in cases:
-        kind, _ = classify(title)
-        fit, _ = motherboard_fit(title, kind or "")
-        if kind != expected_kind or fit != expected_fit:
-            raise SystemExit(f"Z20 FIT REGRESSION FAILED: {title}: {kind}/{fit}")
+        kind, _ = classify(title); fit, _ = motherboard_fit(title, kind or "")
+        if kind != expected_kind or fit != expected_fit: raise SystemExit(f"Z20 FIT REGRESSION FAILED: {title}: {kind}/{fit}")
         results.append({"title": title, "kind": kind, "z20_fit": fit, "ok": True})
+    ram_cases = [
+        ("Corsair ValueSelect DDR4 RAM 16GB SO-DIMM", "INCOMPATIBLE"),
+        ("32GB DDR4-2400 ECC LRDIMM", "INCOMPATIBLE"),
+        ("G.Skill Ripjaws V DDR4 16GB (2x8GB)", "DESKTOP_COMPATIBLE"),
+        ("Kingston Fury Beast DDR5 32GB (2x16GB)", "DESKTOP_COMPATIBLE"),
+    ]
+    for title, expected in ram_cases:
+        got, _ = ram_compatibility(title, "RAM")
+        if got != expected: raise SystemExit(f"RAM FIT REGRESSION FAILED: {title}: {got}")
+        results.append({"title": title, "ram_fit": got, "ok": True})
     return {"ok": True, "cases": results}
 
 
@@ -146,8 +167,9 @@ async def main() -> None:
                 elif kind in {"CPU", "PLATFORM_BUNDLE"}: cpu, cs, gpu, gs = title_cpu, title_cs, "Ukendt", 0
                 else: gpu, gs, cpu, cs = "Ukendt", 0, "Ukendt", 0
 
-                fit, fit_reason = motherboard_fit(text, kind)
-                upg, upg_reason = upgradeability(cpu, text, kind)
+                fit, fit_reason = motherboard_fit(title, kind)
+                upg, upg_reason = upgradeability(cpu, title, kind)
+                ram_fit, ram_fit_reason = ram_compatibility(title, kind)
                 condition = "DEFECT_DISCLOSED" if DEFECT.search(text) else "NO_DEFECT_SIGNAL"
                 format_class, rationale = v2.classify_format(text)
                 opportunities.append({
@@ -158,6 +180,7 @@ async def main() -> None:
                     "gpu": gpu, "gpu_score": gs, "cpu": cpu, "cpu_score": cs,
                     "z20_fit": fit, "z20_fit_reason": fit_reason,
                     "upgradeability": upg, "upgradeability_reason": upg_reason,
+                    "ram_compatibility": ram_fit, "ram_compatibility_reason": ram_fit_reason,
                     "format_evidence": format_class, "format_rationale": rationale,
                     "t0_source": row["t0_source"], "t1_source": t1["t1_source"],
                     "t0_at": row.get("t0_at"), "t1_at": t1.get("t1_at"),
@@ -168,10 +191,10 @@ async def main() -> None:
 
     opportunities.sort(key=lambda r: (r["ask_t1"], -r["gpu_score"], -r["cpu_score"]))
     out = {
-        "model_version": "DBA-Z20-PARTS-V3", "generated_at": v2.utcnow(), "gate_passed": True,
+        "model_version": "DBA-Z20-PARTS-V4", "generated_at": v2.utcnow(), "gate_passed": True,
         "target_case": "Jonsbo Z20",
         "target_case_rules": {"motherboard": ["Micro-ATX", "Mini-ITX"], "gpu_max_mm": 363, "cpu_cooler_max_mm_intel": 164, "cpu_cooler_max_mm_amd": 163, "atx_psu_recommended_max_mm": 140, "psu": ["ATX", "SFX", "SFX-L"]},
-        "policy": "Fail closed on Z20 motherboard fit. A platform bundle is buy/build eligible only with explicit Micro-ATX/Mini-ITX evidence. Full-size ATX is incompatible. Upgradeability is separately classified; legacy dead-end platforms cannot outrank a viable modern platform merely on price.",
+        "policy": "Fail closed on title-proven component identity and Z20 motherboard fit. RAM must be desktop-compatible DIMM evidence, never SO-DIMM/server memory. Full-size ATX is incompatible. Upgradeability is separately classified.",
         "classifier_regression": reg,
         "counts": {"queries": len(QUERIES), "t0_unique": len(found), "opportunities": len(opportunities), "rejected": len(rejected)},
         "opportunities": opportunities, "rejection_reason_counts": dict(Counter(x["reason"] for x in rejected)), "search_errors": errors,
