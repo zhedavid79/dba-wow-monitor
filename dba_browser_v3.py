@@ -60,29 +60,67 @@ def category_from_product(product: dict) -> str:
 
 
 async def discover_cards_by_article(page, query: str) -> list[dict]:
-    """Bind id/url/title/price from one rendered DBA search-card article."""
+    """Bind id/url/title/price from one rendered DBA result container.
+
+    CSS class names are not evidence. Starting at each live item link, select the nearest
+    ancestor that remains exclusive to exactly one unique DBA listing ID. Title and price
+    are then parsed only from that same self-contained container.
+    """
     url = f"{v2.BASE}/recommerce/forsale/search?q={quote(query)}"
     response = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
     if response and response.status >= 400:
         return []
     await v2.dismiss_consent(page)
+
+    item_selector = 'a[href*="/recommerce/forsale/item/"]'
     try:
-        await page.wait_for_selector("article.sf-search-ad", timeout=6000)
+        await page.wait_for_selector(item_selector, timeout=10000)
     except Exception:
         return []
-    for _ in range(3):
-        await page.mouse.wheel(0, 1700)
-        await page.wait_for_timeout(250)
 
-    rows = await page.locator("article.sf-search-ad").evaluate_all(
-        """articles => articles.map(article => {
-          const link = article.querySelector('a.sf-search-ad-link[href*="/recommerce/forsale/item/"]')
-                    || article.querySelector('a[href*="/recommerce/forsale/item/"]');
-          if (!link) return null;
-          const m = link.href.match(/\/recommerce\/forsale\/item\/(\d+)/);
-          if (!m) return null;
-          return {listing_id:m[1], href:link.href, card_text:(article.innerText || '').trim()};
-        }).filter(Boolean)"""
+    rows = await page.locator(item_selector).evaluate_all(
+        """links => {
+          const itemRe = /\/recommerce\/forsale\/item\/(\d+)/;
+          const uniqueIds = node => {
+            const ids = new Set();
+            for (const a of node.querySelectorAll('a[href*="/recommerce/forsale/item/"]')) {
+              const m = (a.href || '').match(itemRe);
+              if (m) ids.add(m[1]);
+            }
+            return [...ids];
+          };
+          const out = [];
+          const seen = new Set();
+          for (const link of links) {
+            const m = (link.href || '').match(itemRe);
+            if (!m || seen.has(m[1])) continue;
+            const listingId = m[1];
+            let node = link;
+            let chosen = null;
+            for (let depth = 0; depth < 10 && node; depth++, node = node.parentElement) {
+              const ids = uniqueIds(node);
+              if (ids.length === 1 && ids[0] === listingId) {
+                const text = (node.innerText || '').trim();
+                if (text.length >= 8) chosen = node;
+              } else if (ids.length > 1) {
+                break;
+              }
+            }
+            if (!chosen) continue;
+            const ids = uniqueIds(chosen);
+            if (ids.length !== 1 || ids[0] !== listingId) continue;
+            seen.add(listingId);
+            out.push({
+              listing_id: listingId,
+              href: link.href,
+              card_text: (chosen.innerText || '').trim(),
+              container_tag: chosen.tagName,
+              container_class: String(chosen.className || '').slice(0, 300),
+              container_item_id_count: ids.length
+            });
+          }
+          return out;
+        }"""
     )
 
     out = []
@@ -109,6 +147,11 @@ async def discover_cards_by_article(page, query: str) -> list[dict]:
                 "query": query,
                 "t0_at": v2.utcnow(),
                 "t0_source": "rendered_dba_card",
+                "t0_container_evidence": {
+                    "tag": row.get("container_tag"),
+                    "class": row.get("container_class"),
+                    "unique_listing_ids": row.get("container_item_id_count"),
+                },
             }
         )
     return out
