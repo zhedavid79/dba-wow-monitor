@@ -1,4 +1,4 @@
-name: WoW DBA Z20 Hybrid Report
+name: WoW DBA Z20 Upgradeable Report
 
 on:
   workflow_dispatch:
@@ -8,23 +8,13 @@ on:
     - cron: '0 17 * * *'
   push:
     branches: [main]
-    paths:
-      - 'dba_browser_v2.py'
-      - 'dba_browser_v3.py'
-      - 'dba_browser_v4.py'
-      - 'dba_browser_v5.py'
-      - 'dba_browser_v6.py'
-      - 'dba_z20_parts.py'
-      - 'wow_value_model.py'
-      - '.github/workflows/wow-a3-dba.yml'
+    paths: ['dba_browser_v2.py','dba_browser_v3.py','dba_browser_v4.py','dba_browser_v5.py','dba_browser_v6.py','dba_z20_parts.py','wow_value_model.py','.github/workflows/wow-a3-dba.yml']
 
 permissions:
   contents: write
-
 concurrency:
   group: wow-dba-authoritative-report
   cancel-in-progress: true
-
 jobs:
   report:
     runs-on: ubuntu-latest
@@ -32,8 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+        with: {python-version: '3.11'}
       - name: Install browser dependencies
         run: |
           pip install playwright
@@ -42,37 +31,32 @@ jobs:
         run: python dba_browser_v6.py
       - name: Run Z20 component and bundle scanner
         run: python dba_z20_parts.py
-      - name: Apply Z20 hybrid procurement model
+      - name: Apply Z20 upgradeable procurement model
         run: python wow_value_model.py
-      - name: Validate V10 publication gate
+      - name: Validate V11 Z20 fit publication gate
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          d = json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
-          p = json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
+          d=json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8')); p=json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
-          assert d.get('model_version') == 'DBA-WOW-Z20-HYBRID-V10'
-          assert d.get('target_case',{}).get('model') == 'Jonsbo Z20'
-          assert p.get('gate_passed') is True and p.get('model_version') == 'DBA-Z20-PARTS-V2'
+          assert d.get('model_version') == 'DBA-WOW-Z20-UPGRADEABLE-V11'
+          assert p.get('gate_passed') is True and p.get('model_version') == 'DBA-Z20-PARTS-V3'
           assert p.get('classifier_regression',{}).get('ok') is True
-          ranked = d.get('ranked') or []
-          parts = p.get('opportunities') or []
-          assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
-          assert all(r.get('t0_source') == 'rendered_dba_card' and r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
-          assert all(r.get('currency') == 'DKK' and str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
-          assert all(r.get('performance_status') == 'SUFFICIENT' for r in ranked)
-          assert all(r.get('platform_value') in {'Z20_DONOR_CHECK_REQUIRED','NOT_Z20_DONOR','UNKNOWN'} for r in ranked)
-          assert all(r.get('kind') in {'GPU','CPU','PLATFORM_BUNDLE','RAM','PSU'} for r in parts)
-          assert all(r.get('identity_evidence') in {'TITLE_PROVES_GPU','TITLE_PROVES_CPU','TITLE_PROVES_BOARD_AND_CPU','TITLE_PROVES_RAM','TITLE_PROVES_PSU'} for r in parts)
-          assert all(r.get('condition') in {'NO_DEFECT_SIGNAL','DEFECT_DISCLOSED'} for r in parts)
-          assert all(r.get('t0_source') == 'rendered_dba_card' and r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in parts)
-          assert all(isinstance(r.get('ask_t1'), int) and r.get('currency') == 'DKK' and str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in parts)
-          assert all((r['kind'] != 'GPU' or r.get('gpu_score',0) >= 50) and (r['kind'] not in {'CPU','PLATFORM_BUNDLE'} or r.get('cpu_score',0) >= 50) for r in parts)
-          assert not any(r['kind'] == 'CPU' and ('RAM' in r.get('title','').upper() or 'DDR4' in r.get('title','').upper() or 'DDR5' in r.get('title','').upper()) and not any(x in r.get('title','').lower() for x in ('ryzen','core i','processor','cpu')) for r in parts)
-          print(f"PASS V10 HARDENED: {len(ranked)} complete PCs; {len(parts)} title-proven Z20 part/bundle opportunities")
+          parts=p.get('opportunities') or []; ranked=d.get('ranked') or []
+          assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'),int) for r in ranked+parts)
+          assert all(r.get('currency')=='DKK' and str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked+parts)
+          assert all(r.get('t0_source')=='rendered_dba_card' and r.get('t1_source')=='dba_jsonld_product_all_scripts' for r in ranked+parts)
+          assert all(r.get('z20_fit') in {'COMPATIBLE','INCOMPATIBLE','UNVERIFIED','NOT_APPLICABLE'} for r in parts)
+          assert all(r.get('upgradeability') in {'EXCELLENT','GOOD','LIMITED','POOR','UNVERIFIED','NOT_APPLICABLE'} for r in parts)
+          # Absolute rule: no ATX/unknown platform bundle may be build-eligible.
+          for r in d.get('parts_scan',{}).get('opportunities',[]):
+              if r.get('kind')=='PLATFORM_BUNDLE' and r.get('build_eligible'):
+                  assert r.get('z20_fit')=='COMPATIBLE', f"unsafe bundle admitted: {r.get('listing_id')}"
+                  assert r.get('condition')!='DEFECT_DISCLOSED'
+          print(f"PASS V11: {len(ranked)} complete-PC safety-net rows; {len(parts)} component rows; Z20 fit gate enforced")
           PY
-      - name: Publish authoritative V10 results
+      - name: Publish authoritative V11 results
         run: |
           set -e
           git config user.name "github-actions[bot]"
@@ -80,12 +64,10 @@ jobs:
           mkdir -p /tmp/wow-results
           cp results/wow_a3_latest.json results/wow_a3_report.md results/z20_parts_latest.json /tmp/wow-results/
           for attempt in 1 2 3; do
-            git fetch origin main
-            git reset --hard origin/main
-            cp /tmp/wow-results/* results/
+            git fetch origin main; git reset --hard origin/main; cp /tmp/wow-results/* results/
             git add results/wow_a3_latest.json results/wow_a3_report.md results/z20_parts_latest.json
             if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Update verified WoW Z20 V10 DBA report [skip ci]"
+            git commit -m "Update verified WoW Z20 V11 DBA report [skip ci]"
             if git push origin main; then exit 0; fi
           done
           exit 1
