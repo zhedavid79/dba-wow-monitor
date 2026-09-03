@@ -1,8 +1,8 @@
 # Acurast coverage audit
 
-Generated: 2026-09-03T11:09:23.178472+00:00
+Generated: 2026-09-03T13:18:18.239556+00:00
 
-T0 listings <= ceiling: **2542**  
+T0 listings <= ceiling: **2540**  
 Verified before quality: **51**  
 Final after quality: **51**  
 Mainnet ranked: **36**
@@ -856,6 +856,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24512325 | Nokia n95 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24555130 | Motorola g05 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24555317 | OnePlus ce 2 lite | 500 | no supported model resolved |
+| DISCOVERY/MODEL | 24573520 | Nokia model TA-1206 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 2635050 | Nokia 103, God | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 6802340 | Nokia C02, 32GB , Perfekt | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 6910734 | Samsung M110, Perfekt | 500 | no supported model resolved |
@@ -985,7 +986,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24182944 | Honor 200 Smart 5G, Forest Green | 832 | no supported model resolved |
 | DISCOVERY/MODEL | 23610267 | Samsung Galaxy S10 Lite (128GB/8GB) | 849 | no supported model resolved |
 | DISCOVERY/MODEL | 10042193 | Huawei mate 9 Porsche model titanium. | 850 | no supported model resolved |
-| DISCOVERY/MODEL | 24414395 | Velholdt Huawei P30 Pro – Fantastisk kamera og stærk batteritid | 850 | no supported model resolved |
 | DISCOVERY/MODEL | 2446223 | Nokia 9110i | 850 | no supported model resolved |
 | DISCOVERY/MODEL | 23878128 | Motorola Moto G67 smartphone 128 GB grå | 899 | no supported model resolved |
 | DISCOVERY/MODEL | 1405378 | Andet mærke OPPO A18, 128 GB , Perfekt | 900 | no supported model resolved |
@@ -1064,8 +1064,8 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
