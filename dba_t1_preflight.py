@@ -6,7 +6,7 @@ import json
 from playwright.async_api import async_playwright
 
 import dba_browser_v2 as v2
-from dba_browser_v3 import discover_cards_by_article
+from dba_browser_v3 import discover_cards_by_article, flatten_jsonld, offer_from_product
 
 
 async def diagnose_item(page, row: dict) -> dict:
@@ -63,7 +63,7 @@ async def diagnose_item(page, row: dict) -> dict:
         except Exception:
             continue
         parseable_json_scripts += 1
-        for obj in v2._flatten_jsonld(parsed):
+        for obj in flatten_jsonld(parsed):
             typ = obj.get("@type")
             types = typ if isinstance(typ, list) else [typ]
             if any(str(x).lower() == "product" for x in types if x is not None):
@@ -78,7 +78,7 @@ async def diagnose_item(page, row: dict) -> dict:
         product_url = str(product.get("url") or "").strip()
         m = v2.ITEM_RE.search(product_url)
         product_url_id = m.group(1) if m else None
-        offer = v2._offer_from_product(product)
+        offer = offer_from_product(product)
         product_diag = {
             "sku_or_productID": sku or None,
             "product_url": product_url or None,
@@ -126,6 +126,7 @@ async def main() -> None:
         try:
             rows = []
             errors = []
+            seen = set()
             for query in ("gaming pc", "rtx 3070", "rtx 3060 ti"):
                 try:
                     discovered = await discover_cards_by_article(search_page, query)
@@ -133,7 +134,8 @@ async def main() -> None:
                     errors.append({"query": query, "error": f"{type(exc).__name__}: {str(exc)[:200]}"})
                     continue
                 for row in discovered:
-                    if row["listing_id"] not in {x["listing_id"] for x in rows}:
+                    if row["listing_id"] not in seen:
+                        seen.add(row["listing_id"])
                         rows.append(row)
                 if len(rows) >= 6:
                     break
