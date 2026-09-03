@@ -1,13 +1,13 @@
 # DBA WoW-PC verified price report v6
 
-Generated: 2026-09-03T06:15:45.412530+00:00
+Generated: 2026-09-03T08:15:42.403113+00:00
 
 Current schema/source gate: **PASS** — live item 24562932
 Historical price-binding regression: **PASS (static fixture; no live historical listing dependency)**
 
 Discovery queries: 62
 Structured T0 unique records: 1596
-T0 GPU-promising records sent to T1 (no top-100 cap): 248
+T0 GPU-promising records sent to T1 (no top-100 cap): 246
 T1 verified complete systems with parsed GPU+CPU: 116
 
 | Rank | ASK | Class | GPU | CPU | Listing |
@@ -39,30 +39,30 @@ T1 verified complete systems with parsed GPU+CPU: 116
 | 25 | 7000 kr. | SWEET SPOT | RTX 3070 Ti | Core i7-11700 | [Stærk Gaming PC – i7-11700K / RTX 3070 Ti / 32 GB RGB RAM](https://www.dba.dk/recommerce/forsale/item/24481026) |
 | 26 | 7000 kr. | SWEET SPOT | RTX 3070 | Ryzen 7 5800H | [Gamer Bærbar 17,3” 144 Hz –  Ryzen 7 5800H / RTX 3070 / 16 GB / 1 TB](https://www.dba.dk/recommerce/forsale/item/24461236) |
 | 27 | 7000 kr. | SWEET SPOT | RTX 3070 | Core i7-10700 | [Kraftig Vision Gaming PC – RTX 3070, i7-10700F, 1TB NVMe SSD Bygget af MM-Vision](https://www.dba.dk/recommerce/forsale/item/22873086) |
-| 28 | 7000 kr. | SWEET SPOT | RTX 4060 Ti | Core i7-14700K | [Gaming PC – i7-14700F / RTX 4060 Ti / 32 GB DDR5 / 1 TB NVMe](https://www.dba.dk/recommerce/forsale/item/24520901) |
-| 29 | 7000 kr. | SWEET SPOT | RTX 3060 Ti | Core i7-10700 | [Komplet gaming-PC – i7-10700K / RTX 3060 Ti / 32GB RAM](https://www.dba.dk/recommerce/forsale/item/22797151) |
-| 30 | 7250 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600 | [🔥 Gaming PC – 32gb Ram / RTX 3070 / Ryzen 5 5600 🔥](https://www.dba.dk/recommerce/forsale/item/24093124) |
-| 31 | 7495 kr. | SWEET SPOT | RTX 4060 Ti | Core i5-12400 | [Gamer PC – RTX 4060 Ti / i5-12400F / 32GB / 2TB Samsung 990 PRO](https://www.dba.dk/recommerce/forsale/item/24194168) |
-| 32 | 7499 kr. | SWEET SPOT | RTX 3070 | Core i7-8700 | [Vandkølet gaming-PC med Intel i7-8700, RTX 3070 8GB og 48GB RAM](https://www.dba.dk/recommerce/forsale/item/23973412) |
-| 33 | 7500 kr. | OVERKILL | RTX 4070 | Ryzen 7 7840HS | [RTX 4070, AMD Ryzen 7 7840S, 16gb ram, Lenovo legion slim 5](https://www.dba.dk/recommerce/forsale/item/24550027) |
-| 34 | 7800 kr. | SWEET SPOT | RTX 3070 | Core i5-13600K | [Shark Gaming RTX 3070 / i5-13600KF  – 1TB](https://www.dba.dk/recommerce/forsale/item/21083443) |
-| 35 | 7995 kr. | SWEET SPOT | RTX 2080 Ti | Ryzen 5 5600 | [ASUS ROG STRIX AMD 9 7900X GAMING Rtx 2080 Ti 11 Gb](https://www.dba.dk/recommerce/forsale/item/24469995) |
-| 36 | 7995 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600 | [Komplet Gaming Setup – RTX 3070 – 144Hz – Klar til brug](https://www.dba.dk/recommerce/forsale/item/23859462) |
-| 37 | 8000 kr. | OVERKILL | RTX 3080 | Core i7-12700 | [Kraftig ASUS TUF Gaming-PC – i7-12700F • RTX 3080 10GB • 32GB RAM • 2TB NVMe](https://www.dba.dk/recommerce/forsale/item/24507497) |
-| 38 | 8000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | [Kraftig gamer Pc ( Rtx 3080 )](https://www.dba.dk/recommerce/forsale/item/22697925) |
-| 39 | 8000 kr. | SWEET SPOT | RTX 3070 Ti | Core i9-12900K | [Gaming PC – i9-12900K / RTX 3070 Ti / 32GB DDR5 / 3,5TB](https://www.dba.dk/recommerce/forsale/item/24046078) |
-| 40 | 8000 kr. | SWEET SPOT | RTX 3070 | Core i5-12400 | [Complete Gaming Setup – OMEN 25L (32GB RAM, i5-12400F, RTX 3070)](https://www.dba.dk/recommerce/forsale/item/24558341) |
-| 41 | 8000 kr. | SWEET SPOT | RTX 4060 Ti | Core i7-14700K | [Gaming PC HP OMEN 25L | i7-14700F | RTX 4060Ti | 32GB RAM | 1TB](https://www.dba.dk/recommerce/forsale/item/24398046) |
-| 42 | 8100 kr. | SWEET SPOT | RTX 3070 | Core i5-11400 | [vandkølet RTX 3070](https://www.dba.dk/recommerce/forsale/item/24366871) |
-| 43 | 8300 kr. | OVERKILL | RTX 4070 | Ryzen 7 5700X | [Gaming-PC med RTX 4070 og Ryzen 7 5700X](https://www.dba.dk/recommerce/forsale/item/22615481) |
-| 44 | 8500 kr. | OVERKILL | RTX 4070 | Core i7-12700 | [PC INTEL 12700K RTX4070 RAM 32 GB](https://www.dba.dk/recommerce/forsale/item/24528951) |
-| 45 | 8500 kr. | OVERKILL | RTX 3080 | Core i7-12700 | [Gaming PC – RTX 3080 10GB, i7-12700F, 32GB RAM, 1,5TB SSD](https://www.dba.dk/recommerce/forsale/item/24198408) |
-| 46 | 8900 kr. | OVERKILL | RTX 4070 | Ryzen 5 5600 | [Gaming PC - Ryzen 5600 | RTX 4070 | 32GB RAM | 1TB NVMe](https://www.dba.dk/recommerce/forsale/item/24507712) |
-| 47 | 8999 kr. | SWEET SPOT | RTX 3070 Ti | Core i7-12700 | [Billig Gaming PC – RTX 3070 Ti / i7-12700K / 2TB SSD](https://www.dba.dk/recommerce/forsale/item/23110502) |
-| 48 | 9000 kr. | OVERKILL | RTX 3080 | Core i9-12900K | [Kraftig stationær PC – i9-12900KF, RTX 3080, 32GB RAM, 4TB SSD](https://www.dba.dk/recommerce/forsale/item/22130607) |
-| 49 | 9000 kr. | OVERKILL | RTX 3080 | Ryzen 7 5800X3D | [Gaming PC – Ryzen 7 5800X3D / RTX 3080 / 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24384000) |
-| 50 | 9500 kr. | OVERKILL | RTX 4070 | Core i9-10900 | [ZOTAC Mini Gaming - i9-10900K, RTX 4070 S., 64GB RAM, 2TB Samsung 990 Pro SSD](https://www.dba.dk/recommerce/forsale/item/21563511) |
+| 28 | 7000 kr. | SWEET SPOT | RTX 4060 Ti | Core i7-14700K | [Gaming PC – i7-14700F / RTX 4060 Ti / 16GB RAM / 1TB SSD](https://www.dba.dk/recommerce/forsale/item/24564571) |
+| 29 | 7000 kr. | SWEET SPOT | RTX 4060 Ti | Core i7-14700K | [Gaming PC – i7-14700F / RTX 4060 Ti / 32 GB DDR5 / 1 TB NVMe](https://www.dba.dk/recommerce/forsale/item/24520901) |
+| 30 | 7000 kr. | SWEET SPOT | RTX 3060 Ti | Core i7-10700 | [Komplet gaming-PC – i7-10700K / RTX 3060 Ti / 32GB RAM](https://www.dba.dk/recommerce/forsale/item/22797151) |
+| 31 | 7250 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600 | [🔥 Gaming PC – 32gb Ram / RTX 3070 / Ryzen 5 5600 🔥](https://www.dba.dk/recommerce/forsale/item/24093124) |
+| 32 | 7495 kr. | SWEET SPOT | RTX 4060 Ti | Core i5-12400 | [Gamer PC – RTX 4060 Ti / i5-12400F / 32GB / 2TB Samsung 990 PRO](https://www.dba.dk/recommerce/forsale/item/24194168) |
+| 33 | 7499 kr. | SWEET SPOT | RTX 3070 | Core i7-8700 | [Vandkølet gaming-PC med Intel i7-8700, RTX 3070 8GB og 48GB RAM](https://www.dba.dk/recommerce/forsale/item/23973412) |
+| 34 | 7500 kr. | OVERKILL | RTX 4070 | Ryzen 7 7840HS | [RTX 4070, AMD Ryzen 7 7840S, 16gb ram, Lenovo legion slim 5](https://www.dba.dk/recommerce/forsale/item/24550027) |
+| 35 | 7800 kr. | SWEET SPOT | RTX 3070 | Core i5-13600K | [Shark Gaming RTX 3070 / i5-13600KF  – 1TB](https://www.dba.dk/recommerce/forsale/item/21083443) |
+| 36 | 7995 kr. | SWEET SPOT | RTX 2080 Ti | Ryzen 5 5600 | [ASUS ROG STRIX AMD 9 7900X GAMING Rtx 2080 Ti 11 Gb](https://www.dba.dk/recommerce/forsale/item/24469995) |
+| 37 | 7995 kr. | SWEET SPOT | RTX 3070 | Ryzen 5 5600 | [Komplet Gaming Setup – RTX 3070 – 144Hz – Klar til brug](https://www.dba.dk/recommerce/forsale/item/23859462) |
+| 38 | 8000 kr. | OVERKILL | RTX 3080 | Core i7-12700 | [Kraftig ASUS TUF Gaming-PC – i7-12700F • RTX 3080 10GB • 32GB RAM • 2TB NVMe](https://www.dba.dk/recommerce/forsale/item/24507497) |
+| 39 | 8000 kr. | SWEET SPOT | RTX 3080 | Core i7-10700 | [Kraftig gamer Pc ( Rtx 3080 )](https://www.dba.dk/recommerce/forsale/item/22697925) |
+| 40 | 8000 kr. | SWEET SPOT | RTX 3070 Ti | Core i9-12900K | [Gaming PC – i9-12900K / RTX 3070 Ti / 32GB DDR5 / 3,5TB](https://www.dba.dk/recommerce/forsale/item/24046078) |
+| 41 | 8000 kr. | SWEET SPOT | RTX 3070 | Core i5-12400 | [Complete Gaming Setup – OMEN 25L (32GB RAM, i5-12400F, RTX 3070)](https://www.dba.dk/recommerce/forsale/item/24558341) |
+| 42 | 8000 kr. | SWEET SPOT | RTX 4060 Ti | Core i7-14700K | [Gaming PC HP OMEN 25L | i7-14700F | RTX 4060Ti | 32GB RAM | 1TB](https://www.dba.dk/recommerce/forsale/item/24398046) |
+| 43 | 8100 kr. | SWEET SPOT | RTX 3070 | Core i5-11400 | [vandkølet RTX 3070](https://www.dba.dk/recommerce/forsale/item/24366871) |
+| 44 | 8300 kr. | OVERKILL | RTX 4070 | Ryzen 7 5700X | [Gaming-PC med RTX 4070 og Ryzen 7 5700X](https://www.dba.dk/recommerce/forsale/item/22615481) |
+| 45 | 8500 kr. | OVERKILL | RTX 4070 | Core i7-12700 | [PC INTEL 12700K RTX4070 RAM 32 GB](https://www.dba.dk/recommerce/forsale/item/24528951) |
+| 46 | 8500 kr. | OVERKILL | RTX 3080 | Core i7-12700 | [Gaming PC – RTX 3080 10GB, i7-12700F, 32GB RAM, 1,5TB SSD](https://www.dba.dk/recommerce/forsale/item/24198408) |
+| 47 | 8900 kr. | OVERKILL | RTX 4070 | Ryzen 5 5600 | [Gaming PC - Ryzen 5600 | RTX 4070 | 32GB RAM | 1TB NVMe](https://www.dba.dk/recommerce/forsale/item/24507712) |
+| 48 | 8999 kr. | SWEET SPOT | RTX 3070 Ti | Core i7-12700 | [Billig Gaming PC – RTX 3070 Ti / i7-12700K / 2TB SSD](https://www.dba.dk/recommerce/forsale/item/23110502) |
+| 49 | 9000 kr. | OVERKILL | RTX 3080 | Core i9-12900K | [Kraftig stationær PC – i9-12900KF, RTX 3080, 32GB RAM, 4TB SSD](https://www.dba.dk/recommerce/forsale/item/22130607) |
+| 50 | 9000 kr. | OVERKILL | RTX 3080 | Ryzen 7 5800X3D | [Gaming PC – Ryzen 7 5800X3D / RTX 3080 / 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24384000) |
 
 ## Rejection diagnostics
 
-{"CPU_PARSE_FAILED": 132}
+{"CPU_PARSE_FAILED": 130}
