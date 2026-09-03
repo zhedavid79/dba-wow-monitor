@@ -63,7 +63,14 @@ async def discover_cards_by_article(page, query: str) -> list[dict]:
 
 
 async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
-    """Read the same listing's canonical Product JSON object for T1."""
+    """Read the same listing's Product JSON-LD for T1 with fail-closed identity binding.
+
+    DBA has historically exposed both sku/productID and a canonical item URL, but either
+    field may disappear independently during schema changes. The requested rendered page
+    URL must always still resolve to the same listing ID, and at least one Product-level
+    identifier must independently match that ID. This preserves same-ID binding without
+    requiring two redundant JSON-LD fields to exist forever.
+    """
     url = v2.ITEM_URL.format(listing_id=listing_id)
     response = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
     if response and response.status >= 400:
@@ -71,8 +78,13 @@ async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
     await v2.dismiss_consent(page)
     await page.wait_for_timeout(300)
 
+    page_match = v2.ITEM_RE.search(page.url or "")
+    page_id = page_match.group(1) if page_match else ""
+    if page_id != listing_id:
+        return None
+
     scripts = await page.locator("script").evaluate_all(
-        "els => els.map(s => s.textContent || '').filter(x => x && x.includes('Product') && (x.includes('sku') || x.includes('productID')) && x.includes('offers'))"
+        "els => els.map(s => s.textContent || '').filter(x => x && x.includes('Product') && x.includes('offers'))"
     )
 
     products: list[dict] = []
@@ -88,11 +100,14 @@ async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
                 products.append(obj)
 
     for product in products:
-        sku = str(product.get("sku") or product.get("productID") or "")
-        canonical = str(product.get("url") or "")
-        match = v2.ITEM_RE.search(canonical)
+        sku = str(product.get("sku") or product.get("productID") or "").strip()
+        product_url = str(product.get("url") or "").strip()
+        match = v2.ITEM_RE.search(product_url)
         canonical_id = match.group(1) if match else ""
-        if sku != listing_id or canonical_id != listing_id:
+
+        sku_match = sku == listing_id
+        canonical_match = canonical_id == listing_id
+        if not (sku_match or canonical_match):
             continue
 
         offer = v2._offer_from_product(product)
@@ -105,10 +120,20 @@ async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
         active = normalized.endswith("instock")
         inactive = any(normalized.endswith(x) for x in ("outofstock", "discontinued", "soldout"))
 
+        canonical = product_url if canonical_match else url
+        identity_evidence = (
+            "PAGE_ID+SKU+PRODUCT_URL"
+            if sku_match and canonical_match
+            else "PAGE_ID+SKU"
+            if sku_match
+            else "PAGE_ID+PRODUCT_URL"
+        )
+
         return {
             "listing_id": listing_id,
             "canonical_url": canonical,
             "identity_ok": True,
+            "identity_evidence": identity_evidence,
             "title": str(product.get("name") or "").strip(),
             "description": str(product.get("description") or ""),
             "ask_t1": ask,
