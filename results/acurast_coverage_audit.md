@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-03T15:01:36.301664+00:00
+Generated: 2026-09-03T17:17:31.918765+00:00
 
-T0 listings <= ceiling: **2533**  
-Verified before quality: **48**  
-Final after quality: **48**  
-Mainnet ranked: **33**
+T0 listings <= ceiling: **2532**  
+Verified before quality: **50**  
+Final after quality: **50**  
+Mainnet ranked: **35**
 
 ## Review buckets
 
-- Discovery/model blindspots: **980**
+- Discovery/model blindspots: **979**
 - Core-compatible explicit models stopped by Pulse gate: **22**
-- T1 exits/errors: **7**
+- T1 exits/errors: **6**
 - Quality-gate review: **0**
 - Core compatibility review: **6**
 - Pulse-match review: **9**
@@ -49,7 +49,6 @@ Mainnet ranked: **33**
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| 24483101 | OnePlus 8T i blå | 350 | HTTPError |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
@@ -65,6 +64,7 @@ Pris: 10.999 kr. | 0 | live price missing |
 | DISCOVERY/MODEL | 23925952 | Nokia | 10 | no supported model resolved |
 | DISCOVERY/MODEL | 1984616 | Nokia bil-lader | 20 | no supported model resolved |
 | DISCOVERY/MODEL | 2062211 | LG Optimus L3, Perfekt | 20 | no supported model resolved |
+| DISCOVERY/MODEL | 3522364 | Nokia 62, Perfekt | 20 | no supported model resolved |
 | DISCOVERY/MODEL | 1602092 | HUAWEI U8815 | 25 | no supported model resolved |
 | DISCOVERY/MODEL | 2205051 | Sony Ericsson Xperia S | 25 | no supported model resolved |
 | DISCOVERY/MODEL | 23733150 | Huawei p20 lite smartphone 32 GB blå | 25 | no supported model resolved |
@@ -410,7 +410,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 21838117 | Nokia 1112 | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 23652384 | Nokia C3-01 Touch and Type –  m. original oplader | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 23924212 | Nokia Forskellige vintage modeller | 175 | no supported model resolved |
-| DISCOVERY/MODEL | 24365444 | Samsung Galaxy S8+ smartphone 64 GB sort | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 9164093 | LG KG800 chocolate | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 17176181 | Sony Ericsson T68i | 180 | no supported model resolved |
 | DISCOVERY/MODEL | 17176327 | Sony Ericsson T280 i | 180 | no supported model resolved |
@@ -500,7 +499,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24401133 | Nokia | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24498022 | Galaxy J2 Core. | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24524393 | NOKIA 225 Dual Sim Blå | 200 | no supported model resolved |
-| DISCOVERY/MODEL | 24563890 | Samsung Galaxy S4 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2594591 | Nokia 215, Perfekt | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2662666 | LG Digital communication, Perfekt | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 3567808 | HTC Diverse, Diverse , God | 200 | no supported model resolved |
@@ -795,7 +793,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2190516 | Samsung J6, God | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 23324807 | OnePlus 5 (A5000) smartphone | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 24081537 | TCL T517D 128 GB | 499 | no supported model resolved |
-| DISCOVERY/MODEL | 24197294 | Motorola one Vision | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 24393984 | Samsung Galaxy A22 5G Smartphone 64 GB  Dual-SIM | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 1197425 | Nokia 5110i, God | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 14160104 | Google Nexus S | 500 | no supported model resolved |
@@ -1013,6 +1010,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2115824 | Google Pixel 2, 128 GB , God | 999 | no supported model resolved |
 | DISCOVERY/MODEL | 23976689 | Samsung Galaxy A-series smartwatch med gråt silikoneurrem | 999 | no supported model resolved |
 | DISCOVERY/MODEL | 24334069 | Samsung Galaxy A17 5G – 128GB | 999 | no supported model resolved |
+| DISCOVERY/MODEL | 24582981 | Moto G86 Power sælges billigt! | 899 | no supported model resolved |
 | DISCOVERY/MODEL | 5736739 | Nokia 9300i Communicator | 999 | no supported model resolved |
 | DISCOVERY/MODEL | 1378783 | Populær Retro mobil ☎️ Nokia X7 til salg for samlere | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 19989011 | Motorola edge 30 Pro | 1000 | no supported model resolved |
@@ -1064,12 +1062,11 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A56 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| T1 | 24483101 | OnePlus 8T | 350 | HTTPError |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | CORE | 21698235 | Xiaomi Redmi 9 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 23537344 | OnePlus Nord |  | Android 12+ compatibility not verified by conservative Core allowlist |
