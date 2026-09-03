@@ -31,29 +31,36 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Install browser dependencies
+        timeout-minutes: 6
         run: |
           pip install playwright
           playwright install --with-deps chromium
       - name: Compile complete model
         run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v6.py dba_t1_preflight.py dba_z20_parts.py dba_z20_donors.py wow_value_model.py z20_complete_optimizer.py
       - name: Diagnose DBA T1 preflight
+        timeout-minutes: 3
         run: python dba_t1_preflight.py
       - name: Run complete-PC high-recall scanner
+        timeout-minutes: 9
         run: python dba_browser_v6.py
       - name: Run Z20 component and bundle scanner
+        timeout-minutes: 9
         run: python dba_z20_parts.py
       - name: Apply Z20 upgradeable procurement annotations
+        timeout-minutes: 2
         run: python wow_value_model.py
       - name: Resolve live donor-PC components
+        timeout-minutes: 4
         run: python dba_z20_donors.py
       - name: Optimize complete Z20 systems
+        timeout-minutes: 3
         run: python z20_complete_optimizer.py
       - name: Validate V13 complete-system publication gate
         run: |
@@ -65,10 +72,17 @@ jobs:
           q=json.loads(Path('results/z20_donors_latest.json').read_text(encoding='utf-8'))
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
           assert d.get('model_version') == 'DBA-WOW-Z20-COMPLETE-SYSTEM-V13'
+          cov=d.get('coverage') or {}
+          assert (cov.get('discovery') or {}).get('complete') is True, 'COMPLETE-PC DISCOVERY COVERAGE INCOMPLETE'
+          assert (cov.get('t1') or {}).get('complete') is True, 'COMPLETE-PC T1 COVERAGE INCOMPLETE'
           assert p.get('gate_passed') is True and p.get('model_version') == 'DBA-Z20-PARTS-V4'
           assert p.get('classifier_regression',{}).get('ok') is True
+          pcov=p.get('coverage') or {}
+          assert (pcov.get('discovery') or {}).get('complete') is True, 'PARTS DISCOVERY COVERAGE INCOMPLETE'
+          assert (pcov.get('t1') or {}).get('complete') is True, 'PARTS T1 COVERAGE INCOMPLETE'
           assert q.get('gate_passed') is True and q.get('model_version') == 'DBA-Z20-DONOR-RESOLVER-V2'
           assert q.get('classifier_regression',{}).get('ok') is True
+          assert (q.get('coverage') or {}).get('complete') is True, 'DONOR T1 COVERAGE INCOMPLETE'
           ranked=d.get('ranked') or []; parts=p.get('opportunities') or []
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'),int) for r in ranked+parts)
           assert all(r.get('currency')=='DKK' and str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked+parts)
