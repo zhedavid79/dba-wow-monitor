@@ -1,33 +1,13 @@
-name: DBA Verified Report
+name: DBA Diagnostic Probe
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'acurast_dba_report.py'
-      - 'acurast_listing_quality.py'
-      - 'acurast_valuation.py'
-      - 'acurast_valuation_fixed.py'
-      - 'acurastbot_probe.py'
-      - '.github/workflows/acurast-dba.yml'
-      - 'results/acurast_latest.json'
-      - 'results/acurast_report.md'
-      - 'results/acurast_valuation.json'
-      - 'results/acurast_valuation.md'
-      - 'results/wow_a3_latest.json'
-      - 'results/wow_a3_report.md'
-      - 'results/wow_a3_gate_failure.json'
   workflow_dispatch:
 
-concurrency:
-  group: dba-wow-verified-report
-  cancel-in-progress: true
-
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  report:
+  probe:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -39,47 +19,37 @@ jobs:
         run: |
           pip install playwright
           playwright install --with-deps chromium
-      - name: Build browser-native high-recall WoW price report
+      - name: Run browser-native high-recall WoW scanner
         run: python dba_browser_v6.py
-      - name: Validate publication gate
+      - name: Apply value-aware procurement model
+        run: python wow_value_model.py
+      - name: Validate diagnostic output
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
+
           d = json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
-          assert d.get('model_version') == 'DBA-WOW-BROWSER-HIGH-RECALL-V7'
+          assert d.get('model_version') == 'DBA-WOW-VALUE-AWARE-V8'
+
           ranked = d.get('ranked') or []
           unresolved = d.get('potential_sweet_spots_unresolved') or []
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
           assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
           assert all(r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
           assert all(r.get('currency') == 'DKK' for r in ranked)
-          assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
+          assert all(str(r.get('status', '')).rstrip('/').lower().endswith('instock') for r in ranked)
+          assert all(r.get('performance_status') == 'SUFFICIENT' for r in ranked)
+          assert all(r.get('value_class') in {'SWEET SPOT', 'GOOD VALUE', 'EXCESS SPEND FOR THIS USE CASE'} for r in ranked)
           assert len({str(r['listing_id']) for r in ranked}) == len(ranked)
-          assert all(ranked[i]['ask_t1'] <= ranked[i+1]['ask_t1'] for i in range(len(ranked)-1))
+          assert all(ranked[i]['ask_t1'] <= ranked[i + 1]['ask_t1'] for i in range(len(ranked) - 1))
+
+          ceiling = d['value_model']['sweet_spot_price_ceiling']
+          assert all(r['ask_t1'] <= ceiling for r in ranked if r['value_class'] == 'SWEET SPOT')
+          assert all(r['ask_t1'] > ceiling for r in ranked if r['value_class'] == 'EXCESS SPEND FOR THIS USE CASE')
+
           ranked_ids = {str(r['listing_id']) for r in ranked}
           assert not ranked_ids.intersection(str(r['listing_id']) for r in unresolved)
-          print(f"PASS: {len(ranked)} ranked; {len(unresolved)} unresolved potential sweet spots")
+          print(f"PASS DIAGNOSTIC V8: {len(ranked)} ranked; sweet-spot ceiling {ceiling} DKK; {len(unresolved)} unresolved")
           PY
-      - name: Commit results
-        run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p /tmp/wow-results
-          cp results/wow_a3_latest.json /tmp/wow-results/
-          cp results/wow_a3_report.md /tmp/wow-results/
-          for attempt in 1 2 3; do
-            git fetch origin main
-            git reset --hard origin/main
-            cp /tmp/wow-results/* results/
-            git add results/wow_a3_latest.json results/wow_a3_report.md
-            if git diff --cached --quiet; then
-              echo "No WoW result changes"
-              exit 0
-            fi
-            git commit -m "Update verified WoW browser report [skip ci]"
-            if git push origin main; then exit 0; fi
-          done
-          exit 1
