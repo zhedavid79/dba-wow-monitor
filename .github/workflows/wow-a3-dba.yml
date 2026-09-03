@@ -64,7 +64,8 @@ jobs:
           assert d.get('model_version') == 'DBA-WOW-Z20-COMPLETE-SYSTEM-V13'
           assert p.get('gate_passed') is True and p.get('model_version') == 'DBA-Z20-PARTS-V4'
           assert p.get('classifier_regression',{}).get('ok') is True
-          assert q.get('gate_passed') is True and q.get('model_version') == 'DBA-Z20-DONOR-RESOLVER-V1'
+          assert q.get('gate_passed') is True and q.get('model_version') == 'DBA-Z20-DONOR-RESOLVER-V2'
+          assert q.get('classifier_regression',{}).get('ok') is True
           ranked=d.get('ranked') or []; parts=p.get('opportunities') or []
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'),int) for r in ranked+parts)
           assert all(r.get('currency')=='DKK' and str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked+parts)
