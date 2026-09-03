@@ -1,6 +1,6 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW 3840×1600 / 75 Hz
 
-Generated: 2026-09-03T11:10:40.289448+00:00
+Generated: 2026-09-03T14:09:35.648446+00:00
 Retrieval: Rendered DBA article.sf-search-ad T0 + same-ID DBA Product JSON T1
 Value model: performance sufficiency and purchase value are separate; SWEET SPOT is price-relative, not a hardware tier.
 
@@ -123,8 +123,8 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [MSI stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/23844389) — 1800 kr. — GPU_PARSE_FAILED — ID 23844389
 - [HP stationær gaming  PC - TG01-0010no](https://www.dba.dk/recommerce/forsale/item/24231514) — 1800 kr. — GPU_PARSE_FAILED — ID 24231514
 - [God gaming laptop](https://www.dba.dk/recommerce/forsale/item/24415794) — 1800 kr. — GPU_PARSE_FAILED — ID 24415794
+- [Gaming pc](https://www.dba.dk/recommerce/forsale/item/24573235) — 1800 kr. — GPU_PARSE_FAILED — ID 24573235
 - [Shark Gaming stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/22923263) — 1900 kr. — GPU_PARSE_FAILED — ID 22923263
-- [Mini gaming PC](https://www.dba.dk/recommerce/forsale/item/24455388) — 1900 kr. — GPU_PARSE_FAILED — ID 24455388
 - [Gaming PC – GTX 1070 8GB / i5-7600K / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/24520167) — 1900 kr. — GPU_PARSE_FAILED — ID 24520167
 - [Lenovo Legion Gaming-PC](https://www.dba.dk/recommerce/forsale/item/15298896) — 1995 kr. — GPU_PARSE_FAILED — ID 15298896
 - [Gaming PC Sæt - Klar til brug, Fortnite, Minecraft](https://www.dba.dk/recommerce/forsale/item/24503472) — 1998 kr. — GPU_PARSE_FAILED — ID 24503472
@@ -136,18 +136,19 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Gaming PC i5](https://www.dba.dk/recommerce/forsale/item/23743292) — 2000 kr. — GPU_PARSE_FAILED — ID 23743292
 - [HP Victus 15" Gaming Laptop – Opgraderet til 32GB RAM!](https://www.dba.dk/recommerce/forsale/item/23941916) — 2000 kr. — GPU_PARSE_FAILED — ID 23941916
 - [Dutzo stationær gaming computer](https://www.dba.dk/recommerce/forsale/item/23969934) — 2000 kr. — GPU_PARSE_FAILED — ID 23969934
-- [DIY Gaming PC *læs beskrivelse*](https://www.dba.dk/recommerce/forsale/item/24411634) — 2000 kr. — GPU_PARSE_FAILED — ID 24411634
 - [Acer stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24501584) — 2000 kr. — GPU_PARSE_FAILED — ID 24501584
 - [Asus ROG Ally håndholdt gaming PC hvid](https://www.dba.dk/recommerce/forsale/item/24537972) — 2000 kr. — GPU_PARSE_FAILED — ID 24537972
+- [Gaming PC RTX 2070 SUPER – 16GB RAM – i5](https://www.dba.dk/recommerce/forsale/item/24445025) — 2100 kr. — CPU_PARSE_FAILED — ID 24445025
 - [MSI stationær gamer PC med rød LED kabinet](https://www.dba.dk/recommerce/forsale/item/22156225) — 2200 kr. — GPU_PARSE_FAILED — ID 22156225
 - [Gaming computer](https://www.dba.dk/recommerce/forsale/item/23024627) — 2200 kr. — GPU_PARSE_FAILED — ID 23024627
+- [Gamer PC](https://www.dba.dk/recommerce/forsale/item/24409134) — 2200 kr. — GPU_PARSE_FAILED — ID 24409134
 - [Lenovo Legion Gaming PC – GTX 1660 SUPER / i5 / 16GB RAM](https://www.dba.dk/recommerce/forsale/item/24485969) — 2200 kr. — GPU_PARSE_FAILED — ID 24485969
 - [Predator Gamer-PC – Intel i7, GTX 1070 – Virker som ny](https://www.dba.dk/recommerce/forsale/item/23267231) — 2222 kr. — GPU_PARSE_FAILED — ID 23267231
 - [Lenovo, Legion Tower Station Gamer](https://www.dba.dk/recommerce/forsale/item/2126563) — 2250 kr. — GPU_PARSE_FAILED — ID 2126563
 - [Lenovo IdeaCentre G5 stationær gaming computer](https://www.dba.dk/recommerce/forsale/item/23853968) — 2250 kr. — GPU_PARSE_FAILED — ID 23853968
-- [Gaming PC RTX 2070 SUPER – 16GB RAM – i5](https://www.dba.dk/recommerce/forsale/item/24445025) — 2300 kr. — CPU_PARSE_FAILED — ID 24445025
 - [Gamer pc sælges billigt](https://www.dba.dk/recommerce/forsale/item/14026004) — 2395 kr. — GPU_PARSE_FAILED — ID 14026004
 - [ASUS TUF Gaming FX505DV - gaming laptop](https://www.dba.dk/recommerce/forsale/item/21577787) — 2400 kr. — GPU_PARSE_FAILED — ID 21577787
+- [Hvid stationær gaming PC med skærm](https://www.dba.dk/recommerce/forsale/item/24468384) — 2400 kr. — GPU_PARSE_FAILED — ID 24468384
 - [Lenovo Legion Gaming-PC | GTX 1070 8GB | i7-6700K | SSD](https://www.dba.dk/recommerce/forsale/item/24073035) — 2495 kr. — GPU_PARSE_FAILED — ID 24073035
 - [MSI Cyborg 15 Gaming Laptop – i5 / RTX 2050 / 144 Hz / 512 GB SSD](https://www.dba.dk/recommerce/forsale/item/24260257) — 2495 kr. — GPU_PARSE_FAILED — ID 24260257
 - [Gaming PC – Perfekt som første gamer-computer – 16GB RAM / GTX 10](https://www.dba.dk/recommerce/forsale/item/20179523) — 2499 kr. — GPU_PARSE_FAILED — ID 20179523
@@ -164,16 +165,17 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [GAMER PC 1060 GTX 6GB](https://www.dba.dk/recommerce/forsale/item/24523668) — 2500 kr. — GPU_PARSE_FAILED — ID 24523668
 - [Gaming PC + tastatur og mus](https://www.dba.dk/recommerce/forsale/item/24524851) — 2500 kr. — GPU_PARSE_FAILED — ID 24524851
 - [Asus stationær computer / gaming PC](https://www.dba.dk/recommerce/forsale/item/24554647) — 2500 kr. — GPU_PARSE_FAILED — ID 24554647
-- [Selvbyg gaming computer/stationær](https://www.dba.dk/recommerce/forsale/item/24560108) — 2500 kr. — GPU_PARSE_FAILED — ID 24560108
+- [Asus TUF Gaming F15, 8GB Ram, 512GB SSD, i5-14000H, NVIDIA GeForc](https://www.dba.dk/recommerce/forsale/item/24560718) — 2500 kr. — GPU_PARSE_FAILED — ID 24560718
+- [GAMING PC DELE / BUNDLE](https://www.dba.dk/recommerce/forsale/item/24573674) — 2500 kr. — GPU_PARSE_FAILED — ID 24573674
 - [Acer Predator Gaming PC – i7 – komplet gaming setup](https://www.dba.dk/recommerce/forsale/item/24075569) — 2600 kr. — GPU_PARSE_FAILED — ID 24075569
 - [Asus stationær gaming computer med Intel i5 og GTX 1060](https://www.dba.dk/recommerce/forsale/item/24127530) — 2600 kr. — GPU_PARSE_FAILED — ID 24127530
 - [Flot gamer pc sæt, i5, 16gb ddr4,.gtx 1070 grafik,nyt win 11](https://www.dba.dk/recommerce/forsale/item/24474268) — 2600 kr. — GPU_PARSE_FAILED — ID 24474268
-- [Hvid stationær gaming PC med skærm](https://www.dba.dk/recommerce/forsale/item/24468384) — 2700 kr. — GPU_PARSE_FAILED — ID 24468384
 - [Hvid RGB Gamer PC](https://www.dba.dk/recommerce/forsale/item/24482644) — 2700 kr. — GPU_PARSE_FAILED — ID 24482644
 - [Gaming computer](https://www.dba.dk/recommerce/forsale/item/24514068) — 2700 kr. — GPU_PARSE_FAILED — ID 24514068
 - [Gaming PC i5-9400f/GTX 1660 Super 6GB](https://www.dba.dk/recommerce/forsale/item/24546762) — 2700 kr. — GPU_PARSE_FAILED — ID 24546762
 - [Lenovo legion](https://www.dba.dk/recommerce/forsale/item/21907107) — 2795 kr. — GPU_PARSE_FAILED — ID 21907107
 - [ASUS TUF Gaming 15,6” FX505DT – GTX 1650 4GB | 16GB RAM | 512GB N](https://www.dba.dk/recommerce/forsale/item/24535877) — 2799 kr. — GPU_PARSE_FAILED — ID 24535877
+- [Entry Level Gaming PC – Nyt Kabinet & ARGB](https://www.dba.dk/recommerce/forsale/item/24572749) — 2799 kr. — GPU_PARSE_FAILED — ID 24572749
 - [Acer Nitro N50-620 Gaming PC](https://www.dba.dk/recommerce/forsale/item/23178043) — 2800 kr. — GPU_PARSE_FAILED — ID 23178043
 - [Alienware m15 Gaming Laptop – RTX 2070 Max-Q + 240W Charger + Sta](https://www.dba.dk/recommerce/forsale/item/23530892) — 2800 kr. — CPU_PARSE_FAILED — ID 23530892
 - [Lenovo Legion stationær gamer pc med skærm og høretelefoner](https://www.dba.dk/recommerce/forsale/item/23741429) — 2800 kr. — GPU_PARSE_FAILED — ID 23741429
@@ -182,7 +184,6 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Stationær gaming computer med 32gb ram](https://www.dba.dk/recommerce/forsale/item/24557765) — 2800 kr. — GPU_PARSE_FAILED — ID 24557765
 - [Gaming PC](https://www.dba.dk/recommerce/forsale/item/7410135) — 2800 kr. — GPU_PARSE_FAILED — ID 7410135
 - [Shark Gaming stationær gamer pc – komplet setup](https://www.dba.dk/recommerce/forsale/item/23074915) — 2900 kr. — GPU_PARSE_FAILED — ID 23074915
-- [RTX 2060 gaming pc](https://www.dba.dk/recommerce/forsale/item/24443406) — 2900 kr. — GPU_PARSE_FAILED — ID 24443406
 - [Hvid gamer pc](https://www.dba.dk/recommerce/forsale/item/23209828) — 2950 kr. — GPU_PARSE_FAILED — ID 23209828
 - [Asus TUF gaming bærbar computer 15" sort](https://www.dba.dk/recommerce/forsale/item/23583201) — 2995 kr. — GPU_PARSE_FAILED — ID 23583201
 - [Esport Gamer PC med Rtx 2060!- Plug and Play!](https://www.dba.dk/recommerce/forsale/item/21317424) — 2999 kr. — GPU_PARSE_FAILED — ID 21317424
@@ -206,12 +207,12 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Lenovo IdeaPad Gaming 3 15ARH05 – Gaming Laptop](https://www.dba.dk/recommerce/forsale/item/24501229) — 3000 kr. — GPU_PARSE_FAILED — ID 24501229
 - [stationær gaming computer med skærm og tastatur](https://www.dba.dk/recommerce/forsale/item/24512359) — 3000 kr. — GPU_PARSE_FAILED — ID 24512359
 - [Komplet Gaming Setup | RTX 2060 Super + 144Hz Samsung | Klar til](https://www.dba.dk/recommerce/forsale/item/24556257) — 3000 kr. — CPU_PARSE_FAILED — ID 24556257
-- [Asus TUF Gaming F15, 8GB Ram, 512GB SSD, i5-14000H, NVIDIA GeForc](https://www.dba.dk/recommerce/forsale/item/24560718) — 3000 kr. — GPU_PARSE_FAILED — ID 24560718
+- [Acer Predator stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24574111) — 3000 kr. — GPU_PARSE_FAILED — ID 24574111
 - [Dell G3 3579 Gaming Laptop | i5-8300H | 8GB RAM | Finger-ID](https://www.dba.dk/recommerce/forsale/item/14539756) — 3200 kr. — GPU_PARSE_FAILED — ID 14539756
 - [Asus TUF Gaming bærbar PC 15" sort](https://www.dba.dk/recommerce/forsale/item/24286058) — 3200 kr. — GPU_PARSE_FAILED — ID 24286058
 - [Dell G5 High spec 15,6” 144hz gamer PC](https://www.dba.dk/recommerce/forsale/item/24502399) — 3200 kr. — GPU_PARSE_FAILED — ID 24502399
-- [Cube Gaming PC - i7-8086k Limited edition - GTX 1070 - Premium Ka](https://www.dba.dk/recommerce/forsale/item/24512526) — 3200 kr. — GPU_PARSE_FAILED — ID 24512526
 - [Acer Predator Helios 300 – RTX 2060, i5, 16GB RAM, 512GB SSD, 144](https://www.dba.dk/recommerce/forsale/item/24274182) — 3299 kr. — GPU_PARSE_FAILED — ID 24274182
+- [MSI Gamer bærbar](https://www.dba.dk/recommerce/forsale/item/24570846) — 3300 kr. — GPU_PARSE_FAILED — ID 24570846
 - [Spar mange penge på en custom bygget gamer PC](https://www.dba.dk/recommerce/forsale/item/21601353) — 3488 kr. — GPU_PARSE_FAILED — ID 21601353
 - [Asus stationær gaming pc med GeForce RTX2060](https://www.dba.dk/recommerce/forsale/item/23818350) — 3495 kr. — GPU_PARSE_FAILED — ID 23818350
 - [MM Vision Gaming PC – RTX 2060 / i5-9400F / 16 GB RAM / 1 TB SSD](https://www.dba.dk/recommerce/forsale/item/23947173) — 3495 kr. — GPU_PARSE_FAILED — ID 23947173
@@ -231,6 +232,7 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Søger gamer bærbar](https://www.dba.dk/recommerce/forsale/item/24099364) — 3500 kr. — GPU_PARSE_FAILED — ID 24099364
 - [Unyka stationær gaming pc med RGB kabinet.  Byd gerne](https://www.dba.dk/recommerce/forsale/item/24401206) — 3500 kr. — GPU_PARSE_FAILED — ID 24401206
 - [Gamer PC](https://www.dba.dk/recommerce/forsale/item/24531500) — 3500 kr. — GPU_PARSE_FAILED — ID 24531500
+- [Gaming PC (Ryzen 7)](https://www.dba.dk/recommerce/forsale/item/24571447) — 3500 kr. — GPU_PARSE_FAILED — ID 24571447
 - [Gaming PC](https://www.dba.dk/recommerce/forsale/item/9458147) — 3500 kr. — GPU_PARSE_FAILED — ID 9458147
 - [MSI Gaming bærbar med RTX 3060.](https://www.dba.dk/recommerce/forsale/item/24146807) — 3599 kr. — CPU_PARSE_FAILED — ID 24146807
 - [HP Omen Ryzen 5 5600H 15.6"](https://www.dba.dk/recommerce/forsale/item/14308630) — 3700 kr. — CPU_PARSE_FAILED — ID 14308630
@@ -272,7 +274,7 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Gaming PC - Ryzen 5 / RTX 2080 Super / 1TB NVME](https://www.dba.dk/recommerce/forsale/item/24451574) — 4200 kr. — CPU_PARSE_FAILED — ID 24451574
 - [\u{d83d}\u{dcbb} \u{d83d}\u{dd25} Gaming PC – High-End Custom Bui](https://www.dba.dk/recommerce/forsale/item/22374154) — 4249 kr. — GPU_PARSE_FAILED — ID 22374154
 - [\u{d83d}\u{dd25} MM-Vision Gaming PC – GTX 1660 Super – 16GB RAM](https://www.dba.dk/recommerce/forsale/item/24483721) — 4300 kr. — GPU_PARSE_FAILED — ID 24483721
-- [Gamer PC](https://www.dba.dk/recommerce/forsale/item/24537996) — 4300 kr. — GPU_PARSE_FAILED — ID 24537996
+- [Gamer Pc / Gamer Computer med skærm mus og tastatur](https://www.dba.dk/recommerce/forsale/item/24573537) — 4300 kr. — GPU_PARSE_FAILED — ID 24573537
 - [MSI GS66 Stealth 15,6" gaming laptop sort 240Hz](https://www.dba.dk/recommerce/forsale/item/23952032) — 4450 kr. — GPU_PARSE_FAILED — ID 23952032
 - [Acer, Acer nitro N50-650 i5-13F, 16 GB ram](https://www.dba.dk/recommerce/forsale/item/4232271) — 4450 kr. — GPU_PARSE_FAILED — ID 4232271
 - [HP Pavilion Gaming PC – RTX 3060 Ti 8GB / Ryzen 5 / 16GB / 1TB](https://www.dba.dk/recommerce/forsale/item/24509810) — 4495 kr. — CPU_PARSE_FAILED — ID 24509810
@@ -290,7 +292,7 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Prisvenlig Gamer PC](https://www.dba.dk/recommerce/forsale/item/24537838) — 4500 kr. — GPU_PARSE_FAILED — ID 24537838
 - [Gamer pc 5600x, 16gb 3600mhz, 1080ti,](https://www.dba.dk/recommerce/forsale/item/24555140) — 4500 kr. — GPU_PARSE_FAILED — ID 24555140
 - [Gaming computer i7 7700k Nvidia gtx 1080 8 gb](https://www.dba.dk/recommerce/forsale/item/24559379) — 4500 kr. — GPU_PARSE_FAILED — ID 24559379
-- [Lenovo Legion stationær gamer pc med lysfront](https://www.dba.dk/recommerce/forsale/item/24568241) — 4500 kr. — GPU_PARSE_FAILED — ID 24568241
+- [MM VISION PC MINI INFINITY](https://www.dba.dk/recommerce/forsale/item/24571001) — 4800 kr. — GPU_PARSE_FAILED — ID 24571001
 - [MSI bærbar gaming laptop med bagbelyst tastatur](https://www.dba.dk/recommerce/forsale/item/22987501) — 4900 kr. — GPU_PARSE_FAILED — ID 22987501
 - [Msi katana i7 12700h - rtx3050 - 1tb](https://www.dba.dk/recommerce/forsale/item/23008518) — 4950 kr. — GPU_PARSE_FAILED — ID 23008518
 - [Gaming PC RTX 2080](https://www.dba.dk/recommerce/forsale/item/24414710) — 4950 kr. — CPU_PARSE_FAILED — ID 24414710
@@ -314,19 +316,22 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [MSI stationær gaming pc setup med NVIDIA GeForce GTX 1660 SUPER](https://www.dba.dk/recommerce/forsale/item/24073367) — 5000 kr. — GPU_PARSE_FAILED — ID 24073367
 - [Gaming computer og tilbehør/udstyr](https://www.dba.dk/recommerce/forsale/item/24218664) — 5000 kr. — GPU_PARSE_FAILED — ID 24218664
 - [Gaming PC - mid tier](https://www.dba.dk/recommerce/forsale/item/24383685) — 5000 kr. — GPU_PARSE_FAILED — ID 24383685
+- [HP victus gaming pc](https://www.dba.dk/recommerce/forsale/item/24386139) — 5000 kr. — GPU_PARSE_FAILED — ID 24386139
 - [Gaming PC - RTX 3060 TI med alt tilbehør](https://www.dba.dk/recommerce/forsale/item/24464862) — 5000 kr. — CPU_PARSE_FAILED — ID 24464862
 - [stationær gamer pc med RGB kabinet](https://www.dba.dk/recommerce/forsale/item/24475738) — 5000 kr. — GPU_PARSE_FAILED — ID 24475738
 - [MSI stationær gaming PC AMD Ryzen 7 5700X 16GB DDR4 RAM](https://www.dba.dk/recommerce/forsale/item/24516125) — 5000 kr. — GPU_PARSE_FAILED — ID 24516125
-- [Fin fin gamer pc til en god pris](https://www.dba.dk/recommerce/forsale/item/24542163) — 5000 kr. — GPU_PARSE_FAILED — ID 24542163
-- [NZXT gaming PC med 3060 ti og i5 10400f](https://www.dba.dk/recommerce/forsale/item/24551971) — 5000 kr. — GPU_PARSE_FAILED — ID 24551971
+- [ASUS ROG Ally X håndholdt gaming PC](https://www.dba.dk/recommerce/forsale/item/24573057) — 5000 kr. — GPU_PARSE_FAILED — ID 24573057
+- [MSI KATANA GF66 11UG -094 15,6" BÆRBAR](https://www.dba.dk/recommerce/forsale/item/24574952) — 5000 kr. — GPU_PARSE_FAILED — ID 24574952
 - [\u{d83d}\u{dd25} RTX 4060, R7 3700x pc \u{d83d}\u{dd25} 16gb ddr4](https://www.dba.dk/recommerce/forsale/item/18974416) — 5199 kr. — CPU_PARSE_FAILED — ID 18974416
 - [Gaming pc 2070 Super og i7](https://www.dba.dk/recommerce/forsale/item/23359050) — 5200 kr. — GPU_PARSE_FAILED — ID 23359050
+- [Næsten helt ny gaming computer](https://www.dba.dk/recommerce/forsale/item/23920168) — 5250 kr. — GPU_PARSE_FAILED — ID 23920168
 - [RX 6700 XT gamer PC](https://www.dba.dk/recommerce/forsale/item/24007758) — 5300 kr. — CPU_PARSE_FAILED — ID 24007758
 - [RTX 5050 Gaming computer](https://www.dba.dk/recommerce/forsale/item/24277660) — 5300 kr. — GPU_PARSE_FAILED — ID 24277660
 - [Gaming PC - RTX 3070](https://www.dba.dk/recommerce/forsale/item/24524580) — 5400 kr. — CPU_PARSE_FAILED — ID 24524580
 - [Katana gaming bærbar fra MSI](https://www.dba.dk/recommerce/forsale/item/12530135) — 5500 kr. — GPU_PARSE_FAILED — ID 12530135
 - [Gaming computer, RTX 5050, i512400f, 16 gb ddr4](https://www.dba.dk/recommerce/forsale/item/22638910) — 5500 kr. — GPU_PARSE_FAILED — ID 22638910
 - [i7 RTX 3060 TI Gamer PC](https://www.dba.dk/recommerce/forsale/item/23231268) — 5500 kr. — CPU_PARSE_FAILED — ID 23231268
+- [CPU Ryzen 7 3700x Gpu Rtx 3070 Gaming computer](https://www.dba.dk/recommerce/forsale/item/23241609) — 5500 kr. — CPU_PARSE_FAILED — ID 23241609
 - [Stærk gamer med RTX 3070, Ryzen 7 5700G og 16GB DDR4](https://www.dba.dk/recommerce/forsale/item/23324086) — 5500 kr. — CPU_PARSE_FAILED — ID 23324086
 - [Acer Predator gaming desktop med Intel Core i7 og GeForce RTX 307](https://www.dba.dk/recommerce/forsale/item/23334886) — 5500 kr. — CPU_PARSE_FAILED — ID 23334886
 - [MSI Cyborg 15 A12V Gaming Laptop – RTX 4050 / 16 GB RAM / 144 Hz](https://www.dba.dk/recommerce/forsale/item/23403214) — 5500 kr. — GPU_PARSE_FAILED — ID 23403214
@@ -342,15 +347,14 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Vision Gaming Pc](https://www.dba.dk/recommerce/forsale/item/9437968) — 5500 kr. — GPU_PARSE_FAILED — ID 9437968
 - [Acer Nitro 15,6" gaming laptop sort](https://www.dba.dk/recommerce/forsale/item/23590445) — 5590 kr. — GPU_PARSE_FAILED — ID 23590445
 - [RTX 4060 Gamer PC](https://www.dba.dk/recommerce/forsale/item/22950057) — 5600 kr. — CPU_PARSE_FAILED — ID 22950057
-- [Næsten helt ny gaming computer](https://www.dba.dk/recommerce/forsale/item/23920168) — 5750 kr. — GPU_PARSE_FAILED — ID 23920168
 - [Stærk Gamer PC](https://www.dba.dk/recommerce/forsale/item/22509529) — 5799 kr. — GPU_PARSE_FAILED — ID 22509529
 - [4060  i5 13420H msi gamer bærbar laptop](https://www.dba.dk/recommerce/forsale/item/23481787) — 5799 kr. — CPU_PARSE_FAILED — ID 23481787
-- [CPU Ryzen 7 3700x Gpu Rtx 3070 Gaming computer](https://www.dba.dk/recommerce/forsale/item/23241609) — 5800 kr. — CPU_PARSE_FAILED — ID 23241609
 - [Gaming PC](https://www.dba.dk/recommerce/forsale/item/23282473) — 5800 kr. — GPU_PARSE_FAILED — ID 23282473
 - [Kraftig high-end Gaming PC - RTX 3070](https://www.dba.dk/recommerce/forsale/item/24393745) — 5800 kr. — CPU_PARSE_FAILED — ID 24393745
 - [Meget Kraftig Gaming computer - RTX 3070](https://www.dba.dk/recommerce/forsale/item/24410716) — 5800 kr. — CPU_PARSE_FAILED — ID 24410716
 - [Acer Nitro V 15 Gaming – i7 / RTX 4050 / 16GB RAM / 1TB SSD / 144](https://www.dba.dk/recommerce/forsale/item/24546714) — 5800 kr. — GPU_PARSE_FAILED — ID 24546714
 - [HP OMEN 30L GT13-1472no – RTX 3070 Ti – Klar til 1440p/4K Gaming](https://www.dba.dk/recommerce/forsale/item/19011254) — 5900 kr. — CPU_PARSE_FAILED — ID 19011254
+- [Gaming pc Acer nitro n50 656](https://www.dba.dk/recommerce/forsale/item/24575303) — 5900 kr. — CPU_PARSE_FAILED — ID 24575303
 - [Gaming PC - RX 9060 XT + Ryzen 5700X](https://www.dba.dk/recommerce/forsale/item/24523660) — 5995 kr. — GPU_PARSE_FAILED — ID 24523660
 - [Gaming PC setup sælges – 5.999 kr. \u{d83c}\u{dfae}](https://www.dba.dk/recommerce/forsale/item/24399430) — 5999 kr. — GPU_PARSE_FAILED — ID 24399430
 - [Complete gamer computer setup, alt inkluderet](https://www.dba.dk/recommerce/forsale/item/17172744) — 6000 kr. — GPU_PARSE_FAILED — ID 17172744
@@ -361,7 +365,6 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Lenovo Legion stationær gamer pc sort](https://www.dba.dk/recommerce/forsale/item/23026254) — 6000 kr. — GPU_PARSE_FAILED — ID 23026254
 - [Lenovo Legion stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/23314736) — 6000 kr. — GPU_PARSE_FAILED — ID 23314736
 - [Razer Blade 17 med RTX 2080 Super 4K 120hz](https://www.dba.dk/recommerce/forsale/item/23508262) — 6000 kr. — CPU_PARSE_FAILED — ID 23508262
-- [MSI KATANA GF66 11UG -094 15,6" BÆRBAR](https://www.dba.dk/recommerce/forsale/item/23673469) — 6000 kr. — CPU_PARSE_FAILED — ID 23673469
 - [Stationær gaming PC med RGB kabinet](https://www.dba.dk/recommerce/forsale/item/23721091) — 6000 kr. — GPU_PARSE_FAILED — ID 23721091
 - [Alienware gaming stationær pc](https://www.dba.dk/recommerce/forsale/item/24332320) — 6000 kr. — GPU_PARSE_FAILED — ID 24332320
 - [Asus TUF Gaming bærbar computer 15" med i7, Rtx 3070 og 16GB ram](https://www.dba.dk/recommerce/forsale/item/24368882) — 6000 kr. — CPU_PARSE_FAILED — ID 24368882
@@ -369,3 +372,4 @@ Value model: performance sufficiency and purchase value are separate; SWEET SPOT
 - [Stationær Gaming PC](https://www.dba.dk/recommerce/forsale/item/24462082) — 6000 kr. — GPU_PARSE_FAILED — ID 24462082
 - [Alienware stationær gamer pc med EVGA GTX 1070 og RGB](https://www.dba.dk/recommerce/forsale/item/24474935) — 6000 kr. — GPU_PARSE_FAILED — ID 24474935
 - [Stærk Gaming PC - Ryzen 9 3900x - RTX 3070 - 16 GB DDR4 - 1 TB SS](https://www.dba.dk/recommerce/forsale/item/24562932) — 6000 kr. — CPU_PARSE_FAILED — ID 24562932
+- [Gigabyte AORUS 17X (RX7) – Gaming Bærbar](https://www.dba.dk/recommerce/forsale/item/24574809) — 6000 kr. — GPU_PARSE_FAILED — ID 24574809
