@@ -51,8 +51,22 @@ GPU_RULES = [
 ]
 
 CPU_RULES = [
+    (r"\b9950x3d\b", "Ryzen 9 9950X3D", 145),
+    (r"\b9900x3d\b", "Ryzen 9 9900X3D", 141),
     (r"\b9800x3d\b", "Ryzen 7 9800X3D", 135),
+    (r"\b9700x\b", "Ryzen 7 9700X", 113),
+    (r"\b9600x\b", "Ryzen 5 9600X", 107),
+    (r"\b7950x3d\b", "Ryzen 9 7950X3D", 132),
+    (r"\b7900x3d\b", "Ryzen 9 7900X3D", 128),
     (r"\b7800x3d\b", "Ryzen 7 7800X3D", 125),
+    (r"\b7950x\b", "Ryzen 9 7950X", 118),
+    (r"\b7900x\b", "Ryzen 9 7900X", 114),
+    (r"\b7900\b", "Ryzen 9 7900", 111),
+    (r"\b7700x\b", "Ryzen 7 7700X", 108),
+    (r"\b7700\b", "Ryzen 7 7700", 104),
+    (r"\b7600x\b", "Ryzen 5 7600X", 101),
+    (r"\b7600\b", "Ryzen 5 7600", 98),
+    (r"\b7500f\b", "Ryzen 5 7500F", 94),
     (r"\b5800x3d\b", "Ryzen 7 5800X3D", 100),
     (r"\b5700x3d\b", "Ryzen 7 5700X3D", 96),
     (r"\b5700x\b", "Ryzen 7 5700X", 82),
@@ -217,390 +231,161 @@ async def discover_cards(page, query: str) -> list[dict]:
     for _ in range(3):
         await page.mouse.wheel(0, 1700)
         await page.wait_for_timeout(250)
-
-    rows = await page.evaluate(
-        """
-        () => {
-          const result = [];
-          const seen = new Set();
-          const anchors = [...document.querySelectorAll('a[href*="/recommerce/forsale/item/"]')];
-          for (const a of anchors) {
-            const m = a.href.match(/\/recommerce\/forsale\/item\/(\d+)/);
-            if (!m || seen.has(m[1])) continue;
-            let node = a;
-            let best = null;
-            for (let i = 0; i < 9 && node; i++, node = node.parentElement) {
-              const text = (node.innerText || '').trim();
-              if (/\b(?:kr\.?|DKK)\b/i.test(text) && text.length >= 15 && text.length <= 2600) {
-                best = text;
-                break;
-              }
-            }
-            if (best) {
-              seen.add(m[1]);
-              result.push({listing_id:m[1], href:a.href, card_text:best});
-            }
-          }
-          return result;
-        }
-        """
-    )
-
-    out = []
-    for row in rows:
-        ask = parse_dkk(row.get("card_text", ""))
-        title = card_title(row.get("card_text", ""))
-        lid = str(row.get("listing_id") or "")
-        if not lid or ask is None or not title or not (500 <= ask <= MAX_PRICE):
+    cards = await page.locator('a[href*="/recommerce/forsale/item/"]').all()
+    found = {}
+    for a in cards:
+        href = await a.get_attribute("href") or ""
+        m = ITEM_RE.search(href)
+        if not m:
             continue
-        out.append(
-            {
-                "listing_id": lid,
-                "canonical_url": ITEM_URL.format(listing_id=lid),
-                "title": title,
-                "ask_t0": ask,
-                "currency_t0": "DKK",
-                "status_t0": "VISIBLE_LIVE_SEARCH_CARD",
-                "card_text": row.get("card_text", "")[:2400],
-                "query": query,
-                "t0_at": utcnow(),
-                "t0_source": "rendered_dba_card",
-            }
-        )
+        listing_id = m.group(1)
+        text = (await a.inner_text()).strip()
+        if listing_id not in found or len(text) > len(found[listing_id]):
+            found[listing_id] = text
+    out = []
+    for listing_id, text in found.items():
+        price = parse_dkk(text)
+        title = card_title(text)
+        if not price or price > MAX_PRICE or not title:
+            continue
+        out.append({
+            "listing_id": listing_id,
+            "url": ITEM_URL.format(listing_id=listing_id),
+            "title_t0": title,
+            "ask_t0": price,
+            "currency_t0": "DKK",
+            "t0_at": utcnow(),
+            "t0_source": "rendered_dba_card",
+        })
     return out
 
 
-def _flatten_jsonld(value):
-    if isinstance(value, list):
-        for item in value:
-            yield from _flatten_jsonld(item)
-    elif isinstance(value, dict):
-        graph = value.get("@graph")
-        if isinstance(graph, list):
-            for item in graph:
-                yield from _flatten_jsonld(item)
-        yield value
-
-
-def _offer_from_product(product: dict) -> dict | None:
-    offers = product.get("offers")
-    if isinstance(offers, dict):
-        return offers
-    if isinstance(offers, list):
-        return next((x for x in offers if isinstance(x, dict)), None)
-    return None
-
-
-def _category_from_product(product: dict) -> str:
-    for prop in product.get("additionalProperty") or []:
-        if isinstance(prop, dict) and str(prop.get("name") or "").lower() == "category":
-            return str(prop.get("value") or "")
-    return str(product.get("category") or "")
-
-
-async def fetch_jsonld_item(page, listing_id: str) -> dict | None:
-    url = ITEM_URL.format(listing_id=listing_id)
-    response = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
-    if response and response.status >= 400:
+async def fetch_item(page, listing_id: str) -> dict | None:
+    response = await page.goto(ITEM_URL.format(listing_id=listing_id), wait_until="domcontentloaded", timeout=30000)
+    if not response or response.status >= 400:
         return None
-    await dismiss_consent(page)
-    await page.wait_for_timeout(350)
-
-    scripts = await page.locator('script[type="application/ld+json"]').evaluate_all(
-        "els => els.map(s => s.textContent || '').filter(Boolean)"
-    )
-    products = []
+    try:
+        await page.wait_for_selector('script[type="application/ld+json"]', timeout=5000)
+    except PlaywrightTimeoutError:
+        return None
+    scripts = await page.locator('script[type="application/ld+json"]').all_text_contents()
     for raw in scripts:
         try:
-            parsed = json.loads(raw)
+            obj = json.loads(raw)
         except Exception:
             continue
-        for obj in _flatten_jsonld(parsed):
-            typ = obj.get("@type")
-            types = typ if isinstance(typ, list) else [typ]
-            if any(str(x).lower() == "product" for x in types if x is not None):
-                products.append(obj)
-
-    for product in products:
-        sku = str(product.get("sku") or product.get("productID") or "")
-        canonical = str(product.get("url") or "")
-        match = ITEM_RE.search(canonical)
-        canonical_id = match.group(1) if match else ""
-        if sku != listing_id or canonical_id != listing_id:
-            continue
-
-        offer = _offer_from_product(product)
-        if not offer:
-            continue
-        ask = parse_number(offer.get("price"))
-        currency = str(offer.get("priceCurrency") or "").upper()
-        availability = str(offer.get("availability") or "")
-        active = availability.rstrip("/").lower().endswith("instock")
-        inactive = any(
-            availability.rstrip("/").lower().endswith(x)
-            for x in ("outofstock", "discontinued", "soldout")
-        )
-        if ask is None or currency != "DKK" or not availability or inactive or not active:
+        candidates = obj if isinstance(obj, list) else [obj]
+        for item in candidates:
+            if not isinstance(item, dict) or item.get("@type") != "Product":
+                continue
+            offers = item.get("offers") or {}
+            if isinstance(offers, list):
+                offers = offers[0] if offers else {}
+            url = str(item.get("url") or ITEM_URL.format(listing_id=listing_id))
+            id_ok = listing_id in url or listing_id in str(item.get("sku") or "")
+            ask = parse_number(offers.get("price"))
+            currency = offers.get("priceCurrency")
+            availability = str(offers.get("availability") or "")
+            title = str(item.get("name") or "").strip()
+            if not id_ok or not title:
+                continue
             return {
                 "listing_id": listing_id,
-                "canonical_url": canonical,
-                "identity_ok": True,
-                "title": str(product.get("name") or "").strip(),
-                "description": str(product.get("description") or ""),
+                "canonical_url": ITEM_URL.format(listing_id=listing_id),
+                "title": title,
+                "description": str(item.get("description") or ""),
+                "brand": str((item.get("brand") or {}).get("name") if isinstance(item.get("brand"), dict) else item.get("brand") or ""),
+                "category": str(item.get("category") or ""),
                 "ask_t1": ask,
                 "currency_t1": currency,
                 "availability_t1": availability,
-                "active_t1": False,
-                "category": _category_from_product(product),
-                "brand": str(product.get("brand") or ""),
+                "active_t1": availability.rstrip("/").lower().endswith("instock"),
+                "identity_ok": id_ok,
                 "t1_at": utcnow(),
-                "t1_source": "dba_jsonld_product",
+                "t1_source": "dba_jsonld_product_all_scripts",
             }
-        return {
-            "listing_id": listing_id,
-            "canonical_url": canonical,
-            "identity_ok": True,
-            "title": str(product.get("name") or "").strip(),
-            "description": str(product.get("description") or ""),
-            "ask_t1": ask,
-            "currency_t1": currency,
-            "availability_t1": availability,
-            "active_t1": True,
-            "category": _category_from_product(product),
-            "brand": str(product.get("brand") or ""),
-            "t1_at": utcnow(),
-            "t1_source": "dba_jsonld_product",
-        }
     return None
 
 
 async def main() -> None:
     Path("results").mkdir(exist_ok=True)
-    regression = fixture_regression()
-
+    fixture = fixture_regression()
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
         context = await browser.new_context(locale="da-DK", viewport={"width": 1440, "height": 1100})
         search_page = await context.new_page()
         item_page = await context.new_page()
-
-        found: dict[str, dict] = {}
-        search_errors = []
-        for query in QUERIES:
-            try:
-                rows = await discover_cards(search_page, query)
-            except Exception as exc:
-                search_errors.append({"query": query, "error": type(exc).__name__, "detail": str(exc)[:300]})
-                continue
-            for row in rows:
-                existing = found.get(row["listing_id"])
-                if existing is None:
-                    row["source_queries"] = [query]
-                    found[row["listing_id"]] = row
-                else:
-                    existing["source_queries"].append(query)
-
-        # Dynamic source/schema gate: a current rendered card must bind to a live JSON-LD Product object.
-        source_gate = None
-        for row in sorted(found.values(), key=lambda x: (x["ask_t0"], x["listing_id"]))[:40]:
-            try:
-                t1 = await fetch_jsonld_item(item_page, row["listing_id"])
-            except Exception:
-                continue
-            if (
-                t1
-                and t1.get("identity_ok")
-                and t1.get("active_t1") is True
-                and isinstance(t1.get("ask_t1"), int)
-                and t1.get("currency_t1") == "DKK"
-                and t1.get("title")
-            ):
-                source_gate = {
-                    "ok": True,
-                    "listing_id": row["listing_id"],
-                    "canonical_url": t1["canonical_url"],
-                    "title": t1["title"],
-                    "t0_price": row["ask_t0"],
-                    "t1_price": t1["ask_t1"],
-                    "currency": t1["currency_t1"],
-                    "status": t1["availability_t1"],
-                    "t0_source": row["t0_source"],
-                    "t1_source": t1["t1_source"],
-                }
-                break
-
-        if source_gate is None:
+        try:
+            found = {}
+            search_errors = []
+            for query in QUERIES:
+                try:
+                    rows = await discover_cards(search_page, query)
+                except Exception as exc:
+                    search_errors.append({"query": query, "error": type(exc).__name__, "detail": str(exc)[:300]})
+                    continue
+                for row in rows:
+                    if row["listing_id"] not in found:
+                        row["source_queries"] = [query]
+                        found[row["listing_id"]] = row
+                    else:
+                        found[row["listing_id"]]["source_queries"].append(query)
+            verified = []
+            rejected = []
+            for row in sorted(found.values(), key=lambda x: x["ask_t0"]):
+                try:
+                    t1 = await fetch_item(item_page, row["listing_id"])
+                except Exception as exc:
+                    rejected.append({"listing_id": row["listing_id"], "reason": "T1_FETCH_FAILED", "detail": type(exc).__name__})
+                    continue
+                if not t1 or not t1["identity_ok"]:
+                    rejected.append({"listing_id": row["listing_id"], "reason": "T1_IDENTITY_UNVERIFIED"})
+                    continue
+                if not t1["active_t1"]:
+                    rejected.append({"listing_id": row["listing_id"], "reason": "INACTIVE_OR_STATUS_UNVERIFIED"})
+                    continue
+                if not isinstance(t1["ask_t1"], int) or t1["currency_t1"] != "DKK":
+                    rejected.append({"listing_id": row["listing_id"], "reason": "MISSING_OR_INVALID_T1_PRICE"})
+                    continue
+                text = f"{t1['title']}\n{t1['description']}\n{t1['brand']}\n{t1['category']}"
+                gpu, gpu_score = match_rule(text, GPU_RULES)
+                cpu, cpu_score = match_rule(text, CPU_RULES)
+                if gpu_score < 50 or cpu_score < 50 or not complete_pc_category(t1["category"], t1["title"]):
+                    rejected.append({"listing_id": row["listing_id"], "reason": "NOT_COMPLETE_OR_BELOW_MINIMUM"})
+                    continue
+                format_class, format_rationale = classify_format(text)
+                verified.append({
+                    "listing_id": row["listing_id"], "url": t1["canonical_url"], "title": t1["title"],
+                    "ask_t0": row["ask_t0"], "ask_t1": t1["ask_t1"], "currency": t1["currency_t1"],
+                    "price_changed": row["ask_t0"] != t1["ask_t1"], "status": t1["availability_t1"],
+                    "gpu": gpu, "gpu_score": gpu_score, "cpu": cpu, "cpu_score": cpu_score,
+                    "performance_class": performance_class(gpu_score, cpu_score),
+                    "form_factor": "LAPTOP" if format_class == "LAPTOP" else "DESKTOP",
+                    "a3_compatibility": format_class, "a3_rationale": format_rationale,
+                    "t0_source": row["t0_source"], "t1_source": t1["t1_source"],
+                    "t0_at": row["t0_at"], "t1_at": t1["t1_at"],
+                    "source_queries": sorted(set(row["source_queries"])),
+                })
+        finally:
+            await search_page.close()
+            await item_page.close()
+            await context.close()
             await browser.close()
-            raise SystemExit("PRICE DATA GATE FAILED — no current rendered-card + JSON-LD Product same-object pair verified")
 
-        promising = []
-        for row in found.values():
-            gpu, gpu_score = match_rule(row["title"] + "\n" + row["card_text"], GPU_RULES)
-            if gpu_score >= 50:
-                promising.append(row)
-
-        ranked = []
-        leads = []
-        rejected = []
-
-        # T1 immediately before report construction. Same canonical ID + sku are mandatory.
-        for row in promising:
-            try:
-                t1 = await fetch_jsonld_item(item_page, row["listing_id"])
-            except Exception as exc:
-                rejected.append({"listing_id": row["listing_id"], "reason": "T1_FETCH_FAILED", "detail": str(exc)[:300]})
-                continue
-            if not t1 or not t1.get("identity_ok"):
-                rejected.append({"listing_id": row["listing_id"], "reason": "T1_IDENTITY_UNVERIFIED"})
-                continue
-            if not t1.get("active_t1"):
-                rejected.append({"listing_id": row["listing_id"], "reason": "INACTIVE_OR_STATUS_UNVERIFIED"})
-                continue
-            if not isinstance(t1.get("ask_t1"), int) or t1.get("currency_t1") != "DKK":
-                rejected.append({"listing_id": row["listing_id"], "reason": "MISSING_OR_INVALID_T1_PRICE"})
-                continue
-            if not complete_pc_category(t1.get("category", ""), t1.get("title", "")):
-                rejected.append({"listing_id": row["listing_id"], "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"})
-                continue
-
-            text = f"{t1['title']}\n{t1.get('description','')}"
-            gpu, gpu_score = match_rule(text, GPU_RULES)
-            cpu, cpu_score = match_rule(text, CPU_RULES)
-            if gpu_score < 50 or cpu_score < 50:
-                rejected.append(
-                    {
-                        "listing_id": row["listing_id"],
-                        "reason": "SPEC_PARSE_FAILED",
-                        "gpu": gpu,
-                        "cpu": cpu,
-                    }
-                )
-                continue
-
-            pclass = performance_class(gpu_score, cpu_score)
-            if pclass == "UNDER MINIMUM":
-                rejected.append({"listing_id": row["listing_id"], "reason": "UNDER_MINIMUM"})
-                continue
-
-            fgate, frationale = classify_format(text)
-            result = {
-                "listing_id": row["listing_id"],
-                "url": t1["canonical_url"],
-                "title": t1["title"],
-                "ask_t0": row["ask_t0"],
-                "ask_t1": t1["ask_t1"],
-                "currency": t1["currency_t1"],
-                "price_changed": row["ask_t0"] != t1["ask_t1"],
-                "status": t1["availability_t1"],
-                "category": t1.get("category"),
-                "gpu": gpu,
-                "gpu_score": gpu_score,
-                "cpu": cpu,
-                "cpu_score": cpu_score,
-                "performance_class": pclass,
-                "format_gate": fgate,
-                "format_rationale": frationale,
-                "t0_source": row["t0_source"],
-                "t1_source": t1["t1_source"],
-                "t0_at": row["t0_at"],
-                "t1_at": t1["t1_at"],
-                "source_queries": sorted(set(row.get("source_queries") or [])),
-            }
-
-            if fgate in {"LAPTOP", "A3_READY", "A3_READY_PSU_CHECK"}:
-                ranked.append(result)
-            elif fgate == "A3_UNCERTAIN":
-                leads.append(result)
-            else:
-                rejected.append({**result, "reason": fgate})
-
-        await browser.close()
-
-    class_order = {"SWEET SPOT": 0, "ACCEPTABLE": 1, "OVERKILL": 2}
-    format_order = {"LAPTOP": 0, "A3_READY": 0, "A3_READY_PSU_CHECK": 1}
-    ranked.sort(
-        key=lambda r: (
-            r["ask_t1"],
-            format_order.get(r["format_gate"], 9),
-            class_order.get(r["performance_class"], 9),
-            -r["gpu_score"],
-            -r["cpu_score"],
-        )
-    )
-    leads.sort(key=lambda r: (r["ask_t1"], -r["gpu_score"], -r["cpu_score"]))
-
-    output = {
-        "model_version": "DBA-WOW-BROWSER-PRICE-FIRST-A3-V2",
+    verified.sort(key=lambda r: (r["ask_t1"], -r["gpu_score"], -r["cpu_score"]))
+    out = {
+        "model_version": "DBA-WOW-BROWSER-V2",
         "generated_at": utcnow(),
-        "gate_passed": True,
-        "retrieval_method": "Rendered DBA search card T0 + DBA JSON-LD Product T1",
-        "source_gate": source_gate,
-        "price_binding_regression": regression,
-        "counts": {
-            "queries": len(QUERIES),
-            "t0_unique": len(found),
-            "t0_gpu_promising": len(promising),
-            "t1_ranked_format_verified": len(ranked),
-            "t1_a3_uncertain_leads": len(leads),
-            "rejected": len(rejected),
-        },
-        "ranked": ranked,
-        "leads": leads,
-        "rejected": rejected,
-        "rejection_reason_counts": dict(Counter(x.get("reason", "UNKNOWN") for x in rejected)),
+        "gate_passed": bool(verified),
+        "retrieval_method": "Rendered DBA result card at T0 + same-ID DBA Product JSON-LD at T1",
+        "fixture_regression": fixture,
+        "counts": {"queries": len(QUERIES), "t0_unique": len(found), "verified": len(verified), "rejected": len(rejected)},
+        "ranked": verified,
+        "rejection_reason_counts": dict(Counter(x["reason"] for x in rejected)),
         "search_errors": search_errors,
     }
-
-    Path("results/wow_a3_latest.json").write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    lines = [
-        "# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm — laptop/A3",
-        "",
-        f"Generated: {output['generated_at']}",
-        f"Retrieval: {output['retrieval_method']}",
-        f"Structured/rendered verified ranked records: {len(ranked)}",
-        "",
-    ]
-    if ranked:
-        top = ranked[0]
-        lines += [
-            "## Buy now / billigste tilstrækkelige",
-            "",
-            f"[{top['title']}]({top['url']}) — **{top['ask_t1']} kr.** — {top['format_gate']} — {top['performance_class']}",
-            "",
-            "## Ranked shortlist",
-            "",
-            "| # | T1 ASK | Format | Class | GPU | CPU | ID | DBA |",
-            "|---:|---:|---|---|---|---|---|---|",
-        ]
-        for i, r in enumerate(ranked, 1):
-            lines.append(
-                f"| {i} | {r['ask_t1']} kr. | {r['format_gate']} | {r['performance_class']} | {r['gpu']} | {r['cpu']} | {r['listing_id']} | [{r['title']}]({r['url']}) |"
-            )
-    else:
-        lines += ["Ingen kandidat bestod både T0/T1, performancegate og laptop/A3-formatgate."]
-
-    lines += ["", "## A3-uncertain leads — ikke rangeret", ""]
-    for r in leads[:40]:
-        lines.append(
-            f"- [{r['title']}]({r['url']}) — {r['ask_t1']} kr. — ID {r['listing_id']} — {r['format_rationale']}"
-        )
-    lines += ["", "## Objektive diskvalifikationer", "", json.dumps(output["rejection_reason_counts"], ensure_ascii=False)]
-    Path("results/wow_a3_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-    print(
-        json.dumps(
-            {
-                "gate": True,
-                "t0_unique": len(found),
-                "promising": len(promising),
-                "ranked": len(ranked),
-                "leads": len(leads),
-                "rejected": len(rejected),
-            },
-            ensure_ascii=False,
-        )
-    )
+    Path("results/wow_a3_latest.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(json.dumps(out["counts"], ensure_ascii=False))
 
 
 if __name__ == "__main__":
