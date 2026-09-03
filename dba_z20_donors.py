@@ -8,16 +8,16 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 
 import dba_browser_v2 as v2
-import dba_browser_v4 as v4
+import dba_browser_v6 as runtime
 
 INPUT = Path("results/wow_a3_latest.json")
 OUTPUT = Path("results/z20_donors_latest.json")
 MAX_DONORS = 30
+T1_CONCURRENCY = 8
+T1_TOTAL_DEADLINE_SECONDS = 120
 
 MATX = re.compile(r"\b(?:micro[- ]?atx|m[- ]?atx|matx|b365m|b450m|b550m|a520m|b560m|h510m|h610m|b660m|b650m|a620m|b760m)\b", re.I)
 ITX = re.compile(r"\b(?:mini[- ]?itx|miniitx|m[- ]?itx)\b", re.I)
-# Full-size ATX must be motherboard-context evidence. A donor description saying "ATX PSU"
-# must not be rejected as an ATX motherboard.
 ATX_BOARD_CONTEXT = re.compile(
     r"\b(?:atx|e[- ]?atx|extended[- ]?atx)\b.{0,30}\b(?:bundkort|motherboard|mainboard)\b|"
     r"\b(?:bundkort|motherboard|mainboard)\b.{0,30}\b(?:atx|e[- ]?atx|extended[- ]?atx)\b",
@@ -83,6 +83,33 @@ def platform_upgradeability(cpu: str, text: str) -> str:
     return "UNVERIFIED"
 
 
+async def resolve_all(context, seeds: list[dict]) -> tuple[dict[str, dict | None], list[dict], dict]:
+    sem = asyncio.Semaphore(T1_CONCURRENCY)
+
+    async def one(seed: dict):
+        async with sem:
+            t1, error = await runtime.fetch_t1_one(context, str(seed["listing_id"]))
+            return str(seed["listing_id"]), t1, error
+
+    tasks = [asyncio.create_task(one(seed)) for seed in seeds]
+    timed_out = False
+    try:
+        results = await asyncio.wait_for(asyncio.gather(*tasks), timeout=T1_TOTAL_DEADLINE_SECONDS)
+    except asyncio.TimeoutError:
+        timed_out = True
+        for task in tasks: task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+        results = []
+
+    by_id: dict[str, dict | None] = {}; errors: list[dict] = []; completed = set()
+    for lid, t1, error in results:
+        completed.add(lid); by_id[lid] = t1
+        if error: errors.append(error)
+    expected = {str(s["listing_id"]) for s in seeds}; missing = sorted(expected - completed)
+    coverage = {"candidate_total": len(seeds), "candidate_completed": len(completed), "candidate_fetch_errors": len(errors), "missing_listing_ids": missing, "deadline_exceeded": timed_out, "complete": not timed_out and not missing}
+    return by_id, errors, coverage
+
+
 async def main() -> None:
     reg = donor_regression()
     doc = json.loads(INPUT.read_text(encoding="utf-8"))
@@ -96,12 +123,13 @@ async def main() -> None:
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
         context = await browser.new_context(locale="da-DK", viewport={"width": 1440, "height": 1100})
-        page = await context.new_page()
         donors = []
         try:
+            t1_by_id, t1_errors, coverage = await resolve_all(context, seeds)
+            if not coverage["complete"]:
+                raise SystemExit(f"DONOR DATA GATE FAILED — T1 coverage incomplete: {json.dumps(coverage, ensure_ascii=False)}")
             for seed in seeds:
-                try: t1 = await v4.fetch_jsonld_item_all_scripts(page, seed["listing_id"])
-                except Exception: continue
+                t1 = t1_by_id.get(str(seed["listing_id"]))
                 if not t1 or not t1.get("identity_ok") or not t1.get("active_t1"): continue
                 if not isinstance(t1.get("ask_t1"), int) or t1.get("currency_t1") != "DKK": continue
                 text = f"{t1.get('title','')}\n{t1.get('description','')}\n{t1.get('brand','')}\n{t1.get('category','')}"
@@ -122,17 +150,19 @@ async def main() -> None:
                     "t1_source": t1["t1_source"], "t1_at": t1.get("t1_at"),
                 })
         finally:
-            await page.close(); await context.close(); await browser.close()
+            await context.close(); await browser.close()
 
     donors.sort(key=lambda r: (r["ask_t1"], -r["gpu_score"], -r["cpu_score"]))
     out = {
         "model_version": "DBA-Z20-DONOR-RESOLVER-V2", "generated_at": v2.utcnow(), "gate_passed": True,
-        "policy": "Re-fetch live donor PCs and expose only explicit component evidence. ATX PSU text cannot prove an ATX motherboard. Unknown motherboard/GPU SKU remains unresolved and never becomes proven fit.",
+        "policy": "Re-fetch live donor PCs with bounded parallel T1 and complete coverage. Expose only explicit component evidence. ATX PSU text cannot prove an ATX motherboard. Unknown motherboard/GPU SKU remains unresolved and never becomes proven fit.",
         "classifier_regression": reg,
+        "coverage": coverage,
+        "t1_diagnostics": t1_errors,
         "count": len(donors), "donors": donors,
     }
     OUTPUT.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps({"donors": len(donors), "compatible_mb": sum(x["motherboard_fit"] == "COMPATIBLE" for x in donors), "exact_gpu": sum(x["gpu_sku"]["status"] == "PROVEN" for x in donors)}))
+    print(json.dumps({"donors": len(donors), "compatible_mb": sum(x["motherboard_fit"] == "COMPATIBLE" for x in donors), "exact_gpu": sum(x["gpu_sku"]["status"] == "PROVEN" for x in donors), "coverage_complete": coverage["complete"]}, ensure_ascii=False), flush=True)
 
 
 if __name__ == "__main__": asyncio.run(main())
