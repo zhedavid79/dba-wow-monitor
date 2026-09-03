@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-03T06:17:46.072009+00:00
+Generated: 2026-09-03T08:18:01.069129+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2541 | Product rejects: 2486 | Bundle/variant/price rejects: 0 | Final: 49
+T0: 2542 | Product rejects: 2486 | Bundle/variant/price rejects: 0 | Final: 50
 
 ## Lowest verified single-device listings
 
@@ -47,15 +47,16 @@ T0: 2541 | Product rejects: 2486 | Bundle/variant/price rejects: 0 | Final: 49
 | 35 | Motorola Edge 40 Neo | 900 kr. | [Motorola Edge 40 Neo 5G 256GB Black](https://www.dba.dk/recommerce/forsale/item/23049288) |
 | 36 | OnePlus 8T | 900 kr. | [OnePlus 8T](https://www.dba.dk/recommerce/forsale/item/23661735) |
 | 37 | Samsung Galaxy S10+ | 900 kr. | [Samsung Galaxy s10+](https://www.dba.dk/recommerce/forsale/item/24515008) |
-| 38 | Redmi Note 13 Pro | 999 kr. | [Xiaomi Redmi Note 13 Pro 5g](https://www.dba.dk/recommerce/forsale/item/24396538) |
-| 39 | OnePlus 10 Pro | 1000 kr. | [oneplus 10 pro 256gb](https://www.dba.dk/recommerce/forsale/item/22032520) |
-| 40 | OnePlus 8T | 1000 kr. | [OnePlus 8T 128GB - 5G (Snapdragon) – Hurtigt bæst til skarp pris!](https://www.dba.dk/recommerce/forsale/item/23007415) |
-| 41 | OnePlus Nord CE 2 | 1000 kr. | [OnePlus Nord CE 2](https://www.dba.dk/recommerce/forsale/item/23098313) |
-| 42 | OnePlus Nord CE 3 Lite 5G | 1000 kr. | [OnePlus Nord CE 3 Lite 5G, 128/8 GB, Pastel](https://www.dba.dk/recommerce/forsale/item/21847153) |
-| 43 | Samsung A5 | 1000 kr. | [Samsung a52](https://www.dba.dk/recommerce/forsale/item/23947435) |
-| 44 | Samsung Galaxy A52s | 1000 kr. | [Samsung Galaxy A52s 5G – 128 GB – sort](https://www.dba.dk/recommerce/forsale/item/24556622) |
-| 45 | Samsung Galaxy S22 Ultra | 1000 kr. | [Samsung Galaxy S22 Ultra smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/19149202) |
-| 46 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |
-| 47 | Samsung s10 | 1000 kr. | [Samsung S10e Hvid. 128 gb](https://www.dba.dk/recommerce/forsale/item/23845886) |
-| 48 | Sony Xperia 10 III | 1000 kr. | [Sony Xperia 10 III smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/23658991) |
-| 49 | Sumsung Galaxy s25 ultra | 1000 kr. | [Kinesisk S25 Ultra](https://www.dba.dk/recommerce/forsale/item/23880275) |
+| 38 | Samsung Galaxy S20 FE | 950 kr. | [Samsung Galaxy S20 FE 5G smartphone 128 GB](https://www.dba.dk/recommerce/forsale/item/24565499) |
+| 39 | Redmi Note 13 Pro | 999 kr. | [Xiaomi Redmi Note 13 Pro 5g](https://www.dba.dk/recommerce/forsale/item/24396538) |
+| 40 | OnePlus 10 Pro | 1000 kr. | [oneplus 10 pro 256gb](https://www.dba.dk/recommerce/forsale/item/22032520) |
+| 41 | OnePlus 8T | 1000 kr. | [OnePlus 8T 128GB - 5G (Snapdragon) – Hurtigt bæst til skarp pris!](https://www.dba.dk/recommerce/forsale/item/23007415) |
+| 42 | OnePlus Nord CE 2 | 1000 kr. | [OnePlus Nord CE 2](https://www.dba.dk/recommerce/forsale/item/23098313) |
+| 43 | OnePlus Nord CE 3 Lite 5G | 1000 kr. | [OnePlus Nord CE 3 Lite 5G, 128/8 GB, Pastel](https://www.dba.dk/recommerce/forsale/item/21847153) |
+| 44 | Samsung A5 | 1000 kr. | [Samsung a52](https://www.dba.dk/recommerce/forsale/item/23947435) |
+| 45 | Samsung Galaxy A52s | 1000 kr. | [Samsung Galaxy A52s 5G – 128 GB – sort](https://www.dba.dk/recommerce/forsale/item/24556622) |
+| 46 | Samsung Galaxy S22 Ultra | 1000 kr. | [Samsung Galaxy S22 Ultra smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/19149202) |
+| 47 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |
+| 48 | Samsung s10 | 1000 kr. | [Samsung S10e Hvid. 128 gb](https://www.dba.dk/recommerce/forsale/item/23845886) |
+| 49 | Sony Xperia 10 III | 1000 kr. | [Sony Xperia 10 III smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/23658991) |
+| 50 | Sumsung Galaxy s25 ultra | 1000 kr. | [Kinesisk S25 Ultra](https://www.dba.dk/recommerce/forsale/item/23880275) |

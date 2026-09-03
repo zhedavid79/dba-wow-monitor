@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-03T06:17:50.929627+00:00",
+  "generated_at": "2026-09-03T08:18:05.964269+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2541,
-    "verified_before_quality": 49,
-    "final_after_quality": 49,
-    "ranked": 34,
-    "discovery_model_blindspots": 978,
+    "t0_unique": 2542,
+    "verified_before_quality": 50,
+    "final_after_quality": 50,
+    "ranked": 35,
+    "discovery_model_blindspots": 979,
     "pulse_gated_discovery_review": 21,
     "t1_exit_review": 6,
     "quality_review": 0,
@@ -15,7 +15,7 @@
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 978,
+    "DISCOVERY/MODEL": 979,
     "DISCOVERY/PULSE": 21,
     "T1": 6,
     "CORE": 6,
@@ -443,6 +443,15 @@
       "title": "Sony Ericsson K610i",
       "ask": 50,
       "url": "https://www.dba.dk/recommerce/forsale/item/24067802",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24202163",
+      "title": "mobiltelefon LG KG275",
+      "ask": 50,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24202163",
       "reason": "no supported model resolved"
     },
     {
@@ -1856,15 +1865,6 @@
       "title": "HTC Touch Diamond",
       "ask": 100,
       "url": "https://www.dba.dk/recommerce/forsale/item/2411142",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24202163",
-      "title": "mobiltelefon LG KG275",
-      "ask": 100,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24202163",
       "reason": "no supported model resolved"
     },
     {
@@ -3931,15 +3931,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24258270",
-      "title": "Nokia 6310 mobil. Virker perfekt.",
-      "ask": 200,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24258270",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24399592",
       "title": "Nokia 1611",
       "ask": 200,
@@ -3980,6 +3971,15 @@
       "title": "NOKIA 225 Dual Sim Blå",
       "ask": 200,
       "url": "https://www.dba.dk/recommerce/forsale/item/24524393",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24563890",
+      "title": "Samsung Galaxy S4",
+      "ask": 200,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24563890",
       "reason": "no supported model resolved"
     },
     {
@@ -7999,6 +7999,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "12878105",
+      "title": "Motorola Edge",
+      "ask": 749,
+      "url": "https://www.dba.dk/recommerce/forsale/item/12878105",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "7995233",
       "title": "Huawei 30 pro",
       "ask": 749,
@@ -9037,21 +9046,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23524084",
+      "model": null,
+      "title": "Sony Erikson X10i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9366,20 +9375,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
-    },
-    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9392,6 +9387,20 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "brand-mobile:sony:5"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "24164735",
@@ -9452,12 +9461,12 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 6,
-    "PRODUCT_IDENTITY": 2486
+    "PRODUCT_IDENTITY": 2486,
+    "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "live price missing": 3,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 990,
+    "live price missing": 3,
     "no supported model resolved": 1447,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 11,

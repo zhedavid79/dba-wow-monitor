@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-03T06:17:50.929627+00:00
+Generated: 2026-09-03T08:18:05.964269+00:00
 
-T0 listings <= ceiling: **2541**  
-Verified before quality: **49**  
-Final after quality: **49**  
-Mainnet ranked: **34**
+T0 listings <= ceiling: **2542**  
+Verified before quality: **50**  
+Final after quality: **50**  
+Mainnet ranked: **35**
 
 ## Review buckets
 
-- Discovery/model blindspots: **978**
+- Discovery/model blindspots: **979**
 - Core-compatible explicit models stopped by Pulse gate: **21**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
@@ -105,6 +105,7 @@ Pris: 10.999 kr. | 0 | live price missing |
 | DISCOVERY/MODEL | 23715780 | Nokia 3310 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 23733178 | Sony Ericsson Xperia X10 Mini Pro (model U20i) | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 24067802 | Sony Ericsson K610i | 50 | no supported model resolved |
+| DISCOVERY/MODEL | 24202163 | mobiltelefon LG KG275 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 24315412 | Sony Ericsson Walkman mobiltelefon hvid/orange | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 24522841 | motorola C200 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 2705883 | Sony Ericsson Cyber shot , Rimelig | 50 | no supported model resolved |
@@ -264,7 +265,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23916869 | Sony Ericsson K700i | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23986569 | Nokia mobil model 1661-2 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2411142 | HTC Touch Diamond | 100 | no supported model resolved |
-| DISCOVERY/MODEL | 24202163 | mobiltelefon LG KG275 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24252212 | Samsung Xcover 3 VE | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24258890 | sony Ericsson | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24318487 | Nokia 105 Classic mobiltelefon | 100 | no supported model resolved |
@@ -494,12 +494,12 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24069188 | Samsung E2210B klaptelefon rød | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24166497 | Huawei tablet/Windows telefon | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24242185 | Mobiltelefon fra Motorola | 200 | no supported model resolved |
-| DISCOVERY/MODEL | 24258270 | Nokia 6310 mobil. Virker perfekt. | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24399592 | Nokia 1611 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24401133 | Nokia | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24421108 | Mobil Garmin asus nüvifone A50 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24498022 | Galaxy J2 Core. | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24524393 | NOKIA 225 Dual Sim Blå | 200 | no supported model resolved |
+| DISCOVERY/MODEL | 24563890 | Samsung Galaxy S4 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2594591 | Nokia 215, Perfekt | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2662666 | LG Digital communication, Perfekt | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 3567808 | HTC Diverse, Diverse , God | 200 | no supported model resolved |
@@ -946,6 +946,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 7074892 | Nokia n95 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 23426203 | Huawei p20 | 729 | no supported model resolved |
 | DISCOVERY/MODEL | 19023980 | Motorola g62 | 735 | no supported model resolved |
+| DISCOVERY/MODEL | 12878105 | Motorola Edge | 749 | no supported model resolved |
 | DISCOVERY/MODEL | 7995233 | Huawei 30 pro | 749 | no supported model resolved |
 | DISCOVERY/MODEL | 15525919 | Motorola Moto g71 128/6 gb | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 1881325 | Nokia N810, Perfekt | 750 | no supported model resolved |
@@ -1059,8 +1060,8 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
