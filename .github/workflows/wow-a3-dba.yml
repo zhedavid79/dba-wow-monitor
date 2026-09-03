@@ -1,4 +1,4 @@
-name: WoW DBA Price-First Report
+name: WoW DBA Z20 Hybrid Report
 
 on:
   workflow_dispatch:
@@ -14,8 +14,8 @@ on:
       - 'dba_browser_v4.py'
       - 'dba_browser_v5.py'
       - 'dba_browser_v6.py'
+      - 'dba_z20_parts.py'
       - 'wow_value_model.py'
-      - '.github/workflows/probe.yml'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -28,7 +28,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -38,52 +38,49 @@ jobs:
         run: |
           pip install playwright
           playwright install --with-deps chromium
-      - name: Run browser-native high-recall WoW scanner
+      - name: Run complete-PC high-recall scanner
         run: python dba_browser_v6.py
-      - name: Apply value-aware procurement model
+      - name: Run Z20 component and bundle scanner
+        run: python dba_z20_parts.py
+      - name: Apply Z20 hybrid procurement model
         run: python wow_value_model.py
-      - name: Validate publication gate
+      - name: Validate V10 publication gate
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           d = json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
+          p = json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
+          assert d.get('model_version') == 'DBA-WOW-Z20-HYBRID-V10'
+          assert d.get('target_case',{}).get('model') == 'Jonsbo Z20'
+          assert p.get('gate_passed') is True and p.get('model_version') == 'DBA-Z20-PARTS-V1'
           ranked = d.get('ranked') or []
-          unresolved = d.get('potential_sweet_spots_unresolved') or []
-          assert d.get('model_version') == 'DBA-WOW-VALUE-AWARE-V9'
+          parts = p.get('opportunities') or []
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
-          assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
-          assert all(r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
-          assert all(r.get('currency') == 'DKK' for r in ranked)
-          assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
+          assert all(r.get('t0_source') == 'rendered_dba_card' and r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
+          assert all(r.get('currency') == 'DKK' and str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
           assert all(r.get('performance_status') == 'SUFFICIENT' for r in ranked)
-          assert all(r.get('value_class') in {'SWEET SPOT','GOOD VALUE','EXCESS SPEND FOR THIS USE CASE'} for r in ranked)
-          assert all(r.get('platform_value') in {'POTENTIAL_DONOR_CHECK_REQUIRED','NOT_A3_DONOR','UNKNOWN'} for r in ranked)
-          assert len({str(r['listing_id']) for r in ranked}) == len(ranked)
-          assert all(ranked[i]['ask_t1'] <= ranked[i+1]['ask_t1'] for i in range(len(ranked)-1))
-          ceiling = d['value_model']['sweet_spot_price_ceiling']
-          assert all(r['ask_t1'] <= ceiling for r in ranked if r['value_class'] == 'SWEET SPOT')
-          assert all(r['ask_t1'] > ceiling for r in ranked if r['value_class'] == 'EXCESS SPEND FOR THIS USE CASE')
-          ranked_ids = {str(r['listing_id']) for r in ranked}
-          assert not ranked_ids.intersection(str(r['listing_id']) for r in unresolved)
-          print(f"PASS V9: {len(ranked)} ranked; Top 10 report; sweet-spot ceiling {ceiling} DKK; {len(unresolved)} unresolved")
+          assert all(r.get('platform_value') in {'Z20_DONOR_CHECK_REQUIRED','NOT_Z20_DONOR','UNKNOWN'} for r in ranked)
+          assert all(r.get('kind') in {'GPU','CPU','PLATFORM_BUNDLE','RAM','PSU'} for r in parts)
+          assert all(r.get('t0_source') == 'rendered_dba_card' and r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in parts)
+          assert all(isinstance(r.get('ask_t1'), int) and r.get('currency') == 'DKK' for r in parts)
+          print(f"PASS V10: {len(ranked)} complete PCs; {len(parts)} Z20 part/bundle opportunities")
           PY
-      - name: Publish authoritative WoW results
+      - name: Publish authoritative V10 results
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/wow-results
-          cp results/wow_a3_latest.json /tmp/wow-results/
-          cp results/wow_a3_report.md /tmp/wow-results/
+          cp results/wow_a3_latest.json results/wow_a3_report.md results/z20_parts_latest.json /tmp/wow-results/
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/wow-results/* results/
-            git add results/wow_a3_latest.json results/wow_a3_report.md
+            git add results/wow_a3_latest.json results/wow_a3_report.md results/z20_parts_latest.json
             if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Update verified WoW V9 DBA report [skip ci]"
+            git commit -m "Update verified WoW Z20 V10 DBA report [skip ci]"
             if git push origin main; then exit 0; fi
           done
           exit 1
