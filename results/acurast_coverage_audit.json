@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-02T22:35:37.399833+00:00",
+  "generated_at": "2026-09-03T06:17:50.929627+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2540,
+    "t0_unique": 2541,
     "verified_before_quality": 49,
     "final_after_quality": 49,
     "ranked": 34,
-    "discovery_model_blindspots": 976,
-    "pulse_gated_discovery_review": 20,
+    "discovery_model_blindspots": 978,
+    "pulse_gated_discovery_review": 21,
     "t1_exit_review": 6,
     "quality_review": 0,
     "core_review": 6,
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 976,
-    "DISCOVERY/PULSE": 20,
+    "DISCOVERY/MODEL": 978,
+    "DISCOVERY/PULSE": 21,
     "T1": 6,
     "CORE": 6,
     "PULSE": 9
@@ -5434,6 +5434,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24562603",
+      "title": "Nokia 3310",
+      "ask": 300,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24562603",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "2456856",
       "title": "Nokia Lumia 820.1, 8 gb , Perfekt",
       "ask": 300,
@@ -8584,6 +8593,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "19989011",
+      "title": "Motorola edge 30 Pro",
+      "ask": 1000,
+      "url": "https://www.dba.dk/recommerce/forsale/item/19989011",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "20032703",
       "title": "Samsung Galaxy A22 (Dual-SIM)",
       "ask": 1000,
@@ -8880,6 +8898,16 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
+      "model": "Motorola edge 30 Pro",
+      "title": "Motorola edge 30 Pro",
+      "ask": null,
+      "url": null,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "DISCOVERY/PULSE",
+      "severity": "MEDIUM",
+      "listing_id": null,
       "model": "Motorola Edge 50 Ultra",
       "title": "Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri",
       "ask": null,
@@ -9009,21 +9037,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "23524084",
       "model": null,
       "title": "Sony Erikson X10i",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9238,6 +9266,13 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
+      "candidate_model": "Motorola edge 30 Pro",
+      "title": "Motorola edge 30 Pro",
+      "pulse_match_method": "NO_MATCH",
+      "pulse_match_confidence": 0.0,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
+    },
+    {
       "candidate_model": "Motorola Edge 50 Ultra",
       "title": "Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri",
       "pulse_match_method": "NO_MATCH",
@@ -9331,20 +9366,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
-      "sources": [
-        "brand-mobile:huawei:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
@@ -9357,6 +9378,20 @@
       "reason": "live price missing",
       "title": "Sony Erikson X10i",
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+    },
+    {
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "24164735",
@@ -9418,20 +9453,20 @@
   ],
   "discovery_reject_stage_counts": {
     "T1": 6,
-    "PRODUCT_IDENTITY": 2485
+    "PRODUCT_IDENTITY": 2486
   },
   "discovery_reject_reason_counts": {
     "live price missing": 3,
-    "no supported model resolved": 1445,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 990,
+    "no supported model resolved": 1447,
     "weak complete-phone evidence": 5,
-    "accessory/part title": 9,
     "resolved model variant is not supported by seller text": 11,
+    "accessory/part title": 9,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 25
+    "description indicates part without explicit functional phone evidence": 24
   },
   "audit_integrity": {
-    "all_rejects_count": 2491,
+    "all_rejects_count": 2492,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
