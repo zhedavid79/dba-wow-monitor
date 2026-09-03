@@ -14,6 +14,7 @@ on:
       - 'dba_browser_v4.py'
       - 'dba_browser_v5.py'
       - 'dba_browser_v6.py'
+      - 'wow_value_model.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -29,19 +30,17 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Install browser dependencies
         run: |
           pip install playwright
           playwright install --with-deps chromium
-
       - name: Run browser-native high-recall WoW scanner
         run: python dba_browser_v6.py
-
+      - name: Apply value-aware procurement model
+        run: python wow_value_model.py
       - name: Validate publication gate
         run: |
           python - <<'PY'
@@ -51,19 +50,23 @@ jobs:
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
           ranked = d.get('ranked') or []
           unresolved = d.get('potential_sweet_spots_unresolved') or []
-          assert d.get('model_version') == 'DBA-WOW-BROWSER-HIGH-RECALL-V7'
+          assert d.get('model_version') == 'DBA-WOW-VALUE-AWARE-V8'
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
           assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
           assert all(r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
           assert all(r.get('currency') == 'DKK' for r in ranked)
           assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
-          assert len({str(r['listing_id']) for r in ranked}) == len(ranked), 'Duplicate listing ID in ranked output'
-          assert all(ranked[i]['ask_t1'] <= ranked[i+1]['ask_t1'] for i in range(len(ranked)-1)), 'Ranking is not price-first'
+          assert all(r.get('performance_status') == 'SUFFICIENT' for r in ranked)
+          assert all(r.get('value_class') in {'SWEET SPOT','GOOD VALUE','EXCESS SPEND FOR THIS USE CASE'} for r in ranked)
+          assert len({str(r['listing_id']) for r in ranked}) == len(ranked)
+          assert all(ranked[i]['ask_t1'] <= ranked[i+1]['ask_t1'] for i in range(len(ranked)-1))
+          ceiling = d['value_model']['sweet_spot_price_ceiling']
+          assert all(r['ask_t1'] <= ceiling for r in ranked if r['value_class'] == 'SWEET SPOT')
+          assert all(r['ask_t1'] > ceiling for r in ranked if r['value_class'] == 'EXCESS SPEND FOR THIS USE CASE')
           ranked_ids = {str(r['listing_id']) for r in ranked}
           assert not ranked_ids.intersection(str(r['listing_id']) for r in unresolved)
-          print(f"PASS: {len(ranked)} verified ranked candidates; {len(unresolved)} unresolved potential sweet spots")
+          print(f"PASS V8: {len(ranked)} ranked; sweet-spot ceiling {ceiling} DKK; {len(unresolved)} unresolved")
           PY
-
       - name: Publish WoW price-first results
         run: |
           set -e
@@ -77,11 +80,8 @@ jobs:
             git reset --hard origin/main
             cp /tmp/wow-results/* results/
             git add results/wow_a3_latest.json results/wow_a3_report.md
-            if git diff --cached --quiet; then
-              echo "No WoW result changes"
-              exit 0
-            fi
-            git commit -m "Update verified WoW price-first DBA report [skip ci]"
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Update verified WoW value-aware DBA report [skip ci]"
             if git push origin main; then exit 0; fi
           done
           exit 1
