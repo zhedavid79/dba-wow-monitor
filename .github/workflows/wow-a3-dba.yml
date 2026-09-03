@@ -3,7 +3,9 @@ name: WoW DBA Price-First Report
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 6 * * *'
+    - cron: '0 10 * * *'
+    - cron: '0 17 * * *'
   push:
     branches: [main]
     paths:
@@ -19,7 +21,7 @@ permissions:
 
 concurrency:
   group: wow-dba-price-first-report
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   report:
@@ -37,7 +39,7 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
 
-      - name: Run browser-native verified WoW price-first scanner
+      - name: Run browser-native high-recall WoW scanner
         run: python dba_browser_v6.py
 
       - name: Validate publication gate
@@ -48,17 +50,18 @@ jobs:
           d = json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
           ranked = d.get('ranked') or []
-          assert d.get('model_version') == 'DBA-WOW-BROWSER-PRICE-FIRST-SIMPLE-V6'
+          unresolved = d.get('potential_sweet_spots_unresolved') or []
+          assert d.get('model_version') == 'DBA-WOW-BROWSER-HIGH-RECALL-V7'
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
           assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
           assert all(r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
           assert all(r.get('currency') == 'DKK' for r in ranked)
           assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
-          assert all(r.get('form_factor') in {'LAPTOP','DESKTOP'} for r in ranked)
-          assert all(r.get('case_check') == ('NOT_NEEDED' if r.get('form_factor') == 'LAPTOP' else 'MANUAL_A3_CHECK') for r in ranked)
           assert len({str(r['listing_id']) for r in ranked}) == len(ranked), 'Duplicate listing ID in ranked output'
           assert all(ranked[i]['ask_t1'] <= ranked[i+1]['ask_t1'] for i in range(len(ranked)-1)), 'Ranking is not price-first'
-          print(f"PASS: {len(ranked)} verified price-first candidates; desktop case compatibility is informational only")
+          ranked_ids = {str(r['listing_id']) for r in ranked}
+          assert not ranked_ids.intersection(str(r['listing_id']) for r in unresolved)
+          print(f"PASS: {len(ranked)} verified ranked candidates; {len(unresolved)} unresolved potential sweet spots")
           PY
 
       - name: Publish WoW price-first results
@@ -80,6 +83,5 @@ jobs:
             fi
             git commit -m "Update verified WoW price-first DBA report [skip ci]"
             if git push origin main; then exit 0; fi
-            sleep 2
           done
           exit 1
