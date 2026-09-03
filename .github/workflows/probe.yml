@@ -14,6 +14,9 @@ on:
       - 'results/acurast_report.md'
       - 'results/acurast_valuation.json'
       - 'results/acurast_valuation.md'
+      - 'results/wow_a3_latest.json'
+      - 'results/wow_a3_report.md'
+      - 'results/wow_a3_gate_failure.json'
   workflow_dispatch:
 
 concurrency:
@@ -26,26 +29,57 @@ permissions:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install dependencies
-        run: pip install requests beautifulsoup4
-      - name: Run WoW scanner regression tests
-        run: python -m unittest test_dba_report_v6.py
-      - name: Build verified WoW price report v9
-        run: python dba_report_v9.py
+      - name: Install browser dependencies
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Build browser-native high-recall WoW price report
+        run: python dba_browser_v6.py
+      - name: Validate publication gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
+          assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
+          assert d.get('model_version') == 'DBA-WOW-BROWSER-HIGH-RECALL-V7'
+          ranked = d.get('ranked') or []
+          unresolved = d.get('potential_sweet_spots_unresolved') or []
+          assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'), int) for r in ranked)
+          assert all(r.get('t0_source') == 'rendered_dba_card' for r in ranked)
+          assert all(r.get('t1_source') == 'dba_jsonld_product_all_scripts' for r in ranked)
+          assert all(r.get('currency') == 'DKK' for r in ranked)
+          assert all(str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked)
+          assert len({str(r['listing_id']) for r in ranked}) == len(ranked)
+          assert all(ranked[i]['ask_t1'] <= ranked[i+1]['ask_t1'] for i in range(len(ranked)-1))
+          ranked_ids = {str(r['listing_id']) for r in ranked}
+          assert not ranked_ids.intersection(str(r['listing_id']) for r in unresolved)
+          print(f"PASS: {len(ranked)} ranked; {len(unresolved)} unresolved potential sweet spots")
+          PY
       - name: Commit results
         run: |
+          set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/latest_v6.json results/report_v6.md results/report_v9.md
-          if git diff --cached --quiet; then
-            echo "No result changes"
-          else
-            git commit -m "Update verified DBA WoW report [skip ci]"
-            git push
-          fi
+          mkdir -p /tmp/wow-results
+          cp results/wow_a3_latest.json /tmp/wow-results/
+          cp results/wow_a3_report.md /tmp/wow-results/
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp /tmp/wow-results/* results/
+            git add results/wow_a3_latest.json results/wow_a3_report.md
+            if git diff --cached --quiet; then
+              echo "No WoW result changes"
+              exit 0
+            fi
+            git commit -m "Update verified WoW browser report [skip ci]"
+            if git push origin main; then exit 0; fi
+          done
+          exit 1
