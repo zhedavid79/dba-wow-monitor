@@ -14,6 +14,7 @@ on:
       - 'dba_browser_v4.py'
       - 'dba_browser_v5.py'
       - 'dba_browser_v6.py'
+      - 'dba_t1_preflight.py'
       - 'dba_z20_parts.py'
       - 'dba_z20_donors.py'
       - 'wow_value_model.py'
@@ -41,7 +42,9 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
       - name: Compile complete model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v6.py dba_z20_parts.py dba_z20_donors.py wow_value_model.py z20_complete_optimizer.py
+        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v6.py dba_t1_preflight.py dba_z20_parts.py dba_z20_donors.py wow_value_model.py z20_complete_optimizer.py
+      - name: Diagnose DBA T1 preflight
+        run: python dba_t1_preflight.py
       - name: Run complete-PC high-recall scanner
         run: python dba_browser_v6.py
       - name: Run Z20 component and bundle scanner
