@@ -14,6 +14,10 @@ import dba_browser_v5  # noqa: F401  # category-aware JSON-LD patches
 from dba_browser_v3 import discover_cards_by_article
 
 RESCUE_PRICE_MAX = 6000
+QUERY_TIMEOUT_SECONDS = 20
+T1_TIMEOUT_SECONDS = 20
+T1_CONCURRENCY = 6
+
 COMPLETE_HINT_RE = re.compile(
     r"\b(?:gaming|gamer)\s*(?:pc|computer|laptop|bærbar)|"
     r"\b(?:pc|computer)\s*(?:gaming|gamer)|"
@@ -73,6 +77,102 @@ def unresolved_record(row: dict, t1: dict, gpu: str, gpu_score: int, cpu: str, c
     }
 
 
+async def discover_with_deadline(page, query: str) -> tuple[list[dict], dict | None]:
+    try:
+        rows = await asyncio.wait_for(
+            discover_cards_by_article(page, query),
+            timeout=QUERY_TIMEOUT_SECONDS,
+        )
+        return rows, None
+    except asyncio.TimeoutError:
+        return [], {
+            "query": query,
+            "error": "QUERY_TIMEOUT",
+            "detail": f"discovery exceeded {QUERY_TIMEOUT_SECONDS}s",
+        }
+    except Exception as exc:
+        return [], {
+            "query": query,
+            "error": type(exc).__name__,
+            "detail": str(exc)[:300],
+        }
+
+
+async def fetch_t1_with_deadline(page, listing_id: str) -> tuple[dict | None, dict | None]:
+    try:
+        item = await asyncio.wait_for(
+            v4.fetch_jsonld_item_all_scripts(page, listing_id),
+            timeout=T1_TIMEOUT_SECONDS,
+        )
+        return item, None
+    except asyncio.TimeoutError:
+        return None, {
+            "listing_id": listing_id,
+            "result": "T1_TIMEOUT",
+            "detail": f"T1 fetch exceeded {T1_TIMEOUT_SECONDS}s",
+        }
+    except Exception as exc:
+        return None, {
+            "listing_id": listing_id,
+            "result": "fetch_error",
+            "detail": f"{type(exc).__name__}: {str(exc)[:240]}",
+        }
+
+
+async def fetch_all_t1(context, candidates: list[dict]) -> tuple[dict[str, dict | None], list[dict]]:
+    """Fetch every candidate with bounded concurrency; no candidate-count cap is applied."""
+    queue: asyncio.Queue[dict | None] = asyncio.Queue()
+    for row in candidates:
+        queue.put_nowait(row)
+    for _ in range(min(T1_CONCURRENCY, max(1, len(candidates)))):
+        queue.put_nowait(None)
+
+    results: dict[str, dict | None] = {}
+    diagnostics: list[dict] = []
+    completed = 0
+    lock = asyncio.Lock()
+
+    async def worker(worker_no: int) -> None:
+        nonlocal completed
+        page = await context.new_page()
+        try:
+            while True:
+                row = await queue.get()
+                try:
+                    if row is None:
+                        return
+                    lid = str(row["listing_id"])
+                    t1, error = await fetch_t1_with_deadline(page, lid)
+                    results[lid] = t1
+                    if error:
+                        diagnostics.append(error)
+                    async with lock:
+                        completed += 1
+                        if completed == 1 or completed % 20 == 0 or completed == len(candidates):
+                            print(
+                                json.dumps(
+                                    {
+                                        "stage": "T1_PROGRESS",
+                                        "completed": completed,
+                                        "total": len(candidates),
+                                        "worker": worker_no,
+                                    },
+                                    ensure_ascii=False,
+                                ),
+                                flush=True,
+                            )
+                finally:
+                    queue.task_done()
+        finally:
+            await page.close()
+
+    worker_count = min(T1_CONCURRENCY, max(1, len(candidates)))
+    workers = [asyncio.create_task(worker(i + 1)) for i in range(worker_count)]
+    await queue.join()
+    await asyncio.gather(*workers)
+    return results, diagnostics
+
+
 async def main() -> None:
     Path("results").mkdir(exist_ok=True)
     regression = v2.fixture_regression()
@@ -81,16 +181,13 @@ async def main() -> None:
         browser = await pw.chromium.launch(headless=True)
         context = await browser.new_context(locale="da-DK", viewport={"width": 1440, "height": 1100})
         search_page = await context.new_page()
-        item_page = await context.new_page()
         try:
             found: dict[str, dict] = {}
             search_errors: list[dict] = []
-            for query in v2.QUERIES:
-                try:
-                    rows = await discover_cards_by_article(search_page, query)
-                except Exception as exc:
-                    search_errors.append({"query": query, "error": type(exc).__name__, "detail": str(exc)[:300]})
-                    continue
+            for index, query in enumerate(v2.QUERIES, 1):
+                rows, error = await discover_with_deadline(search_page, query)
+                if error:
+                    search_errors.append(error)
                 for row in rows:
                     existing = found.get(row["listing_id"])
                     if existing is None:
@@ -98,19 +195,45 @@ async def main() -> None:
                         found[row["listing_id"]] = row
                     else:
                         existing["source_queries"].append(query)
+                print(
+                    json.dumps(
+                        {
+                            "stage": "DISCOVERY_PROGRESS",
+                            "query_index": index,
+                            "query_total": len(v2.QUERIES),
+                            "query": query,
+                            "rows": len(rows),
+                            "unique_total": len(found),
+                            "error": error["error"] if error else None,
+                        },
+                        ensure_ascii=False,
+                    ),
+                    flush=True,
+                )
 
             candidates = sorted((r for r in found.values() if should_t1(r)), key=discovery_priority)
+            print(
+                json.dumps(
+                    {
+                        "stage": "DISCOVERY_COMPLETE",
+                        "t0_unique": len(found),
+                        "t0_to_t1": len(candidates),
+                        "search_errors": len(search_errors),
+                    },
+                    ensure_ascii=False,
+                ),
+                flush=True,
+            )
+
+            t1_by_id, t1_diagnostics = await fetch_all_t1(context, candidates)
 
             source_gate = None
-            gate_attempts: list[dict] = []
+            gate_attempts: list[dict] = list(t1_diagnostics)
             for row in candidates:
-                try:
-                    t1 = await v4.fetch_jsonld_item_all_scripts(item_page, row["listing_id"])
-                except Exception as exc:
-                    gate_attempts.append({"listing_id": row["listing_id"], "result": "fetch_error", "detail": type(exc).__name__})
-                    continue
+                t1 = t1_by_id.get(row["listing_id"])
                 if not t1:
-                    gate_attempts.append({"listing_id": row["listing_id"], "result": "no_product_json"})
+                    if not any(x.get("listing_id") == row["listing_id"] for x in gate_attempts):
+                        gate_attempts.append({"listing_id": row["listing_id"], "result": "no_product_json"})
                     continue
                 if not t1.get("identity_ok"):
                     gate_attempts.append({"listing_id": row["listing_id"], "result": "identity_failed"})
@@ -140,11 +263,11 @@ async def main() -> None:
 
             if source_gate is None:
                 diagnostic = {
-                    "model_version": "DBA-WOW-BROWSER-HIGH-RECALL-V7",
+                    "model_version": "DBA-WOW-BROWSER-HIGH-RECALL-V8",
                     "generated_at": v2.utcnow(),
                     "gate_passed": False,
                     "counts": {"queries": len(v2.QUERIES), "t0_unique": len(found), "t0_to_t1": len(candidates)},
-                    "gate_attempts": gate_attempts[:100],
+                    "gate_attempts": gate_attempts[:200],
                     "search_errors": search_errors,
                 }
                 Path("results/wow_a3_gate_failure.json").write_text(json.dumps(diagnostic, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -155,12 +278,16 @@ async def main() -> None:
             rejected: list[dict] = []
 
             for row in candidates:
-                try:
-                    t1 = await v4.fetch_jsonld_item_all_scripts(item_page, row["listing_id"])
-                except Exception as exc:
-                    rejected.append({"listing_id": row["listing_id"], "reason": "T1_FETCH_FAILED", "detail": str(exc)[:300]})
+                t1 = t1_by_id.get(row["listing_id"])
+                if not t1:
+                    diagnostic = next((x for x in t1_diagnostics if x.get("listing_id") == row["listing_id"]), None)
+                    rejected.append({
+                        "listing_id": row["listing_id"],
+                        "reason": "T1_FETCH_FAILED",
+                        "detail": diagnostic.get("detail", diagnostic.get("result")) if diagnostic else "no_product_json",
+                    })
                     continue
-                if not t1 or not t1.get("identity_ok"):
+                if not t1.get("identity_ok"):
                     rejected.append({"listing_id": row["listing_id"], "reason": "T1_IDENTITY_UNVERIFIED"})
                     continue
                 if not t1.get("active_t1"):
@@ -217,7 +344,6 @@ async def main() -> None:
                 })
         finally:
             await search_page.close()
-            await item_page.close()
             await context.close()
             await browser.close()
 
@@ -226,11 +352,17 @@ async def main() -> None:
     unresolved.sort(key=lambda r: (r["ask_t1"], r["listing_id"]))
 
     output = {
-        "model_version": "DBA-WOW-BROWSER-HIGH-RECALL-V7",
+        "model_version": "DBA-WOW-BROWSER-HIGH-RECALL-V8",
         "generated_at": v2.utcnow(),
         "gate_passed": True,
-        "retrieval_method": "Rendered DBA article.sf-search-ad T0 + same-ID DBA Product JSON T1",
+        "retrieval_method": "Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1",
         "ranking_policy": "Verified complete PCs clearing the WoW performance gate are ranked strictly price-first. Cheap unresolved complete systems remain visible but unranked.",
+        "runtime_policy": {
+            "query_timeout_seconds": QUERY_TIMEOUT_SECONDS,
+            "t1_timeout_seconds": T1_TIMEOUT_SECONDS,
+            "t1_concurrency": T1_CONCURRENCY,
+            "candidate_cap": None,
+        },
         "source_gate": source_gate,
         "price_binding_regression": regression,
         "counts": {
@@ -240,12 +372,15 @@ async def main() -> None:
             "ranked": len(ranked),
             "potential_sweet_spot_unresolved": len(unresolved),
             "rejected": len(rejected),
+            "search_timeouts_or_errors": len(search_errors),
+            "t1_timeouts_or_errors": len(t1_diagnostics),
         },
         "ranked": ranked,
         "potential_sweet_spots_unresolved": unresolved,
         "rejected": rejected,
         "rejection_reason_counts": dict(Counter(x.get("reason", "UNKNOWN") for x in rejected)),
         "search_errors": search_errors,
+        "t1_diagnostics": t1_diagnostics,
     }
     Path("results/wow_a3_latest.json").write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -278,7 +413,22 @@ async def main() -> None:
     lines += ["", "## Objektive diskvalifikationer", "", json.dumps(output["rejection_reason_counts"], ensure_ascii=False)]
     Path("results/wow_a3_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    print(json.dumps({"gate": True, "t0_unique": len(found), "t0_to_t1": len(candidates), "ranked": len(ranked), "unresolved": len(unresolved), "rejected": len(rejected)}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {
+                "gate": True,
+                "t0_unique": len(found),
+                "t0_to_t1": len(candidates),
+                "ranked": len(ranked),
+                "unresolved": len(unresolved),
+                "rejected": len(rejected),
+                "search_errors": len(search_errors),
+                "t1_diagnostics": len(t1_diagnostics),
+            },
+            ensure_ascii=False,
+        ),
+        flush=True,
+    )
 
 
 if __name__ == "__main__":
