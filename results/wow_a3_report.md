@@ -1,9 +1,9 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Generated: 2026-09-03T09:26:29.016206+00:00
+Generated: 2026-09-03T09:27:09.316898+00:00
 Retrieval: Rendered DBA article.sf-search-ad T0 + same-ID DBA Product JSON T1
 Verified ranked records: 79
-Potential sweet spots needing spec resolution: 279
+Potential sweet spots needing spec resolution: 280
 
 ## Buy now / billigste tilstrækkelige
 
@@ -319,6 +319,7 @@ Potential sweet spots needing spec resolution: 279
 - [MSI stationær gaming pc setup med NVIDIA GeForce GTX 1660 SUPER](https://www.dba.dk/recommerce/forsale/item/24073367) — 5000 kr. — GPU_PARSE_FAILED — ID 24073367
 - [Gaming computer og tilbehør/udstyr](https://www.dba.dk/recommerce/forsale/item/24218664) — 5000 kr. — GPU_PARSE_FAILED — ID 24218664
 - [Gaming PC - mid tier](https://www.dba.dk/recommerce/forsale/item/24383685) — 5000 kr. — GPU_PARSE_FAILED — ID 24383685
+- [HP victus gaming pc](https://www.dba.dk/recommerce/forsale/item/24386139) — 5000 kr. — GPU_PARSE_FAILED — ID 24386139
 - [Gaming PC - RTX 3060 TI med alt tilbehør](https://www.dba.dk/recommerce/forsale/item/24464862) — 5000 kr. — CPU_PARSE_FAILED — ID 24464862
 - [stationær gamer pc med RGB kabinet](https://www.dba.dk/recommerce/forsale/item/24475738) — 5000 kr. — GPU_PARSE_FAILED — ID 24475738
 - [MSI stationær gaming PC AMD Ryzen 7 5700X 16GB DDR4 RAM](https://www.dba.dk/recommerce/forsale/item/24516125) — 5000 kr. — GPU_PARSE_FAILED — ID 24516125
