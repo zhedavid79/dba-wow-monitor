@@ -6,6 +6,7 @@ from pathlib import Path
 
 import dba_browser_v6_recovery as recovery
 from dba_listing_intelligence import enrich_result_file
+from dba_t1_hydration_ancestor import fetch_hydration_ancestor
 
 T1_CACHE: dict[str, dict] = {}
 _original_fetch_t1_one = recovery.v6.fetch_t1_one
@@ -13,6 +14,8 @@ _original_fetch_t1_one = recovery.v6.fetch_t1_one
 
 async def cached_fetch_t1_one(context, listing_id: str):
     t1, error = await _original_fetch_t1_one(context, listing_id)
+    if t1 is None and error is None:
+        t1 = await fetch_hydration_ancestor(context, str(listing_id))
     if t1 is not None:
         T1_CACHE[str(listing_id)] = t1
     return t1, error
