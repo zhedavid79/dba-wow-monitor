@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-03T21:43:24.748392+00:00",
+  "generated_at": "2026-09-04T06:21:17.897549+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2530,
+    "t0_unique": 2528,
     "verified_before_quality": 49,
     "final_after_quality": 49,
     "ranked": 34,
-    "discovery_model_blindspots": 976,
+    "discovery_model_blindspots": 975,
     "pulse_gated_discovery_review": 22,
     "t1_exit_review": 6,
     "quality_review": 0,
@@ -15,7 +15,7 @@
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 976,
+    "DISCOVERY/MODEL": 975,
     "DISCOVERY/PULSE": 22,
     "T1": 6,
     "CORE": 6,
@@ -3742,6 +3742,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "22678880",
+      "title": "HTC Touch Pro 2",
+      "ask": 200,
+      "url": "https://www.dba.dk/recommerce/forsale/item/22678880",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "22702160",
       "title": "Nokia 6210i KØBES",
       "ask": 200,
@@ -3827,6 +3836,15 @@
       "title": "NOKIA 6100",
       "ask": 200,
       "url": "https://www.dba.dk/recommerce/forsale/item/23605629",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "23673900",
+      "title": "2 stk Nokia 3210 og 1 stk Nokia 6150",
+      "ask": 200,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23673900",
       "reason": "no supported model resolved"
     },
     {
@@ -4520,15 +4538,6 @@
       "title": "Sony Ericsson K600i mobiltelefon",
       "ask": 250,
       "url": "https://www.dba.dk/recommerce/forsale/item/23657261",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "23673900",
-      "title": "2 stk Nokia 3210 og 1 stk Nokia 6150",
-      "ask": 250,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23673900",
       "reason": "no supported model resolved"
     },
     {
@@ -6500,15 +6509,6 @@
       "title": "Nokia Nokia 6310, Perfekt",
       "ask": 450,
       "url": "https://www.dba.dk/recommerce/forsale/item/2362290",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24355235",
-      "title": "Nokia N8 som ny. Virker 100%",
-      "ask": 450,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24355235",
       "reason": "no supported model resolved"
     },
     {
@@ -8557,15 +8557,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "1378783",
-      "title": "Populær Retro mobil ☎️ Nokia X7 til salg for samlere",
-      "ask": 1000,
-      "url": "https://www.dba.dk/recommerce/forsale/item/1378783",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "19989011",
       "title": "Motorola edge 30 Pro",
       "ask": 1000,
@@ -9039,21 +9030,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23524084",
+      "model": null,
+      "title": "Sony Erikson X10i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9379,20 +9370,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
-    },
-    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9405,6 +9382,20 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "brand-mobile:sony:5"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "17621913",
@@ -9451,13 +9442,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 6,
-    "PRODUCT_IDENTITY": 2475
+    "PRODUCT_IDENTITY": 2473,
+    "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "live price missing": 3,
-    "no supported model resolved": 1441,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 982,
+    "live price missing": 3,
+    "no supported model resolved": 1439,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 9,
@@ -9465,7 +9456,7 @@
     "description indicates part without explicit functional phone evidence": 27
   },
   "audit_integrity": {
-    "all_rejects_count": 2481,
+    "all_rejects_count": 2479,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
