@@ -1,6 +1,6 @@
 {
   "model_version": "DBA-Z20-DONOR-RESOLVER-V2",
-  "generated_at": "2026-09-04T16:33:55.146176+00:00",
+  "generated_at": "2026-09-04T18:03:07.108725+00:00",
   "gate_passed": true,
   "policy": "Re-fetch live donor PCs with bounded parallel T1 and complete coverage. Expose only explicit component evidence. ATX PSU text cannot prove an ATX motherboard. Unknown motherboard/GPU SKU remains unresolved and never becomes proven fit.",
   "classifier_regression": {
@@ -36,50 +36,60 @@
   "coverage": {
     "candidate_total": 30,
     "candidate_completed": 30,
-    "candidate_fetch_errors": 7,
+    "candidate_fetch_errors": 0,
     "missing_listing_ids": [],
     "deadline_exceeded": false,
     "complete": true
   },
-  "t1_diagnostics": [
+  "t1_diagnostics": [],
+  "count": 30,
+  "donors": [
     {
       "listing_id": "7969913",
-      "result": "T1_TIMEOUT",
-      "detail": "T1 fetch exceeded 15s"
+      "url": "https://www.dba.dk/recommerce/forsale/item/7969913",
+      "title": "Gaming PC – RTX 3070 & i5-10400F",
+      "ask_t1": 3000,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 3070",
+      "gpu_score": 73,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Core i5-10400",
+      "cpu_score": 65,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "LIMITED",
+      "desktop_ram_evidence": false,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:02:34.991478+00:00"
     },
     {
       "listing_id": "22701831",
-      "result": "T1_TIMEOUT",
-      "detail": "T1 fetch exceeded 15s"
+      "url": "https://www.dba.dk/recommerce/forsale/item/22701831",
+      "title": "MSI stationær gaming PC Intel i7-9700K RTX 2070 16GB RAM",
+      "ask_t1": 3999,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Core i7-9700",
+      "cpu_score": 67,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "POOR",
+      "desktop_ram_evidence": false,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:02:35.624949+00:00"
     },
-    {
-      "listing_id": "24196184",
-      "result": "T1_TIMEOUT",
-      "detail": "T1 fetch exceeded 15s"
-    },
-    {
-      "listing_id": "24020828",
-      "result": "T1_TIMEOUT",
-      "detail": "T1 fetch exceeded 15s"
-    },
-    {
-      "listing_id": "24392026",
-      "result": "T1_TIMEOUT",
-      "detail": "T1 fetch exceeded 15s"
-    },
-    {
-      "listing_id": "24493146",
-      "result": "T1_TIMEOUT",
-      "detail": "T1 fetch exceeded 15s"
-    },
-    {
-      "listing_id": "23258743",
-      "result": "T1_TIMEOUT",
-      "detail": "T1 fetch exceeded 15s"
-    }
-  ],
-  "count": 23,
-  "donors": [
     {
       "listing_id": "23295014",
       "url": "https://www.dba.dk/recommerce/forsale/item/23295014",
@@ -101,7 +111,122 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:25.058878+00:00"
+      "t1_at": "2026-09-04T18:02:35.887934+00:00"
+    },
+    {
+      "listing_id": "24196184",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24196184",
+      "title": "Lenovo Legion stationær gaming PC i7 10700 RTX 3060 12gb",
+      "ask_t1": 4200,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 3060",
+      "gpu_score": 54,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Core i7-10700",
+      "cpu_score": 72,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "LIMITED",
+      "desktop_ram_evidence": false,
+      "psu_evidence": "corsair 550w",
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:02:34.968652+00:00"
+    },
+    {
+      "listing_id": "24020828",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24020828",
+      "title": "Gamer pc RTX 2070 -Intel(R)core(TM)i7-9700K 3.60GHz",
+      "ask_t1": 4200,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Core i7-9700",
+      "cpu_score": 67,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "POOR",
+      "desktop_ram_evidence": false,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:02:34.540661+00:00"
+    },
+    {
+      "listing_id": "24392026",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24392026",
+      "title": "Acer Nitro 50 Gaming PC – RTX 3060 / i5-12400F / 16GB RAM / 500GB",
+      "ask_t1": 4300,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 3060",
+      "gpu_score": 54,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Core i5-12400",
+      "cpu_score": 81,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "UNVERIFIED",
+      "desktop_ram_evidence": false,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:02:35.993559+00:00"
+    },
+    {
+      "listing_id": "24493146",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24493146",
+      "title": "Lækker selvbygget gamer PC",
+      "ask_t1": 4500,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RX 6700 XT",
+      "gpu_score": 68,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Ryzen 5 3600",
+      "cpu_score": 56,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "GOOD",
+      "desktop_ram_evidence": true,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:02:35.614240+00:00"
+    },
+    {
+      "listing_id": "23258743",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23258743",
+      "title": "Acer Predator Orion 3000 PO3-620 Gaming PC (i7-10700 + RTX 2070 S",
+      "ask_t1": 4500,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 2070 Super",
+      "gpu_score": 57,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Core i7-10700",
+      "cpu_score": 72,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "LIMITED",
+      "desktop_ram_evidence": false,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:02:36.221418+00:00"
     },
     {
       "listing_id": "19506546",
@@ -124,30 +249,7 @@
       "psu_evidence": "Corsair RM 650 modulær (650W",
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:34.954435+00:00"
-    },
-    {
-      "listing_id": "24501866",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24501866",
-      "title": "Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB",
-      "ask_t1": 4500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "gpu": "RTX 2060 Super",
-      "gpu_score": 50,
-      "gpu_sku": {
-        "status": "UNVERIFIED"
-      },
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "motherboard_fit": "UNVERIFIED",
-      "motherboard_model_evidence": null,
-      "upgradeability": "POOR",
-      "desktop_ram_evidence": true,
-      "psu_evidence": null,
-      "condition": "NO_DEFECT_SIGNAL",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:36.031520+00:00"
+      "t1_at": "2026-09-04T18:02:44.597988+00:00"
     },
     {
       "listing_id": "24567410",
@@ -170,7 +272,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:36.904630+00:00"
+      "t1_at": "2026-09-04T18:02:45.454618+00:00"
     },
     {
       "listing_id": "24512170",
@@ -193,7 +295,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:37.344750+00:00"
+      "t1_at": "2026-09-04T18:02:45.959447+00:00"
     },
     {
       "listing_id": "24156419",
@@ -216,7 +318,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:36.497508+00:00"
+      "t1_at": "2026-09-04T18:02:48.654108+00:00"
     },
     {
       "listing_id": "23970471",
@@ -239,30 +341,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:37.380693+00:00"
-    },
-    {
-      "listing_id": "22590297",
-      "url": "https://www.dba.dk/recommerce/forsale/item/22590297",
-      "title": "Kraftig Gaming PC – i7-8700 / RTX 2060 SUPER 8GB / 500gb ssd / 24",
-      "ask_t1": 5499,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "gpu": "RTX 2060 Super",
-      "gpu_score": 50,
-      "gpu_sku": {
-        "status": "UNVERIFIED"
-      },
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "motherboard_fit": "UNVERIFIED",
-      "motherboard_model_evidence": null,
-      "upgradeability": "POOR",
-      "desktop_ram_evidence": false,
-      "psu_evidence": null,
-      "condition": "NO_DEFECT_SIGNAL",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:36.016584+00:00"
+      "t1_at": "2026-09-04T18:02:48.996450+00:00"
     },
     {
       "listing_id": "24534814",
@@ -285,7 +364,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:39.191000+00:00"
+      "t1_at": "2026-09-04T18:02:48.307728+00:00"
     },
     {
       "listing_id": "24400931",
@@ -308,7 +387,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:44.431604+00:00"
+      "t1_at": "2026-09-04T18:02:48.075960+00:00"
     },
     {
       "listing_id": "24084752",
@@ -331,7 +410,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:46.910277+00:00"
+      "t1_at": "2026-09-04T18:02:49.349633+00:00"
     },
     {
       "listing_id": "22050046",
@@ -354,7 +433,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:46.310296+00:00"
+      "t1_at": "2026-09-04T18:02:55.482577+00:00"
     },
     {
       "listing_id": "23621275",
@@ -377,7 +456,7 @@
       "psu_evidence": "Corsair Gaming PC - i7-10700F | RTX 3060 12GB | 550W",
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:47.045991+00:00"
+      "t1_at": "2026-09-04T18:02:55.879629+00:00"
     },
     {
       "listing_id": "23504617",
@@ -400,7 +479,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:48.490545+00:00"
+      "t1_at": "2026-09-04T18:02:57.180701+00:00"
     },
     {
       "listing_id": "22511348",
@@ -423,7 +502,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:49.183477+00:00"
+      "t1_at": "2026-09-04T18:02:59.604108+00:00"
     },
     {
       "listing_id": "24436859",
@@ -446,7 +525,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:48.126830+00:00"
+      "t1_at": "2026-09-04T18:02:59.298819+00:00"
     },
     {
       "listing_id": "23356482",
@@ -469,7 +548,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:49.952483+00:00"
+      "t1_at": "2026-09-04T18:02:59.019410+00:00"
     },
     {
       "listing_id": "21317324",
@@ -492,7 +571,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:53.320570+00:00"
+      "t1_at": "2026-09-04T18:02:59.651545+00:00"
     },
     {
       "listing_id": "24093124",
@@ -515,7 +594,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:54.087400+00:00"
+      "t1_at": "2026-09-04T18:03:00.759697+00:00"
     },
     {
       "listing_id": "21927931",
@@ -538,7 +617,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:54.440798+00:00"
+      "t1_at": "2026-09-04T18:03:04.360412+00:00"
     },
     {
       "listing_id": "22697925",
@@ -561,7 +640,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:54.669468+00:00"
+      "t1_at": "2026-09-04T18:03:04.934991+00:00"
     },
     {
       "listing_id": "23773371",
@@ -584,7 +663,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:54.969635+00:00"
+      "t1_at": "2026-09-04T18:03:05.952750+00:00"
     },
     {
       "listing_id": "24398046",
@@ -607,7 +686,53 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-04T16:33:55.039290+00:00"
+      "t1_at": "2026-09-04T18:03:06.706461+00:00"
+    },
+    {
+      "listing_id": "23262135",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23262135",
+      "title": "Kraftfuld Gamer PC – Ryzen 5 7500F / RTX 4060 Ti / 32GB DDR5 6000",
+      "ask_t1": 8750,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 4060 Ti",
+      "gpu_score": 72,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Ryzen 5 7500F",
+      "cpu_score": 94,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "EXCELLENT",
+      "desktop_ram_evidence": true,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:03:06.839592+00:00"
+    },
+    {
+      "listing_id": "24384000",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24384000",
+      "title": "Gaming PC – Ryzen 7 5800X3D / RTX 3080 / 32GB RAM",
+      "ask_t1": 9000,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 3080",
+      "gpu_score": 90,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Ryzen 7 5800X3D",
+      "cpu_score": 100,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "UNVERIFIED",
+      "desktop_ram_evidence": false,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-04T18:03:06.947207+00:00"
     }
   ]
 }

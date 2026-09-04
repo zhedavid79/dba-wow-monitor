@@ -1,10 +1,12 @@
 {
   "model_version": "DBA-WOW-CROSS-ROUTE-V15",
-  "generated_at": "2026-09-04T16:23:59.635121+00:00",
+  "generated_at": "2026-09-04T17:52:54.778372+00:00",
   "gate_passed": true,
   "strategy_reference": "https://youtu.be/7HgAN5cEmkk?is=3HET1ZpzUj-j4zZq",
-  "strategy": "Buy used where absolute savings are large; use new parts where warranty/fit/low used savings make new better. Functionally defective used hardware is absolutely ineligible. Compare finished solutions by TCWP, WoW suitability and upgrade path.",
+  "strategy": "Buy used where absolute savings are large; use new parts where warranty/fit/low used savings make new better. Functionally defective used hardware is absolutely ineligible. Compare unique finished solutions by TCWP, WoW suitability and upgrade path; no-op future-upgrade duplicates are forbidden.",
   "functional_defect_policy": "HARD_EXCLUDE",
+  "solution_dedup_policy": "CROSS_ROUTE_COMPONENT_IDENTITY",
+  "no_op_upgrade_policy": "HARD_EXCLUDE",
   "target": {
     "game": "WoW Classic/Cataclysm",
     "resolution": "3840x1600",
@@ -12,11 +14,11 @@
     "preferred_case": "Jonsbo Z20"
   },
   "counts": {
-    "complete_routes": 36,
-    "upgrade_routes": 23,
+    "complete_routes": 33,
+    "upgrade_routes": 0,
     "used_builds": 0,
     "hybrid_builds": 10,
-    "ranked_routes": 69
+    "ranked_routes": 43
   },
   "buy_now": {
     "route": "COMPLETE_USED_PC",
@@ -263,30 +265,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming PC – i7-9700 + RTX 2080 SUPER + 16 GB RAM",
-      "tcwp": 4200,
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "gpu": "RTX 2080 Super",
-      "gpu_score": 65,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "D",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming PC – i7-9700 + RTX 2080 SUPER + 16 GB RAM",
-          "price": 4200,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23295014",
-          "listing_id": "23295014",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "Lenovo Legion stationær gaming PC i7 10700 RTX 3060 12gb",
       "tcwp": 4200,
@@ -479,78 +457,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming computer AMD Ryzen 5 3600x / GEForce 2070",
-      "tcwp": 4500,
-      "cpu": "Ryzen 5 3600X",
-      "cpu_score": 59,
-      "gpu": "RTX 2070",
-      "gpu_score": 52,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming computer AMD Ryzen 5 3600x / GEForce 2070",
-          "price": 4500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/19506546",
-          "listing_id": "19506546",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
-      "route": "COMPLETE_USED_PC",
-      "label": "Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB",
-      "tcwp": 4500,
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "gpu": "RTX 2060 Super",
-      "gpu_score": 50,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "D",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "COMPLETE_PC",
-          "source": "USED ASK",
-          "name": "Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB",
-          "price": 4500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24501866",
-          "listing_id": "24501866",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB",
-      "tcwp": 4500,
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "gpu": "RTX 2060 Super",
-      "gpu_score": 50,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "D",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming PC - Intel i7-9700k, RTX 2060 SUPER, 32GB DDR4 RAM, 500GB",
-          "price": 4500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24501866",
-          "listing_id": "24501866",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "Acer Nitro N50-620 stationær gaming pc i5-11400F, RTX 3060 Ti, 32",
       "tcwp": 4750,
@@ -573,30 +479,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Acer Nitro N50-620 stationær gaming pc i5-11400F, RTX 3060 Ti, 32",
-      "tcwp": 4750,
-      "cpu": "Core i5-11400",
-      "cpu_score": 70,
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Acer Nitro N50-620 stationær gaming pc i5-11400F, RTX 3060 Ti, 32",
-          "price": 4750,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24567410",
-          "listing_id": "24567410",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -623,30 +505,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming PC | RTX 3060 Ti 8GB | Ryzen 5 3600 | 16GB | WiFi | RGB",
-      "tcwp": 4750,
-      "cpu": "Ryzen 5 3600",
-      "cpu_score": 56,
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming PC | RTX 3060 Ti 8GB | Ryzen 5 3600 | 16GB | WiFi | RGB",
-          "price": 4750,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24512170",
-          "listing_id": "24512170",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram",
       "tcwp": 4795,
@@ -669,30 +527,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram",
-      "tcwp": 4795,
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "gpu": "RTX 2080 Super",
-      "gpu_score": 65,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "D",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram",
-          "price": 4795,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24156419",
-          "listing_id": "24156419",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -719,78 +553,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming computer",
-      "tcwp": 5300,
-      "cpu": "Ryzen 7 5700X",
-      "cpu_score": 82,
-      "gpu": "RTX 2070",
-      "gpu_score": 52,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "B",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming computer",
-          "price": 5300,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23970471",
-          "listing_id": "23970471",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
-      "route": "COMPLETE_USED_PC",
-      "label": "Kraftig Gaming PC – i7-8700 / RTX 2060 SUPER 8GB / 500gb ssd / 24",
-      "tcwp": 5499,
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "gpu": "RTX 2060 Super",
-      "gpu_score": 50,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "D",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "COMPLETE_PC",
-          "source": "USED ASK",
-          "name": "Kraftig Gaming PC – i7-8700 / RTX 2060 SUPER 8GB / 500gb ssd / 24",
-          "price": 5499,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22590297",
-          "listing_id": "22590297",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Kraftig Gaming PC – i7-8700 / RTX 2060 SUPER 8GB / 500gb ssd / 24",
-      "tcwp": 5499,
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "gpu": "RTX 2060 Super",
-      "gpu_score": 50,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "D",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Kraftig Gaming PC – i7-8700 / RTX 2060 SUPER 8GB / 500gb ssd / 24",
-          "price": 5499,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22590297",
-          "listing_id": "22590297",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "Gaming PC – RTX 3060 Ti / i7-11700F / 16 GB / 1 TB NVMe",
       "tcwp": 5500,
@@ -813,30 +575,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming PC – RTX 3060 Ti / i7-11700F / 16 GB / 1 TB NVMe",
-      "tcwp": 5500,
-      "cpu": "Core i7-11700",
-      "cpu_score": 79,
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming PC – RTX 3060 Ti / i7-11700F / 16 GB / 1 TB NVMe",
-          "price": 5500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24534814",
-          "listing_id": "24534814",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -863,30 +601,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming Pc 32gb ram rtx 2080",
-      "tcwp": 5500,
-      "cpu": "Core i7-10700",
-      "cpu_score": 72,
-      "gpu": "RTX 2080",
-      "gpu_score": 61,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming Pc 32gb ram rtx 2080",
-          "price": 5500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24400931",
-          "listing_id": "24400931",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "God Gaming PC",
       "tcwp": 6000,
@@ -909,30 +623,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "God Gaming PC",
-      "tcwp": 6000,
-      "cpu": "Core i7-12700",
-      "cpu_score": 98,
-      "gpu": "RTX 3060 Ti",
-      "gpu_score": 66,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "God Gaming PC",
-          "price": 6000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24084752",
-          "listing_id": "24084752",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -959,30 +649,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Corsair Gaming PC - i7-10700F | RTX 3060 12GB | 550W Gold | RGB",
-      "tcwp": 6000,
-      "cpu": "Core i7-10700",
-      "cpu_score": 72,
-      "gpu": "RTX 3060",
-      "gpu_score": 54,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Corsair Gaming PC - i7-10700F | RTX 3060 12GB | 550W Gold | RGB",
-          "price": 6000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23621275",
-          "listing_id": "23621275",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "RTX 3060 / AMD RYZEN 5 3600 Gamer PC pakke",
       "tcwp": 6000,
@@ -1005,30 +671,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "RTX 3060 / AMD RYZEN 5 3600 Gamer PC pakke",
-      "tcwp": 6000,
-      "cpu": "Ryzen 5 3600",
-      "cpu_score": 56,
-      "gpu": "RTX 3060",
-      "gpu_score": 54,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "RTX 3060 / AMD RYZEN 5 3600 Gamer PC pakke",
-          "price": 6000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23504617",
-          "listing_id": "23504617",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -1055,30 +697,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Kraftig RTX 4060 Gamer PC",
-      "tcwp": 6000,
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "D",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Kraftig RTX 4060 Gamer PC",
-          "price": 6000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22050046",
-          "listing_id": "22050046",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "Kraftig RTX 3070 Ti Gamer PC",
       "tcwp": 6300,
@@ -1101,30 +719,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Kraftig RTX 3070 Ti Gamer PC",
-      "tcwp": 6300,
-      "cpu": "Core i7-8700",
-      "cpu_score": 61,
-      "gpu": "RTX 3070 Ti",
-      "gpu_score": 79,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "D",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Kraftig RTX 3070 Ti Gamer PC",
-          "price": 6300,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22511348",
-          "listing_id": "22511348",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -1151,30 +745,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming PC - Ryzen 7 5800X3D / RTX 2070 Super / 32 GB RAM",
-      "tcwp": 6495,
-      "cpu": "Ryzen 7 5800X3D",
-      "cpu_score": 100,
-      "gpu": "RTX 2070 Super",
-      "gpu_score": 57,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming PC - Ryzen 7 5800X3D / RTX 2070 Super / 32 GB RAM",
-          "price": 6495,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24436859",
-          "listing_id": "24436859",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "Custom Gaming PC - RTX 4060, Ryzen 5 5600x, 16 GB DDR4, 1512 GB M",
       "tcwp": 6500,
@@ -1197,30 +767,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Custom Gaming PC - RTX 4060, Ryzen 5 5600x, 16 GB DDR4, 1512 GB M",
-      "tcwp": 6500,
-      "cpu": "Ryzen 5 5600X",
-      "cpu_score": 79,
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Custom Gaming PC - RTX 4060, Ryzen 5 5600x, 16 GB DDR4, 1512 GB M",
-          "price": 6500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23356482",
-          "listing_id": "23356482",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "HYBRID_USED_NEW",
@@ -1617,30 +1163,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "RTX 3080 - Kraftig gamer pc sælges 7000kr.",
-      "tcwp": 7000,
-      "cpu": "Core i7-10700",
-      "cpu_score": 72,
-      "gpu": "RTX 3080",
-      "gpu_score": 90,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "RTX 3080 - Kraftig gamer pc sælges 7000kr.",
-          "price": 7000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21317324",
-          "listing_id": "21317324",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "\\u{d83d}\\u{dd25} Gaming PC – 32gb Ram / RTX 3070 / Ryzen 5 5600 \\",
       "tcwp": 7250,
@@ -1663,30 +1185,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "\\u{d83d}\\u{dd25} Gaming PC – 32gb Ram / RTX 3070 / Ryzen 5 5600 \\",
-      "tcwp": 7250,
-      "cpu": "Ryzen 5 5600",
-      "cpu_score": 76,
-      "gpu": "RTX 3070",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "\\u{d83d}\\u{dd25} Gaming PC – 32gb Ram / RTX 3070 / Ryzen 5 5600 \\",
-          "price": 7250,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24093124",
-          "listing_id": "24093124",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "HYBRID_USED_NEW",
@@ -1716,6 +1214,80 @@
           "price": 2300,
           "url": "https://www.dba.dk/recommerce/forsale/item/24278166",
           "listing_id": "24278166",
+          "functional_defect": false
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "T-Force Delta RGB RAM - 16GB - DDR4 - 3200MHz",
+          "price": 550,
+          "url": "https://www.dba.dk/recommerce/forsale/item/16486653",
+          "listing_id": "16486653",
+          "functional_defect": false
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "rationale": "Used value concentrated in functionally non-defective platform/GPU; new case/PSU/SSD/cooler reduce low-value used hunting and improve warranty/fit. Socket=AM4."
+    },
+    {
+      "route": "HYBRID_USED_NEW",
+      "label": "Ryzen 5 5600 + RTX 4060",
+      "tcwp": 7487,
+      "cpu": "Ryzen 5 5600",
+      "cpu_score": 76,
+      "gpu": "RTX 4060",
+      "gpu_score": 60,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "B",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "PLATFORM_BUNDLE",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 5600 Wraith Stealth og ASRock B550M-ITX/AC",
+          "price": 1600,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24477429",
+          "listing_id": "24477429",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "RTX 4060 ASUS ProArt",
+          "price": 2500,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24612588",
+          "listing_id": "24612588",
           "functional_defect": false
         },
         {
@@ -2009,104 +1581,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming PC i topklasse – RTX 4060, Ryzen 7 5700X3D, 32GB RAM",
-      "tcwp": 7800,
-      "cpu": "Ryzen 7 5700X3D",
-      "cpu_score": 96,
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "performance_class": "ACCEPTABLE",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming PC i topklasse – RTX 4060, Ryzen 7 5700X3D, 32GB RAM",
-          "price": 7800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21927931",
-          "listing_id": "21927931",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
-      "route": "HYBRID_USED_NEW",
-      "label": "Ryzen 5 5600 + RTX 3080",
-      "tcwp": 7886,
-      "cpu": "Ryzen 5 5600",
-      "cpu_score": 76,
-      "gpu": "RTX 3080",
-      "gpu_score": 90,
-      "performance_class": "OVERKILL",
-      "upgradeability": "B",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "PLATFORM_BUNDLE",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 5600 Wraith Stealth og ASRock B550M-ITX/AC",
-          "price": 1600,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24477429",
-          "listing_id": "24477429",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "NVIDIA GeForce RTX 3080 10 GB – Dell / Alienware OEM – kompakt 26",
-          "price": 2899,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24218142",
-          "listing_id": "24218142",
-          "functional_defect": false
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "T-Force Delta RGB RAM - 16GB - DDR4 - 3200MHz",
-          "price": 550,
-          "url": "https://www.dba.dk/recommerce/forsale/item/16486653",
-          "listing_id": "16486653",
-          "functional_defect": false
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "rationale": "Used value concentrated in functionally non-defective platform/GPU; new case/PSU/SSD/cooler reduce low-value used hunting and improve warranty/fit. Socket=AM4."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "\\u{d83d}\\u{dcbb} Gaming PC – Ryzen 7 7700 | RTX 3070 Ti | 32GB RA",
       "tcwp": 8000,
@@ -2129,30 +1603,6 @@
         }
       ],
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "\\u{d83d}\\u{dcbb} Gaming PC – Ryzen 7 7700 | RTX 3070 Ti | 32GB RA",
-      "tcwp": 8000,
-      "cpu": "Ryzen 7 7700",
-      "cpu_score": 104,
-      "gpu": "RTX 3070 Ti",
-      "gpu_score": 79,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "\\u{d83d}\\u{dcbb} Gaming PC – Ryzen 7 7700 | RTX 3070 Ti | 32GB RA",
-          "price": 8000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23773371",
-          "listing_id": "23773371",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -2179,30 +1629,6 @@
       "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
     },
     {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Gaming PC HP OMEN 25L | i7-14700F | RTX 4060Ti | 32GB RAM | 1TB",
-      "tcwp": 8000,
-      "cpu": "Core i7-14700",
-      "cpu_score": 120,
-      "gpu": "RTX 4060 Ti",
-      "gpu_score": 72,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Gaming PC HP OMEN 25L | i7-14700F | RTX 4060Ti | 32GB RAM | 1TB",
-          "price": 8000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24398046",
-          "listing_id": "24398046",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "Kraftig gamer Pc ( Rtx 3080 )",
       "tcwp": 8000,
@@ -2221,54 +1647,6 @@
           "price": 8000,
           "url": "https://www.dba.dk/recommerce/forsale/item/22697925",
           "listing_id": "22697925",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, live-verified used PC; TCWP equals T1 ASK."
-    },
-    {
-      "route": "USED_PC_PLUS_FUTURE_UPGRADE",
-      "label": "Kraftig gamer Pc ( Rtx 3080 )",
-      "tcwp": 8000,
-      "cpu": "Core i7-10700",
-      "cpu_score": 72,
-      "gpu": "RTX 3080",
-      "gpu_score": 90,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "C",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "USED_PC_CORE",
-          "source": "USED ASK",
-          "name": "Kraftig gamer Pc ( Rtx 3080 )",
-          "price": 8000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22697925",
-          "listing_id": "22697925",
-          "functional_defect": false
-        }
-      ],
-      "rationale": "Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."
-    },
-    {
-      "route": "COMPLETE_USED_PC",
-      "label": "\\u{26a1}Kraftig Gaming PC setup med RTX 4060 Ti & Ryzen 5 7600X o",
-      "tcwp": 8200,
-      "cpu": "Ryzen 5 7600X",
-      "cpu_score": 101,
-      "gpu": "RTX 4060 Ti",
-      "gpu_score": 72,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "UNKNOWN",
-      "components": [
-        {
-          "kind": "COMPLETE_PC",
-          "source": "USED ASK",
-          "name": "\\u{26a1}Kraftig Gaming PC setup med RTX 4060 Ti & Ryzen 5 7600X o",
-          "price": 8200,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23973362",
-          "listing_id": "23973362",
           "functional_defect": false
         }
       ],
@@ -2358,23 +1736,25 @@
         "complete": true,
         "recovery_used": true,
         "recovered_queries": [
-          "gaming pc",
-          "gamer pc",
           "gaming computer",
+          "gaming bærbar",
+          "mm vision",
+          "rtx 3070",
           "rx 6600 xt"
         ],
         "primary_failed_queries": [
-          "gaming pc",
-          "gamer pc",
           "gaming computer",
+          "gaming bærbar",
+          "mm vision",
+          "rtx 3070",
           "rx 6600 xt"
         ],
         "fallback_query_timeout_seconds": 35,
         "fallback_total_deadline_seconds": 180
       },
       "t1": {
-        "candidate_total": 430,
-        "candidate_completed": 430,
+        "candidate_total": 420,
+        "candidate_completed": 420,
         "candidate_fetch_errors": 0,
         "missing_listing_ids": [],
         "deadline_exceeded": false,
@@ -2394,25 +1774,31 @@
         "complete": true,
         "recovery_used": true,
         "recovered_queries": [
+          "rtx 3070",
+          "rtx 3080",
+          "rtx 4060",
           "i5 10400 bundkort",
           "i5 11400 bundkort",
           "i5 12600 bundkort",
-          "ddr5 16gb",
+          "nvme 1tb",
           "jonsbo z20"
         ],
         "primary_failed_queries": [
+          "rtx 3070",
+          "rtx 3080",
+          "rtx 4060",
           "i5 10400 bundkort",
           "i5 11400 bundkort",
           "i5 12600 bundkort",
-          "ddr5 16gb",
+          "nvme 1tb",
           "jonsbo z20"
         ],
         "fallback_query_timeout_seconds": 35,
         "fallback_total_deadline_seconds": 180
       },
       "t1": {
-        "candidate_total": 305,
-        "candidate_completed": 305,
+        "candidate_total": 307,
+        "candidate_completed": 307,
         "candidate_fetch_errors": 0,
         "missing_listing_ids": [],
         "deadline_exceeded": false,
