@@ -15,6 +15,9 @@ on:
       - 'dba_browser_v5.py'
       - 'dba_browser_v6.py'
       - 'dba_browser_v6_recovery.py'
+      - 'dba_browser_v7_intelligence.py'
+      - 'dba_listing_intelligence.py'
+      - 'dba_decision_report.py'
       - 'dba_t1_preflight.py'
       - 'dba_z20_parts.py'
       - 'dba_z20_parts_recovery.py'
@@ -46,13 +49,13 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
       - name: Compile complete model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v6.py dba_browser_v6_recovery.py dba_t1_preflight.py dba_z20_parts.py dba_z20_parts_recovery.py dba_z20_donors.py dba_z20_donors_recovery.py wow_value_model.py z20_complete_optimizer.py
+        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_z20_parts.py dba_z20_parts_recovery.py dba_z20_donors.py dba_z20_donors_recovery.py wow_value_model.py z20_complete_optimizer.py
       - name: Diagnose DBA T1 preflight
         timeout-minutes: 3
         run: python dba_t1_preflight.py
-      - name: Run complete-PC high-recall scanner
+      - name: Run complete-PC high-recall scanner with listing intelligence
         timeout-minutes: 15
-        run: python dba_browser_v6_recovery.py
+        run: python dba_browser_v7_intelligence.py
       - name: Run Z20 component and bundle scanner
         timeout-minutes: 9
         run: python dba_z20_parts_recovery.py
@@ -65,6 +68,9 @@ jobs:
       - name: Optimize complete Z20 systems
         timeout-minutes: 3
         run: python z20_complete_optimizer.py
+      - name: Generate option-oriented decision report
+        timeout-minutes: 2
+        run: python dba_decision_report.py
       - name: Validate V13 complete-system publication gate
         run: |
           python - <<'PY'
@@ -78,6 +84,10 @@ jobs:
           cov=d.get('coverage') or {}
           assert (cov.get('discovery') or {}).get('complete') is True, 'COMPLETE-PC DISCOVERY COVERAGE INCOMPLETE'
           assert (cov.get('t1') or {}).get('complete') is True, 'COMPLETE-PC T1 COVERAGE INCOMPLETE'
+          li=d.get('listing_intelligence') or {}
+          assert li.get('ranking_reconciled') is True, 'LISTING INTELLIGENCE RANKING NOT RECONCILED'
+          assert li.get('cached_t1_records',0) >= (cov.get('t1') or {}).get('candidate_total',0), 'T1 LISTING PAYLOAD CACHE INCOMPLETE'
+          assert d.get('decision_summary'), 'DECISION SUMMARY MISSING'
           assert p.get('gate_passed') is True and p.get('model_version') == 'DBA-Z20-PARTS-V4'
           assert p.get('classifier_regression',{}).get('ok') is True
           pcov=p.get('coverage') or {}
@@ -90,6 +100,8 @@ jobs:
           assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'),int) for r in ranked+parts)
           assert all(r.get('currency')=='DKK' and str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked+parts)
           assert all(r.get('t0_source')=='rendered_dba_card' and r.get('t1_source')=='dba_jsonld_product_all_scripts' for r in ranked+parts)
+          assert all((r.get('listing_intelligence') or {}).get('cpu',{}).get('confidence')=='VERIFIED' for r in ranked), 'RANKED CPU NOT DESCRIPTION-VERIFIED'
+          assert all((r.get('listing_intelligence') or {}).get('gpu',{}).get('confidence')=='VERIFIED' for r in ranked), 'RANKED GPU NOT DESCRIPTION-VERIFIED'
           for r in parts:
               if r.get('kind')=='RAM' and r.get('ram_compatibility')=='DESKTOP_COMPATIBLE':
                   title=r.get('title','').lower()
@@ -110,7 +122,7 @@ jobs:
                   assert not b.get('missing_evidence')
                   assert any(x.get('kind')=='CASE' and 'Jonsbo Z20' in x.get('name','') for x in b.get('components',[]))
                   assert any(x.get('kind')=='PSU' and x.get('name','').startswith('Corsair RM650e') for x in b.get('components',[]))
-          print(f"PASS V13: {len(ranked)} complete PCs; {len(parts)} parts; {len(q.get('donors',[]))} donor resolutions; {len(builds)} configurations; {opt.get('ready_count')} ready")
+          print(f"PASS V13+INTELLIGENCE: {len(ranked)} complete PCs; {len(parts)} parts; {len(q.get('donors',[]))} donor resolutions; {len(builds)} configurations; {opt.get('ready_count')} ready")
           PY
       - name: Publish authoritative V13 results
         run: |
@@ -125,7 +137,7 @@ jobs:
             cp /tmp/wow-results/* results/
             git add results/wow_a3_latest.json results/wow_a3_report.md results/z20_parts_latest.json results/z20_donors_latest.json
             if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Update verified WoW Z20 V13 complete-system report [skip ci]"
+            git commit -m "Update verified WoW Z20 V13 decision report [skip ci]"
             if git push origin main; then exit 0; fi
           done
           exit 1
