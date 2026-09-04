@@ -74,6 +74,9 @@ def reconcile_description_aware_ranking(path: str = "results/wow_a3_latest.json"
     ranked.sort(key=lambda r: (int(r.get("ask_t1") or 10**9), class_order.get(r.get("performance_class"), 9), -int(r.get("gpu_score") or 0), -int(r.get("cpu_score") or 0)))
     unresolved.sort(key=lambda r: (int(r.get("ask_t1") or 10**9), str(r.get("listing_id") or "")))
 
+    doc["model_version"] = "DBA-WOW-PRICE-FIRST-COMPLETE-PC-V14"
+    doc["target"] = "WoW Classic/Cataclysm at 3840x1600 up to 75 Hz"
+    doc["scope"] = "Complete ready-to-use desktop gaming PCs, gaming laptops and mini PCs only. No self-build, donor-build or component procurement."
     doc["ranked"] = ranked
     doc["potential_sweet_spots_unresolved"] = unresolved
     doc.setdefault("counts", {})["ranked"] = len(ranked)
@@ -85,9 +88,6 @@ def reconcile_description_aware_ranking(path: str = "results/wow_a3_latest.json"
 
 
 async def main() -> None:
-    # Price/status/identity gates remain in V6/V6 recovery. This wrapper only retains
-    # the already-fetched T1 listing payload so description intelligence can reuse it
-    # without another DBA request.
     recovery.v6.fetch_t1_one = cached_fetch_t1_one
     await recovery.v6.main()
     enrich_result_file("results/wow_a3_latest.json", T1_CACHE)
