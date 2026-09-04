@@ -12,16 +12,27 @@ from z20_complete_optimizer import RETAIL, fresh
 PARTS=Path('results/z20_parts_latest.json')
 OUT=Path('results/wow_strategy_latest.json')
 
+# Live retail baselines verified 2026-09-05. These are decision inputs only; DBA USED ASK
+# remains independently T0/T1 verified. Keep retail explicit so every build shows exactly
+# which new parts must be bought and at what current price.
+RETAIL.update({
+    'case': {'name':'Jonsbo Z20 Mesh White','price':750,'url':'https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428','verified_at':'2026-09-05T01:20:00+02:00','fit':'PROVEN'},
+    'psu': {'name':'Corsair RM650e (2025) 650W ATX 3.1','price':647,'url':'https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406','verified_at':'2026-09-05T01:20:00+02:00','length_mm':140,'fit':'PROVEN'},
+    'ssd': {'name':'Kingston NV3 1TB M.2 2280 PCIe 4.0','price':1212,'url':'https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682','verified_at':'2026-09-05T01:20:00+02:00','fit':'PROVEN'},
+    'cpu': {'name':'AMD Ryzen 5 7500F','price':1099,'url':'https://www.proshop.dk/CPU/AMD-Ryzen-5-7500F-Tray-CPU-6-kerner-37-GHz-AMD-AM5-Bulk-ingen-koeler/3195178','verified_at':'2026-09-05T01:20:00+02:00','cpu':'Ryzen 5 7500F','cpu_score':94,'socket':'AM5'},
+    'cooler': {'name':'Arctic Freezer 36 Black','price':175,'url':'https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363','verified_at':'2026-09-05T01:20:00+02:00','height_mm':159,'fit':'PROVEN'},
+    'ram_fallback': {'name':'Corsair Vengeance DDR5-6000 32GB CL30 EXPO','price':4290,'url':'https://www.proshop.dk/RAM/Corsair-Vengeance-DDR5-6000-32GB-CL30-Dual-Channel-2-pcs-AMD-EXPO-Intel-XMP-Hvid/3325848','verified_at':'2026-09-05T01:20:00+02:00','memory':'DDR5','capacity_gb':32,'desktop':True},
+})
+
 FOUNDATION_BOARD={
     'name':'GIGABYTE B650M GAMING PLUS WIFI', 'price':1170,
     'url':'https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794',
-    'verified_at':'2026-09-04T22:00:00+02:00', 'socket':'AM5', 'chipset':'B650',
+    'verified_at':'2026-09-05T01:20:00+02:00', 'socket':'AM5', 'chipset':'B650',
     'form_factor':'Micro-ATX', 'wifi':True, 'dimm_slots':4,
 }
 GRADE={'A':4,'B':3,'C':2,'D':1}
 DEFECT=re.compile(r'\b(?:delvist\s+defekt|defekt|virker\s+ikke|fungerer\s+ikke|ustabil|artefakt(?:er)?|artifact(?:s)?|til\s+dele|reservedele|reparation)\b',re.I)
 GPU_ACCESSORY=re.compile(r'\b(?:vandk(?:ø|oe)lings?\s*blok|vandblok|water\s*block|waterblock|gpu\s*block|backplate|k(?:ø|oe)ler|cooler|heatsink|radiator|fan\s*shroud|shroud|riser(?:\s*(?:cable|kabel))?|vertical\s*mount|gpu\s*holder|support\s*bracket|bracket|adapter|replacement\s*fan|bl(?:æ|ae)ser|tom\s*(?:kasse|emballage)|empty\s*box|emballage|box\s*only)\b', re.I)
-# A CPU model in an accessory title (stock cooler, water block, contact frame, etc.) is not a CPU.
 CPU_ACCESSORY=re.compile(r'\b(?:cpu[- ]?k(?:ø|oe)ler|k(?:ø|oe)ler|cooler|heatsink|vandblok|water\s*block|waterblock|aio|radiator|contact\s*frame|mount(?:ing)?\s*(?:kit|bracket)|beslag|backplate|delid|ihs|tom\s*(?:kasse|emballage)|empty\s*box|emballage|box\s*only)\b', re.I)
 AM5_CPU=re.compile(r'\b(?:7500f|7600x?|7700x?|7800x3d|7900x?|7950x3d|8400f|8500g|8600g|8700g|9600x|9700x|9800x3d|9900x3d|9950x3d)\b',re.I)
 AM5_COOLER=re.compile(r'\bam5\b',re.I)
@@ -73,7 +84,6 @@ def used_board_candidates(parts):
     return sorted(out,key=lambda r:r['ask_t1'])
 
 def foundation_routes(parts):
-    # Used CPUs must be title-proven actual processors, never coolers/accessories carrying a CPU model name.
     cpus=sorted([r for r in parts if genuine_cpu(r) and used_ok(r) and AM5_CPU.search((r.get('cpu') or '')+' '+(r.get('title') or '')) and int(r.get('cpu_score') or 0)>=76],key=lambda r:r['ask_t1'])[:12]
     rams=sorted([r for r in parts if r.get('kind')=='RAM' and used_ok(r) and r.get('ram_compatibility')=='DESKTOP_COMPATIBLE' and DDR5_32.search(r.get('title') or '') and ram_capacity(r.get('title') or '')>=32],key=lambda r:r['ask_t1'])[:8]
     gpus=sorted([r for r in parts if genuine_gpu(r) and used_ok(r) and int(r.get('gpu_score') or 0)>=45],key=lambda r:r['ask_t1'])[:24]
@@ -83,8 +93,6 @@ def foundation_routes(parts):
     if not fresh_board(): raise AssertionError('FOUNDATION BOARD RETAIL BASELINE EXPIRED')
     if not fresh(): raise AssertionError('NEW RETAIL BASELINES EXPIRED')
     if not gpus: return routes
-    # Always include a complete all-new foundation fallback. This prevents a bad/missing used CPU or RAM listing
-    # from suppressing otherwise sensible hybrid combinations.
     cpu_choices=[('USED',c) for c in cpus]+[('NEW',None)]
     ram_choices=[('USED',r) for r in rams]
     if RETAIL.get('ram_fallback'): ram_choices.append(('NEW',None))
@@ -93,12 +101,12 @@ def foundation_routes(parts):
     for csrc,cpu in cpu_choices:
       cpu_name=cpu.get('cpu') if cpu else RETAIL['cpu']['cpu']
       cpu_score=int(cpu.get('cpu_score') or 0) if cpu else int(RETAIL['cpu']['cpu_score'])
-      for rsrc,ram in ram_choices[:6]:
+      for rsrc,ram in ram_choices[:9]:
        for gpu in gpus:
         perf=pclass(cpu_score,gpu.get('gpu_score') or 0)
         if perf not in {'ACCEPTABLE','SWEET SPOT','OVERKILL'}: continue
         for bsrc,b in board_choices:
-         for ksrc,cooler in cooler_choices[:3]:
+         for ksrc,cooler in cooler_choices[:4]:
           comps=[used('CPU',cpu) if cpu else new('CPU',RETAIL['cpu']), used('RAM',ram) if ram else new('RAM',RETAIL['ram_fallback']), used('GPU',gpu)]
           comps.append(used('MOTHERBOARD',b) if bsrc=='USED' else new('MOTHERBOARD',FOUNDATION_BOARD))
           comps.append(used('COOLER',cooler) if cooler else new('COOLER',RETAIL['cooler']))
