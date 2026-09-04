@@ -1,6 +1,6 @@
 {
   "model_version": "DBA-WOW-PLATFORM-FIRST-V16",
-  "generated_at": "2026-09-04T21:56:12.833013+00:00",
+  "generated_at": "2026-09-04T23:13:10.137242+00:00",
   "gate_passed": true,
   "strategy_reference": "https://youtu.be/7HgAN5cEmkk?is=3HET1ZpzUj-j4zZq",
   "strategy": "Buy used where absolute savings are large; use new parts where warranty/fit/low used savings make new better. Functionally defective used hardware is absolutely ineligible. Compare unique finished solutions by TCWP, WoW suitability and upgrade path; no-op future-upgrade duplicates are forbidden.",
@@ -18,7 +18,7 @@
     "upgrade_routes": 0,
     "used_builds": 0,
     "hybrid_builds": 10,
-    "ranked_routes": 429,
+    "ranked_routes": 428,
     "platform_first_routes": 384
   },
   "buy_now": {
@@ -126,12 +126,12 @@
   "best_used_build": null,
   "best_hybrid_build": {
     "route": "HYBRID_USED_NEW",
-    "label": "Ryzen 5 5600 + RTX 2080 Ti",
-    "tcwp": 5787,
+    "label": "Ryzen 5 5600 + RTX 2080 Super",
+    "tcwp": 6587,
     "cpu": "Ryzen 5 5600",
     "cpu_score": 76,
-    "gpu": "RTX 2080 Ti",
-    "gpu_score": 73,
+    "gpu": "RTX 2080 Super",
+    "gpu_score": 65,
     "performance_class": "SWEET SPOT",
     "upgradeability": "B",
     "z20_fit": "LIKELY",
@@ -148,10 +148,10 @@
       {
         "kind": "GPU",
         "source": "USED ASK",
-        "name": "Vandkøling blok til GeForce RTX 2080Ti",
-        "price": 800,
-        "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-        "listing_id": "20953694",
+        "name": "rtx 2080 super",
+        "price": 1600,
+        "url": "https://www.dba.dk/recommerce/forsale/item/24227603",
+        "listing_id": "24227603",
         "functional_defect": false
       },
       {
@@ -199,7 +199,7 @@
     "rationale": "Used value concentrated in functionally non-defective platform/GPU; new case/PSU/SSD/cooler reduce low-value used hunting and improve warranty/fit. Socket=AM4.",
     "foundation_score": 51,
     "sourcing_penalty": 4,
-    "strategic_effective_cost": 5399
+    "strategic_effective_cost": 6199
   },
   "ranked": [
     {
@@ -689,83 +689,6 @@
       "strategic_effective_cost": 5308
     },
     {
-      "route": "HYBRID_USED_NEW",
-      "label": "Ryzen 5 5600 + RTX 2080 Ti",
-      "tcwp": 5787,
-      "cpu": "Ryzen 5 5600",
-      "cpu_score": 76,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "B",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "PLATFORM_BUNDLE",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 5600 Wraith Stealth og ASRock B550M-ITX/AC",
-          "price": 1600,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24477429",
-          "listing_id": "24477429",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "T-Force Delta RGB RAM - 16GB - DDR4 - 3200MHz",
-          "price": 550,
-          "url": "https://www.dba.dk/recommerce/forsale/item/16486653",
-          "listing_id": "16486653",
-          "functional_defect": false
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "rationale": "Used value concentrated in functionally non-defective platform/GPU; new case/PSU/SSD/cooler reduce low-value used hunting and improve warranty/fit. Socket=AM4.",
-      "foundation_score": 51,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 5399
-    },
-    {
       "route": "COMPLETE_USED_PC",
       "label": "Kraftig Gaming PC – i7-8700 / RTX 2060 SUPER 8GB / 500gb ssd / 24",
       "tcwp": 5499,
@@ -899,93 +822,6 @@
       "foundation_score": 12,
       "sourcing_penalty": 0,
       "strategic_effective_cost": 5904
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 7 7700 + RTX 2080 Ti",
-      "tcwp": 7232,
-      "cpu": "Ryzen 7 7700",
-      "cpu_score": 104,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD RYZEN 7 7700",
-          "price": 500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/11596289",
-          "listing_id": "11596289",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
-          "price": 1925,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
-          "listing_id": "24173962",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 6052
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -1310,93 +1146,6 @@
       "strategic_effective_cost": 6308
     },
     {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2080 Ti",
-      "tcwp": 7532,
-      "cpu": "Ryzen 5 7500F",
-      "cpu_score": 94,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7500F processor (CPU)",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21721048",
-          "listing_id": "21721048",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
-          "price": 1925,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
-          "listing_id": "24173962",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 6352
-    },
-    {
       "route": "HYBRID_USED_NEW",
       "label": "Ryzen 5 5600 + RTX 2080",
       "tcwp": 6686,
@@ -1472,93 +1221,6 @@
       "foundation_score": 51,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 6358
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2080 Ti",
-      "tcwp": 7557,
-      "cpu": "Ryzen 5 7500F",
-      "cpu_score": 94,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7500F processor (CPU)",
-          "price": 825,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22825756",
-          "listing_id": "22825756",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
-          "price": 1925,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
-          "listing_id": "24173962",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 6377
     },
     {
       "route": "HYBRID_USED_NEW",
@@ -1719,93 +1381,6 @@
       ],
       "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
       "bridge_gpu": true,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 6402
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2080 Ti",
-      "tcwp": 7582,
-      "cpu": "Ryzen 5 7600X",
-      "cpu_score": 101,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600x processor",
-          "price": 850,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24221974",
-          "listing_id": "24221974",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
-          "price": 1925,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
-          "listing_id": "24173962",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
       "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
       "foundation_score": 163,
       "sourcing_penalty": 4,
@@ -2221,93 +1796,6 @@
       ],
       "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
       "bridge_gpu": true,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 6502
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2080 Ti",
-      "tcwp": 7682,
-      "cpu": "Ryzen 5 7600X",
-      "cpu_score": 101,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600X processor CPU",
-          "price": 950,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23723858",
-          "listing_id": "23723858",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
-          "price": 1925,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
-          "listing_id": "24173962",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
       "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
       "foundation_score": 163,
       "sourcing_penalty": 4,
@@ -2981,93 +2469,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2080 Ti",
-      "tcwp": 7832,
-      "cpu": "Ryzen 5 7600",
-      "cpu_score": 98,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 7600 processor (CPU) brugt få gange står som helt ny",
-          "price": 1100,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23928872",
-          "listing_id": "23928872",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
-          "price": 1925,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
-          "listing_id": "24173962",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 6652
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7500F + RX 5700 XT",
       "tcwp": 7822,
       "cpu": "Ryzen 5 7500F",
@@ -3697,93 +3098,6 @@
       ],
       "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
       "bridge_gpu": true,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 6752
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2080 Ti",
-      "tcwp": 7932,
-      "cpu": "Ryzen 5 7600",
-      "cpu_score": 98,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600 processor (CPU)",
-          "price": 1200,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23960340",
-          "listing_id": "23960340",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
-          "price": 1925,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
-          "listing_id": "24173962",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
       "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
       "foundation_score": 163,
       "sourcing_penalty": 4,
@@ -5270,93 +4584,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 7 7700 + RTX 2080 Ti",
-      "tcwp": 8107,
-      "cpu": "Ryzen 7 7700",
-      "cpu_score": 104,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD RYZEN 7 7700",
-          "price": 500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/11596289",
-          "listing_id": "11596289",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
-          "price": 2800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
-          "listing_id": "21190820",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 6927
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070",
       "tcwp": 8057,
       "cpu": "Ryzen 5 7500F",
@@ -5990,6 +5217,93 @@
       "foundation_score": 163,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 7011
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 7 7700 + RTX 2070",
+      "tcwp": 8132,
+      "cpu": "Ryzen 7 7700",
+      "cpu_score": 104,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD RYZEN 7 7700",
+          "price": 500,
+          "url": "https://www.dba.dk/recommerce/forsale/item/11596289",
+          "listing_id": "11596289",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
+          "price": 1925,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
+          "listing_id": "24173962",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 7012
     },
     {
       "route": "PLATFORM_FIRST_AM5",
@@ -7298,93 +6612,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 7 7700 + RTX 2080 Ti",
-      "tcwp": 8307,
-      "cpu": "Ryzen 7 7700",
-      "cpu_score": 104,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD RYZEN 7 7700",
-          "price": 500,
-          "url": "https://www.dba.dk/recommerce/forsale/item/11596289",
-          "listing_id": "11596289",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
-          "listing_id": "23931327",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7127
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070",
       "tcwp": 8257,
       "cpu": "Ryzen 5 7500F",
@@ -8603,93 +7830,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2080 Ti",
-      "tcwp": 8407,
-      "cpu": "Ryzen 5 7500F",
-      "cpu_score": 94,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7500F processor (CPU)",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21721048",
-          "listing_id": "21721048",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
-          "price": 2800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
-          "listing_id": "21190820",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7227
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7500F + RX 6650 XT",
       "tcwp": 8356,
       "cpu": "Ryzen 5 7500F",
@@ -8899,93 +8039,6 @@
           "price": 1700,
           "url": "https://www.dba.dk/recommerce/forsale/item/24558016",
           "listing_id": "24558016",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7252
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2080 Ti",
-      "tcwp": 8432,
-      "cpu": "Ryzen 5 7500F",
-      "cpu_score": 94,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7500F processor (CPU)",
-          "price": 825,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22825756",
-          "listing_id": "22825756",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
-          "price": 2800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
-          "listing_id": "21190820",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
           "functional_defect": false
         },
         {
@@ -9647,93 +8700,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2080 Ti",
-      "tcwp": 8457,
-      "cpu": "Ryzen 5 7600X",
-      "cpu_score": 101,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600x processor",
-          "price": 850,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24221974",
-          "listing_id": "24221974",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
-          "price": 2800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
-          "listing_id": "21190820",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7277
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 7 7700 + RTX 2070",
       "tcwp": 8407,
       "cpu": "Ryzen 7 7700",
@@ -10079,6 +9045,93 @@
       "foundation_score": 163,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 7311
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070",
+      "tcwp": 8432,
+      "cpu": "Ryzen 5 7500F",
+      "cpu_score": 94,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7500F processor (CPU)",
+          "price": 800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21721048",
+          "listing_id": "21721048",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
+          "price": 1925,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
+          "listing_id": "24173962",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 7312
     },
     {
       "route": "PLATFORM_FIRST_AM5",
@@ -10430,6 +9483,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070",
+      "tcwp": 8457,
+      "cpu": "Ryzen 5 7500F",
+      "cpu_score": 94,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7500F processor (CPU)",
+          "price": 825,
+          "url": "https://www.dba.dk/recommerce/forsale/item/22825756",
+          "listing_id": "22825756",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
+          "price": 1925,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
+          "listing_id": "24173962",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 7337
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600X + RTX 2080",
       "tcwp": 8481,
       "cpu": "Ryzen 5 7600X",
@@ -10691,6 +9831,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070",
+      "tcwp": 8482,
+      "cpu": "Ryzen 5 7600X",
+      "cpu_score": 101,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7600x processor",
+          "price": 850,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24221974",
+          "listing_id": "24221974",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
+          "price": 1925,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
+          "listing_id": "24173962",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 7362
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070 Super",
       "tcwp": 8482,
       "cpu": "Ryzen 5 7600X",
@@ -10858,93 +10085,6 @@
       ],
       "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
       "bridge_gpu": true,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7377
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2080 Ti",
-      "tcwp": 8557,
-      "cpu": "Ryzen 5 7600X",
-      "cpu_score": 101,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600X processor CPU",
-          "price": 950,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23723858",
-          "listing_id": "23723858",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
-          "price": 2800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
-          "listing_id": "21190820",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
       "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
       "foundation_score": 163,
       "sourcing_penalty": 4,
@@ -11648,180 +10788,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2080 Ti",
-      "tcwp": 8607,
-      "cpu": "Ryzen 5 7500F",
-      "cpu_score": 94,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7500F processor (CPU)",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21721048",
-          "listing_id": "21721048",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
-          "listing_id": "23931327",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7427
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2080 Ti",
-      "tcwp": 8632,
-      "cpu": "Ryzen 5 7500F",
-      "cpu_score": 94,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7500F processor (CPU)",
-          "price": 825,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22825756",
-          "listing_id": "22825756",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
-          "listing_id": "23931327",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7452
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600 + RTX 2080 Super",
       "tcwp": 8632,
       "cpu": "Ryzen 5 7600",
@@ -11996,6 +10962,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070",
+      "tcwp": 8582,
+      "cpu": "Ryzen 5 7600X",
+      "cpu_score": 101,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7600X processor CPU",
+          "price": 950,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23723858",
+          "listing_id": "23723858",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
+          "price": 1925,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
+          "listing_id": "24173962",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 7462
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 7 7700 + RX 5700 XT",
       "tcwp": 8597,
       "cpu": "Ryzen 7 7700",
@@ -12076,93 +11129,6 @@
       ],
       "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
       "bridge_gpu": true,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7477
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2080 Ti",
-      "tcwp": 8657,
-      "cpu": "Ryzen 5 7600X",
-      "cpu_score": 101,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600x processor",
-          "price": 850,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24221974",
-          "listing_id": "24221974",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
-          "listing_id": "23931327",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
       "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
       "foundation_score": 163,
       "sourcing_penalty": 4,
@@ -12779,93 +11745,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2080 Ti",
-      "tcwp": 8707,
-      "cpu": "Ryzen 5 7600",
-      "cpu_score": 98,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 7600 processor (CPU) brugt få gange står som helt ny",
-          "price": 1100,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23928872",
-          "listing_id": "23928872",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
-          "price": 2800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
-          "listing_id": "21190820",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7527
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600 + RTX 3060 Ti",
       "tcwp": 8732,
       "cpu": "Ryzen 5 7600",
@@ -13321,93 +12200,6 @@
       ],
       "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
       "bridge_gpu": true,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7577
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2080 Ti",
-      "tcwp": 8757,
-      "cpu": "Ryzen 5 7600X",
-      "cpu_score": 101,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600X processor CPU",
-          "price": 950,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23723858",
-          "listing_id": "23723858",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
-          "listing_id": "23931327",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
       "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
       "foundation_score": 163,
       "sourcing_penalty": 4,
@@ -14225,6 +13017,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2070",
+      "tcwp": 8732,
+      "cpu": "Ryzen 5 7600",
+      "cpu_score": 98,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 7600 processor (CPU) brugt få gange står som helt ny",
+          "price": 1100,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23928872",
+          "listing_id": "23928872",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
+          "price": 1925,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
+          "listing_id": "24173962",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 7612
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600 + RTX 2070 Super",
       "tcwp": 8732,
       "cpu": "Ryzen 5 7600",
@@ -14479,93 +13358,6 @@
       ],
       "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
       "bridge_gpu": true,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7627
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2080 Ti",
-      "tcwp": 8807,
-      "cpu": "Ryzen 5 7600",
-      "cpu_score": 98,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600 processor (CPU)",
-          "price": 1200,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23960340",
-          "listing_id": "23960340",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
-          "price": 2800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
-          "listing_id": "21190820",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
       "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
       "foundation_score": 163,
       "sourcing_penalty": 4,
@@ -15617,6 +14409,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2070",
+      "tcwp": 8832,
+      "cpu": "Ryzen 5 7600",
+      "cpu_score": 98,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7600 processor (CPU)",
+          "price": 1200,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23960340",
+          "listing_id": "23960340",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
+          "price": 1925,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
+          "listing_id": "24173962",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 7712
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600X + RX 5700 XT",
       "tcwp": 8847,
       "cpu": "Ryzen 5 7600X",
@@ -15826,93 +14705,6 @@
           "price": 1600,
           "url": "https://www.dba.dk/recommerce/forsale/item/24227603",
           "listing_id": "24227603",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7727
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2080 Ti",
-      "tcwp": 8907,
-      "cpu": "Ryzen 5 7600",
-      "cpu_score": 98,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 7600 processor (CPU) brugt få gange står som helt ny",
-          "price": 1100,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23928872",
-          "listing_id": "23928872",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
-          "listing_id": "23931327",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
           "functional_defect": false
         },
         {
@@ -17411,93 +16203,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2080 Ti",
-      "tcwp": 9007,
-      "cpu": "Ryzen 5 7600",
-      "cpu_score": 98,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "AMD Ryzen 5 7600 processor (CPU)",
-          "price": 1200,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23960340",
-          "listing_id": "23960340",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
-          "listing_id": "23931327",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 7827
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070",
       "tcwp": 8957,
       "cpu": "Ryzen 5 7600X",
@@ -18104,6 +16809,93 @@
       "foundation_score": 163,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 7886
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 7 7700 + RTX 2070",
+      "tcwp": 9007,
+      "cpu": "Ryzen 7 7700",
+      "cpu_score": 104,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD RYZEN 7 7700",
+          "price": 500,
+          "url": "https://www.dba.dk/recommerce/forsale/item/11596289",
+          "listing_id": "11596289",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
+          "price": 2800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
+          "listing_id": "21190820",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 7887
     },
     {
       "route": "PLATFORM_FIRST_AM5",
@@ -22109,6 +20901,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 7 7700 + RTX 2070",
+      "tcwp": 9207,
+      "cpu": "Ryzen 7 7700",
+      "cpu_score": 104,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD RYZEN 7 7700",
+          "price": 500,
+          "url": "https://www.dba.dk/recommerce/forsale/item/11596289",
+          "listing_id": "11596289",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
+          "listing_id": "23931327",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8087
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070 Super",
       "tcwp": 9207,
       "cpu": "Ryzen 5 7500F",
@@ -24219,6 +23098,93 @@
         {
           "kind": "RAM",
           "source": "USED ASK",
+          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
+          "price": 2800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
+          "listing_id": "21190820",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8187
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070",
+      "tcwp": 9307,
+      "cpu": "Ryzen 5 7500F",
+      "cpu_score": 94,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7500F processor (CPU)",
+          "price": 800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21721048",
+          "listing_id": "21721048",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
           "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
           "price": 3000,
           "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
@@ -24915,6 +23881,93 @@
         {
           "kind": "RAM",
           "source": "USED ASK",
+          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
+          "price": 2800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
+          "listing_id": "21190820",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8212
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070",
+      "tcwp": 9332,
+      "cpu": "Ryzen 5 7500F",
+      "cpu_score": 94,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7500F processor (CPU)",
+          "price": 825,
+          "url": "https://www.dba.dk/recommerce/forsale/item/22825756",
+          "listing_id": "22825756",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
           "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
           "price": 3000,
           "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
@@ -25325,6 +24378,93 @@
       "foundation_score": 163,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 8236
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070",
+      "tcwp": 9357,
+      "cpu": "Ryzen 5 7600X",
+      "cpu_score": 101,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7600x processor",
+          "price": 850,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24221974",
+          "listing_id": "24221974",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
+          "price": 2800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
+          "listing_id": "21190820",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8237
     },
     {
       "route": "PLATFORM_FIRST_AM5",
@@ -27465,6 +26605,93 @@
         {
           "kind": "RAM",
           "source": "USED ASK",
+          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
+          "price": 2800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
+          "listing_id": "21190820",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8337
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070",
+      "tcwp": 9457,
+      "cpu": "Ryzen 5 7600X",
+      "cpu_score": 101,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7600X processor CPU",
+          "price": 950,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23723858",
+          "listing_id": "23723858",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
           "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
           "price": 3000,
           "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
@@ -28049,6 +27276,93 @@
       "foundation_score": 163,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 8386
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070",
+      "tcwp": 9507,
+      "cpu": "Ryzen 5 7500F",
+      "cpu_score": 94,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7500F processor (CPU)",
+          "price": 800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21721048",
+          "listing_id": "21721048",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
+          "listing_id": "23931327",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8387
     },
     {
       "route": "PLATFORM_FIRST_AM5",
@@ -28661,6 +27975,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7500F + RTX 2070",
+      "tcwp": 9532,
+      "cpu": "Ryzen 5 7500F",
+      "cpu_score": 94,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7500F processor (CPU)",
+          "price": 825,
+          "url": "https://www.dba.dk/recommerce/forsale/item/22825756",
+          "listing_id": "22825756",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
+          "listing_id": "23931327",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8412
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600 + RTX 3060 Ti",
       "tcwp": 9607,
       "cpu": "Ryzen 5 7600",
@@ -29009,6 +28410,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070",
+      "tcwp": 9557,
+      "cpu": "Ryzen 5 7600X",
+      "cpu_score": 101,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7600x processor",
+          "price": 850,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24221974",
+          "listing_id": "24221974",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
+          "listing_id": "23931327",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8437
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070 Super",
       "tcwp": 9557,
       "cpu": "Ryzen 5 7600X",
@@ -29354,6 +28842,93 @@
       "foundation_score": 163,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 8486
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2070",
+      "tcwp": 9607,
+      "cpu": "Ryzen 5 7600",
+      "cpu_score": 98,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 7600 processor (CPU) brugt få gange står som helt ny",
+          "price": 1100,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23928872",
+          "listing_id": "23928872",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
+          "price": 2800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
+          "listing_id": "21190820",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8487
     },
     {
       "route": "PLATFORM_FIRST_AM5",
@@ -30053,41 +29628,41 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 9 7950X3D + RTX 2080 Ti",
-      "tcwp": 9732,
-      "cpu": "Ryzen 9 7950X3D",
-      "cpu_score": 132,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
+      "label": "AM5 foundation: Ryzen 5 7600X + RTX 2070",
+      "tcwp": 9657,
+      "cpu": "Ryzen 5 7600X",
+      "cpu_score": 101,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
       "upgradeability": "A",
       "z20_fit": "LIKELY",
       "components": [
         {
           "kind": "CPU",
           "source": "USED ASK",
-          "name": "Ryzen 9 7950X3D AM5 Processor",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22689491",
-          "listing_id": "22689491",
+          "name": "AMD Ryzen 5 7600X processor CPU",
+          "price": 950,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23723858",
+          "listing_id": "23723858",
           "functional_defect": false
         },
         {
           "kind": "RAM",
           "source": "USED ASK",
-          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
-          "price": 1925,
-          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
-          "listing_id": "24173962",
+          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
+          "listing_id": "23931327",
           "functional_defect": false
         },
         {
           "kind": "GPU",
           "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
           "functional_defect": false
         },
         {
@@ -30132,11 +29707,11 @@
         }
       ],
       "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
+      "bridge_gpu": true,
       "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
       "foundation_score": 163,
       "sourcing_penalty": 4,
-      "strategic_effective_cost": 8552
+      "strategic_effective_cost": 8537
     },
     {
       "route": "PLATFORM_FIRST_AM5",
@@ -30349,6 +29924,93 @@
           "price": 1600,
           "url": "https://www.dba.dk/recommerce/forsale/item/23301685",
           "listing_id": "23301685",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8587
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2070",
+      "tcwp": 9707,
+      "cpu": "Ryzen 5 7600",
+      "cpu_score": 98,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7600 processor (CPU)",
+          "price": 1200,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23960340",
+          "listing_id": "23960340",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
+          "price": 2800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
+          "listing_id": "21190820",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
           "functional_defect": false
         },
         {
@@ -30923,6 +30585,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2070",
+      "tcwp": 9807,
+      "cpu": "Ryzen 5 7600",
+      "cpu_score": 98,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 7600 processor (CPU) brugt få gange står som helt ny",
+          "price": 1100,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23928872",
+          "listing_id": "23928872",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
+          "listing_id": "23931327",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8687
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 5 7600 + RTX 2070 Super",
       "tcwp": 9807,
       "cpu": "Ryzen 5 7600",
@@ -31268,6 +31017,93 @@
       "foundation_score": 163,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 8786
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 5 7600 + RTX 2070",
+      "tcwp": 9907,
+      "cpu": "Ryzen 5 7600",
+      "cpu_score": 98,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "AMD Ryzen 5 7600 processor (CPU)",
+          "price": 1200,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23960340",
+          "listing_id": "23960340",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
+          "listing_id": "23931327",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 8787
     },
     {
       "route": "COMPLETE_USED_PC",
@@ -32342,93 +32178,6 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 9 7950X3D + RTX 2080 Ti",
-      "tcwp": 10607,
-      "cpu": "Ryzen 9 7950X3D",
-      "cpu_score": 132,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "Ryzen 9 7950X3D AM5 Processor",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22689491",
-          "listing_id": "22689491",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
-          "price": 2800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
-          "listing_id": "21190820",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 9427
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 9 7950X3D + RTX 3060 Ti",
       "tcwp": 10632,
       "cpu": "Ryzen 9 7950X3D",
@@ -32603,6 +32352,93 @@
     },
     {
       "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 9 7950X3D + RTX 2070",
+      "tcwp": 10632,
+      "cpu": "Ryzen 9 7950X3D",
+      "cpu_score": 132,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "Ryzen 9 7950X3D AM5 Processor",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/22689491",
+          "listing_id": "22689491",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)",
+          "price": 1925,
+          "url": "https://www.dba.dk/recommerce/forsale/item/24173962",
+          "listing_id": "24173962",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 9512
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
       "label": "AM5 foundation: Ryzen 9 7950X3D + RX 5700 XT",
       "tcwp": 10697,
       "cpu": "Ryzen 9 7950X3D",
@@ -32687,93 +32523,6 @@
       "foundation_score": 163,
       "sourcing_penalty": 4,
       "strategic_effective_cost": 9577
-    },
-    {
-      "route": "PLATFORM_FIRST_AM5",
-      "label": "AM5 foundation: Ryzen 9 7950X3D + RTX 2080 Ti",
-      "tcwp": 10807,
-      "cpu": "Ryzen 9 7950X3D",
-      "cpu_score": 132,
-      "gpu": "RTX 2080 Ti",
-      "gpu_score": 73,
-      "performance_class": "SWEET SPOT",
-      "upgradeability": "A",
-      "z20_fit": "LIKELY",
-      "components": [
-        {
-          "kind": "CPU",
-          "source": "USED ASK",
-          "name": "Ryzen 9 7950X3D AM5 Processor",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/22689491",
-          "listing_id": "22689491",
-          "functional_defect": false
-        },
-        {
-          "kind": "RAM",
-          "source": "USED ASK",
-          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
-          "price": 3000,
-          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
-          "listing_id": "23931327",
-          "functional_defect": false
-        },
-        {
-          "kind": "GPU",
-          "source": "USED ASK",
-          "name": "Vandkøling blok til GeForce RTX 2080Ti",
-          "price": 800,
-          "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-          "listing_id": "20953694",
-          "functional_defect": false
-        },
-        {
-          "kind": "MOTHERBOARD",
-          "source": "NEW RETAIL",
-          "name": "GIGABYTE B650M GAMING PLUS WIFI",
-          "price": 1170,
-          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
-          "verified_at": "2026-09-04T22:00:00+02:00"
-        },
-        {
-          "kind": "COOLER",
-          "source": "NEW RETAIL",
-          "name": "Arctic Freezer 36 Black",
-          "price": 175,
-          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "CASE",
-          "source": "NEW RETAIL",
-          "name": "Jonsbo Z20 Mesh White",
-          "price": 751,
-          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "PSU",
-          "source": "NEW RETAIL",
-          "name": "Corsair RM650e (2025) 650W ATX 3.1",
-          "price": 642,
-          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        },
-        {
-          "kind": "STORAGE",
-          "source": "NEW RETAIL",
-          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
-          "price": 1269,
-          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
-          "verified_at": "2026-09-03T22:55:00+02:00"
-        }
-      ],
-      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-      "bridge_gpu": false,
-      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
-      "foundation_score": 163,
-      "sourcing_penalty": 4,
-      "strategic_effective_cost": 9627
     },
     {
       "route": "PLATFORM_FIRST_AM5",
@@ -34713,6 +34462,93 @@
         {
           "kind": "RAM",
           "source": "USED ASK",
+          "name": "G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30",
+          "price": 2800,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21190820",
+          "listing_id": "21190820",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 10387
+    },
+    {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 9 7950X3D + RTX 2070",
+      "tcwp": 11507,
+      "cpu": "Ryzen 9 7950X3D",
+      "cpu_score": 132,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "Ryzen 9 7950X3D AM5 Processor",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/22689491",
+          "listing_id": "22689491",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
           "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
           "price": 3000,
           "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
@@ -35299,6 +35135,93 @@
       "strategic_effective_cost": 10586
     },
     {
+      "route": "PLATFORM_FIRST_AM5",
+      "label": "AM5 foundation: Ryzen 9 7950X3D + RTX 2070",
+      "tcwp": 11707,
+      "cpu": "Ryzen 9 7950X3D",
+      "cpu_score": 132,
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "performance_class": "ACCEPTABLE",
+      "upgradeability": "A",
+      "z20_fit": "LIKELY",
+      "components": [
+        {
+          "kind": "CPU",
+          "source": "USED ASK",
+          "name": "Ryzen 9 7950X3D AM5 Processor",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/22689491",
+          "listing_id": "22689491",
+          "functional_defect": false
+        },
+        {
+          "kind": "RAM",
+          "source": "USED ASK",
+          "name": "Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz",
+          "price": 3000,
+          "url": "https://www.dba.dk/recommerce/forsale/item/23931327",
+          "listing_id": "23931327",
+          "functional_defect": false
+        },
+        {
+          "kind": "GPU",
+          "source": "USED ASK",
+          "name": "Nvidia GeForce RTX 2070 grafikkort",
+          "price": 1700,
+          "url": "https://www.dba.dk/recommerce/forsale/item/21340576",
+          "listing_id": "21340576",
+          "functional_defect": false
+        },
+        {
+          "kind": "MOTHERBOARD",
+          "source": "NEW RETAIL",
+          "name": "GIGABYTE B650M GAMING PLUS WIFI",
+          "price": 1170,
+          "url": "https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794",
+          "verified_at": "2026-09-04T22:00:00+02:00"
+        },
+        {
+          "kind": "COOLER",
+          "source": "NEW RETAIL",
+          "name": "Arctic Freezer 36 Black",
+          "price": 175,
+          "url": "https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "CASE",
+          "source": "NEW RETAIL",
+          "name": "Jonsbo Z20 Mesh White",
+          "price": 751,
+          "url": "https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "PSU",
+          "source": "NEW RETAIL",
+          "name": "Corsair RM650e (2025) 650W ATX 3.1",
+          "price": 642,
+          "url": "https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        },
+        {
+          "kind": "STORAGE",
+          "source": "NEW RETAIL",
+          "name": "Kingston NV3 1TB M.2 2280 PCIe 4.0",
+          "price": 1269,
+          "url": "https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682",
+          "verified_at": "2026-09-03T22:55:00+02:00"
+        }
+      ],
+      "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
+      "bridge_gpu": true,
+      "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
+      "foundation_score": 163,
+      "sourcing_penalty": 4,
+      "strategic_effective_cost": 10587
+    },
+    {
       "route": "COMPLETE_USED_PC",
       "label": "\\u{2728} Helt ny High-End Gamer PC - Ryzen 7 7800X3D • RTX 3080 •",
       "tcwp": 13500,
@@ -35338,44 +35261,26 @@
         "recovery_used": true,
         "recovered_queries": [
           "gaming computer",
-          "stationær gaming",
           "gaming bærbar",
           "nitro gaming",
-          "sharkgaming",
-          "dutzo",
-          "mm vision",
-          "msi gamer",
           "rtx 2070",
-          "rtx 2080",
           "rtx 3060",
-          "rtx 3070",
-          "rtx 3080",
-          "rtx 4060",
           "rx 6600 xt"
         ],
         "primary_failed_queries": [
           "gaming computer",
-          "stationær gaming",
           "gaming bærbar",
           "nitro gaming",
-          "sharkgaming",
-          "dutzo",
-          "mm vision",
-          "msi gamer",
           "rtx 2070",
-          "rtx 2080",
           "rtx 3060",
-          "rtx 3070",
-          "rtx 3080",
-          "rtx 4060",
           "rx 6600 xt"
         ],
         "fallback_query_timeout_seconds": 35,
         "fallback_total_deadline_seconds": 180
       },
       "t1": {
-        "candidate_total": 431,
-        "candidate_completed": 431,
+        "candidate_total": 430,
+        "candidate_completed": 430,
         "candidate_fetch_errors": 0,
         "missing_listing_ids": [],
         "deadline_exceeded": false,
@@ -35403,9 +35308,14 @@
           "i5 10400 bundkort",
           "i5 11400 bundkort",
           "i5 12600 bundkort",
+          "ddr4 16gb",
+          "ddr5 6000 32gb",
           "atx strømforsyning 650w",
           "rx 6600 xt",
+          "rtx 2060",
           "rtx 2070",
+          "nvme 1tb",
+          "ssd 1tb",
           "jonsbo z20"
         ],
         "primary_failed_queries": [
@@ -35416,17 +35326,22 @@
           "i5 10400 bundkort",
           "i5 11400 bundkort",
           "i5 12600 bundkort",
+          "ddr4 16gb",
+          "ddr5 6000 32gb",
           "atx strømforsyning 650w",
           "rx 6600 xt",
+          "rtx 2060",
           "rtx 2070",
+          "nvme 1tb",
+          "ssd 1tb",
           "jonsbo z20"
         ],
         "fallback_query_timeout_seconds": 35,
         "fallback_total_deadline_seconds": 180
       },
       "t1": {
-        "candidate_total": 390,
-        "candidate_completed": 390,
+        "candidate_total": 389,
+        "candidate_completed": 389,
         "candidate_fetch_errors": 0,
         "missing_listing_ids": [],
         "deadline_exceeded": false,
@@ -35455,13 +35370,13 @@
   "foundation_target": "AM5 + B650/B850 mATX + Wi-Fi + 4 DIMM + DDR5 + Jonsbo Z20",
   "best_foundation": {
     "route": "PLATFORM_FIRST_AM5",
-    "label": "AM5 foundation: Ryzen 7 7700 + RTX 2080 Ti",
-    "tcwp": 7232,
+    "label": "AM5 foundation: Ryzen 7 7700 + RX 5700 XT",
+    "tcwp": 7322,
     "cpu": "Ryzen 7 7700",
     "cpu_score": 104,
-    "gpu": "RTX 2080 Ti",
-    "gpu_score": 73,
-    "performance_class": "SWEET SPOT",
+    "gpu": "RX 5700 XT",
+    "gpu_score": 55,
+    "performance_class": "ACCEPTABLE",
     "upgradeability": "A",
     "z20_fit": "LIKELY",
     "components": [
@@ -35486,10 +35401,10 @@
       {
         "kind": "GPU",
         "source": "USED ASK",
-        "name": "Vandkøling blok til GeForce RTX 2080Ti",
-        "price": 800,
-        "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-        "listing_id": "20953694",
+        "name": "AMD Radeon RX 5700 XT 8GB GDDR6 Sapphire",
+        "price": 890,
+        "url": "https://www.dba.dk/recommerce/forsale/item/17048263",
+        "listing_id": "17048263",
         "functional_defect": false
       },
       {
@@ -35534,11 +35449,11 @@
       }
     ],
     "foundation": "AM5_B650_B850_MATX_WIFI_4DIMM",
-    "bridge_gpu": false,
+    "bridge_gpu": true,
     "rationale": "Platform-first AM5/Z20 foundation. GPU/CPU/RAM and cooler are used-first; PSU/SSD/case are new-first. An ACCEPTABLE GPU is intentionally allowed as a cheap bridge while waiting for an exceptional upgrade.",
     "foundation_score": 163,
     "sourcing_penalty": 4,
-    "strategic_effective_cost": 6052
+    "strategic_effective_cost": 6202
   },
   "cheapest_viable": {
     "route": "COMPLETE_USED_PC",
@@ -35569,12 +35484,12 @@
   },
   "best_opportunistic_buy": {
     "route": "HYBRID_USED_NEW",
-    "label": "Ryzen 5 5600 + RTX 2080 Ti",
-    "tcwp": 5787,
+    "label": "Ryzen 5 5600 + RTX 2080 Super",
+    "tcwp": 6587,
     "cpu": "Ryzen 5 5600",
     "cpu_score": 76,
-    "gpu": "RTX 2080 Ti",
-    "gpu_score": 73,
+    "gpu": "RTX 2080 Super",
+    "gpu_score": 65,
     "performance_class": "SWEET SPOT",
     "upgradeability": "B",
     "z20_fit": "LIKELY",
@@ -35591,10 +35506,10 @@
       {
         "kind": "GPU",
         "source": "USED ASK",
-        "name": "Vandkøling blok til GeForce RTX 2080Ti",
-        "price": 800,
-        "url": "https://www.dba.dk/recommerce/forsale/item/20953694",
-        "listing_id": "20953694",
+        "name": "rtx 2080 super",
+        "price": 1600,
+        "url": "https://www.dba.dk/recommerce/forsale/item/24227603",
+        "listing_id": "24227603",
         "functional_defect": false
       },
       {
@@ -35642,7 +35557,7 @@
     "rationale": "Used value concentrated in functionally non-defective platform/GPU; new case/PSU/SSD/cooler reduce low-value used hunting and improve warranty/fit. Socket=AM4.",
     "foundation_score": 51,
     "sourcing_penalty": 4,
-    "strategic_effective_cost": 5399
+    "strategic_effective_cost": 6199
   },
   "best_donor_upgrade_route": null,
   "wait_buy": "WAIT_FOR_FOUNDATION_OR_EXCEPTIONAL_COMPLETE_PC"
