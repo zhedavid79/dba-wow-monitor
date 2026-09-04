@@ -17,6 +17,7 @@ on:
       - 'dba_browser_v6_recovery.py'
       - 'dba_t1_preflight.py'
       - 'dba_z20_parts.py'
+      - 'dba_z20_parts_recovery.py'
       - 'dba_z20_donors.py'
       - 'wow_value_model.py'
       - 'z20_complete_optimizer.py'
@@ -44,7 +45,7 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
       - name: Compile complete model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v6.py dba_browser_v6_recovery.py dba_t1_preflight.py dba_z20_parts.py dba_z20_donors.py wow_value_model.py z20_complete_optimizer.py
+        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v6.py dba_browser_v6_recovery.py dba_t1_preflight.py dba_z20_parts.py dba_z20_parts_recovery.py dba_z20_donors.py wow_value_model.py z20_complete_optimizer.py
       - name: Diagnose DBA T1 preflight
         timeout-minutes: 3
         run: python dba_t1_preflight.py
@@ -53,7 +54,7 @@ jobs:
         run: python dba_browser_v6_recovery.py
       - name: Run Z20 component and bundle scanner
         timeout-minutes: 9
-        run: python dba_z20_parts.py
+        run: python dba_z20_parts_recovery.py
       - name: Apply Z20 upgradeable procurement annotations
         timeout-minutes: 2
         run: python wow_value_model.py
