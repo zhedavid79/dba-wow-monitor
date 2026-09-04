@@ -139,21 +139,44 @@ def hybrid_builds(parts:list[dict]) -> list[dict]:
 
 
 def donor_upgrade_routes(donors:list[dict]) -> list[dict]:
+    """Only emit a PC+upgrade route when the route contains a concrete paid upgrade.
+
+    A complete PC with no added/replaced component is already represented by
+    COMPLETE_USED_PC and must not be duplicated as a hypothetical future route.
+    """
     out=[]
     for d in donors:
         if not eligible_used(d): continue
         if not isinstance(d.get("ask_t1"),int): continue
         if int(d.get("gpu_score") or 0)<50 or int(d.get("cpu_score") or 0)<50: continue
+        upgrades=d.get("upgrade_components") or d.get("resolved_upgrades") or []
+        upgrades=[u for u in upgrades if isinstance(u,dict) and isinstance(u.get("price"),int) and u.get("price")>0]
+        if not upgrades:
+            continue
         comps=[used_component("USED_PC_CORE",d)]
+        for u in upgrades:
+            if u.get("source") == "USED ASK":
+                comps.append(used_component(str(u.get("kind") or "UPGRADE"),u))
+            elif u.get("source") == "NEW RETAIL" and u.get("url"):
+                comps.append({"kind":str(u.get("kind") or "UPGRADE"),"source":"NEW RETAIL","name":u.get("name") or u.get("title"),"price":int(u["price"]),"url":u["url"],"verified_at":u.get("verified_at")})
+            else:
+                continue
+        if len(comps) == 1:
+            continue
         grade=UPGRADE_GRADE.get(d.get("upgradeability") or "UNVERIFIED","C")
         fit="VERIFIED" if d.get("motherboard_fit")=="COMPATIBLE" else "NO" if d.get("motherboard_fit")=="INCOMPATIBLE" else "UNKNOWN"
-        out.append({"route":"USED_PC_PLUS_FUTURE_UPGRADE","label":d.get("title"),"tcwp":d["ask_t1"],"cpu":d.get("cpu"),"cpu_score":int(d.get("cpu_score") or 0),"gpu":d.get("gpu"),"gpu_score":int(d.get("gpu_score") or 0),"performance_class":pclass(int(d.get("cpu_score") or 0),int(d.get("gpu_score") or 0)),"upgradeability":grade,"z20_fit":fit,"components":comps,"rationale":"Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."})
+        out.append({"route":"USED_PC_PLUS_FUTURE_UPGRADE","label":d.get("title"),"tcwp":sum(int(x["price"]) for x in comps),"cpu":d.get("cpu"),"cpu_score":int(d.get("cpu_score") or 0),"gpu":d.get("gpu"),"gpu_score":int(d.get("gpu_score") or 0),"performance_class":pclass(int(d.get("cpu_score") or 0),int(d.get("gpu_score") or 0)),"upgradeability":grade,"z20_fit":fit,"components":comps,"rationale":"Complete used PC plus a concrete priced upgrade. TCWP includes the PC and every upgrade component; hypothetical future upgrades are not ranked as separate solutions."})
     return out
 
 
 def rank_key(r:dict):
     perf_order={"SWEET SPOT":0,"ACCEPTABLE":1,"OVERKILL":2,"UNDER MINIMUM":9}
     return (int(r.get("tcwp") or 10**9),perf_order.get(r.get("performance_class"),9),-GRADE_NUM.get(r.get("upgradeability"),0),-int(r.get("cpu_score") or 0),-int(r.get("gpu_score") or 0))
+
+
+def solution_identity(r:dict):
+    """Cross-route identity: identical paid component sets are one solution."""
+    return tuple(sorted((str(c.get("source") or ""),str(c.get("listing_id") or c.get("name") or ""),int(c.get("price") or 0)) for c in (r.get("components") or [])))
 
 
 def main():
@@ -169,7 +192,7 @@ def main():
     routes=[r for r in routes if r.get("performance_class") in {"ACCEPTABLE","SWEET SPOT","OVERKILL"}]
     seen=set(); dedup=[]
     for r in routes:
-        key=(r["route"],tuple(sorted(str(c.get("listing_id") or c.get("name")) for c in r["components"])))
+        key=solution_identity(r)
         if key in seen: continue
         seen.add(key); dedup.append(r)
     dedup.sort(key=rank_key)
@@ -182,8 +205,8 @@ def main():
     out={
         "model_version":"DBA-WOW-CROSS-ROUTE-V15","generated_at":main.get("generated_at"),"gate_passed":True,
         "strategy_reference":"https://youtu.be/7HgAN5cEmkk?is=3HET1ZpzUj-j4zZq",
-        "strategy":"Buy used where absolute savings are large; use new parts where warranty/fit/low used savings make new better. Functionally defective used hardware is absolutely ineligible. Compare finished solutions by TCWP, WoW suitability and upgrade path.",
-        "functional_defect_policy":"HARD_EXCLUDE",
+        "strategy":"Buy used where absolute savings are large; use new parts where warranty/fit/low used savings make new better. Functionally defective used hardware is absolutely ineligible. Compare unique finished solutions by TCWP, WoW suitability and upgrade path; no-op future-upgrade duplicates are forbidden.",
+        "functional_defect_policy":"HARD_EXCLUDE","solution_dedup_policy":"CROSS_ROUTE_COMPONENT_IDENTITY","no_op_upgrade_policy":"HARD_EXCLUDE",
         "target":{"game":"WoW Classic/Cataclysm","resolution":"3840x1600","refresh_hz":75,"preferred_case":"Jonsbo Z20"},
         "counts":{"complete_routes":len(complete),"upgrade_routes":len(upg),"used_builds":len(used),"hybrid_builds":len(hybrid),"ranked_routes":len(dedup)},
         "buy_now":dedup[0] if dedup else None,
