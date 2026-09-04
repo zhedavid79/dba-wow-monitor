@@ -20,6 +20,7 @@ T1_PRIMARY_CONCURRENCY = 8
 T1_PRIMARY_TOTAL_DEADLINE_SECONDS = 600
 T1_RECOVERY_CONCURRENCY = 2
 T1_RECOVERY_TOTAL_DEADLINE_SECONDS = 180
+T1_AVAILABILITY_PROBE_TIMEOUT_SECONDS = 20
 
 v6.T1_CONCURRENCY = T1_PRIMARY_CONCURRENCY
 v6.T1_TOTAL_DEADLINE_SECONDS = T1_PRIMARY_TOTAL_DEADLINE_SECONDS
@@ -142,30 +143,95 @@ def _diagnostic_kind(diagnostic: dict) -> str:
     return str(diagnostic.get("result") or diagnostic.get("error") or "UNKNOWN")
 
 
+async def _probe_objective_unavailability(context, listing_id: str) -> dict:
+    """Distinguish an objectively gone listing from a live same-item schema failure.
+
+    Only HTTP 404/410 or a redirect away from the requested DBA item ID is accepted as
+    objective T1 disappearance. A 200 response on the same item without Product JSON is
+    deliberately *not* treated as inactive; that remains a schema/retrieval hard failure.
+    """
+    page = await context.new_page()
+    requested_url = v6.v2.ITEM_URL.format(listing_id=listing_id)
+    try:
+        response = await asyncio.wait_for(
+            page.goto(requested_url, wait_until="domcontentloaded", timeout=30000),
+            timeout=T1_AVAILABILITY_PROBE_TIMEOUT_SECONDS,
+        )
+        status = int(response.status) if response else None
+        rendered_url = str(page.url or "")
+        match = v6.v2.ITEM_RE.search(rendered_url)
+        rendered_id = match.group(1) if match else None
+        if status in {404, 410}:
+            return {
+                "listing_id": listing_id,
+                "result": "T1_OBJECTIVELY_UNAVAILABLE",
+                "detail": f"HTTP {status} at T1",
+                "http_status": status,
+                "rendered_url": rendered_url,
+            }
+        if rendered_id != listing_id:
+            return {
+                "listing_id": listing_id,
+                "result": "T1_OBJECTIVELY_UNAVAILABLE",
+                "detail": "requested item redirected away from same listing ID at T1",
+                "http_status": status,
+                "rendered_url": rendered_url,
+                "rendered_listing_id": rendered_id,
+            }
+        return {
+            "listing_id": listing_id,
+            "result": "T1_LIVE_ITEM_SCHEMA_MISSING",
+            "detail": "same listing remains reachable but no valid same-ID Product JSON object was returned",
+            "http_status": status,
+            "rendered_url": rendered_url,
+        }
+    except asyncio.TimeoutError:
+        return {
+            "listing_id": listing_id,
+            "result": "T1_AVAILABILITY_PROBE_TIMEOUT",
+            "detail": f"availability probe exceeded {T1_AVAILABILITY_PROBE_TIMEOUT_SECONDS}s",
+        }
+    except Exception as exc:
+        return {
+            "listing_id": listing_id,
+            "result": "T1_AVAILABILITY_PROBE_ERROR",
+            "detail": f"{type(exc).__name__}: {str(exc)[:240]}",
+        }
+    finally:
+        await page.close()
+
+
 async def _recover_t1_one(context, listing_id: str) -> tuple[str, dict | None, dict | None]:
     t1, error = await v6.fetch_t1_one(context, listing_id)
-    return listing_id, t1, error
+    if t1 is not None or error is not None:
+        return listing_id, t1, error
+    # fetch_jsonld_item_all_scripts returns None both for objectively vanished items and
+    # for same-item schema failures. Probe the navigation state before classifying it.
+    diagnostic = await _probe_objective_unavailability(context, listing_id)
+    return listing_id, None, diagnostic
 
 
 async def robust_fetch_all_t1(context, candidates: list[dict]) -> tuple[dict[str, dict | None], list[dict], dict]:
-    """Run the proven-stable T1 load first, then retry only unresolved IDs.
+    """Run stable T1 load, then resolve every no-object/error candidate in isolation.
 
-    A candidate is considered fully covered only if it ends with a successful T1 object.
-    This is intentionally stricter than the base scanner: a transient fetch error cannot hide a
-    potential sweet spot and still allow publication.
+    Objective 404/410 or redirect-away outcomes are completed T1 observations and are
+    allowed to become per-listing inactive rejections. Fetch/schema/identity uncertainty
+    remains a hard coverage failure.
     """
     results, diagnostics, primary_coverage = await _original_fetch_all_t1(context, candidates)
 
     expected_ids = {str(row["listing_id"]) for row in candidates}
     failed_ids = {str(d.get("listing_id")) for d in diagnostics if d.get("listing_id")}
     missing_ids = set(str(x) for x in primary_coverage.get("missing_listing_ids") or [])
-    retry_ids = sorted((failed_ids | missing_ids) & expected_ids)
+    no_object_ids = {lid for lid in expected_ids if lid in results and results.get(lid) is None}
+    retry_ids = sorted((failed_ids | missing_ids | no_object_ids) & expected_ids)
 
     error_counts = Counter(_diagnostic_kind(d) for d in diagnostics)
     print(json.dumps({
         "stage": "T1_PRIMARY_COMPLETE",
         "candidate_total": len(expected_ids),
         "successful_objects": sum(1 for lid in expected_ids if results.get(lid)),
+        "no_object_ids": len(no_object_ids),
         "retry_ids": len(retry_ids),
         "error_types": dict(error_counts),
         "deadline_exceeded": bool(primary_coverage.get("deadline_exceeded")),
@@ -179,6 +245,7 @@ async def robust_fetch_all_t1(context, candidates: list[dict]) -> tuple[dict[str
             "candidate_completed": len(expected_ids),
             "candidate_fetch_errors": 0,
             "missing_listing_ids": [],
+            "objective_inactive_listing_ids": [],
             "deadline_exceeded": False,
             "complete": True,
             "recovery_used": False,
@@ -194,6 +261,7 @@ async def robust_fetch_all_t1(context, candidates: list[dict]) -> tuple[dict[str
         queue.put_nowait(None)
 
     recovery_errors: list[dict] = []
+    objective_inactive: list[dict] = []
     recovered_ids: set[str] = set()
     attempted_ids: set[str] = set()
     lock = asyncio.Lock()
@@ -204,17 +272,20 @@ async def robust_fetch_all_t1(context, candidates: list[dict]) -> tuple[dict[str
             try:
                 if lid is None:
                     return
-                _, t1, error = await _recover_t1_one(context, lid)
+                _, t1, diagnostic = await _recover_t1_one(context, lid)
                 async with lock:
                     attempted_ids.add(lid)
                     if t1 is not None:
                         results[lid] = t1
                         recovered_ids.add(lid)
+                    elif diagnostic and diagnostic.get("result") == "T1_OBJECTIVELY_UNAVAILABLE":
+                        results[lid] = None
+                        objective_inactive.append(diagnostic)
                     else:
-                        recovery_errors.append(error or {
+                        recovery_errors.append(diagnostic or {
                             "listing_id": lid,
                             "result": "T1_RECOVERY_NO_OBJECT",
-                            "detail": "recovery returned no T1 object",
+                            "detail": "recovery returned no T1 object and no objective inactive evidence",
                         })
                     completed = len(attempted_ids)
                     if completed == 1 or completed % 20 == 0 or completed == len(retry_ids):
@@ -224,6 +295,7 @@ async def robust_fetch_all_t1(context, candidates: list[dict]) -> tuple[dict[str
                             "completed": completed,
                             "total": len(retry_ids),
                             "recovered": len(recovered_ids),
+                            "objective_inactive": len(objective_inactive),
                             "errors": len(recovery_errors),
                         }, ensure_ascii=False), flush=True)
             finally:
@@ -241,27 +313,35 @@ async def robust_fetch_all_t1(context, candidates: list[dict]) -> tuple[dict[str
                 task.cancel()
         await asyncio.gather(*workers, return_exceptions=True)
 
-    unresolved_ids = sorted(lid for lid in expected_ids if not results.get(lid))
+    objective_inactive_ids = {str(d["listing_id"]) for d in objective_inactive}
+    hard_unresolved_ids = sorted(
+        lid for lid in expected_ids
+        if not results.get(lid) and lid not in objective_inactive_ids
+    )
     recovery_error_counts = Counter(_diagnostic_kind(d) for d in recovery_errors)
     print(json.dumps({
         "stage": "T1_RECOVERY_COMPLETE",
         "requested": len(retry_ids),
         "attempted": len(attempted_ids),
         "recovered": len(recovered_ids),
-        "unresolved": len(unresolved_ids),
+        "objective_inactive": len(objective_inactive_ids),
+        "hard_unresolved": len(hard_unresolved_ids),
         "error_types": dict(recovery_error_counts),
         "deadline_exceeded": recovery_timed_out,
         "concurrency": T1_RECOVERY_CONCURRENCY,
         "deadline_seconds": T1_RECOVERY_TOTAL_DEADLINE_SECONDS,
     }, ensure_ascii=False), flush=True)
 
+    all_diagnostics = objective_inactive + recovery_errors
     coverage = {
         "candidate_total": len(expected_ids),
-        "candidate_completed": len(expected_ids) - len(unresolved_ids),
+        "candidate_completed": len(expected_ids) - len(hard_unresolved_ids),
         "candidate_fetch_errors": len(recovery_errors),
-        "missing_listing_ids": unresolved_ids,
+        "missing_listing_ids": hard_unresolved_ids,
+        "objective_inactive_listing_ids": sorted(objective_inactive_ids),
+        "objective_inactive_count": len(objective_inactive_ids),
         "deadline_exceeded": recovery_timed_out,
-        "complete": (not recovery_timed_out and not unresolved_ids),
+        "complete": (not recovery_timed_out and not hard_unresolved_ids and not recovery_errors),
         "recovery_used": True,
         "primary_concurrency": T1_PRIMARY_CONCURRENCY,
         "primary_deadline_seconds": T1_PRIMARY_TOTAL_DEADLINE_SECONDS,
@@ -271,7 +351,7 @@ async def robust_fetch_all_t1(context, candidates: list[dict]) -> tuple[dict[str
         "recovery_error_types": dict(recovery_error_counts),
         "recovered_listing_ids": sorted(recovered_ids),
     }
-    return results, recovery_errors, coverage
+    return results, all_diagnostics, coverage
 
 
 # Keep production discovery/ranking/price/status/identity gates untouched.
