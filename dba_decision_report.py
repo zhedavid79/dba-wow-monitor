@@ -1,19 +1,12 @@
 from __future__ import annotations
 
 import json
+import statistics
 from pathlib import Path
 
 MAIN = Path("results/wow_a3_latest.json")
 REPORT = Path("results/wow_a3_report.md")
-
-
-def has_route(row: dict, name: str) -> bool:
-    return any(x.get("route") == name for x in ((row.get("listing_intelligence") or {}).get("routes") or []))
-
-
-def route_status(row: dict, name: str) -> str | None:
-    x = next((x for x in ((row.get("listing_intelligence") or {}).get("routes") or []) if x.get("route") == name), None)
-    return x.get("status") if x else None
+TOP_N = 15
 
 
 def evidence_value(row: dict, key: str, fallback: str = "Ukendt") -> str:
@@ -21,142 +14,213 @@ def evidence_value(row: dict, key: str, fallback: str = "Ukendt") -> str:
     return str(x.get("value") or fallback)
 
 
-def confidence(row: dict, key: str) -> str:
+def evidence_confidence(row: dict, key: str) -> str:
     x = (row.get("listing_intelligence") or {}).get(key) or {}
     return str(x.get("confidence") or "UNKNOWN")
 
 
 def scenario(row: dict) -> str:
-    intel = row.get("listing_intelligence") or {}
-    cpu = int(intel.get("cpu_score") or row.get("cpu_score") or 0)
-    gpu = int(intel.get("gpu_score") or row.get("gpu_score") or 0)
+    cpu = int(row.get("cpu_score") or 0)
+    gpu = int(row.get("gpu_score") or 0)
     if cpu >= 90 and gpu >= 60:
-        return "Open world/dungeons: 75 Hz-målet stærkt; raids: stærkt; crowded combat: CPU bør stadig have god margin."
+        return "Quest/open world og dungeons: stærk margin mod 75 Hz; raids: stærk; worst-case crowded combat: primært CPU-begrænset, men med god margin."
     if cpu >= 65 and gpu >= 65:
-        return "Open world/dungeons: typisk 75 Hz-målet; raids: god; crowded combat: CPU kan være den primære begrænsning."
+        return "Quest/open world og dungeons: typisk omkring 75 Hz-målet; raids: god; worst-case crowded combat: CPU kan give mærkbare dyk."
     if cpu >= 59 and gpu >= 55:
-        return "Open world/dungeons: god; raids: acceptabel-god; crowded combat: forvent tydeligere CPU-dyk under 75 Hz."
-    return "Ydelsen er tilstrækkelig efter hovedgaten, men annonceevidensen giver ikke grundlag for et skarpere scenarie."
+        return "Quest/open world: god; dungeons: god; raids: acceptabel-god; worst-case crowded combat: tydelige CPU-dyk under 75 Hz må forventes."
+    return "Består minimumsgaten, men evidensen understøtter ikke en skarpere konservativ scenarieklassifikation."
 
 
 def short_specs(row: dict) -> str:
-    intel = row.get("listing_intelligence") or {}
     cpu = evidence_value(row, "cpu", row.get("cpu") or "Ukendt")
     gpu = evidence_value(row, "gpu", row.get("gpu") or "Ukendt")
     ram = evidence_value(row, "ram")
-    board = evidence_value(row, "motherboard")
-    psu = evidence_value(row, "psu")
-    return f"CPU {cpu}; GPU {gpu}; RAM {ram}; board {board}; PSU {psu}"
+    storage = (row.get("listing_intelligence") or {}).get("storage") or []
+    storage_text = ", ".join(str(x.get("value")) for x in storage if x.get("value")) or "Ukendt"
+    return f"CPU {cpu}; GPU {gpu}; RAM {ram}; lager {storage_text}"
 
 
-def option_line(row: dict, label: str) -> str:
-    return f"[{label}]({row['url']}) — **{row['ask_t1']} kr.** — {short_specs(row)}"
+def fair_value_proxy(row: dict, ranked: list[dict]) -> int | None:
+    """Current-live cohort proxy, never a replacement for ASK.
+
+    Requires at least three other verified complete PCs with approximately the same
+    CPU/GPU performance band. This intentionally avoids pretending that a single ASK
+    is independent market-value evidence.
+    """
+    gpu = int(row.get("gpu_score") or 0)
+    cpu = int(row.get("cpu_score") or 0)
+    comps = [
+        int(x["ask_t1"])
+        for x in ranked
+        if x.get("listing_id") != row.get("listing_id")
+        and isinstance(x.get("ask_t1"), int)
+        and abs(int(x.get("gpu_score") or 0) - gpu) <= 6
+        and abs(int(x.get("cpu_score") or 0) - cpu) <= 12
+    ]
+    if len(comps) < 3:
+        return None
+    return int(round(statistics.median(comps) / 50.0) * 50)
+
+
+def bid_model(row: dict, ranked: list[dict]) -> dict:
+    ask = int(row["ask_t1"])
+    fair = fair_value_proxy(row, ranked)
+    anchor = min(ask, fair) if fair else ask
+    start = max(100, int(round(anchor * 0.82 / 50.0) * 50))
+    target = max(start, int(round(anchor * 0.90 / 50.0) * 50))
+    hard_max = min(ask, fair) if fair else ask
+    good_deal = int(round(fair * 0.90 / 50.0) * 50) if fair else None
+    return {
+        "fair_value_proxy": fair,
+        "good_deal": good_deal,
+        "start_bid": start,
+        "target": target,
+        "hard_max": hard_max,
+        "method": "Live verified same-run cohort median" if fair else "ASK-relative negotiation only; insufficient same-band live comps for fair-value proxy",
+    }
+
+
+def choose_best_bidcase(ranked: list[dict]) -> dict | None:
+    if not ranked:
+        return None
+    with_models = [(r, bid_model(r, ranked)) for r in ranked]
+    with_fair = [(r, b) for r, b in with_models if b["fair_value_proxy"] is not None]
+    if with_fair:
+        return max(with_fair, key=lambda rb: (rb[1]["fair_value_proxy"] - int(rb[0]["ask_t1"]), -int(rb[0]["ask_t1"])))[0]
+    return ranked[0]
 
 
 def main() -> None:
     d = json.loads(MAIN.read_text(encoding="utf-8"))
+    if d.get("gate_passed") is not True:
+        raise SystemExit("PRICE DATA GATE FAILED — report generation requires a passed source gate")
+
     ranked = d.get("ranked") or []
-    enriched = [r for r in ranked if r.get("listing_intelligence")]
-    if ranked and not enriched:
-        raise SystemExit("DECISION REPORT GATE FAILED — ranked records lack listing intelligence")
+    unresolved = d.get("potential_sweet_spots_unresolved") or []
+    rejected = d.get("rejected") or []
 
-    buy_now = next((r for r in ranked if has_route(r, "BUY_AND_USE_AS_IS")), None)
-    direct_z20 = next((r for r in ranked if has_route(r, "DIRECT_Z20_TRANSFER")), None)
-    z20_donor = next((r for r in ranked if has_route(r, "Z20_DONOR_WITH_NEW_PLATFORM")), None)
-    one_question = next((r for r in ranked if has_route(r, "Z20_TRANSFER_NEEDS_BOARD_INFO") and (r.get("listing_intelligence") or {}).get("seller_question")), None)
+    if any(not r.get("listing_intelligence") for r in ranked):
+        raise SystemExit("PUBLICATION GATE FAILED — ranked record lacks listing intelligence")
 
-    opt = d.get("complete_system_optimizer") or {}
-    ready_builds = [b for b in (opt.get("builds") or []) if b.get("status") == "READY_TO_BUY"]
-    ready_builds.sort(key=lambda b: b.get("total_price", 10**9))
-    cheapest_build = ready_builds[0] if ready_builds else None
-    long_term = next((b for b in ready_builds if b.get("upgradeability") == "EXCELLENT"), None)
+    buy_now = ranked[0] if ranked else None
+    cheapest_sufficient = ranked[0] if ranked else None
+    best_bid = choose_best_bidcase(ranked)
+
+    for r in ranked:
+        r["bid_model"] = bid_model(r, ranked)
 
     d["decision_summary"] = {
-        "policy": "Present mutually understandable purchase routes. Listing description evidence informs hardware/fit only; T1 ASK remains the sole ranked price.",
-        "buy_and_use_listing_id": buy_now.get("listing_id") if buy_now else None,
-        "direct_z20_listing_id": direct_z20.get("listing_id") if direct_z20 else None,
-        "z20_donor_listing_id": z20_donor.get("listing_id") if z20_donor else None,
-        "one_question_listing_id": one_question.get("listing_id") if one_question else None,
-        "cheapest_ready_build_total": cheapest_build.get("total_price") if cheapest_build else None,
-        "long_term_ready_build_total": long_term.get("total_price") if long_term else None,
+        "policy": "Complete ready-to-use PCs only. Price-first among candidates that pass live T0/T1 identity, status, price and WoW performance gates.",
+        "buy_now_listing_id": buy_now.get("listing_id") if buy_now else None,
+        "cheapest_sufficient_listing_id": cheapest_sufficient.get("listing_id") if cheapest_sufficient else None,
+        "best_bidcase_listing_id": best_bid.get("listing_id") if best_bid else None,
+        "self_build": False,
+        "donor_builds": False,
+        "component_procurement": False,
     }
     MAIN.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    cov = d.get("coverage") or {}
+    dcov = cov.get("discovery") or {}
+    tcov = cov.get("t1") or {}
+    source_gate = d.get("source_gate") or {}
+
     lines = [
-        "# FULDT PÅLIDELIG DBA-PRISRAPPORT — BESLUTNINGSUDGAVE",
+        "# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm",
         "",
-        f"Generated: {d.get('generated_at')}",
-        f"Live verification: {d.get('coverage',{}).get('discovery',{}).get('query_completed')}/{d.get('coverage',{}).get('discovery',{}).get('query_total')} searches; {d.get('coverage',{}).get('t1',{}).get('candidate_completed')}/{d.get('coverage',{}).get('t1',{}).get('candidate_total')} T1 candidates.",
-        "Annoncebeskrivelser bruges nu til hardware-/fit-forståelse med evidens og confidence. De bruges aldrig som prisbevis.",
-        "",
-        "## Dine muligheder — først",
+        f"Dato/tid: {d.get('generated_at')}",
+        f"Data source / retrieval: {d.get('retrieval_method')}",
+        f"Struktureret discovery: {dcov.get('query_completed')}/{dcov.get('query_total')} søgninger; T1: {tcov.get('candidate_completed')}/{tcov.get('candidate_total')} kandidater.",
+        f"Same-object source gate: listing {source_gate.get('listing_id')} — T0 {source_gate.get('t0_source')} / T1 {source_gate.get('t1_source')}.",
+        f"Antal struktureret verificerede og rangerede annoncer: {len(ranked)}.",
+        "Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.",
         "",
     ]
 
     if buy_now:
-        lines += ["### 1. Billigste køb-og-spil-nu", "", option_line(buy_now, buy_now["title"]), "", scenario(buy_now), ""]
+        lines += [
+            "## Buy now",
+            "",
+            f"[{buy_now['title']}]({buy_now['url']}) — **T1 ASK {buy_now['ask_t1']} kr.** — {buy_now['performance_class']} — ID `{buy_now['listing_id']}`",
+            f"{short_specs(buy_now)}. {scenario(buy_now)}",
+            "",
+            "## Billigste tilstrækkelige",
+            "",
+            f"[{cheapest_sufficient['title']}]({cheapest_sufficient['url']}) — **{cheapest_sufficient['ask_t1']} kr.** — {cheapest_sufficient['performance_class']} — ID `{cheapest_sufficient['listing_id']}`",
+            "",
+        ]
     else:
-        lines += ["### 1. Billigste køb-og-spil-nu", "", "Ingen verificeret kandidat.", ""]
+        lines += ["## Buy now", "", "Ingen kandidat bestod performance- og datagates.", ""]
 
-    lines += ["### 2. Direkte flytning til Jonsbo Z20", ""]
-    if direct_z20:
-        intel = direct_z20["listing_intelligence"]
-        lines += [option_line(direct_z20, direct_z20["title"]), "", f"Board fit: **{intel['motherboard_z20_fit']['value']}** ({intel['motherboard_z20_fit']['confidence']}). Route status: **{route_status(direct_z20,'DIRECT_Z20_TRANSFER')}**.", ""]
-    else:
-        lines += ["Ingen komplet PC har endnu annoncebevist mATX/ITX + tilstrækkelig evidens til at være en direkte transfer-route.", ""]
-
-    lines += ["### 3. Bedste donor / køb og genbrug", ""]
-    donor_pick = z20_donor or one_question
-    if donor_pick:
-        intel = donor_pick["listing_intelligence"]
-        lines += [option_line(donor_pick, donor_pick["title"]), "", "Mulige genbrugsdele vurderes fra den konkrete beskrivelse. Modellen gør ikke ukendt hardware til bevist kompatibilitet.", ""]
-        if intel.get("seller_question"):
-            lines += [f"**Ét spørgsmål kan afklare ruten:** {intel['seller_question']}", ""]
-    else:
-        lines += ["Ingen stærk donor-route blandt de aktuelt rangerede kandidater.", ""]
-
-    lines += ["### 4. Sikker komplet Z20-løsning", ""]
-    if cheapest_build:
-        lines += [f"**{cheapest_build['total_price']} kr. — {cheapest_build['route']} — {cheapest_build['cpu']} + {cheapest_build['gpu']} — upgrade {cheapest_build['upgradeability']}**", ""]
-    else:
-        lines += ["Ingen komplet READY_TO_BUY build i optimizerens aktuelle evidens.", ""]
-    if long_term:
-        lines += [f"Langsigtet platformvalg: **{long_term['total_price']} kr. — {long_term['route']} — {long_term['cpu']} + {long_term['gpu']}**.", ""]
+    if best_bid:
+        b = best_bid["bid_model"]
+        fair = f"{b['fair_value_proxy']} kr." if b["fair_value_proxy"] is not None else "ikke estimeret (for få live same-band comps)"
+        good = f"{b['good_deal']} kr." if b["good_deal"] is not None else "ikke estimeret"
+        lines += [
+            "## Bedste budcase",
+            "",
+            f"[{best_bid['title']}]({best_bid['url']}) — **ASK {best_bid['ask_t1']} kr.** — ID `{best_bid['listing_id']}`",
+            f"Fair-value proxy: {fair}; good-deal niveau: {good}; startbud: **{b['start_bid']} kr.**; target: **{b['target']} kr.**; hard max: **{b['hard_max']} kr.**.",
+            f"Metode: {b['method']}.",
+            "",
+        ]
 
     lines += [
-        "## Top 10 komplette PC'er — hvad kan du faktisk gøre?",
+        "## Ranked shortlist — pris først",
         "",
-        "| # | ASK | PC | CPU | GPU | Board | Z20 | Upgrade | Mulighed | Mangler / næste handling |",
-        "|---:|---:|---|---|---|---|---|---|---|---|",
+        "| # | T1 ASK | PC / direkte DBA-link | Listing ID | Specs | Klasse | Rationale |",
+        "|---:|---:|---|---|---|---|---|",
     ]
-    for i, r in enumerate(ranked[:10], 1):
-        intel = r.get("listing_intelligence") or {}
-        routes = intel.get("routes") or []
-        route_names = ", ".join(x.get("route", "") for x in routes[:3]) or "Ingen"
-        board_fit = (intel.get("motherboard_z20_fit") or {}).get("value", "UNVERIFIED")
-        upg = (intel.get("upgradeability") or {}).get("class", "UNVERIFIED")
-        missing = intel.get("seller_question") or ", ".join(intel.get("missing_facts") or []) or "Ingen kritisk annonceoplysning"
+    for i, r in enumerate(ranked[:TOP_N], 1):
         lines.append(
-            f"| {i} | {r['ask_t1']} kr. | [{r['title']}]({r['url']}) | {evidence_value(r,'cpu',r.get('cpu','Ukendt'))} | {evidence_value(r,'gpu',r.get('gpu','Ukendt'))} | {evidence_value(r,'motherboard')} | {board_fit} | {upg} | {route_names} | {missing} |"
+            f"| {i} | {r['ask_t1']} kr. | [{r['title']}]({r['url']}) | {r['listing_id']} | {short_specs(r)} | {r['performance_class']} | {scenario(r)} |"
         )
 
-    lines += ["", "## Evidens pr. Top 10", ""]
-    for i, r in enumerate(ranked[:10], 1):
+    lines += ["", "## Evidensmatrix", "", "| PC | CPU-evidens | GPU-evidens | RAM | T0→T1 pris | Status |", "|---|---|---|---|---|---|"]
+    for r in ranked[:TOP_N]:
         intel = r.get("listing_intelligence") or {}
-        lines += [f"### {i}. [{r['title']}]({r['url']}) — {r['ask_t1']} kr.", ""]
-        for key, label in (("cpu","CPU"),("gpu","GPU"),("motherboard","Bundkort"),("ram","RAM"),("psu","PSU"),("case","Kabinet")):
-            obj = intel.get(key) or {}
-            lines.append(f"- **{label}:** {obj.get('value') or 'Ukendt'} — {obj.get('confidence','UNKNOWN')} — evidens: {obj.get('evidence') or 'ikke angivet'}")
-        storage = intel.get("storage") or []
-        if storage:
-            lines.append("- **Lager:** " + "; ".join(f"{x.get('value')} ({x.get('confidence')})" for x in storage))
-        lines.append(f"- **WoW-scenarie:** {scenario(r)}")
-        if intel.get("seller_question"):
-            lines.append(f"- **Spørg sælger:** {intel['seller_question']}")
-        lines.append("")
+        cpu = intel.get("cpu") or {}
+        gpu = intel.get("gpu") or {}
+        ram = intel.get("ram") or {}
+        price = f"{r.get('ask_t0')}→{r.get('ask_t1')} kr." + (" (ændret)" if r.get("price_changed") else "")
+        lines.append(
+            f"| [{r['title']}]({r['url']}) | {cpu.get('value') or 'Ukendt'} / {cpu.get('confidence','UNKNOWN')} | {gpu.get('value') or 'Ukendt'} / {gpu.get('confidence','UNKNOWN')} | {ram.get('value') or 'Ukendt'} | {price} | {r.get('status')} |"
+        )
+
+    lines += ["", "## WoW-scenarier", ""]
+    for r in ranked[:min(8, TOP_N)]:
+        lines.append(f"- [{r['title']}]({r['url']}) — **{r['performance_class']}**: {scenario(r)}")
+
+    lines += ["", "## Budmodel", "", "ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate og ændrer aldrig ASK.", "", "| PC | ASK | Fair-value proxy | Good deal | Startbud | Target | Hard max |", "|---|---:|---:|---:|---:|---:|---:|"]
+    for r in ranked[:min(8, TOP_N)]:
+        b = r["bid_model"]
+        fair = f"{b['fair_value_proxy']} kr." if b["fair_value_proxy"] is not None else "—"
+        good = f"{b['good_deal']} kr." if b["good_deal"] is not None else "—"
+        lines.append(f"| [{r['title']}]({r['url']}) | {r['ask_t1']} kr. | {fair} | {good} | {b['start_bid']} kr. | {b['target']} kr. | {b['hard_max']} kr. |")
+
+    lines += ["", "## Leads — ikke rangeret", ""]
+    if unresolved:
+        for r in unresolved[:20]:
+            lines.append(f"- [{r['title']}]({r['url']}) — ID `{r['listing_id']}` — {r.get('resolution_reason','SPEC_EVIDENCE_UNRESOLVED')}. Ikke med i prisrankingen.")
+    else:
+        lines.append("Ingen uafklarede complete-PC leads i denne kørsel.")
+
+    lines += ["", "## Objektive diskvalifikationer", ""]
+    reason_counts = d.get("rejection_reason_counts") or {}
+    if reason_counts:
+        for reason, count in sorted(reason_counts.items(), key=lambda x: (-x[1], x[0])):
+            lines.append(f"- {reason}: {count}")
+    else:
+        lines.append("Ingen objektive diskvalifikationer registreret.")
+
+    lines += ["", "## Konklusion", ""]
+    if buy_now:
+        lines.append(f"Pris-først-valget er [{buy_now['title']}]({buy_now['url']}) til **{buy_now['ask_t1']} kr.**, fordi den er den billigste live T1-verificerede komplette PC, der består WoW-performancegaten.")
+    else:
+        lines.append("Ingen verificeret komplet PC bestod alle gates i denne kørsel; derfor gives ingen købskandidat.")
 
     REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(json.dumps({"decision_report": True, "ranked_with_intelligence": len(enriched), "buy_now": buy_now.get("listing_id") if buy_now else None, "direct_z20": direct_z20.get("listing_id") if direct_z20 else None}, ensure_ascii=False))
+    print(json.dumps({"decision_report": True, "ranked": len(ranked), "buy_now": buy_now.get("listing_id") if buy_now else None, "best_bidcase": best_bid.get("listing_id") if best_bid else None}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
