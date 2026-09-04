@@ -1,6 +1,6 @@
 {
   "model_version": "DBA-WOW-PRICE-FIRST-COMPLETE-PC-V14",
-  "generated_at": "2026-09-04T15:30:08.028833+00:00",
+  "generated_at": "2026-09-04T16:23:59.635121+00:00",
   "gate_passed": true,
   "retrieval_method": "Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1",
   "ranking_policy": "Verified complete PCs clearing the WoW performance gate are ranked strictly price-first. Cheap unresolved complete systems remain visible but unranked.",
@@ -24,17 +24,23 @@
       "complete": true,
       "recovery_used": true,
       "recovered_queries": [
+        "gaming pc",
+        "gamer pc",
+        "gaming computer",
         "rx 6600 xt"
       ],
       "primary_failed_queries": [
+        "gaming pc",
+        "gamer pc",
+        "gaming computer",
         "rx 6600 xt"
       ],
       "fallback_query_timeout_seconds": 35,
       "fallback_total_deadline_seconds": 180
     },
     "t1": {
-      "candidate_total": 428,
-      "candidate_completed": 428,
+      "candidate_total": 430,
+      "candidate_completed": 430,
       "candidate_fetch_errors": 0,
       "missing_listing_ids": [],
       "deadline_exceeded": false,
@@ -56,8 +62,8 @@
     "status": "https://schema.org/InStock",
     "t0_source": "rendered_dba_card",
     "t1_source": "dba_jsonld_product_all_scripts",
-    "t0_at": "2026-09-04T15:21:26.942933+00:00",
-    "t1_at": "2026-09-04T15:22:21.870724+00:00"
+    "t0_at": "2026-09-04T16:13:54.604705+00:00",
+    "t1_at": "2026-09-04T16:15:04.852911+00:00"
   },
   "price_binding_regression": {
     "ok": true,
@@ -67,10 +73,10 @@
   },
   "counts": {
     "queries": 36,
-    "t0_unique": 781,
-    "t0_to_t1": 428,
+    "t0_unique": 782,
+    "t0_to_t1": 430,
     "ranked": 36,
-    "potential_sweet_spot_unresolved": 247,
+    "potential_sweet_spot_unresolved": 249,
     "rejected": 145,
     "search_timeouts_or_errors": 0,
     "t1_timeouts_or_errors": 0
@@ -97,8 +103,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.090809+00:00",
-      "t1_at": "2026-09-04T15:22:31.157950+00:00",
+      "t0_at": "2026-09-04T16:14:12.222837+00:00",
+      "t1_at": "2026-09-04T16:15:16.312632+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -211,8 +217,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.791005+00:00",
-      "t1_at": "2026-09-04T15:22:38.268191+00:00",
+      "t0_at": "2026-09-04T16:13:54.608754+00:00",
+      "t1_at": "2026-09-04T16:15:24.205914+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -321,8 +327,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:33.715288+00:00",
-      "t1_at": "2026-09-04T15:22:43.193104+00:00",
+      "t0_at": "2026-09-04T16:14:04.953441+00:00",
+      "t1_at": "2026-09-04T16:15:29.852521+00:00",
       "source_queries": [
         "rtx 2080",
         "rtx 2080 super"
@@ -436,8 +442,8 @@
       "a3_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113776+00:00",
-      "t1_at": "2026-09-04T15:22:47.623910+00:00",
+      "t0_at": "2026-09-04T16:13:31.281199+00:00",
+      "t1_at": "2026-09-04T16:15:34.896603+00:00",
       "source_queries": [
         "legion gaming",
         "rtx 3060",
@@ -546,8 +552,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.942899+00:00",
-      "t1_at": "2026-09-04T15:22:47.777825+00:00",
+      "t0_at": "2026-09-04T16:13:54.604676+00:00",
+      "t1_at": "2026-09-04T16:15:35.172028+00:00",
       "source_queries": [
         "rtx 2070"
       ],
@@ -655,8 +661,8 @@
       "a3_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.250725+00:00",
-      "t1_at": "2026-09-04T15:22:49.370850+00:00",
+      "t0_at": "2026-09-04T16:13:55.300444+00:00",
+      "t1_at": "2026-09-04T16:15:39.861984+00:00",
       "source_queries": [
         "nitro gaming",
         "rtx 3060"
@@ -765,8 +771,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.947183+00:00",
-      "t1_at": "2026-09-04T15:28:59.917524+00:00",
+      "t0_at": "2026-09-04T16:14:25.019705+00:00",
+      "t1_at": "2026-09-04T16:22:42.502319+00:00",
       "source_queries": [
         "gamer pc",
         "rx 6700",
@@ -879,8 +885,8 @@
       "a3_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321538+00:00",
-      "t1_at": "2026-09-04T15:22:56.203536+00:00",
+      "t0_at": "2026-09-04T16:13:30.987908+00:00",
+      "t1_at": "2026-09-04T16:15:44.458593+00:00",
       "source_queries": [
         "gaming laptop",
         "legion gaming",
@@ -992,8 +998,8 @@
       "a3_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.455407+00:00",
-      "t1_at": "2026-09-04T15:29:04.509216+00:00",
+      "t0_at": "2026-09-04T16:13:53.713804+00:00",
+      "t1_at": "2026-09-04T16:22:48.489590+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -1095,8 +1101,8 @@
       "a3_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.738111+00:00",
-      "t1_at": "2026-09-04T15:22:51.800535+00:00",
+      "t0_at": "2026-09-04T16:13:42.816886+00:00",
+      "t1_at": "2026-09-04T16:15:41.371599+00:00",
       "source_queries": [
         "predator gaming",
         "rtx 2070",
@@ -1206,8 +1212,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.943481+00:00",
-      "t1_at": "2026-09-04T15:28:55.137648+00:00",
+      "t0_at": "2026-09-04T16:13:54.608844+00:00",
+      "t1_at": "2026-09-04T16:22:34.255739+00:00",
       "source_queries": [
         "rtx 2070"
       ],
@@ -1314,8 +1320,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.332432+00:00",
-      "t1_at": "2026-09-04T15:23:00.043420+00:00",
+      "t0_at": "2026-09-04T16:13:52.261805+00:00",
+      "t1_at": "2026-09-04T16:15:52.783619+00:00",
       "source_queries": [
         "rtx 2060 super"
       ],
@@ -1422,8 +1428,8 @@
       "a3_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.112988+00:00",
-      "t1_at": "2026-09-04T15:23:05.313108+00:00",
+      "t0_at": "2026-09-04T16:13:31.267503+00:00",
+      "t1_at": "2026-09-04T16:15:54.354059+00:00",
       "source_queries": [
         "gaming pc",
         "nitro gaming",
@@ -1553,8 +1559,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.463790+00:00",
-      "t1_at": "2026-09-04T15:23:01.262755+00:00",
+      "t0_at": "2026-09-04T16:14:05.921085+00:00",
+      "t1_at": "2026-09-04T16:15:52.236910+00:00",
       "source_queries": [
         "hurtig handel gaming",
         "rtx 3060",
@@ -1669,8 +1675,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.374266+00:00",
-      "t1_at": "2026-09-04T15:23:04.742016+00:00",
+      "t0_at": "2026-09-04T16:14:04.953582+00:00",
+      "t1_at": "2026-09-04T16:15:54.735783+00:00",
       "source_queries": [
         "gaming computer",
         "mm vision",
@@ -1780,8 +1786,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382529+00:00",
-      "t1_at": "2026-09-04T15:29:36.530883+00:00",
+      "t0_at": "2026-09-04T16:13:54.619519+00:00",
+      "t1_at": "2026-09-04T16:23:22.148265+00:00",
       "source_queries": [
         "gaming computer",
         "rtx 2070"
@@ -1889,8 +1895,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.332489+00:00",
-      "t1_at": "2026-09-04T15:23:22.678962+00:00",
+      "t0_at": "2026-09-04T16:13:52.261853+00:00",
+      "t1_at": "2026-09-04T16:16:15.668186+00:00",
       "source_queries": [
         "rtx 2060 super"
       ],
@@ -2005,10 +2011,9 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608724+00:00",
-      "t1_at": "2026-09-04T15:23:33.909675+00:00",
+      "t0_at": "2026-09-04T16:14:05.921027+00:00",
+      "t1_at": "2026-09-04T16:16:31.110558+00:00",
       "source_queries": [
-        "gaming pc",
         "rtx 3060",
         "rtx 3060 ti"
       ],
@@ -2128,8 +2133,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:34.609874+00:00",
-      "t1_at": "2026-09-04T15:23:32.391004+00:00",
+      "t0_at": "2026-09-04T16:14:05.835382+00:00",
+      "t1_at": "2026-09-04T16:16:29.186185+00:00",
       "source_queries": [
         "rtx 2080"
       ],
@@ -2248,8 +2253,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.759316+00:00",
-      "t1_at": "2026-09-04T15:30:05.108876+00:00",
+      "t0_at": "2026-09-04T16:14:08.810381+00:00",
+      "t1_at": "2026-09-04T16:23:56.973563+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ],
@@ -2362,8 +2367,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.062224+00:00",
-      "t1_at": "2026-09-04T15:23:40.966518+00:00",
+      "t0_at": "2026-09-04T16:14:29.202778+00:00",
+      "t1_at": "2026-09-04T16:16:39.428678+00:00",
       "source_queries": [
         "rtx 4060"
       ],
@@ -2476,8 +2481,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.475945+00:00",
-      "t1_at": "2026-09-04T15:23:45.766888+00:00",
+      "t0_at": "2026-09-04T16:14:05.930412+00:00",
+      "t1_at": "2026-09-04T16:16:45.141557+00:00",
       "source_queries": [
         "rtx 3060"
       ],
@@ -2584,8 +2589,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.475989+00:00",
-      "t1_at": "2026-09-04T15:23:42.823854+00:00",
+      "t0_at": "2026-09-04T16:14:05.930446+00:00",
+      "t1_at": "2026-09-04T16:16:43.957732+00:00",
       "source_queries": [
         "rtx 3060"
       ],
@@ -2692,8 +2697,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946155+00:00",
-      "t1_at": "2026-09-04T15:23:52.666327+00:00",
+      "t0_at": "2026-09-04T16:14:12.222093+00:00",
+      "t1_at": "2026-09-04T16:16:51.925602+00:00",
       "source_queries": [
         "gamer pc",
         "rtx 3070",
@@ -2808,8 +2813,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.790865+00:00",
-      "t1_at": "2026-09-04T15:23:53.275899+00:00",
+      "t0_at": "2026-09-04T16:13:54.604448+00:00",
+      "t1_at": "2026-09-04T16:16:52.018523+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -2918,8 +2923,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.062336+00:00",
-      "t1_at": "2026-09-04T15:23:54.984999+00:00",
+      "t0_at": "2026-09-04T16:14:29.202898+00:00",
+      "t1_at": "2026-09-04T16:16:56.214933+00:00",
       "source_queries": [
         "hurtig handel gaming",
         "rtx 4060"
@@ -3032,8 +3037,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.268275+00:00",
-      "t1_at": "2026-09-04T15:24:04.751407+00:00",
+      "t0_at": "2026-09-04T16:14:27.333562+00:00",
+      "t1_at": "2026-09-04T16:17:04.072813+00:00",
       "source_queries": [
         "rtx 3080"
       ],
@@ -3146,8 +3151,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.090890+00:00",
-      "t1_at": "2026-09-04T15:24:11.912068+00:00",
+      "t0_at": "2026-09-04T16:14:12.222922+00:00",
+      "t1_at": "2026-09-04T16:17:12.548761+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -3260,8 +3265,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.601768+00:00",
-      "t1_at": "2026-09-04T15:24:21.997802+00:00",
+      "t0_at": "2026-09-04T16:14:29.190795+00:00",
+      "t1_at": "2026-09-04T16:17:25.183737+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 4060"
@@ -3375,8 +3380,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.268414+00:00",
-      "t1_at": "2026-09-04T15:24:30.769592+00:00",
+      "t0_at": "2026-09-04T16:14:27.333699+00:00",
+      "t1_at": "2026-09-04T16:17:35.118516+00:00",
       "source_queries": [
         "rtx 3080"
       ],
@@ -3489,8 +3494,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456973+00:00",
-      "t1_at": "2026-09-04T15:24:30.321661+00:00",
+      "t0_at": "2026-09-04T16:13:53.723476+00:00",
+      "t1_at": "2026-09-04T16:17:35.881179+00:00",
       "source_queries": [
         "msi gamer",
         "rtx 3070",
@@ -3605,8 +3610,8 @@
       "a3_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:14.892566+00:00",
-      "t1_at": "2026-09-04T15:24:35.587794+00:00",
+      "t0_at": "2026-09-04T16:13:41.366819+00:00",
+      "t1_at": "2026-09-04T16:17:38.202946+00:00",
       "source_queries": [
         "omen gaming",
         "rtx 4060",
@@ -3721,8 +3726,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.061933+00:00",
-      "t1_at": "2026-09-04T15:24:37.393543+00:00",
+      "t0_at": "2026-09-04T16:14:17.344483+00:00",
+      "t1_at": "2026-09-04T16:17:40.472651+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
@@ -3836,8 +3841,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.062459+00:00",
-      "t1_at": "2026-09-04T15:24:41.238146+00:00",
+      "t0_at": "2026-09-04T16:14:17.344809+00:00",
+      "t1_at": "2026-09-04T16:17:47.351605+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
@@ -3950,8 +3955,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.267686+00:00",
-      "t1_at": "2026-09-04T15:24:46.398191+00:00",
+      "t0_at": "2026-09-04T16:14:27.332662+00:00",
+      "t1_at": "2026-09-04T16:17:50.294918+00:00",
       "source_queries": [
         "rtx 3080"
       ],
@@ -4064,8 +4069,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.268209+00:00",
-      "t1_at": "2026-09-04T15:24:55.265997+00:00",
+      "t0_at": "2026-09-04T16:14:27.333484+00:00",
+      "t1_at": "2026-09-04T16:17:59.713620+00:00",
       "source_queries": [
         "rtx 3080"
       ],
@@ -4177,8 +4182,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373914+00:00",
-      "t1_at": "2026-09-04T15:24:55.959929+00:00",
+      "t0_at": "2026-09-04T16:13:31.280912+00:00",
+      "t1_at": "2026-09-04T16:18:04.946584+00:00",
       "source_queries": [
         "gaming computer",
         "stationær gaming"
@@ -4273,8 +4278,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.965721+00:00",
-      "t1_at": "2026-09-04T15:25:05.012809+00:00",
+      "t0_at": "2026-09-04T16:14:41.608250+00:00",
+      "t1_at": "2026-09-04T16:18:16.119935+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -4375,8 +4380,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321862+00:00",
-      "t1_at": "2026-09-04T15:25:12.795298+00:00",
+      "t0_at": "2026-09-04T16:13:30.993378+00:00",
+      "t1_at": "2026-09-04T16:18:21.739933+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -4464,8 +4469,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321218+00:00",
-      "t1_at": "2026-09-04T15:25:13.506830+00:00",
+      "t0_at": "2026-09-04T16:13:30.987568+00:00",
+      "t1_at": "2026-09-04T16:18:23.056318+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -4560,8 +4565,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321599+00:00",
-      "t1_at": "2026-09-04T15:25:21.375140+00:00",
+      "t0_at": "2026-09-04T16:13:30.987987+00:00",
+      "t1_at": "2026-09-04T16:18:32.909859+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -4649,8 +4654,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.947313+00:00",
-      "t1_at": "2026-09-04T15:25:29.017069+00:00",
+      "t0_at": "2026-09-04T16:14:41.607077+00:00",
+      "t1_at": "2026-09-04T16:18:41.405932+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -4744,8 +4749,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113103+00:00",
-      "t1_at": "2026-09-04T15:25:28.677680+00:00",
+      "t0_at": "2026-09-04T16:13:31.280424+00:00",
+      "t1_at": "2026-09-04T16:18:43.010552+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -4839,8 +4844,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.114239+00:00",
-      "t1_at": "2026-09-04T15:25:33.799688+00:00",
+      "t0_at": "2026-09-04T16:13:31.288776+00:00",
+      "t1_at": "2026-09-04T16:18:45.502622+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -4933,8 +4938,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:16.422797+00:00",
-      "t1_at": "2026-09-04T15:25:42.258255+00:00",
+      "t0_at": "2026-09-04T16:13:41.601980+00:00",
+      "t1_at": "2026-09-04T16:18:52.824696+00:00",
       "source_queries": [
         "legion gaming"
       ],
@@ -5028,8 +5033,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113668+00:00",
-      "t1_at": "2026-09-04T15:25:42.652752+00:00",
+      "t0_at": "2026-09-04T16:13:31.281076+00:00",
+      "t1_at": "2026-09-04T16:18:54.959179+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -5123,8 +5128,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321505+00:00",
-      "t1_at": "2026-09-04T15:25:44.068114+00:00",
+      "t0_at": "2026-09-04T16:13:30.987864+00:00",
+      "t1_at": "2026-09-04T16:18:58.653110+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -5212,8 +5217,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.374181+00:00",
-      "t1_at": "2026-09-04T15:25:45.479641+00:00",
+      "t0_at": "2026-09-04T16:13:31.281105+00:00",
+      "t1_at": "2026-09-04T16:19:00.125735+00:00",
       "source_queries": [
         "gaming computer",
         "stationær gaming"
@@ -5308,8 +5313,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.947037+00:00",
-      "t1_at": "2026-09-04T15:25:47.907029+00:00",
+      "t0_at": "2026-09-04T16:14:41.606745+00:00",
+      "t1_at": "2026-09-04T16:19:00.828836+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -5408,8 +5413,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.597297+00:00",
-      "t1_at": "2026-09-04T15:25:49.873217+00:00",
+      "t0_at": "2026-09-04T16:14:39.197800+00:00",
+      "t1_at": "2026-09-04T16:19:03.558016+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -5503,8 +5508,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456208+00:00",
-      "t1_at": "2026-09-04T15:25:51.997539+00:00",
+      "t0_at": "2026-09-04T16:13:53.714534+00:00",
+      "t1_at": "2026-09-04T16:19:03.375649+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -5592,8 +5597,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.112864+00:00",
-      "t1_at": "2026-09-04T15:25:52.386250+00:00",
+      "t0_at": "2026-09-04T16:13:31.267337+00:00",
+      "t1_at": "2026-09-04T16:19:04.591747+00:00",
       "source_queries": [
         "gaming pc",
         "stationær gaming"
@@ -5688,8 +5693,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969599+00:00",
-      "t1_at": "2026-09-04T15:25:53.376760+00:00",
+      "t0_at": "2026-09-04T16:13:31.579380+00:00",
+      "t1_at": "2026-09-04T16:19:07.765559+00:00",
       "source_queries": [
         "gaming bærbar"
       ],
@@ -5777,8 +5782,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456301+00:00",
-      "t1_at": "2026-09-04T15:25:54.570865+00:00",
+      "t0_at": "2026-09-04T16:13:53.714632+00:00",
+      "t1_at": "2026-09-04T16:19:09.551573+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -5872,8 +5877,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969322+00:00",
-      "t1_at": "2026-09-04T15:25:56.336340+00:00",
+      "t0_at": "2026-09-04T16:13:31.579218+00:00",
+      "t1_at": "2026-09-04T16:19:10.645409+00:00",
       "source_queries": [
         "gaming bærbar"
       ],
@@ -5961,8 +5966,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456047+00:00",
-      "t1_at": "2026-09-04T15:25:58.650327+00:00",
+      "t0_at": "2026-09-04T16:13:53.714314+00:00",
+      "t1_at": "2026-09-04T16:19:13.218097+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -6063,8 +6068,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946983+00:00",
-      "t1_at": "2026-09-04T15:26:01.627873+00:00",
+      "t0_at": "2026-09-04T16:13:53.713940+00:00",
+      "t1_at": "2026-09-04T16:19:14.599823+00:00",
       "source_queries": [
         "gamer pc",
         "msi gamer"
@@ -6159,8 +6164,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.602148+00:00",
-      "t1_at": "2026-09-04T15:26:01.719751+00:00",
+      "t0_at": "2026-09-04T16:14:34.993895+00:00",
+      "t1_at": "2026-09-04T16:19:17.201564+00:00",
       "source_queries": [
         "gaming pc",
         "skal væk gaming"
@@ -6255,8 +6260,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.601796+00:00",
-      "t1_at": "2026-09-04T15:26:01.829907+00:00",
+      "t0_at": "2026-09-04T16:14:34.991575+00:00",
+      "t1_at": "2026-09-04T16:19:17.747627+00:00",
       "source_queries": [
         "gaming pc",
         "skal væk gaming"
@@ -6351,8 +6356,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.947014+00:00",
-      "t1_at": "2026-09-04T15:26:03.676161+00:00",
+      "t0_at": "2026-09-04T16:14:41.606721+00:00",
+      "t1_at": "2026-09-04T16:19:19.896136+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -6446,8 +6451,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382607+00:00",
-      "t1_at": "2026-09-04T15:26:04.582711+00:00",
+      "t0_at": "2026-09-04T16:14:43.888004+00:00",
+      "t1_at": "2026-09-04T16:19:20.126656+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -6541,8 +6546,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.975147+00:00",
-      "t1_at": "2026-09-04T15:26:07.460813+00:00",
+      "t0_at": "2026-09-04T16:13:31.580079+00:00",
+      "t1_at": "2026-09-04T16:19:23.601291+00:00",
       "source_queries": [
         "gaming bærbar",
         "msi gamer",
@@ -6632,8 +6637,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.455975+00:00",
-      "t1_at": "2026-09-04T15:26:10.768786+00:00",
+      "t0_at": "2026-09-04T16:13:53.714179+00:00",
+      "t1_at": "2026-09-04T16:19:23.930784+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -6727,8 +6732,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456185+00:00",
-      "t1_at": "2026-09-04T15:26:10.407274+00:00",
+      "t0_at": "2026-09-04T16:13:53.714501+00:00",
+      "t1_at": "2026-09-04T16:19:28.675776+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -6822,8 +6827,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321001+00:00",
-      "t1_at": "2026-09-04T15:26:13.338640+00:00",
+      "t0_at": "2026-09-04T16:13:30.987286+00:00",
+      "t1_at": "2026-09-04T16:19:29.493575+00:00",
       "source_queries": [
         "gaming laptop",
         "hurtig handel gaming"
@@ -6912,8 +6917,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.602118+00:00",
-      "t1_at": "2026-09-04T15:26:13.146036+00:00",
+      "t0_at": "2026-09-04T16:14:39.198491+00:00",
+      "t1_at": "2026-09-04T16:19:30.229366+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -7007,8 +7012,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:55.515198+00:00",
-      "t1_at": "2026-09-04T15:26:14.306936+00:00",
+      "t0_at": "2026-09-04T16:14:34.994057+00:00",
+      "t1_at": "2026-09-04T16:19:30.844554+00:00",
       "source_queries": [
         "skal væk gaming"
       ],
@@ -7102,8 +7107,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946406+00:00",
-      "t1_at": "2026-09-04T15:26:14.737157+00:00",
+      "t0_at": "2026-09-04T16:13:53.713835+00:00",
+      "t1_at": "2026-09-04T16:19:33.078496+00:00",
       "source_queries": [
         "gamer pc",
         "msi gamer"
@@ -7204,8 +7209,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.486253+00:00",
-      "t1_at": "2026-09-04T15:26:16.347160+00:00",
+      "t0_at": "2026-09-04T16:13:56.677481+00:00",
+      "t1_at": "2026-09-04T16:19:33.326571+00:00",
       "source_queries": [
         "sharkgaming"
       ],
@@ -7299,10 +7304,105 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382773+00:00",
-      "t1_at": "2026-09-04T15:26:18.953747+00:00",
+      "t0_at": "2026-09-04T16:14:43.888170+00:00",
+      "t1_at": "2026-09-04T16:19:34.548176+00:00",
       "source_queries": [
         "gaming computer"
+      ],
+      "listing_intelligence": {
+        "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
+        "cpu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "cpu_score": 0,
+        "gpu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "gpu_score": 0,
+        "motherboard": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "motherboard_z20_fit": {
+          "value": "UNVERIFIED",
+          "confidence": "UNKNOWN",
+          "source": "FULL_TEXT",
+          "evidence": "Motherboard form factor is not proven in listing text"
+        },
+        "ram": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "storage": [],
+        "psu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "case": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "oem_family": null,
+        "performance_class": "UNRESOLVED",
+        "upgradeability": {
+          "class": "UNVERIFIED",
+          "reason": "Platform/socket is not proven by the listing."
+        },
+        "missing_facts": [
+          "CPU",
+          "GPU",
+          "motherboard",
+          "RAM",
+          "PSU"
+        ],
+        "seller_question": "Hvilket bundkort sidder der i computeren (mærke og model)?",
+        "routes": [
+          {
+            "route": "Z20_TRANSFER_NEEDS_BOARD_INFO",
+            "status": "HIGH_POTENTIAL",
+            "rationale": "Price/performance can still be attractive; motherboard form factor is the key missing fact."
+          }
+        ],
+        "description_available": true
+      },
+      "description_aware_resolution": "UNRESOLVED"
+    },
+    {
+      "listing_id": "24611962",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24611962",
+      "title": "\\u{d83d}\\u{dd25} NYBEGYNDER NYRENOVERET GAMING PC SÆLGES \\u{d83d}",
+      "ask_t0": 1995,
+      "ask_t1": 1995,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "category": "",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
+      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-04T16:14:39.197833+00:00",
+      "t1_at": "2026-09-04T16:19:40.083503+00:00",
+      "source_queries": [
+        "gaming pc"
       ],
       "listing_intelligence": {
         "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
@@ -7394,8 +7494,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.250959+00:00",
-      "t1_at": "2026-09-04T15:26:22.428963+00:00",
+      "t0_at": "2026-09-04T16:13:55.300708+00:00",
+      "t1_at": "2026-09-04T16:19:40.932439+00:00",
       "source_queries": [
         "nitro gaming"
       ],
@@ -7496,8 +7596,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969527+00:00",
-      "t1_at": "2026-09-04T15:26:23.644746+00:00",
+      "t0_at": "2026-09-04T16:13:31.579300+00:00",
+      "t1_at": "2026-09-04T16:19:42.926532+00:00",
       "source_queries": [
         "gaming bærbar"
       ],
@@ -7585,8 +7685,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321188+00:00",
-      "t1_at": "2026-09-04T15:26:24.158853+00:00",
+      "t0_at": "2026-09-04T16:13:30.987531+00:00",
+      "t1_at": "2026-09-04T16:19:43.064739+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -7680,8 +7780,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:55.613969+00:00",
-      "t1_at": "2026-09-04T15:26:27.081908+00:00",
+      "t0_at": "2026-09-04T16:14:35.255837+00:00",
+      "t1_at": "2026-09-04T16:19:47.016242+00:00",
       "source_queries": [
         "hurtig handel gaming"
       ],
@@ -7782,8 +7882,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321407+00:00",
-      "t1_at": "2026-09-04T15:26:27.916860+00:00",
+      "t0_at": "2026-09-04T16:13:30.987740+00:00",
+      "t1_at": "2026-09-04T16:19:48.799785+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -7871,8 +7971,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382560+00:00",
-      "t1_at": "2026-09-04T15:26:28.988976+00:00",
+      "t0_at": "2026-09-04T16:13:31.282289+00:00",
+      "t1_at": "2026-09-04T16:19:50.398500+00:00",
       "source_queries": [
         "dutzo",
         "gaming computer",
@@ -7975,8 +8075,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113217+00:00",
-      "t1_at": "2026-09-04T15:26:32.535793+00:00",
+      "t0_at": "2026-09-04T16:13:31.280607+00:00",
+      "t1_at": "2026-09-04T16:19:51.583264+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -8077,8 +8177,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.602093+00:00",
-      "t1_at": "2026-09-04T15:26:33.016140+00:00",
+      "t0_at": "2026-09-04T16:14:39.198474+00:00",
+      "t1_at": "2026-09-04T16:19:52.290881+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -8172,8 +8272,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.790830+00:00",
-      "t1_at": "2026-09-04T15:22:22.445867+00:00",
+      "t0_at": "2026-09-04T16:13:54.604415+00:00",
+      "t1_at": "2026-09-04T16:15:06.084622+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -8267,8 +8367,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456163+00:00",
-      "t1_at": "2026-09-04T15:26:33.660474+00:00",
+      "t0_at": "2026-09-04T16:13:53.714467+00:00",
+      "t1_at": "2026-09-04T16:19:53.512633+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -8361,8 +8461,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:55.614461+00:00",
-      "t1_at": "2026-09-04T15:26:34.107748+00:00",
+      "t0_at": "2026-09-04T16:14:35.258696+00:00",
+      "t1_at": "2026-09-04T16:19:56.799174+00:00",
       "source_queries": [
         "hurtig handel gaming"
       ],
@@ -8456,8 +8556,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:16.420524+00:00",
-      "t1_at": "2026-09-04T15:26:35.947996+00:00",
+      "t0_at": "2026-09-04T16:13:41.601418+00:00",
+      "t1_at": "2026-09-04T16:19:59.208711+00:00",
       "source_queries": [
         "legion gaming"
       ],
@@ -8551,8 +8651,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.114147+00:00",
-      "t1_at": "2026-09-04T15:26:41.271443+00:00",
+      "t0_at": "2026-09-04T16:13:31.288648+00:00",
+      "t1_at": "2026-09-04T16:20:01.776720+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -8636,37 +8736,37 @@
       "description_aware_resolution": "UNRESOLVED"
     },
     {
-      "listing_id": "14026004",
-      "url": "https://www.dba.dk/recommerce/forsale/item/14026004",
-      "title": "Gamer pc sælges billigt",
-      "ask_t0": 2395,
-      "ask_t1": 2395,
+      "listing_id": "24524851",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24524851",
+      "title": "Gaming PC + tastatur og mus",
+      "ask_t0": 2300,
+      "ask_t1": 2300,
       "currency": "DKK",
       "price_changed": false,
       "status": "https://schema.org/InStock",
       "category": "",
       "gpu": "Ukendt",
       "gpu_score": 0,
-      "cpu": "Core i5-10400",
-      "cpu_score": 65,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
       "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
-      "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
+      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.965864+00:00",
-      "t1_at": "2026-09-04T15:26:42.209732+00:00",
+      "t0_at": "2026-09-04T16:14:43.886304+00:00",
+      "t1_at": "2026-09-04T16:20:03.767118+00:00",
       "source_queries": [
-        "gamer pc"
+        "gaming computer"
       ],
       "listing_intelligence": {
         "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
         "cpu": {
-          "value": "Core i5-10400",
-          "confidence": "VERIFIED",
-          "source": "DESCRIPTION",
-          "evidence": "* Intel Core i5-10400F"
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
         },
-        "cpu_score": 65,
+        "cpu_score": 0,
         "gpu": {
           "value": null,
           "confidence": "UNKNOWN",
@@ -8687,10 +8787,10 @@
           "evidence": "Motherboard form factor is not proven in listing text"
         },
         "ram": {
-          "value": "8 GB DDR4",
-          "confidence": "VERIFIED",
-          "source": "DESCRIPTION",
-          "evidence": "* 8GB DDR4 RAM 2666 MHz"
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
         },
         "storage": [],
         "psu": {
@@ -8705,15 +8805,17 @@
           "source": "NONE",
           "evidence": ""
         },
-        "oem_family": null,
+        "oem_family": "HP Pavilion",
         "performance_class": "UNRESOLVED",
         "upgradeability": {
-          "class": "LIMITED",
-          "reason": "LGA1200 is effectively end-of-line."
+          "class": "UNVERIFIED",
+          "reason": "Platform/socket is not proven by the listing."
         },
         "missing_facts": [
+          "CPU",
           "GPU",
           "motherboard",
+          "RAM",
           "PSU"
         ],
         "seller_question": "Hvilket bundkort sidder der i computeren (mærke og model)?",
@@ -8746,8 +8848,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373703+00:00",
-      "t1_at": "2026-09-04T15:26:42.198325+00:00",
+      "t0_at": "2026-09-04T16:14:43.886791+00:00",
+      "t1_at": "2026-09-04T16:20:04.215516+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -8841,8 +8943,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321967+00:00",
-      "t1_at": "2026-09-04T15:26:42.832782+00:00",
+      "t0_at": "2026-09-04T16:13:30.993567+00:00",
+      "t1_at": "2026-09-04T16:20:05.912713+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -8930,8 +9032,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113270+00:00",
-      "t1_at": "2026-09-04T15:26:45.407343+00:00",
+      "t0_at": "2026-09-04T16:13:31.280675+00:00",
+      "t1_at": "2026-09-04T16:20:08.392502+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -9025,8 +9127,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373560+00:00",
-      "t1_at": "2026-09-04T15:26:44.632014+00:00",
+      "t0_at": "2026-09-04T16:14:43.886597+00:00",
+      "t1_at": "2026-09-04T16:20:10.399714+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -9120,8 +9222,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321105+00:00",
-      "t1_at": "2026-09-04T15:26:47.300091+00:00",
+      "t0_at": "2026-09-04T16:13:30.987420+00:00",
+      "t1_at": "2026-09-04T16:20:11.802565+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -9216,8 +9318,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382343+00:00",
-      "t1_at": "2026-09-04T15:26:50.911860+00:00",
+      "t0_at": "2026-09-04T16:14:43.887787+00:00",
+      "t1_at": "2026-09-04T16:20:12.241516+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -9311,8 +9413,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.353159+00:00",
-      "t1_at": "2026-09-04T15:26:51.460212+00:00",
+      "t0_at": "2026-09-04T16:13:52.262317+00:00",
+      "t1_at": "2026-09-04T16:20:13.247269+00:00",
       "source_queries": [
         "rtx 2060 super",
         "rtx 2070",
@@ -9408,8 +9510,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.601688+00:00",
-      "t1_at": "2026-09-04T15:26:51.839551+00:00",
+      "t0_at": "2026-09-04T16:14:39.198205+00:00",
+      "t1_at": "2026-09-04T16:20:13.619568+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -9503,8 +9605,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382424+00:00",
-      "t1_at": "2026-09-04T15:26:52.313714+00:00",
+      "t0_at": "2026-09-04T16:14:43.887853+00:00",
+      "t1_at": "2026-09-04T16:20:16.379311+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -9598,8 +9700,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.486522+00:00",
-      "t1_at": "2026-09-04T15:26:53.436698+00:00",
+      "t0_at": "2026-09-04T16:13:56.677773+00:00",
+      "t1_at": "2026-09-04T16:20:19.546568+00:00",
       "source_queries": [
         "sharkgaming"
       ],
@@ -9682,95 +9784,6 @@
       "description_aware_resolution": "UNRESOLVED"
     },
     {
-      "listing_id": "23473632",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23473632",
-      "title": "ASUS ROG STRIX GL703GM gaming laptop",
-      "ask_t0": 2500,
-      "ask_t1": 2500,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "category": "",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
-      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321812+00:00",
-      "t1_at": "2026-09-04T15:26:54.518609+00:00",
-      "source_queries": [
-        "gaming laptop"
-      ],
-      "listing_intelligence": {
-        "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
-        "cpu": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "cpu_score": 0,
-        "gpu": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "gpu_score": 0,
-        "motherboard": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "motherboard_z20_fit": {
-          "value": "UNVERIFIED",
-          "confidence": "UNKNOWN",
-          "source": "FULL_TEXT",
-          "evidence": "Motherboard form factor is not proven in listing text"
-        },
-        "ram": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "storage": [],
-        "psu": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "case": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "oem_family": null,
-        "performance_class": "UNRESOLVED",
-        "upgradeability": {
-          "class": "UNVERIFIED",
-          "reason": "Platform/socket is not proven by the listing."
-        },
-        "missing_facts": [
-          "CPU",
-          "GPU",
-          "motherboard",
-          "RAM",
-          "PSU"
-        ],
-        "seller_question": null,
-        "routes": [],
-        "description_available": true
-      },
-      "description_aware_resolution": "UNRESOLVED"
-    },
-    {
       "listing_id": "23758299",
       "url": "https://www.dba.dk/recommerce/forsale/item/23758299",
       "title": "MSI stationær gamer pc hvid",
@@ -9788,8 +9801,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456232+00:00",
-      "t1_at": "2026-09-04T15:27:00.254901+00:00",
+      "t0_at": "2026-09-04T16:13:53.714564+00:00",
+      "t1_at": "2026-09-04T16:20:20.848288+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -9883,8 +9896,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.742927+00:00",
-      "t1_at": "2026-09-04T15:27:00.484923+00:00",
+      "t0_at": "2026-09-04T16:13:42.822001+00:00",
+      "t1_at": "2026-09-04T16:20:21.350346+00:00",
       "source_queries": [
         "predator gaming"
       ],
@@ -9978,8 +9991,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.947154+00:00",
-      "t1_at": "2026-09-04T15:27:01.414229+00:00",
+      "t0_at": "2026-09-04T16:14:41.606865+00:00",
+      "t1_at": "2026-09-04T16:20:22.035534+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -10073,8 +10086,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.947126+00:00",
-      "t1_at": "2026-09-04T15:27:02.026885+00:00",
+      "t0_at": "2026-09-04T16:14:41.606838+00:00",
+      "t1_at": "2026-09-04T16:20:24.960513+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -10174,8 +10187,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946958+00:00",
-      "t1_at": "2026-09-04T15:27:02.886200+00:00",
+      "t0_at": "2026-09-04T16:14:41.606663+00:00",
+      "t1_at": "2026-09-04T16:20:28.599575+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -10269,8 +10282,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946543+00:00",
-      "t1_at": "2026-09-04T15:27:03.370994+00:00",
+      "t0_at": "2026-09-04T16:14:41.606131+00:00",
+      "t1_at": "2026-09-04T16:20:29.987322+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -10364,8 +10377,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946238+00:00",
-      "t1_at": "2026-09-04T15:27:03.470279+00:00",
+      "t0_at": "2026-09-04T16:14:39.198164+00:00",
+      "t1_at": "2026-09-04T16:20:32.110564+00:00",
       "source_queries": [
         "gamer pc",
         "gaming pc"
@@ -10460,8 +10473,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.597500+00:00",
-      "t1_at": "2026-09-04T15:27:06.382333+00:00",
+      "t0_at": "2026-09-04T16:13:54.608778+00:00",
+      "t1_at": "2026-09-04T16:20:32.481520+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 2070"
@@ -10556,8 +10569,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.738048+00:00",
-      "t1_at": "2026-09-04T15:27:08.935512+00:00",
+      "t0_at": "2026-09-04T16:13:42.816807+00:00",
+      "t1_at": "2026-09-04T16:20:32.241327+00:00",
       "source_queries": [
         "predator gaming"
       ],
@@ -10651,8 +10664,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382143+00:00",
-      "t1_at": "2026-09-04T15:27:09.794142+00:00",
+      "t0_at": "2026-09-04T16:13:31.281790+00:00",
+      "t1_at": "2026-09-04T16:20:32.301887+00:00",
       "source_queries": [
         "gaming computer",
         "stationær gaming"
@@ -10753,8 +10766,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.965669+00:00",
-      "t1_at": "2026-09-04T15:27:10.404971+00:00",
+      "t0_at": "2026-09-04T16:14:41.608198+00:00",
+      "t1_at": "2026-09-04T16:20:34.960546+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -10847,8 +10860,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.947336+00:00",
-      "t1_at": "2026-09-04T15:27:12.709398+00:00",
+      "t0_at": "2026-09-04T16:14:41.607103+00:00",
+      "t1_at": "2026-09-04T16:20:39.063684+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -10942,8 +10955,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608581+00:00",
-      "t1_at": "2026-09-04T15:27:13.031824+00:00",
+      "t0_at": "2026-09-04T16:14:39.198893+00:00",
+      "t1_at": "2026-09-04T16:20:40.503451+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -11037,8 +11050,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.602217+00:00",
-      "t1_at": "2026-09-04T15:27:17.063893+00:00",
+      "t0_at": "2026-09-04T16:14:39.198559+00:00",
+      "t1_at": "2026-09-04T16:20:41.688024+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -11132,8 +11145,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.251182+00:00",
-      "t1_at": "2026-09-04T15:27:18.056114+00:00",
+      "t0_at": "2026-09-04T16:13:55.300935+00:00",
+      "t1_at": "2026-09-04T16:20:42.323022+00:00",
       "source_queries": [
         "nitro gaming"
       ],
@@ -11232,8 +11245,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321704+00:00",
-      "t1_at": "2026-09-04T15:22:22.421432+00:00",
+      "t0_at": "2026-09-04T16:13:30.988968+00:00",
+      "t1_at": "2026-09-04T16:15:06.290505+00:00",
       "source_queries": [
         "gaming laptop",
         "rtx 2070"
@@ -11321,8 +11334,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:16.423673+00:00",
-      "t1_at": "2026-09-04T15:27:20.139290+00:00",
+      "t0_at": "2026-09-04T16:13:41.609918+00:00",
+      "t1_at": "2026-09-04T16:20:44.746644+00:00",
       "source_queries": [
         "legion gaming"
       ],
@@ -11416,8 +11429,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.320941+00:00",
-      "t1_at": "2026-09-04T15:27:22.231840+00:00",
+      "t0_at": "2026-09-04T16:13:30.987212+00:00",
+      "t1_at": "2026-09-04T16:20:44.818541+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -11512,8 +11525,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373490+00:00",
-      "t1_at": "2026-09-04T15:27:22.959837+00:00",
+      "t0_at": "2026-09-04T16:13:31.267535+00:00",
+      "t1_at": "2026-09-04T16:20:47.776089+00:00",
       "source_queries": [
         "gaming computer",
         "stationær gaming"
@@ -11606,8 +11619,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.597320+00:00",
-      "t1_at": "2026-09-04T15:27:22.330779+00:00",
+      "t0_at": "2026-09-04T16:13:52.262282+00:00",
+      "t1_at": "2026-09-04T16:20:49.502564+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 2060 super"
@@ -11702,8 +11715,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.486494+00:00",
-      "t1_at": "2026-09-04T15:27:25.074710+00:00",
+      "t0_at": "2026-09-04T16:13:56.677739+00:00",
+      "t1_at": "2026-09-04T16:20:52.562879+00:00",
       "source_queries": [
         "sharkgaming"
       ],
@@ -11797,8 +11810,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456444+00:00",
-      "t1_at": "2026-09-04T15:27:24.408825+00:00",
+      "t0_at": "2026-09-04T16:13:53.714789+00:00",
+      "t1_at": "2026-09-04T16:20:51.951539+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -11892,8 +11905,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969276+00:00",
-      "t1_at": "2026-09-04T15:27:24.567992+00:00",
+      "t0_at": "2026-09-04T16:13:31.579116+00:00",
+      "t1_at": "2026-09-04T16:20:53.871507+00:00",
       "source_queries": [
         "gaming bærbar"
       ],
@@ -11981,8 +11994,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.114209+00:00",
-      "t1_at": "2026-09-04T15:27:25.584880+00:00",
+      "t0_at": "2026-09-04T16:13:31.288731+00:00",
+      "t1_at": "2026-09-04T16:20:53.328360+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -12076,8 +12089,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.332665+00:00",
-      "t1_at": "2026-09-04T15:27:28.515039+00:00",
+      "t0_at": "2026-09-04T16:13:52.262065+00:00",
+      "t1_at": "2026-09-04T16:20:54.554069+00:00",
       "source_queries": [
         "rtx 2060 super",
         "rtx 3070"
@@ -12172,8 +12185,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373943+00:00",
-      "t1_at": "2026-09-04T15:27:30.108011+00:00",
+      "t0_at": "2026-09-04T16:13:31.280983+00:00",
+      "t1_at": "2026-09-04T16:20:58.996552+00:00",
       "source_queries": [
         "gaming computer",
         "mm vision",
@@ -12269,8 +12282,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.486279+00:00",
-      "t1_at": "2026-09-04T15:27:32.047222+00:00",
+      "t0_at": "2026-09-04T16:13:42.816733+00:00",
+      "t1_at": "2026-09-04T16:20:58.875930+00:00",
       "source_queries": [
         "predator gaming",
         "sharkgaming"
@@ -12365,8 +12378,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.353211+00:00",
-      "t1_at": "2026-09-04T15:27:33.331994+00:00",
+      "t0_at": "2026-09-04T16:13:52.262380+00:00",
+      "t1_at": "2026-09-04T16:21:02.521643+00:00",
       "source_queries": [
         "rtx 2060 super"
       ],
@@ -12460,8 +12473,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.968968+00:00",
-      "t1_at": "2026-09-04T15:27:33.784898+00:00",
+      "t0_at": "2026-09-04T16:13:31.571804+00:00",
+      "t1_at": "2026-09-04T16:21:02.647931+00:00",
       "source_queries": [
         "gaming bærbar",
         "nitro gaming"
@@ -12550,8 +12563,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.943961+00:00",
-      "t1_at": "2026-09-04T15:27:36.006747+00:00",
+      "t0_at": "2026-09-04T16:13:54.619610+00:00",
+      "t1_at": "2026-09-04T16:21:04.159621+00:00",
       "source_queries": [
         "rtx 2070"
       ],
@@ -12645,8 +12658,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.322148+00:00",
-      "t1_at": "2026-09-04T15:27:37.087884+00:00",
+      "t0_at": "2026-09-04T16:13:30.993773+00:00",
+      "t1_at": "2026-09-04T16:21:04.842216+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -12734,8 +12747,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.742645+00:00",
-      "t1_at": "2026-09-04T15:27:38.944891+00:00",
+      "t0_at": "2026-09-04T16:13:42.817377+00:00",
+      "t1_at": "2026-09-04T16:21:06.420702+00:00",
       "source_queries": [
         "predator gaming"
       ],
@@ -12829,8 +12842,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:24.956511+00:00",
-      "t1_at": "2026-09-04T15:27:38.738039+00:00",
+      "t0_at": "2026-09-04T16:13:43.942724+00:00",
+      "t1_at": "2026-09-04T16:21:09.156563+00:00",
       "source_queries": [
         "dutzo"
       ],
@@ -12924,8 +12937,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:55.513799+00:00",
-      "t1_at": "2026-09-04T15:27:41.792963+00:00",
+      "t0_at": "2026-09-04T16:14:34.991428+00:00",
+      "t1_at": "2026-09-04T16:21:09.102256+00:00",
       "source_queries": [
         "skal væk gaming"
       ],
@@ -13019,8 +13032,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.374127+00:00",
-      "t1_at": "2026-09-04T15:27:42.752851+00:00",
+      "t0_at": "2026-09-04T16:14:43.887262+00:00",
+      "t1_at": "2026-09-04T16:21:11.405614+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -13114,8 +13127,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321034+00:00",
-      "t1_at": "2026-09-04T15:27:43.157945+00:00",
+      "t0_at": "2026-09-04T16:13:30.987329+00:00",
+      "t1_at": "2026-09-04T16:21:12.565428+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -13216,8 +13229,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373780+00:00",
-      "t1_at": "2026-09-04T15:27:43.953765+00:00",
+      "t0_at": "2026-09-04T16:13:56.677897+00:00",
+      "t1_at": "2026-09-04T16:21:12.591302+00:00",
       "source_queries": [
         "gaming computer",
         "sharkgaming"
@@ -13312,8 +13325,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113322+00:00",
-      "t1_at": "2026-09-04T15:27:44.593149+00:00",
+      "t0_at": "2026-09-04T16:13:31.280740+00:00",
+      "t1_at": "2026-09-04T16:21:14.566423+00:00",
       "source_queries": [
         "gamer pc",
         "sharkgaming",
@@ -13409,8 +13422,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113068+00:00",
-      "t1_at": "2026-09-04T15:27:45.085461+00:00",
+      "t0_at": "2026-09-04T16:13:31.280366+00:00",
+      "t1_at": "2026-09-04T16:21:15.187979+00:00",
       "source_queries": [
         "gaming pc",
         "stationær gaming"
@@ -13505,8 +13518,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.975547+00:00",
-      "t1_at": "2026-09-04T15:27:46.520927+00:00",
+      "t0_at": "2026-09-04T16:13:30.987172+00:00",
+      "t1_at": "2026-09-04T16:21:16.354726+00:00",
       "source_queries": [
         "gaming bærbar",
         "gaming laptop"
@@ -13595,8 +13608,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373227+00:00",
-      "t1_at": "2026-09-04T15:27:48.408528+00:00",
+      "t0_at": "2026-09-04T16:13:31.280551+00:00",
+      "t1_at": "2026-09-04T16:21:19.432737+00:00",
       "source_queries": [
         "gaming computer",
         "hurtig handel gaming",
@@ -13692,8 +13705,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946343+00:00",
-      "t1_at": "2026-09-04T15:27:51.583836+00:00",
+      "t0_at": "2026-09-04T16:14:41.605957+00:00",
+      "t1_at": "2026-09-04T16:21:18.457826+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -13800,8 +13813,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.322182+00:00",
-      "t1_at": "2026-09-04T15:27:52.696629+00:00",
+      "t0_at": "2026-09-04T16:13:30.993821+00:00",
+      "t1_at": "2026-09-04T16:21:21.388602+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -13889,8 +13902,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969019+00:00",
-      "t1_at": "2026-09-04T15:27:52.596559+00:00",
+      "t0_at": "2026-09-04T16:13:31.571874+00:00",
+      "t1_at": "2026-09-04T16:21:24.700869+00:00",
       "source_queries": [
         "gaming bærbar"
       ],
@@ -13978,8 +13991,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946265+00:00",
-      "t1_at": "2026-09-04T15:27:54.836313+00:00",
+      "t0_at": "2026-09-04T16:14:41.605879+00:00",
+      "t1_at": "2026-09-04T16:21:26.959143+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -14073,8 +14086,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.892971+00:00",
-      "t1_at": "2026-09-04T15:27:56.565247+00:00",
+      "t0_at": "2026-09-04T16:14:05.180640+00:00",
+      "t1_at": "2026-09-04T16:21:28.605029+00:00",
       "source_queries": [
         "mm vision"
       ],
@@ -14175,8 +14188,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946898+00:00",
-      "t1_at": "2026-09-04T15:28:00.395466+00:00",
+      "t0_at": "2026-09-04T16:13:53.713910+00:00",
+      "t1_at": "2026-09-04T16:21:30.039295+00:00",
       "source_queries": [
         "gamer pc",
         "msi gamer"
@@ -14277,8 +14290,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456395+00:00",
-      "t1_at": "2026-09-04T15:28:01.013569+00:00",
+      "t0_at": "2026-09-04T16:13:53.714728+00:00",
+      "t1_at": "2026-09-04T16:21:31.259654+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -14372,8 +14385,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:55.519979+00:00",
-      "t1_at": "2026-09-04T15:28:02.191206+00:00",
+      "t0_at": "2026-09-04T16:14:34.994739+00:00",
+      "t1_at": "2026-09-04T16:21:32.723531+00:00",
       "source_queries": [
         "skal væk gaming"
       ],
@@ -14467,8 +14480,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.467956+00:00",
-      "t1_at": "2026-09-04T15:28:02.044471+00:00",
+      "t0_at": "2026-09-04T16:13:53.723637+00:00",
+      "t1_at": "2026-09-04T16:21:34.242137+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -14562,8 +14575,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:55.614243+00:00",
-      "t1_at": "2026-09-04T15:28:02.565097+00:00",
+      "t0_at": "2026-09-04T16:14:35.256036+00:00",
+      "t1_at": "2026-09-04T16:21:34.359642+00:00",
       "source_queries": [
         "hurtig handel gaming"
       ],
@@ -14657,8 +14670,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.965412+00:00",
-      "t1_at": "2026-09-04T15:28:02.868893+00:00",
+      "t0_at": "2026-09-04T16:14:41.607125+00:00",
+      "t1_at": "2026-09-04T16:21:35.758560+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -14752,8 +14765,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969683+00:00",
-      "t1_at": "2026-09-04T15:28:03.798714+00:00",
+      "t0_at": "2026-09-04T16:13:31.579481+00:00",
+      "t1_at": "2026-09-04T16:21:36.648242+00:00",
       "source_queries": [
         "gaming bærbar"
       ],
@@ -14844,8 +14857,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.791079+00:00",
-      "t1_at": "2026-09-04T15:28:04.077802+00:00",
+      "t0_at": "2026-09-04T16:13:54.619227+00:00",
+      "t1_at": "2026-09-04T16:21:38.407544+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -14941,8 +14954,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:16.423703+00:00",
-      "t1_at": "2026-09-04T15:28:09.860407+00:00",
+      "t0_at": "2026-09-04T16:13:41.609953+00:00",
+      "t1_at": "2026-09-04T16:21:41.027941+00:00",
       "source_queries": [
         "legion gaming"
       ],
@@ -15036,8 +15049,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.486147+00:00",
-      "t1_at": "2026-09-04T15:28:10.699645+00:00",
+      "t0_at": "2026-09-04T16:13:56.677383+00:00",
+      "t1_at": "2026-09-04T16:21:44.055601+00:00",
       "source_queries": [
         "sharkgaming"
       ],
@@ -15131,8 +15144,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382228+00:00",
-      "t1_at": "2026-09-04T15:28:11.241796+00:00",
+      "t0_at": "2026-09-04T16:13:31.572065+00:00",
+      "t1_at": "2026-09-04T16:21:44.089574+00:00",
       "source_queries": [
         "gaming bærbar",
         "gaming computer"
@@ -15228,8 +15241,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.759095+00:00",
-      "t1_at": "2026-09-04T15:28:12.321485+00:00",
+      "t0_at": "2026-09-04T16:14:08.806976+00:00",
+      "t1_at": "2026-09-04T16:21:46.061533+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ],
@@ -15317,8 +15330,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113352+00:00",
-      "t1_at": "2026-09-04T15:28:13.574787+00:00",
+      "t0_at": "2026-09-04T16:13:31.280778+00:00",
+      "t1_at": "2026-09-04T16:21:46.807896+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -15412,8 +15425,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946826+00:00",
-      "t1_at": "2026-09-04T15:28:13.967027+00:00",
+      "t0_at": "2026-09-04T16:14:41.606507+00:00",
+      "t1_at": "2026-09-04T16:21:48.471326+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -15507,8 +15520,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:34.610852+00:00",
-      "t1_at": "2026-09-04T15:28:15.161182+00:00",
+      "t0_at": "2026-09-04T16:14:05.836543+00:00",
+      "t1_at": "2026-09-04T16:21:49.976953+00:00",
       "source_queries": [
         "rtx 2080"
       ],
@@ -15601,8 +15614,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969072+00:00",
-      "t1_at": "2026-09-04T15:22:33.594074+00:00",
+      "t0_at": "2026-09-04T16:13:31.571968+00:00",
+      "t1_at": "2026-09-04T16:15:17.737185+00:00",
       "source_queries": [
         "gaming bærbar",
         "rtx 3060"
@@ -15673,6 +15686,103 @@
       "description_aware_resolution": "UNRESOLVED"
     },
     {
+      "listing_id": "24611443",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24611443",
+      "title": "Lenovo Legion stationær gaming pc",
+      "ask_t0": 3700,
+      "ask_t1": 3700,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "category": "",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
+      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-04T16:13:31.267266+00:00",
+      "t1_at": "2026-09-04T16:21:55.151289+00:00",
+      "source_queries": [
+        "gaming pc",
+        "legion gaming",
+        "stationær gaming"
+      ],
+      "listing_intelligence": {
+        "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
+        "cpu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "cpu_score": 0,
+        "gpu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "gpu_score": 0,
+        "motherboard": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "motherboard_z20_fit": {
+          "value": "UNVERIFIED",
+          "confidence": "UNKNOWN",
+          "source": "FULL_TEXT",
+          "evidence": "Motherboard form factor is not proven in listing text"
+        },
+        "ram": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "storage": [],
+        "psu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "case": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "oem_family": "Lenovo Legion",
+        "performance_class": "UNRESOLVED",
+        "upgradeability": {
+          "class": "UNVERIFIED",
+          "reason": "Platform/socket is not proven by the listing."
+        },
+        "missing_facts": [
+          "CPU",
+          "GPU",
+          "motherboard",
+          "RAM",
+          "PSU"
+        ],
+        "seller_question": "Hvilket bundkort sidder der i computeren (mærke og model)?",
+        "routes": [
+          {
+            "route": "Z20_TRANSFER_NEEDS_BOARD_INFO",
+            "status": "HIGH_POTENTIAL",
+            "rationale": "Price/performance can still be attractive; motherboard form factor is the key missing fact."
+          }
+        ],
+        "description_available": true
+      },
+      "description_aware_resolution": "UNRESOLVED"
+    },
+    {
       "listing_id": "24129263",
       "url": "https://www.dba.dk/recommerce/forsale/item/24129263",
       "title": "Acer Nitro 5 bærbar gaming computer 15,6\" sort HASTER",
@@ -15690,8 +15800,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.374352+00:00",
-      "t1_at": "2026-09-04T15:28:20.936521+00:00",
+      "t0_at": "2026-09-04T16:13:31.572003+00:00",
+      "t1_at": "2026-09-04T16:21:53.656471+00:00",
       "source_queries": [
         "gaming bærbar",
         "gaming computer",
@@ -15781,8 +15891,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373656+00:00",
-      "t1_at": "2026-09-04T15:28:20.821339+00:00",
+      "t0_at": "2026-09-04T16:14:43.886735+00:00",
+      "t1_at": "2026-09-04T16:21:55.977560+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -15876,8 +15986,103 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.965697+00:00",
-      "t1_at": "2026-09-04T15:28:21.804913+00:00",
+      "t0_at": "2026-09-04T16:14:41.608225+00:00",
+      "t1_at": "2026-09-04T16:21:56.932283+00:00",
+      "source_queries": [
+        "gamer pc"
+      ],
+      "listing_intelligence": {
+        "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
+        "cpu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "cpu_score": 0,
+        "gpu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "gpu_score": 0,
+        "motherboard": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "motherboard_z20_fit": {
+          "value": "UNVERIFIED",
+          "confidence": "UNKNOWN",
+          "source": "FULL_TEXT",
+          "evidence": "Motherboard form factor is not proven in listing text"
+        },
+        "ram": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "storage": [],
+        "psu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "case": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "oem_family": null,
+        "performance_class": "UNRESOLVED",
+        "upgradeability": {
+          "class": "UNVERIFIED",
+          "reason": "Platform/socket is not proven by the listing."
+        },
+        "missing_facts": [
+          "CPU",
+          "GPU",
+          "motherboard",
+          "RAM",
+          "PSU"
+        ],
+        "seller_question": "Hvilket bundkort sidder der i computeren (mærke og model)?",
+        "routes": [
+          {
+            "route": "Z20_TRANSFER_NEEDS_BOARD_INFO",
+            "status": "HIGH_POTENTIAL",
+            "rationale": "Price/performance can still be attractive; motherboard form factor is the key missing fact."
+          }
+        ],
+        "description_available": true
+      },
+      "description_aware_resolution": "UNRESOLVED"
+    },
+    {
+      "listing_id": "24612245",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24612245",
+      "title": "Gamer PC",
+      "ask_t0": 3800,
+      "ask_t1": 3800,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "category": "",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
+      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-04T16:14:41.605610+00:00",
+      "t1_at": "2026-09-04T16:21:58.297443+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -15971,8 +16176,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.322015+00:00",
-      "t1_at": "2026-09-04T15:28:23.200797+00:00",
+      "t0_at": "2026-09-04T16:13:30.993625+00:00",
+      "t1_at": "2026-09-04T16:21:58.715890+00:00",
       "source_queries": [
         "gaming laptop",
         "nitro gaming"
@@ -16061,8 +16266,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.353079+00:00",
-      "t1_at": "2026-09-04T15:28:22.861125+00:00",
+      "t0_at": "2026-09-04T16:13:52.262250+00:00",
+      "t1_at": "2026-09-04T16:22:01.769215+00:00",
       "source_queries": [
         "rtx 2060 super"
       ],
@@ -16156,11 +16361,10 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.464232+00:00",
-      "t1_at": "2026-09-04T15:22:31.742094+00:00",
+      "t0_at": "2026-09-04T16:14:05.921658+00:00",
+      "t1_at": "2026-09-04T16:15:18.399306+00:00",
       "source_queries": [
-        "rtx 3060",
-        "skal væk gaming"
+        "rtx 3060"
       ],
       "listing_intelligence": {
         "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
@@ -16251,8 +16455,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946120+00:00",
-      "t1_at": "2026-09-04T15:28:23.597831+00:00",
+      "t0_at": "2026-09-04T16:14:41.605709+00:00",
+      "t1_at": "2026-09-04T16:22:03.486379+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -16346,8 +16550,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456323+00:00",
-      "t1_at": "2026-09-04T15:28:27.559974+00:00",
+      "t0_at": "2026-09-04T16:13:53.714661+00:00",
+      "t1_at": "2026-09-04T16:22:03.527505+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -16441,8 +16645,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.601828+00:00",
-      "t1_at": "2026-09-04T15:22:32.185727+00:00",
+      "t0_at": "2026-09-04T16:13:54.604182+00:00",
+      "t1_at": "2026-09-04T16:15:17.934747+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 2070",
@@ -16537,8 +16741,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.486330+00:00",
-      "t1_at": "2026-09-04T15:28:26.117963+00:00",
+      "t0_at": "2026-09-04T16:13:56.677572+00:00",
+      "t1_at": "2026-09-04T16:22:06.148258+00:00",
       "source_queries": [
         "sharkgaming"
       ],
@@ -16632,8 +16836,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:55.613585+00:00",
-      "t1_at": "2026-09-04T15:28:29.341716+00:00",
+      "t0_at": "2026-09-04T16:14:35.255555+00:00",
+      "t1_at": "2026-09-04T16:22:07.183816+00:00",
       "source_queries": [
         "hurtig handel gaming"
       ],
@@ -16727,8 +16931,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.250857+00:00",
-      "t1_at": "2026-09-04T15:28:27.628277+00:00",
+      "t0_at": "2026-09-04T16:13:55.300592+00:00",
+      "t1_at": "2026-09-04T16:22:07.859713+00:00",
       "source_queries": [
         "nitro gaming"
       ],
@@ -16821,8 +17025,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:15.738163+00:00",
-      "t1_at": "2026-09-04T15:28:31.574085+00:00",
+      "t0_at": "2026-09-04T16:13:42.816945+00:00",
+      "t1_at": "2026-09-04T16:22:09.322505+00:00",
       "source_queries": [
         "predator gaming"
       ],
@@ -16916,8 +17120,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.251268+00:00",
-      "t1_at": "2026-09-04T15:28:32.397261+00:00",
+      "t0_at": "2026-09-04T16:13:55.301036+00:00",
+      "t1_at": "2026-09-04T16:22:11.492531+00:00",
       "source_queries": [
         "nitro gaming"
       ],
@@ -17014,8 +17218,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:51.631880+00:00",
-      "t1_at": "2026-09-04T15:22:38.671479+00:00",
+      "t0_at": "2026-09-04T16:14:33.672519+00:00",
+      "t1_at": "2026-09-04T16:15:25.330574+00:00",
       "source_queries": [
         "rx 7600"
       ],
@@ -17093,102 +17297,6 @@
       "description_aware_resolution": "UNRESOLVED"
     },
     {
-      "listing_id": "23833646",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23833646",
-      "title": "Lenovo Legion stationær gaming computer",
-      "ask_t0": 4000,
-      "ask_t1": 4000,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "category": "",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
-      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.114180+00:00",
-      "t1_at": "2026-09-04T15:28:30.841821+00:00",
-      "source_queries": [
-        "legion gaming",
-        "stationær gaming"
-      ],
-      "listing_intelligence": {
-        "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
-        "cpu": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "cpu_score": 0,
-        "gpu": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "gpu_score": 0,
-        "motherboard": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "motherboard_z20_fit": {
-          "value": "UNVERIFIED",
-          "confidence": "UNKNOWN",
-          "source": "FULL_TEXT",
-          "evidence": "Motherboard form factor is not proven in listing text"
-        },
-        "ram": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "storage": [],
-        "psu": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "case": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "oem_family": "Lenovo Legion",
-        "performance_class": "UNRESOLVED",
-        "upgradeability": {
-          "class": "UNVERIFIED",
-          "reason": "Platform/socket is not proven by the listing."
-        },
-        "missing_facts": [
-          "CPU",
-          "GPU",
-          "motherboard",
-          "RAM",
-          "PSU"
-        ],
-        "seller_question": "Hvilket bundkort sidder der i computeren (mærke og model)?",
-        "routes": [
-          {
-            "route": "Z20_TRANSFER_NEEDS_BOARD_INFO",
-            "status": "HIGH_POTENTIAL",
-            "rationale": "Price/performance can still be attractive; motherboard form factor is the key missing fact."
-          }
-        ],
-        "description_available": true
-      },
-      "description_aware_resolution": "UNRESOLVED"
-    },
-    {
       "listing_id": "23919943",
       "url": "https://www.dba.dk/recommerce/forsale/item/23919943",
       "title": "Gaming Computer – Perfekt til Fortnite, CS2 & Valorant - RTX 2060",
@@ -17206,8 +17314,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382740+00:00",
-      "t1_at": "2026-09-04T15:28:34.215997+00:00",
+      "t0_at": "2026-09-04T16:13:56.669822+00:00",
+      "t1_at": "2026-09-04T16:22:15.261152+00:00",
       "source_queries": [
         "gaming computer",
         "sharkgaming"
@@ -17302,8 +17410,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.476385+00:00",
-      "t1_at": "2026-09-04T15:28:36.714552+00:00",
+      "t0_at": "2026-09-04T16:14:05.931171+00:00",
+      "t1_at": "2026-09-04T16:22:13.148225+00:00",
       "source_queries": [
         "rtx 3060"
       ],
@@ -17397,8 +17505,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608404+00:00",
-      "t1_at": "2026-09-04T15:28:37.281679+00:00",
+      "t0_at": "2026-09-04T16:13:43.942532+00:00",
+      "t1_at": "2026-09-04T16:22:17.002668+00:00",
       "source_queries": [
         "dutzo",
         "gaming pc"
@@ -17493,8 +17601,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946670+00:00",
-      "t1_at": "2026-09-04T15:28:38.157504+00:00",
+      "t0_at": "2026-09-04T16:13:52.262350+00:00",
+      "t1_at": "2026-09-04T16:22:18.157983+00:00",
       "source_queries": [
         "gamer pc",
         "mm vision",
@@ -17590,8 +17698,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.112953+00:00",
-      "t1_at": "2026-09-04T15:28:39.550099+00:00",
+      "t0_at": "2026-09-04T16:13:31.267458+00:00",
+      "t1_at": "2026-09-04T16:22:18.623530+00:00",
       "source_queries": [
         "gaming pc",
         "omen gaming",
@@ -17686,8 +17794,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.464128+00:00",
-      "t1_at": "2026-09-04T15:22:41.690600+00:00",
+      "t0_at": "2026-09-04T16:14:05.921542+00:00",
+      "t1_at": "2026-09-04T16:15:29.869880+00:00",
       "source_queries": [
         "rtx 3060"
       ],
@@ -17783,8 +17891,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608555+00:00",
-      "t1_at": "2026-09-04T15:22:41.815348+00:00",
+      "t0_at": "2026-09-04T16:13:54.604305+00:00",
+      "t1_at": "2026-09-04T16:15:29.602536+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 2070",
@@ -17888,8 +17996,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.947067+00:00",
-      "t1_at": "2026-09-04T15:22:42.011637+00:00",
+      "t0_at": "2026-09-04T16:13:52.261768+00:00",
+      "t1_at": "2026-09-04T16:15:30.605339+00:00",
       "source_queries": [
         "gamer pc",
         "rtx 2060 super",
@@ -17985,8 +18093,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382656+00:00",
-      "t1_at": "2026-09-04T15:28:43.399071+00:00",
+      "t0_at": "2026-09-04T16:13:43.968803+00:00",
+      "t1_at": "2026-09-04T16:22:22.652190+00:00",
       "source_queries": [
         "dutzo",
         "gaming computer"
@@ -18081,8 +18189,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.464020+00:00",
-      "t1_at": "2026-09-04T15:22:47.982718+00:00",
+      "t0_at": "2026-09-04T16:14:05.921386+00:00",
+      "t1_at": "2026-09-04T16:15:38.505018+00:00",
       "source_queries": [
         "rtx 3060",
         "rtx 3060 ti",
@@ -18178,8 +18286,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.765468+00:00",
-      "t1_at": "2026-09-04T15:28:45.093788+00:00",
+      "t0_at": "2026-09-04T16:14:08.810459+00:00",
+      "t1_at": "2026-09-04T16:22:23.856846+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ],
@@ -18273,8 +18381,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.892762+00:00",
-      "t1_at": "2026-09-04T15:28:44.944291+00:00",
+      "t0_at": "2026-09-04T16:14:05.180375+00:00",
+      "t1_at": "2026-09-04T16:22:27.563554+00:00",
       "source_queries": [
         "mm vision"
       ],
@@ -18368,8 +18476,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946574+00:00",
-      "t1_at": "2026-09-04T15:28:48.636279+00:00",
+      "t0_at": "2026-09-04T16:14:41.606172+00:00",
+      "t1_at": "2026-09-04T16:22:30.310497+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -18463,8 +18571,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321323+00:00",
-      "t1_at": "2026-09-04T15:28:50.488098+00:00",
+      "t0_at": "2026-09-04T16:13:30.987667+00:00",
+      "t1_at": "2026-09-04T16:22:28.886888+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -18552,8 +18660,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.332698+00:00",
-      "t1_at": "2026-09-04T15:22:50.495178+00:00",
+      "t0_at": "2026-09-04T16:13:52.262107+00:00",
+      "t1_at": "2026-09-04T16:15:39.938533+00:00",
       "source_queries": [
         "rtx 2060 super",
         "rtx 2070",
@@ -18649,8 +18757,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.374012+00:00",
-      "t1_at": "2026-09-04T15:28:51.225148+00:00",
+      "t0_at": "2026-09-04T16:14:43.887143+00:00",
+      "t1_at": "2026-09-04T16:22:31.323635+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -18744,8 +18852,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969621+00:00",
-      "t1_at": "2026-09-04T15:28:52.422713+00:00",
+      "t0_at": "2026-09-04T16:13:31.579411+00:00",
+      "t1_at": "2026-09-04T16:22:33.683099+00:00",
       "source_queries": [
         "gaming bærbar",
         "sharkgaming"
@@ -18841,8 +18949,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.322082+00:00",
-      "t1_at": "2026-09-04T15:28:53.684185+00:00",
+      "t0_at": "2026-09-04T16:13:30.993695+00:00",
+      "t1_at": "2026-09-04T16:22:38.726535+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -18930,8 +19038,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:43.978397+00:00",
-      "t1_at": "2026-09-04T15:28:54.050948+00:00",
+      "t0_at": "2026-09-04T16:14:17.765064+00:00",
+      "t1_at": "2026-09-04T16:22:38.934266+00:00",
       "source_queries": [
         "rx 5700 xt"
       ],
@@ -19025,8 +19133,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382492+00:00",
-      "t1_at": "2026-09-04T15:28:58.638211+00:00",
+      "t0_at": "2026-09-04T16:14:43.887913+00:00",
+      "t1_at": "2026-09-04T16:22:39.526028+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -19120,8 +19228,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.114265+00:00",
-      "t1_at": "2026-09-04T15:28:59.357928+00:00",
+      "t0_at": "2026-09-04T16:13:31.288807+00:00",
+      "t1_at": "2026-09-04T16:22:41.820534+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -19218,8 +19326,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.943003+00:00",
-      "t1_at": "2026-09-04T15:22:55.963773+00:00",
+      "t0_at": "2026-09-04T16:13:54.608258+00:00",
+      "t1_at": "2026-09-04T16:15:44.212726+00:00",
       "source_queries": [
         "rtx 2070"
       ],
@@ -19330,8 +19438,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.942787+00:00",
-      "t1_at": "2026-09-04T15:22:57.539824+00:00",
+      "t0_at": "2026-09-04T16:13:54.604565+00:00",
+      "t1_at": "2026-09-04T16:15:49.355898+00:00",
       "source_queries": [
         "rtx 2070"
       ],
@@ -19426,8 +19534,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373631+00:00",
-      "t1_at": "2026-09-04T15:22:56.828280+00:00",
+      "t0_at": "2026-09-04T16:14:05.180427+00:00",
+      "t1_at": "2026-09-04T16:15:48.913500+00:00",
       "source_queries": [
         "gaming computer",
         "mm vision",
@@ -19522,8 +19630,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946799+00:00",
-      "t1_at": "2026-09-04T15:29:01.516472+00:00",
+      "t0_at": "2026-09-04T16:14:41.606473+00:00",
+      "t1_at": "2026-09-04T16:22:44.380606+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -19617,8 +19725,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946731+00:00",
-      "t1_at": "2026-09-04T15:29:02.437327+00:00",
+      "t0_at": "2026-09-04T16:14:41.606382+00:00",
+      "t1_at": "2026-09-04T16:22:44.365004+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -19710,8 +19818,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946703+00:00",
-      "t1_at": "2026-09-04T15:22:58.721420+00:00",
+      "t0_at": "2026-09-04T16:14:05.835232+00:00",
+      "t1_at": "2026-09-04T16:15:47.003662+00:00",
       "source_queries": [
         "gamer pc",
         "rtx 2080"
@@ -19810,8 +19918,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373461+00:00",
-      "t1_at": "2026-09-04T15:29:03.082681+00:00",
+      "t0_at": "2026-09-04T16:14:43.886496+00:00",
+      "t1_at": "2026-09-04T16:22:48.678933+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -19905,8 +20013,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.601727+00:00",
-      "t1_at": "2026-09-04T15:29:07.330914+00:00",
+      "t0_at": "2026-09-04T16:14:39.198229+00:00",
+      "t1_at": "2026-09-04T16:22:49.564583+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -20000,8 +20108,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946298+00:00",
-      "t1_at": "2026-09-04T15:29:07.894830+00:00",
+      "t0_at": "2026-09-04T16:14:41.605922+00:00",
+      "t1_at": "2026-09-04T16:22:50.721102+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -20102,8 +20210,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.969566+00:00",
-      "t1_at": "2026-09-04T15:29:09.077028+00:00",
+      "t0_at": "2026-09-04T16:13:30.993733+00:00",
+      "t1_at": "2026-09-04T16:22:54.703530+00:00",
       "source_queries": [
         "gaming bærbar",
         "gaming laptop"
@@ -20192,8 +20300,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:34.609936+00:00",
-      "t1_at": "2026-09-04T15:23:07.645113+00:00",
+      "t0_at": "2026-09-04T16:14:05.835510+00:00",
+      "t1_at": "2026-09-04T16:15:57.238655+00:00",
       "source_queries": [
         "rtx 2080",
         "skal væk gaming"
@@ -20292,8 +20400,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456130+00:00",
-      "t1_at": "2026-09-04T15:29:10.809355+00:00",
+      "t0_at": "2026-09-04T16:13:53.714424+00:00",
+      "t1_at": "2026-09-04T16:22:57.767582+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -20381,8 +20489,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.457040+00:00",
-      "t1_at": "2026-09-04T15:29:11.683825+00:00",
+      "t0_at": "2026-09-04T16:13:53.723551+00:00",
+      "t1_at": "2026-09-04T16:22:58.187192+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -20484,8 +20592,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.895262+00:00",
-      "t1_at": "2026-09-04T15:29:13.526263+00:00",
+      "t0_at": "2026-09-04T16:14:05.181024+00:00",
+      "t1_at": "2026-09-04T16:23:00.102282+00:00",
       "source_queries": [
         "mm vision"
       ],
@@ -20580,8 +20688,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.320871+00:00",
-      "t1_at": "2026-09-04T15:23:07.722864+00:00",
+      "t0_at": "2026-09-04T16:13:30.987130+00:00",
+      "t1_at": "2026-09-04T16:15:57.356940+00:00",
       "source_queries": [
         "gaming laptop",
         "omen gaming",
@@ -20677,8 +20785,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608663+00:00",
-      "t1_at": "2026-09-04T15:29:16.477796+00:00",
+      "t0_at": "2026-09-04T16:14:39.198954+00:00",
+      "t1_at": "2026-09-04T16:23:00.673584+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -20770,8 +20878,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:24.956577+00:00",
-      "t1_at": "2026-09-04T15:29:17.784698+00:00",
+      "t0_at": "2026-09-04T16:13:43.942815+00:00",
+      "t1_at": "2026-09-04T16:23:01.629218+00:00",
       "source_queries": [
         "dutzo",
         "rtx 3060 ti"
@@ -20866,8 +20974,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.066518+00:00",
-      "t1_at": "2026-09-04T15:23:07.251213+00:00",
+      "t0_at": "2026-09-04T16:14:29.203222+00:00",
+      "t1_at": "2026-09-04T16:16:00.117892+00:00",
       "source_queries": [
         "rtx 4060"
       ],
@@ -20965,8 +21073,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.091791+00:00",
-      "t1_at": "2026-09-04T15:29:17.351471+00:00",
+      "t0_at": "2026-09-04T16:14:12.231403+00:00",
+      "t1_at": "2026-09-04T16:23:05.004066+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -21060,8 +21168,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.971982+00:00",
-      "t1_at": "2026-09-04T15:29:17.569071+00:00",
+      "t0_at": "2026-09-04T16:13:31.579560+00:00",
+      "t1_at": "2026-09-04T16:23:05.382719+00:00",
       "source_queries": [
         "gaming bærbar",
         "hurtig handel gaming",
@@ -21152,8 +21260,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:14.892888+00:00",
-      "t1_at": "2026-09-04T15:29:18.631855+00:00",
+      "t0_at": "2026-09-04T16:13:41.373417+00:00",
+      "t1_at": "2026-09-04T16:23:05.786588+00:00",
       "source_queries": [
         "omen gaming"
       ],
@@ -21247,8 +21355,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.765550+00:00",
-      "t1_at": "2026-09-04T15:29:21.764473+00:00",
+      "t0_at": "2026-09-04T16:14:08.810526+00:00",
+      "t1_at": "2026-09-04T16:23:06.813516+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ],
@@ -21342,8 +21450,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.353307+00:00",
-      "t1_at": "2026-09-04T15:29:21.308984+00:00",
+      "t0_at": "2026-09-04T16:13:52.262489+00:00",
+      "t1_at": "2026-09-04T16:23:07.882496+00:00",
       "source_queries": [
         "rtx 2060 super"
       ],
@@ -21430,8 +21538,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.062300+00:00",
-      "t1_at": "2026-09-04T15:23:09.062530+00:00",
+      "t0_at": "2026-09-04T16:14:17.344763+00:00",
+      "t1_at": "2026-09-04T16:16:01.415133+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
@@ -21513,6 +21621,117 @@
       "description_aware_resolution": "UNRESOLVED"
     },
     {
+      "listing_id": "23724318",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23724318",
+      "title": "Gaming PC – i5-12400F | RTX 4060 | 16 GB RAM | 1 TB SSD",
+      "ask_t0": 5000,
+      "ask_t1": 5000,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "category": "",
+      "gpu": "RTX 4060",
+      "gpu_score": 60,
+      "cpu": "Core i5-12400",
+      "cpu_score": 81,
+      "performance_class": "ACCEPTABLE",
+      "form_factor": "DESKTOP",
+      "case_check": "MANUAL_A3_CHECK",
+      "a3_assessment": "A3_UNCERTAIN",
+      "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-04T16:14:29.202821+00:00",
+      "t1_at": "2026-09-04T16:16:02.721867+00:00",
+      "source_queries": [
+        "rtx 4060"
+      ],
+      "listing_intelligence": {
+        "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
+        "cpu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "cpu_score": 0,
+        "gpu": {
+          "value": "RTX 4060",
+          "confidence": "VERIFIED",
+          "source": "TITLE",
+          "evidence": "Gaming PC – i5-12400F | RTX 4060 | 16 GB RAM | 1 TB SSD"
+        },
+        "gpu_score": 60,
+        "motherboard": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "motherboard_z20_fit": {
+          "value": "UNVERIFIED",
+          "confidence": "UNKNOWN",
+          "source": "FULL_TEXT",
+          "evidence": "Motherboard form factor is not proven in listing text"
+        },
+        "ram": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "storage": [
+          {
+            "value": "1 TB SSD",
+            "confidence": "VERIFIED",
+            "source": "TITLE",
+            "evidence": "Gaming PC – i5-12400F | RTX 4060 | 16 GB RAM | 1 TB SSD"
+          }
+        ],
+        "psu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "case": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "oem_family": null,
+        "performance_class": "UNRESOLVED",
+        "upgradeability": {
+          "class": "UNVERIFIED",
+          "reason": "Platform/socket is not proven by the listing."
+        },
+        "missing_facts": [
+          "CPU",
+          "motherboard",
+          "RAM",
+          "PSU"
+        ],
+        "seller_question": "Hvilket bundkort sidder der i computeren (mærke og model)?",
+        "routes": [
+          {
+            "route": "Z20_TRANSFER_NEEDS_BOARD_INFO",
+            "status": "HIGH_POTENTIAL",
+            "rationale": "Price/performance can still be attractive; motherboard form factor is the key missing fact."
+          },
+          {
+            "route": "GPU_DONOR_OPTION",
+            "status": "VIABLE",
+            "rationale": "GPU is valuable enough to remain useful even if the platform cannot transfer directly."
+          }
+        ],
+        "description_available": true
+      },
+      "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
+      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
+      "description_aware_resolution": "UNRESOLVED"
+    },
+    {
       "listing_id": "24016569",
       "url": "https://www.dba.dk/recommerce/forsale/item/24016569",
       "title": "Gamer computer",
@@ -21530,8 +21749,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.943914+00:00",
-      "t1_at": "2026-09-04T15:29:27.078784+00:00",
+      "t0_at": "2026-09-04T16:13:54.619544+00:00",
+      "t1_at": "2026-09-04T16:23:09.853755+00:00",
       "source_queries": [
         "rtx 2070"
       ],
@@ -21623,8 +21842,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113972+00:00",
-      "t1_at": "2026-09-04T15:29:27.051115+00:00",
+      "t0_at": "2026-09-04T16:13:31.281972+00:00",
+      "t1_at": "2026-09-04T16:23:14.266188+00:00",
       "source_queries": [
         "hurtig handel gaming",
         "stationær gaming"
@@ -21719,8 +21938,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.374207+00:00",
-      "t1_at": "2026-09-04T15:29:26.554093+00:00",
+      "t0_at": "2026-09-04T16:14:43.887353+00:00",
+      "t1_at": "2026-09-04T16:23:15.518840+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -21814,8 +22033,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.759280+00:00",
-      "t1_at": "2026-09-04T15:29:28.049127+00:00",
+      "t0_at": "2026-09-04T16:14:08.810353+00:00",
+      "t1_at": "2026-09-04T16:23:13.694712+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ],
@@ -21908,8 +22127,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.463951+00:00",
-      "t1_at": "2026-09-04T15:23:13.765980+00:00",
+      "t0_at": "2026-09-04T16:14:05.921289+00:00",
+      "t1_at": "2026-09-04T16:16:03.888420+00:00",
       "source_queries": [
         "rtx 3060",
         "rtx 3060 ti"
@@ -22007,8 +22226,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.965568+00:00",
-      "t1_at": "2026-09-04T15:29:29.023998+00:00",
+      "t0_at": "2026-09-04T16:14:41.608077+00:00",
+      "t1_at": "2026-09-04T16:23:17.903423+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -22102,8 +22321,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113165+00:00",
-      "t1_at": "2026-09-04T15:29:29.705282+00:00",
+      "t0_at": "2026-09-04T16:13:31.280514+00:00",
+      "t1_at": "2026-09-04T16:23:16.901822+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -22198,8 +22417,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608484+00:00",
-      "t1_at": "2026-09-04T15:23:15.114579+00:00",
+      "t0_at": "2026-09-04T16:14:29.190917+00:00",
+      "t1_at": "2026-09-04T16:16:05.114489+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 4060"
@@ -22306,8 +22525,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.602181+00:00",
-      "t1_at": "2026-09-04T15:29:31.886382+00:00",
+      "t0_at": "2026-09-04T16:14:39.198537+00:00",
+      "t1_at": "2026-09-04T16:23:19.545018+00:00",
       "source_queries": [
         "gaming pc"
       ],
@@ -22401,10 +22620,11 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.975267+00:00",
-      "t1_at": "2026-09-04T15:23:14.859033+00:00",
+      "t0_at": "2026-09-04T16:13:30.994175+00:00",
+      "t1_at": "2026-09-04T16:16:06.950647+00:00",
       "source_queries": [
         "gaming bærbar",
+        "gaming laptop",
         "gaming pc",
         "legion gaming",
         "rtx 3070"
@@ -22502,8 +22722,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.601595+00:00",
-      "t1_at": "2026-09-04T15:23:11.663505+00:00",
+      "t0_at": "2026-09-04T16:14:29.190702+00:00",
+      "t1_at": "2026-09-04T16:16:07.023671+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 4060"
@@ -22602,8 +22822,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.382693+00:00",
-      "t1_at": "2026-09-04T15:29:35.774762+00:00",
+      "t0_at": "2026-09-04T16:14:35.255755+00:00",
+      "t1_at": "2026-09-04T16:23:18.338120+00:00",
       "source_queries": [
         "gaming computer",
         "hurtig handel gaming"
@@ -22698,8 +22918,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946182+00:00",
-      "t1_at": "2026-09-04T15:23:15.651038+00:00",
+      "t0_at": "2026-09-04T16:14:12.222159+00:00",
+      "t1_at": "2026-09-04T16:16:11.673033+00:00",
       "source_queries": [
         "gamer pc",
         "rtx 3070"
@@ -22798,8 +23018,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.765608+00:00",
-      "t1_at": "2026-09-04T15:23:17.529695+00:00",
+      "t0_at": "2026-09-04T16:14:08.810586+00:00",
+      "t1_at": "2026-09-04T16:16:13.211982+00:00",
       "source_queries": [
         "rtx 3060 ti",
         "rx 6700",
@@ -22899,8 +23119,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.374070+00:00",
-      "t1_at": "2026-09-04T15:29:36.994712+00:00",
+      "t0_at": "2026-09-04T16:14:43.887202+00:00",
+      "t1_at": "2026-09-04T16:23:22.649513+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -22994,8 +23214,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.090556+00:00",
-      "t1_at": "2026-09-04T15:23:20.203934+00:00",
+      "t0_at": "2026-09-04T16:14:12.222529+00:00",
+      "t1_at": "2026-09-04T16:16:14.932579+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -23096,8 +23316,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.602002+00:00",
-      "t1_at": "2026-09-04T15:23:23.510884+00:00",
+      "t0_at": "2026-09-04T16:13:54.604224+00:00",
+      "t1_at": "2026-09-04T16:16:18.678633+00:00",
       "source_queries": [
         "gaming pc",
         "hurtig handel gaming",
@@ -23201,8 +23421,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.968914+00:00",
-      "t1_at": "2026-09-04T15:29:37.347563+00:00",
+      "t0_at": "2026-09-04T16:13:31.571733+00:00",
+      "t1_at": "2026-09-04T16:23:22.549532+00:00",
       "source_queries": [
         "gaming bærbar"
       ],
@@ -23290,8 +23510,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373730+00:00",
-      "t1_at": "2026-09-04T15:29:38.179808+00:00",
+      "t0_at": "2026-09-04T16:14:43.886824+00:00",
+      "t1_at": "2026-09-04T16:23:27.017687+00:00",
       "source_queries": [
         "gaming computer"
       ],
@@ -23384,8 +23604,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.091403+00:00",
-      "t1_at": "2026-09-04T15:23:27.635761+00:00",
+      "t0_at": "2026-09-04T16:14:12.230973+00:00",
+      "t1_at": "2026-09-04T16:16:22.978281+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -23482,8 +23702,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321935+00:00",
-      "t1_at": "2026-09-04T15:29:38.326799+00:00",
+      "t0_at": "2026-09-04T16:13:30.993524+00:00",
+      "t1_at": "2026-09-04T16:23:28.351817+00:00",
       "source_queries": [
         "gaming laptop",
         "hurtig handel gaming"
@@ -23572,8 +23792,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321629+00:00",
-      "t1_at": "2026-09-04T15:29:39.633619+00:00",
+      "t0_at": "2026-09-04T16:13:30.988025+00:00",
+      "t1_at": "2026-09-04T16:23:28.852317+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -23661,8 +23881,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.475876+00:00",
-      "t1_at": "2026-09-04T15:23:28.016792+00:00",
+      "t0_at": "2026-09-04T16:14:05.930316+00:00",
+      "t1_at": "2026-09-04T16:16:24.389973+00:00",
       "source_queries": [
         "rtx 3060",
         "rtx 3060 ti"
@@ -23764,8 +23984,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.475799+00:00",
-      "t1_at": "2026-09-04T15:23:32.518962+00:00",
+      "t0_at": "2026-09-04T16:14:05.922001+00:00",
+      "t1_at": "2026-09-04T16:16:25.326101+00:00",
       "source_queries": [
         "rtx 3060"
       ],
@@ -23860,8 +24080,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:26.791055+00:00",
-      "t1_at": "2026-09-04T15:29:43.220851+00:00",
+      "t0_at": "2026-09-04T16:13:54.619266+00:00",
+      "t1_at": "2026-09-04T16:23:30.484593+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -23956,8 +24176,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.455820+00:00",
-      "t1_at": "2026-09-04T15:29:44.274107+00:00",
+      "t0_at": "2026-09-04T16:13:53.713973+00:00",
+      "t1_at": "2026-09-04T16:23:28.828719+00:00",
       "source_queries": [
         "msi gamer"
       ],
@@ -24045,8 +24265,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.602033+00:00",
-      "t1_at": "2026-09-04T15:29:44.645398+00:00",
+      "t0_at": "2026-09-04T16:14:04.953648+00:00",
+      "t1_at": "2026-09-04T16:23:31.857605+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 2080",
@@ -24142,8 +24362,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946505+00:00",
-      "t1_at": "2026-09-04T15:29:45.771340+00:00",
+      "t0_at": "2026-09-04T16:14:41.606090+00:00",
+      "t1_at": "2026-09-04T16:23:32.943600+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -24237,8 +24457,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.765750+00:00",
-      "t1_at": "2026-09-04T15:29:47.993896+00:00",
+      "t0_at": "2026-09-04T16:14:08.810740+00:00",
+      "t1_at": "2026-09-04T16:23:37.608974+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ],
@@ -24332,8 +24552,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321568+00:00",
-      "t1_at": "2026-09-04T15:29:48.855024+00:00",
+      "t0_at": "2026-09-04T16:13:30.987946+00:00",
+      "t1_at": "2026-09-04T16:23:38.304320+00:00",
       "source_queries": [
         "gaming laptop",
         "nitro gaming"
@@ -24422,8 +24642,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.062550+00:00",
-      "t1_at": "2026-09-04T15:23:35.633437+00:00",
+      "t0_at": "2026-09-04T16:14:29.203145+00:00",
+      "t1_at": "2026-09-04T16:16:32.639110+00:00",
       "source_queries": [
         "rtx 4060"
       ],
@@ -24521,8 +24741,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.250555+00:00",
-      "t1_at": "2026-09-04T15:29:49.821762+00:00",
+      "t0_at": "2026-09-04T16:13:55.300280+00:00",
+      "t1_at": "2026-09-04T16:23:39.132518+00:00",
       "source_queries": [
         "gaming pc",
         "nitro gaming",
@@ -24622,8 +24842,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:51.070411+00:00",
-      "t1_at": "2026-09-04T15:29:51.570158+00:00",
+      "t0_at": "2026-09-04T16:14:25.019852+00:00",
+      "t1_at": "2026-09-04T16:23:38.689659+00:00",
       "source_queries": [
         "rx 6700",
         "rx 6700 xt"
@@ -24718,8 +24938,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.456263+00:00",
-      "t1_at": "2026-09-04T15:29:53.220132+00:00",
+      "t0_at": "2026-09-04T16:13:53.714598+00:00",
+      "t1_at": "2026-09-04T16:23:40.340137+00:00",
       "source_queries": [
         "msi gamer",
         "rtx 4060"
@@ -24803,6 +25023,110 @@
       "description_aware_resolution": "UNRESOLVED"
     },
     {
+      "listing_id": "24611674",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24611674",
+      "title": "Gaming PC – RTX 2080 | i5-14600KF | 16GB DDR5 | SSD+HDD | RGB | F",
+      "ask_t0": 5799,
+      "ask_t1": 5799,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "category": "",
+      "gpu": "RTX 2080",
+      "gpu_score": 61,
+      "cpu": "Core i5-14600",
+      "cpu_score": 112,
+      "performance_class": "ACCEPTABLE",
+      "form_factor": "DESKTOP",
+      "case_check": "MANUAL_A3_CHECK",
+      "a3_assessment": "A3_UNCERTAIN",
+      "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-04T16:14:05.824942+00:00",
+      "t1_at": "2026-09-04T16:16:32.627617+00:00",
+      "source_queries": [
+        "gaming pc",
+        "rtx 2080"
+      ],
+      "listing_intelligence": {
+        "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
+        "cpu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "cpu_score": 0,
+        "gpu": {
+          "value": "RTX 2080",
+          "confidence": "VERIFIED",
+          "source": "TITLE",
+          "evidence": "Gaming PC – RTX 2080 | i5-14600KF | 16GB DDR5 | SSD+HDD | RGB | F"
+        },
+        "gpu_score": 61,
+        "motherboard": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "motherboard_z20_fit": {
+          "value": "UNVERIFIED",
+          "confidence": "UNKNOWN",
+          "source": "FULL_TEXT",
+          "evidence": "Motherboard form factor is not proven in listing text"
+        },
+        "ram": {
+          "value": "16 GB DDR5",
+          "confidence": "VERIFIED",
+          "source": "TITLE",
+          "evidence": "Gaming PC – RTX 2080 | i5-14600KF | 16GB DDR5 | SSD+HDD | RGB | F"
+        },
+        "storage": [],
+        "psu": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "case": {
+          "value": null,
+          "confidence": "UNKNOWN",
+          "source": "NONE",
+          "evidence": ""
+        },
+        "oem_family": null,
+        "performance_class": "UNRESOLVED",
+        "upgradeability": {
+          "class": "UNVERIFIED",
+          "reason": "Platform/socket is not proven by the listing."
+        },
+        "missing_facts": [
+          "CPU",
+          "motherboard",
+          "PSU"
+        ],
+        "seller_question": "Hvilket bundkort sidder der i computeren (mærke og model)?",
+        "routes": [
+          {
+            "route": "Z20_TRANSFER_NEEDS_BOARD_INFO",
+            "status": "HIGH_POTENTIAL",
+            "rationale": "Price/performance can still be attractive; motherboard form factor is the key missing fact."
+          },
+          {
+            "route": "GPU_DONOR_OPTION",
+            "status": "VIABLE",
+            "rationale": "GPU is valuable enough to remain useful even if the platform cannot transfer directly."
+          }
+        ],
+        "description_available": true
+      },
+      "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
+      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
+      "description_aware_resolution": "UNRESOLVED"
+    },
+    {
       "listing_id": "24393745",
       "url": "https://www.dba.dk/recommerce/forsale/item/24393745",
       "title": "Kraftig high-end Gaming PC - RTX 3070",
@@ -24820,8 +25144,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.090689+00:00",
-      "t1_at": "2026-09-04T15:23:36.683829+00:00",
+      "t0_at": "2026-09-04T16:14:12.222682+00:00",
+      "t1_at": "2026-09-04T16:16:34.915479+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -24919,8 +25243,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373757+00:00",
-      "t1_at": "2026-09-04T15:23:36.908894+00:00",
+      "t0_at": "2026-09-04T16:14:12.222651+00:00",
+      "t1_at": "2026-09-04T16:16:36.196835+00:00",
       "source_queries": [
         "gaming computer",
         "rtx 3070"
@@ -25019,8 +25343,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.463437+00:00",
-      "t1_at": "2026-09-04T15:29:54.891900+00:00",
+      "t0_at": "2026-09-04T16:14:05.920640+00:00",
+      "t1_at": "2026-09-04T16:23:41.448723+00:00",
       "source_queries": [
         "rtx 3060",
         "rtx 3060 ti"
@@ -25115,8 +25439,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608518+00:00",
-      "t1_at": "2026-09-04T15:29:54.595240+00:00",
+      "t0_at": "2026-09-04T16:14:05.180211+00:00",
+      "t1_at": "2026-09-04T16:23:41.769643+00:00",
       "source_queries": [
         "gaming pc",
         "mm vision"
@@ -25214,8 +25538,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946638+00:00",
-      "t1_at": "2026-09-04T15:23:40.414693+00:00",
+      "t0_at": "2026-09-04T16:14:05.920866+00:00",
+      "t1_at": "2026-09-04T16:16:38.253895+00:00",
       "source_queries": [
         "gamer pc",
         "rtx 3060"
@@ -25311,8 +25635,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.353240+00:00",
-      "t1_at": "2026-09-04T15:29:57.006782+00:00",
+      "t0_at": "2026-09-04T16:13:52.262414+00:00",
+      "t1_at": "2026-09-04T16:23:47.823515+00:00",
       "source_queries": [
         "rtx 2060 super"
       ],
@@ -25406,8 +25730,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.321470+00:00",
-      "t1_at": "2026-09-04T15:29:59.568092+00:00",
+      "t0_at": "2026-09-04T16:13:30.987816+00:00",
+      "t1_at": "2026-09-04T16:23:49.535505+00:00",
       "source_queries": [
         "gaming laptop"
       ],
@@ -25495,8 +25819,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:36.765521+00:00",
-      "t1_at": "2026-09-04T15:30:01.115044+00:00",
+      "t0_at": "2026-09-04T16:14:08.810496+00:00",
+      "t1_at": "2026-09-04T16:23:50.704806+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ],
@@ -25590,8 +25914,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:16.423793+00:00",
-      "t1_at": "2026-09-04T15:30:02.289980+00:00",
+      "t0_at": "2026-09-04T16:13:41.615108+00:00",
+      "t1_at": "2026-09-04T16:23:51.907936+00:00",
       "source_queries": [
         "legion gaming"
       ],
@@ -25685,8 +26009,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:16.422856+00:00",
-      "t1_at": "2026-09-04T15:30:02.705229+00:00",
+      "t0_at": "2026-09-04T16:13:41.602069+00:00",
+      "t1_at": "2026-09-04T16:23:51.937333+00:00",
       "source_queries": [
         "legion gaming"
       ],
@@ -25790,8 +26114,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.066911+00:00",
-      "t1_at": "2026-09-04T15:23:44.135256+00:00",
+      "t0_at": "2026-09-04T16:14:17.353320+00:00",
+      "t1_at": "2026-09-04T16:16:42.552358+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
@@ -25899,8 +26223,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.117489+00:00",
-      "t1_at": "2026-09-04T15:30:03.201619+00:00",
+      "t0_at": "2026-09-04T16:13:31.288930+00:00",
+      "t1_at": "2026-09-04T16:23:52.229388+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -25977,117 +26301,6 @@
       "description_aware_resolution": "UNRESOLVED"
     },
     {
-      "listing_id": "23724318",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23724318",
-      "title": "Gaming PC – i5-12400F | RTX 4060 | 16 GB RAM | 1 TB SSD",
-      "ask_t0": 6000,
-      "ask_t1": 6000,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "category": "",
-      "gpu": "RTX 4060",
-      "gpu_score": 60,
-      "cpu": "Core i5-12400",
-      "cpu_score": 81,
-      "performance_class": "ACCEPTABLE",
-      "form_factor": "DESKTOP",
-      "case_check": "MANUAL_A3_CHECK",
-      "a3_assessment": "A3_UNCERTAIN",
-      "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.062263+00:00",
-      "t1_at": "2026-09-04T15:23:45.975493+00:00",
-      "source_queries": [
-        "rtx 4060"
-      ],
-      "listing_intelligence": {
-        "source": "T1_LISTING_TITLE_DESCRIPTION_METADATA",
-        "cpu": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "cpu_score": 0,
-        "gpu": {
-          "value": "RTX 4060",
-          "confidence": "VERIFIED",
-          "source": "TITLE",
-          "evidence": "Gaming PC – i5-12400F | RTX 4060 | 16 GB RAM | 1 TB SSD"
-        },
-        "gpu_score": 60,
-        "motherboard": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "motherboard_z20_fit": {
-          "value": "UNVERIFIED",
-          "confidence": "UNKNOWN",
-          "source": "FULL_TEXT",
-          "evidence": "Motherboard form factor is not proven in listing text"
-        },
-        "ram": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "storage": [
-          {
-            "value": "1 TB SSD",
-            "confidence": "VERIFIED",
-            "source": "TITLE",
-            "evidence": "Gaming PC – i5-12400F | RTX 4060 | 16 GB RAM | 1 TB SSD"
-          }
-        ],
-        "psu": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "case": {
-          "value": null,
-          "confidence": "UNKNOWN",
-          "source": "NONE",
-          "evidence": ""
-        },
-        "oem_family": null,
-        "performance_class": "UNRESOLVED",
-        "upgradeability": {
-          "class": "UNVERIFIED",
-          "reason": "Platform/socket is not proven by the listing."
-        },
-        "missing_facts": [
-          "CPU",
-          "motherboard",
-          "RAM",
-          "PSU"
-        ],
-        "seller_question": "Hvilket bundkort sidder der i computeren (mærke og model)?",
-        "routes": [
-          {
-            "route": "Z20_TRANSFER_NEEDS_BOARD_INFO",
-            "status": "HIGH_POTENTIAL",
-            "rationale": "Price/performance can still be attractive; motherboard form factor is the key missing fact."
-          },
-          {
-            "route": "GPU_DONOR_OPTION",
-            "status": "VIABLE",
-            "rationale": "GPU is valuable enough to remain useful even if the platform cannot transfer directly."
-          }
-        ],
-        "description_available": true
-      },
-      "resolution_status": "POTENTIAL_SWEET_SPOT_UNRESOLVED",
-      "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
-      "description_aware_resolution": "UNRESOLVED"
-    },
-    {
       "listing_id": "24368882",
       "url": "https://www.dba.dk/recommerce/forsale/item/24368882",
       "title": "Asus TUF Gaming bærbar computer 15\" med i7, Rtx 3070 og 16GB ram",
@@ -26105,8 +26318,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373879+00:00",
-      "t1_at": "2026-09-04T15:23:46.526139+00:00",
+      "t0_at": "2026-09-04T16:13:31.571842+00:00",
+      "t1_at": "2026-09-04T16:16:46.313592+00:00",
       "source_queries": [
         "gaming bærbar",
         "gaming computer",
@@ -26210,8 +26423,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.090721+00:00",
-      "t1_at": "2026-09-04T15:23:48.313902+00:00",
+      "t0_at": "2026-09-04T16:14:12.222719+00:00",
+      "t1_at": "2026-09-04T16:16:46.106397+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -26311,8 +26524,8 @@
       "resolution_reason": "GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.091599+00:00",
-      "t1_at": "2026-09-04T15:30:05.261668+00:00",
+      "t0_at": "2026-09-04T16:14:12.231219+00:00",
+      "t1_at": "2026-09-04T16:23:57.063545+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -26405,8 +26618,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:05.113293+00:00",
-      "t1_at": "2026-09-04T15:30:07.029778+00:00",
+      "t0_at": "2026-09-04T16:13:31.280706+00:00",
+      "t1_at": "2026-09-04T16:23:58.400440+00:00",
       "source_queries": [
         "stationær gaming"
       ],
@@ -26500,8 +26713,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.965602+00:00",
-      "t1_at": "2026-09-04T15:30:07.090993+00:00",
+      "t0_at": "2026-09-04T16:14:41.608134+00:00",
+      "t1_at": "2026-09-04T16:23:59.136428+00:00",
       "source_queries": [
         "gamer pc"
       ],
@@ -26595,8 +26808,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608178+00:00",
-      "t1_at": "2026-09-04T15:23:50.263945+00:00",
+      "t0_at": "2026-09-04T16:14:12.222421+00:00",
+      "t1_at": "2026-09-04T16:16:49.024106+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 3070"
@@ -26694,8 +26907,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.968859+00:00",
-      "t1_at": "2026-09-04T15:30:07.739963+00:00",
+      "t0_at": "2026-09-04T16:13:31.571659+00:00",
+      "t1_at": "2026-09-04T16:23:59.427280+00:00",
       "source_queries": [
         "gaming bærbar",
         "rtx 3080"
@@ -26784,8 +26997,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.968829+00:00",
-      "t1_at": "2026-09-04T15:30:07.838902+00:00",
+      "t0_at": "2026-09-04T16:13:30.983033+00:00",
+      "t1_at": "2026-09-04T16:23:59.224281+00:00",
       "source_queries": [
         "gaming bærbar",
         "gaming laptop",
@@ -26875,8 +27088,8 @@
       "resolution_reason": "CPU_NOT_DESCRIPTION_VERIFIED",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:04.373347+00:00",
-      "t1_at": "2026-09-04T15:23:51.444062+00:00",
+      "t0_at": "2026-09-04T16:14:29.190744+00:00",
+      "t1_at": "2026-09-04T16:16:49.523445+00:00",
       "source_queries": [
         "gaming computer",
         "rtx 4060"
@@ -26985,8 +27198,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:37.091177+00:00",
-      "t1_at": "2026-09-04T15:24:01.205454+00:00",
+      "t0_at": "2026-09-04T16:14:12.230725+00:00",
+      "t1_at": "2026-09-04T16:17:02.502206+00:00",
       "source_queries": [
         "rtx 3070"
       ],
@@ -27095,8 +27308,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:25.893051+00:00",
-      "t1_at": "2026-09-04T15:24:07.841762+00:00",
+      "t0_at": "2026-09-04T16:14:05.180740+00:00",
+      "t1_at": "2026-09-04T16:17:05.505911+00:00",
       "source_queries": [
         "mm vision",
         "rtx 3070"
@@ -27207,8 +27420,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:17.608242+00:00",
-      "t1_at": "2026-09-04T15:24:10.501009+00:00",
+      "t0_at": "2026-09-04T16:14:12.222462+00:00",
+      "t1_at": "2026-09-04T16:17:07.867578+00:00",
       "source_queries": [
         "gaming pc",
         "rtx 3070",
@@ -27313,8 +27526,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.062027+00:00",
-      "t1_at": "2026-09-04T15:24:16.530320+00:00",
+      "t0_at": "2026-09-04T16:14:17.344674+00:00",
+      "t1_at": "2026-09-04T16:17:16.662671+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
@@ -27418,8 +27631,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:06.946094+00:00",
-      "t1_at": "2026-09-04T15:24:20.874211+00:00",
+      "t0_at": "2026-09-04T16:14:05.920730+00:00",
+      "t1_at": "2026-09-04T16:17:20.281816+00:00",
       "source_queries": [
         "gamer pc",
         "rtx 3060",
@@ -27519,8 +27732,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:35.257721+00:00",
-      "t1_at": "2026-09-04T15:24:32.370976+00:00",
+      "t0_at": "2026-09-04T16:14:12.222958+00:00",
+      "t1_at": "2026-09-04T16:17:37.878647+00:00",
       "source_queries": [
         "rtx 3070",
         "rtx 3070 ti"
@@ -27623,8 +27836,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.267907+00:00",
-      "t1_at": "2026-09-04T15:24:37.844691+00:00",
+      "t0_at": "2026-09-04T16:14:27.332938+00:00",
+      "t1_at": "2026-09-04T16:17:41.171261+00:00",
       "source_queries": [
         "rtx 3080"
       ],
@@ -27734,8 +27947,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:14.901306+00:00",
-      "t1_at": "2026-09-04T15:24:42.293784+00:00",
+      "t0_at": "2026-09-04T16:13:41.373781+00:00",
+      "t1_at": "2026-09-04T16:17:48.925768+00:00",
       "source_queries": [
         "omen gaming",
         "rtx 3070",
@@ -27847,8 +28060,8 @@
       "a3_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-04T15:21:44.267725+00:00",
-      "t1_at": "2026-09-04T15:24:52.701670+00:00",
+      "t0_at": "2026-09-04T16:14:27.332717+00:00",
+      "t1_at": "2026-09-04T16:18:00.864338+00:00",
       "source_queries": [
         "rtx 3080"
       ],
@@ -28345,10 +28558,6 @@
       "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
     },
     {
-      "listing_id": "22777263",
-      "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
-    },
-    {
       "listing_id": "23586340",
       "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
     },
@@ -28401,6 +28610,10 @@
       "listing_id": "24490663",
       "reason": "T1_FETCH_FAILED",
       "detail": "no_product_json"
+    },
+    {
+      "listing_id": "24611034",
+      "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
     },
     {
       "listing_id": "947650",
@@ -28483,11 +28696,6 @@
       "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
     },
     {
-      "listing_id": "24458193",
-      "reason": "T1_FETCH_FAILED",
-      "detail": "no_product_json"
-    },
-    {
       "listing_id": "24023533",
       "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
     },
@@ -28517,6 +28725,10 @@
     },
     {
       "listing_id": "24571001",
+      "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
+    },
+    {
+      "listing_id": "23008518",
       "reason": "NOT_VERIFIED_COMPLETE_PC_CATEGORY"
     },
     {
@@ -28553,8 +28765,8 @@
     }
   ],
   "rejection_reason_counts": {
-    "NOT_VERIFIED_COMPLETE_PC_CATEGORY": 121,
-    "T1_FETCH_FAILED": 7,
+    "NOT_VERIFIED_COMPLETE_PC_CATEGORY": 122,
+    "T1_FETCH_FAILED": 6,
     "SPEC_PARSE_FAILED": 17
   },
   "search_errors": [],
@@ -28562,8 +28774,8 @@
   "listing_intelligence": {
     "version": "V1",
     "policy": "Description-aware hardware extraction with per-field evidence/confidence. Never used as price evidence; ASK remains same-object T1 verified.",
-    "enriched_records": 283,
-    "cached_t1_records": 421,
+    "enriched_records": 285,
+    "cached_t1_records": 424,
     "ranking_reconciled": true,
     "under_minimum_after_context_parse": 0,
     "ranking_rule": "Only context-verified CPU+GPU from title/description may enter ranked output. Bare GPU numbers cannot satisfy CPU evidence."
