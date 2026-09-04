@@ -8,6 +8,14 @@ from dba_browser_v3 import discover_cards_by_article
 
 FALLBACK_QUERY_TIMEOUT_SECONDS = 35
 FALLBACK_TOTAL_DEADLINE_SECONDS = 180
+T1_CONCURRENCY_OVERRIDE = 16
+T1_TOTAL_DEADLINE_SECONDS_OVERRIDE = 420
+
+# The live run showed zero T1 fetch errors but only 222/436 candidates completed in 300s
+# with concurrency 8. Increase capacity without changing candidate selection or the
+# fail-closed requirement that every T1 candidate be attempted before publication.
+v6.T1_CONCURRENCY = T1_CONCURRENCY_OVERRIDE
+v6.T1_TOTAL_DEADLINE_SECONDS = T1_TOTAL_DEADLINE_SECONDS_OVERRIDE
 
 _original_discover_all = v6.discover_all
 
