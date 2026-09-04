@@ -1,139 +1,128 @@
 from __future__ import annotations
 
 import asyncio
-from collections import defaultdict
 
 import dba_browser_v2 as v2
 import dba_browser_v3 as v3
 
-IDENTITY_KEYS = {"listingId","listing_id","itemId","item_id","adId","ad_id","sku","productID"}
-URL_KEYS = {"url","canonicalUrl","canonical_url","href","link"}
-TITLE_KEYS = ("title","name","subject","heading")
-PRICE_KEYS = ("askingPrice","salesPrice","priceAmount","price")
-PRICE_VALUE_KEYS = ("amount","value","price","askingPrice","salesPrice")
-CURRENCY_KEYS = ("currency","currencyCode","priceCurrency")
-STATUS_KEYS = ("availability","status","adStatus","listingStatus","lifecycleStatus","state")
-TRADE_KEYS = ("tradeType","trade_type")
-DESC_KEYS = ("description","body","bodyText","text")
-CATEGORY_KEYS = ("categoryName","category","categoryPath")
-BRAND_KEYS = ("brandName","brand")
+PRICE_KEY_TOKENS=("price","amount","askingprice","salesprice")
+CURRENCY_KEYS={"currency","currencycode","pricecurrency"}
 
 
-def _walk(value, path=()):
-    if isinstance(value, dict):
-        yield path, value
-        for k, child in value.items():
-            if isinstance(child, (dict, list)):
-                yield from _walk(child, path + (str(k),))
-    elif isinstance(value, list):
-        for i, child in enumerate(value):
-            if isinstance(child, (dict, list)):
-                yield from _walk(child, path + (f"[{i}]",))
-
-
-def _identity_ids(value) -> set[str]:
-    ids=set()
-    if isinstance(value, dict):
-        for k,v in value.items():
-            if k in IDENTITY_KEYS and v is not None:
-                s=str(v).strip()
-                if s.isdigit(): ids.add(s)
-            elif k in URL_KEYS and isinstance(v,str):
-                m=v2.ITEM_RE.search(v)
-                if m: ids.add(m.group(1))
-            if isinstance(v,(dict,list)):
-                ids.update(_identity_ids(v))
-    elif isinstance(value,list):
-        for x in value:
-            if isinstance(x,(dict,list)): ids.update(_identity_ids(x))
-    return ids
-
-
-def _node_count(value) -> int:
+def _walk(value,path=()):
     if isinstance(value,dict):
-        return 1 + sum(_node_count(v) for v in value.values() if isinstance(v,(dict,list)))
-    if isinstance(value,list):
-        return 1 + sum(_node_count(v) for v in value if isinstance(v,(dict,list)))
-    return 0
-
-
-def _collect_scalars(value, keys) -> list:
-    out=[]
-    if isinstance(value,dict):
+        yield path,value
         for k,v in value.items():
-            if k in keys and v is not None and not isinstance(v,(dict,list)):
-                out.append(v)
             if isinstance(v,(dict,list)):
-                out.extend(_collect_scalars(v,keys))
+                yield from _walk(v,path+(str(k),))
     elif isinstance(value,list):
-        for x in value:
-            if isinstance(x,(dict,list)): out.extend(_collect_scalars(x,keys))
-    return out
+        for i,v in enumerate(value):
+            if isinstance(v,(dict,list)):
+                yield from _walk(v,path+(f"[{i}]",))
 
 
-def _unique_text(value, keys):
-    vals=[]
-    for v in _collect_scalars(value,keys):
-        s=str(v).strip()
-        if s and s not in vals: vals.append(s)
-    return vals[0] if len(vals)==1 else None
-
-
-def _price_candidates(value):
+def _collect_price_values(value):
     vals=[]
     if isinstance(value,dict):
         for k,v in value.items():
-            if k in PRICE_KEYS:
-                if isinstance(v,dict):
-                    for vv in _collect_scalars(v,PRICE_VALUE_KEYS):
-                        n=v2.parse_number(vv)
-                        if n is not None and n>0: vals.append(n)
-                elif not isinstance(v,list):
+            lk=str(k).lower()
+            if any(tok in lk for tok in PRICE_KEY_TOKENS):
+                if isinstance(v,(str,int,float)):
                     n=v2.parse_number(v)
-                    if n is not None and n>0: vals.append(n)
+                    if n is not None and 0 < n <= 100000:
+                        vals.append(n)
+                elif isinstance(v,dict):
+                    for kk,vv in v.items():
+                        if str(kk).lower() in {"amount","value","price","askingprice","salesprice"} and isinstance(vv,(str,int,float)):
+                            n=v2.parse_number(vv)
+                            if n is not None and 0 < n <= 100000:
+                                vals.append(n)
             if isinstance(v,(dict,list)):
-                vals.extend(_price_candidates(v))
+                vals.extend(_collect_price_values(v))
     elif isinstance(value,list):
-        for x in value:
-            if isinstance(x,(dict,list)): vals.extend(_price_candidates(x))
+        for v in value:
+            if isinstance(v,(dict,list)):
+                vals.extend(_collect_price_values(v))
     return sorted(set(vals))
 
 
-def _status(value):
-    status=_unique_text(value,STATUS_KEYS)
-    if not status: return None,None
-    norm=status.rstrip('/').lower()
-    inactive=any(x in norm for x in ("outofstock","soldout","sold","inactive","deleted","expired","discontinued","closed"))
-    active=any(x in norm for x in ("instock","active","published","available","for_sale","forsale"))
-    if inactive: return status,False
-    if active: return status,True
-    return status,None
+def _collect_currencies(value):
+    vals=[]
+    if isinstance(value,dict):
+        for k,v in value.items():
+            if str(k).lower() in CURRENCY_KEYS and isinstance(v,str):
+                s=v.strip().upper()
+                if s and s not in vals:
+                    vals.append(s)
+            if isinstance(v,(dict,list)):
+                for s in _collect_currencies(v):
+                    if s not in vals: vals.append(s)
+    elif isinstance(value,list):
+        for v in value:
+            if isinstance(v,(dict,list)):
+                for s in _collect_currencies(v):
+                    if s not in vals: vals.append(s)
+    return vals
 
 
-def _candidate(obj:dict, lid:str, url:str):
-    ids=_identity_ids(obj)
-    if ids != {lid}: return None
-    title=_unique_text(obj,TITLE_KEYS)
-    prices=_price_candidates(obj)
-    currencies=[]
-    for v in _collect_scalars(obj,CURRENCY_KEYS):
-        s=str(v).strip().upper()
-        if s and s not in currencies: currencies.append(s)
-    status,active=_status(obj)
-    if not title or len(prices)!=1 or currencies != ["DKK"] or active is None:
+def _find_item_recommerce(parsed):
+    if not isinstance(parsed,dict): return None
+    loader=parsed.get("loaderData")
+    if not isinstance(loader,dict): return None
+    record=loader.get("item-recommerce")
+    return record if isinstance(record,dict) else None
+
+
+def _candidate_from_item_recommerce(parsed:dict,lid:str,url:str):
+    record=_find_item_recommerce(parsed)
+    if not record: return None
+    item_data=record.get("itemData")
+    item_meta=item_data.get("meta") if isinstance(item_data,dict) else None
+    page_meta=record.get("meta")
+    if not isinstance(item_meta,dict) or not isinstance(page_meta,dict): return None
+
+    ad_id=str(item_meta.get("adId") or "").strip()
+    canonical=str(page_meta.get("canonical") or "").strip()
+    cm=v2.ITEM_RE.search(canonical)
+    canonical_id=cm.group(1) if cm else ""
+    if ad_id != lid or canonical_id != lid:
         return None
-    trade=_unique_text(obj,TRADE_KEYS)
-    desc=_unique_text(obj,DESC_KEYS) or ""
-    category=_unique_text(obj,CATEGORY_KEYS) or ""
-    brand=_unique_text(obj,BRAND_KEYS) or ""
+
+    title=str(page_meta.get("title") or "").strip()
+    if title.endswith(" | DBA"):
+        title=title[:-6].rstrip()
+    description=str(page_meta.get("description") or "")
+    inactive=item_meta.get("isInactive")
+    published=item_meta.get("hasBeenPublished")
+    if not isinstance(inactive,bool) or not isinstance(published,bool):
+        return None
+
+    prices=_collect_price_values(record)
+    currencies=_collect_currencies(record)
+    if len(prices) != 1:
+        return None
+    if currencies != ["DKK"]:
+        return None
+    if not title:
+        return None
+
+    active=bool(published and not inactive)
+    status=f"hasBeenPublished={published}; isInactive={inactive}"
     return {
-        "listing_id":lid,"canonical_url":url,"identity_ok":True,
-        "identity_evidence":"PAGE_ID+HYDRATION_MINIMAL_UNIQUE_ANCESTOR",
-        "title":title,"description":desc,"ask_t1":prices[0],"currency_t1":"DKK",
-        "availability_t1":status if not trade else f"{status}; tradeType={trade}",
-        "active_t1":active,"category":category,"brand":brand,"t1_at":v2.utcnow(),
-        "t1_source":"dba_native_hydration_minimal_unique_ancestor",
-        "_node_count":_node_count(obj),
+        "listing_id":lid,
+        "canonical_url":canonical,
+        "identity_ok":True,
+        "identity_evidence":"PAGE_ID+ITEM_RECOMMERCE_ITEMDATA_META_ADID+RECORD_META_CANONICAL",
+        "title":title,
+        "description":description,
+        "ask_t1":prices[0],
+        "currency_t1":"DKK",
+        "availability_t1":status,
+        "active_t1":active,
+        "category":"",
+        "brand":"",
+        "t1_at":v2.utcnow(),
+        "t1_source":"dba_native_hydration_item_recommerce_same_record",
     }
 
 
@@ -154,15 +143,11 @@ async def fetch_hydration_ancestor(context, listing_id:str):
         for raw in scripts:
             parsed=v3._decode_hydration_script(raw)
             if parsed is None: continue
-            for _,obj in _walk(parsed):
-                c=_candidate(obj,listing_id,url)
-                if c: candidates.append(c)
+            c=_candidate_from_item_recommerce(parsed,listing_id,url)
+            if c: candidates.append(c)
         if not candidates: return None
-        min_nodes=min(c["_node_count"] for c in candidates)
-        finalists=[c for c in candidates if c["_node_count"]==min_nodes]
-        core={(c["title"],c["ask_t1"],c["currency_t1"],c["availability_t1"],c["active_t1"]) for c in finalists}
+        core={(c["title"],c["ask_t1"],c["currency_t1"],c["availability_t1"],c["active_t1"],c["canonical_url"]) for c in candidates}
         if len(core)!=1: return None
-        out=dict(finalists[0]); out.pop("_node_count",None)
-        return out
+        return candidates[0]
     finally:
         await page.close()
