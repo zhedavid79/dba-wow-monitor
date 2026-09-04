@@ -32,7 +32,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -49,7 +49,7 @@ jobs:
         timeout-minutes: 3
         run: python dba_t1_preflight.py
       - name: Run complete-PC high-recall scanner
-        timeout-minutes: 11
+        timeout-minutes: 15
         run: python dba_browser_v6_recovery.py
       - name: Run Z20 component and bundle scanner
         timeout-minutes: 9
