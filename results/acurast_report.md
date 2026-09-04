@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-04T08:22:22.883400+00:00
+Generated: 2026-09-04T10:16:54.189765+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2531 | Product rejects: 2476 | Bundle/variant/price rejects: 0 | Final: 49
+T0: 2533 | Product rejects: 2477 | Bundle/variant/price rejects: 0 | Final: 50
 
 ## Lowest verified single-device listings
 
@@ -48,14 +48,15 @@ T0: 2531 | Product rejects: 2476 | Bundle/variant/price rejects: 0 | Final: 49
 | 36 | Samsung Galaxy S20 FE | 950 kr. | [Samsung Galaxy S20 FE 5G smartphone 128 GB](https://www.dba.dk/recommerce/forsale/item/24565499) |
 | 37 | Redmi Note 13 Pro | 999 kr. | [Xiaomi Redmi Note 13 Pro 5g](https://www.dba.dk/recommerce/forsale/item/24396538) |
 | 38 | OnePlus 10 Pro | 1000 kr. | [oneplus 10 pro 256gb](https://www.dba.dk/recommerce/forsale/item/22032520) |
-| 39 | OnePlus 8T | 1000 kr. | [OnePlus 8T 128GB - 5G (Snapdragon) – Hurtigt bæst til skarp pris!](https://www.dba.dk/recommerce/forsale/item/23007415) |
-| 40 | OnePlus Nord CE 2 | 1000 kr. | [OnePlus Nord CE 2](https://www.dba.dk/recommerce/forsale/item/23098313) |
-| 41 | OnePlus Nord CE 3 Lite 5G | 1000 kr. | [OnePlus Nord CE 3 Lite 5G, 128/8 GB, Pastel](https://www.dba.dk/recommerce/forsale/item/21847153) |
-| 42 | Samsung A5 | 1000 kr. | [Samsung a52](https://www.dba.dk/recommerce/forsale/item/23947435) |
-| 43 | Samsung Galaxy A52s | 1000 kr. | [Samsung Galaxy A52s 5G – 128 GB – sort](https://www.dba.dk/recommerce/forsale/item/24556622) |
-| 44 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/24582808) |
-| 45 | Samsung Galaxy S22 Ultra | 1000 kr. | [Samsung Galaxy S22 Ultra smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/19149202) |
-| 46 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |
-| 47 | Samsung s10 | 1000 kr. | [Samsung S10e Hvid. 128 gb](https://www.dba.dk/recommerce/forsale/item/23845886) |
-| 48 | Sony Xperia 10 III | 1000 kr. | [Sony Xperia 10 III smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/23658991) |
-| 49 | Sumsung Galaxy s25 ultra | 1000 kr. | [Kinesisk S25 Ultra](https://www.dba.dk/recommerce/forsale/item/23880275) |
+| 39 | OnePlus 8 Pro | 1000 kr. | [Oneplus 8 pro](https://www.dba.dk/recommerce/forsale/item/24595408) |
+| 40 | OnePlus 8T | 1000 kr. | [OnePlus 8T 128GB - 5G (Snapdragon) – Hurtigt bæst til skarp pris!](https://www.dba.dk/recommerce/forsale/item/23007415) |
+| 41 | OnePlus Nord CE 2 | 1000 kr. | [OnePlus Nord CE 2](https://www.dba.dk/recommerce/forsale/item/23098313) |
+| 42 | OnePlus Nord CE 3 Lite 5G | 1000 kr. | [OnePlus Nord CE 3 Lite 5G, 128/8 GB, Pastel](https://www.dba.dk/recommerce/forsale/item/21847153) |
+| 43 | Samsung A5 | 1000 kr. | [Samsung a52](https://www.dba.dk/recommerce/forsale/item/23947435) |
+| 44 | Samsung Galaxy A52s | 1000 kr. | [Samsung Galaxy A52s 5G – 128 GB – sort](https://www.dba.dk/recommerce/forsale/item/24556622) |
+| 45 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/24582808) |
+| 46 | Samsung Galaxy S22 Ultra | 1000 kr. | [Samsung Galaxy S22 Ultra smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/19149202) |
+| 47 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |
+| 48 | Samsung s10 | 1000 kr. | [Samsung S10e Hvid. 128 gb](https://www.dba.dk/recommerce/forsale/item/23845886) |
+| 49 | Sony Xperia 10 III | 1000 kr. | [Sony Xperia 10 III smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/23658991) |
+| 50 | Sumsung Galaxy s25 ultra | 1000 kr. | [Kinesisk S25 Ultra](https://www.dba.dk/recommerce/forsale/item/23880275) |
