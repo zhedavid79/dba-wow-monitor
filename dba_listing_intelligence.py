@@ -18,10 +18,25 @@ BOARD_MODEL = re.compile(
 )
 MATX = re.compile(r"\b(?:micro[- ]?atx|m[- ]?atx|matx|[abhqz][1-9]\d{2}m(?:[-\s/]|\b))", re.I)
 ITX = re.compile(r"\b(?:mini[- ]?itx|miniitx|m[- ]?itx|itx)\b", re.I)
-BOARD_WORD = re.compile(r"\b(?:bundkort|motherboard|mainboard)\b", re.I)
 FULL_ATX_BOARD = re.compile(
     r"\b(?:bundkort|motherboard|mainboard)\s*[:=-]?\s*(?:e[- ]?atx|atx)\b|"
     r"\b(?:e[- ]?atx|atx)\s+(?:bundkort|motherboard|mainboard)\b",
+    re.I,
+)
+# Exact model-family evidence is stronger than UNKNOWN. These patterns only encode
+# motherboard families whose form factor is part of the model identity/specification.
+KNOWN_MATX_BOARD = re.compile(
+    r"\b(?:[abhqz][1-9]\d{2}m\b|aorus\s+(?:pro|elite)\s*m\b|mortar\b|bazooka\b|"
+    r"tuf\s+gaming\s+[abhqz][1-9]\d{2}m(?:[-\s]|$)|prime\s+[abhqz][1-9]\d{2}m(?:[-\s]|$))",
+    re.I,
+)
+KNOWN_ITX_BOARD = re.compile(r"\b(?:[abhqz][1-9]\d{2}i\b|aorus\s+(?:pro|ultra)\s+(?:ax\s+)?itx\b|gaming[- ]?itx)\b", re.I)
+KNOWN_ATX_BOARD = re.compile(
+    r"\b(?:b450\s+aorus\s+elite(?:\s+v2)?|b450\s+aorus\s+pro(?:\s+wifi)?|"
+    r"b550\s+aorus\s+elite(?:\s+(?:v2|ax\s+v2))?|b550\s+aorus\s+pro(?:\s+v2)?|"
+    r"(?:b450|b550|b650|b660|b760|z390|z490|z590|z690|z790)\s+tomahawk(?:\s+max)?|"
+    r"tuf\s+gaming\s+(?:b450|b550|b650|b660|b760|z690|z790)-plus|"
+    r"prime\s+(?:b450|b550|b650|b660|b760|z690|z790)-plus)\b",
     re.I,
 )
 RAM = re.compile(r"\b(?:(\d{1,2})\s*gb\s*(?:ddr([345]))|ddr([345])\s*(\d{1,2})\s*gb|(?:2\s*x\s*(8|16|32)\s*gb))\b", re.I)
@@ -61,7 +76,6 @@ def _cpu_rule_matches(line: str):
 
 
 def _extract_cpu(lines: list[str]) -> tuple[dict, int]:
-    # Context-aware: reject bare AMD numbers when they are part of an RX GPU token.
     for source, line in [("TITLE", lines[0])] + [("DESCRIPTION", x) for x in lines[1:]]:
         for m, label, score in _cpu_rule_matches(line):
             prefix = line[max(0, m.start()-14):m.start()].lower()
@@ -84,16 +98,17 @@ def _board_fit(lines: list[str], board: dict) -> dict:
     text = "\n".join(lines)
     ev = board.get("evidence") or ""
     candidate = f"{board.get('value') or ''} {ev}"
-    if ITX.search(candidate) or MATX.search(candidate):
+    if KNOWN_ITX_BOARD.search(candidate) or ITX.search(candidate):
         return _evidence("COMPATIBLE", board.get("source", "FULL_TEXT"), ev or candidate)
+    if KNOWN_MATX_BOARD.search(candidate) or MATX.search(candidate):
+        return _evidence("COMPATIBLE", board.get("source", "FULL_TEXT"), ev or candidate)
+    if KNOWN_ATX_BOARD.search(candidate):
+        m = KNOWN_ATX_BOARD.search(candidate)
+        return _evidence("INCOMPATIBLE", board.get("source", "DESCRIPTION"), m.group(0), "VERIFIED")
     if FULL_ATX_BOARD.search(text):
         m = FULL_ATX_BOARD.search(text)
         return _evidence("INCOMPATIBLE", "FULL_TEXT", m.group(0) if m else "ATX motherboard")
-    if board.get("value"):
-        # Models ending in M are mATX evidence; explicit non-M ATX families stay unknown unless context says ATX.
-        if re.search(r"\b[abhqz][1-9]\d{2}m\b", str(board["value"]), re.I):
-            return _evidence("COMPATIBLE", board["source"], board["evidence"])
-    return _evidence("UNVERIFIED", "FULL_TEXT", "Motherboard form factor is not proven in listing text", "UNKNOWN")
+    return _evidence("UNVERIFIED", "FULL_TEXT", "Motherboard model/form factor is not proven strongly enough for Z20", "UNKNOWN")
 
 
 def _extract_ram(lines: list[str]) -> dict:
@@ -181,7 +196,7 @@ def analyze_t1(t1: dict) -> dict:
         if board_fit["value"] == "COMPATIBLE":
             routes.append({"route": "DIRECT_Z20_TRANSFER", "status": "READY" if psu.get("value") else "NEEDS_ONE_CHECK", "rationale": "Motherboard is listing-proven mATX/ITX; PSU is the remaining fit check." if not psu.get("value") else "Motherboard and standard PSU evidence support a direct transplant route."})
         elif board_fit["value"] == "INCOMPATIBLE":
-            routes.append({"route": "Z20_DONOR_WITH_NEW_PLATFORM", "status": "VIABLE", "rationale": "Current motherboard is full-size ATX; reuse GPU/storage and other compatible parts, replace platform for Z20."})
+            routes.append({"route": "Z20_DONOR_WITH_NEW_PLATFORM", "status": "VIABLE", "rationale": "Current motherboard is full-size ATX; reuse GPU/storage and other compatible parts, replace platform/motherboard for Z20."})
         else:
             routes.append({"route": "Z20_TRANSFER_NEEDS_BOARD_INFO", "status": "HIGH_POTENTIAL", "rationale": "Price/performance can still be attractive; motherboard form factor is the key missing fact."})
     if gpu_score >= 60:
@@ -220,15 +235,14 @@ def enrich_result_file(path: str | Path, t1_cache: dict[str, dict]) -> dict:
                 continue
             intel = analyze_t1(t1)
             row["listing_intelligence"] = intel
-            # Context-aware CPU/GPU supersede legacy parser only when listing evidence is verified.
             if intel["cpu"].get("confidence") == "VERIFIED" and intel["cpu"].get("value"):
                 row["cpu"] = intel["cpu"]["value"]; row["cpu_score"] = intel["cpu_score"]
             if intel["gpu"].get("confidence") == "VERIFIED" and intel["gpu"].get("value"):
                 row["gpu"] = intel["gpu"]["value"]; row["gpu_score"] = intel["gpu_score"]
             enriched += 1
     doc["listing_intelligence"] = {
-        "version": "V1",
-        "policy": "Description-aware hardware extraction with per-field evidence/confidence. Never used as price evidence; ASK remains same-object T1 verified.",
+        "version": "V2",
+        "policy": "Description-aware hardware extraction with model-aware motherboard form-factor evidence. Never used as price evidence; ASK remains same-object T1 verified.",
         "enriched_records": enriched,
         "cached_t1_records": len(t1_cache),
     }
