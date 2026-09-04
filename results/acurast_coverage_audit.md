@@ -1,8 +1,8 @@
 # Acurast coverage audit
 
-Generated: 2026-09-04T06:21:17.897549+00:00
+Generated: 2026-09-04T08:22:26.484201+00:00
 
-T0 listings <= ceiling: **2528**  
+T0 listings <= ceiling: **2531**  
 Verified before quality: **49**  
 Final after quality: **49**  
 Mainnet ranked: **34**
@@ -10,7 +10,7 @@ Mainnet ranked: **34**
 ## Review buckets
 
 - Discovery/model blindspots: **975**
-- Core-compatible explicit models stopped by Pulse gate: **22**
+- Core-compatible explicit models stopped by Pulse gate: **23**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
 - Core compatibility review: **6**
@@ -31,6 +31,7 @@ Mainnet ranked: **34**
 | Motorola Edge 50 Ultra | Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri | NO_MATCH |
 | Motorola G53 | Motorola G53 128 GB sort | NO_MATCH |
 | Motorola g62 | Motorola g62 | NO_MATCH |
+| Nothing Phone 3a Lite | Nothing Phone (3a) Lite 128GB/8GB - White | NO_MATCH |
 | OnePlus OnePlus 7 Pro | OnePlus OnePlus 7 Pro, Perfekt | NO_MATCH |
 | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse | NO_MATCH |
 | Poco X3 PRO | Poco X3 PRO "256GB" | NO_MATCH |
@@ -269,7 +270,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24258890 | sony Ericsson | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24318487 | Nokia 105 Classic mobiltelefon | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24401127 | Nokia | 100 | no supported model resolved |
-| DISCOVERY/MODEL | 24410609 | Huawei Y 6 Smartphone | 100 | no supported model resolved |
+| DISCOVERY/MODEL | 24410609 | Huawei Y 6  Smartphone | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24414071 | Motorola One Vision | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24437849 | Samsung GT-E1080W – Som ny i original emballage (Ubrugt) | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24469516 | Original Nokia 3510i i blå | 100 | no supported model resolved |
@@ -293,7 +294,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2763429 | Motorola C139, Perfekt | 120 | no supported model resolved |
 | DISCOVERY/MODEL | 12911893 | HTC | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 14193193 | Sony Ericsson E15i | 125 | no supported model resolved |
-| DISCOVERY/MODEL | 14451530 | Nokia 5230 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 14749004 | HUAWEI Y210-0100 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 14863438 | Sony Ericsson E15i | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 14928555 | Sony Ericsson T630 | 125 | no supported model resolved |
@@ -791,7 +791,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2190516 | Samsung J6, God | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 23324807 | OnePlus 5 (A5000) smartphone | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 24081537 | TCL T517D 128 GB | 499 | no supported model resolved |
-| DISCOVERY/MODEL | 24393984 | Samsung Galaxy A22 5G Smartphone 64 GB  Dual-SIM | 499 | no supported model resolved |
+| DISCOVERY/MODEL | 24393984 | Samsung Galaxy A22 5G Smartphone 64 GB   Dual-SIM | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 1197425 | Nokia 5110i, God | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 14160104 | Google Nexus S | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 1589071 | Motorola Mctorola C350 | 500 | no supported model resolved |
@@ -863,6 +863,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24033486 | OnePlus 5T Black 64GB New | 549 | no supported model resolved |
 | DISCOVERY/MODEL | 11819215 | Xiaomi MI 9 Lite - NY PRIS! | 550 | no supported model resolved |
 | DISCOVERY/MODEL | 22161352 | Sony Xperia Z Ultra C6806 – Ikonisk kæmpetelefon med original dock | 550 | no supported model resolved |
+| DISCOVERY/MODEL | 24592117 | samsung galaxy A22, 5 G,  nyt lædercover, ingen ridser | 550 | no supported model resolved |
 | DISCOVERY/MODEL | 12965009 | LG Nexus 5X smartphone | 575 | no supported model resolved |
 | DISCOVERY/MODEL | 23841082 | Nokia N79 – fuldt fungerende – original æske + 3 Xpress-on covers | 595 | no supported model resolved |
 | DISCOVERY/MODEL | 15593254 | Sony Xperia Z2 Tablet Sort. SGP 551. | 599 | no supported model resolved |
@@ -993,11 +994,11 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24083604 | Samsung Galaxy ring | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 24105960 | Google Pixel 2 XL. Perfekt. | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 24329292 | Sprit nye smartphone Motorola 5G | 900 | no supported model resolved |
-| DISCOVERY/MODEL | 24402677 | Motorola edge neo 40 | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 8200184 | Ny Nokia ATEX (EEx) | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 9700207 | Samsung a9plus | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 23135575 | TCL 50 Pro NxtPaper 5G 512 GB | 950 | no supported model resolved |
 | DISCOVERY/MODEL | 24481120 | Honor 400 Smart | 950 | no supported model resolved |
+| DISCOVERY/MODEL | 24581848 | Nothing Phone (3a) Lite 128GB/8GB - White | 950 | no supported model resolved |
 | DISCOVERY/MODEL | 4917688 | Samsung A23, 64 GB | 950 | no supported model resolved |
 | DISCOVERY/MODEL | 15235700 | Nokia G42 5G Android styresystem. | 975 | no supported model resolved |
 | DISCOVERY/MODEL | 22113507 | Samsung Galaxy S9 | 975 | no supported model resolved |
@@ -1047,6 +1048,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Motorola Edge 50 Ultra |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Motorola G53 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Motorola g62 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| DISCOVERY/PULSE |  | Nothing Phone 3a Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | OnePlus OnePlus 7 Pro |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Poco X3 PRO |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |

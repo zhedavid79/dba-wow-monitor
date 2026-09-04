@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-09-04T06:21:17.897549+00:00",
+  "generated_at": "2026-09-04T08:22:26.484201+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2528,
+    "t0_unique": 2531,
     "verified_before_quality": 49,
     "final_after_quality": 49,
     "ranked": 34,
     "discovery_model_blindspots": 975,
-    "pulse_gated_discovery_review": 22,
+    "pulse_gated_discovery_review": 23,
     "t1_exit_review": 6,
     "quality_review": 0,
     "core_review": 6,
@@ -16,7 +16,7 @@
   },
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 975,
-    "DISCOVERY/PULSE": 22,
+    "DISCOVERY/PULSE": 23,
     "T1": 6,
     "CORE": 6,
     "PULSE": 9
@@ -1898,7 +1898,7 @@
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
       "listing_id": "24410609",
-      "title": "Huawei Y 6 Smartphone",
+      "title": "Huawei Y 6  Smartphone",
       "ask": 100,
       "url": "https://www.dba.dk/recommerce/forsale/item/24410609",
       "reason": "no supported model resolved"
@@ -2108,15 +2108,6 @@
       "title": "Sony Ericsson E15i",
       "ask": 125,
       "url": "https://www.dba.dk/recommerce/forsale/item/14193193",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "14451530",
-      "title": "Nokia 5230",
-      "ask": 125,
-      "url": "https://www.dba.dk/recommerce/forsale/item/14451530",
       "reason": "no supported model resolved"
     },
     {
@@ -6596,7 +6587,7 @@
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
       "listing_id": "24393984",
-      "title": "Samsung Galaxy A22 5G Smartphone 64 GB  Dual-SIM",
+      "title": "Samsung Galaxy A22 5G Smartphone 64 GB   Dual-SIM",
       "ask": 499,
       "url": "https://www.dba.dk/recommerce/forsale/item/24393984",
       "reason": "no supported model resolved"
@@ -7238,6 +7229,15 @@
       "title": "Sony Xperia Z Ultra C6806 – Ikonisk kæmpetelefon med original dock",
       "ask": 550,
       "url": "https://www.dba.dk/recommerce/forsale/item/22161352",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24592117",
+      "title": "samsung galaxy A22, 5 G,  nyt lædercover, ingen ridser",
+      "ask": 550,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24592117",
       "reason": "no supported model resolved"
     },
     {
@@ -8413,15 +8413,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24402677",
-      "title": "Motorola edge neo 40",
-      "ask": 900,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24402677",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "8200184",
       "title": "Ny Nokia ATEX (EEx)",
       "ask": 900,
@@ -8453,6 +8444,15 @@
       "title": "Honor 400 Smart",
       "ask": 950,
       "url": "https://www.dba.dk/recommerce/forsale/item/24481120",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24581848",
+      "title": "Nothing Phone (3a) Lite 128GB/8GB - White",
+      "ask": 950,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24581848",
       "reason": "no supported model resolved"
     },
     {
@@ -8911,6 +8911,16 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
+      "model": "Nothing Phone 3a Lite",
+      "title": "Nothing Phone (3a) Lite 128GB/8GB - White",
+      "ask": null,
+      "url": null,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "DISCOVERY/PULSE",
+      "severity": "MEDIUM",
+      "listing_id": null,
       "model": "OnePlus OnePlus 7 Pro",
       "title": "OnePlus OnePlus 7 Pro, Perfekt",
       "ask": null,
@@ -9277,6 +9287,13 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
+      "candidate_model": "Nothing Phone 3a Lite",
+      "title": "Nothing Phone (3a) Lite 128GB/8GB - White",
+      "pulse_match_method": "NO_MATCH",
+      "pulse_match_confidence": 0.0,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
+    },
+    {
       "candidate_model": "OnePlus OnePlus 7 Pro",
       "title": "OnePlus OnePlus 7 Pro, Perfekt",
       "pulse_match_method": "NO_MATCH",
@@ -9442,21 +9459,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2473,
+    "PRODUCT_IDENTITY": 2476,
     "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 982,
-    "live price missing": 3,
     "no supported model resolved": 1439,
+    "live price missing": 3,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 986,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 11,
-    "accessory/part title": 9,
+    "accessory/part title": 8,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 27
   },
   "audit_integrity": {
-    "all_rejects_count": 2479,
+    "all_rejects_count": 2482,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
