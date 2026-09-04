@@ -6,12 +6,20 @@ import re
 import dba_z20_parts_recovery as recovery
 
 parts = recovery.parts
-# Expanded component discovery can legitimately produce a larger T1 set than the old
-# Z20-only scanner. Keep stable concurrency and increase only the bounded total budget.
+# Platform-first discovery: keep the proven T0/T1 price gate, but search the durable
+# AM5 foundation and bridge-performance market explicitly.
 parts.T1_CONCURRENCY = 8
 parts.T1_TOTAL_DEADLINE_SECONDS = 600
 
 EXTRA_QUERIES = [
+    # Permanent/long-lived foundation opportunities.
+    "ryzen 7500f", "ryzen 7600", "ryzen 7600x", "ryzen 7700", "am5 cpu",
+    "b650m wifi", "b650m wi-fi", "b850m wifi", "am5 matx wifi", "am5 bundkort wifi",
+    "ddr5 32gb", "ddr5 6000 32gb",
+    # Opportunistic bridge GPUs: do not require a modern GPU if an older cheap card is sufficient.
+    "vega 56", "vega 64", "rx 5700 xt", "rx 6600", "rx 6600 xt", "rx 6650 xt",
+    "rtx 2060", "rtx 2060 super", "rtx 2070", "rtx 2070 super", "rtx 2080", "rtx 2080 super",
+    # New-first categories are still discovered for exceptional used offers / donor reuse.
     "nvme 1tb", "nvme 500gb", "m2 ssd 1tb", "ssd 1tb",
     "matx kabinet", "micro atx kabinet", "jonsbo z20", "mini itx kabinet",
     "650w strømforsyning", "750w strømforsyning",
@@ -27,6 +35,9 @@ CASE = re.compile(r"\b(?:kabinet|case)\b", re.I)
 CASE_FIT = re.compile(r"\b(?:micro[- ]?atx|m[- ]?atx|matx|mini[- ]?itx|itx|jonsbo\s+z20)\b", re.I)
 COOLER = re.compile(r"\b(?:cpu\s*køler|cpu\s*koeler|cpu\s*cooler|processorkøler|processorkoeler)\b", re.I)
 COOLER_SOCKET = re.compile(r"\b(?:am4|am5|lga1700|lga1200)\b", re.I)
+BOARD_ONLY = re.compile(r"\b(?:b650m|b850m|a620m|x670e?m?|bundkort|motherboard)\b", re.I)
+AM5_BOARD = re.compile(r"\b(?:b650m|b850m|a620m|am5)\b", re.I)
+BOARD_WIFI = re.compile(r"\b(?:wi-?fi|wifi|wireless|ax)\b", re.I)
 
 _original_classify = parts.classify
 _original_plausible = parts.plausible_at_t0
@@ -41,12 +52,19 @@ def classify(title: str):
         return "CASE", "TITLE_PROVES_CASE_AND_MATX_ITX_FIT"
     if COOLER.search(title) and COOLER_SOCKET.search(title):
         return "COOLER", "TITLE_PROVES_COOLER_AND_SOCKET"
-    return _original_classify(title)
+    base_kind, base_reason = _original_classify(title)
+    if base_kind:
+        return base_kind, base_reason
+    # Standalone boards are needed by the platform-first strategy. Keep this strict:
+    # the title itself must identify a motherboard-class product, not merely mention AM5.
+    if BOARD_ONLY.search(title) and not re.search(r"\b(?:pc|computer|stationær|desktop|bundle|pakke|cpu\s*\+|ryzen\s+[3579])\b", title, re.I):
+        return "MOTHERBOARD", "TITLE_PROVES_STANDALONE_MOTHERBOARD"
+    return None, base_reason
 
 
 def plausible_at_t0(row: dict) -> bool:
     title = row.get("title") or ""
-    if classify(title)[0] in {"STORAGE", "CASE", "COOLER"}:
+    if classify(title)[0] in {"STORAGE", "CASE", "COOLER", "MOTHERBOARD"}:
         return True
     return _original_plausible(row)
 
