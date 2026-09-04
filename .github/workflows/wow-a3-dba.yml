@@ -77,6 +77,7 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import re
           from pathlib import Path
 
           s=json.loads(Path('results/wow_strategy_latest.json').read_text(encoding='utf-8'))
@@ -84,8 +85,11 @@ jobs:
           p=json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
           q=json.loads(Path('results/z20_donors_latest.json').read_text(encoding='utf-8'))
 
+          defect_re=re.compile(r'\b(?:delvist\s+defekt|defekt|virker\s+ikke|fungerer\s+ikke|ustabil|artefakt(?:er)?|artifact(?:s)?|til\s+dele|reservedele|reparation)\b', re.I)
+
           assert s.get('gate_passed') is True
           assert s.get('model_version') == 'DBA-WOW-CROSS-ROUTE-V15'
+          assert s.get('functional_defect_policy') == 'HARD_EXCLUDE', 'FUNCTIONAL DEFECT POLICY NOT ACTIVE'
           assert c.get('gate_passed') is True and c.get('price_binding_regression',{}).get('ok') is True
           assert (c.get('coverage',{}).get('discovery') or {}).get('complete') is True
           assert (c.get('coverage',{}).get('t1') or {}).get('complete') is True
@@ -100,6 +104,7 @@ jobs:
           assert s.get('best_complete_pc'), 'COMPLETE-PC ROUTE MISSING'
 
           used_count=0
+          all_used_ids=set()
           for r in ranked:
               assert r.get('route') in {'COMPLETE_USED_PC','USED_PC_PLUS_FUTURE_UPGRADE','USED_BUILD','HYBRID_USED_NEW'}
               assert isinstance(r.get('tcwp'),int) and r['tcwp']>0
@@ -116,12 +121,17 @@ jobs:
                   if x['source']=='USED ASK':
                       used_count += 1
                       assert x.get('listing_id'), 'USED COMPONENT MISSING LISTING ID'
+                      all_used_ids.add(str(x['listing_id']))
+                      assert x.get('functional_defect') is False, f"DEFECT FLAG NOT FALSE: {x.get('listing_id')}"
+                      assert not defect_re.search(str(x.get('name') or '')), f"DEFECTIVE USED HARDWARE IN RANKING: {x.get('listing_id')} {x.get('name')}"
           assert used_count>0
+          assert '24571843' not in all_used_ids, 'KNOWN DEFECTIVE RTX 3080 REGRESSION REAPPEARED'
 
           report=Path('results/wow_a3_report.md').read_text(encoding='utf-8')
+          assert '24571843' not in report, 'KNOWN DEFECTIVE RTX 3080 PRESENT IN REPORT'
           for marker in ('BUY NOW','CHEAPEST SWEET SPOT','BEST UPGRADE PLATFORM','BEST COMPLETE PC','BEST USED BUILD','BEST HYBRID BUILD','Samlet ranking'):
               assert marker in report, marker
-          print(f"PASS CROSS-ROUTE V15: {len(ranked)} finished solutions; used refs={used_count}; routes={s.get('counts')}")
+          print(f"PASS CROSS-ROUTE V15: {len(ranked)} finished solutions; used refs={used_count}; routes={s.get('counts')}; defective-used=0")
           PY
       - name: Publish authoritative cross-route results
         run: |
