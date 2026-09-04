@@ -2,9 +2,13 @@ from __future__ import annotations
 
 import asyncio
 import json
+import re
 from urllib.parse import quote
 
 import dba_browser_v2 as v2
+
+
+HYDRATION_JSON_PARSE_RE = re.compile(r"JSON\.parse\((\"(?:\\.|[^\"\\])*\")\)", re.S)
 
 
 def flatten_jsonld(value):
@@ -22,6 +26,17 @@ def flatten_jsonld(value):
     elif isinstance(value, list):
         for child in value:
             yield from flatten_jsonld(child)
+
+
+def flatten_dicts(value):
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            if isinstance(child, (dict, list)):
+                yield from flatten_dicts(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from flatten_dicts(child)
 
 
 def offer_from_product(product: dict) -> dict | None:
@@ -57,6 +72,158 @@ def category_from_product(product: dict) -> str:
                     values.append(value.strip())
         return " > ".join(values)
     return ""
+
+
+def _decode_hydration_script(raw: str):
+    raw = (raw or "").strip()
+    if not raw:
+        return None
+    # Native DBA hydration currently serializes JSON through JSON.parse("...").
+    m = HYDRATION_JSON_PARSE_RE.search(raw)
+    if m:
+        try:
+            inner = json.loads(m.group(1))
+            return json.loads(inner)
+        except Exception:
+            pass
+    # Keep a fail-closed direct JSON path for future server-rendered hydration variants.
+    if raw[:1] in "[{":
+        try:
+            return json.loads(raw)
+        except Exception:
+            return None
+    return None
+
+
+def _direct_identity_match(obj: dict, listing_id: str) -> str | None:
+    for key in ("listingId", "listing_id", "itemId", "item_id", "adId", "ad_id", "id", "sku", "productID"):
+        value = obj.get(key)
+        if value is not None and str(value).strip() == listing_id:
+            return key
+    for key in ("url", "canonicalUrl", "canonical_url", "href", "link"):
+        value = obj.get(key)
+        if isinstance(value, str):
+            m = v2.ITEM_RE.search(value)
+            if m and m.group(1) == listing_id:
+                return key
+    return None
+
+
+def _nested_scalar(obj: dict, keys: tuple[str, ...], max_depth: int = 3):
+    """Read only dict descendants of the identity-bound object; never traverse lists/recommendations."""
+    queue = [(obj, 0)]
+    seen = set()
+    while queue:
+        current, depth = queue.pop(0)
+        if id(current) in seen:
+            continue
+        seen.add(id(current))
+        for key in keys:
+            if key in current:
+                value = current.get(key)
+                if value is not None and not isinstance(value, (dict, list)):
+                    return value
+        if depth >= max_depth:
+            continue
+        for value in current.values():
+            if isinstance(value, dict):
+                queue.append((value, depth + 1))
+    return None
+
+
+def _nested_dict(obj: dict, keys: tuple[str, ...], max_depth: int = 3) -> dict | None:
+    queue = [(obj, 0)]
+    seen = set()
+    while queue:
+        current, depth = queue.pop(0)
+        if id(current) in seen:
+            continue
+        seen.add(id(current))
+        for key in keys:
+            value = current.get(key)
+            if isinstance(value, dict):
+                return value
+        if depth >= max_depth:
+            continue
+        for value in current.values():
+            if isinstance(value, dict):
+                queue.append((value, depth + 1))
+    return None
+
+
+def _hydration_candidate(obj: dict, listing_id: str, url: str) -> dict | None:
+    identity_key = _direct_identity_match(obj, listing_id)
+    if not identity_key:
+        return None
+
+    title = _nested_scalar(obj, ("title", "name", "subject", "heading"))
+    description = _nested_scalar(obj, ("description", "body", "bodyText", "text")) or ""
+
+    price_obj = _nested_dict(obj, ("price", "askingPrice", "salesPrice", "amount"))
+    price_raw = None
+    currency = None
+    if price_obj:
+        price_raw = _nested_scalar(price_obj, ("amount", "value", "price", "salesPrice", "askingPrice"), max_depth=1)
+        currency = _nested_scalar(price_obj, ("currency", "currencyCode", "priceCurrency"), max_depth=1)
+    if price_raw is None:
+        price_raw = _nested_scalar(obj, ("price", "askingPrice", "salesPrice", "priceAmount", "amount"))
+    if currency is None:
+        currency = _nested_scalar(obj, ("currency", "currencyCode", "priceCurrency"))
+
+    ask = v2.parse_number(price_raw)
+    currency = str(currency or "DKK").upper()
+
+    status = _nested_scalar(obj, ("availability", "status", "adStatus", "listingStatus", "lifecycleStatus", "state"))
+    trade_type = _nested_scalar(obj, ("tradeType", "trade_type"))
+    status_text = str(status or "").strip()
+    norm = status_text.rstrip("/").lower()
+    explicit_inactive = any(token in norm for token in ("outofstock", "soldout", "sold", "inactive", "deleted", "expired", "discontinued", "closed"))
+    explicit_active = any(token in norm for token in ("instock", "active", "published", "available", "for_sale", "forsale"))
+
+    if not title or ask is None or currency != "DKK" or not status_text:
+        return None
+
+    category = _nested_scalar(obj, ("categoryName", "category", "categoryPath")) or ""
+    brand = _nested_scalar(obj, ("brand", "brandName")) or ""
+    return {
+        "listing_id": listing_id,
+        "canonical_url": url,
+        "identity_ok": True,
+        "identity_evidence": f"PAGE_ID+HYDRATION_DIRECT_{identity_key}",
+        "title": str(title).strip(),
+        "description": str(description),
+        "ask_t1": ask,
+        "currency_t1": currency,
+        "availability_t1": status_text if not trade_type else f"{status_text}; tradeType={trade_type}",
+        "active_t1": bool(explicit_active and not explicit_inactive),
+        "category": str(category),
+        "brand": str(brand),
+        "t1_at": v2.utcnow(),
+        "t1_source": "dba_native_hydration_same_object",
+    }
+
+
+async def _fetch_native_hydration_same_object(page, listing_id: str, url: str) -> dict | None:
+    scripts = await page.locator("script").evaluate_all(
+        "els => els.map(s => s.textContent || '').filter(x => x && (x.includes('__staticRouterHydrationData') || x.includes('JSON.parse(')))"
+    )
+    candidates = []
+    for raw in scripts:
+        parsed = _decode_hydration_script(raw)
+        if parsed is None:
+            continue
+        for obj in flatten_dicts(parsed):
+            candidate = _hydration_candidate(obj, listing_id, url)
+            if candidate:
+                candidates.append(candidate)
+
+    # Fail closed on ambiguity: multiple identity-bound objects must agree on the core tuple.
+    if not candidates:
+        return None
+    core = {(c["title"], c["ask_t1"], c["currency_t1"], c["availability_t1"], c["active_t1"]) for c in candidates}
+    if len(core) != 1:
+        return None
+    return candidates[0]
 
 
 async def discover_cards_by_article(page, query: str) -> list[dict]:
@@ -158,7 +325,11 @@ async def discover_cards_by_article(page, query: str) -> list[dict]:
 
 
 async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
-    """Read the same listing's Product JSON-LD for T1 with fail-closed identity binding."""
+    """Read one live DBA item at T1 with two same-object structured sources.
+
+    Primary: Product JSON-LD. Fallback: native DBA hydration object that itself carries
+    the same listing ID plus title, numeric price, currency and explicit status.
+    """
     url = v2.ITEM_URL.format(listing_id=listing_id)
     response = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
     if response and response.status >= 400:
@@ -233,7 +404,8 @@ async def fetch_jsonld_item_all_scripts(page, listing_id: str) -> dict | None:
             "t1_at": v2.utcnow(),
             "t1_source": "dba_jsonld_product_all_scripts",
         }
-    return None
+
+    return await _fetch_native_hydration_same_object(page, listing_id, url)
 
 
 v2.discover_cards = discover_cards_by_article
