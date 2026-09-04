@@ -1,10 +1,10 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-04T13:06:24.788420+00:00
+Dato/tid: 2026-09-04T14:01:20.012625+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 432/432 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 434/434 kandidater.
 Same-object source gate: listing 24007283 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
-Antal struktureret verificerede og rangerede annoncer: 35.
+Antal struktureret verificerede og rangerede annoncer: 36.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
 
 ## Buy now
@@ -18,8 +18,8 @@ CPU Core i5-10400; GPU RTX 3070; RAM Ukendt; lager Ukendt. Quest/open world og d
 
 ## Bedste budcase
 
-[God Gaming PC](https://www.dba.dk/recommerce/forsale/item/24084752) — **ASK 6000 kr.** — ID `24084752`
-Fair-value proxy: 8200 kr.; good-deal niveau: 7400 kr.; startbud: **4900 kr.**; target: **5400 kr.**; hard max: **6000 kr.**.
+[Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) — **ASK 3000 kr.** — ID `7969913`
+Fair-value proxy: 6300 kr.; good-deal niveau: 5650 kr.; startbud: **2450 kr.**; target: **2700 kr.**; hard max: **3000 kr.**.
 Metode: Live verified same-run cohort median.
 
 ## Ranked shortlist — pris først
@@ -79,7 +79,7 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 
 | PC | ASK | Fair-value proxy | Good deal | Startbud | Target | Hard max |
 |---|---:|---:|---:|---:|---:|---:|
-| [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) | 3000 kr. | — | — | 2450 kr. | 2700 kr. | 3000 kr. |
+| [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) | 3000 kr. | 6300 kr. | 5650 kr. | 2450 kr. | 2700 kr. | 3000 kr. |
 | [MSI stationær gaming PC Intel i7-9700K RTX 2070 16GB RAM](https://www.dba.dk/recommerce/forsale/item/22701831) | 3999 kr. | 4500 kr. | 4050 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
 | [Gaming PC – i7-9700 + RTX 2080 SUPER + 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23295014) | 4200 kr. | 5150 kr. | 4650 kr. | 3450 kr. | 3800 kr. | 4200 kr. |
 | [Lenovo Legion stationær gaming PC i7 10700 RTX 3060 12gb](https://www.dba.dk/recommerce/forsale/item/24196184) | 4200 kr. | 4900 kr. | 4400 kr. | 3450 kr. | 3800 kr. | 4200 kr. |
@@ -106,16 +106,16 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Ældre gamer pc](https://www.dba.dk/recommerce/forsale/item/24508756) — ID `24508756` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Thrustmaster rat og pedaler til PC gaming](https://www.dba.dk/recommerce/forsale/item/24592020) — ID `24592020` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Billig MSI Gamer Bærbar Laptop](https://www.dba.dk/recommerce/forsale/item/23778528) — ID `23778528` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Lenovo Gamer PC | GTX 1060 6GB | SSD | Kompakt](https://www.dba.dk/recommerce/forsale/item/24494985) — ID `24494985` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [stationær gaming pc sort RGB kabinet](https://www.dba.dk/recommerce/forsale/item/22494135) — ID `22494135` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Alienware M17XR4 bærbar gaming computer 17" rød](https://www.dba.dk/recommerce/forsale/item/22969713) — ID `22969713` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [MSI stationær gamer pc NZXT kabinet. BYD](https://www.dba.dk/recommerce/forsale/item/23407277) — ID `23407277` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Alienware gaming bærbar 15" sort](https://www.dba.dk/recommerce/forsale/item/23408566) — ID `23408566` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 
 ## Objektive diskvalifikationer
 
 - NOT_VERIFIED_COMPLETE_PC_CATEGORY: 121
 - SPEC_PARSE_FAILED: 17
-- T1_FETCH_FAILED: 6
+- T1_FETCH_FAILED: 7
 
 ## Konklusion
 
