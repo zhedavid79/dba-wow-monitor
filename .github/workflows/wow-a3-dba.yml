@@ -77,7 +77,11 @@ jobs:
 
           li=d.get('listing_intelligence') or {}
           assert li.get('ranking_reconciled') is True, 'LISTING INTELLIGENCE RANKING NOT RECONCILED'
-          assert li.get('cached_t1_records',0) >= (cov.get('t1') or {}).get('candidate_total',0), 'T1 LISTING PAYLOAD CACHE INCOMPLETE'
+          # T1 coverage measures attempted candidate IDs. The payload cache intentionally
+          # contains only IDs that returned an actual structured T1 object, so it must not
+          # be compared with candidate_total. Ranked rows are validated individually below
+          # for live T1 source, price/status and VERIFIED CPU/GPU listing intelligence.
+          assert li.get('cached_t1_records',0) >= len(d.get('ranked') or []), 'RANKED T1 PAYLOAD CACHE INCOMPLETE'
 
           ranked=d.get('ranked') or []
           assert d.get('decision_summary'), 'DECISION SUMMARY MISSING'
