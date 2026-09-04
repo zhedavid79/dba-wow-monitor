@@ -21,6 +21,14 @@ FOUNDATION_BOARD={
 }
 GRADE={'A':4,'B':3,'C':2,'D':1}
 DEFECT=re.compile(r'\b(?:delvist\s+defekt|defekt|virker\s+ikke|fungerer\s+ikke|ustabil|artefakt(?:er)?|artifact(?:s)?|til\s+dele|reservedele|reparation)\b',re.I)
+# A model name inside an accessory title is not evidence that the listing contains a GPU.
+# This is deliberately generic rather than tied to one DBA listing/model.
+GPU_ACCESSORY=re.compile(
+    r'\b(?:vandk(?:ø|oe)lings?\s*blok|vandblok|water\s*block|waterblock|gpu\s*block|'
+    r'backplate|k(?:ø|oe)ler|cooler|heatsink|radiator|fan\s*shroud|shroud|'
+    r'riser(?:\s*(?:cable|kabel))?|vertical\s*mount|gpu\s*holder|support\s*bracket|'
+    r'bracket|adapter|replacement\s*fan|bl(?:æ|ae)ser|tom\s*(?:kasse|emballage)|'
+    r'empty\s*box|emballage|box\s*only)\b', re.I)
 AM5_CPU=re.compile(r'\b(?:7500f|7600x?|7700x?|7800x3d|7900x?|7950x3d|8400f|8500g|8600g|8700g|9600x|9700x|9800x3d|9900x3d|9950x3d)\b',re.I)
 AM5_COOLER=re.compile(r'\bam5\b',re.I)
 DDR5_32=re.compile(r'\bddr5\b.*\b32\s*gb\b|\b32\s*gb\b.*\bddr5\b',re.I)
@@ -28,12 +36,29 @@ FOUNDATION_USED_BOARD=re.compile(r'\b(?:b650m|b850m)\b',re.I)
 WIFI=re.compile(r'\b(?:wifi|wi-fi|wireless|\w+\s+ax)\b',re.I)
 
 
+def row_text(r):
+    return ' '.join(str(r.get(k) or '') for k in ('title','description','name'))
+
+
+def genuine_gpu(r):
+    return r.get('kind')=='GPU' and not GPU_ACCESSORY.search(row_text(r))
+
+
+def route_has_genuine_gpus(r):
+    for c in r.get('components') or []:
+        if c.get('kind')=='GPU' and c.get('source') in {'USED ASK','DBA_USED_LIVE'}:
+            if GPU_ACCESSORY.search(str(c.get('name') or '')):
+                return False
+    return True
+
+
 def used_ok(r):
-    return r.get('condition')!='DEFECT_DISCLOSED' and not DEFECT.search((r.get('title') or '')+' '+(r.get('description') or ''))
+    return r.get('condition')!='DEFECT_DISCLOSED' and not DEFECT.search(row_text(r))
 
 
 def used(kind,r):
     if not used_ok(r): raise ValueError('functional defect hard-excluded')
+    if kind=='GPU' and not genuine_gpu(r): raise ValueError('GPU accessory/non-GPU hard-excluded')
     return {'kind':kind,'source':'USED ASK','name':r.get('title'),'price':int(r['ask_t1']),'url':r.get('url'),'listing_id':str(r.get('listing_id')),'functional_defect':False}
 
 
@@ -62,8 +87,6 @@ def used_board_candidates(parts):
         t=r.get('title') or ''
         if r.get('kind')!='MOTHERBOARD' or not used_ok(r): continue
         if not FOUNDATION_USED_BOARD.search(t) or not WIFI.search(t): continue
-        # A used foundation board only wins by default at a material discount. Four DIMM
-        # slots are not guessed from a title: absent proof means the new verified board wins.
         if not re.search(r'\b(?:4\s*(?:x\s*)?(?:dimm|ram)|4\s+ram[- ]?slots?)\b',t,re.I): continue
         if int(r.get('ask_t1') or 10**9) > int(FOUNDATION_BOARD['price']*0.60): continue
         out.append(r)
@@ -73,7 +96,7 @@ def used_board_candidates(parts):
 def foundation_routes(parts):
     cpus=sorted([r for r in parts if r.get('kind')=='CPU' and used_ok(r) and AM5_CPU.search((r.get('cpu') or '')+' '+(r.get('title') or '')) and int(r.get('cpu_score') or 0)>=76],key=lambda r:r['ask_t1'])[:8]
     rams=sorted([r for r in parts if r.get('kind')=='RAM' and used_ok(r) and r.get('ram_compatibility')=='DESKTOP_COMPATIBLE' and DDR5_32.search(r.get('title') or '') and ram_capacity(r.get('title') or '')>=32],key=lambda r:r['ask_t1'])[:5]
-    gpus=sorted([r for r in parts if r.get('kind')=='GPU' and used_ok(r) and int(r.get('gpu_score') or 0)>=45],key=lambda r:r['ask_t1'])[:16]
+    gpus=sorted([r for r in parts if genuine_gpu(r) and used_ok(r) and int(r.get('gpu_score') or 0)>=45],key=lambda r:r['ask_t1'])[:16]
     coolers=sorted([r for r in parts if r.get('kind')=='COOLER' and used_ok(r) and AM5_COOLER.search(r.get('title') or '')],key=lambda r:r['ask_t1'])[:3]
     boards=used_board_candidates(parts)
     routes=[]
@@ -122,8 +145,6 @@ def sourcing_penalty(r):
 
 
 def strategic_key(r):
-    # TCWP still matters strongly, but durable platform value and sourcing discipline are
-    # explicit. Cheap ACCEPTABLE bridge performance is not punished for failing SWEET SPOT.
     foundation=foundation_score(r)
     penalty=sourcing_penalty(r)
     perf={'ACCEPTABLE':0,'SWEET SPOT':-60,'OVERKILL':20}.get(r.get('performance_class'),100)
@@ -133,11 +154,13 @@ def strategic_key(r):
 
 
 def main():
-    # Preserve all proven V15 gates/routes, then add the new platform-first route family.
     v15.main()
     d=json.loads(OUT.read_text(encoding='utf-8'))
     p=json.loads(PARTS.read_text(encoding='utf-8'))
-    routes=list(d.get('ranked') or [])+foundation_routes(p.get('opportunities') or [])
+    # Defense in depth: V15 may have inherited a misclassified component from discovery.
+    # Never publish a route whose used GPU component is explicitly an accessory.
+    inherited=[r for r in (d.get('ranked') or []) if route_has_genuine_gpus(r)]
+    routes=inherited+foundation_routes(p.get('opportunities') or [])
     seen=set(); unique=[]
     for r in routes:
         key=tuple(sorted((str(c.get('source')),str(c.get('listing_id') or c.get('name')),int(c.get('price') or 0)) for c in r.get('components') or []))
@@ -164,6 +187,8 @@ def main():
       'wait_buy':'BUY' if unique and unique[0].get('foundation_score',0)>=100 else 'WAIT_FOR_FOUNDATION_OR_EXCEPTIONAL_COMPLETE_PC',
       'counts':{**(d.get('counts') or {}),'platform_first_routes':len(foundation),'ranked_routes':len(unique)},
     })
+    # Publication invariant: no accessory-labelled used GPU can survive into ranked output.
+    assert all(route_has_genuine_gpus(r) for r in unique), 'GPU ACCESSORY LEAKED INTO PUBLISHED RANKING'
     OUT.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({'model':d['model_version'],'ranked':len(unique),'foundation':len(foundation),'buy_now':(d.get('buy_now') or {}).get('route'),'wait_buy':d['wait_buy']},ensure_ascii=False))
 
