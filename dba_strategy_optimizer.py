@@ -114,7 +114,6 @@ def hybrid_builds(parts:list[dict]) -> list[dict]:
         for g in gpus:
             comps=[used_component("PLATFORM_BUNDLE",p),used_component("GPU",g),new_component("CASE","case"),new_component("PSU","psu"),new_component("STORAGE","ssd")]
             if ram: comps.append(used_component("RAM",ram))
-            # Retail cooler is socket-universal for the intended AM4/AM5/LGA1700 routes.
             comps.append(new_component("COOLER","cooler"))
             out.append(build_route("HYBRID_USED_NEW",comps,p,g,"LIKELY",f"Used value concentrated in platform/GPU; new case/PSU/SSD/cooler reduce low-value used hunting and improve warranty/fit. Socket={sock or 'UNKNOWN'}."))
     return out
@@ -126,7 +125,6 @@ def donor_upgrade_routes(donors:list[dict]) -> list[dict]:
         if not isinstance(d.get("ask_t1"),int): continue
         if int(d.get("gpu_score") or 0)<50 or int(d.get("cpu_score") or 0)<50: continue
         comps=[{"kind":"USED_PC_CORE","source":"USED ASK","name":d.get("title"),"price":d["ask_t1"],"url":d.get("url"),"listing_id":str(d.get("listing_id"))}]
-        # This route keeps the complete machine usable first; upgrades are optional later, so TCWP is the live PC ASK.
         grade=UPGRADE_GRADE.get(d.get("upgradeability") or "UNVERIFIED","C")
         fit="VERIFIED" if d.get("motherboard_fit")=="COMPATIBLE" else "NO" if d.get("motherboard_fit")=="INCOMPATIBLE" else "UNKNOWN"
         out.append({"route":"USED_PC_PLUS_FUTURE_UPGRADE","label":d.get("title"),"tcwp":d["ask_t1"],"cpu":d.get("cpu"),"cpu_score":int(d.get("cpu_score") or 0),"gpu":d.get("gpu"),"gpu_score":int(d.get("gpu_score") or 0),"performance_class":pclass(int(d.get("cpu_score") or 0),int(d.get("gpu_score") or 0)),"upgradeability":grade,"z20_fit":fit,"components":comps,"rationale":"Complete used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."})
@@ -135,8 +133,10 @@ def donor_upgrade_routes(donors:list[dict]) -> list[dict]:
 
 def rank_key(r:dict):
     perf_order={"SWEET SPOT":0,"ACCEPTABLE":1,"OVERKILL":2,"UNDER MINIMUM":9}
-    # Price first among sufficient systems, then upgradeability as a tiebreak/controlled premium signal.
-    return (perf_order.get(r.get("performance_class"),9),int(r.get("tcwp") or 10**9),-GRADE_NUM.get(r.get("upgradeability"),0),-int(r.get("cpu_score") or 0),-int(r.get("gpu_score") or 0))
+    # All retained routes already clear the minimum performance gate. Therefore TCWP is
+    # primary; WoW class, upgradeability and CPU/GPU strength break ties rather than
+    # allowing a much more expensive SWEET SPOT to automatically beat a sufficient PC.
+    return (int(r.get("tcwp") or 10**9),perf_order.get(r.get("performance_class"),9),-GRADE_NUM.get(r.get("upgradeability"),0),-int(r.get("cpu_score") or 0),-int(r.get("gpu_score") or 0))
 
 
 def main():
@@ -150,7 +150,6 @@ def main():
     routes += pure_used_builds(parts_doc.get("opportunities") or [])
     routes += hybrid_builds(parts_doc.get("opportunities") or [])
     routes=[r for r in routes if r.get("performance_class") in {"ACCEPTABLE","SWEET SPOT","OVERKILL"}]
-    # Deduplicate exact component sets.
     seen=set(); dedup=[]
     for r in routes:
         key=(r["route"],tuple(sorted(str(c.get("listing_id") or c.get("name")) for c in r["components"])))
