@@ -1,6 +1,6 @@
 # DBA WoW / Jonsbo Z20 — COMPLETE SYSTEM OPTIMIZER V13
 
-Generated: 2026-09-04T09:02:17.577300+00:00
+Generated: 2026-09-04T10:53:38.268201+00:00
 Target: optimal complete Z20 computer for WoW Classic/progression at 3840×1600 / up to 75 Hz, balancing total cost, proven physical fit and future upgrades.
 
 ## Recommended complete configurations
