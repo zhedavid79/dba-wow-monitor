@@ -90,6 +90,8 @@ jobs:
           assert s.get('gate_passed') is True
           assert s.get('model_version') == 'DBA-WOW-CROSS-ROUTE-V15'
           assert s.get('functional_defect_policy') == 'HARD_EXCLUDE', 'FUNCTIONAL DEFECT POLICY NOT ACTIVE'
+          assert s.get('solution_dedup_policy') == 'CROSS_ROUTE_COMPONENT_IDENTITY', 'CROSS-ROUTE DEDUP POLICY NOT ACTIVE'
+          assert s.get('no_op_upgrade_policy') == 'HARD_EXCLUDE', 'NO-OP UPGRADE POLICY NOT ACTIVE'
           assert c.get('gate_passed') is True and c.get('price_binding_regression',{}).get('ok') is True
           assert (c.get('coverage',{}).get('discovery') or {}).get('complete') is True
           assert (c.get('coverage',{}).get('t1') or {}).get('complete') is True
@@ -105,6 +107,8 @@ jobs:
 
           used_count=0
           all_used_ids=set()
+          solution_keys=set()
+          complete_single_ids=set()
           for r in ranked:
               assert r.get('route') in {'COMPLETE_USED_PC','USED_PC_PLUS_FUTURE_UPGRADE','USED_BUILD','HYBRID_USED_NEW'}
               assert isinstance(r.get('tcwp'),int) and r['tcwp']>0
@@ -114,6 +118,13 @@ jobs:
               comps=r.get('components') or []
               assert comps
               assert sum(int(x['price']) for x in comps)==r['tcwp']
+              skey=tuple(sorted((str(x.get('source') or ''),str(x.get('listing_id') or x.get('name') or ''),int(x.get('price') or 0)) for x in comps))
+              assert skey not in solution_keys, f'DUPLICATE FINISHED SOLUTION ACROSS ROUTES: {r.get("route")} {r.get("label")}'
+              solution_keys.add(skey)
+              if r.get('route')=='COMPLETE_USED_PC' and len(comps)==1 and comps[0].get('listing_id'):
+                  complete_single_ids.add(str(comps[0]['listing_id']))
+              if r.get('route')=='USED_PC_PLUS_FUTURE_UPGRADE':
+                  assert len(comps)>=2, f'NO-OP PC+UPGRADE ROUTE: {r.get("label")}'
               for x in comps:
                   assert x.get('source') in {'USED ASK','NEW RETAIL'}
                   assert isinstance(x.get('price'),int) and x['price']>0
@@ -124,6 +135,10 @@ jobs:
                       all_used_ids.add(str(x['listing_id']))
                       assert x.get('functional_defect') is False, f"DEFECT FLAG NOT FALSE: {x.get('listing_id')}"
                       assert not defect_re.search(str(x.get('name') or '')), f"DEFECTIVE USED HARDWARE IN RANKING: {x.get('listing_id')} {x.get('name')}"
+          for r in ranked:
+              if r.get('route')=='USED_PC_PLUS_FUTURE_UPGRADE':
+                  core=[x for x in (r.get('components') or []) if x.get('kind')=='USED_PC_CORE']
+                  assert len(core)==1 and str(core[0].get('listing_id')) in complete_single_ids, 'UPGRADE ROUTE CORE NOT TRACEABLE TO COMPLETE-PC BASELINE'
           assert used_count>0
           assert '24571843' not in all_used_ids, 'KNOWN DEFECTIVE RTX 3080 REGRESSION REAPPEARED'
 
@@ -131,7 +146,7 @@ jobs:
           assert '24571843' not in report, 'KNOWN DEFECTIVE RTX 3080 PRESENT IN REPORT'
           for marker in ('BUY NOW','CHEAPEST SWEET SPOT','BEST UPGRADE PLATFORM','BEST COMPLETE PC','BEST USED BUILD','BEST HYBRID BUILD','Samlet ranking'):
               assert marker in report, marker
-          print(f"PASS CROSS-ROUTE V15: {len(ranked)} finished solutions; used refs={used_count}; routes={s.get('counts')}; defective-used=0")
+          print(f"PASS CROSS-ROUTE V15: {len(ranked)} unique finished solutions; used refs={used_count}; routes={s.get('counts')}; defective-used=0; no-op-upgrades=0")
           PY
       - name: Publish authoritative cross-route results
         run: |
