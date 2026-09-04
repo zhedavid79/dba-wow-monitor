@@ -20,7 +20,6 @@ on:
       - 'dba_decision_report.py'
       - 'dba_t1_preflight.py'
       - 'dba_t1_schema_probe.py'
-      - 'dba_t1_hydration_fallback.py'
       - 'dba_z20_parts.py'
       - 'dba_z20_parts_recovery.py'
       - 'dba_strategy_parts.py'
@@ -54,7 +53,7 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
       - name: Compile platform-first model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_fallback.py dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py dba_platform_first_v16.py dba_strategy_report.py
+        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_t1_schema_probe.py dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py dba_platform_first_v16.py dba_strategy_report.py
       - name: Diagnose DBA source/schema gate
         timeout-minutes: 3
         run: python dba_t1_preflight.py
