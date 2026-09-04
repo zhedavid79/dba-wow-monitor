@@ -5,113 +5,94 @@ from pathlib import Path
 
 SRC=Path("results/wow_strategy_latest.json")
 REPORT=Path("results/wow_a3_report.md")
-
-# User-specific procurement state: these listings are no longer actionable candidates.
 EXCLUDED_LISTING_IDS={"7969913":"PURCHASE_ATTEMPTED"}
-
 
 def money(n): return f"{int(n):,}".replace(",",".")+" kr."
 def links(r):
     used=[c for c in (r or {}).get("components",[]) if c.get("source")=="USED ASK"]
     return "—" if not used else "; ".join(f"[{c.get('kind')}: {c.get('name')}]({c.get('url')})" for c in used)
-
-def listing_ids(r):
-    return {str(c.get('listing_id')) for c in (r or {}).get('components',[]) if c.get('listing_id')}
-
-def excluded(r):
-    return bool(listing_ids(r) & set(EXCLUDED_LISTING_IDS))
-
+def listing_ids(r): return {str(c.get('listing_id')) for c in (r or {}).get('components',[]) if c.get('listing_id')}
+def excluded(r): return bool(listing_ids(r) & set(EXCLUDED_LISTING_IDS))
 def line(r):
     if not r:return "Ingen verificeret kandidat i denne kategori."
-    extra=""
-    if r.get('foundation'): extra=f" — foundation {r['foundation']}"
+    extra=f" — foundation {r['foundation']}" if r.get('foundation') else ""
     return f"**{r['route']} — {money(r['tcwp'])} — {r['cpu']} + {r['gpu']} — {r['performance_class']} — upgrade {r['upgradeability']} — Z20 {r['z20_fit']}{extra}**\n\n{r['rationale']}\n\nBrugte kilder: {links(r)}"
-
-def round100(n):
-    return max(0,(int(n)//100)*100)
+def round100(n): return max(0,(int(n)//100)*100)
 
 def add_complete_pc_price_targets(routes):
-    """Add market-relative negotiation thresholds to complete PCs.
-
-    Hard max is the ASK at which the PC's strategic effective cost reaches parity with
-    today's best other actionable finished solution. Sweet-spot price requires a 10%
-    value margin below that parity point. This deliberately uses cross-route value,
-    performance/platform adjustments and current alternatives instead of a percentage
-    discount from the seller's ASK.
-    """
+    """Platform/performance-aware negotiation targets, cross-checked against today's alternatives."""
     actionable=[r for r in routes if not excluded(r)]
-    for r in actionable:
-        if r.get('route')!='COMPLETE_USED_PC':
-            continue
-        others=[x for x in actionable if x is not r]
-        if not others:
-            continue
-        benchmark=min(int(x.get('strategic_effective_cost',x['tcwp'])) for x in others)
-        fixed_adjustment=int(r.get('strategic_effective_cost',r['tcwp']))-int(r['tcwp'])
-        parity=max(0,benchmark-fixed_adjustment)
-        hard_max=round100(parity)
-        sweet=round100(parity*0.90)
-        ask=int(r['tcwp'])
-        r['sweet_spot_price']=sweet
-        r['hard_max_price']=hard_max
-        r['price_to_sweet_spot']=ask-sweet
+    completes=[r for r in actionable if r.get('route')=='COMPLETE_USED_PC']
+    if not completes:return actionable
+    # Anchor to the cheapest credible complete-PC market level, then explicitly pay for relevant hardware/platform value.
+    base=min(int(r['tcwp']) for r in completes)
+    for r in completes:
+        cpu=int(r.get('cpu_score') or 0); gpu=int(r.get('gpu_score') or 0); grade={'A':4,'B':3,'C':2,'D':1}.get(r.get('upgradeability'),1)
+        perf={'UNDER MINIMUM':-400,'ACCEPTABLE':0,'SWEET SPOT':350,'OVERKILL':200}.get(r.get('performance_class'),0)
+        # Premiums are bounded decision estimates, not claimed market prices. They stop modern/X3D/AM5 systems
+        # being valued almost identically to legacy i7-9700 systems while preserving price-first discipline.
+        cpu_premium=max(-300,min(1400,(cpu-70)*28))
+        gpu_premium=max(-300,min(1400,(gpu-50)*24))
+        platform_premium={1:0,2:250,3:500,4:900}[grade]
+        intrinsic=base+cpu_premium+gpu_premium+platform_premium+perf
+        # Cross-route sanity cap: never let a complete-PC target float arbitrarily above its verified ASK.
+        hard_max=round100(min(int(r['tcwp']),intrinsic))
+        sweet=round100(hard_max*0.90)
+        ask=int(r['tcwp']); r['sweet_spot_price']=sweet; r['hard_max_price']=hard_max; r['price_to_sweet_spot']=ask-sweet
         r['deal_action']='BUY' if ask<=sweet else 'CONSIDER' if ask<=hard_max else 'BID_LOWER'
-        r['price_target_basis']='Cross-route strategic parity; sweet spot = 10% value margin below parity.'
+        r['price_target_basis']='Hardware/platform-aware value anchored to current complete-PC market; sweet spot = 10% margin below hard max.'
     return actionable
 
 def best(routes,pred,key=lambda r:int(r.get('strategic_effective_cost',r['tcwp']))):
-    xs=[r for r in routes if pred(r)]
-    return min(xs,key=key,default=None)
+    return min([r for r in routes if pred(r)],key=key,default=None)
 
+def bom_cell(r,kind):
+    xs=[c for c in r.get('components',[]) if c.get('kind')==kind]
+    if not xs:return '—'
+    c=xs[0]; src='USED' if c.get('source') in {'USED ASK','DBA_USED_LIVE'} else 'NEW'
+    name=str(c.get('name') or kind).replace('|','/')
+    if c.get('url'): name=f"[{name}]({c['url']})"
+    return f"{src}: {name} ({money(c.get('price',0))})"
+
+def route_mix(r):
+    used=sum(1 for c in r.get('components',[]) if c.get('source') in {'USED ASK','DBA_USED_LIVE'})
+    new=sum(1 for c in r.get('components',[]) if c.get('source') in {'NEW RETAIL','NEW_RETAIL'})
+    return f"{used}U/{new}N"
 
 def main():
     d=json.loads(SRC.read_text(encoding='utf-8'))
-    assert d.get('gate_passed') is True
-    assert d.get('model_version')=='DBA-WOW-PLATFORM-FIRST-V16'
-    ranked=add_complete_pc_price_targets(list(d.get('ranked') or []))
-    ranked.sort(key=lambda r:(int(r.get('strategic_effective_cost',r['tcwp'])),int(r['tcwp'])))
-    buy_now=ranked[0] if ranked else None
-    foundation=best(ranked,lambda r:r.get('foundation')=='AM5_B650_B850_MATX_WIFI_4DIMM')
-    cheapest=min(ranked,key=lambda r:int(r['tcwp']),default=None)
-    opportunistic=best(ranked,lambda r:any(c.get('kind')=='GPU' and c.get('source')=='USED ASK' for c in r.get('components') or []))
-    complete=best(ranked,lambda r:r.get('route')=='COMPLETE_USED_PC')
-    donor=best(ranked,lambda r:r.get('route')=='USED_PC_PLUS_FUTURE_UPGRADE')
-    hybrid=best(ranked,lambda r:r.get('route') in {'HYBRID_USED_NEW','PLATFORM_FIRST_AM5'})
-    lines=[
-      '# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW PLATFORM-FIRST V16','',
-      f"Generated: {d.get('generated_at')}",
-      'Mål: WoW Classic/Cataclysm, 3840×1600/75 Hz. Jonsbo Z20 er ønsket slutkabinet.',
-      'Strategi: platform først, performance opportunistisk. AM5/B650-B850 mATX/Wi-Fi/4-DIMM/DDR5 er foretrukket permanent fundament; en billig ACCEPTABLE GPU må bruges som bridge.',
-      'Indkøb: brugt først GPU→CPU→RAM→luftkøler; motherboard/kabinet brugt kun ved reel besparelse; PSU/SSD/blæsere nyt først.',
-      'Prisgrænser for komplette PC’er: HARD MAX = strategisk prisparitet med dagens bedste alternative færdige løsning; SWEET-SPOT PRIS = 10% margin under denne paritet. Målet beregnes ikke som rabat fra sælgers ASK.',
-      f"Ekskluderet fra ranking: {', '.join(sorted(EXCLUDED_LISTING_IDS))} ({', '.join(EXCLUDED_LISTING_IDS.values())}).",'',
-      f"WAIT / BUY: **{'BUY' if buy_now and buy_now.get('foundation_score',0)>=100 else 'WAIT_FOR_FOUNDATION_OR_EXCEPTIONAL_COMPLETE_PC'}**",'',
-      '## 🏆 BUY NOW','',line(buy_now),'',
-      '## 🧱 BEST FOUNDATION','',line(foundation),'',
-      '## 💰 CHEAPEST VIABLE','',line(cheapest),'',
-      '## 🎯 BEST OPPORTUNISTIC BUY','',line(opportunistic),'',
-      '## 🖥️ BEST COMPLETE PC','',line(complete),'',
-      '## 🔧 BEST DONOR/UPGRADE ROUTE','',line(donor),'',
-      '## ⚡ BEST HYBRID BUILD','',line(hybrid),'',
-      '## Komplette PC’er — hvad bør de koste?','',
-      '| PC | T1 ASK | Sweet-spot pris | Hard max | Til sweet spot | Handling | WoW | Upgrade | Z20 |',
-      '|---|---:|---:|---:|---:|---|---|---|---|',
-    ]
+    assert d.get('gate_passed') is True and d.get('model_version')=='DBA-WOW-PLATFORM-FIRST-V16'
+    ranked=add_complete_pc_price_targets(list(d.get('ranked') or [])); ranked.sort(key=lambda r:(int(r.get('strategic_effective_cost',r['tcwp'])),int(r['tcwp'])))
+    buy_now=ranked[0] if ranked else None; foundation=best(ranked,lambda r:r.get('foundation')=='AM5_B650_B850_MATX_WIFI_4DIMM'); cheapest=min(ranked,key=lambda r:int(r['tcwp']),default=None); opportunistic=best(ranked,lambda r:any(c.get('kind')=='GPU' and c.get('source')=='USED ASK' for c in r.get('components') or [])); complete=best(ranked,lambda r:r.get('route')=='COMPLETE_USED_PC'); donor=best(ranked,lambda r:r.get('route')=='USED_PC_PLUS_FUTURE_UPGRADE'); hybrid=best(ranked,lambda r:r.get('route') in {'HYBRID_USED_NEW','PLATFORM_FIRST_AM5'})
+    lines=['# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW PLATFORM-FIRST V16','',f"Generated: {d.get('generated_at')}",'Mål: WoW Classic/Cataclysm, 3840×1600/75 Hz. Jonsbo Z20 er ønsket slutkabinet.','Strategi: platform først, performance opportunistisk.','Hver build-række nedenfor er en komplet Working-PC BOM. USED ASK og NEW RETAIL vises komponent for komponent.',f"Ekskluderet fra ranking: {', '.join(sorted(EXCLUDED_LISTING_IDS))} ({', '.join(EXCLUDED_LISTING_IDS.values())}).",'',f"WAIT / BUY: **{'BUY' if buy_now and buy_now.get('foundation_score',0)>=100 else 'WAIT_FOR_FOUNDATION_OR_EXCEPTIONAL_COMPLETE_PC'}**",'','## 🏆 BUY NOW','',line(buy_now),'','## 🧱 BEST FOUNDATION','',line(foundation),'','## 💰 CHEAPEST VIABLE','',line(cheapest),'','## 🎯 BEST OPPORTUNISTIC BUY','',line(opportunistic),'','## 🖥️ BEST COMPLETE PC','',line(complete),'','## 🔧 BEST DONOR/UPGRADE ROUTE','',line(donor),'','## ⚡ BEST HYBRID BUILD','',line(hybrid),'']
+
+    # Main decision surface: many complete alternatives, with exactly what must be bought new/used.
+    lines += ['## Komplet løsningsmatrix — nye + brugte dele','','| # | TCWP | Route | CPU | GPU | Bundkort/platform | RAM | PSU | SSD | Kabinet | Køler | WoW | Upgrade | Z20 | Mix |','|---:|---:|---|---|---|---|---|---|---|---|---|---|---|---|---|']
+    # Diversity first: retain the best variants across complete PC, AM5 foundation, hybrid and donor routes.
+    selected=[]; per_route={}
+    for r in ranked:
+        rt=r.get('route'); n=per_route.get(rt,0)
+        if n>=15: continue
+        selected.append(r); per_route[rt]=n+1
+        if len(selected)>=60: break
+    for i,r in enumerate(selected,1):
+        if r.get('route')=='COMPLETE_USED_PC':
+            cpu=f"USED: {r.get('cpu')}"; gpu=f"USED: {r.get('gpu')}"; board=ram=psu=ssd=case=cooler='inkl. i PC / ikke særskilt verificeret'
+        else:
+            cpu=bom_cell(r,'CPU') if bom_cell(r,'CPU')!='—' else bom_cell(r,'PLATFORM_BUNDLE'); gpu=bom_cell(r,'GPU'); board=bom_cell(r,'MOTHERBOARD') if bom_cell(r,'MOTHERBOARD')!='—' else bom_cell(r,'PLATFORM_BUNDLE'); ram=bom_cell(r,'RAM'); psu=bom_cell(r,'PSU'); ssd=bom_cell(r,'STORAGE'); case=bom_cell(r,'CASE'); cooler=bom_cell(r,'COOLER')
+        lines.append(f"| {i} | **{money(r['tcwp'])}** | {r.get('route')} | {cpu} | {gpu} | {board} | {ram} | {psu} | {ssd} | {case} | {cooler} | {r.get('performance_class')} | {r.get('upgradeability')} | {r.get('z20_fit')} | {route_mix(r)} |")
+
+    lines += ['','## Komplette PC’er — hvad bør de koste?','','| PC | T1 ASK | Sweet-spot pris | Hard max | Til sweet spot | Handling | WoW | Upgrade | Z20 |','|---|---:|---:|---:|---:|---|---|---|---|']
     complete_by_ask=sorted([r for r in ranked if r.get('route')=='COMPLETE_USED_PC' and r.get('sweet_spot_price') is not None],key=lambda r:int(r['tcwp']))
-    for r in complete_by_ask[:30]:
-        name=f"{r.get('cpu')} + {r.get('gpu')}"
-        used=[c for c in r.get('components',[]) if c.get('source')=='USED ASK']
+    for r in complete_by_ask[:40]:
+        name=f"{r.get('cpu')} + {r.get('gpu')}"; used=[c for c in r.get('components',[]) if c.get('source')=='USED ASK']
         if used and used[0].get('url'): name=f"[{name}]({used[0]['url']})"
-        gap=int(r.get('price_to_sweet_spot') or 0)
-        gap_txt=("+" if gap>0 else "")+money(gap)
+        gap=int(r.get('price_to_sweet_spot') or 0); gap_txt=("+" if gap>0 else "")+money(gap)
         lines.append(f"| {name} | {money(r['tcwp'])} | **{money(r['sweet_spot_price'])}** | {money(r['hard_max_price'])} | {gap_txt} | **{r['deal_action']}** | {r['performance_class']} | {r['upgradeability']} | {r['z20_fit']} |")
-    lines += ['', '## Samlet ranking — færdige løsninger','',
-      '| # | TCWP | Strategic cost | Route | CPU | GPU | WoW | Upgrade | Z20 | Foundation | Brugte live-kilder |',
-      '|---:|---:|---:|---|---|---|---|---|---|---|---|']
-    for i,r in enumerate(ranked[:50],1):
-        lines.append(f"| {i} | {money(r['tcwp'])} | {money(r.get('strategic_effective_cost',r['tcwp']))} | {r['route']} | {r['cpu']} | {r['gpu']} | {r['performance_class']} | {r['upgradeability']} | {r['z20_fit']} | {r.get('foundation','—')} | {links(r)} |")
-    lines += ['', '## Pris- og evidensregel','', 'Alle USED ASK-komponenter i ranking kommer fra live T0→T1-verificerede DBA listing-objects. Funktionelt defekte dele er hard-excluded. NEW RETAIL er separat mærket. Search snippets/cached priser er aldrig prisbevis. UNKNOWN kompatibilitet må ikke fremstilles som VERIFIED. Sweet-spot/hard-max er beslutningsestimater og ændrer aldrig den verificerede T1 ASK.','']
+    lines += ['','## Samlet ranking — færdige løsninger','','| # | TCWP | Strategic cost | Route | CPU | GPU | WoW | Upgrade | Z20 | Foundation | Brugte live-kilder |','|---:|---:|---:|---|---|---|---|---|---|---|---|']
+    for i,r in enumerate(ranked[:60],1): lines.append(f"| {i} | {money(r['tcwp'])} | {money(r.get('strategic_effective_cost',r['tcwp']))} | {r['route']} | {r['cpu']} | {r['gpu']} | {r['performance_class']} | {r['upgradeability']} | {r['z20_fit']} | {r.get('foundation','—')} | {links(r)} |")
+    lines += ['','## Pris- og evidensregel','','Alle USED ASK-komponenter i ranking kommer fra live T0→T1-verificerede DBA listing-objects. Funktionelt defekte dele og accessory-listings forklædt som CPU/GPU er hard-excluded. NEW RETAIL er separat mærket. Search snippets/cached priser er aldrig prisbevis. Sweet-spot/hard-max er beslutningsestimater og ændrer aldrig T1 ASK.','']
     REPORT.write_text('\n'.join(lines),encoding='utf-8')
-    print(json.dumps({'report':True,'model':d['model_version'],'ranked':len(ranked),'excluded_listing_ids':sorted(EXCLUDED_LISTING_IDS),'complete_price_targets':len(complete_by_ask)},ensure_ascii=False))
+    print(json.dumps({'report':True,'model':d['model_version'],'ranked':len(ranked),'matrix_rows':len(selected),'complete_price_targets':len(complete_by_ask)},ensure_ascii=False))
 
 if __name__=='__main__':main()
