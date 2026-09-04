@@ -14,14 +14,31 @@ OUT = Path("results/wow_strategy_latest.json")
 
 UPGRADE_GRADE = {"EXCELLENT":"A", "GOOD":"B", "LIMITED":"C", "POOR":"D", "UNVERIFIED":"C", "NOT_APPLICABLE":"C"}
 GRADE_NUM = {"A":4,"B":3,"C":2,"D":1}
+FUNCTIONAL_DEFECT = re.compile(
+    r"\b(?:delvist\s+defekt|defekt|virker\s+ikke|fungerer\s+ikke|ustabil|artefakt(?:er)?|artifact(?:s)?|til\s+dele|reservedele|reparation)\b",
+    re.I,
+)
 
 
 def pclass(cpu_score:int, gpu_score:int) -> str:
     return v2.performance_class(gpu_score, cpu_score)
 
 
+def defect_disclosed(row:dict) -> bool:
+    if row.get("condition") == "DEFECT_DISCLOSED":
+        return True
+    text = "\n".join(str(row.get(k) or "") for k in ("title", "description", "name"))
+    return bool(FUNCTIONAL_DEFECT.search(text))
+
+
+def eligible_used(row:dict) -> bool:
+    return not defect_disclosed(row)
+
+
 def used_component(kind:str, row:dict) -> dict:
-    return {"kind":kind,"source":"USED ASK","name":row.get("title"),"price":int(row.get("ask_t1")),"url":row.get("url"),"listing_id":str(row.get("listing_id"))}
+    if not eligible_used(row):
+        raise ValueError(f"DEFECTIVE USED HARDWARE IS NOT ELIGIBLE: {row.get('listing_id')} {row.get('title')}")
+    return {"kind":kind,"source":"USED ASK","name":row.get("title"),"price":int(row.get("ask_t1")),"url":row.get("url"),"listing_id":str(row.get("listing_id")),"functional_defect":False}
 
 
 def new_component(kind:str, key:str) -> dict:
@@ -29,7 +46,9 @@ def new_component(kind:str, key:str) -> dict:
     return {"kind":kind,"source":"NEW RETAIL","name":x["name"],"price":int(x["price"]),"url":x["url"],"verified_at":x["verified_at"]}
 
 
-def complete_route(row:dict) -> dict:
+def complete_route(row:dict) -> dict | None:
+    if not eligible_used(row):
+        return None
     intel=row.get("listing_intelligence") or {}
     up=(intel.get("upgradeability") or {}).get("class") or "UNVERIFIED"
     fit=(intel.get("motherboard_z20_fit") or {}).get("value") or "UNVERIFIED"
@@ -70,7 +89,7 @@ def socket_for(p:dict):
 
 
 def cheapest(rows, kind, pred=lambda r: True):
-    xs=[r for r in rows if r.get("kind")==kind and pred(r)]
+    xs=[r for r in rows if r.get("kind")==kind and eligible_used(r) and pred(r)]
     return min(xs,key=lambda r:int(r.get("ask_t1") or 10**9),default=None)
 
 
@@ -87,8 +106,8 @@ def build_route(route:str, components:list[dict], platform:dict, gpu:dict, z20_f
 
 def pure_used_builds(parts:list[dict]) -> list[dict]:
     out=[]
-    platforms=[p for p in parts if p.get("kind")=="PLATFORM_BUNDLE" and p.get("z20_fit")=="COMPATIBLE" and p.get("upgradeability") in {"GOOD","EXCELLENT"}]
-    gpus=sorted([g for g in parts if g.get("kind")=="GPU" and int(g.get("gpu_score") or 0)>=60],key=lambda x:int(x["ask_t1"]))[:8]
+    platforms=[p for p in parts if eligible_used(p) and p.get("kind")=="PLATFORM_BUNDLE" and p.get("z20_fit")=="COMPATIBLE" and p.get("upgradeability") in {"GOOD","EXCELLENT"}]
+    gpus=sorted([g for g in parts if eligible_used(g) and g.get("kind")=="GPU" and int(g.get("gpu_score") or 0)>=60],key=lambda x:int(x["ask_t1"]))[:8]
     case=cheapest(parts,"CASE")
     storage=cheapest(parts,"STORAGE")
     psu=cheapest(parts,"PSU",lambda r: bool(re.search(r"\b(?:650|700|750|800|850)\s*w",r.get("title","").lower())))
@@ -99,14 +118,14 @@ def pure_used_builds(parts:list[dict]) -> list[dict]:
         for g in gpus:
             comps=[used_component("PLATFORM_BUNDLE",p),used_component("GPU",g),used_component("CASE",case),used_component("PSU",psu),used_component("STORAGE",storage),used_component("COOLER",cooler)]
             if ram: comps.append(used_component("RAM",ram))
-            out.append(build_route("USED_BUILD",comps,p,g,"LIKELY","All required parts are live-verified USED ASK; Z20-family fit is title-proven for platform/case, exact GPU clearance remains a manual check."))
+            out.append(build_route("USED_BUILD",comps,p,g,"LIKELY","All required parts are live-verified USED ASK and functionally non-defective; Z20-family fit is title-proven for platform/case, exact GPU clearance remains a manual check."))
     return out
 
 
 def hybrid_builds(parts:list[dict]) -> list[dict]:
     out=[]
-    platforms=[p for p in parts if p.get("kind")=="PLATFORM_BUNDLE" and p.get("z20_fit")=="COMPATIBLE" and p.get("upgradeability") in {"GOOD","EXCELLENT"}]
-    gpus=sorted([g for g in parts if g.get("kind")=="GPU" and int(g.get("gpu_score") or 0)>=60],key=lambda x:int(x["ask_t1"]))[:10]
+    platforms=[p for p in parts if eligible_used(p) and p.get("kind")=="PLATFORM_BUNDLE" and p.get("z20_fit")=="COMPATIBLE" and p.get("upgradeability") in {"GOOD","EXCELLENT"}]
+    gpus=sorted([g for g in parts if eligible_used(g) and g.get("kind")=="GPU" and int(g.get("gpu_score") or 0)>=60],key=lambda x:int(x["ask_t1"]))[:10]
     for p in sorted(platforms,key=lambda x:int(x["ask_t1"]))[:10]:
         mem=platform_memory(p); _,gb=ram_meta(p.get("title","")); ram=None if gb and gb>=16 else cheapest(parts,"RAM",lambda r: r.get("ram_compatibility")=="DESKTOP_COMPATIBLE" and ram_meta(r.get("title",""))[0]==mem and (ram_meta(r.get("title",""))[1] or 0)>=16)
         if ram is None and not (gb and gb>=16): continue
@@ -115,27 +134,25 @@ def hybrid_builds(parts:list[dict]) -> list[dict]:
             comps=[used_component("PLATFORM_BUNDLE",p),used_component("GPU",g),new_component("CASE","case"),new_component("PSU","psu"),new_component("STORAGE","ssd")]
             if ram: comps.append(used_component("RAM",ram))
             comps.append(new_component("COOLER","cooler"))
-            out.append(build_route("HYBRID_USED_NEW",comps,p,g,"LIKELY",f"Used value concentrated in platform/GPU; new case/PSU/SSD/cooler reduce low-value used hunting and improve warranty/fit. Socket={sock or 'UNKNOWN'}."))
+            out.append(build_route("HYBRID_USED_NEW",comps,p,g,"LIKELY",f"Used value concentrated in functionally non-defective platform/GPU; new case/PSU/SSD/cooler reduce low-value used hunting and improve warranty/fit. Socket={sock or 'UNKNOWN'}."))
     return out
 
 
 def donor_upgrade_routes(donors:list[dict]) -> list[dict]:
     out=[]
     for d in donors:
+        if not eligible_used(d): continue
         if not isinstance(d.get("ask_t1"),int): continue
         if int(d.get("gpu_score") or 0)<50 or int(d.get("cpu_score") or 0)<50: continue
-        comps=[{"kind":"USED_PC_CORE","source":"USED ASK","name":d.get("title"),"price":d["ask_t1"],"url":d.get("url"),"listing_id":str(d.get("listing_id"))}]
+        comps=[used_component("USED_PC_CORE",d)]
         grade=UPGRADE_GRADE.get(d.get("upgradeability") or "UNVERIFIED","C")
         fit="VERIFIED" if d.get("motherboard_fit")=="COMPATIBLE" else "NO" if d.get("motherboard_fit")=="INCOMPATIBLE" else "UNKNOWN"
-        out.append({"route":"USED_PC_PLUS_FUTURE_UPGRADE","label":d.get("title"),"tcwp":d["ask_t1"],"cpu":d.get("cpu"),"cpu_score":int(d.get("cpu_score") or 0),"gpu":d.get("gpu"),"gpu_score":int(d.get("gpu_score") or 0),"performance_class":pclass(int(d.get("cpu_score") or 0),int(d.get("gpu_score") or 0)),"upgradeability":grade,"z20_fit":fit,"components":comps,"rationale":"Complete used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."})
+        out.append({"route":"USED_PC_PLUS_FUTURE_UPGRADE","label":d.get("title"),"tcwp":d["ask_t1"],"cpu":d.get("cpu"),"cpu_score":int(d.get("cpu_score") or 0),"gpu":d.get("gpu"),"gpu_score":int(d.get("gpu_score") or 0),"performance_class":pclass(int(d.get("cpu_score") or 0),int(d.get("gpu_score") or 0)),"upgradeability":grade,"z20_fit":fit,"components":comps,"rationale":"Complete, functionally non-defective used PC benchmarked as a usable system now with explicit future-upgrade path; no speculative resale is credited."})
     return out
 
 
 def rank_key(r:dict):
     perf_order={"SWEET SPOT":0,"ACCEPTABLE":1,"OVERKILL":2,"UNDER MINIMUM":9}
-    # All retained routes already clear the minimum performance gate. Therefore TCWP is
-    # primary; WoW class, upgradeability and CPU/GPU strength break ties rather than
-    # allowing a much more expensive SWEET SPOT to automatically beat a sufficient PC.
     return (int(r.get("tcwp") or 10**9),perf_order.get(r.get("performance_class"),9),-GRADE_NUM.get(r.get("upgradeability"),0),-int(r.get("cpu_score") or 0),-int(r.get("gpu_score") or 0))
 
 
@@ -145,7 +162,7 @@ def main():
     assert parts_doc.get("gate_passed") is True
     assert fresh(), "NEW RETAIL BASELINES EXPIRED — refresh before hybrid ranking"
     routes=[]
-    routes += [complete_route(r) for r in (main.get("ranked") or [])]
+    routes += [x for x in (complete_route(r) for r in (main.get("ranked") or [])) if x is not None]
     routes += donor_upgrade_routes(donors_doc.get("donors") or [])
     routes += pure_used_builds(parts_doc.get("opportunities") or [])
     routes += hybrid_builds(parts_doc.get("opportunities") or [])
@@ -165,7 +182,8 @@ def main():
     out={
         "model_version":"DBA-WOW-CROSS-ROUTE-V15","generated_at":main.get("generated_at"),"gate_passed":True,
         "strategy_reference":"https://youtu.be/7HgAN5cEmkk?is=3HET1ZpzUj-j4zZq",
-        "strategy":"Buy used where absolute savings are large; use new parts where warranty/fit/low used savings make new better. Compare finished solutions by TCWP, WoW suitability and upgrade path.",
+        "strategy":"Buy used where absolute savings are large; use new parts where warranty/fit/low used savings make new better. Functionally defective used hardware is absolutely ineligible. Compare finished solutions by TCWP, WoW suitability and upgrade path.",
+        "functional_defect_policy":"HARD_EXCLUDE",
         "target":{"game":"WoW Classic/Cataclysm","resolution":"3840x1600","refresh_hz":75,"preferred_case":"Jonsbo Z20"},
         "counts":{"complete_routes":len(complete),"upgrade_routes":len(upg),"used_builds":len(used),"hybrid_builds":len(hybrid),"ranked_routes":len(dedup)},
         "buy_now":dedup[0] if dedup else None,
