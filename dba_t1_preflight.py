@@ -7,6 +7,7 @@ from playwright.async_api import async_playwright
 
 import dba_browser_v2 as v2
 from dba_browser_v3 import discover_cards_by_article, flatten_jsonld, offer_from_product
+from dba_t1_schema_probe import TARGET_IDS, probe_one
 
 
 async def diagnose_item(page, row: dict) -> dict:
@@ -117,6 +118,18 @@ async def diagnose_item(page, row: dict) -> dict:
     return diagnostic
 
 
+async def focused_problem_probe(context) -> list[dict]:
+    rows = []
+    for lid in TARGET_IDS:
+        try:
+            row = await probe_one(context, lid)
+        except Exception as exc:
+            row = {"listing_id": lid, "probe_error": f"{type(exc).__name__}: {str(exc)[:240]}"}
+        rows.append(row)
+        print(json.dumps({"stage": "FOCUSED_T1_SCHEMA_PROBE", "result": row}, ensure_ascii=False), flush=True)
+    return rows
+
+
 async def main() -> None:
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
@@ -141,17 +154,22 @@ async def main() -> None:
                     break
 
             report = {"t0_candidates": len(rows), "search_errors": errors, "items": []}
+            pass_found = False
             for row in rows[:6]:
                 item = await diagnose_item(item_page, row)
                 report["items"].append(item)
                 if item.get("result") == "PASS":
-                    report["ok"] = True
-                    print(json.dumps(report, ensure_ascii=False))
-                    return
+                    pass_found = True
+                    break
 
-            report["ok"] = False
-            print(json.dumps(report, ensure_ascii=False))
-            raise SystemExit("DBA T1 PREFLIGHT FAILED — focused diagnostics printed above")
+            if not pass_found:
+                report["ok"] = False
+                print(json.dumps(report, ensure_ascii=False))
+                raise SystemExit("DBA T1 PREFLIGHT FAILED — focused diagnostics printed above")
+
+            report["ok"] = True
+            print(json.dumps(report, ensure_ascii=False), flush=True)
+            await focused_problem_probe(context)
         finally:
             await search_page.close()
             await item_page.close()
