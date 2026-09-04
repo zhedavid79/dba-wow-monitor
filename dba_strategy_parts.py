@@ -6,6 +6,10 @@ import re
 import dba_z20_parts_recovery as recovery
 
 parts = recovery.parts
+# Expanded component discovery can legitimately produce a larger T1 set than the old
+# Z20-only scanner. Keep stable concurrency and increase only the bounded total budget.
+parts.T1_CONCURRENCY = 8
+parts.T1_TOTAL_DEADLINE_SECONDS = 600
 
 EXTRA_QUERIES = [
     "nvme 1tb", "nvme 500gb", "m2 ssd 1tb", "ssd 1tb",
