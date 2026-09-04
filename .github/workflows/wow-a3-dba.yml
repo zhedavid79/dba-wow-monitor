@@ -1,4 +1,4 @@
-name: WoW DBA Z20 Complete-System Report
+name: WoW DBA Price-First Complete-PC Report
 
 on:
   workflow_dispatch:
@@ -19,12 +19,6 @@ on:
       - 'dba_listing_intelligence.py'
       - 'dba_decision_report.py'
       - 'dba_t1_preflight.py'
-      - 'dba_z20_parts.py'
-      - 'dba_z20_parts_recovery.py'
-      - 'dba_z20_donors.py'
-      - 'dba_z20_donors_recovery.py'
-      - 'wow_value_model.py'
-      - 'z20_complete_optimizer.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -37,7 +31,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,96 +42,81 @@ jobs:
         run: |
           pip install playwright
           playwright install --with-deps chromium
-      - name: Compile complete model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_z20_parts.py dba_z20_parts_recovery.py dba_z20_donors.py dba_z20_donors_recovery.py wow_value_model.py z20_complete_optimizer.py
+      - name: Compile complete-PC model
+        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py
       - name: Diagnose DBA T1 preflight
         timeout-minutes: 3
         run: python dba_t1_preflight.py
       - name: Run complete-PC high-recall scanner with listing intelligence
-        timeout-minutes: 15
+        timeout-minutes: 18
         run: python dba_browser_v7_intelligence.py
-      - name: Run Z20 component and bundle scanner
-        timeout-minutes: 9
-        run: python dba_z20_parts_recovery.py
-      - name: Apply Z20 upgradeable procurement annotations
-        timeout-minutes: 2
-        run: python wow_value_model.py
-      - name: Resolve live donor-PC components
-        timeout-minutes: 4
-        run: python dba_z20_donors_recovery.py
-      - name: Optimize complete Z20 systems
-        timeout-minutes: 3
-        run: python z20_complete_optimizer.py
-      - name: Generate option-oriented decision report
+      - name: Generate price-first complete-PC decision report
         timeout-minutes: 2
         run: python dba_decision_report.py
-      - name: Validate V13 complete-system publication gate
+      - name: Validate complete-PC publication gate
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
+
           d=json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
-          p=json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
-          q=json.loads(Path('results/z20_donors_latest.json').read_text(encoding='utf-8'))
           assert d.get('gate_passed') is True, 'PRICE DATA GATE FAILED'
-          assert d.get('model_version') == 'DBA-WOW-Z20-COMPLETE-SYSTEM-V13'
+          assert d.get('model_version') == 'DBA-WOW-PRICE-FIRST-COMPLETE-PC-V14'
+          assert d.get('price_binding_regression',{}).get('ok') is True, 'PRICE BINDING FIXTURE FAILED'
+
           cov=d.get('coverage') or {}
           assert (cov.get('discovery') or {}).get('complete') is True, 'COMPLETE-PC DISCOVERY COVERAGE INCOMPLETE'
           assert (cov.get('t1') or {}).get('complete') is True, 'COMPLETE-PC T1 COVERAGE INCOMPLETE'
+
+          sg=d.get('source_gate') or {}
+          assert sg.get('ok') is True and sg.get('listing_id'), 'SOURCE GATE MISSING'
+          assert isinstance(sg.get('t1_price'), int) and sg.get('currency') == 'DKK', 'SOURCE GATE PRICE INVALID'
+          assert str(sg.get('status','')).rstrip('/').lower().endswith('instock'), 'SOURCE GATE STATUS INVALID'
+          assert sg.get('t0_source') == 'rendered_dba_card', 'T0 SOURCE INVALID'
+          assert sg.get('t1_source') == 'dba_jsonld_product_all_scripts', 'T1 SOURCE INVALID'
+
           li=d.get('listing_intelligence') or {}
           assert li.get('ranking_reconciled') is True, 'LISTING INTELLIGENCE RANKING NOT RECONCILED'
           assert li.get('cached_t1_records',0) >= (cov.get('t1') or {}).get('candidate_total',0), 'T1 LISTING PAYLOAD CACHE INCOMPLETE'
+
+          ranked=d.get('ranked') or []
           assert d.get('decision_summary'), 'DECISION SUMMARY MISSING'
-          assert p.get('gate_passed') is True and p.get('model_version') == 'DBA-Z20-PARTS-V4'
-          assert p.get('classifier_regression',{}).get('ok') is True
-          pcov=p.get('coverage') or {}
-          assert (pcov.get('discovery') or {}).get('complete') is True, 'PARTS DISCOVERY COVERAGE INCOMPLETE'
-          assert (pcov.get('t1') or {}).get('complete') is True, 'PARTS T1 COVERAGE INCOMPLETE'
-          assert q.get('gate_passed') is True and q.get('model_version') == 'DBA-Z20-DONOR-RESOLVER-V2'
-          assert q.get('classifier_regression',{}).get('ok') is True
-          assert (q.get('coverage') or {}).get('complete') is True, 'DONOR T1 COVERAGE INCOMPLETE'
-          ranked=d.get('ranked') or []; parts=p.get('opportunities') or []
-          assert all(r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'),int) for r in ranked+parts)
-          assert all(r.get('currency')=='DKK' and str(r.get('status','')).rstrip('/').lower().endswith('instock') for r in ranked+parts)
-          assert all(r.get('t0_source')=='rendered_dba_card' and r.get('t1_source')=='dba_jsonld_product_all_scripts' for r in ranked+parts)
-          assert all((r.get('listing_intelligence') or {}).get('cpu',{}).get('confidence')=='VERIFIED' for r in ranked), 'RANKED CPU NOT DESCRIPTION-VERIFIED'
-          assert all((r.get('listing_intelligence') or {}).get('gpu',{}).get('confidence')=='VERIFIED' for r in ranked), 'RANKED GPU NOT DESCRIPTION-VERIFIED'
-          for r in parts:
-              if r.get('kind')=='RAM' and r.get('ram_compatibility')=='DESKTOP_COMPATIBLE':
-                  title=r.get('title','').lower()
-                  assert not any(x in title for x in ('sodimm','so-dimm','lrdimm','rdimm','registered'))
-              if r.get('kind')=='PLATFORM_BUNDLE' and r.get('z20_fit')=='COMPATIBLE':
-                  assert r.get('z20_fit_reason','').startswith('TITLE_')
-          opt=d.get('complete_system_optimizer') or {}
-          builds=opt.get('builds') or []
-          assert isinstance(builds,list) and opt.get('retail_fresh') is True
-          for b in builds:
-              assert b.get('upgradeability') in {'GOOD','EXCELLENT'}
-              assert isinstance(b.get('total_price'),int) and b['total_price']>0
-              assert b.get('performance') in {'SUFFICIENT_3840x1600_75HZ_TARGET','STRONG_3840x1600_75HZ_TARGET'}
-              assert b.get('status') in {'READY_TO_BUY','NEEDS_VERIFICATION'}
-              if b.get('status')=='READY_TO_BUY':
-                  assert b.get('z20_fit')=='PROVEN'
-                  assert b.get('gpu_fit',{}).get('status')=='PROVEN_FIT'
-                  assert not b.get('missing_evidence')
-                  assert any(x.get('kind')=='CASE' and 'Jonsbo Z20' in x.get('name','') for x in b.get('components',[]))
-                  assert any(x.get('kind')=='PSU' and x.get('name','').startswith('Corsair RM650e') for x in b.get('components',[]))
-          print(f"PASS V13+INTELLIGENCE: {len(ranked)} complete PCs; {len(parts)} parts; {len(q.get('donors',[]))} donor resolutions; {len(builds)} configurations; {opt.get('ready_count')} ready")
+          assert d['decision_summary'].get('self_build') is False
+          assert d['decision_summary'].get('donor_builds') is False
+          assert d['decision_summary'].get('component_procurement') is False
+
+          for r in ranked:
+              assert r.get('listing_id') and r.get('url') and isinstance(r.get('ask_t1'),int)
+              assert r.get('currency') == 'DKK'
+              assert str(r.get('status','')).rstrip('/').lower().endswith('instock')
+              assert r.get('t0_source') == 'rendered_dba_card'
+              assert r.get('t1_source') == 'dba_jsonld_product_all_scripts'
+              assert (r.get('listing_intelligence') or {}).get('cpu',{}).get('confidence') == 'VERIFIED'
+              assert (r.get('listing_intelligence') or {}).get('gpu',{}).get('confidence') == 'VERIFIED'
+              assert r.get('performance_class') in {'ACCEPTABLE','SWEET SPOT','OVERKILL'}
+              assert isinstance((r.get('bid_model') or {}).get('start_bid'), int)
+
+          report=Path('results/wow_a3_report.md').read_text(encoding='utf-8')
+          assert 'FULDT PÅLIDELIG DBA-PRISRAPPORT' in report
+          assert 'Ranked shortlist' in report
+          assert 'Budmodel' in report
+          assert 'Objektive diskvalifikationer' in report
+          print(f"PASS COMPLETE-PC V14: {len(ranked)} ranked complete PCs; T1 {cov['t1'].get('candidate_completed')}/{cov['t1'].get('candidate_total')}")
           PY
-      - name: Publish authoritative V13 results
+      - name: Publish authoritative complete-PC results
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/wow-results
-          cp results/wow_a3_latest.json results/wow_a3_report.md results/z20_parts_latest.json results/z20_donors_latest.json /tmp/wow-results/
+          cp results/wow_a3_latest.json results/wow_a3_report.md /tmp/wow-results/
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/wow-results/* results/
-            git add results/wow_a3_latest.json results/wow_a3_report.md results/z20_parts_latest.json results/z20_donors_latest.json
+            git add results/wow_a3_latest.json results/wow_a3_report.md
             if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Update verified WoW Z20 V13 decision report [skip ci]"
+            git commit -m "Update verified WoW complete-PC price-first report [skip ci]"
             if git push origin main; then exit 0; fi
           done
           exit 1
