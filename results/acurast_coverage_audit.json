@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-04T15:20:39.632563+00:00",
+  "generated_at": "2026-09-04T16:18:46.329610+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2524,
-    "verified_before_quality": 51,
-    "final_after_quality": 51,
-    "ranked": 35,
-    "discovery_model_blindspots": 972,
+    "t0_unique": 2521,
+    "verified_before_quality": 50,
+    "final_after_quality": 50,
+    "ranked": 34,
+    "discovery_model_blindspots": 971,
     "pulse_gated_discovery_review": 22,
     "t1_exit_review": 6,
     "quality_review": 0,
@@ -15,7 +15,7 @@
     "pulse_review": 10
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 972,
+    "DISCOVERY/MODEL": 971,
     "DISCOVERY/PULSE": 22,
     "T1": 6,
     "CORE": 6,
@@ -7090,15 +7090,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24555317",
-      "title": "OnePlus ce 2 lite",
-      "ask": 500,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24555317",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24573520",
       "title": "Nokia model TA-1206",
       "ask": 500,
@@ -8993,21 +8984,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23524084",
+      "model": null,
+      "title": "Sony Erikson X10i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9337,20 +9328,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
-    },
-    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9363,6 +9340,20 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "brand-mobile:sony:5"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "24164735",
@@ -9423,21 +9414,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2467,
+    "PRODUCT_IDENTITY": 2465,
     "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1434,
-    "live price missing": 3,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 982,
+    "live price missing": 3,
+    "no supported model resolved": 1433,
     "weak complete-phone evidence": 5,
+    "accessory/part title": 7,
     "resolved model variant is not supported by seller text": 11,
-    "accessory/part title": 8,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 27
   },
   "audit_integrity": {
-    "all_rejects_count": 2473,
+    "all_rejects_count": 2471,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
