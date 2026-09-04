@@ -1,16 +1,16 @@
 # Acurast coverage audit
 
-Generated: 2026-09-04T16:18:46.329610+00:00
+Generated: 2026-09-04T18:18:23.824570+00:00
 
-T0 listings <= ceiling: **2521**  
+T0 listings <= ceiling: **2514**  
 Verified before quality: **50**  
 Final after quality: **50**  
 Mainnet ranked: **34**
 
 ## Review buckets
 
-- Discovery/model blindspots: **971**
-- Core-compatible explicit models stopped by Pulse gate: **22**
+- Discovery/model blindspots: **969**
+- Core-compatible explicit models stopped by Pulse gate: **21**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
 - Core compatibility review: **6**
@@ -22,7 +22,6 @@ Mainnet ranked: **34**
 |---|---|---|
 | CMF by Nothing Phone 2 Pro | CMF by Nothing Phone 2 Pro | NO_MATCH |
 | FEIL Poco x3 PRO | FEIL! Poco x3 PRO! 256GB | NO_MATCH |
-| flot Motorola Edge 50 | flot Motorola Edge 50 sælges. | NO_MATCH |
 | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus | NO_MATCH |
 | Honor 200 Smart 5G | Honor 200 Smart 5G, Forest Green | NO_MATCH |
 | Motorola e14 med panserglas til salg | Motorola e14 med panserglas til salg | NO_MATCH |
@@ -331,7 +330,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 14495487 | Gammel Nokia mobil | 140 | no supported model resolved |
 | DISCOVERY/MODEL | 14495780 | Sort Nokia mobil arvestykke | 140 | no supported model resolved |
 | DISCOVERY/MODEL | 10676882 | ⭐️-  Nokia 6230 | 149 | no supported model resolved |
-| DISCOVERY/MODEL | 24450320 | Samsung Note 9 - 128 GB | 149 | no supported model resolved |
 | DISCOVERY/MODEL | 1003856 | Nokia 7110, Perfekt | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 1083870 | Mobil LG nexus 5X, 32 , Perfekt | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 12516897 | Sony Ericsson K770i | 150 | no supported model resolved |
@@ -388,6 +386,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24448849 | Samsung Galaxy S 4 mini | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 24469428 | Original Nokia 6110 med ekstra covers | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 24554267 | SAMSUNG GALAXY W - GT-I8150 | 150 | no supported model resolved |
+| DISCOVERY/MODEL | 24614128 | Nokia | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 2667878 | HTC Touch Diamond, God | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 3187991 | HTC U play, 3/32 , God | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 4289688 | Samsung Galaxy 5, God | 150 | no supported model resolved |
@@ -579,7 +578,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2451146 | Nokia Lumia 635, 16 gb , Perfekt | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 24516252 | Mobil telefon Huawei y5 lo | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 24544802 | Nokia 3310 | 250 | no supported model resolved |
-| DISCOVERY/MODEL | 24601491 | Samsung Galaxy A7 (2018) | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 2557388 | Sony Ericsson T630, Perfekt | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 393447 | HTC Hero, God | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 4295056 | Nokia 1661-2B, 32 , Perfekt | 250 | no supported model resolved |
@@ -756,6 +754,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24443716 | Huawei P20 Light | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24443956 | Huawei P 30 Light | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24464151 | Samsung Galaxy S7 smartphone 32 GB sort | 400 | no supported model resolved |
+| DISCOVERY/MODEL | 24488679 | Samsung Galaxy Note 8 dual sim from 2018 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24494134 | Samsung Watch 4 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24555592 | Samsung Galaxy A32 5G, 64GB lilla | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24566703 | one plus | 400 | no supported model resolved |
@@ -785,7 +784,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24107922 | Motorola Moto E6i(Meget godt stand) | 490 | no supported model resolved |
 | DISCOVERY/MODEL | 24505461 | Sony Xperia XZ Premium (rimelige bud modtages) | 498 | no supported model resolved |
 | DISCOVERY/MODEL | 13652152 | OnePlus N10 5g | 499 | no supported model resolved |
-| DISCOVERY/MODEL | 16613187 | Smartphone Nokia 6.2 | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 20893036 | Moto E14 | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 2190516 | Samsung J6, God | 499 | no supported model resolved |
 | DISCOVERY/MODEL | 23324807 | OnePlus 5 (A5000) smartphone | 499 | no supported model resolved |
@@ -836,7 +834,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24231025 | Samsung S9, 64 gb. | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24296370 | Sony smartphone 32 GB blå | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24473397 | Samsung Galaxy A32 5G 64GB dual SIM | 500 | no supported model resolved |
-| DISCOVERY/MODEL | 24488679 | Samsung Galaxy Note 8 dual sim from 2018 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24492158 | Moto Edge 30 Fusion 8/128 GB | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24493150 | Moto Watch specielt edition | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24500231 | EDGE 20 MOTOROLA 8gb ram 128gb XT2143-1 / 5G Frosted Grey | 500 | no supported model resolved |
@@ -920,13 +917,11 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 6680543 | Nokia 7110 | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 1229107 | Motorola International 7500, God | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 1860430 | Nokia Nokia 6700 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 20410537 | Nubia Air       prisen er som skrevet står | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 20809906 | Samsung Galaxy A80 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 21110211 | Nokia 3310 with screen protector foil | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 21110275 | Nokia 3110 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 22291818 | Nokia 6310 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 22432378 | Motorola   motoG15         prisen er som skrevet står | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 22980306 | Samsung Galaxy s7 edge | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 23040474 | Samsung Gear S3 Classic | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 23646203 | Nokia N80 | 700 | no supported model resolved |
@@ -942,6 +937,8 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 7995233 | Huawei 30 pro | 749 | no supported model resolved |
 | DISCOVERY/MODEL | 15525919 | Motorola Moto g71 128/6 gb | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 1881325 | Nokia N810, Perfekt | 750 | no supported model resolved |
+| DISCOVERY/MODEL | 20410537 | Nubia Air       prisen er som skrevet står | 750 | no supported model resolved |
+| DISCOVERY/MODEL | 22432378 | Motorola   motoG15         prisen er som skrevet står | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 23643949 | OnePlus smartphone med smartcover. | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 24053742 | Motorola Moto G84 5G, 12 /256 GB | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 24105862 | Google Pixel 2. Super velholdt. | 750 | no supported model resolved |
@@ -1019,7 +1016,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23726075 | Motorola One Zoom  2 stk! | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 23829495 | Sælges Motorola G86 power 512gb spellbound | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 23834296 | Grå Sony Xperia 1 | 1000 | no supported model resolved |
-| DISCOVERY/MODEL | 24019545 | flot Motorola Edge 50 sælges. | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24085348 | Samsung Galaxy A17 5G smartphone 128 GB sort | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24199873 | Xiaomi Mi Note 10 PRO | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24279883 | Motorola Moto g24 | 1000 | no supported model resolved |
@@ -1029,12 +1025,12 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24494285 | Samsung Watch 8 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24524436 | Samsung Galaxy A54 5G – 128 GB – Sort | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24556444 | OnePlus mobil sælges nu … | 1000 | no supported model resolved |
+| DISCOVERY/MODEL | 24565284 | Samsung Galaxy A17 5G smartphone 128 GB sort | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24609862 | Motorola G77 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 8144576 | Samsung A40 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 862432 | Samsung Galaxy A-serie smartphone 128 GB sort | 1000 | no supported model resolved |
 | DISCOVERY/PULSE |  | CMF by Nothing Phone 2 Pro |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | FEIL Poco x3 PRO |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| DISCOVERY/PULSE |  | flot Motorola Edge 50 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Honor 200 Smart 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Motorola e14 med panserglas til salg |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |

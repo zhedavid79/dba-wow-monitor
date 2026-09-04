@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-04T16:18:42.949175+00:00
+Generated: 2026-09-04T18:18:20.212693+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2521 | Product rejects: 2465 | Bundle/variant/price rejects: 0 | Final: 50
+T0: 2514 | Product rejects: 2458 | Bundle/variant/price rejects: 0 | Final: 50
 
 ## Lowest verified single-device listings
 
@@ -29,15 +29,15 @@ T0: 2521 | Product rejects: 2465 | Bundle/variant/price rejects: 0 | Final: 50
 | 17 | Samsung Galaxy A51 | 650 kr. | [Samsung Galaxy A51- 128GB Lagerplads - 4GB RAM](https://www.dba.dk/recommerce/forsale/item/18226895) |
 | 18 | Samsung Galaxy A51 | 700 kr. | [Samsung Galaxy A51-serie smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24222153) |
 | 19 | Samsung Galaxy S10 | 700 kr. | [Samsung Galaxy S10e](https://www.dba.dk/recommerce/forsale/item/12922667) |
-| 20 | Samsung Galaxy S20 Ultra 5G | 700 kr. | [Samsung s20 Ultra 5g, 128 gb , Rimelig](https://www.dba.dk/recommerce/forsale/item/5017686) |
-| 21 | Samsung s10 | 700 kr. | [Samsung S10e](https://www.dba.dk/recommerce/forsale/item/24497506) |
-| 22 | Motorola G85 | 750 kr. | [Motorola g85](https://www.dba.dk/recommerce/forsale/item/24114191) |
-| 23 | OnePlus Nord | 750 kr. | [OnePlus Nord N100 Android](https://www.dba.dk/recommerce/forsale/item/23537344) |
-| 24 | OnePlus Nord 2T | 790 kr. | [OnePlus Nord 2T Gray Shadow](https://www.dba.dk/recommerce/forsale/item/21612519) |
-| 25 | OnePlus Nord 2T | 800 kr. | [OnePlus Nord 2T 5G 128GB 8GB RAM](https://www.dba.dk/recommerce/forsale/item/23992209) |
-| 26 | OnePlus Nord CE 2 Lite | 800 kr. | [OnePlus Nord CE 2 Lite 128GB Sort](https://www.dba.dk/recommerce/forsale/item/23534379) |
-| 27 | Samsung A52s | 800 kr. | [Samsung A52s 5g](https://www.dba.dk/recommerce/forsale/item/24398197) |
-| 28 | Samsung Galaxy S10 | 800 kr. | [Samsung Galaxy S10 smartphone 128 GB hvid](https://www.dba.dk/recommerce/forsale/item/24113148) |
+| 20 | Samsung Galaxy S10 | 700 kr. | [Samsung Galaxy S10 smartphone 128 GB hvid](https://www.dba.dk/recommerce/forsale/item/24113148) |
+| 21 | Samsung Galaxy S20 Ultra 5G | 700 kr. | [Samsung s20 Ultra 5g, 128 gb , Rimelig](https://www.dba.dk/recommerce/forsale/item/5017686) |
+| 22 | Samsung s10 | 700 kr. | [Samsung S10e](https://www.dba.dk/recommerce/forsale/item/24497506) |
+| 23 | Motorola G85 | 750 kr. | [Motorola g85](https://www.dba.dk/recommerce/forsale/item/24114191) |
+| 24 | OnePlus Nord | 750 kr. | [OnePlus Nord N100 Android](https://www.dba.dk/recommerce/forsale/item/23537344) |
+| 25 | OnePlus Nord 2T | 790 kr. | [OnePlus Nord 2T Gray Shadow](https://www.dba.dk/recommerce/forsale/item/21612519) |
+| 26 | OnePlus Nord 2T | 800 kr. | [OnePlus Nord 2T 5G 128GB 8GB RAM](https://www.dba.dk/recommerce/forsale/item/23992209) |
+| 27 | OnePlus Nord CE 2 Lite | 800 kr. | [OnePlus Nord CE 2 Lite 128GB Sort](https://www.dba.dk/recommerce/forsale/item/23534379) |
+| 28 | Samsung A52s | 800 kr. | [Samsung A52s 5g](https://www.dba.dk/recommerce/forsale/item/24398197) |
 | 29 | Motorola G84 | 829 kr. | [Moto G84 5g](https://www.dba.dk/recommerce/forsale/item/23426246) |
 | 30 | OnePlus Nord CE 3 Lite 5G | 850 kr. | [OnePlus Nord CE 3 Lite 5G – SOM NY!](https://www.dba.dk/recommerce/forsale/item/22999374) |
 | 31 | Samsung Galaxy S21 | 850 kr. | [Hvis Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/23058953) |
