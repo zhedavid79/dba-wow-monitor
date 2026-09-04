@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-04T10:16:58.534194+00:00",
+  "generated_at": "2026-09-04T11:12:07.804265+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2533,
+    "t0_unique": 2529,
     "verified_before_quality": 50,
     "final_after_quality": 50,
     "ranked": 35,
-    "discovery_model_blindspots": 974,
+    "discovery_model_blindspots": 973,
     "pulse_gated_discovery_review": 23,
     "t1_exit_review": 6,
     "quality_review": 0,
@@ -15,7 +15,7 @@
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 974,
+    "DISCOVERY/MODEL": 973,
     "DISCOVERY/PULSE": 23,
     "T1": 6,
     "CORE": 6,
@@ -7558,6 +7558,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24566971",
+      "title": "Galaxy A53 5G sort",
+      "ask": 625,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24566971",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "14839862",
       "title": "Motorola One Hyper",
       "ask": 648,
@@ -7661,15 +7670,6 @@
       "title": "BlackView BV6200 Pro sælges",
       "ask": 650,
       "url": "https://www.dba.dk/recommerce/forsale/item/24537816",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24566971",
-      "title": "Galaxy A53 5G sort",
-      "ask": 650,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24566971",
       "reason": "no supported model resolved"
     },
     {
@@ -7787,15 +7787,6 @@
       "title": "Nokia Nokia 6700",
       "ask": 700,
       "url": "https://www.dba.dk/recommerce/forsale/item/1860430",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "20264741",
-      "title": "Realme C63",
-      "ask": 700,
-      "url": "https://www.dba.dk/recommerce/forsale/item/20264741",
       "reason": "no supported model resolved"
     },
     {
@@ -9450,21 +9441,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2477,
+    "PRODUCT_IDENTITY": 2473,
     "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 989,
-    "no supported model resolved": 1437,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 986,
     "live price missing": 3,
+    "no supported model resolved": 1436,
     "weak complete-phone evidence": 5,
-    "accessory/part title": 8,
     "resolved model variant is not supported by seller text": 11,
+    "accessory/part title": 8,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 27
   },
   "audit_integrity": {
-    "all_rejects_count": 2483,
+    "all_rejects_count": 2479,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

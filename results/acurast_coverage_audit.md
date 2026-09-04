@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-04T10:16:58.534194+00:00
+Generated: 2026-09-04T11:12:07.804265+00:00
 
-T0 listings <= ceiling: **2533**  
+T0 listings <= ceiling: **2529**  
 Verified before quality: **50**  
 Final after quality: **50**  
 Mainnet ranked: **35**
 
 ## Review buckets
 
-- Discovery/model blindspots: **974**
+- Discovery/model blindspots: **973**
 - Core-compatible explicit models stopped by Pulse gate: **23**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
@@ -899,6 +899,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24493255 | OnePlus Watch 2 | 600 | no supported model resolved |
 | DISCOVERY/MODEL | 24529277 | Motorola Moto G24 Power – 8GB / 256GB – Dual SIM + NFC | 600 | no supported model resolved |
 | DISCOVERY/MODEL | 14725159 | Sony Xperia Z3 tablet Compact telefon SGP 621 og SGP 641. 16 GB. Sort. | 625 | no supported model resolved |
+| DISCOVERY/MODEL | 24566971 | Galaxy A53 5G sort | 625 | no supported model resolved |
 | DISCOVERY/MODEL | 14839862 | Motorola One Hyper | 648 | no supported model resolved |
 | DISCOVERY/MODEL | 23611720 | Samsung Galaxy A22 (64GB/4GB) | 649 | no supported model resolved |
 | DISCOVERY/MODEL | 2832109 | Motorola Motorola Razr V3, God | 649 | no supported model resolved |
@@ -911,7 +912,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24236957 | TCL 505 | 650 | no supported model resolved |
 | DISCOVERY/MODEL | 24487033 | Motorola Moto G24 Power – 8 GB / 256 GB | 650 | no supported model resolved |
 | DISCOVERY/MODEL | 24537816 | BlackView BV6200 Pro sælges | 650 | no supported model resolved |
-| DISCOVERY/MODEL | 24566971 | Galaxy A53 5G sort | 650 | no supported model resolved |
 | DISCOVERY/MODEL | 23582479 | Motorola Moto G41 128 gb | 665 | no supported model resolved |
 | DISCOVERY/MODEL | 21675550 | Huawei Y6 | 675 | no supported model resolved |
 | DISCOVERY/MODEL | 24046573 | Nokia E66 – Flot klassiker med cover og oplader | 695 | no supported model resolved |
@@ -925,7 +925,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 6680543 | Nokia 7110 | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 1229107 | Motorola International 7500, God | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 1860430 | Nokia Nokia 6700 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 20264741 | Realme C63 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 20410537 | Nubia Air       prisen er som skrevet står | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 20809906 | Samsung Galaxy A80 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 21110211 | Nokia 3310 with screen protector foil | 700 | no supported model resolved |
