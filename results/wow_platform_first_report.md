@@ -1,6 +1,6 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V17
 
-Generated: 2026-09-05T14:32:05.750622+00:00
+Generated: 2026-09-05T16:25:37.694155+00:00
 Mål: WoW Classic/Cataclysm ved 3840×1600 op til 75 Hz, stærk raid/crowded-combat performance og et kompakt, løbende opgraderbart system.
 Primært mål: byg selv på et permanent AM5/Z20-fundament. Komplette brugte PC’er beholdes som markedsreference og kan kun slå selvbyg-sporet ved en ekstraordinær totalhandel.
 
@@ -16,7 +16,7 @@ HANDLING: **BUILD_FOUNDATION_GPU_OPPORTUNISTIC**
 
 ## 🧭 ANBEFALET SELVBYG
 
-**7.802 kr. — Ryzen 5 7600X + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY**
+**8.627 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY**
 
 | Del | Valg nu | Rolle | Hvorfor dette fokus |
 |---|---|---|---|
@@ -24,8 +24,8 @@ HANDLING: **BUILD_FOUNDATION_GPU_OPPORTUNISTIC**
 | Strømforsyning | NY: [MSI MAG A850GL PCIE5 II 850W ATX 3.1](https://www.proshop.dk/Stroemforsyning/MSI-MAG-A850GL-PCIE5-II-Stroemforsyning-850-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3370565) — 629 kr. | **PERMANENT FOUNDATION** | A modest premium for real headroom is valuable because replacing the PSU later is wasted spend and rebuild work. |
 | Kabinet | NY: [Jonsbo Z20 Mesh White](https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428) — 750 kr. | **PERMANENT FOUNDATION** | Buy once. A used exact Z20 is attractive if materially cheaper; do not buy a random temporary case unless total economics clearly win. |
 | CPU-køler | NY: [Arctic Freezer 36 Black](https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363) — 175 kr. | **LONG-LIVED FOUNDATION** | Cooling headroom is useful, but expensive AIOs add little to this WoW-focused build unless noise/aesthetics justify them. |
-| RAM | BRUGT: [Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)](https://www.dba.dk/recommerce/forsale/item/24173962) — 1.925 kr. | **SEMI-DURABLE** | Capacity/compatibility first. Do not pay a huge premium for marginal timings that do not materially improve the target experience. |
-| CPU | BRUGT: [AMD Ryzen 5 7600x processor](https://www.dba.dk/recommerce/forsale/item/24221974) — 850 kr. | **REPLACEABLE PERFORMANCE** | Do not overbuy CPU merely to future-proof; preserve the AM5 socket and upgrade when an X3D deal offers a real gain. |
+| RAM | BRUGT: [G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30](https://www.dba.dk/recommerce/forsale/item/21190820) — 2.800 kr. | **SEMI-DURABLE** | Capacity/compatibility first. Do not pay a huge premium for marginal timings that do not materially improve the target experience. |
+| CPU | BRUGT: [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) — 800 kr. | **REPLACEABLE PERFORMANCE** | Do not overbuy CPU merely to future-proof; preserve the AM5 socket and upgrade when an X3D deal offers a real gain. |
 | Grafikkort | BRUGT: [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) — 1.600 kr. | **REPLACEABLE PERFORMANCE** | Highest opportunity-cost part. Buy enough performance, then wait for exceptional used value rather than paying launch/new premiums. |
 | SSD/lager | NY: [PNY CS1030 M.2 NVMe 500GB](https://www.proshop.dk/SSD/PNY-CS1030-M2-NVMe-500GB/3115954) — 703 kr. | **CONVENIENCE / EASY UPGRADE** | Storage speed/capacity above adequacy produces little WoW FPS. It is easy to add later. |
 
@@ -33,9 +33,9 @@ HANDLING: **BUILD_FOUNDATION_GPU_OPPORTUNISTIC**
 
 | Spor | Løsning | Hvornår det giver mening |
 |---|---|---|
-| **Anbefalet balance** | **7.802 kr. — Ryzen 5 7600X + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY** | Bedste samlede kombination af permanent platform, nuværende WoW-performance og pris. |
-| **Billigste stærke fundament** | **7.042 kr. — Ryzen 5 7500F + RX 5700 XT — ACCEPTABLE — upgrade A — Z20 LIKELY** | Når du vil minimere indgangsprisen og acceptere bridge-performance nu. |
-| **Performance step-up** | **7.752 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY** | Billigste verificerede AM5/Z20-rute i SWEET SPOT, hvis merprisen er rimelig. |
+| **Anbefalet balance** | **8.627 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY** | Bedste samlede kombination af permanent platform, nuværende WoW-performance og pris. |
+| **Billigste stærke fundament** | **7.917 kr. — Ryzen 5 7500F + RX 5700 XT — ACCEPTABLE — upgrade A — Z20 LIKELY** | Når du vil minimere indgangsprisen og acceptere bridge-performance nu. |
+| **Performance step-up** | **8.627 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY** | Billigste verificerede AM5/Z20-rute i SWEET SPOT, hvis merprisen er rimelig. |
 
 ## Del-for-del købsplan
 
@@ -101,7 +101,7 @@ HANDLING: **BUILD_FOUNDATION_GPU_OPPORTUNISTIC**
 
 **Bedst princip:** 32 GB DDR5 is the long-term target; 16 GB is allowed as a cheap bridge when the saving is substantial.
 
-**Valg nu:** BRUGT: [Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)](https://www.dba.dk/recommerce/forsale/item/24173962) — 1.925 kr.
+**Valg nu:** BRUGT: [G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30](https://www.dba.dk/recommerce/forsale/item/21190820) — 2.800 kr.
 
 **Købsregel:** Capacity/compatibility first. Do not pay a huge premium for marginal timings that do not materially improve the target experience.
 
@@ -109,7 +109,7 @@ HANDLING: **BUILD_FOUNDATION_GPU_OPPORTUNISTIC**
 
 | Alternativ | Pris | Kilde | Fordel | Ulempe |
 |---|---:|---|---|---|
-| [Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)](https://www.dba.dk/recommerce/forsale/item/24173962) | 1.925 kr. | USED ASK | Current selected component in this complete working build. | Compare against the alternatives before buying. |
+| [G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30](https://www.dba.dk/recommerce/forsale/item/21190820) | 2.800 kr. | USED ASK | Current selected component in this complete working build. | Compare against the alternatives before buying. |
 | [Crucial Classic DDR5-4800 - 16GB Kit (2x8GB).](https://www.dba.dk/recommerce/forsale/item/13161153) | 1.000 kr. | USED ASK | Lowest-cost bridge; preserves upgrade budget. | 16 GB is adequate, but 32 GB may be desirable later. |
 | [Kingston Fury DDR5 4800 mhz RAM kit på 16GB](https://www.dba.dk/recommerce/forsale/item/24292511) | 1.175 kr. | USED ASK | Lowest-cost bridge; preserves upgrade budget. | 16 GB is adequate, but 32 GB may be desirable later. |
 | [Kingston FURY Beast RGB DDR5-5200 - 16GB - CL36](https://www.dba.dk/recommerce/forsale/item/23229131) | 1.200 kr. | USED ASK | Lowest-cost bridge; preserves upgrade budget. | 16 GB is adequate, but 32 GB may be desirable later. |
@@ -118,7 +118,7 @@ HANDLING: **BUILD_FOUNDATION_GPU_OPPORTUNISTIC**
 
 **Bedst princip:** AM5 value CPU now (7500F/7600/7700 when priced well); X3D is the later WoW raid/crowded-combat upgrade target.
 
-**Valg nu:** BRUGT: [AMD Ryzen 5 7600x processor](https://www.dba.dk/recommerce/forsale/item/24221974) — 850 kr.
+**Valg nu:** BRUGT: [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) — 800 kr.
 
 **Købsregel:** Do not overbuy CPU merely to future-proof; preserve the AM5 socket and upgrade when an X3D deal offers a real gain.
 
@@ -126,10 +126,10 @@ HANDLING: **BUILD_FOUNDATION_GPU_OPPORTUNISTIC**
 
 | Alternativ | Pris | Kilde | Fordel | Ulempe |
 |---|---:|---|---|---|
-| [AMD Ryzen 5 7600x processor](https://www.dba.dk/recommerce/forsale/item/24221974) | 850 kr. | USED ASK | Current selected component in this complete working build. | Compare against the alternatives before buying. |
-| [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) | 800 kr. | USED ASK | Alternative already used in another complete verified self-build route. | Compatibility/value must be checked against the exact selected build. |
+| [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) | 800 kr. | USED ASK | Current selected component in this complete working build. | Compare against the alternatives before buying. |
 | [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/22825756) | 825 kr. | USED ASK | Alternative already used in another complete verified self-build route. | Compatibility/value must be checked against the exact selected build. |
 | [AMD Ryzen 5 7600X processor CPU](https://www.dba.dk/recommerce/forsale/item/23723858) | 950 kr. | USED ASK | Alternative already used in another complete verified self-build route. | Compatibility/value must be checked against the exact selected build. |
+| [AMD Ryzen 5 7500F](https://www.proshop.dk/CPU/AMD-Ryzen-5-7500F-Tray-CPU-6-kerner-37-GHz-AMD-AM5-Bulk-ingen-koeler/3195178) | 1.099 kr. | NEW RETAIL | Alternative already used in another complete verified self-build route. | Compatibility/value must be checked against the exact selected build. |
 
 ### Grafikkort
 
@@ -167,46 +167,46 @@ HANDLING: **BUILD_FOUNDATION_GPU_OPPORTUNISTIC**
 
 | # | TCWP | Beslutningsscore | CPU | GPU | WoW | Upgrade | Z20 | Foundation |
 |---:|---:|---:|---|---|---|---|---|---|
-| 1 | **7.802 kr.** | 7.600 kr. | Ryzen 5 7600X | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 2 | **7.752 kr.** | 7.634 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 3 | **7.777 kr.** | 7.659 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 4 | **7.092 kr.** | 7.690 kr. | Ryzen 5 7600X | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 5 | **7.902 kr.** | 7.700 kr. | Ryzen 5 7600X | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 6 | **7.902 kr.** | 7.700 kr. | Ryzen 5 7600X | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 7 | **7.042 kr.** | 7.724 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 8 | **7.852 kr.** | 7.734 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 9 | **7.067 kr.** | 7.749 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 10 | **7.877 kr.** | 7.759 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 11 | **7.192 kr.** | 7.790 kr. | Ryzen 5 7600X | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 12 | **8.002 kr.** | 7.800 kr. | Ryzen 5 7600X | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 13 | **8.002 kr.** | 7.800 kr. | Ryzen 5 7600X | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 14 | **7.952 kr.** | 7.834 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 15 | **7.977 kr.** | 7.859 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 16 | **8.052 kr.** | 7.886 kr. | Ryzen 5 7600 | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 17 | **7.292 kr.** | 7.890 kr. | Ryzen 5 7600X | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 18 | **7.302 kr.** | 7.900 kr. | Ryzen 5 7600X | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 19 | **7.302 kr.** | 7.900 kr. | Ryzen 5 7600X | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 20 | **8.102 kr.** | 7.900 kr. | Ryzen 5 7600X | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 21 | **8.102 kr.** | 7.900 kr. | Ryzen 5 7600X | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 22 | **8.102 kr.** | 7.900 kr. | Ryzen 5 7600X | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 23 | **7.242 kr.** | 7.924 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 24 | **8.051 kr.** | 7.933 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 25 | **7.252 kr.** | 7.934 kr. | Ryzen 5 7500F | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 26 | **7.252 kr.** | 7.934 kr. | Ryzen 5 7500F | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 27 | **8.052 kr.** | 7.934 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 28 | **8.052 kr.** | 7.934 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 29 | **7.267 kr.** | 7.949 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 30 | **7.277 kr.** | 7.959 kr. | Ryzen 5 7500F | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 31 | **7.277 kr.** | 7.959 kr. | Ryzen 5 7500F | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 32 | **8.077 kr.** | 7.959 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 33 | **8.077 kr.** | 7.959 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 34 | **7.342 kr.** | 7.976 kr. | Ryzen 5 7600 | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 35 | **8.152 kr.** | 7.986 kr. | Ryzen 5 7600 | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 36 | **8.152 kr.** | 7.986 kr. | Ryzen 5 7600 | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 37 | **7.392 kr.** | 7.990 kr. | Ryzen 5 7600X | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 38 | **7.402 kr.** | 8.000 kr. | Ryzen 5 7600X | RTX 2060 Super | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 39 | **7.402 kr.** | 8.000 kr. | Ryzen 5 7600X | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
-| 40 | **7.402 kr.** | 8.000 kr. | Ryzen 5 7600X | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 1 | **8.627 kr.** | 8.509 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 2 | **8.652 kr.** | 8.534 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 3 | **8.777 kr.** | 8.575 kr. | Ryzen 5 7600X | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 4 | **7.917 kr.** | 8.599 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 5 | **8.727 kr.** | 8.609 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 6 | **7.942 kr.** | 8.624 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 7 | **8.752 kr.** | 8.634 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 8 | **8.067 kr.** | 8.665 kr. | Ryzen 5 7600X | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 9 | **8.877 kr.** | 8.675 kr. | Ryzen 5 7600X | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 10 | **8.827 kr.** | 8.709 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 11 | **8.827 kr.** | 8.709 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 12 | **8.827 kr.** | 8.709 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 13 | **8.852 kr.** | 8.734 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 14 | **8.852 kr.** | 8.734 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 15 | **8.852 kr.** | 8.734 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 16 | **8.927 kr.** | 8.761 kr. | Ryzen 5 7600 | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 17 | **8.977 kr.** | 8.775 kr. | Ryzen 5 7600X | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 18 | **8.977 kr.** | 8.775 kr. | Ryzen 5 7600X | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 19 | **8.977 kr.** | 8.775 kr. | Ryzen 5 7600X | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 20 | **8.117 kr.** | 8.799 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 21 | **8.117 kr.** | 8.799 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 22 | **8.117 kr.** | 8.799 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 23 | **8.926 kr.** | 8.808 kr. | Ryzen 5 7500F | RTX 2080 Super | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 24 | **8.127 kr.** | 8.809 kr. | Ryzen 5 7500F | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 25 | **8.127 kr.** | 8.809 kr. | Ryzen 5 7500F | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 26 | **8.927 kr.** | 8.809 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 27 | **8.927 kr.** | 8.809 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 28 | **8.927 kr.** | 8.809 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 29 | **8.927 kr.** | 8.809 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 30 | **8.142 kr.** | 8.824 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 31 | **8.142 kr.** | 8.824 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 32 | **8.142 kr.** | 8.824 kr. | Ryzen 5 7500F | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 33 | **8.152 kr.** | 8.834 kr. | Ryzen 5 7500F | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 34 | **8.152 kr.** | 8.834 kr. | Ryzen 5 7500F | RTX 2070 | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 35 | **8.952 kr.** | 8.834 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 36 | **8.952 kr.** | 8.834 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 37 | **8.952 kr.** | 8.834 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 38 | **8.952 kr.** | 8.834 kr. | Ryzen 5 7500F | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 39 | **8.217 kr.** | 8.851 kr. | Ryzen 5 7600 | RX 5700 XT | ACCEPTABLE | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
+| 40 | **9.027 kr.** | 8.861 kr. | Ryzen 5 7600 | RTX 3060 Ti | SWEET SPOT | A | LIKELY | AM5_B650_B850_MATX_WIFI_4DIMM |
 
 ## Færdige computere — markedsreference
 
