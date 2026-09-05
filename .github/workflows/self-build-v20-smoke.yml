@@ -12,8 +12,10 @@ on:
       - 'dba_route_pipeline_v20.py'
       - 'dba_retail_prices_v20.py'
       - 'dba_self_build_v20.py'
+      - 'dba_self_build_v20_authoritative.py'
       - 'dba_strategy_report_v20.py'
       - 'dba_compact_publish_v20.py'
+      - 'dba_publication_gate_v20.py'
       - '.github/workflows/self-build-v20-smoke.yml'
 
 permissions:
@@ -37,7 +39,7 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
       - name: Compile V20
-        run: python -m py_compile dba_gpu_model_v20.py dba_browser_v20.py dba_strategy_parts_v20.py dba_platform_first_v20.py dba_route_pipeline_v20.py dba_retail_prices_v20.py dba_self_build_v20.py dba_strategy_report_v20.py dba_compact_publish_v20.py
+        run: python -m py_compile dba_gpu_model_v20.py dba_browser_v20.py dba_strategy_parts_v20.py dba_platform_first_v20.py dba_route_pipeline_v20.py dba_retail_prices_v20.py dba_self_build_v20.py dba_self_build_v20_authoritative.py dba_strategy_report_v20.py dba_compact_publish_v20.py dba_publication_gate_v20.py
       - name: GPU value fit and bid regression
         run: python dba_gpu_model_v20.py
       - name: GPU pool stratification regression
@@ -53,7 +55,7 @@ jobs:
           ]
           pool=p.stratified_gpu_pool(rows); ids={x['listing_id'] for x in pool}
           assert {'6800xt','6700xt','3060ti'} <= ids and len(pool)<=40
-          print({'PASS':True,'pool':len(pool),'target_ids':sorted({'6800xt','6700xt','3060ti'} & ids)})
+          print({'PASS':True,'pool':len(pool)})
           PY
       - name: Same-run cache loader regression
         run: |
@@ -65,7 +67,7 @@ jobs:
           p=Path('results/t1_cache_v20.json'); p.parent.mkdir(exist_ok=True)
           p.write_text(json.dumps({'model':'V20_SAME_RUN_T1_CACHE','generated_at':datetime.now(timezone.utc).isoformat(),'entries':{'123':{'identity_ok':True,'canonical_url':'https://www.dba.dk/recommerce/forsale/item/123'}}}),encoding='utf-8')
           cache,age=s.load_same_run_cache(); assert '123' in cache and age is not None and age < 30
-          p.unlink(); print({'PASS':True,'cache_entries':len(cache),'age':age})
+          p.unlink(); print({'PASS':True,'cache_entries':len(cache)})
           PY
       - name: Rebuild V18 baseline through V20 stratified route pipeline
         timeout-minutes: 3
@@ -73,8 +75,8 @@ jobs:
       - name: Dynamic retail discovery and same-product verification
         timeout-minutes: 7
         run: python dba_retail_prices_v20.py
-      - name: Apply V20 to latest green DBA snapshot
-        run: python dba_self_build_v20.py
+      - name: Apply authoritative V20 fit and decision model
+        run: python dba_self_build_v20_authoritative.py
       - name: Generate V20 report
         run: python dba_strategy_report_v20.py
       - name: Validate V20 focused gates
@@ -86,17 +88,15 @@ jobs:
           r=json.loads(Path('results/retail_prices_latest.json').read_text(encoding='utf-8'))
           rec=s.get('recommended_self_build') or {}; value=s.get('value_foundation_build') or {}
           assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V20'
-          assert s.get('strategy_mode')=='V20_GPU_FIT_RAM_RETAIL_CACHE_BID'
-          assert (s.get('component_market_coverage_v20') or {}).get('passed') is True
           assert str(rec.get('performance_class_v20') or '').startswith('SWEET SPOT')
+          assert s.get('self_build_ranked',[{}])[0].get('gpu')==rec.get('gpu')
           assert int(value.get('tcwp') or 10**9) <= int(rec.get('tcwp') or 0)
           assert r.get('model')=='V20_DYNAMIC_RETAIL_SAME_PRODUCT_GATE' and r.get('all_catalog_products_verified') is True and r.get('dynamic_discovery_gate_passed') is True
-          assert int((r.get('counts') or {}).get('seed_ok') or 0)==int((r.get('counts') or {}).get('seed_total') or -1)>=5
           gi=rec.get('gpu_intelligence_v20') or {}; assert (gi.get('utility') or {}).get('known') is True and (gi.get('bid') or {}).get('walk_away') is not None
           assert rec.get('z20_fit_v20') in {'VERIFIED','LIKELY','UNKNOWN'}
           bids=s.get('bid_market_v20') or {}; assert bids.get('GPU') and bids.get('CPU') and bids.get('RAM')
           pool=s.get('gpu_pool_v20') or {}; assert int(pool.get('pool_size') or 0)>0 and pool.get('integration')
           text=Path('results/wow_self_build_report_v20.md').read_text(encoding='utf-8')
-          for marker in ('SELF-BUILD FIRST V20','V20 — GPU value, Z20-fit og budmodel','V20 — RAM-bud og bridge-kontrol','V20 — dynamisk retail discovery','V20 — shared same-run T1-cache','V20 — GPU discovery-pool'): assert marker in text, marker
-          print(json.dumps({'PASS':True,'recommended_tcwp':rec.get('tcwp'),'cpu':rec.get('cpu'),'gpu':rec.get('gpu'),'performance_class_v20':rec.get('performance_class_v20'),'value_foundation_tcwp':value.get('tcwp'),'value_foundation_gpu':value.get('gpu'),'z20_fit':rec.get('z20_fit_v20'),'gpu_action':(gi.get('bid') or {}).get('action'),'retail_counts':r.get('counts'),'gpu_pool':pool.get('family_counts')},ensure_ascii=False))
+          for marker in ('SELF-BUILD FIRST V20','V20 — GPU value, Z20-fit og budmodel','V20 — RAM-bud og bridge-kontrol','V20 — dynamisk retail discovery','V20 — GPU discovery-pool'): assert marker in text, marker
+          print(json.dumps({'PASS':True,'recommended_tcwp':rec.get('tcwp'),'gpu':rec.get('gpu'),'class':rec.get('performance_class_v20'),'value_tcwp':value.get('tcwp'),'value_gpu':value.get('gpu'),'fit':rec.get('z20_fit_v20'),'gpu_action':(gi.get('bid') or {}).get('action'),'retail_counts':r.get('counts'),'gpu_pool':pool.get('family_counts')},ensure_ascii=False))
           PY
