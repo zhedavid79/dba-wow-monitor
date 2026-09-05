@@ -1,0 +1,66 @@
+name: WoW Self-Build V17 Decision Smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dba_self_build_v17.py'
+      - 'dba_strategy_report_v17.py'
+      - 'dba_build_alternatives.py'
+      - '.github/workflows/self-build-v17-smoke.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wow-self-build-v17-smoke
+  cancel-in-progress: true
+
+jobs:
+  decision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python dependency
+        run: pip install playwright
+      - name: Compile V17 decision layer
+        run: python -m py_compile dba_self_build_v17.py dba_strategy_report_v17.py dba_build_alternatives.py
+      - name: Apply V17 to latest verified market snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import dba_self_build_v17 as v17
+          import dba_build_alternatives as alts
+
+          p=Path('results/wow_strategy_latest.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d.get('gate_passed') is True
+          d=v17.finalize(d)
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
+          alts.main()
+
+          s=json.loads(p.read_text(encoding='utf-8'))
+          recommended=s.get('recommended_self_build') or {}
+          assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V17'
+          assert recommended.get('route') in {'PLATFORM_FIRST_AM5','HYBRID_USED_NEW','USED_BUILD'}
+          assert recommended.get('foundation')=='AM5_B650_B850_MATX_WIFI_4DIMM'
+          assert s.get('complete_pc_reference')
+          report=Path('results/wow_self_build_report.md').read_text(encoding='utf-8')
+          assert '## 🧭 ANBEFALET SELVBYG' in report
+          assert '## Del-for-del købsplan' in report
+          assert '## Færdige computere — markedsreference' in report
+          assert '/item/11596289' not in report
+          print({
+              'PASS':True,
+              'recommended_tcwp':recommended.get('tcwp'),
+              'recommended_cpu':recommended.get('cpu'),
+              'recommended_gpu':recommended.get('gpu'),
+              'self_builds':len(s.get('self_build_ranked') or []),
+              'complete_pc_reference':len(s.get('complete_pc_reference') or []),
+          })
+          PY
