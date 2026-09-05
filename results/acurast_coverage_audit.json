@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-05T13:53:41.791102+00:00",
+  "generated_at": "2026-09-05T15:24:22.226187+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2547,
-    "verified_before_quality": 58,
-    "final_after_quality": 57,
-    "ranked": 40,
-    "discovery_model_blindspots": 982,
-    "pulse_gated_discovery_review": 24,
+    "t0_unique": 2546,
+    "verified_before_quality": 57,
+    "final_after_quality": 56,
+    "ranked": 39,
+    "discovery_model_blindspots": 980,
+    "pulse_gated_discovery_review": 23,
     "t1_exit_review": 6,
     "quality_review": 1,
     "core_review": 6,
     "pulse_review": 11
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 982,
-    "DISCOVERY/PULSE": 24,
+    "DISCOVERY/MODEL": 980,
+    "DISCOVERY/PULSE": 23,
     "T1": 6,
     "QUALITY": 1,
     "CORE": 6,
@@ -485,6 +485,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24628117",
+      "title": "Nokia Klaptelefon",
+      "ask": 50,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24628117",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "2705883",
       "title": "Sony Ericsson Cyber shot , Rimelig",
       "ask": 50,
@@ -903,15 +912,6 @@
       "title": "Sony Ericsson K530i",
       "ask": 80,
       "url": "https://www.dba.dk/recommerce/forsale/item/24070486",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24628117",
-      "title": "Nokia Klaptelefon",
-      "ask": 80,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24628117",
       "reason": "no supported model resolved"
     },
     {
@@ -4670,15 +4670,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24467659",
-      "title": "Nokia C3",
-      "ask": 250,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24467659",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "2451146",
       "title": "Nokia Lumia 635, 16 gb , Perfekt",
       "ask": 250,
@@ -7145,15 +7136,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24618959",
-      "title": "Motorola Moto g54 128gb",
-      "ask": 500,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24618959",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24632171",
       "title": "Samsung Galaxy A22 5G smartphone 64 GB sort",
       "ask": 500,
@@ -8955,16 +8937,6 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
-      "model": "Motorola Moto g54",
-      "title": "Motorola Moto g54 128gb",
-      "ask": null,
-      "url": null,
-      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
-    },
-    {
-      "stage": "DISCOVERY/PULSE",
-      "severity": "MEDIUM",
-      "listing_id": null,
       "model": "Nothing Phone 3a Lite",
       "title": "Nothing Phone (3a) Lite 128GB/8GB - White",
       "ask": null,
@@ -9104,6 +9076,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "23524084",
       "model": null,
       "title": "Sony Erikson X10i",
@@ -9119,16 +9101,6 @@
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
       "reason": "live price missing"
     },
     {
@@ -9372,13 +9344,6 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
-      "candidate_model": "Motorola Moto g54",
-      "title": "Motorola Moto g54 128gb",
-      "pulse_match_method": "NO_MATCH",
-      "pulse_match_confidence": 0.0,
-      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
-    },
-    {
       "candidate_model": "Nothing Phone 3a Lite",
       "title": "Nothing Phone (3a) Lite 128GB/8GB - White",
       "pulse_match_method": "NO_MATCH",
@@ -9479,6 +9444,20 @@
   ],
   "t1_exits": [
     {
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask_t0": 0,
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
+      "sources": [
+        "brand-mobile:google:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+    },
+    {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
@@ -9505,20 +9484,6 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
-      "sources": [
-        "brand-mobile:google:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
       "listing_id": "17621913",
@@ -9569,12 +9534,12 @@
     "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 987,
-    "no supported model resolved": 1446,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 990,
     "live price missing": 3,
+    "no supported model resolved": 1443,
     "weak complete-phone evidence": 5,
-    "accessory/part title": 7,
     "resolved model variant is not supported by seller text": 11,
+    "accessory/part title": 7,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 27
   },
