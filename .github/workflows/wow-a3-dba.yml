@@ -97,7 +97,7 @@ jobs:
           assert s.get('purchase_hierarchy',{}).get('used_first')==['GPU','CPU','RAM','COOLER']
           assert s.get('purchase_hierarchy',{}).get('new_first')==['PSU','STORAGE','FANS']
           ranked=s.get('ranked') or []; assert ranked
-          used_ids=set(); keys=set()
+          keys=set()
           for r in ranked:
               assert r.get('route') in {'COMPLETE_USED_PC','USED_PC_PLUS_FUTURE_UPGRADE','USED_BUILD','HYBRID_USED_NEW','PLATFORM_FIRST_AM5'}
               assert r.get('performance_class') in {'ACCEPTABLE','SWEET SPOT','OVERKILL'}
@@ -108,16 +108,22 @@ jobs:
                   assert x.get('source') in {'USED ASK','NEW RETAIL'} and x.get('url') and int(x.get('price') or 0)>0
                   if x['source']=='USED ASK':
                       assert x.get('listing_id') and x.get('functional_defect') is False
-                      assert not defect.search(str(x.get('name') or '')); used_ids.add(str(x['listing_id']))
+                      assert not defect.search(str(x.get('name') or ''))
               if r.get('route')=='PLATFORM_FIRST_AM5':
                   assert r.get('foundation')=='AM5_B650_B850_MATX_WIFI_4DIMM'
                   board=[x for x in comps if x.get('kind')=='MOTHERBOARD']; assert len(board)==1
                   psu=[x for x in comps if x.get('kind')=='PSU']; assert len(psu)==1 and psu[0]['source']=='NEW RETAIL'
                   storage=[x for x in comps if x.get('kind')=='STORAGE']; assert len(storage)==1 and storage[0]['source']=='NEW RETAIL'
-          report=Path('results/wow_a3_report.md').read_text(encoding='utf-8')
+          canonical=Path('results/wow_platform_first_report.md').read_text(encoding='utf-8')
+          alias=Path('results/wow_a3_report.md').read_text(encoding='utf-8')
+          assert canonical==alias, 'V16 canonical report and alias diverged before publication'
+          assert canonical.startswith('# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW PLATFORM-FIRST V16')
+          assert '## Komplet løsningsmatrix — nye + brugte dele' in canonical
+          assert 'Hver build-række nedenfor er en komplet Working-PC BOM.' in canonical
+          assert 'Ingen byg-selv, donor-builds eller komponentjagt' not in canonical
           for marker in ('BUY NOW','BEST FOUNDATION','CHEAPEST VIABLE','BEST OPPORTUNISTIC BUY','BEST COMPLETE PC','BEST DONOR/UPGRADE ROUTE','BEST HYBRID BUILD','WAIT / BUY','Samlet ranking'):
-              assert marker in report,marker
-          print(f"PASS PLATFORM-FIRST V16: {len(ranked)} unique solutions; foundation={s.get('counts',{}).get('platform_first_routes',0)}; defective-used=0")
+              assert marker in canonical,marker
+          print(f"PASS PLATFORM-FIRST V16: {len(ranked)} unique solutions; foundation={s.get('counts',{}).get('platform_first_routes',0)}; canonical-report-ok")
           PY
       - name: Publish authoritative platform-first results
         run: |
@@ -125,12 +131,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/wow-results
-          cp results/wow_a3_latest.json results/wow_a3_report.md results/wow_strategy_latest.json results/z20_parts_latest.json results/z20_donors_latest.json /tmp/wow-results/
+          cp results/wow_a3_latest.json results/wow_a3_report.md results/wow_platform_first_report.md results/wow_strategy_latest.json results/z20_parts_latest.json results/z20_donors_latest.json /tmp/wow-results/
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/wow-results/* results/
-            git add results/wow_a3_latest.json results/wow_a3_report.md results/wow_strategy_latest.json results/z20_parts_latest.json results/z20_donors_latest.json
+            git add results/wow_a3_latest.json results/wow_a3_report.md results/wow_platform_first_report.md results/wow_strategy_latest.json results/z20_parts_latest.json results/z20_donors_latest.json
             if git diff --cached --quiet; then exit 0; fi
             git commit -m "Update verified WoW platform-first report [skip ci]"
             if git push origin main; then exit 0; fi
