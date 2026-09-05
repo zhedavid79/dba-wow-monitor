@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 from playwright.async_api import async_playwright
 
-import dba_component_optimizer_v19 as v19
+import dba_component_market_v19 as v19
 
 OUT = Path('results/retail_prices_latest.json')
 PRICE_RE = re.compile(r'(?<!\d)(\d{1,3}(?:[. ]\d{3})*|\d{3,5})(?:[,.]\d{2})?\s*(?:kr\.?|DKK)', re.I)
@@ -91,7 +91,6 @@ async def verify_one(context, product: dict, sem: asyncio.Semaphore) -> dict:
                 price,_,availability,offer_count,method=offers[0]
                 result.update({'verified':True,'price':price,'availability':availability or ('AVAILABLE_COMPARISON' if offer_count else 'UNKNOWN'),'method':method}); return result
 
-            # Structured DOM is allowed only after exact page identity is proven.
             for sel in ('meta[property="product:price:amount"]','meta[itemprop="price"]','[itemprop="price"]','[data-price]'):
                 loc=page.locator(sel).first
                 try:
@@ -104,7 +103,6 @@ async def verify_one(context, product: dict, sem: asyncio.Semaphore) -> dict:
                         result.update({'verified':True,'price':price,'availability':'AVAILABLE' if available else 'UNKNOWN','method':f'DOM:{sel}'}); return result
                 except Exception: continue
 
-            # Last-resort price text stays page-bound and identity-bound, never search-snippet-bound.
             body=(await page.locator('body').inner_text(timeout=5000))[:20000]; matches=[]
             for m in PRICE_RE.finditer(body):
                 try: n=int(m.group(1).replace('.','').replace(' ',''))
@@ -132,13 +130,13 @@ async def main() -> None:
         print(json.dumps({'stage':'RETAIL_VERIFY','sku':r.get('sku'),'verified':r.get('verified'),'price':r.get('price'),'method':r.get('method'),'http_status':r.get('http_status'),'error':r.get('error'),'rendered_title':r.get('rendered_title'),'rendered_h1':r.get('rendered_h1')},ensure_ascii=False),flush=True)
 
     by_sku={r['sku']:r for r in rows}
-    required_motherboards={'ASROCK_B850M_PRO_A_WIFI','MSI_B850M_GAMING_PLUS_WIFI6E','GIGABYTE_B650M_GAMING_PLUS_WIFI'}
+    required_motherboards={str(x['sku']) for x in v19.RETAIL_CANDIDATES.get('MOTHERBOARD') or []}
     motherboard_ok=all(by_sku.get(s,{}).get('verified') is True for s in required_motherboards)
     all_ok=all(r.get('verified') is True and int(r.get('price') or 0)>0 for r in rows)
     doc={'generated_at':datetime.now(timezone.utc).isoformat(),'model':'V19_RETAIL_SAME_PRODUCT_PRICE_GATE','required_motherboard_gate_passed':motherboard_ok,'all_catalog_products_verified':all_ok,'products':rows,'counts':{'total':len(rows),'verified':sum(1 for r in rows if r.get('verified')),'failed':sum(1 for r in rows if not r.get('verified'))}}
     OUT.parent.mkdir(parents=True,exist_ok=True); OUT.write_text(json.dumps(doc,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps(doc['counts']|{'required_motherboard_gate_passed':motherboard_ok,'all_catalog_products_verified':all_ok},ensure_ascii=False))
-    if not motherboard_ok: raise SystemExit('V19 RETAIL GATE FAILED: motherboard candidates not all same-product price verified')
+    if not motherboard_ok: raise SystemExit('V19 RETAIL GATE FAILED: motherboard candidate universe not fully same-product price verified')
     if not all_ok: raise SystemExit('V19 RETAIL GATE FAILED: at least one retail candidate lacks same-product live price evidence')
 
 
