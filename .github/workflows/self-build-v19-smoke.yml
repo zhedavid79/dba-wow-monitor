@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'dba_component_optimizer_v19.py'
+      - 'dba_component_market_v19.py'
       - 'dba_retail_prices_v19.py'
       - 'dba_strategy_report_v19.py'
       - '.github/workflows/self-build-v19-smoke.yml'
@@ -31,10 +32,10 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
       - name: Compile V19
-        run: python -m py_compile dba_component_optimizer_v19.py dba_retail_prices_v19.py dba_strategy_report_v19.py
-      - name: V19 component-policy regression
-        run: python -c "import dba_component_optimizer_v19 as v; v.regression(); print('PASS V19 COMPONENT POLICY')"
-      - name: Verify current retail candidates
+        run: python -m py_compile dba_component_optimizer_v19.py dba_component_market_v19.py dba_retail_prices_v19.py dba_strategy_report_v19.py
+      - name: V19 component-policy and Pareto regression
+        run: python -c "import dba_component_market_v19 as v; v.regression(); print('PASS V19 MARKET + PARETO POLICY')"
+      - name: Verify expanded current retail universe
         timeout-minutes: 4
         run: python dba_retail_prices_v19.py
       - name: Apply V19 to latest T0/T1-verified DBA snapshot
@@ -42,7 +43,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          import dba_component_optimizer_v19 as v19
+          import dba_component_market_v19 as v19
           import dba_strategy_report_v19 as report
 
           p=Path('results/wow_strategy_latest.json')
@@ -57,14 +58,23 @@ jobs:
           choices=rec.get('component_choice_v19') or {}
           mb=choices.get('MOTHERBOARD') or {}
           winner=mb.get('winner') or {}
-          eligible=[x for x in mb.get('evaluated') or [] if x.get('eligible')]
+          frontier=[x for x in mb.get('evaluated') or [] if x.get('eligible') and not x.get('dominated')]
+          coverage=s.get('component_market_coverage_v19') or {}
+          policy=s.get('component_optimizer_policy') or {}
           assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V19'
           assert s.get('strategy_mode')=='EXPLAINABLE_MULTI_CRITERIA_SELF_BUILD'
-          assert winner and len(eligible)>=2
-          assert int(winner['effective_cost_dkk'])==min(int(x['effective_cost_dkk']) for x in eligible)
+          assert winner and len(frontier)>=2
+          assert int(winner['effective_cost_dkk'])==min(int(x['effective_cost_dkk']) for x in frontier)
           assert mb.get('runner_up')
-          assert 'effective advantage' in mb.get('reason','')
-          assert (s.get('component_optimizer_policy') or {}).get('brand_bias')=='NONE'
+          assert 'Runner-up delta' in mb.get('reason','')
+          assert policy.get('brand_bias')=='NONE'
+          assert policy.get('chipset_label_premium')=='NONE; B850/B650 labels carry no intrinsic score. Only concrete features matter.'
+          assert coverage.get('passed') is True, coverage
+          assert (coverage.get('categories') or {}).get('MOTHERBOARD',{}).get('eligible',0) >= 6
+          cheap_fail=next(x for x in mb.get('evaluated') or [] if x.get('sku')=='GIGABYTE_B650M_GAMING_WIFI6E')
+          assert cheap_fail.get('eligible') is False and '<4 DIMM' in (cheap_fail.get('hard_gate_failures') or [])
+          old_gigabyte=next(x for x in mb.get('evaluated') or [] if x.get('sku')=='GIGABYTE_B650M_GAMING_PLUS_WIFI')
+          assert old_gigabyte.get('dominated') is True and old_gigabyte.get('dominated_by')
           text=Path('results/wow_self_build_report_v19.md').read_text(encoding='utf-8')
           for marker in ('Hvorfor hver del vandt','Bundkort — fuld sammenligning','Runner-up','Hard gate','Metodisk forskel fra V18'):
               assert marker in text, marker
@@ -78,5 +88,6 @@ jobs:
               'motherboard_feature_value':winner.get('feature_value_dkk'),
               'motherboard_effective_cost':winner.get('effective_cost_dkk'),
               'runner_up':(mb.get('runner_up') or {}).get('name'),
+              'market_coverage':coverage.get('categories'),
           },ensure_ascii=False))
           PY
