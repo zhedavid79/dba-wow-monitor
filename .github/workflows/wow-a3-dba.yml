@@ -1,4 +1,4 @@
-name: WoW DBA Platform-First Opportunistic Report
+name: WoW DBA Price-First Complete-PC Report
 
 on:
   workflow_dispatch:
@@ -18,18 +18,10 @@ on:
       - 'dba_browser_v7_intelligence.py'
       - 'dba_listing_intelligence.py'
       - 'dba_decision_report.py'
+      - 'dba_complete_price_first_active.py'
       - 'dba_t1_preflight.py'
       - 'dba_t1_schema_probe.py'
       - 'dba_t1_hydration_ancestor.py'
-      - 'dba_z20_parts.py'
-      - 'dba_z20_parts_recovery.py'
-      - 'dba_strategy_parts.py'
-      - 'dba_z20_donors.py'
-      - 'dba_z20_donors_recovery.py'
-      - 'z20_complete_optimizer.py'
-      - 'dba_strategy_optimizer.py'
-      - 'dba_platform_first_v16.py'
-      - 'dba_strategy_report.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -42,7 +34,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -53,88 +45,68 @@ jobs:
         run: |
           pip install playwright
           playwright install --with-deps chromium
-      - name: Compile platform-first model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_ancestor.py dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py dba_platform_first_v16.py dba_strategy_report.py
+      - name: Compile price-first complete-PC model
+        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_complete_price_first_active.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_ancestor.py
       - name: Diagnose DBA source/schema gate
         timeout-minutes: 3
         run: python dba_t1_preflight.py
       - name: Scan complete used PCs with T0/T1 listing intelligence
-        timeout-minutes: 18
+        timeout-minutes: 22
         run: python dba_browser_v7_intelligence.py
-      - name: Prepare complete-PC baseline and bid data
+      - name: Generate active price-first complete-PC report
         timeout-minutes: 2
-        run: python dba_decision_report.py
-      - name: Scan used components and AM5 foundation opportunities
-        timeout-minutes: 15
-        run: python dba_strategy_parts.py
-      - name: Resolve complete-PC donor routes
-        timeout-minutes: 7
-        run: python dba_z20_donors_recovery.py
-      - name: Optimize platform-first and opportunistic routes
-        timeout-minutes: 2
-        run: python dba_platform_first_v16.py
-      - name: Generate platform-first report
-        timeout-minutes: 2
-        run: python dba_strategy_report.py
-      - name: Validate V16 publication gate
+        run: python dba_complete_price_first_active.py
+      - name: Validate complete-PC publication gate
         run: |
           python - <<'PY'
-          import json,re
+          import json
           from pathlib import Path
-          s=json.loads(Path('results/wow_strategy_latest.json').read_text(encoding='utf-8'))
+
           c=json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
-          p=json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
-          q=json.loads(Path('results/z20_donors_latest.json').read_text(encoding='utf-8'))
-          defect=re.compile(r'\b(?:delvist\s+defekt|defekt|virker\s+ikke|fungerer\s+ikke|ustabil|artefakt(?:er)?|artifact(?:s)?|til\s+dele|reservedele|reparation)\b',re.I)
-          assert s.get('gate_passed') is True
-          assert s.get('model_version')=='DBA-WOW-PLATFORM-FIRST-V16'
-          assert s.get('strategy_mode')=='PLATFORM_FIRST_OPPORTUNISTIC'
-          assert s.get('functional_defect_policy')=='HARD_EXCLUDE'
-          assert c.get('gate_passed') is True and c.get('price_binding_regression',{}).get('ok') is True
+          assert c.get('gate_passed') is True
+          assert c.get('model_version')=='DBA-WOW-PRICE-FIRST-COMPLETE-PC-V14'
+          assert c.get('active_model')=='PRICE_FIRST_COMPLETE_PC_ONLY'
+          assert c.get('price_binding_regression',{}).get('ok') is True
           assert (c.get('coverage',{}).get('discovery') or {}).get('complete') is True
           assert (c.get('coverage',{}).get('t1') or {}).get('complete') is True
-          assert p.get('gate_passed') is True and q.get('gate_passed') is True
-          assert s.get('purchase_hierarchy',{}).get('used_first')==['GPU','CPU','RAM','COOLER']
-          assert s.get('purchase_hierarchy',{}).get('new_first')==['PSU','STORAGE','FANS']
-          ranked=s.get('ranked') or []; assert ranked
-          used_ids=set(); keys=set()
+          assert (c.get('source_gate') or {}).get('ok') is True
+          scope=str(c.get('scope') or '')
+          assert 'No self-build, donor-build or component procurement' in scope
+          ranked=c.get('ranked') or []
+          assert '7969913' not in {str(r.get('listing_id')) for r in ranked}
+          seen=set()
           for r in ranked:
-              assert r.get('route') in {'COMPLETE_USED_PC','USED_PC_PLUS_FUTURE_UPGRADE','USED_BUILD','HYBRID_USED_NEW','PLATFORM_FIRST_AM5'}
+              lid=str(r.get('listing_id') or '')
+              assert lid and lid not in seen; seen.add(lid)
+              assert r.get('url')==f'https://www.dba.dk/recommerce/forsale/item/{lid}'
+              assert isinstance(r.get('ask_t0'),int) and isinstance(r.get('ask_t1'),int)
+              assert r.get('currency')=='DKK'
+              assert r.get('status')
+              assert r.get('t0_source') and r.get('t1_source')
               assert r.get('performance_class') in {'ACCEPTABLE','SWEET SPOT','OVERKILL'}
-              comps=r.get('components') or []; assert comps
-              assert sum(int(x['price']) for x in comps)==r['tcwp']
-              key=tuple(sorted((str(x.get('source')),str(x.get('listing_id') or x.get('name')),int(x.get('price') or 0)) for x in comps)); assert key not in keys; keys.add(key)
-              for x in comps:
-                  assert x.get('source') in {'USED ASK','NEW RETAIL'} and x.get('url') and int(x.get('price') or 0)>0
-                  if x['source']=='USED ASK':
-                      assert x.get('listing_id') and x.get('functional_defect') is False
-                      assert not defect.search(str(x.get('name') or '')); used_ids.add(str(x['listing_id']))
-              if r.get('route')=='PLATFORM_FIRST_AM5':
-                  assert r.get('foundation')=='AM5_B650_B850_MATX_WIFI_4DIMM'
-                  board=[x for x in comps if x.get('kind')=='MOTHERBOARD']; assert len(board)==1
-                  psu=[x for x in comps if x.get('kind')=='PSU']; assert len(psu)==1 and psu[0]['source']=='NEW RETAIL'
-                  storage=[x for x in comps if x.get('kind')=='STORAGE']; assert len(storage)==1 and storage[0]['source']=='NEW RETAIL'
-          assert '24571843' not in used_ids
+              assert r.get('listing_intelligence')
           report=Path('results/wow_a3_report.md').read_text(encoding='utf-8')
-          assert '24571843' not in report
-          for marker in ('BUY NOW','BEST FOUNDATION','CHEAPEST VIABLE','BEST OPPORTUNISTIC BUY','BEST COMPLETE PC','BEST DONOR/UPGRADE ROUTE','BEST HYBRID BUILD','WAIT / BUY','Samlet ranking'):
+          assert 'FULDT PÅLIDELIG DBA-PRISRAPPORT' in report
+          assert 'Ingen byg-selv, donor-builds eller komponentjagt' in report
+          assert '7969913' not in '\n'.join(line for line in report.splitlines() if line.startswith('|') or line.startswith('['))
+          for marker in ('Buy now','Billigste tilstrækkelige','Bedste budcase','Ranked shortlist','Evidensmatrix','WoW-scenarier','Budmodel','Leads','Objektive diskvalifikationer','Konklusion'):
               assert marker in report,marker
-          print(f"PASS PLATFORM-FIRST V16: {len(ranked)} unique solutions; foundation={s.get('counts',{}).get('platform_first_routes',0)}; defective-used=0")
+          print(f"PASS PRICE-FIRST COMPLETE-PC: {len(ranked)} ranked verified PCs")
           PY
-      - name: Publish authoritative platform-first results
+      - name: Publish authoritative complete-PC results
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/wow-results
-          cp results/wow_a3_latest.json results/wow_a3_report.md results/wow_strategy_latest.json results/z20_parts_latest.json results/z20_donors_latest.json /tmp/wow-results/
+          cp results/wow_a3_latest.json results/wow_a3_report.md /tmp/wow-results/
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/wow-results/* results/
-            git add results/wow_a3_latest.json results/wow_a3_report.md results/wow_strategy_latest.json results/z20_parts_latest.json results/z20_donors_latest.json
+            git add results/wow_a3_latest.json results/wow_a3_report.md
             if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Update verified WoW platform-first report [skip ci]"
+            git commit -m "Update verified WoW complete-PC price report [skip ci]"
             if git push origin main; then exit 0; fi
           done
           exit 1
