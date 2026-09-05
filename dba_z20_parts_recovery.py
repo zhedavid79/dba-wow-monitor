@@ -7,8 +7,7 @@ import dba_z20_parts as parts
 
 PART_FALLBACK_QUERY_TIMEOUT_SECONDS = 35
 PART_FALLBACK_TOTAL_DEADLINE_SECONDS = 180
-
-_original_discover_all = parts.discover_all
+PART_FALLBACK_CONCURRENCY = 3
 
 
 def _merge_rows(found: dict[str, dict], rows: list[dict], query: str) -> None:
@@ -24,69 +23,178 @@ def _merge_rows(found: dict[str, dict], rows: list[dict], query: str) -> None:
             existing["source_queries"].append(query)
 
 
-async def _recover_query(context, query: str) -> tuple[list[dict], dict | None]:
-    try:
-        rows, error, attempts = await asyncio.wait_for(
-            parts.runtime.discover_one(context, query),
-            timeout=PART_FALLBACK_QUERY_TIMEOUT_SECONDS,
-        )
-        if error:
-            return rows, {
+def _normalise_error(query: str, error: dict | None, fallback: str) -> dict | None:
+    if not error:
+        return None
+    return {
+        "query": query,
+        "error": error.get("error") or fallback,
+        "detail": str(error.get("detail") or "")[:260],
+        "attempts": error.get("attempts"),
+    }
+
+
+async def _primary_query(context, sem: asyncio.Semaphore, query: str) -> tuple[str, list[dict], dict | None]:
+    async with sem:
+        try:
+            rows, error, attempts = await parts.runtime.discover_one(context, query)
+            normalised = _normalise_error(query, error, "PRIMARY_QUERY_FAILED")
+            if normalised is not None and normalised.get("attempts") is None:
+                normalised["attempts"] = attempts
+            print(json.dumps({
+                "stage": "PART_DISCOVERY",
                 "query": query,
-                "error": error.get("error") or "FALLBACK_QUERY_FAILED",
-                "detail": error.get("detail", "")[:260],
+                "rows": len(rows),
                 "attempts": attempts,
+                "error": normalised["error"] if normalised else None,
+            }, ensure_ascii=False), flush=True)
+            return query, rows, normalised
+        except Exception as exc:
+            error = {"query": query, "error": type(exc).__name__, "detail": str(exc)[:260]}
+            print(json.dumps({
+                "stage": "PART_DISCOVERY",
+                "query": query,
+                "rows": 0,
+                "attempts": None,
+                "error": error["error"],
+            }, ensure_ascii=False), flush=True)
+            return query, [], error
+
+
+async def _recover_query(context, sem: asyncio.Semaphore, query: str) -> tuple[str, list[dict], dict | None]:
+    async with sem:
+        try:
+            rows, error, attempts = await asyncio.wait_for(
+                parts.runtime.discover_one(context, query),
+                timeout=PART_FALLBACK_QUERY_TIMEOUT_SECONDS,
+            )
+            normalised = _normalise_error(query, error, "FALLBACK_QUERY_FAILED")
+            if normalised is not None and normalised.get("attempts") is None:
+                normalised["attempts"] = attempts
+            return query, rows, normalised
+        except asyncio.TimeoutError:
+            return query, [], {
+                "query": query,
+                "error": "FALLBACK_QUERY_TIMEOUT",
+                "detail": f"isolated fallback exceeded {PART_FALLBACK_QUERY_TIMEOUT_SECONDS}s",
             }
-        return rows, None
-    except asyncio.TimeoutError:
-        return [], {
-            "query": query,
-            "error": "FALLBACK_QUERY_TIMEOUT",
-            "detail": f"isolated fallback exceeded {PART_FALLBACK_QUERY_TIMEOUT_SECONDS}s",
-        }
-    except Exception as exc:
-        return [], {
-            "query": query,
-            "error": type(exc).__name__,
-            "detail": f"isolated fallback: {str(exc)[:260]}",
-        }
+        except Exception as exc:
+            return query, [], {
+                "query": query,
+                "error": type(exc).__name__,
+                "detail": f"isolated fallback: {str(exc)[:260]}",
+            }
+
+
+def _failed_in_query_order(completed: set[str], errors: list[dict]) -> list[str]:
+    failed = {str(e.get("query")) for e in errors if e.get("query")}
+    failed.update(q for q in parts.QUERIES if q not in completed)
+    return [q for q in parts.QUERIES if q in failed]
+
+
+def recovery_regression() -> None:
+    original = list(parts.QUERIES)
+    try:
+        parts.QUERIES[:] = ["a", "b", "c", "d"]
+        got = _failed_in_query_order({"a", "b", "d"}, [{"query": "b", "error": "QUERY_TIMEOUT"}])
+        assert got == ["b", "c"], got
+    finally:
+        parts.QUERIES[:] = original
 
 
 async def robust_discover_all(context) -> tuple[dict[str, dict], list[dict], dict]:
-    found, errors, coverage = await _original_discover_all(context)
-    if coverage.get("complete"):
-        coverage["recovery_used"] = False
-        coverage["recovered_queries"] = []
-        return found, errors, coverage
+    # The old implementation wrapped gather() in wait_for(). When the global deadline
+    # expired, gather was cancelled and every already-completed query result was then
+    # discarded by assigning results=[]. That made recovery incorrectly retry the whole
+    # query universe. Keep completed tasks and recover only genuine failures/misses.
+    primary_sem = asyncio.Semaphore(parts.DISCOVERY_CONCURRENCY)
+    task_to_query = {
+        asyncio.create_task(_primary_query(context, primary_sem, query)): query
+        for query in parts.QUERIES
+    }
+    done, pending = await asyncio.wait(
+        set(task_to_query),
+        timeout=parts.DISCOVERY_TOTAL_DEADLINE_SECONDS,
+    )
+    primary_deadline_exceeded = bool(pending)
+    for task in pending:
+        task.cancel()
+    if pending:
+        await asyncio.gather(*pending, return_exceptions=True)
 
-    failed_queries = {str(e.get("query")) for e in errors if e.get("query")}
-    failed_queries.update(str(q) for q in coverage.get("missing_queries") or [])
-    ordered_failed = [q for q in parts.QUERIES if q in failed_queries]
+    found: dict[str, dict] = {}
+    primary_errors: list[dict] = []
+    completed: set[str] = set()
 
-    loop = asyncio.get_running_loop()
-    deadline = loop.time() + PART_FALLBACK_TOTAL_DEADLINE_SECONDS
+    for task in done:
+        query = task_to_query[task]
+        try:
+            q, rows, error = task.result()
+        except Exception as exc:
+            q, rows, error = query, [], {
+                "query": query,
+                "error": type(exc).__name__,
+                "detail": str(exc)[:260],
+            }
+        completed.add(q)
+        if error:
+            primary_errors.append(error)
+        _merge_rows(found, rows, q)
+
+    ordered_failed = _failed_in_query_order(completed, primary_errors)
+    if not ordered_failed:
+        coverage = {
+            "query_total": len(parts.QUERIES),
+            "query_completed": len(parts.QUERIES),
+            "query_failed": 0,
+            "missing_queries": [],
+            "deadline_exceeded": False,
+            "complete": True,
+            "recovery_used": False,
+            "recovered_queries": [],
+            "primary_failed_queries": [],
+            "primary_deadline_exceeded": primary_deadline_exceeded,
+        }
+        return found, [], coverage
+
+    recovery_sem = asyncio.Semaphore(PART_FALLBACK_CONCURRENCY)
+    recovery_task_to_query = {
+        asyncio.create_task(_recover_query(context, recovery_sem, query)): query
+        for query in ordered_failed
+    }
+    recovery_done, recovery_pending = await asyncio.wait(
+        set(recovery_task_to_query),
+        timeout=PART_FALLBACK_TOTAL_DEADLINE_SECONDS,
+    )
+    for task in recovery_pending:
+        task.cancel()
+    if recovery_pending:
+        await asyncio.gather(*recovery_pending, return_exceptions=True)
+
     recovered: list[str] = []
     remaining_errors: list[dict] = []
+    result_by_query: dict[str, tuple[list[dict], dict | None]] = {}
 
-    for index, query in enumerate(ordered_failed, 1):
-        remaining = deadline - loop.time()
-        if remaining <= 0:
-            remaining_errors.append({
-                "query": query,
-                "error": "FALLBACK_TOTAL_DEADLINE",
-                "detail": f"parts recovery budget {PART_FALLBACK_TOTAL_DEADLINE_SECONDS}s exhausted",
-            })
-            continue
+    for task in recovery_done:
+        query = recovery_task_to_query[task]
         try:
-            rows, error = await asyncio.wait_for(
-                _recover_query(context, query),
-                timeout=min(PART_FALLBACK_QUERY_TIMEOUT_SECONDS + 2, remaining),
-            )
-        except asyncio.TimeoutError:
+            q, rows, error = task.result()
+        except Exception as exc:
+            q, rows, error = query, [], {
+                "query": query,
+                "error": type(exc).__name__,
+                "detail": str(exc)[:260],
+            }
+        result_by_query[q] = (rows, error)
+
+    for query in ordered_failed:
+        if query in result_by_query:
+            rows, error = result_by_query[query]
+        else:
             rows, error = [], {
                 "query": query,
                 "error": "FALLBACK_TOTAL_DEADLINE",
-                "detail": "query exceeded remaining parts recovery budget",
+                "detail": f"parts recovery budget {PART_FALLBACK_TOTAL_DEADLINE_SECONDS}s exhausted",
             }
 
         if error is None:
@@ -97,7 +205,7 @@ async def robust_discover_all(context) -> tuple[dict[str, dict], list[dict], dic
 
         print(json.dumps({
             "stage": "PART_DISCOVERY_RECOVERY",
-            "index": index,
+            "index": ordered_failed.index(query) + 1,
             "total": len(ordered_failed),
             "query": query,
             "rows": len(rows),
@@ -108,21 +216,25 @@ async def robust_discover_all(context) -> tuple[dict[str, dict], list[dict], dic
 
     unresolved = {str(e.get("query")) for e in remaining_errors if e.get("query")}
     coverage = {
-        **coverage,
+        "query_total": len(parts.QUERIES),
         "query_completed": len(parts.QUERIES) - len(unresolved),
         "query_failed": len(remaining_errors),
         "missing_queries": sorted(unresolved),
-        "deadline_exceeded": any(e.get("error") == "FALLBACK_TOTAL_DEADLINE" for e in remaining_errors),
+        "deadline_exceeded": bool(recovery_pending) or any(e.get("error") == "FALLBACK_TOTAL_DEADLINE" for e in remaining_errors),
         "complete": not remaining_errors,
         "recovery_used": True,
         "recovered_queries": recovered,
         "primary_failed_queries": ordered_failed,
+        "primary_completed_queries": len(completed),
+        "primary_deadline_exceeded": primary_deadline_exceeded,
         "fallback_query_timeout_seconds": PART_FALLBACK_QUERY_TIMEOUT_SECONDS,
         "fallback_total_deadline_seconds": PART_FALLBACK_TOTAL_DEADLINE_SECONDS,
+        "fallback_concurrency": PART_FALLBACK_CONCURRENCY,
     }
     return found, remaining_errors, coverage
 
 
+recovery_regression()
 parts.discover_all = robust_discover_all
 
 
