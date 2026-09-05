@@ -61,9 +61,10 @@ jobs:
         if: steps.freshness.outputs.stale == 'true' && steps.active.outputs.count == '0'
         env:
           GH_TOKEN: ${{ github.token }}
+          AGE_MIN: ${{ steps.freshness.outputs.age_min }}
         shell: bash
         run: |
-          echo "Acurast result is ${ { steps.freshness.outputs.age_min } } minutes old; dispatching recovery"
+          echo "Acurast result is ${AGE_MIN} minutes old; dispatching recovery"
           gh workflow run acurast-dba.yml --ref main
 
       - name: Report watchdog decision
