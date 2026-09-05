@@ -38,8 +38,8 @@ NEW_REFERENCES = {
         'comparison': 'VALUE_CLASS_REFERENCE',
     },
     'RAM': {
-        'name': 'Corsair Vengeance RGB DDR5-6000 32GB (2x16GB) EXPO CL38', 'price': 3699,
-        'url': 'https://prisjagt.dk/c/ram-hukommelse?r_95336=32-32',
+        'name': 'Corsair Vengeance DDR5-6000 32GB (2x16GB) EXPO CL38', 'price': 3499,
+        'url': 'https://prisjagt.dk/product.php?p=15907662',
         'comparison': 'NEW_32GB_DESKTOP_DDR5_6000_EXPO_REFERENCE', 'capacity_gb': 32,
     },
     'GPU': {
@@ -286,7 +286,7 @@ def main() -> None:
         'recommended_tcwp': rec.get('tcwp'),
         'recommended_cpu': rec.get('cpu'),
         'recommended_gpu': rec.get('gpu'),
-        'ram': next((c.get('name') for c in rec.get('components',[]) if c.get('kind')=='RAM'), None),
+        'ram': next((c.get('name') for c in rec.get('components',[]) if c.get('kind')=='RAM'),None),
         'ram_decision': ((rec.get('component_market_decisions') or {}).get('RAM') or {}).get('decision'),
     }, ensure_ascii=False))
 
