@@ -89,6 +89,30 @@ def alternative_rows(route, kind, decision):
     return out[:12]
 
 
+def market_rows(routes, kind):
+    rows, seen = [], set()
+    model_field = 'gpu' if kind == 'GPU' else 'cpu'
+    for route in routes:
+        c = selected(route, kind)
+        if not c or c.get('source') != 'USED ASK' or not c.get('url'):
+            continue
+        key = str(c.get('listing_id') or c.get('url'))
+        if key in seen:
+            continue
+        seen.add(key)
+        rows.append({
+            'model': route.get(model_field),
+            'component': c,
+            'price': int(c.get('price') or 0),
+            'performance_class': route.get('performance_class'),
+            'tcwp': int(route.get('tcwp') or 0),
+            'score': int(route.get('gpu_score') or 0) if kind == 'GPU' else int(route.get('cpu_score') or 0),
+        })
+    rows = [r for r in rows if r['price'] > 0]
+    rows.sort(key=lambda r: (r['price'], -r['score'], r['model'] or ''))
+    return rows[:30]
+
+
 def main():
     d = json.loads(SRC.read_text(encoding='utf-8'))
     assert d.get('gate_passed') is True
@@ -173,7 +197,31 @@ def main():
             lines.append(f"| {link(a)} | {src} | **{money(a.get('price'))}** | {a.get('_status')} |")
         lines.append('')
 
+    gpu_market = market_rows(self_build, 'GPU')
     lines += [
+        '## 🎮 Verificeret brugt GPU-marked — direkte DBA-links',
+        '',
+        'Tabellen viser de billigste T1-verificerede GPU-annoncer, som faktisk indgår i gyldige AM5/Z20-selvbyg-ruter. Kortet kan derfor sammenlignes direkte med hovedbuildet i stedet for at forsvinde, blot fordi det ikke rangerer #1.',
+        '',
+        '| GPU | Annonce | Brugtpris | WoW-klasse i ruten | TCWP med ruten |',
+        '|---|---|---:|---|---:|',
+    ]
+    for r in gpu_market:
+        lines.append(f"| {r['model']} | {link(r['component'])} | **{money(r['price'])}** | {r['performance_class']} | {money(r['tcwp'])} |")
+
+    cpu_market = market_rows(self_build, 'CPU')
+    lines += [
+        '',
+        '## 🧠 Verificeret brugt CPU-marked — direkte DBA-links',
+        '',
+        '| CPU | Annonce | Brugtpris | WoW-klasse i ruten | TCWP med ruten |',
+        '|---|---|---:|---|---:|',
+    ]
+    for r in cpu_market:
+        lines.append(f"| {r['model']} | {link(r['component'])} | **{money(r['price'])}** | {r['performance_class']} | {money(r['tcwp'])} |")
+
+    lines += [
+        '',
         '## Selvbyg-ranking',
         '',
         '| # | TCWP | Beslutningsscore | CPU | GPU | WoW | Upgrade | Z20 |',
@@ -210,12 +258,16 @@ def main():
     assert 'Nypris' in text
     assert 'Handling' in text
     assert 'Del-for-del alternativer — direkte links' in text
+    assert 'Verificeret brugt GPU-marked — direkte DBA-links' in text
+    assert 'Verificeret brugt CPU-marked — direkte DBA-links' in text
     for c in rec.get('components') or []:
         assert c.get('url') and c['url'] in text
+    for r in gpu_market + cpu_market:
+        assert r['component'].get('url') and r['component']['url'] in text
     CANONICAL.write_text(text, encoding='utf-8')
     LEGACY.write_text(text, encoding='utf-8')
     ALIAS.write_text(text, encoding='utf-8')
-    print(json.dumps({'report': True, 'model': d['model_version'], 'recommended_tcwp': rec.get('tcwp'), 'rows': len(decisions), 'linked_components': len(rec.get('components') or [])}, ensure_ascii=False))
+    print(json.dumps({'report': True, 'model': d['model_version'], 'recommended_tcwp': rec.get('tcwp'), 'rows': len(decisions), 'linked_components': len(rec.get('components') or []), 'linked_gpu_market': len(gpu_market), 'linked_cpu_market': len(cpu_market)}, ensure_ascii=False))
 
 
 if __name__ == '__main__':
