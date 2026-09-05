@@ -1,6 +1,6 @@
 {
   "model_version": "DBA-Z20-PARTS-V4",
-  "generated_at": "2026-09-05T13:44:28.815305+00:00",
+  "generated_at": "2026-09-05T14:45:35.136779+00:00",
   "gate_passed": true,
   "target_case": "Jonsbo Z20",
   "target_case_rules": {
@@ -86,52 +86,25 @@
       "recovered_queries": [
         "rtx 3060 ti",
         "rtx 3070",
-        "rtx 3080",
-        "rtx 4060",
-        "i5 12600 bundkort",
-        "cpu bundkort ram",
-        "micro atx bundkort cpu",
-        "ddr4 16gb",
-        "ddr4 32gb",
-        "ddr5 32gb",
-        "am5 cpu",
-        "rtx 2060",
-        "nvme 1tb",
-        "ssd 1tb",
-        "micro atx kabinet",
-        "mini itx kabinet",
-        "650w strømforsyning",
-        "750w strømforsyning",
-        "am4 cpu køler",
-        "am5 cpu køler",
-        "lga1700 cpu køler",
-        "cpu køler"
-      ],
-      "long_tail_recovered_queries": [
-        "i5 10400 bundkort",
-        "i5 11400 bundkort",
-        "rx 6600 xt",
-        "jonsbo z20"
-      ],
-      "primary_failed_queries": [
-        "rtx 3060 ti",
-        "rtx 3070",
+        "rtx 3070 ti",
         "rtx 3080",
         "rtx 4060",
         "i5 10400 bundkort",
         "i5 11400 bundkort",
         "i5 12600 bundkort",
-        "cpu bundkort ram",
+        "intel matx bundkort cpu",
+        "bundkort ram cpu",
         "micro atx bundkort cpu",
         "ddr4 16gb",
         "ddr4 32gb",
+        "ddr5 16gb",
         "ddr5 32gb",
-        "am5 cpu",
-        "rx 6600 xt",
+        "ddr5 6000 32gb",
+        "atx strømforsyning 650w",
         "rtx 2060",
+        "rtx 2070",
         "nvme 1tb",
         "ssd 1tb",
-        "micro atx kabinet",
         "jonsbo z20",
         "mini itx kabinet",
         "650w strømforsyning",
@@ -141,7 +114,42 @@
         "lga1700 cpu køler",
         "cpu køler"
       ],
-      "primary_completed_queries": 66,
+      "long_tail_recovered_queries": [
+        "rx 6600 xt"
+      ],
+      "primary_failed_queries": [
+        "rtx 3060 ti",
+        "rtx 3070",
+        "rtx 3070 ti",
+        "rtx 3080",
+        "rtx 4060",
+        "i5 10400 bundkort",
+        "i5 11400 bundkort",
+        "i5 12600 bundkort",
+        "intel matx bundkort cpu",
+        "bundkort ram cpu",
+        "micro atx bundkort cpu",
+        "ddr4 16gb",
+        "ddr4 32gb",
+        "ddr5 16gb",
+        "ddr5 32gb",
+        "ddr5 6000 32gb",
+        "atx strømforsyning 650w",
+        "rx 6600 xt",
+        "rtx 2060",
+        "rtx 2070",
+        "nvme 1tb",
+        "ssd 1tb",
+        "jonsbo z20",
+        "mini itx kabinet",
+        "650w strømforsyning",
+        "750w strømforsyning",
+        "am4 cpu køler",
+        "am5 cpu køler",
+        "lga1700 cpu køler",
+        "cpu køler"
+      ],
+      "primary_completed_queries": 65,
       "primary_deadline_exceeded": true,
       "fallback_query_timeout_seconds": 35,
       "fallback_total_deadline_seconds": 180,
@@ -151,8 +159,8 @@
       "long_tail_concurrency": 2
     },
     "t1": {
-      "candidate_total": 380,
-      "candidate_completed": 380,
+      "candidate_total": 385,
+      "candidate_completed": 385,
       "candidate_fetch_errors": 0,
       "missing_listing_ids": [],
       "deadline_exceeded": false,
@@ -161,9 +169,9 @@
   },
   "counts": {
     "queries": 75,
-    "t0_unique": 380,
-    "opportunities": 345,
-    "rejected": 35,
+    "t0_unique": 385,
+    "opportunities": 351,
+    "rejected": 34,
     "t1_fetch_errors": 0
   },
   "opportunities": [
@@ -193,10 +201,43 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:37.153117+00:00",
-      "t1_at": "2026-09-05T13:35:40.012887+00:00",
+      "t0_at": "2026-09-05T14:34:09.192710+00:00",
+      "t1_at": "2026-09-05T14:36:49.405780+00:00",
       "source_queries": [
+        "am5 cpu køler",
         "ryzen 7700"
+      ]
+    },
+    {
+      "listing_id": "18122015",
+      "url": "https://www.dba.dk/recommerce/forsale/item/18122015",
+      "title": "motherboard asus rog maximus viii formula",
+      "ask_t0": 500,
+      "ask_t1": 500,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "MOTHERBOARD",
+      "identity_evidence": "TITLE_PROVES_STANDALONE_MOTHERBOARD",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "z20_fit": "NOT_APPLICABLE",
+      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
+      "upgradeability": "NOT_APPLICABLE",
+      "upgradeability_reason": "NOT_A_PLATFORM",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:36.862245+00:00",
+      "t1_at": "2026-09-05T14:36:50.486345+00:00",
+      "source_queries": [
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -225,10 +266,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:47.514805+00:00",
-      "t1_at": "2026-09-05T13:35:41.866944+00:00",
+      "t0_at": "2026-09-05T14:35:57.206556+00:00",
+      "t1_at": "2026-09-05T14:36:49.929934+00:00",
       "source_queries": [
-        "650w strømforsyning"
+        "650w strømforsyning",
+        "atx strømforsyning 650w"
       ]
     },
     {
@@ -257,8 +299,8 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.432572+00:00",
-      "t1_at": "2026-09-05T13:35:40.287553+00:00",
+      "t0_at": "2026-09-05T14:36:19.636833+00:00",
+      "t1_at": "2026-09-05T14:36:50.922045+00:00",
       "source_queries": [
         "750w strømforsyning"
       ]
@@ -289,8 +331,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.292070+00:00",
-      "t1_at": "2026-09-05T13:35:41.291392+00:00",
+      "t0_at": "2026-09-05T14:34:58.380749+00:00",
+      "t1_at": "2026-09-05T14:36:49.702385+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -321,10 +363,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:47.516990+00:00",
-      "t1_at": "2026-09-05T13:35:41.009646+00:00",
+      "t0_at": "2026-09-05T14:35:57.206506+00:00",
+      "t1_at": "2026-09-05T14:36:50.547087+00:00",
       "source_queries": [
-        "650w strømforsyning"
+        "650w strømforsyning",
+        "atx strømforsyning 650w"
       ]
     },
     {
@@ -353,8 +396,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.292647+00:00",
-      "t1_at": "2026-09-05T13:35:40.560156+00:00",
+      "t0_at": "2026-09-05T14:34:58.380906+00:00",
+      "t1_at": "2026-09-05T14:36:51.231551+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -385,10 +428,42 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.432407+00:00",
-      "t1_at": "2026-09-05T13:35:41.059634+00:00",
+      "t0_at": "2026-09-05T14:36:19.636124+00:00",
+      "t1_at": "2026-09-05T14:36:50.418874+00:00",
       "source_queries": [
         "750w strømforsyning"
+      ]
+    },
+    {
+      "listing_id": "24306567",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24306567",
+      "title": "ASUS Z170 Pro Gaming bundkort + Intel i5-6600K CPU combo",
+      "ask_t0": 500,
+      "ask_t1": 500,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "MOTHERBOARD",
+      "identity_evidence": "TITLE_PROVES_STANDALONE_MOTHERBOARD",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "z20_fit": "NOT_APPLICABLE",
+      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
+      "upgradeability": "NOT_APPLICABLE",
+      "upgradeability_reason": "NOT_A_PLATFORM",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:36.861654+00:00",
+      "t1_at": "2026-09-05T14:36:59.785149+00:00",
+      "source_queries": [
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -417,11 +492,12 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.918645+00:00",
-      "t1_at": "2026-09-05T13:35:40.264381+00:00",
+      "t0_at": "2026-09-05T14:33:22.556133+00:00",
+      "t1_at": "2026-09-05T14:37:01.100909+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram",
+        "intel matx bundkort cpu",
         "matx bundkort cpu",
         "micro atx bundkort cpu"
       ]
@@ -452,8 +528,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.432164+00:00",
-      "t1_at": "2026-09-05T13:35:51.917543+00:00",
+      "t0_at": "2026-09-05T14:36:19.635885+00:00",
+      "t1_at": "2026-09-05T14:37:03.632697+00:00",
       "source_queries": [
         "750w strømforsyning"
       ]
@@ -484,8 +560,8 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:44.692261+00:00",
-      "t1_at": "2026-09-05T13:35:52.833000+00:00",
+      "t0_at": "2026-09-05T14:36:12.799937+00:00",
+      "t1_at": "2026-09-05T14:37:03.034733+00:00",
       "source_queries": [
         "mini itx kabinet"
       ]
@@ -516,8 +592,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429588+00:00",
-      "t1_at": "2026-09-05T13:35:53.551233+00:00",
+      "t0_at": "2026-09-05T14:35:46.019534+00:00",
+      "t1_at": "2026-09-05T14:37:03.253155+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -548,8 +624,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.292764+00:00",
-      "t1_at": "2026-09-05T13:35:53.743496+00:00",
+      "t0_at": "2026-09-05T14:34:58.380998+00:00",
+      "t1_at": "2026-09-05T14:37:05.090356+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -580,42 +656,10 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:44.692507+00:00",
-      "t1_at": "2026-09-05T13:35:54.490081+00:00",
+      "t0_at": "2026-09-05T14:36:12.800481+00:00",
+      "t1_at": "2026-09-05T14:37:04.602342+00:00",
       "source_queries": [
         "mini itx kabinet"
-      ]
-    },
-    {
-      "listing_id": "16486653",
-      "url": "https://www.dba.dk/recommerce/forsale/item/16486653",
-      "title": "T-Force Delta RGB RAM - 16GB - DDR4 - 3200MHz",
-      "ask_t0": 550,
-      "ask_t1": 550,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "kind": "RAM",
-      "identity_evidence": "TITLE_PROVES_RAM",
-      "condition": "NO_DEFECT_SIGNAL",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "z20_fit": "NOT_APPLICABLE",
-      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
-      "upgradeability": "NOT_APPLICABLE",
-      "upgradeability_reason": "NOT_A_PLATFORM",
-      "ram_compatibility": "DESKTOP_COMPATIBLE",
-      "ram_compatibility_reason": "TITLE_PROVES_DESKTOP_DDR4_MEMORY",
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434032+00:00",
-      "t1_at": "2026-09-05T13:35:54.505281+00:00",
-      "source_queries": [
-        "ddr4 16gb"
       ]
     },
     {
@@ -644,8 +688,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.433669+00:00",
-      "t1_at": "2026-09-05T13:35:55.484351+00:00",
+      "t0_at": "2026-09-05T14:35:46.019875+00:00",
+      "t1_at": "2026-09-05T14:37:03.632565+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -676,8 +720,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.508736+00:00",
-      "t1_at": "2026-09-05T13:35:55.346349+00:00",
+      "t0_at": "2026-09-05T14:34:58.423699+00:00",
+      "t1_at": "2026-09-05T14:37:09.366362+00:00",
       "source_queries": [
         "m2 ssd 1tb"
       ]
@@ -708,8 +752,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:27.567121+00:00",
-      "t1_at": "2026-09-05T13:36:03.188380+00:00",
+      "t0_at": "2026-09-05T14:33:52.308471+00:00",
+      "t1_at": "2026-09-05T14:37:13.215832+00:00",
       "source_queries": [
         "sfx strømforsyning"
       ]
@@ -740,8 +784,8 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.432523+00:00",
-      "t1_at": "2026-09-05T13:36:03.571609+00:00",
+      "t0_at": "2026-09-05T14:36:19.636272+00:00",
+      "t1_at": "2026-09-05T14:37:14.722069+00:00",
       "source_queries": [
         "750w strømforsyning"
       ]
@@ -772,11 +816,12 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.908696+00:00",
-      "t1_at": "2026-09-05T13:36:05.478431+00:00",
+      "t0_at": "2026-09-05T14:33:22.549262+00:00",
+      "t1_at": "2026-09-05T14:37:13.046669+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram",
+        "intel matx bundkort cpu",
         "matx bundkort cpu",
         "micro atx bundkort cpu"
       ]
@@ -807,8 +852,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.777651+00:00",
-      "t1_at": "2026-09-05T13:36:06.118511+00:00",
+      "t0_at": "2026-09-05T14:35:50.226976+00:00",
+      "t1_at": "2026-09-05T14:37:14.067893+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -839,8 +884,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429630+00:00",
-      "t1_at": "2026-09-05T13:36:08.247653+00:00",
+      "t0_at": "2026-09-05T14:35:46.019582+00:00",
+      "t1_at": "2026-09-05T14:37:16.582456+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -871,8 +916,8 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.432613+00:00",
-      "t1_at": "2026-09-05T13:36:07.365473+00:00",
+      "t0_at": "2026-09-05T14:36:19.636897+00:00",
+      "t1_at": "2026-09-05T14:37:15.738183+00:00",
       "source_queries": [
         "750w strømforsyning"
       ]
@@ -903,8 +948,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434316+00:00",
-      "t1_at": "2026-09-05T13:36:08.341946+00:00",
+      "t0_at": "2026-09-05T14:35:46.025047+00:00",
+      "t1_at": "2026-09-05T14:37:17.342631+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -935,8 +980,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434388+00:00",
-      "t1_at": "2026-09-05T13:36:07.022423+00:00",
+      "t0_at": "2026-09-05T14:35:46.025124+00:00",
+      "t1_at": "2026-09-05T14:37:20.892165+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -967,8 +1012,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.433718+00:00",
-      "t1_at": "2026-09-05T13:36:14.503116+00:00",
+      "t0_at": "2026-09-05T14:35:46.019919+00:00",
+      "t1_at": "2026-09-05T14:37:24.210771+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -999,8 +1044,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:26.368763+00:00",
-      "t1_at": "2026-09-05T13:36:15.688320+00:00",
+      "t0_at": "2026-09-05T14:35:57.206057+00:00",
+      "t1_at": "2026-09-05T14:37:24.466188+00:00",
       "source_queries": [
         "650w strømforsyning",
         "atx strømforsyning 650w"
@@ -1032,8 +1077,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.374371+00:00",
-      "t1_at": "2026-09-05T13:36:19.931958+00:00",
+      "t0_at": "2026-09-05T14:34:09.910255+00:00",
+      "t1_at": "2026-09-05T14:37:26.665306+00:00",
       "source_queries": [
         "am4 cpu køler",
         "am5 cpu"
@@ -1065,9 +1110,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:57.533061+00:00",
-      "t1_at": "2026-09-05T13:36:17.459369+00:00",
+      "t0_at": "2026-09-05T14:33:27.514874+00:00",
+      "t1_at": "2026-09-05T14:37:26.213863+00:00",
       "source_queries": [
+        "intel matx bundkort cpu",
         "matx bundkort cpu",
         "micro atx bundkort cpu"
       ]
@@ -1098,8 +1144,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754819+00:00",
-      "t1_at": "2026-09-05T13:36:18.686662+00:00",
+      "t0_at": "2026-09-05T14:35:49.953748+00:00",
+      "t1_at": "2026-09-05T14:37:26.034534+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -1130,8 +1176,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:30:57.053122+00:00",
-      "t1_at": "2026-09-05T13:36:19.976933+00:00",
+      "t0_at": "2026-09-05T14:32:19.286962+00:00",
+      "t1_at": "2026-09-05T14:37:27.446868+00:00",
       "source_queries": [
         "750w strømforsyning",
         "rtx 3060 ti",
@@ -1164,8 +1210,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.291980+00:00",
-      "t1_at": "2026-09-05T13:36:20.842086+00:00",
+      "t0_at": "2026-09-05T14:34:58.380660+00:00",
+      "t1_at": "2026-09-05T14:37:28.990784+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -1196,10 +1242,42 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.291920+00:00",
-      "t1_at": "2026-09-05T13:36:20.707240+00:00",
+      "t0_at": "2026-09-05T14:34:58.380601+00:00",
+      "t1_at": "2026-09-05T14:37:29.900490+00:00",
       "source_queries": [
         "nvme 500gb"
+      ]
+    },
+    {
+      "listing_id": "24188263",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24188263",
+      "title": "CPU I7 6700 og bundkort ASUS PRIME Z270-A",
+      "ask_t0": 650,
+      "ask_t1": 650,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "MOTHERBOARD",
+      "identity_evidence": "TITLE_PROVES_STANDALONE_MOTHERBOARD",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "z20_fit": "NOT_APPLICABLE",
+      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
+      "upgradeability": "NOT_APPLICABLE",
+      "upgradeability_reason": "NOT_A_PLATFORM",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:36.862200+00:00",
+      "t1_at": "2026-09-05T14:37:33.229106+00:00",
+      "source_queries": [
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -1228,8 +1306,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.507611+00:00",
-      "t1_at": "2026-09-05T13:36:25.735184+00:00",
+      "t0_at": "2026-09-05T14:34:58.423390+00:00",
+      "t1_at": "2026-09-05T14:37:35.456068+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -1261,8 +1339,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.432465+00:00",
-      "t1_at": "2026-09-05T13:36:26.930725+00:00",
+      "t0_at": "2026-09-05T14:36:19.636181+00:00",
+      "t1_at": "2026-09-05T14:37:36.806357+00:00",
       "source_queries": [
         "750w strømforsyning"
       ]
@@ -1293,8 +1371,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434772+00:00",
-      "t1_at": "2026-09-05T13:36:28.485959+00:00",
+      "t0_at": "2026-09-05T14:35:46.025591+00:00",
+      "t1_at": "2026-09-05T14:37:37.211303+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1325,8 +1403,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:55.736606+00:00",
-      "t1_at": "2026-09-05T13:36:33.175148+00:00",
+      "t0_at": "2026-09-05T14:36:20.972431+00:00",
+      "t1_at": "2026-09-05T14:37:43.364883+00:00",
       "source_queries": [
         "am4 cpu køler"
       ]
@@ -1357,8 +1435,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429144+00:00",
-      "t1_at": "2026-09-05T13:36:29.962600+00:00",
+      "t0_at": "2026-09-05T14:35:46.018984+00:00",
+      "t1_at": "2026-09-05T14:37:37.981834+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1389,8 +1467,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779354+00:00",
-      "t1_at": "2026-09-05T13:36:32.660541+00:00",
+      "t0_at": "2026-09-05T14:35:50.234015+00:00",
+      "t1_at": "2026-09-05T14:37:37.993858+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -1421,8 +1499,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.432776+00:00",
-      "t1_at": "2026-09-05T13:36:32.192585+00:00",
+      "t0_at": "2026-09-05T14:36:19.637061+00:00",
+      "t1_at": "2026-09-05T14:37:41.207993+00:00",
       "source_queries": [
         "750w strømforsyning"
       ]
@@ -1453,8 +1531,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434152+00:00",
-      "t1_at": "2026-09-05T13:36:33.345442+00:00",
+      "t0_at": "2026-09-05T14:35:46.024883+00:00",
+      "t1_at": "2026-09-05T14:37:41.207844+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1485,10 +1563,42 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434069+00:00",
-      "t1_at": "2026-09-05T13:36:35.609312+00:00",
+      "t0_at": "2026-09-05T14:35:46.024799+00:00",
+      "t1_at": "2026-09-05T14:37:45.757681+00:00",
       "source_queries": [
         "ddr4 16gb"
+      ]
+    },
+    {
+      "listing_id": "24455420",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24455420",
+      "title": "Bundkort med i7-6700 og 16GB RAM",
+      "ask_t0": 700,
+      "ask_t1": 700,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "MOTHERBOARD",
+      "identity_evidence": "TITLE_PROVES_STANDALONE_MOTHERBOARD",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "z20_fit": "NOT_APPLICABLE",
+      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
+      "upgradeability": "NOT_APPLICABLE",
+      "upgradeability_reason": "NOT_A_PLATFORM",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:36.861825+00:00",
+      "t1_at": "2026-09-05T14:37:45.929880+00:00",
+      "source_queries": [
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -1517,8 +1627,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.291472+00:00",
-      "t1_at": "2026-09-05T13:36:36.161897+00:00",
+      "t0_at": "2026-09-05T14:34:58.380142+00:00",
+      "t1_at": "2026-09-05T14:37:48.444201+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -1549,8 +1659,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429313+00:00",
-      "t1_at": "2026-09-05T13:36:38.206394+00:00",
+      "t0_at": "2026-09-05T14:35:46.019173+00:00",
+      "t1_at": "2026-09-05T14:37:49.650755+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1581,8 +1691,8 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:44.692177+00:00",
-      "t1_at": "2026-09-05T13:36:41.289069+00:00",
+      "t0_at": "2026-09-05T14:36:12.796234+00:00",
+      "t1_at": "2026-09-05T14:37:48.861699+00:00",
       "source_queries": [
         "mini itx kabinet"
       ]
@@ -1613,8 +1723,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434468+00:00",
-      "t1_at": "2026-09-05T13:36:42.971477+00:00",
+      "t0_at": "2026-09-05T14:35:46.025215+00:00",
+      "t1_at": "2026-09-05T14:37:52.185836+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1645,8 +1755,8 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:14.633533+00:00",
-      "t1_at": "2026-09-05T13:36:46.089406+00:00",
+      "t0_at": "2026-09-05T14:35:43.030883+00:00",
+      "t1_at": "2026-09-05T14:37:56.600786+00:00",
       "source_queries": [
         "micro atx bundkort cpu"
       ]
@@ -1677,8 +1787,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.435014+00:00",
-      "t1_at": "2026-09-05T13:36:47.287350+00:00",
+      "t0_at": "2026-09-05T14:35:46.025817+00:00",
+      "t1_at": "2026-09-05T14:37:56.861574+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1709,8 +1819,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434426+00:00",
-      "t1_at": "2026-09-05T13:36:47.683515+00:00",
+      "t0_at": "2026-09-05T14:35:46.025166+00:00",
+      "t1_at": "2026-09-05T14:37:59.002839+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -1741,8 +1851,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.777759+00:00",
-      "t1_at": "2026-09-05T13:36:50.609329+00:00",
+      "t0_at": "2026-09-05T14:35:50.227075+00:00",
+      "t1_at": "2026-09-05T14:37:59.900858+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -1773,13 +1883,12 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:46.936399+00:00",
-      "t1_at": "2026-09-05T13:36:51.719735+00:00",
+      "t0_at": "2026-09-05T14:34:21.469796+00:00",
+      "t1_at": "2026-09-05T14:38:01.250370+00:00",
       "source_queries": [
         "am5 bundkort wifi",
         "matx bundkort cpu",
-        "micro atx bundkort cpu",
-        "ryzen matx bundkort"
+        "micro atx bundkort cpu"
       ]
     },
     {
@@ -1808,8 +1917,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.535946+00:00",
-      "t1_at": "2026-09-05T13:36:53.564327+00:00",
+      "t0_at": "2026-09-05T14:34:42.722226+00:00",
+      "t1_at": "2026-09-05T14:38:03.132274+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -1840,8 +1949,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.509131+00:00",
-      "t1_at": "2026-09-05T13:36:55.168667+00:00",
+      "t0_at": "2026-09-05T14:34:58.424069+00:00",
+      "t1_at": "2026-09-05T14:38:03.220934+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -1873,8 +1982,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.324533+00:00",
-      "t1_at": "2026-09-05T13:36:56.165712+00:00",
+      "t0_at": "2026-09-05T14:36:08.042928+00:00",
+      "t1_at": "2026-09-05T14:38:06.339253+00:00",
       "source_queries": [
         "nvme 1tb"
       ]
@@ -1905,8 +2014,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.324463+00:00",
-      "t1_at": "2026-09-05T13:36:57.004924+00:00",
+      "t0_at": "2026-09-05T14:36:08.041729+00:00",
+      "t1_at": "2026-09-05T14:38:06.990390+00:00",
       "source_queries": [
         "nvme 1tb"
       ]
@@ -1937,8 +2046,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779610+00:00",
-      "t1_at": "2026-09-05T13:36:59.785097+00:00",
+      "t0_at": "2026-09-05T14:35:50.234272+00:00",
+      "t1_at": "2026-09-05T14:38:08.870994+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -1969,8 +2078,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434684+00:00",
-      "t1_at": "2026-09-05T13:36:59.022923+00:00",
+      "t0_at": "2026-09-05T14:35:46.025504+00:00",
+      "t1_at": "2026-09-05T14:38:09.065270+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2001,8 +2110,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.535613+00:00",
-      "t1_at": "2026-09-05T13:37:05.943661+00:00",
+      "t0_at": "2026-09-05T14:34:42.721909+00:00",
+      "t1_at": "2026-09-05T14:38:13.689908+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -2033,42 +2142,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.914145+00:00",
-      "t1_at": "2026-09-05T13:37:08.432910+00:00",
+      "t0_at": "2026-09-05T14:33:57.839029+00:00",
+      "t1_at": "2026-09-05T14:38:17.648490+00:00",
       "source_queries": [
         "ryzen 7500f"
-      ]
-    },
-    {
-      "listing_id": "10456249",
-      "url": "https://www.dba.dk/recommerce/forsale/item/10456249",
-      "title": "Modern PC Cabinet D31 MATX CASE",
-      "ask_t0": 800,
-      "ask_t1": 800,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "kind": "CASE",
-      "identity_evidence": "TITLE_PROVES_CASE_AND_MATX_ITX_FIT",
-      "condition": "NO_DEFECT_SIGNAL",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "z20_fit": "NOT_APPLICABLE",
-      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
-      "upgradeability": "NOT_APPLICABLE",
-      "upgradeability_reason": "NOT_A_PLATFORM",
-      "ram_compatibility": "NOT_APPLICABLE",
-      "ram_compatibility_reason": "NOT_RAM",
-      "format_evidence": "A3_READY_PSU_CHECK",
-      "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:31.056008+00:00",
-      "t1_at": "2026-09-05T13:37:01.218407+00:00",
-      "source_queries": [
-        "matx kabinet"
       ]
     },
     {
@@ -2097,10 +2174,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:47.517315+00:00",
-      "t1_at": "2026-09-05T13:37:03.199359+00:00",
+      "t0_at": "2026-09-05T14:35:57.207778+00:00",
+      "t1_at": "2026-09-05T14:38:10.834925+00:00",
       "source_queries": [
-        "650w strømforsyning"
+        "650w strømforsyning",
+        "atx strømforsyning 650w"
       ]
     },
     {
@@ -2129,8 +2207,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434589+00:00",
-      "t1_at": "2026-09-05T13:37:04.343453+00:00",
+      "t0_at": "2026-09-05T14:35:46.025408+00:00",
+      "t1_at": "2026-09-05T14:38:12.858121+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2161,8 +2239,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.507717+00:00",
-      "t1_at": "2026-09-05T13:37:11.295540+00:00",
+      "t0_at": "2026-09-05T14:34:58.423491+00:00",
+      "t1_at": "2026-09-05T14:38:18.736192+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -2194,8 +2272,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517422+00:00",
-      "t1_at": "2026-09-05T13:37:11.081956+00:00",
+      "t0_at": "2026-09-05T14:34:58.436035+00:00",
+      "t1_at": "2026-09-05T14:38:20.898819+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -2227,8 +2305,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.508792+00:00",
-      "t1_at": "2026-09-05T13:37:11.862234+00:00",
+      "t0_at": "2026-09-05T14:34:58.423740+00:00",
+      "t1_at": "2026-09-05T14:38:20.760922+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -2260,8 +2338,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.509055+00:00",
-      "t1_at": "2026-09-05T13:37:16.017504+00:00",
+      "t0_at": "2026-09-05T14:34:58.423974+00:00",
+      "t1_at": "2026-09-05T14:38:21.951078+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -2293,11 +2371,43 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.509092+00:00",
-      "t1_at": "2026-09-05T13:37:15.547083+00:00",
+      "t0_at": "2026-09-05T14:34:58.424020+00:00",
+      "t1_at": "2026-09-05T14:38:23.916923+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
+      ]
+    },
+    {
+      "listing_id": "22780768",
+      "url": "https://www.dba.dk/recommerce/forsale/item/22780768",
+      "title": "Bundkort med Intel Core i7 - 6700K 4 GHz processor",
+      "ask_t0": 800,
+      "ask_t1": 800,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "MOTHERBOARD",
+      "identity_evidence": "TITLE_PROVES_STANDALONE_MOTHERBOARD",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "z20_fit": "NOT_APPLICABLE",
+      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
+      "upgradeability": "NOT_APPLICABLE",
+      "upgradeability_reason": "NOT_A_PLATFORM",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:36.862059+00:00",
+      "t1_at": "2026-09-05T14:38:25.585083+00:00",
+      "source_queries": [
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -2326,8 +2436,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434927+00:00",
-      "t1_at": "2026-09-05T13:37:17.681027+00:00",
+      "t0_at": "2026-09-05T14:35:46.025726+00:00",
+      "t1_at": "2026-09-05T14:38:25.232866+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2358,8 +2468,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434726+00:00",
-      "t1_at": "2026-09-05T13:37:19.324401+00:00",
+      "t0_at": "2026-09-05T14:35:46.025548+00:00",
+      "t1_at": "2026-09-05T14:38:27.355901+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2390,10 +2500,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429757+00:00",
-      "t1_at": "2026-09-05T13:37:19.867136+00:00",
+      "t0_at": "2026-09-05T14:35:36.862969+00:00",
+      "t1_at": "2026-09-05T14:38:28.642484+00:00",
       "source_queries": [
-        "ddr4 16gb"
+        "ddr4 16gb",
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -2422,8 +2533,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.433946+00:00",
-      "t1_at": "2026-09-05T13:37:20.671957+00:00",
+      "t0_at": "2026-09-05T14:35:46.024726+00:00",
+      "t1_at": "2026-09-05T14:38:29.606964+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2454,8 +2565,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751093+00:00",
-      "t1_at": "2026-09-05T13:37:22.688852+00:00",
+      "t0_at": "2026-09-05T14:35:49.944004+00:00",
+      "t1_at": "2026-09-05T14:38:30.473605+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -2486,8 +2597,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.782377+00:00",
-      "t1_at": "2026-09-05T13:37:24.018506+00:00",
+      "t0_at": "2026-09-05T14:35:50.235176+00:00",
+      "t1_at": "2026-09-05T14:38:32.152005+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -2518,8 +2629,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.508869+00:00",
-      "t1_at": "2026-09-05T13:37:26.280538+00:00",
+      "t0_at": "2026-09-05T14:34:58.423785+00:00",
+      "t1_at": "2026-09-05T14:38:35.120978+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "ssd 1tb"
@@ -2551,8 +2662,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517283+00:00",
-      "t1_at": "2026-09-05T13:37:24.936369+00:00",
+      "t0_at": "2026-09-05T14:34:58.435818+00:00",
+      "t1_at": "2026-09-05T14:38:36.570156+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -2585,10 +2696,42 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.484405+00:00",
-      "t1_at": "2026-09-05T13:37:27.252668+00:00",
+      "t0_at": "2026-09-05T14:36:09.056558+00:00",
+      "t1_at": "2026-09-05T14:38:37.103882+00:00",
       "source_queries": [
         "ssd 1tb"
+      ]
+    },
+    {
+      "listing_id": "24641633",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24641633",
+      "title": "G.Skill Aegis 16gb (2x8gb) DDR4 ram",
+      "ask_t0": 800,
+      "ask_t1": 800,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "RAM",
+      "identity_evidence": "TITLE_PROVES_RAM",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "z20_fit": "NOT_APPLICABLE",
+      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
+      "upgradeability": "NOT_APPLICABLE",
+      "upgradeability_reason": "NOT_A_PLATFORM",
+      "ram_compatibility": "DESKTOP_COMPATIBLE",
+      "ram_compatibility_reason": "TITLE_PROVES_DESKTOP_DDR4_MEMORY",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:46.018855+00:00",
+      "t1_at": "2026-09-05T14:38:39.855888+00:00",
+      "source_queries": [
+        "ddr4 16gb"
       ]
     },
     {
@@ -2617,8 +2760,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.914257+00:00",
-      "t1_at": "2026-09-05T13:37:29.710458+00:00",
+      "t0_at": "2026-09-05T14:33:57.839170+00:00",
+      "t1_at": "2026-09-05T14:38:39.314819+00:00",
       "source_queries": [
         "ryzen 7500f"
       ]
@@ -2649,8 +2792,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751544+00:00",
-      "t1_at": "2026-09-05T13:37:29.120244+00:00",
+      "t0_at": "2026-09-05T14:35:49.949453+00:00",
+      "t1_at": "2026-09-05T14:38:41.687446+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -2681,8 +2824,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:33.453382+00:00",
-      "t1_at": "2026-09-05T13:37:33.720362+00:00",
+      "t0_at": "2026-09-05T14:34:03.426477+00:00",
+      "t1_at": "2026-09-05T14:38:43.494995+00:00",
       "source_queries": [
         "ryzen 7600x"
       ]
@@ -2713,10 +2856,11 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:57.532765+00:00",
-      "t1_at": "2026-09-05T13:37:41.861505+00:00",
+      "t0_at": "2026-09-05T14:33:27.514219+00:00",
+      "t1_at": "2026-09-05T14:38:53.273542+00:00",
       "source_queries": [
         "cpu køler",
+        "intel matx bundkort cpu",
         "matx bundkort cpu",
         "micro atx bundkort cpu"
       ]
@@ -2747,8 +2891,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751858+00:00",
-      "t1_at": "2026-09-05T13:37:32.238426+00:00",
+      "t0_at": "2026-09-05T14:35:49.949833+00:00",
+      "t1_at": "2026-09-05T14:38:42.995866+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -2779,8 +2923,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.507769+00:00",
-      "t1_at": "2026-09-05T13:37:36.154325+00:00",
+      "t0_at": "2026-09-05T14:34:58.423546+00:00",
+      "t1_at": "2026-09-05T14:38:46.953352+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -2813,8 +2957,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517382+00:00",
-      "t1_at": "2026-09-05T13:37:36.663764+00:00",
+      "t0_at": "2026-09-05T14:34:58.435998+00:00",
+      "t1_at": "2026-09-05T14:38:47.684504+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -2847,11 +2991,12 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.921479+00:00",
-      "t1_at": "2026-09-05T13:37:39.581344+00:00",
+      "t0_at": "2026-09-05T14:33:22.556782+00:00",
+      "t1_at": "2026-09-05T14:38:50.043187+00:00",
       "source_queries": [
         "bundkort ram cpu",
-        "cpu bundkort ram"
+        "cpu bundkort ram",
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -2880,8 +3025,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429351+00:00",
-      "t1_at": "2026-09-05T13:37:38.979692+00:00",
+      "t0_at": "2026-09-05T14:35:46.019219+00:00",
+      "t1_at": "2026-09-05T14:38:50.269230+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2912,8 +3057,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:51.803437+00:00",
-      "t1_at": "2026-09-05T13:37:44.789803+00:00",
+      "t0_at": "2026-09-05T14:34:22.006845+00:00",
+      "t1_at": "2026-09-05T14:38:53.877869+00:00",
       "source_queries": [
         "rx 5700 xt"
       ]
@@ -2944,8 +3089,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.435048+00:00",
-      "t1_at": "2026-09-05T13:37:45.733634+00:00",
+      "t0_at": "2026-09-05T14:35:46.025851+00:00",
+      "t1_at": "2026-09-05T14:38:54.489574+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -2976,8 +3121,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:21.034326+00:00",
-      "t1_at": "2026-09-05T13:37:47.032903+00:00",
+      "t0_at": "2026-09-05T14:32:42.800345+00:00",
+      "t1_at": "2026-09-05T14:38:56.587956+00:00",
       "source_queries": [
         "ryzen 5700x3d bundkort"
       ]
@@ -3008,8 +3153,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.918323+00:00",
-      "t1_at": "2026-09-05T13:37:48.240112+00:00",
+      "t0_at": "2026-09-05T14:33:22.552178+00:00",
+      "t1_at": "2026-09-05T14:38:57.860441+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
@@ -3041,8 +3186,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:46.936091+00:00",
-      "t1_at": "2026-09-05T13:37:48.390876+00:00",
+      "t0_at": "2026-09-05T14:34:21.463735+00:00",
+      "t1_at": "2026-09-05T14:38:59.077873+00:00",
       "source_queries": [
         "am5 bundkort wifi"
       ]
@@ -3073,8 +3218,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.324256+00:00",
-      "t1_at": "2026-09-05T13:37:50.357759+00:00",
+      "t0_at": "2026-09-05T14:36:08.041227+00:00",
+      "t1_at": "2026-09-05T14:39:01.464859+00:00",
       "source_queries": [
         "nvme 1tb"
       ]
@@ -3105,11 +3250,12 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.918604+00:00",
-      "t1_at": "2026-09-05T13:37:50.919424+00:00",
+      "t0_at": "2026-09-05T14:33:22.556090+00:00",
+      "t1_at": "2026-09-05T14:39:00.611666+00:00",
       "source_queries": [
         "bundkort ram cpu",
-        "cpu bundkort ram"
+        "cpu bundkort ram",
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -3138,8 +3284,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.493550+00:00",
-      "t1_at": "2026-09-05T13:37:53.472218+00:00",
+      "t0_at": "2026-09-05T14:36:09.063623+00:00",
+      "t1_at": "2026-09-05T14:39:03.302755+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -3170,8 +3316,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517657+00:00",
-      "t1_at": "2026-09-05T13:37:54.713987+00:00",
+      "t0_at": "2026-09-05T14:34:58.436252+00:00",
+      "t1_at": "2026-09-05T14:39:03.654575+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -3204,8 +3350,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429718+00:00",
-      "t1_at": "2026-09-05T13:37:56.919391+00:00",
+      "t0_at": "2026-09-05T14:35:46.019689+00:00",
+      "t1_at": "2026-09-05T14:39:05.869916+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -3236,8 +3382,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754723+00:00",
-      "t1_at": "2026-09-05T13:37:58.248528+00:00",
+      "t0_at": "2026-09-05T14:35:49.953641+00:00",
+      "t1_at": "2026-09-05T14:39:05.312218+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -3268,8 +3414,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754673+00:00",
-      "t1_at": "2026-09-05T13:37:59.758070+00:00",
+      "t0_at": "2026-09-05T14:35:49.953588+00:00",
+      "t1_at": "2026-09-05T14:39:06.785996+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -3300,8 +3446,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:33.453443+00:00",
-      "t1_at": "2026-09-05T13:38:01.251534+00:00",
+      "t0_at": "2026-09-05T14:34:03.426531+00:00",
+      "t1_at": "2026-09-05T14:39:12.128358+00:00",
       "source_queries": [
         "am5 cpu",
         "ryzen 7600x"
@@ -3333,8 +3479,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434245+00:00",
-      "t1_at": "2026-09-05T13:37:59.608638+00:00",
+      "t0_at": "2026-09-05T14:35:46.024970+00:00",
+      "t1_at": "2026-09-05T14:39:08.669428+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -3365,8 +3511,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.292135+00:00",
-      "t1_at": "2026-09-05T13:38:02.130194+00:00",
+      "t0_at": "2026-09-05T14:34:58.380804+00:00",
+      "t1_at": "2026-09-05T14:39:12.414833+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -3397,8 +3543,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429428+00:00",
-      "t1_at": "2026-09-05T13:38:04.220467+00:00",
+      "t0_at": "2026-09-05T14:35:46.019334+00:00",
+      "t1_at": "2026-09-05T14:39:13.688605+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -3429,8 +3575,8 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:46.936183+00:00",
-      "t1_at": "2026-09-05T13:38:04.979448+00:00",
+      "t0_at": "2026-09-05T14:34:21.463824+00:00",
+      "t1_at": "2026-09-05T14:39:15.089835+00:00",
       "source_queries": [
         "am5 bundkort wifi"
       ]
@@ -3461,8 +3607,8 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:14.632862+00:00",
-      "t1_at": "2026-09-05T13:38:07.523812+00:00",
+      "t0_at": "2026-09-05T14:35:43.029927+00:00",
+      "t1_at": "2026-09-05T14:39:17.157060+00:00",
       "source_queries": [
         "micro atx bundkort cpu"
       ]
@@ -3493,8 +3639,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.921569+00:00",
-      "t1_at": "2026-09-05T13:38:08.545004+00:00",
+      "t0_at": "2026-09-05T14:33:22.556861+00:00",
+      "t1_at": "2026-09-05T14:39:18.309850+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
@@ -3526,8 +3672,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779394+00:00",
-      "t1_at": "2026-09-05T13:38:10.224541+00:00",
+      "t0_at": "2026-09-05T14:35:50.234059+00:00",
+      "t1_at": "2026-09-05T14:39:20.055814+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -3558,8 +3704,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.918255+00:00",
-      "t1_at": "2026-09-05T13:38:12.464154+00:00",
+      "t0_at": "2026-09-05T14:33:22.552094+00:00",
+      "t1_at": "2026-09-05T14:39:23.325520+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
@@ -3591,8 +3737,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.433984+00:00",
-      "t1_at": "2026-09-05T13:38:12.534342+00:00",
+      "t0_at": "2026-09-05T14:35:46.024763+00:00",
+      "t1_at": "2026-09-05T14:39:23.643787+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -3623,8 +3769,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.781917+00:00",
-      "t1_at": "2026-09-05T13:38:15.455323+00:00",
+      "t0_at": "2026-09-05T14:35:50.234740+00:00",
+      "t1_at": "2026-09-05T14:39:24.810815+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -3655,8 +3801,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754464+00:00",
-      "t1_at": "2026-09-05T13:38:15.444985+00:00",
+      "t0_at": "2026-09-05T14:35:49.950175+00:00",
+      "t1_at": "2026-09-05T14:39:25.657684+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -3687,8 +3833,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.509014+00:00",
-      "t1_at": "2026-09-05T13:38:17.581373+00:00",
+      "t0_at": "2026-09-05T14:34:58.423929+00:00",
+      "t1_at": "2026-09-05T14:39:28.816076+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -3720,8 +3866,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751670+00:00",
-      "t1_at": "2026-09-05T13:38:18.909384+00:00",
+      "t0_at": "2026-09-05T14:35:49.949649+00:00",
+      "t1_at": "2026-09-05T14:39:29.168025+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -3752,8 +3898,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751591+00:00",
-      "t1_at": "2026-09-05T13:38:20.756822+00:00",
+      "t0_at": "2026-09-05T14:35:49.949544+00:00",
+      "t1_at": "2026-09-05T14:39:30.070799+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -3784,8 +3930,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.493812+00:00",
-      "t1_at": "2026-09-05T13:38:21.690599+00:00",
+      "t0_at": "2026-09-05T14:36:09.063875+00:00",
+      "t1_at": "2026-09-05T14:39:32.241813+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -3816,8 +3962,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.921525+00:00",
-      "t1_at": "2026-09-05T13:38:23.849136+00:00",
+      "t0_at": "2026-09-05T14:33:22.556825+00:00",
+      "t1_at": "2026-09-05T14:39:34.469432+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
@@ -3849,8 +3995,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517478+00:00",
-      "t1_at": "2026-09-05T13:38:23.374590+00:00",
+      "t0_at": "2026-09-05T14:34:58.436086+00:00",
+      "t1_at": "2026-09-05T14:39:34.171883+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -3883,8 +4029,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517563+00:00",
-      "t1_at": "2026-09-05T13:38:26.099880+00:00",
+      "t0_at": "2026-09-05T14:34:58.436167+00:00",
+      "t1_at": "2026-09-05T14:39:35.613169+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -3917,8 +4063,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:51.803509+00:00",
-      "t1_at": "2026-09-05T13:38:30.691382+00:00",
+      "t0_at": "2026-09-05T14:34:22.006906+00:00",
+      "t1_at": "2026-09-05T14:39:39.475147+00:00",
       "source_queries": [
         "rx 5700 xt"
       ]
@@ -3949,8 +4095,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.485368+00:00",
-      "t1_at": "2026-09-05T13:38:32.350018+00:00",
+      "t0_at": "2026-09-05T14:36:09.057398+00:00",
+      "t1_at": "2026-09-05T14:39:43.733153+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -3981,8 +4127,40 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025472+00:00",
-      "t1_at": "2026-09-05T13:38:36.912638+00:00",
+      "t0_at": "2026-09-05T14:36:02.156834+00:00",
+      "t1_at": "2026-09-05T14:39:48.007861+00:00",
+      "source_queries": [
+        "rtx 2070"
+      ]
+    },
+    {
+      "listing_id": "24007283",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24007283",
+      "title": "8GB Asus ROG Strix RTX 2070",
+      "ask_t0": 1100,
+      "ask_t1": 1100,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "GPU",
+      "identity_evidence": "TITLE_PROVES_GPU",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "RTX 2070",
+      "gpu_score": 52,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "z20_fit": "NOT_APPLICABLE",
+      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
+      "upgradeability": "NOT_APPLICABLE",
+      "upgradeability_reason": "NOT_A_PLATFORM",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "LAPTOP",
+      "format_rationale": "Laptop form factor verified from the live listing title.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:36:02.156542+00:00",
+      "t1_at": "2026-09-05T14:39:54.508459+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -4013,11 +4191,12 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:30.961556+00:00",
-      "t1_at": "2026-09-05T13:38:41.932015+00:00",
+      "t0_at": "2026-09-05T14:34:03.427058+00:00",
+      "t1_at": "2026-09-05T14:39:50.883136+00:00",
       "source_queries": [
         "am5 cpu",
-        "ryzen 7600"
+        "ryzen 7600",
+        "ryzen 7600x"
       ]
     },
     {
@@ -4046,9 +4225,10 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.164709+00:00",
-      "t1_at": "2026-09-05T13:38:33.959571+00:00",
+      "t0_at": "2026-09-05T14:35:15.182902+00:00",
+      "t1_at": "2026-09-05T14:39:45.567844+00:00",
       "source_queries": [
+        "atx strømforsyning 650w",
         "rtx 3060 ti",
         "rtx 3080"
       ]
@@ -4079,8 +4259,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.507667+00:00",
-      "t1_at": "2026-09-05T13:38:34.559070+00:00",
+      "t0_at": "2026-09-05T14:34:58.423445+00:00",
+      "t1_at": "2026-09-05T14:39:45.247934+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -4112,9 +4292,10 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.164610+00:00",
-      "t1_at": "2026-09-05T13:38:36.737639+00:00",
+      "t0_at": "2026-09-05T14:35:15.171855+00:00",
+      "t1_at": "2026-09-05T14:39:47.098798+00:00",
       "source_queries": [
+        "atx strømforsyning 650w",
         "rtx 3060 ti",
         "rtx 3080"
       ]
@@ -4145,8 +4326,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751900+00:00",
-      "t1_at": "2026-09-05T13:38:39.536355+00:00",
+      "t0_at": "2026-09-05T14:35:49.949879+00:00",
+      "t1_at": "2026-09-05T14:39:50.297111+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -4177,8 +4358,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.493028+00:00",
-      "t1_at": "2026-09-05T13:38:42.881230+00:00",
+      "t0_at": "2026-09-05T14:36:09.058029+00:00",
+      "t1_at": "2026-09-05T14:39:55.319584+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -4209,8 +4390,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517336+00:00",
-      "t1_at": "2026-09-05T13:38:45.668530+00:00",
+      "t0_at": "2026-09-05T14:34:58.435952+00:00",
+      "t1_at": "2026-09-05T14:39:56.797701+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "ssd 1tb"
@@ -4242,9 +4423,10 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.164658+00:00",
-      "t1_at": "2026-09-05T13:38:46.967743+00:00",
+      "t0_at": "2026-09-05T14:35:15.178211+00:00",
+      "t1_at": "2026-09-05T14:39:58.273791+00:00",
       "source_queries": [
+        "atx strømforsyning 650w",
         "rtx 3060 ti",
         "rtx 3080"
       ]
@@ -4275,8 +4457,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.323849+00:00",
-      "t1_at": "2026-09-05T13:38:47.535234+00:00",
+      "t0_at": "2026-09-05T14:36:08.040727+00:00",
+      "t1_at": "2026-09-05T14:39:58.797893+00:00",
       "source_queries": [
         "nvme 1tb",
         "ssd 1tb"
@@ -4308,43 +4490,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.918439+00:00",
-      "t1_at": "2026-09-05T13:38:48.065899+00:00",
+      "t0_at": "2026-09-05T14:33:22.555891+00:00",
+      "t1_at": "2026-09-05T14:40:02.470155+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
-      ]
-    },
-    {
-      "listing_id": "24007283",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24007283",
-      "title": "8GB Asus ROG Strix RTX 2070",
-      "ask_t0": 1175,
-      "ask_t1": 1175,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "kind": "GPU",
-      "identity_evidence": "TITLE_PROVES_GPU",
-      "condition": "NO_DEFECT_SIGNAL",
-      "gpu": "RTX 2070",
-      "gpu_score": 52,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "z20_fit": "NOT_APPLICABLE",
-      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
-      "upgradeability": "NOT_APPLICABLE",
-      "upgradeability_reason": "NOT_A_PLATFORM",
-      "ram_compatibility": "NOT_APPLICABLE",
-      "ram_compatibility_reason": "NOT_RAM",
-      "format_evidence": "LAPTOP",
-      "format_rationale": "Laptop form factor verified from the live listing title.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025188+00:00",
-      "t1_at": "2026-09-05T13:38:50.453727+00:00",
-      "source_queries": [
-        "rtx 2070"
       ]
     },
     {
@@ -4373,8 +4523,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.777808+00:00",
-      "t1_at": "2026-09-05T13:38:52.492249+00:00",
+      "t0_at": "2026-09-05T14:35:50.227128+00:00",
+      "t1_at": "2026-09-05T14:40:01.822057+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -4405,8 +4555,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.292201+00:00",
-      "t1_at": "2026-09-05T13:38:53.564214+00:00",
+      "t0_at": "2026-09-05T14:34:58.380862+00:00",
+      "t1_at": "2026-09-05T14:40:04.364927+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -4437,8 +4587,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:04.357361+00:00",
-      "t1_at": "2026-09-05T13:39:01.266209+00:00",
+      "t0_at": "2026-09-05T14:34:46.488889+00:00",
+      "t1_at": "2026-09-05T14:40:12.686926+00:00",
       "source_queries": [
         "rtx 2060",
         "rtx 2060 super"
@@ -4470,11 +4620,12 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:30.961486+00:00",
-      "t1_at": "2026-09-05T13:39:02.359130+00:00",
+      "t0_at": "2026-09-05T14:34:03.426997+00:00",
+      "t1_at": "2026-09-05T14:40:13.443707+00:00",
       "source_queries": [
         "am5 cpu",
-        "ryzen 7600"
+        "ryzen 7600",
+        "ryzen 7600x"
       ]
     },
     {
@@ -4503,8 +4654,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751503+00:00",
-      "t1_at": "2026-09-05T13:38:55.921182+00:00",
+      "t0_at": "2026-09-05T14:35:49.944485+00:00",
+      "t1_at": "2026-09-05T14:40:06.884393+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -4535,8 +4686,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.752024+00:00",
-      "t1_at": "2026-09-05T13:38:58.966681+00:00",
+      "t0_at": "2026-09-05T14:35:49.950012+00:00",
+      "t1_at": "2026-09-05T14:40:07.299945+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -4567,8 +4718,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779714+00:00",
-      "t1_at": "2026-09-05T13:38:59.753634+00:00",
+      "t0_at": "2026-09-05T14:35:50.234453+00:00",
+      "t1_at": "2026-09-05T14:40:10.157123+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -4599,8 +4750,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.508921+00:00",
-      "t1_at": "2026-09-05T13:39:00.026386+00:00",
+      "t0_at": "2026-09-05T14:34:58.423836+00:00",
+      "t1_at": "2026-09-05T14:40:10.536791+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -4632,8 +4783,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751788+00:00",
-      "t1_at": "2026-09-05T13:39:03.602648+00:00",
+      "t0_at": "2026-09-05T14:35:49.949783+00:00",
+      "t1_at": "2026-09-05T14:40:14.039560+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -4664,40 +4815,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.500218+00:00",
-      "t1_at": "2026-09-05T13:39:03.984213+00:00",
-      "source_queries": [
-        "ssd 1tb"
-      ]
-    },
-    {
-      "listing_id": "24300619",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24300619",
-      "title": "iMac 21,5\"  16 GB, 1 TB SSD HD",
-      "ask_t0": 1200,
-      "ask_t1": 1200,
-      "currency": "DKK",
-      "price_changed": false,
-      "status": "https://schema.org/InStock",
-      "kind": "STORAGE",
-      "identity_evidence": "TITLE_PROVES_STORAGE",
-      "condition": "NO_DEFECT_SIGNAL",
-      "gpu": "Ukendt",
-      "gpu_score": 0,
-      "cpu": "Ukendt",
-      "cpu_score": 0,
-      "z20_fit": "NOT_APPLICABLE",
-      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
-      "upgradeability": "NOT_APPLICABLE",
-      "upgradeability_reason": "NOT_A_PLATFORM",
-      "ram_compatibility": "NOT_APPLICABLE",
-      "ram_compatibility_reason": "NOT_RAM",
-      "format_evidence": "A3_UNCERTAIN",
-      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
-      "t0_source": "rendered_dba_card",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.484146+00:00",
-      "t1_at": "2026-09-05T13:39:06.499330+00:00",
+      "t0_at": "2026-09-05T14:36:09.064177+00:00",
+      "t1_at": "2026-09-05T14:40:15.271587+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -4728,9 +4847,10 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:14.633918+00:00",
-      "t1_at": "2026-09-05T13:39:09.940806+00:00",
+      "t0_at": "2026-09-05T14:35:36.861581+00:00",
+      "t1_at": "2026-09-05T14:40:18.778386+00:00",
       "source_queries": [
+        "intel matx bundkort cpu",
         "micro atx bundkort cpu"
       ]
     },
@@ -4760,8 +4880,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.777709+00:00",
-      "t1_at": "2026-09-05T13:39:12.010769+00:00",
+      "t0_at": "2026-09-05T14:35:46.024843+00:00",
+      "t1_at": "2026-09-05T14:40:18.391966+00:00",
       "source_queries": [
         "ddr4 16gb",
         "ddr5 16gb"
@@ -4793,14 +4913,13 @@
       "format_rationale": "Listing explicitly indicates ATX/E-ATX rather than mATX/ITX.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:21.034229+00:00",
-      "t1_at": "2026-09-05T13:39:12.858035+00:00",
+      "t0_at": "2026-09-05T14:32:42.800209+00:00",
+      "t1_at": "2026-09-05T14:40:20.512156+00:00",
       "source_queries": [
         "am5 bundkort wifi",
         "am5 matx wifi",
-        "b650m wifi",
-        "ryzen 5700x3d bundkort",
-        "ryzen matx bundkort"
+        "b650m wi-fi",
+        "ryzen 5700x3d bundkort"
       ]
     },
     {
@@ -4829,8 +4948,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.509173+00:00",
-      "t1_at": "2026-09-05T13:39:12.244142+00:00",
+      "t0_at": "2026-09-05T14:34:58.424122+00:00",
+      "t1_at": "2026-09-05T14:40:21.915624+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -4862,8 +4981,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025566+00:00",
-      "t1_at": "2026-09-05T13:39:13.956561+00:00",
+      "t0_at": "2026-09-05T14:36:02.156929+00:00",
+      "t1_at": "2026-09-05T14:40:23.359344+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -4894,8 +5013,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751744+00:00",
-      "t1_at": "2026-09-05T13:39:15.843297+00:00",
+      "t0_at": "2026-09-05T14:35:49.949740+00:00",
+      "t1_at": "2026-09-05T14:40:24.428835+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -4926,8 +5045,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.507819+00:00",
-      "t1_at": "2026-09-05T13:39:15.198855+00:00",
+      "t0_at": "2026-09-05T14:34:58.423595+00:00",
+      "t1_at": "2026-09-05T14:40:24.946792+00:00",
       "source_queries": [
         "m2 ssd 1tb"
       ]
@@ -4958,8 +5077,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754769+00:00",
-      "t1_at": "2026-09-05T13:39:16.336441+00:00",
+      "t0_at": "2026-09-05T14:35:49.953691+00:00",
+      "t1_at": "2026-09-05T14:40:27.084866+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -4990,8 +5109,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754410+00:00",
-      "t1_at": "2026-09-05T13:39:21.173320+00:00",
+      "t0_at": "2026-09-05T14:35:49.950132+00:00",
+      "t1_at": "2026-09-05T14:40:28.513339+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -5022,8 +5141,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.777316+00:00",
-      "t1_at": "2026-09-05T13:39:23.167858+00:00",
+      "t0_at": "2026-09-05T14:35:50.226746+00:00",
+      "t1_at": "2026-09-05T14:40:28.384485+00:00",
       "source_queries": [
         "ddr5 16gb",
         "ddr5 6000 32gb"
@@ -5055,8 +5174,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.781987+00:00",
-      "t1_at": "2026-09-05T13:39:24.510336+00:00",
+      "t0_at": "2026-09-05T14:35:50.234784+00:00",
+      "t1_at": "2026-09-05T14:40:32.560083+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -5087,8 +5206,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:44.692798+00:00",
-      "t1_at": "2026-09-05T13:39:25.903538+00:00",
+      "t0_at": "2026-09-05T14:36:12.801084+00:00",
+      "t1_at": "2026-09-05T14:40:33.706689+00:00",
       "source_queries": [
         "mini itx kabinet"
       ]
@@ -5119,8 +5238,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.324779+00:00",
-      "t1_at": "2026-09-05T13:39:26.800373+00:00",
+      "t0_at": "2026-09-05T14:36:08.047801+00:00",
+      "t1_at": "2026-09-05T14:40:35.541327+00:00",
       "source_queries": [
         "nvme 1tb"
       ]
@@ -5151,8 +5270,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.507548+00:00",
-      "t1_at": "2026-09-05T13:39:27.420948+00:00",
+      "t0_at": "2026-09-05T14:34:58.423321+00:00",
+      "t1_at": "2026-09-05T14:40:35.543712+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb"
@@ -5184,8 +5303,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.022728+00:00",
-      "t1_at": "2026-09-05T13:39:35.492661+00:00",
+      "t0_at": "2026-09-05T14:34:41.434706+00:00",
+      "t1_at": "2026-09-05T14:40:43.981471+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -5217,8 +5336,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025779+00:00",
-      "t1_at": "2026-09-05T13:39:31.253257+00:00",
+      "t0_at": "2026-09-05T14:36:02.157146+00:00",
+      "t1_at": "2026-09-05T14:40:37.193506+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -5249,8 +5368,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751981+00:00",
-      "t1_at": "2026-09-05T13:39:27.642347+00:00",
+      "t0_at": "2026-09-05T14:35:49.949967+00:00",
+      "t1_at": "2026-09-05T14:40:37.662131+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -5281,8 +5400,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754323+00:00",
-      "t1_at": "2026-09-05T13:39:33.239814+00:00",
+      "t0_at": "2026-09-05T14:35:49.950072+00:00",
+      "t1_at": "2026-09-05T14:40:39.998183+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -5313,12 +5432,13 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.908614+00:00",
-      "t1_at": "2026-09-05T13:39:33.714975+00:00",
+      "t0_at": "2026-09-05T14:33:22.549188+00:00",
+      "t1_at": "2026-09-05T14:40:43.017160+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram",
-        "ddr4 16gb"
+        "ddr4 16gb",
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -5347,8 +5467,8 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.298083+00:00",
-      "t1_at": "2026-09-05T13:39:38.058438+00:00",
+      "t0_at": "2026-09-05T14:34:58.393388+00:00",
+      "t1_at": "2026-09-05T14:40:44.594882+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -5379,8 +5499,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.493693+00:00",
-      "t1_at": "2026-09-05T13:39:38.432590+00:00",
+      "t0_at": "2026-09-05T14:36:09.063765+00:00",
+      "t1_at": "2026-09-05T14:40:47.068745+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -5411,8 +5531,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.759812+00:00",
-      "t1_at": "2026-09-05T13:39:39.789758+00:00",
+      "t0_at": "2026-09-05T14:35:49.953849+00:00",
+      "t1_at": "2026-09-05T14:40:46.780892+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -5443,8 +5563,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.324500+00:00",
-      "t1_at": "2026-09-05T13:39:40.376131+00:00",
+      "t0_at": "2026-09-05T14:36:08.042867+00:00",
+      "t1_at": "2026-09-05T14:40:48.667498+00:00",
       "source_queries": [
         "nvme 1tb"
       ]
@@ -5475,8 +5595,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751259+00:00",
-      "t1_at": "2026-09-05T13:39:44.804338+00:00",
+      "t0_at": "2026-09-05T14:35:49.944186+00:00",
+      "t1_at": "2026-09-05T14:40:50.706930+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -5507,8 +5627,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.507027+00:00",
-      "t1_at": "2026-09-05T13:39:45.335405+00:00",
+      "t0_at": "2026-09-05T14:34:58.422742+00:00",
+      "t1_at": "2026-09-05T14:40:53.965832+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -5541,8 +5661,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.017200+00:00",
-      "t1_at": "2026-09-05T13:40:00.815259+00:00",
+      "t0_at": "2026-09-05T14:35:20.174675+00:00",
+      "t1_at": "2026-09-05T14:41:09.100923+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -5573,8 +5693,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.032029+00:00",
-      "t1_at": "2026-09-05T13:39:49.184366+00:00",
+      "t0_at": "2026-09-05T14:36:02.157194+00:00",
+      "t1_at": "2026-09-05T14:40:57.432853+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -5605,8 +5725,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.033384+00:00",
-      "t1_at": "2026-09-05T13:39:51.976471+00:00",
+      "t0_at": "2026-09-05T14:36:02.165388+00:00",
+      "t1_at": "2026-09-05T14:41:01.289040+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -5637,8 +5757,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.580314+00:00",
-      "t1_at": "2026-09-05T13:39:45.697327+00:00",
+      "t0_at": "2026-09-05T14:35:56.965113+00:00",
+      "t1_at": "2026-09-05T14:40:54.452317+00:00",
       "source_queries": [
         "ddr5 6000 32gb"
       ]
@@ -5669,8 +5789,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517232+00:00",
-      "t1_at": "2026-09-05T13:39:49.412974+00:00",
+      "t0_at": "2026-09-05T14:34:58.424223+00:00",
+      "t1_at": "2026-09-05T14:40:56.374046+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -5703,8 +5823,8 @@
       "format_rationale": "Explicit mATX/ITX evidence plus standard PSU brand/wattage evidence.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:31.048527+00:00",
-      "t1_at": "2026-09-05T13:39:52.000395+00:00",
+      "t0_at": "2026-09-05T14:34:58.780891+00:00",
+      "t1_at": "2026-09-05T14:40:58.805897+00:00",
       "source_queries": [
         "matx bundkort cpu",
         "matx kabinet",
@@ -5738,8 +5858,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751463+00:00",
-      "t1_at": "2026-09-05T13:39:54.141246+00:00",
+      "t0_at": "2026-09-05T14:35:49.944437+00:00",
+      "t1_at": "2026-09-05T14:41:02.451912+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -5770,8 +5890,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751054+00:00",
-      "t1_at": "2026-09-05T13:39:56.102394+00:00",
+      "t0_at": "2026-09-05T14:35:49.943960+00:00",
+      "t1_at": "2026-09-05T14:41:01.506489+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -5802,8 +5922,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751423+00:00",
-      "t1_at": "2026-09-05T13:39:56.622735+00:00",
+      "t0_at": "2026-09-05T14:35:49.944391+00:00",
+      "t1_at": "2026-09-05T14:41:04.046485+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -5834,8 +5954,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.918558+00:00",
-      "t1_at": "2026-09-05T13:39:57.208318+00:00",
+      "t0_at": "2026-09-05T14:33:22.556042+00:00",
+      "t1_at": "2026-09-05T14:41:05.458029+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
@@ -5867,8 +5987,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.485189+00:00",
-      "t1_at": "2026-09-05T13:40:00.494309+00:00",
+      "t0_at": "2026-09-05T14:36:09.057170+00:00",
+      "t1_at": "2026-09-05T14:41:08.179739+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -5899,8 +6019,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779116+00:00",
-      "t1_at": "2026-09-05T13:40:03.194271+00:00",
+      "t0_at": "2026-09-05T14:35:50.233751+00:00",
+      "t1_at": "2026-09-05T14:41:10.226008+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -5931,8 +6051,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:01.983504+00:00",
-      "t1_at": "2026-09-05T13:40:05.353588+00:00",
+      "t0_at": "2026-09-05T14:34:30.542430+00:00",
+      "t1_at": "2026-09-05T14:41:12.517190+00:00",
       "source_queries": [
         "rx 6650 xt"
       ]
@@ -5963,8 +6083,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779552+00:00",
-      "t1_at": "2026-09-05T13:40:03.760554+00:00",
+      "t0_at": "2026-09-05T14:35:50.234216+00:00",
+      "t1_at": "2026-09-05T14:41:12.157937+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -5995,8 +6115,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.530662+00:00",
-      "t1_at": "2026-09-05T13:40:14.192178+00:00",
+      "t0_at": "2026-09-05T14:34:42.721145+00:00",
+      "t1_at": "2026-09-05T14:41:21.659803+00:00",
       "source_queries": [
         "rtx 2080",
         "rtx 2080 super"
@@ -6028,8 +6148,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025670+00:00",
-      "t1_at": "2026-09-05T13:40:12.564133+00:00",
+      "t0_at": "2026-09-05T14:34:41.434875+00:00",
+      "t1_at": "2026-09-05T14:41:20.924783+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
@@ -6061,8 +6181,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429226+00:00",
-      "t1_at": "2026-09-05T13:40:17.815680+00:00",
+      "t0_at": "2026-09-05T14:35:46.019071+00:00",
+      "t1_at": "2026-09-05T14:41:24.060032+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -6093,8 +6213,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754617+00:00",
-      "t1_at": "2026-09-05T13:40:06.595850+00:00",
+      "t0_at": "2026-09-05T14:35:49.953506+00:00",
+      "t1_at": "2026-09-05T14:41:14.627886+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6125,8 +6245,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754515+00:00",
-      "t1_at": "2026-09-05T13:40:08.226382+00:00",
+      "t0_at": "2026-09-05T14:35:49.950216+00:00",
+      "t1_at": "2026-09-05T14:41:15.650802+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6157,8 +6277,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751177+00:00",
-      "t1_at": "2026-09-05T13:40:08.700049+00:00",
+      "t0_at": "2026-09-05T14:35:49.944095+00:00",
+      "t1_at": "2026-09-05T14:41:16.908031+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6189,8 +6309,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779754+00:00",
-      "t1_at": "2026-09-05T13:40:12.976604+00:00",
+      "t0_at": "2026-09-05T14:35:50.234505+00:00",
+      "t1_at": "2026-09-05T14:41:18.665134+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -6221,8 +6341,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429471+00:00",
-      "t1_at": "2026-09-05T13:40:15.432652+00:00",
+      "t0_at": "2026-09-05T14:35:46.019391+00:00",
+      "t1_at": "2026-09-05T14:41:22.985105+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -6253,8 +6373,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751385+00:00",
-      "t1_at": "2026-09-05T13:40:17.258061+00:00",
+      "t0_at": "2026-09-05T14:35:49.944342+00:00",
+      "t1_at": "2026-09-05T14:41:26.017218+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6285,12 +6405,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:21.033915+00:00",
-      "t1_at": "2026-09-05T13:40:19.716868+00:00",
+      "t0_at": "2026-09-05T14:32:42.799932+00:00",
+      "t1_at": "2026-09-05T14:41:27.799495+00:00",
       "source_queries": [
         "am5 bundkort wifi",
-        "ryzen 5700x3d bundkort",
-        "ryzen 5800x3d bundkort"
+        "ryzen 5700x3d bundkort"
       ]
     },
     {
@@ -6319,8 +6438,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751299+00:00",
-      "t1_at": "2026-09-05T13:40:20.389387+00:00",
+      "t0_at": "2026-09-05T14:35:49.944231+00:00",
+      "t1_at": "2026-09-05T14:41:28.740981+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6351,8 +6470,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.535148+00:00",
-      "t1_at": "2026-09-05T13:40:23.380326+00:00",
+      "t0_at": "2026-09-05T14:34:42.721451+00:00",
+      "t1_at": "2026-09-05T14:41:29.963748+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -6383,8 +6502,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.918519+00:00",
-      "t1_at": "2026-09-05T13:40:24.543120+00:00",
+      "t0_at": "2026-09-05T14:33:22.555992+00:00",
+      "t1_at": "2026-09-05T14:41:32.860526+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
@@ -6416,8 +6535,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.161456+00:00",
-      "t1_at": "2026-09-05T13:40:28.460625+00:00",
+      "t0_at": "2026-09-05T14:35:15.160168+00:00",
+      "t1_at": "2026-09-05T14:41:37.862408+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ]
@@ -6448,8 +6567,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.032139+00:00",
-      "t1_at": "2026-09-05T13:40:27.062585+00:00",
+      "t0_at": "2026-09-05T14:36:02.157239+00:00",
+      "t1_at": "2026-09-05T14:41:34.495708+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -6480,8 +6599,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.754566+00:00",
-      "t1_at": "2026-09-05T13:40:27.025911+00:00",
+      "t0_at": "2026-09-05T14:35:49.950259+00:00",
+      "t1_at": "2026-09-05T14:41:33.546548+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6512,8 +6631,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779018+00:00",
-      "t1_at": "2026-09-05T13:40:28.609361+00:00",
+      "t0_at": "2026-09-05T14:35:50.233584+00:00",
+      "t1_at": "2026-09-05T14:41:34.010832+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -6544,8 +6663,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.759741+00:00",
-      "t1_at": "2026-09-05T13:40:31.441419+00:00",
+      "t0_at": "2026-09-05T14:35:49.953806+00:00",
+      "t1_at": "2026-09-05T14:41:39.809256+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6576,8 +6695,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751704+00:00",
-      "t1_at": "2026-09-05T13:40:31.649975+00:00",
+      "t0_at": "2026-09-05T14:35:49.949694+00:00",
+      "t1_at": "2026-09-05T14:41:39.990880+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6608,8 +6727,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.530579+00:00",
-      "t1_at": "2026-09-05T13:40:38.000472+00:00",
+      "t0_at": "2026-09-05T14:34:42.721045+00:00",
+      "t1_at": "2026-09-05T14:41:45.109432+00:00",
       "source_queries": [
         "rtx 2080",
         "rtx 2080 super"
@@ -6641,8 +6760,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.434882+00:00",
-      "t1_at": "2026-09-05T13:40:33.644242+00:00",
+      "t0_at": "2026-09-05T14:35:46.025680+00:00",
+      "t1_at": "2026-09-05T14:41:41.815173+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -6673,8 +6792,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751632+00:00",
-      "t1_at": "2026-09-05T13:40:36.753424+00:00",
+      "t0_at": "2026-09-05T14:35:49.949599+00:00",
+      "t1_at": "2026-09-05T14:41:43.991798+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -6705,8 +6824,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.291771+00:00",
-      "t1_at": "2026-09-05T13:40:38.678986+00:00",
+      "t0_at": "2026-09-05T14:34:58.380502+00:00",
+      "t1_at": "2026-09-05T14:41:45.545048+00:00",
       "source_queries": [
         "ddr4 16gb",
         "nvme 1tb",
@@ -6739,8 +6858,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.492427+00:00",
-      "t1_at": "2026-09-05T13:40:40.308805+00:00",
+      "t0_at": "2026-09-05T14:36:09.057766+00:00",
+      "t1_at": "2026-09-05T14:41:46.006785+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -6771,8 +6890,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.162197+00:00",
-      "t1_at": "2026-09-05T13:40:42.415433+00:00",
+      "t0_at": "2026-09-05T14:35:15.170932+00:00",
+      "t1_at": "2026-09-05T14:41:50.444847+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ]
@@ -6803,8 +6922,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.161790+00:00",
-      "t1_at": "2026-09-05T13:40:41.819986+00:00",
+      "t0_at": "2026-09-05T14:35:15.170889+00:00",
+      "t1_at": "2026-09-05T14:41:50.775381+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ]
@@ -6835,8 +6954,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:26.047158+00:00",
-      "t1_at": "2026-09-05T13:40:45.644359+00:00",
+      "t0_at": "2026-09-05T14:35:52.012796+00:00",
+      "t1_at": "2026-09-05T14:41:52.480041+00:00",
       "source_queries": [
         "ddr5 32gb"
       ]
@@ -6867,8 +6986,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025421+00:00",
-      "t1_at": "2026-09-05T13:40:46.740260+00:00",
+      "t0_at": "2026-09-05T14:36:02.156786+00:00",
+      "t1_at": "2026-09-05T14:41:54.373811+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -6899,8 +7018,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517159+00:00",
-      "t1_at": "2026-09-05T13:40:49.196261+00:00",
+      "t0_at": "2026-09-05T14:34:58.424177+00:00",
+      "t1_at": "2026-09-05T14:41:56.903159+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "nvme 1tb",
@@ -6933,8 +7052,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.507166+00:00",
-      "t1_at": "2026-09-05T13:41:03.490277+00:00",
+      "t0_at": "2026-09-05T14:35:14.902431+00:00",
+      "t1_at": "2026-09-05T14:42:11.558226+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -6965,8 +7084,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.506929+00:00",
-      "t1_at": "2026-09-05T13:41:11.800348+00:00",
+      "t0_at": "2026-09-05T14:35:14.898941+00:00",
+      "t1_at": "2026-09-05T14:42:19.773086+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -6997,8 +7116,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:07.987645+00:00",
-      "t1_at": "2026-09-05T13:41:05.946728+00:00",
+      "t0_at": "2026-09-05T14:32:29.794043+00:00",
+      "t1_at": "2026-09-05T14:42:15.411867+00:00",
       "source_queries": [
         "rx 6700 xt"
       ]
@@ -7029,8 +7148,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.161739+00:00",
-      "t1_at": "2026-09-05T13:41:00.086864+00:00",
+      "t0_at": "2026-09-05T14:35:15.170843+00:00",
+      "t1_at": "2026-09-05T14:42:08.596996+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ]
@@ -7061,8 +7180,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.534971+00:00",
-      "t1_at": "2026-09-05T13:40:53.213515+00:00",
+      "t0_at": "2026-09-05T14:34:42.721247+00:00",
+      "t1_at": "2026-09-05T14:42:00.965591+00:00",
       "source_queries": [
         "rtx 2080",
         "rtx 2080 super"
@@ -7094,8 +7213,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:19.250802+00:00",
-      "t1_at": "2026-09-05T13:40:51.967382+00:00",
+      "t0_at": "2026-09-05T14:32:42.041902+00:00",
+      "t1_at": "2026-09-05T14:41:56.656994+00:00",
       "source_queries": [
         "rx 7600"
       ]
@@ -7126,8 +7245,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:19.250727+00:00",
-      "t1_at": "2026-09-05T13:41:05.499666+00:00",
+      "t0_at": "2026-09-05T14:32:42.041835+00:00",
+      "t1_at": "2026-09-05T14:42:12.439252+00:00",
       "source_queries": [
         "rx 7600"
       ]
@@ -7158,8 +7277,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:01.983585+00:00",
-      "t1_at": "2026-09-05T13:40:59.743427+00:00",
+      "t0_at": "2026-09-05T14:34:30.542510+00:00",
+      "t1_at": "2026-09-05T14:42:05.906803+00:00",
       "source_queries": [
         "rx 6650 xt"
       ]
@@ -7190,8 +7309,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:16.961738+00:00",
-      "t1_at": "2026-09-05T13:40:59.636749+00:00",
+      "t0_at": "2026-09-05T14:32:42.062927+00:00",
+      "t1_at": "2026-09-05T14:42:08.111712+00:00",
       "source_queries": [
         "rtx 3060 ti",
         "rtx 4060",
@@ -7226,8 +7345,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025517+00:00",
-      "t1_at": "2026-09-05T13:40:52.935623+00:00",
+      "t0_at": "2026-09-05T14:36:02.156877+00:00",
+      "t1_at": "2026-09-05T14:41:56.469128+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -7258,8 +7377,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025243+00:00",
-      "t1_at": "2026-09-05T13:40:55.640023+00:00",
+      "t0_at": "2026-09-05T14:36:02.156597+00:00",
+      "t1_at": "2026-09-05T14:42:04.064013+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -7290,11 +7409,43 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.579138+00:00",
-      "t1_at": "2026-09-05T13:40:50.111724+00:00",
+      "t0_at": "2026-09-05T14:35:52.019432+00:00",
+      "t1_at": "2026-09-05T14:41:57.049187+00:00",
       "source_queries": [
         "ddr5 32gb",
         "ddr5 6000 32gb"
+      ]
+    },
+    {
+      "listing_id": "2416388",
+      "url": "https://www.dba.dk/recommerce/forsale/item/2416388",
+      "title": "BundKort",
+      "ask_t0": 2000,
+      "ask_t1": 2000,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "MOTHERBOARD",
+      "identity_evidence": "TITLE_PROVES_STANDALONE_MOTHERBOARD",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Ukendt",
+      "cpu_score": 0,
+      "z20_fit": "NOT_APPLICABLE",
+      "z20_fit_reason": "NO_MOTHERBOARD_REQUIRED",
+      "upgradeability": "NOT_APPLICABLE",
+      "upgradeability_reason": "NOT_A_PLATFORM",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:36.862852+00:00",
+      "t1_at": "2026-09-05T14:42:08.008818+00:00",
+      "source_queries": [
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -7323,8 +7474,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.777598+00:00",
-      "t1_at": "2026-09-05T13:41:02.795168+00:00",
+      "t0_at": "2026-09-05T14:35:50.226932+00:00",
+      "t1_at": "2026-09-05T14:42:09.375845+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -7355,8 +7506,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.484211+00:00",
-      "t1_at": "2026-09-05T13:41:08.488461+00:00",
+      "t0_at": "2026-09-05T14:36:09.054239+00:00",
+      "t1_at": "2026-09-05T14:42:16.867872+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -7387,8 +7538,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.517610+00:00",
-      "t1_at": "2026-09-05T13:41:11.088933+00:00",
+      "t0_at": "2026-09-05T14:34:58.436212+00:00",
+      "t1_at": "2026-09-05T14:42:16.784792+00:00",
       "source_queries": [
         "m2 ssd 1tb"
       ]
@@ -7419,8 +7570,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.530231+00:00",
-      "t1_at": "2026-09-05T13:41:12.374654+00:00",
+      "t0_at": "2026-09-05T14:34:42.720638+00:00",
+      "t1_at": "2026-09-05T14:42:19.798829+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -7451,8 +7602,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.434097+00:00",
-      "t1_at": "2026-09-05T13:41:14.248660+00:00",
+      "t0_at": "2026-09-05T14:36:19.637245+00:00",
+      "t1_at": "2026-09-05T14:42:19.358929+00:00",
       "source_queries": [
         "750w strømforsyning"
       ]
@@ -7483,8 +7634,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.535255+00:00",
-      "t1_at": "2026-09-05T13:41:14.210319+00:00",
+      "t0_at": "2026-09-05T14:34:42.721557+00:00",
+      "t1_at": "2026-09-05T14:42:22.607913+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -7515,8 +7666,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.530624+00:00",
-      "t1_at": "2026-09-05T13:41:16.623892+00:00",
+      "t0_at": "2026-09-05T14:34:42.721099+00:00",
+      "t1_at": "2026-09-05T14:42:24.768832+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -7547,8 +7698,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.751335+00:00",
-      "t1_at": "2026-09-05T13:41:16.942710+00:00",
+      "t0_at": "2026-09-05T14:35:49.944274+00:00",
+      "t1_at": "2026-09-05T14:42:25.756868+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -7579,8 +7730,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:57.684050+00:00",
-      "t1_at": "2026-09-05T13:41:20.002587+00:00",
+      "t0_at": "2026-09-05T14:35:21.316496+00:00",
+      "t1_at": "2026-09-05T14:42:27.904449+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -7611,8 +7762,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:26.047515+00:00",
-      "t1_at": "2026-09-05T13:41:21.519494+00:00",
+      "t0_at": "2026-09-05T14:35:52.017386+00:00",
+      "t1_at": "2026-09-05T14:42:29.244911+00:00",
       "source_queries": [
         "ddr5 32gb"
       ]
@@ -7643,8 +7794,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.298551+00:00",
-      "t1_at": "2026-09-05T13:41:24.327666+00:00",
+      "t0_at": "2026-09-05T14:34:58.393835+00:00",
+      "t1_at": "2026-09-05T14:42:31.599157+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -7675,8 +7826,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.510036+00:00",
-      "t1_at": "2026-09-05T13:41:28.717956+00:00",
+      "t0_at": "2026-09-05T14:35:14.908925+00:00",
+      "t1_at": "2026-09-05T14:42:34.540008+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -7707,8 +7858,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:31.055599+00:00",
-      "t1_at": "2026-09-05T13:41:27.034944+00:00",
+      "t0_at": "2026-09-05T14:34:58.781137+00:00",
+      "t1_at": "2026-09-05T14:42:34.304773+00:00",
       "source_queries": [
         "matx kabinet"
       ]
@@ -7739,8 +7890,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.535305+00:00",
-      "t1_at": "2026-09-05T13:41:35.643980+00:00",
+      "t0_at": "2026-09-05T14:34:42.721603+00:00",
+      "t1_at": "2026-09-05T14:42:43.467811+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -7771,8 +7922,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:57.682145+00:00",
-      "t1_at": "2026-09-05T13:41:39.230587+00:00",
+      "t0_at": "2026-09-05T14:35:21.308781+00:00",
+      "t1_at": "2026-09-05T14:42:48.436442+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -7803,11 +7954,75 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.022655+00:00",
-      "t1_at": "2026-09-05T13:41:35.921158+00:00",
+      "t0_at": "2026-09-05T14:34:41.434646+00:00",
+      "t1_at": "2026-09-05T14:42:45.179680+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super"
+      ]
+    },
+    {
+      "listing_id": "23061048",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23061048",
+      "title": "I5 13600kf og ASUS Prime Z790 A WIFI",
+      "ask_t0": 2500,
+      "ask_t1": 2500,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "PLATFORM_BUNDLE",
+      "identity_evidence": "TITLE_PROVES_BOARD_AND_CPU",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Core i5-13600",
+      "cpu_score": 105,
+      "z20_fit": "UNVERIFIED",
+      "z20_fit_reason": "MOTHERBOARD_FORM_FACTOR_NOT_PROVEN_IN_TITLE",
+      "upgradeability": "GOOD",
+      "upgradeability_reason": "LGA1700_MULTI_GENERATION_UPGRADE_PATH",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:36.862927+00:00",
+      "t1_at": "2026-09-05T14:42:41.869792+00:00",
+      "source_queries": [
+        "intel matx bundkort cpu"
+      ]
+    },
+    {
+      "listing_id": "23096421",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23096421",
+      "title": "I5 13600kf og ASUS Prime Z790 A WIFI",
+      "ask_t0": 2500,
+      "ask_t1": 2500,
+      "currency": "DKK",
+      "price_changed": false,
+      "status": "https://schema.org/InStock",
+      "kind": "PLATFORM_BUNDLE",
+      "identity_evidence": "TITLE_PROVES_BOARD_AND_CPU",
+      "condition": "NO_DEFECT_SIGNAL",
+      "gpu": "Ukendt",
+      "gpu_score": 0,
+      "cpu": "Core i5-13600",
+      "cpu_score": 105,
+      "z20_fit": "UNVERIFIED",
+      "z20_fit_reason": "MOTHERBOARD_FORM_FACTOR_NOT_PROVEN_IN_TITLE",
+      "upgradeability": "GOOD",
+      "upgradeability_reason": "LGA1700_MULTI_GENERATION_UPGRADE_PATH",
+      "ram_compatibility": "NOT_APPLICABLE",
+      "ram_compatibility_reason": "NOT_RAM",
+      "format_evidence": "A3_UNCERTAIN",
+      "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
+      "t0_source": "rendered_dba_card",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t0_at": "2026-09-05T14:35:36.862270+00:00",
+      "t1_at": "2026-09-05T14:42:43.304550+00:00",
+      "source_queries": [
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -7836,11 +8051,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:21.033969+00:00",
-      "t1_at": "2026-09-05T13:41:38.202421+00:00",
+      "t0_at": "2026-09-05T14:32:42.799978+00:00",
+      "t1_at": "2026-09-05T14:42:47.725880+00:00",
       "source_queries": [
-        "ryzen 5700x3d bundkort",
-        "ryzen 5800x3d bundkort"
+        "ryzen 5700x3d bundkort"
       ]
     },
     {
@@ -7869,8 +8083,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:50.435758+00:00",
-      "t1_at": "2026-09-05T13:41:28.202671+00:00",
+      "t0_at": "2026-09-05T14:36:19.637849+00:00",
+      "t1_at": "2026-09-05T14:42:35.232304+00:00",
       "source_queries": [
         "750w strømforsyning"
       ]
@@ -7901,8 +8115,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:56.918029+00:00",
-      "t1_at": "2026-09-05T13:41:31.122557+00:00",
+      "t0_at": "2026-09-05T14:33:22.551846+00:00",
+      "t1_at": "2026-09-05T14:42:38.301817+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram"
@@ -7934,8 +8148,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:46.936031+00:00",
-      "t1_at": "2026-09-05T13:41:37.276215+00:00",
+      "t0_at": "2026-09-05T14:34:21.463686+00:00",
+      "t1_at": "2026-09-05T14:42:46.456811+00:00",
       "source_queries": [
         "am5 bundkort wifi"
       ]
@@ -7966,8 +8180,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.484311+00:00",
-      "t1_at": "2026-09-05T13:41:40.919646+00:00",
+      "t0_at": "2026-09-05T14:36:09.056443+00:00",
+      "t1_at": "2026-09-05T14:42:51.548662+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -7998,8 +8212,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:57.682599+00:00",
-      "t1_at": "2026-09-05T13:41:40.825146+00:00",
+      "t0_at": "2026-09-05T14:35:21.309159+00:00",
+      "t1_at": "2026-09-05T14:42:52.716120+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -8030,8 +8244,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:16.961680+00:00",
-      "t1_at": "2026-09-05T13:41:42.204771+00:00",
+      "t0_at": "2026-09-05T14:32:42.062865+00:00",
+      "t1_at": "2026-09-05T14:42:53.591751+00:00",
       "source_queries": [
         "rx 6800",
         "rx 6800 xt"
@@ -8063,12 +8277,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:21.034126+00:00",
-      "t1_at": "2026-09-05T13:41:45.207662+00:00",
+      "t0_at": "2026-09-05T14:32:42.800120+00:00",
+      "t1_at": "2026-09-05T14:42:55.000483+00:00",
       "source_queries": [
         "am5 bundkort wifi",
-        "ryzen 5700x3d bundkort",
-        "ryzen 5800x3d bundkort"
+        "ryzen 5700x3d bundkort"
       ]
     },
     {
@@ -8097,8 +8310,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:46.931022+00:00",
-      "t1_at": "2026-09-05T13:41:44.209594+00:00",
+      "t0_at": "2026-09-05T14:34:21.462843+00:00",
+      "t1_at": "2026-09-05T14:42:56.273920+00:00",
       "source_queries": [
         "am5 bundkort wifi"
       ]
@@ -8129,8 +8342,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:21.033731+00:00",
-      "t1_at": "2026-09-05T13:41:49.698728+00:00",
+      "t0_at": "2026-09-05T14:34:09.899715+00:00",
+      "t1_at": "2026-09-05T14:42:56.317535+00:00",
       "source_queries": [
         "am4 cpu køler",
         "am5 bundkort wifi",
@@ -8168,8 +8381,8 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.017157+00:00",
-      "t1_at": "2026-09-05T13:41:54.770564+00:00",
+      "t0_at": "2026-09-05T14:35:20.174637+00:00",
+      "t1_at": "2026-09-05T14:43:03.918767+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -8200,8 +8413,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025371+00:00",
-      "t1_at": "2026-09-05T13:41:52.533467+00:00",
+      "t0_at": "2026-09-05T14:36:02.156733+00:00",
+      "t1_at": "2026-09-05T14:43:01.733261+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -8232,8 +8445,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.579195+00:00",
-      "t1_at": "2026-09-05T13:41:47.696020+00:00",
+      "t0_at": "2026-09-05T14:35:52.026630+00:00",
+      "t1_at": "2026-09-05T14:42:59.115018+00:00",
       "source_queries": [
         "ddr5 32gb",
         "ddr5 6000 32gb"
@@ -8265,8 +8478,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.291606+00:00",
-      "t1_at": "2026-09-05T13:41:53.287406+00:00",
+      "t0_at": "2026-09-05T14:34:58.380325+00:00",
+      "t1_at": "2026-09-05T14:43:03.550793+00:00",
       "source_queries": [
         "nvme 500gb",
         "rtx 4060"
@@ -8298,8 +8511,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:27.357787+00:00",
-      "t1_at": "2026-09-05T13:41:55.078336+00:00",
+      "t0_at": "2026-09-05T14:32:53.518219+00:00",
+      "t1_at": "2026-09-05T14:43:05.926777+00:00",
       "source_queries": [
         "b450m ryzen"
       ]
@@ -8330,8 +8543,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:46.931086+00:00",
-      "t1_at": "2026-09-05T13:41:56.303156+00:00",
+      "t0_at": "2026-09-05T14:34:21.462899+00:00",
+      "t1_at": "2026-09-05T14:43:08.011015+00:00",
       "source_queries": [
         "am5 bundkort wifi"
       ]
@@ -8362,8 +8575,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:30:57.052192+00:00",
-      "t1_at": "2026-09-05T13:41:58.101910+00:00",
+      "t0_at": "2026-09-05T14:32:19.285943+00:00",
+      "t1_at": "2026-09-05T14:43:08.070592+00:00",
       "source_queries": [
         "rtx 4060",
         "rtx 4060 ti"
@@ -8395,8 +8608,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429803+00:00",
-      "t1_at": "2026-09-05T13:41:59.091623+00:00",
+      "t0_at": "2026-09-05T14:35:46.019786+00:00",
+      "t1_at": "2026-09-05T14:43:09.019166+00:00",
       "source_queries": [
         "ddr4 16gb"
       ]
@@ -8427,8 +8640,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.020539+00:00",
-      "t1_at": "2026-09-05T13:42:03.315154+00:00",
+      "t0_at": "2026-09-05T14:35:20.177134+00:00",
+      "t1_at": "2026-09-05T14:43:11.025818+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -8459,8 +8672,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.020586+00:00",
-      "t1_at": "2026-09-05T13:42:08.620407+00:00",
+      "t0_at": "2026-09-05T14:35:20.177173+00:00",
+      "t1_at": "2026-09-05T14:43:16.641838+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -8491,8 +8704,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:30:55.861661+00:00",
-      "t1_at": "2026-09-05T13:42:09.546357+00:00",
+      "t0_at": "2026-09-05T14:35:14.904991+00:00",
+      "t1_at": "2026-09-05T14:43:19.612354+00:00",
       "source_queries": [
         "rtx 3070",
         "rtx 3070 ti"
@@ -8524,8 +8737,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:04.357096+00:00",
-      "t1_at": "2026-09-05T13:42:15.345682+00:00",
+      "t0_at": "2026-09-05T14:34:46.488598+00:00",
+      "t1_at": "2026-09-05T14:43:23.463068+00:00",
       "source_queries": [
         "rtx 2060",
         "rtx 2060 super"
@@ -8557,8 +8770,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.359710+00:00",
-      "t1_at": "2026-09-05T13:42:05.844985+00:00",
+      "t0_at": "2026-09-05T14:34:09.898236+00:00",
+      "t1_at": "2026-09-05T14:43:15.090103+00:00",
       "source_queries": [
         "am5 cpu"
       ]
@@ -8589,12 +8802,11 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:21.034179+00:00",
-      "t1_at": "2026-09-05T13:42:09.877166+00:00",
+      "t0_at": "2026-09-05T14:34:09.899455+00:00",
+      "t1_at": "2026-09-05T14:43:18.626882+00:00",
       "source_queries": [
         "am5 cpu",
-        "ryzen 5700x3d bundkort",
-        "ryzen 5800x3d bundkort"
+        "ryzen 5700x3d bundkort"
       ]
     },
     {
@@ -8623,8 +8835,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:26.056197+00:00",
-      "t1_at": "2026-09-05T13:42:04.136544+00:00",
+      "t0_at": "2026-09-05T14:35:52.020100+00:00",
+      "t1_at": "2026-09-05T14:43:13.208790+00:00",
       "source_queries": [
         "ddr5 32gb"
       ]
@@ -8655,8 +8867,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:26.047559+00:00",
-      "t1_at": "2026-09-05T13:42:10.158357+00:00",
+      "t0_at": "2026-09-05T14:35:52.017455+00:00",
+      "t1_at": "2026-09-05T14:43:20.282911+00:00",
       "source_queries": [
         "ddr5 32gb"
       ]
@@ -8687,8 +8899,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:17.429390+00:00",
-      "t1_at": "2026-09-05T13:42:14.387972+00:00",
+      "t0_at": "2026-09-05T14:35:46.019262+00:00",
+      "t1_at": "2026-09-05T14:43:22.282972+00:00",
       "source_queries": [
         "ddr4 16gb",
         "rtx 2060"
@@ -8720,8 +8932,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.760125+00:00",
-      "t1_at": "2026-09-05T13:42:17.044313+00:00",
+      "t0_at": "2026-09-05T14:35:49.954106+00:00",
+      "t1_at": "2026-09-05T14:43:25.049513+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -8752,8 +8964,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.579350+00:00",
-      "t1_at": "2026-09-05T13:42:17.064642+00:00",
+      "t0_at": "2026-09-05T14:35:56.963926+00:00",
+      "t1_at": "2026-09-05T14:43:25.551571+00:00",
       "source_queries": [
         "ddr5 6000 32gb"
       ]
@@ -8784,8 +8996,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:52.312184+00:00",
-      "t1_at": "2026-09-05T13:42:20.012581+00:00",
+      "t0_at": "2026-09-05T14:34:23.053494+00:00",
+      "t1_at": "2026-09-05T14:43:27.585749+00:00",
       "source_queries": [
         "vega 64"
       ]
@@ -8816,8 +9028,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.324050+00:00",
-      "t1_at": "2026-09-05T13:42:21.646923+00:00",
+      "t0_at": "2026-09-05T14:36:08.040965+00:00",
+      "t1_at": "2026-09-05T14:43:29.871818+00:00",
       "source_queries": [
         "nvme 1tb"
       ]
@@ -8848,8 +9060,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.017614+00:00",
-      "t1_at": "2026-09-05T13:42:21.210472+00:00",
+      "t0_at": "2026-09-05T14:35:20.175014+00:00",
+      "t1_at": "2026-09-05T14:43:30.713905+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -8880,8 +9092,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.535448+00:00",
-      "t1_at": "2026-09-05T13:42:26.346069+00:00",
+      "t0_at": "2026-09-05T14:34:42.721752+00:00",
+      "t1_at": "2026-09-05T14:43:32.727151+00:00",
       "source_queries": [
         "rtx 2080"
       ]
@@ -8912,9 +9124,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:14.633871+00:00",
-      "t1_at": "2026-09-05T13:42:19.699346+00:00",
+      "t0_at": "2026-09-05T14:35:36.861140+00:00",
+      "t1_at": "2026-09-05T14:43:31.176545+00:00",
       "source_queries": [
+        "intel matx bundkort cpu",
         "micro atx bundkort cpu"
       ]
     },
@@ -8944,8 +9157,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.760171+00:00",
-      "t1_at": "2026-09-05T13:42:27.591373+00:00",
+      "t0_at": "2026-09-05T14:35:49.954160+00:00",
+      "t1_at": "2026-09-05T14:43:34.452908+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -8976,8 +9189,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.759914+00:00",
-      "t1_at": "2026-09-05T13:42:29.495614+00:00",
+      "t0_at": "2026-09-05T14:35:49.953900+00:00",
+      "t1_at": "2026-09-05T14:43:36.634013+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -9008,8 +9221,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.017751+00:00",
-      "t1_at": "2026-09-05T13:42:28.983045+00:00",
+      "t0_at": "2026-09-05T14:35:20.175140+00:00",
+      "t1_at": "2026-09-05T14:43:33.937794+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -9040,8 +9253,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:04.357494+00:00",
-      "t1_at": "2026-09-05T13:42:31.316455+00:00",
+      "t0_at": "2026-09-05T14:34:46.489017+00:00",
+      "t1_at": "2026-09-05T14:43:38.785968+00:00",
       "source_queries": [
         "rtx 2060",
         "rtx 2060 super"
@@ -9073,8 +9286,8 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.292718+00:00",
-      "t1_at": "2026-09-05T13:42:31.593398+00:00",
+      "t0_at": "2026-09-05T14:34:58.380960+00:00",
+      "t1_at": "2026-09-05T14:43:42.327190+00:00",
       "source_queries": [
         "b550m ryzen",
         "nvme 500gb"
@@ -9106,8 +9319,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:26.055849+00:00",
-      "t1_at": "2026-09-05T13:42:33.328285+00:00",
+      "t0_at": "2026-09-05T14:35:52.019745+00:00",
+      "t1_at": "2026-09-05T14:43:43.442571+00:00",
       "source_queries": [
         "ddr5 32gb"
       ]
@@ -9138,8 +9351,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.570747+00:00",
-      "t1_at": "2026-09-05T13:42:33.040034+00:00",
+      "t0_at": "2026-09-05T14:35:52.005207+00:00",
+      "t1_at": "2026-09-05T14:43:43.190841+00:00",
       "source_queries": [
         "ddr5 32gb",
         "ddr5 6000 32gb"
@@ -9171,8 +9384,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:27.345699+00:00",
-      "t1_at": "2026-09-05T13:42:37.774570+00:00",
+      "t0_at": "2026-09-05T14:32:53.517703+00:00",
+      "t1_at": "2026-09-05T14:43:44.385670+00:00",
       "source_queries": [
         "b450m ryzen"
       ]
@@ -9203,8 +9416,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.163956+00:00",
-      "t1_at": "2026-09-05T13:42:38.508388+00:00",
+      "t0_at": "2026-09-05T14:35:15.171074+00:00",
+      "t1_at": "2026-09-05T14:43:46.166173+00:00",
       "source_queries": [
         "rtx 3060 ti"
       ]
@@ -9235,8 +9448,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.580103+00:00",
-      "t1_at": "2026-09-05T13:42:40.555915+00:00",
+      "t0_at": "2026-09-05T14:35:56.964855+00:00",
+      "t1_at": "2026-09-05T14:43:46.331410+00:00",
       "source_queries": [
         "ddr5 6000 32gb"
       ]
@@ -9267,8 +9480,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:32.869486+00:00",
-      "t1_at": "2026-09-05T13:42:39.790674+00:00",
+      "t0_at": "2026-09-05T14:36:02.326720+00:00",
+      "t1_at": "2026-09-05T14:43:48.229861+00:00",
       "source_queries": [
         "rtx 2060"
       ]
@@ -9299,8 +9512,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:04.357778+00:00",
-      "t1_at": "2026-09-05T13:42:42.550902+00:00",
+      "t0_at": "2026-09-05T14:34:46.499559+00:00",
+      "t1_at": "2026-09-05T14:43:50.208960+00:00",
       "source_queries": [
         "rtx 2060 super"
       ]
@@ -9331,8 +9544,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.297154+00:00",
-      "t1_at": "2026-09-05T13:42:42.999955+00:00",
+      "t0_at": "2026-09-05T14:34:58.381106+00:00",
+      "t1_at": "2026-09-05T14:43:52.818956+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -9363,8 +9576,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.507086+00:00",
-      "t1_at": "2026-09-05T13:42:47.692311+00:00",
+      "t0_at": "2026-09-05T14:34:58.422802+00:00",
+      "t1_at": "2026-09-05T14:43:58.087943+00:00",
       "source_queries": [
         "m2 ssd 1tb"
       ]
@@ -9395,8 +9608,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.759972+00:00",
-      "t1_at": "2026-09-05T13:42:50.865298+00:00",
+      "t0_at": "2026-09-05T14:35:49.953955+00:00",
+      "t1_at": "2026-09-05T14:43:57.132815+00:00",
       "source_queries": [
         "ddr4 32gb"
       ]
@@ -9427,8 +9640,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025140+00:00",
-      "t1_at": "2026-09-05T13:42:52.552681+00:00",
+      "t0_at": "2026-09-05T14:36:02.156490+00:00",
+      "t1_at": "2026-09-05T14:43:59.662963+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -9459,8 +9672,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.500283+00:00",
-      "t1_at": "2026-09-05T13:42:54.603720+00:00",
+      "t0_at": "2026-09-05T14:36:09.064239+00:00",
+      "t1_at": "2026-09-05T14:44:00.225959+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -9491,8 +9704,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779063+00:00",
-      "t1_at": "2026-09-05T13:42:55.628292+00:00",
+      "t0_at": "2026-09-05T14:35:50.233686+00:00",
+      "t1_at": "2026-09-05T14:44:03.515881+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -9523,8 +9736,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.297972+00:00",
-      "t1_at": "2026-09-05T13:42:55.728797+00:00",
+      "t0_at": "2026-09-05T14:34:58.393237+00:00",
+      "t1_at": "2026-09-05T14:44:04.859485+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -9555,8 +9768,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.492381+00:00",
-      "t1_at": "2026-09-05T13:42:56.836071+00:00",
+      "t0_at": "2026-09-05T14:36:09.057714+00:00",
+      "t1_at": "2026-09-05T14:44:06.277903+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -9587,8 +9800,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025622+00:00",
-      "t1_at": "2026-09-05T13:43:00.305417+00:00",
+      "t0_at": "2026-09-05T14:36:02.156986+00:00",
+      "t1_at": "2026-09-05T14:44:08.483828+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -9619,8 +9832,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:35:00.773164+00:00",
-      "t1_at": "2026-09-05T13:43:01.759409+00:00",
+      "t0_at": "2026-09-05T14:36:27.015759+00:00",
+      "t1_at": "2026-09-05T14:44:10.097988+00:00",
       "source_queries": [
         "cpu køler",
         "lga1700 cpu køler"
@@ -9652,8 +9865,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.291856+00:00",
-      "t1_at": "2026-09-05T13:43:03.350465+00:00",
+      "t0_at": "2026-09-05T14:34:58.380556+00:00",
+      "t1_at": "2026-09-05T14:44:11.695811+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -9684,8 +9897,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.497636+00:00",
-      "t1_at": "2026-09-05T13:43:03.566546+00:00",
+      "t0_at": "2026-09-05T14:34:58.422414+00:00",
+      "t1_at": "2026-09-05T14:44:12.330597+00:00",
       "source_queries": [
         "m2 ssd 1tb",
         "ssd 1tb"
@@ -9717,8 +9930,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.297079+00:00",
-      "t1_at": "2026-09-05T13:43:07.280030+00:00",
+      "t0_at": "2026-09-05T14:34:58.381052+00:00",
+      "t1_at": "2026-09-05T14:44:15.088813+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -9749,8 +9962,8 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.022330+00:00",
-      "t1_at": "2026-09-05T13:43:06.825711+00:00",
+      "t0_at": "2026-09-05T14:36:02.155718+00:00",
+      "t1_at": "2026-09-05T14:44:15.417087+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -9781,13 +9994,12 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:21.034014+00:00",
-      "t1_at": "2026-09-05T13:43:08.397694+00:00",
+      "t0_at": "2026-09-05T14:32:42.800017+00:00",
+      "t1_at": "2026-09-05T14:44:18.094025+00:00",
       "source_queries": [
         "bundkort ram cpu",
         "cpu bundkort ram",
-        "ryzen 5700x3d bundkort",
-        "ryzen 5800x3d bundkort"
+        "ryzen 5700x3d bundkort"
       ]
     },
     {
@@ -9816,8 +10028,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.782589+00:00",
-      "t1_at": "2026-09-05T13:43:12.129358+00:00",
+      "t0_at": "2026-09-05T14:35:50.240987+00:00",
+      "t1_at": "2026-09-05T14:44:19.788898+00:00",
       "source_queries": [
         "ddr5 16gb",
         "ddr5 32gb",
@@ -9850,8 +10062,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.579652+00:00",
-      "t1_at": "2026-09-05T13:43:13.805001+00:00",
+      "t0_at": "2026-09-05T14:35:52.007649+00:00",
+      "t1_at": "2026-09-05T14:44:20.896063+00:00",
       "source_queries": [
         "ddr5 32gb",
         "ddr5 6000 32gb"
@@ -9883,8 +10095,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.323660+00:00",
-      "t1_at": "2026-09-05T13:43:15.951509+00:00",
+      "t0_at": "2026-09-05T14:36:08.040460+00:00",
+      "t1_at": "2026-09-05T14:44:23.232871+00:00",
       "source_queries": [
         "nvme 1tb",
         "ssd 1tb"
@@ -9916,8 +10128,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:25.364819+00:00",
-      "t1_at": "2026-09-05T13:43:18.502870+00:00",
+      "t0_at": "2026-09-05T14:34:09.899402+00:00",
+      "t1_at": "2026-09-05T14:44:26.541503+00:00",
       "source_queries": [
         "am5 cpu",
         "am5 cpu køler"
@@ -9949,8 +10161,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.022599+00:00",
-      "t1_at": "2026-09-05T13:43:20.631900+00:00",
+      "t0_at": "2026-09-05T14:34:41.434586+00:00",
+      "t1_at": "2026-09-05T14:44:29.012981+00:00",
       "source_queries": [
         "rtx 2070",
         "rtx 2070 super",
@@ -9983,8 +10195,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.589293+00:00",
-      "t1_at": "2026-09-05T13:43:24.062728+00:00",
+      "t0_at": "2026-09-05T14:35:56.965631+00:00",
+      "t1_at": "2026-09-05T14:44:30.687833+00:00",
       "source_queries": [
         "ddr5 6000 32gb"
       ]
@@ -10015,8 +10227,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.298456+00:00",
-      "t1_at": "2026-09-05T13:43:26.346148+00:00",
+      "t0_at": "2026-09-05T14:34:58.393729+00:00",
+      "t1_at": "2026-09-05T14:44:32.547860+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -10047,8 +10259,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:26.056094+00:00",
-      "t1_at": "2026-09-05T13:43:26.946311+00:00",
+      "t0_at": "2026-09-05T14:35:52.019964+00:00",
+      "t1_at": "2026-09-05T14:44:33.672953+00:00",
       "source_queries": [
         "ddr5 32gb"
       ]
@@ -10079,8 +10291,8 @@
       "format_rationale": "OEM platform without explicit standard mATX/ITX evidence; proprietary parts cannot be ruled out.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.298021+00:00",
-      "t1_at": "2026-09-05T13:43:29.614814+00:00",
+      "t0_at": "2026-09-05T14:34:58.393317+00:00",
+      "t1_at": "2026-09-05T14:44:36.136244+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -10111,8 +10323,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.297910+00:00",
-      "t1_at": "2026-09-05T13:43:29.630682+00:00",
+      "t0_at": "2026-09-05T14:34:58.393173+00:00",
+      "t1_at": "2026-09-05T14:44:35.674880+00:00",
       "source_queries": [
         "nvme 500gb"
       ]
@@ -10143,8 +10355,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:37.153298+00:00",
-      "t1_at": "2026-09-05T13:43:31.098317+00:00",
+      "t0_at": "2026-09-05T14:34:09.192914+00:00",
+      "t1_at": "2026-09-05T14:44:38.055895+00:00",
       "source_queries": [
         "ryzen 7700"
       ]
@@ -10175,8 +10387,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.025303+00:00",
-      "t1_at": "2026-09-05T13:43:34.919759+00:00",
+      "t0_at": "2026-09-05T14:35:57.206158+00:00",
+      "t1_at": "2026-09-05T14:44:41.515386+00:00",
       "source_queries": [
         "650w strømforsyning",
         "atx strømforsyning 650w",
@@ -10209,8 +10421,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:32.866542+00:00",
-      "t1_at": "2026-09-05T13:43:35.449197+00:00",
+      "t0_at": "2026-09-05T14:36:02.325737+00:00",
+      "t1_at": "2026-09-05T14:44:42.767875+00:00",
       "source_queries": [
         "rtx 2060"
       ]
@@ -10241,8 +10453,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:26.047079+00:00",
-      "t1_at": "2026-09-05T13:43:37.719364+00:00",
+      "t0_at": "2026-09-05T14:35:52.011688+00:00",
+      "t1_at": "2026-09-05T14:44:43.509056+00:00",
       "source_queries": [
         "ddr5 32gb"
       ]
@@ -10273,8 +10485,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.022533+00:00",
-      "t1_at": "2026-09-05T13:43:44.449421+00:00",
+      "t0_at": "2026-09-05T14:36:02.155900+00:00",
+      "t1_at": "2026-09-05T14:44:50.213077+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -10305,10 +10517,11 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.782110+00:00",
-      "t1_at": "2026-09-05T13:43:46.198200+00:00",
+      "t0_at": "2026-09-05T14:35:36.862821+00:00",
+      "t1_at": "2026-09-05T14:44:52.428813+00:00",
       "source_queries": [
-        "ddr5 16gb"
+        "ddr5 16gb",
+        "intel matx bundkort cpu"
       ]
     },
     {
@@ -10337,8 +10550,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.493260+00:00",
-      "t1_at": "2026-09-05T13:43:46.532799+00:00",
+      "t0_at": "2026-09-05T14:36:09.058196+00:00",
+      "t1_at": "2026-09-05T14:44:53.915489+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -10369,8 +10582,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.776961+00:00",
-      "t1_at": "2026-09-05T13:43:48.976494+00:00",
+      "t0_at": "2026-09-05T14:35:50.226415+00:00",
+      "t1_at": "2026-09-05T14:44:55.022342+00:00",
       "source_queries": [
         "ddr5 16gb"
       ]
@@ -10401,8 +10614,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.492486+00:00",
-      "t1_at": "2026-09-05T13:43:48.779418+00:00",
+      "t0_at": "2026-09-05T14:36:09.057811+00:00",
+      "t1_at": "2026-09-05T14:44:56.395157+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -10433,8 +10646,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.032502+00:00",
-      "t1_at": "2026-09-05T13:43:51.523535+00:00",
+      "t0_at": "2026-09-05T14:36:02.164672+00:00",
+      "t1_at": "2026-09-05T14:44:58.771996+00:00",
       "source_queries": [
         "rtx 2070"
       ]
@@ -10465,8 +10678,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:45.560384+00:00",
-      "t1_at": "2026-09-05T13:43:52.117185+00:00",
+      "t0_at": "2026-09-05T14:33:13.556637+00:00",
+      "t1_at": "2026-09-05T14:44:59.951224+00:00",
       "source_queries": [
         "b760m i5",
         "rtx 4060"
@@ -10498,8 +10711,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.291718+00:00",
-      "t1_at": "2026-09-05T13:43:54.319920+00:00",
+      "t0_at": "2026-09-05T14:34:58.380448+00:00",
+      "t1_at": "2026-09-05T14:45:01.588011+00:00",
       "source_queries": [
         "am4 cpu køler",
         "nvme 500gb",
@@ -10532,8 +10745,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:57.684303+00:00",
-      "t1_at": "2026-09-05T13:43:55.339064+00:00",
+      "t0_at": "2026-09-05T14:35:21.316746+00:00",
+      "t1_at": "2026-09-05T14:45:00.578868+00:00",
       "source_queries": [
         "650w strømforsyning",
         "rtx 4060"
@@ -10565,8 +10778,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:57.683990+00:00",
-      "t1_at": "2026-09-05T13:43:58.035780+00:00",
+      "t0_at": "2026-09-05T14:35:21.316419+00:00",
+      "t1_at": "2026-09-05T14:45:02.739117+00:00",
       "source_queries": [
         "rtx 4060"
       ]
@@ -10597,8 +10810,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.588926+00:00",
-      "t1_at": "2026-09-05T13:43:57.639673+00:00",
+      "t0_at": "2026-09-05T14:35:56.965322+00:00",
+      "t1_at": "2026-09-05T14:45:04.750318+00:00",
       "source_queries": [
         "ddr5 6000 32gb"
       ]
@@ -10629,8 +10842,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:04.357551+00:00",
-      "t1_at": "2026-09-05T13:44:00.779677+00:00",
+      "t0_at": "2026-09-05T14:34:46.489075+00:00",
+      "t1_at": "2026-09-05T14:45:05.161408+00:00",
       "source_queries": [
         "ddr4 16gb",
         "rtx 2060",
@@ -10663,8 +10876,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.161511+00:00",
-      "t1_at": "2026-09-05T13:44:00.404406+00:00",
+      "t0_at": "2026-09-05T14:35:15.160219+00:00",
+      "t1_at": "2026-09-05T14:45:06.834899+00:00",
       "source_queries": [
         "nvme 1tb",
         "rtx 3060 ti"
@@ -10696,8 +10909,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.570654+00:00",
-      "t1_at": "2026-09-05T13:44:03.114402+00:00",
+      "t0_at": "2026-09-05T14:35:52.005140+00:00",
+      "t1_at": "2026-09-05T14:45:10.774851+00:00",
       "source_queries": [
         "ddr5 32gb",
         "ddr5 6000 32gb"
@@ -10729,8 +10942,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:19.022464+00:00",
-      "t1_at": "2026-09-05T13:44:02.442488+00:00",
+      "t0_at": "2026-09-05T14:34:41.434512+00:00",
+      "t1_at": "2026-09-05T14:45:11.549059+00:00",
       "source_queries": [
         "ddr4 16gb",
         "rtx 2070",
@@ -10763,8 +10976,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.493496+00:00",
-      "t1_at": "2026-09-05T13:44:04.945577+00:00",
+      "t0_at": "2026-09-05T14:36:09.063550+00:00",
+      "t1_at": "2026-09-05T14:45:12.433630+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -10795,8 +11008,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.298293+00:00",
-      "t1_at": "2026-09-05T13:44:07.982520+00:00",
+      "t0_at": "2026-09-05T14:34:58.393612+00:00",
+      "t1_at": "2026-09-05T14:45:13.043511+00:00",
       "source_queries": [
         "nvme 500gb",
         "rtx 3070"
@@ -10828,8 +11041,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:04.357312+00:00",
-      "t1_at": "2026-09-05T13:44:07.712587+00:00",
+      "t0_at": "2026-09-05T14:34:46.488833+00:00",
+      "t1_at": "2026-09-05T14:45:13.848996+00:00",
       "source_queries": [
         "rtx 2060",
         "rtx 2060 super"
@@ -10861,8 +11074,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.508325+00:00",
-      "t1_at": "2026-09-05T13:44:13.881410+00:00",
+      "t0_at": "2026-09-05T14:35:14.904548+00:00",
+      "t1_at": "2026-09-05T14:45:17.362028+00:00",
       "source_queries": [
         "rtx 3070"
       ]
@@ -10893,8 +11106,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.507373+00:00",
-      "t1_at": "2026-09-05T13:44:10.475327+00:00",
+      "t0_at": "2026-09-05T14:35:14.902607+00:00",
+      "t1_at": "2026-09-05T14:45:15.249800+00:00",
       "source_queries": [
         "rtx 3070",
         "ssd 1tb"
@@ -10926,8 +11139,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:26.918069+00:00",
-      "t1_at": "2026-09-05T13:44:13.169131+00:00",
+      "t0_at": "2026-09-05T14:33:03.090901+00:00",
+      "t1_at": "2026-09-05T14:45:15.535812+00:00",
       "source_queries": [
         "b550m ryzen",
         "nvme 1tb"
@@ -10959,8 +11172,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.578984+00:00",
-      "t1_at": "2026-09-05T13:44:13.113452+00:00",
+      "t0_at": "2026-09-05T14:35:52.012908+00:00",
+      "t1_at": "2026-09-05T14:45:20.751600+00:00",
       "source_queries": [
         "ddr5 32gb",
         "ddr5 6000 32gb"
@@ -10992,8 +11205,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.782240+00:00",
-      "t1_at": "2026-09-05T13:44:15.051138+00:00",
+      "t0_at": "2026-09-05T14:35:21.308868+00:00",
+      "t1_at": "2026-09-05T14:45:22.335441+00:00",
       "source_queries": [
         "ddr5 16gb",
         "ddr5 32gb",
@@ -11027,9 +11240,10 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:57.533602+00:00",
-      "t1_at": "2026-09-05T13:44:16.246320+00:00",
+      "t0_at": "2026-09-05T14:33:27.519422+00:00",
+      "t1_at": "2026-09-05T14:45:23.485418+00:00",
       "source_queries": [
+        "intel matx bundkort cpu",
         "matx bundkort cpu"
       ]
     },
@@ -11059,8 +11273,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:21.779803+00:00",
-      "t1_at": "2026-09-05T13:44:19.378262+00:00",
+      "t0_at": "2026-09-05T14:35:50.234557+00:00",
+      "t1_at": "2026-09-05T14:45:23.599817+00:00",
       "source_queries": [
         "ddr5 16gb",
         "ddr5 6000 32gb"
@@ -11092,8 +11306,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:33.327634+00:00",
-      "t1_at": "2026-09-05T13:44:21.675525+00:00",
+      "t0_at": "2026-09-05T14:36:08.048395+00:00",
+      "t1_at": "2026-09-05T14:45:27.980950+00:00",
       "source_queries": [
         "nvme 1tb",
         "ssd 1tb"
@@ -11125,8 +11339,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:52.017053+00:00",
-      "t1_at": "2026-09-05T13:44:28.412291+00:00",
+      "t0_at": "2026-09-05T14:35:20.174546+00:00",
+      "t1_at": "2026-09-05T14:45:34.712417+00:00",
       "source_queries": [
         "rtx 3080"
       ]
@@ -11157,8 +11371,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:37.297316+00:00",
-      "t1_at": "2026-09-05T13:44:26.019212+00:00",
+      "t0_at": "2026-09-05T14:34:58.392364+00:00",
+      "t1_at": "2026-09-05T14:45:33.002138+00:00",
       "source_queries": [
         "nvme 500gb",
         "rtx 3070"
@@ -11190,8 +11404,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:33:26.535350+00:00",
-      "t1_at": "2026-09-05T13:44:25.689097+00:00",
+      "t0_at": "2026-09-05T14:34:42.721651+00:00",
+      "t1_at": "2026-09-05T14:45:30.640778+00:00",
       "source_queries": [
         "rtx 2080",
         "rtx 2080 super"
@@ -11223,8 +11437,8 @@
       "format_rationale": "Explicit mATX/ITX evidence; PSU compatibility still requires confirmation.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:31:26.914339+00:00",
-      "t1_at": "2026-09-05T13:44:28.550963+00:00",
+      "t0_at": "2026-09-05T14:33:03.080952+00:00",
+      "t1_at": "2026-09-05T14:45:34.840708+00:00",
       "source_queries": [
         "b550m ryzen"
       ]
@@ -11255,8 +11469,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.589231+00:00",
-      "t1_at": "2026-09-05T13:44:24.014185+00:00",
+      "t0_at": "2026-09-05T14:35:56.965581+00:00",
+      "t1_at": "2026-09-05T14:45:27.470936+00:00",
       "source_queries": [
         "ddr5 6000 32gb"
       ]
@@ -11287,8 +11501,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:29.580161+00:00",
-      "t1_at": "2026-09-05T13:44:23.918677+00:00",
+      "t0_at": "2026-09-05T14:35:56.964922+00:00",
+      "t1_at": "2026-09-05T14:45:27.005184+00:00",
       "source_queries": [
         "ddr5 6000 32gb"
       ]
@@ -11319,8 +11533,8 @@
       "format_rationale": "Laptop form factor verified from the live listing title.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:34:38.500060+00:00",
-      "t1_at": "2026-09-05T13:44:25.807350+00:00",
+      "t0_at": "2026-09-05T14:36:09.063938+00:00",
+      "t1_at": "2026-09-05T14:45:31.922818+00:00",
       "source_queries": [
         "ssd 1tb"
       ]
@@ -11351,8 +11565,8 @@
       "format_rationale": "No explicit mATX/ITX evidence in the live listing.",
       "t0_source": "rendered_dba_card",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t0_at": "2026-09-05T13:32:56.971336+00:00",
-      "t1_at": "2026-09-05T13:44:27.012557+00:00",
+      "t0_at": "2026-09-05T14:34:22.331600+00:00",
+      "t1_at": "2026-09-05T14:45:33.871484+00:00",
       "source_queries": [
         "am4 cpu køler",
         "nvme 1tb",
@@ -11362,7 +11576,7 @@
   ],
   "rejection_reason_counts": {
     "TITLE_IDENTITY_AMBIGUOUS": 25,
-    "T1_IDENTITY_UNVERIFIED": 5,
+    "T1_IDENTITY_UNVERIFIED": 4,
     "COMPLETE_PC_NOT_COMPONENT": 5
   },
   "search_errors": [],
