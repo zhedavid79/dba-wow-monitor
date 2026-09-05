@@ -64,6 +64,16 @@ def cap(title):
     return max(vals) if vals else 0
 
 
+def copy_identity_fields(src, dst):
+    if src.get('source') == 'USED ASK':
+        dst['listing_id'] = str(src.get('listing_id') or '')
+        dst['functional_defect'] = bool(src.get('functional_defect', False))
+    for key in ('capacity_gb', 'watt', 'length_mm', 'verified_at'):
+        if src.get(key) is not None:
+            dst[key] = src.get(key)
+    return dst
+
+
 def live_ram_alternatives(parts):
     out = []
     for r in parts:
@@ -78,9 +88,12 @@ def live_ram_alternatives(parts):
         price = int(r.get('ask_t1') or 0)
         if price <= 0 or not r.get('url'):
             continue
+        listing_id = str(r.get('listing_id') or '')
+        if not listing_id:
+            continue
         out.append({
             'name': title, 'price': price, 'url': r['url'], 'source': 'USED ASK',
-            'listing_id': str(r.get('listing_id') or ''), 'capacity_gb': capacity,
+            'listing_id': listing_id, 'functional_defect': False, 'capacity_gb': capacity,
             'tier': 'BRIDGE' if capacity < 32 else 'VALUE',
             'pros': 'Lowest-cost bridge; preserves upgrade budget.' if capacity < 32 else '32 GB is the preferred long-term capacity.',
             'cons': '16 GB is adequate, but 32 GB may be desirable later.' if capacity < 32 else 'Used RAM must be memory-tested; speed/timings may not be optimal.',
@@ -94,12 +107,13 @@ def component_alts(route, ram_alts):
         cur = next((c for c in route.get('components', []) if c.get('kind') == kind), None)
         opts = []
         if cur:
-            opts.append({
+            opt = {
                 'name': cur.get('name', kind), 'price': int(cur.get('price') or 0),
                 'url': cur.get('url'), 'source': cur.get('source'), 'tier': 'CURRENT',
                 'pros': 'Current selected component in this complete working build.',
                 'cons': 'Compare against the alternatives before buying.',
-            })
+            }
+            opts.append(copy_identity_fields(cur, opt))
         if kind == 'STORAGE':
             opts.extend(RETAIL_ALTS['STORAGE'])
         if kind == 'PSU':
@@ -121,12 +135,13 @@ def enrich_cross_route_alts(routes):
                 continue
             key = (c.get('name'), int(c.get('price') or 0), c.get('url'))
             if not any((x['name'], x['price'], x['url']) == key for x in pools[k]):
-                pools[k].append({
+                opt = {
                     'name': c.get('name', k), 'price': int(c.get('price') or 0),
                     'url': c.get('url'), 'source': c.get('source'), 'tier': 'ALTERNATIVE',
                     'pros': 'Alternative already used in another complete verified self-build route.',
                     'cons': 'Compatibility/value must be checked against the exact selected build.',
-                })
+                }
+                pools[k].append(copy_identity_fields(c, opt))
     for k in pools:
         pools[k] = sorted(pools[k], key=lambda x: x['price'])[:8]
     for r in routes:
@@ -134,6 +149,18 @@ def enrich_cross_route_alts(routes):
             continue
         for k, opts in pools.items():
             r.setdefault('component_alternatives', {}).setdefault(k, []).extend(opts)
+
+
+def assert_used_alternative_identity(routes):
+    for r in routes:
+        if not v17.is_self_build(r):
+            continue
+        for opts in (r.get('component_alternatives') or {}).values():
+            for x in opts or []:
+                if x.get('source') != 'USED ASK':
+                    continue
+                assert x.get('url') and x.get('listing_id'), 'USED alternative lost DBA identity metadata'
+                assert x.get('functional_defect') is False, 'USED alternative lost functional verification metadata'
 
 
 def main():
@@ -168,6 +195,7 @@ def main():
         r['component_alternatives'] = component_alts(r, ram_alts)
 
     enrich_cross_route_alts(routes)
+    assert_used_alternative_identity(routes)
     d['ranked'] = routes
     d['storage_policy'] = 'VALUE_FIRST_500_BASE_1000_COMFORT'
     d['component_alternatives_policy'] = 'PART_BY_PART_BEST_CHOICE_WITH_LIVE_ALTERNATIVES'
