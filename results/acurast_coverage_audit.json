@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-04T19:29:23.162237+00:00",
+  "generated_at": "2026-09-05T06:18:18.448328+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2522,
-    "verified_before_quality": 51,
-    "final_after_quality": 51,
-    "ranked": 35,
-    "discovery_model_blindspots": 975,
-    "pulse_gated_discovery_review": 21,
+    "t0_unique": 2526,
+    "verified_before_quality": 52,
+    "final_after_quality": 52,
+    "ranked": 36,
+    "discovery_model_blindspots": 978,
+    "pulse_gated_discovery_review": 23,
     "t1_exit_review": 6,
     "quality_review": 0,
     "core_review": 6,
     "pulse_review": 10
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 975,
-    "DISCOVERY/PULSE": 21,
+    "DISCOVERY/MODEL": 978,
+    "DISCOVERY/PULSE": 23,
     "T1": 6,
     "CORE": 6,
     "PULSE": 10
@@ -3139,6 +3139,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24618580",
+      "title": "Nokia 3510",
+      "ask": 175,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24618580",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "9164093",
       "title": "LG KG800 chocolate",
       "ask": 175,
@@ -3701,15 +3710,6 @@
       "title": "Nokia mobiltelefon klassisk model 2310",
       "ask": 200,
       "url": "https://www.dba.dk/recommerce/forsale/item/22261544",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "22396795",
-      "title": "Nokia N73",
-      "ask": 200,
-      "url": "https://www.dba.dk/recommerce/forsale/item/22396795",
       "reason": "no supported model resolved"
     },
     {
@@ -7126,6 +7126,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24618959",
+      "title": "Motorola Moto g54 128gb",
+      "ask": 500,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24618959",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "2635050",
       "title": "Nokia 103, God",
       "ask": 500,
@@ -7675,6 +7684,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24616837",
+      "title": "Huawei P30 lite I pæn stand",
+      "ask": 650,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24616837",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "23582479",
       "title": "Motorola Moto G41 128 gb",
       "ask": 665,
@@ -7895,6 +7913,15 @@
       "title": "CMF by Nothing Phone 2 Pro",
       "ask": 700,
       "url": "https://www.dba.dk/recommerce/forsale/item/24441195",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24618417",
+      "title": "Samsung Galaxy a25 5g 128gb",
+      "ask": 700,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24618417",
       "reason": "no supported model resolved"
     },
     {
@@ -8901,6 +8928,16 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
+      "model": "Motorola Moto g54",
+      "title": "Motorola Moto g54 128gb",
+      "ask": null,
+      "url": null,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "DISCOVERY/PULSE",
+      "severity": "MEDIUM",
+      "listing_id": null,
       "model": "Nothing Phone 3a Lite",
       "title": "Nothing Phone (3a) Lite 128GB/8GB - White",
       "ask": null,
@@ -8981,6 +9018,16 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
+      "model": "Samsung Galaxy a25 5g",
+      "title": "Samsung Galaxy a25 5g 128gb",
+      "ask": null,
+      "url": null,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "DISCOVERY/PULSE",
+      "severity": "MEDIUM",
+      "listing_id": null,
       "model": "Samsung Galaxy A54 5G",
       "title": "Samsung Galaxy A54 5G – 128 GB – Sort",
       "ask": null,
@@ -9010,6 +9057,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "23524084",
       "model": null,
       "title": "Sony Erikson X10i",
@@ -9025,16 +9082,6 @@
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
       "reason": "live price missing"
     },
     {
@@ -9268,6 +9315,13 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
+      "candidate_model": "Motorola Moto g54",
+      "title": "Motorola Moto g54 128gb",
+      "pulse_match_method": "NO_MATCH",
+      "pulse_match_confidence": 0.0,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
+    },
+    {
       "candidate_model": "Nothing Phone 3a Lite",
       "title": "Nothing Phone (3a) Lite 128GB/8GB - White",
       "pulse_match_method": "NO_MATCH",
@@ -9324,6 +9378,13 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
+      "candidate_model": "Samsung Galaxy a25 5g",
+      "title": "Samsung Galaxy a25 5g 128gb",
+      "pulse_match_method": "NO_MATCH",
+      "pulse_match_confidence": 0.0,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
+    },
+    {
       "candidate_model": "Samsung Galaxy A54 5G",
       "title": "Samsung Galaxy A54 5G – 128 GB – Sort",
       "pulse_match_method": "NO_MATCH",
@@ -9346,6 +9407,20 @@
     }
   ],
   "t1_exits": [
+    {
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask_t0": 0,
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
+      "sources": [
+        "brand-mobile:google:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+    },
     {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
@@ -9373,20 +9448,6 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
-      "sources": [
-        "brand-mobile:google:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
       "listing_id": "17621913",
@@ -9433,13 +9494,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2465,
+    "PRODUCT_IDENTITY": 2468,
     "T1": 6
   },
   "discovery_reject_reason_counts": {
+    "no supported model resolved": 1440,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 978,
     "live price missing": 3,
-    "no supported model resolved": 1437,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 7,
@@ -9447,7 +9508,7 @@
     "description indicates part without explicit functional phone evidence": 27
   },
   "audit_integrity": {
-    "all_rejects_count": 2471,
+    "all_rejects_count": 2474,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
