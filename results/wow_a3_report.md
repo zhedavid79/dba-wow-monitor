@@ -1,216 +1,210 @@
-# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V18
+# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V19
 
-Generated: 2026-09-05T19:17:11.279455+00:00
-Mål: WoW Classic/Cataclysm ved 3840×1600/75 Hz, stærk raid/crowded-combat performance og et kompakt AM5-system, der kan opgraderes løbende.
-V18 sammenligner brugtprisen direkte mod en frisk nypris-reference for hver del og giver BUY/WAIT/USED/NEW-beslutning. Alle konkrete køb og alternativer i rapporten har direkte klikbare links. SO-DIMM/server-RAM er hard-excluded fra desktop-builds.
+Generated: 2026-09-05T20:54:02.929538+00:00
+Mål: WoW Classic/Cataclysm ved 3840×1600/75 Hz, stærk raid/crowded-combat performance og et kompakt AM5-system med Jonsbo Z20 som slutkabinet.
+V19 vælger ikke længere dele mod én fast reference. Hver permanent/semi-permanent del går gennem hard gates, Pareto-dominans og en begrænset rational-premium-vurdering. CPU/GPU forbliver opportunistiske performancekøb på den opgraderbare platform.
+
+**Formel:** `effective_cost_dkk = market_price - capped_feature_value_dkk; lowest eligible effective cost wins`
+
+**Ingen brand- eller chipsetbonus:** producentnavn og B850/B650 giver ingen værdi i sig selv. Kun konkrete projektrelevante egenskaber kan retfærdiggøre en merpris.
 
 ## 🧭 ANBEFALET SELVBYG
 
-**6.827 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY**
+**6.711 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY**
 
-## 💸 Brugt vs. nyt — del-for-del købsbeslutning
+## Aktuelt anbefalet BOM — direkte links
 
-| Del | Valgt i build | Bedste verificerede brugt | Brugtpris | Ny reference | Nypris | Besparelse vs. ny | Handling |
-|---|---|---|---:|---|---:|---:|---|
-| Bundkort | NY: [GIGABYTE B650M GAMING PLUS WIFI](https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794) — 1.170 kr. | — | — | [GIGABYTE B650M GAMING PLUS WIFI](https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794) | 1.170 kr. | — | **BUY_NEW** |
-| Strømforsyning | NY: [MSI MAG A850GL PCIE5 II 850W ATX 3.1](https://www.proshop.dk/Stroemforsyning/MSI-MAG-A850GL-PCIE5-II-Stroemforsyning-850-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3370565) — 629 kr. | — | — | [MSI MAG A850GL PCIE5 II 850W ATX 3.1](https://www.proshop.dk/Stroemforsyning/MSI-MAG-A850GL-PCIE5-II-Stroemforsyning-850-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3370565) | 629 kr. | — | **BUY_NEW** |
-| Kabinet | NY: [Jonsbo Z20 Mesh White](https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428) — 750 kr. | — | — | [Jonsbo Z20 Mesh White](https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428) | 750 kr. | — | **BUY_NEW** |
-| CPU-køler | NY: [Arctic Freezer 36 Black](https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363) — 175 kr. | — | — | [Arctic Freezer 36 Black](https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363) | 175 kr. | — | **BUY_NEW** |
-| RAM | BRUGT: [Crucial Classic DDR5-4800 - 16GB Kit (2x8GB).](https://www.dba.dk/recommerce/forsale/item/13161153) — 1.000 kr. | [Crucial Classic DDR5-4800 - 16GB Kit (2x8GB).](https://www.dba.dk/recommerce/forsale/item/13161153) | 1.000 kr. | [Corsair Vengeance DDR5-6000 32GB (2x16GB) EXPO CL38](https://prisjagt.dk/product.php?p=15907662) | 3.499 kr. | 2.499 kr. (71.4%) | **BUY_USED_BRIDGE** |
-| CPU | BRUGT: [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) — 800 kr. | [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) | 800 kr. | [AMD Ryzen 5 7500F Tray](https://pc-lager.dk/da/p/komponenter/processorer/amdprocessorer/amd-cpu-ryzen-5-7500f-3-7ghz-6-kerner-am5-tray-u-koler-1001513790) | 949 kr. | 149 kr. (15.7%) | **BUY_USED** |
-| Grafikkort | BRUGT: [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) — 1.600 kr. | [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) | 1.600 kr. | [XFX Radeon RX 7600 Speedster SWFT 210 8GB](https://www.proshop.dk/Grafikkort/XFX-Radeon-RX-7600-Speedster-SWFT-210-Core-8GB-GDDR6-RAM-Grafikkort/3171558) | 2.495 kr. | 895 kr. (35.9%) | **BUY_USED** |
-| SSD/lager | NY: [PNY CS1030 M.2 NVMe 500GB](https://www.proshop.dk/SSD/PNY-CS1030-M2-NVMe-500GB/3115954) — 703 kr. | — | — | [PNY CS1030 M.2 NVMe 500GB](https://www.proshop.dk/SSD/PNY-CS1030-M2-NVMe-500GB/3115954) | 703 kr. | — | **BUY_NEW** |
+| Del | Valgt komponent | Kilde | Pris | Hvorfor |
+|---|---|---|---:|---|
+| Bundkort | [ASRock B850M Pro-A WiFi](https://prisjagt.dk/product.php?p=14363712) | NY | **943 kr.** | Pareto-frontier winner: 943 kr - 350 kr capped justified feature value = 593 kr effective cost. Runner-up delta: price -227 kr, feature-value -50 kr, effective advantage 177 kr. |
+| Strømforsyning | [MSI MAG A850GL PCIE5 II](https://prisjagt.dk/product.php?p=15147757) | NY | **629 kr.** | Pareto-frontier winner: 629 kr - 125 kr capped justified feature value = 504 kr effective cost. Runner-up delta: price +60 kr, feature-value +75 kr, effective advantage 15 kr. |
+| Kabinet | [Jonsbo Z20 White](https://prisjagt.dk/product.php?p=14356470) | NY | **749 kr.** | Pareto-frontier winner: 749 kr - 250 kr capped justified feature value = 499 kr effective cost. |
+| CPU-køler | [Arctic Freezer 36 Black](https://prisjagt.dk/product.php?p=15683387) | NY | **131 kr.** | Pareto-frontier winner: 131 kr - 50 kr capped justified feature value = 81 kr effective cost. Runner-up delta: price -188 kr, feature-value -100 kr, effective advantage 88 kr. |
+| RAM | [Crucial Classic DDR5-4800 - 16GB Kit (2x8GB).](https://www.dba.dk/recommerce/forsale/item/13161153) | BRUGT | **1.000 kr.** | Pareto-frontier winner: 1000 kr - -350 kr capped justified feature value = 1350 kr effective cost. Runner-up delta: price -300 kr, feature-value -170 kr, effective advantage 130 kr. |
+| CPU | [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) | BRUGT | **800 kr.** | Selected through whole-build ranking: WoW CPU score 94 at 800 kr on an AM5 foundation; future X3D capability is valued through the socket rather than overbuying this CPU. |
+| Grafikkort | [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) | BRUGT | **1.600 kr.** | Selected through whole-build ranking: GPU score 65, 8GB VRAM, 1600 kr ask; VRAM receives at most 0 kr longevity value so it cannot dominate current value. |
+| SSD/lager | [WD Blue SN580 M.2 2280 1TB](https://prisjagt.dk/product.php?p=11916858) | NY | **859 kr.** | Pareto-frontier winner: 859 kr - 400 kr capped justified feature value = 459 kr effective cost. Runner-up delta: price +170 kr, feature-value +400 kr, effective advantage 230 kr. |
 
-### Hvorfor modellen vælger sådan
+## Hvorfor hver permanent del vandt
 
-- **Bundkort — BUY_NEW:** Selected new foundation part is the current retail reference or already competitive with it.
-- **Strømforsyning — BUY_NEW:** New-first category; used must be exceptionally cheap to justify wear/warranty uncertainty.
-- **Kabinet — BUY_NEW:** Selected new foundation part is the current retail reference or already competitive with it.
-- **CPU-køler — BUY_NEW:** Selected new foundation part is the current retail reference or already competitive with it.
-- **RAM — BUY_USED_BRIDGE:** 32GB new pricing is unusually expensive; a cheap verified 16GB desktop bridge preserves upgrade budget.
-- **CPU — BUY_USED:** Verified used price is at least 15% below the new reference.
-- **Grafikkort — BUY_USED:** Verified used price is at least 20% below the new reference.
-- **SSD/lager — BUY_NEW:** New-first category; used must be exceptionally cheap to justify wear/warranty uncertainty.
+| Del | Vinder | Pris | Runner-up | Pris | Feature-værdi | Effektiv omkostning | Forklaring |
+|---|---|---:|---|---:|---:|---:|---|
+| Bundkort | [ASRock B850M Pro-A WiFi](https://prisjagt.dk/product.php?p=14363712) | **943 kr.** | [Asus TUF Gaming B850M-Plus WiFi](https://prisjagt.dk/product.php?p=14022121) | 1.170 kr. | 350 kr. | **593 kr.** | Pareto-frontier winner: 943 kr - 350 kr capped justified feature value = 593 kr effective cost. Runner-up delta: price -227 kr, feature-value -50 kr, effective advantage 177 kr. |
+| Strømforsyning | [MSI MAG A850GL PCIE5 II](https://prisjagt.dk/product.php?p=15147757) | **629 kr.** | [MSI MAG A750GL PCIE5 750W](https://prisjagt.dk/product.php?p=11267596) | 569 kr. | 125 kr. | **504 kr.** | Pareto-frontier winner: 629 kr - 125 kr capped justified feature value = 504 kr effective cost. Runner-up delta: price +60 kr, feature-value +75 kr, effective advantage 15 kr. |
+| Kabinet | [Jonsbo Z20 White](https://prisjagt.dk/product.php?p=14356470) | **749 kr.** | — | — | 250 kr. | **499 kr.** | Pareto-frontier winner: 749 kr - 250 kr capped justified feature value = 499 kr effective cost. |
+| CPU-køler | [Arctic Freezer 36 Black](https://prisjagt.dk/product.php?p=15683387) | **131 kr.** | [Thermalright Phantom Spirit 120 SE](https://prisjagt.dk/product.php?p=13067479) | 319 kr. | 50 kr. | **81 kr.** | Pareto-frontier winner: 131 kr - 50 kr capped justified feature value = 81 kr effective cost. Runner-up delta: price -188 kr, feature-value -100 kr, effective advantage 88 kr. |
+| RAM | [Crucial Classic DDR5-4800 - 16GB Kit (2x8GB).](https://www.dba.dk/recommerce/forsale/item/13161153) | **1.000 kr.** | [**Corsair Vengeance DDR5-6000 16GB – CL36 – AMD EXPO / Intel XMP](https://www.dba.dk/recommerce/forsale/item/24533528) | 1.300 kr. | -350 kr. | **1.350 kr.** | Pareto-frontier winner: 1000 kr - -350 kr capped justified feature value = 1350 kr effective cost. Runner-up delta: price -300 kr, feature-value -170 kr, effective advantage 130 kr. |
+| SSD/lager | [WD Blue SN580 M.2 2280 1TB](https://prisjagt.dk/product.php?p=11916858) | **859 kr.** | [PNY CS1030 M.2 NVMe SSD 500GB](https://prisjagt.dk/product.php?p=7281095) | 689 kr. | 400 kr. | **459 kr.** | Pareto-frontier winner: 859 kr - 400 kr capped justified feature value = 459 kr effective cost. Runner-up delta: price +170 kr, feature-value +400 kr, effective advantage 230 kr. |
+
+### CPU og GPU — opportunistisk performance
+
+- **CPU — [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) / 800 kr.:** Selected through whole-build ranking: WoW CPU score 94 at 800 kr on an AM5 foundation; future X3D capability is valued through the socket rather than overbuying this CPU.
+- **Grafikkort — [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) / 1.600 kr.:** Selected through whole-build ranking: GPU score 65, 8GB VRAM, 1600 kr ask; VRAM receives at most 0 kr longevity value so it cannot dominate current value.
+
+## Markedsdækning og beslutningssikkerhed
+
+| Kategori | Minimum | Eligible live kandidater | Ikke-dominerede | Gate |
+|---|---:|---:|---:|---|
+| Bundkort | 6 | 7 | 3 | PASS |
+| Strømforsyning | 4 | 5 | 3 | PASS |
+| CPU-køler | 3 | 4 | 3 | PASS |
+| RAM | 3 | 13 | 13 | PASS |
+| SSD/lager | 3 | 4 | 4 | PASS |
+| Kabinet | 1 | 1 | 1 | PASS |
+
+**Samlet market-coverage gate: PASS**
+
+## Fuld del-for-del sammenligning
+
+### Bundkort
+
+| Kandidat | Kilde | Pris | Hard gate | Pareto | Feature-værdi | Effektiv omkostning | Fordele | Trade-offs |
+|---|---|---:|---|---|---:|---:|---|---|
+| [ASRock B850M Pro-A WiFi](https://prisjagt.dk/product.php?p=14363712) | NY | **943 kr.** | PASS | FRONTIER | 350 kr. | **593 kr.** | power-delivery headroom tier 2 (+75); DrMOS power stages (+25); PCIe 5.0 M.2 (+50); 3 M.2 slots (+75); Wi-Fi 6E (+25); PCIe 5.0 x16 (+25); BIOS Flashback (+50); front USB-C header (+25) | — |
+| [Asus TUF Gaming B850M-Plus WiFi](https://prisjagt.dk/product.php?p=14022121) | NY | **1.170 kr.** | PASS | FRONTIER | 400 kr. | **770 kr.** | power-delivery headroom tier 4 (+125); DrMOS power stages (+25); PCIe 5.0 M.2 (+50); 3 M.2 slots (+75); Wi-Fi 6E (+25); PCIe 5.0 x16 (+25); BIOS Flashback (+50); front USB-C header (+25) | — |
+| [MSI B850M Gaming Plus WiFi6E](https://prisjagt.dk/product.php?p=15126881) | NY | **1.130 kr.** | PASS | FRONTIER | 275 kr. | **855 kr.** | power-delivery headroom tier 3 (+100); DrMOS power stages (+25); PCIe 5.0 M.2 (+50); Wi-Fi 6E (+25); BIOS Flashback (+50); front USB-C header (+25) | only 2 M.2 slots |
+| [ASRock B850M Pro RS WiFi](https://prisjagt.dk/product.php?p=14363692) | NY | **1.006 kr.** | PASS | DOMINERET af ASRock B850M Pro-A WiFi | 350 kr. | **656 kr.** | power-delivery headroom tier 2 (+75); DrMOS power stages (+25); PCIe 5.0 M.2 (+50); 3 M.2 slots (+75); Wi-Fi 6E (+25); PCIe 5.0 x16 (+25); BIOS Flashback (+50); front USB-C header (+25) | — |
+| [Gigabyte B650M D3HP AX](https://prisjagt.dk/product.php?p=13534691) | NY | **946 kr.** | PASS | DOMINERET af ASRock B850M Pro-A WiFi | 100 kr. | **846 kr.** | Wi-Fi 6E (+25); BIOS Flashback (+50); front USB-C header (+25) | basic power-delivery headroom; no Gen5 M.2; only 2 M.2 slots |
+| [Asus Prime B650M-A WiFi II](https://prisjagt.dk/product.php?p=10180194) | NY | **990 kr.** | PASS | DOMINERET af ASRock B850M Pro-A WiFi | 125 kr. | **865 kr.** | PCIe 5.0 M.2 (+50); BIOS Flashback (+50); front USB-C header (+25) | basic power-delivery headroom; only 2 M.2 slots |
+| [Gigabyte B650M Gaming Plus WiFi](https://prisjagt.dk/product.php?p=14500786) | NY | **1.088 kr.** | PASS | DOMINERET af ASRock B850M Pro-A WiFi | 75 kr. | **1.013 kr.** | BIOS Flashback (+50); front USB-C header (+25) | basic power-delivery headroom; no Gen5 M.2; only 2 M.2 slots |
+| [Gigabyte B650M Gaming WIFI6E Micro ATX](https://prisjagt.dk/product.php?p=14840145) | NY | **909 kr.** | FAIL: <4 DIMM | — | 75 kr. | **—** | Wi-Fi 6E (+25); BIOS Flashback (+50) | basic power-delivery headroom; no Gen5 M.2; only 2 M.2 slots |
+
+### Strømforsyning
+
+| Kandidat | Kilde | Pris | Hard gate | Pareto | Feature-værdi | Effektiv omkostning | Fordele | Trade-offs |
+|---|---|---:|---|---|---:|---:|---|---|
+| [MSI MAG A850GL PCIE5 II](https://prisjagt.dk/product.php?p=15147757) | NY | **629 kr.** | PASS | FRONTIER | 125 kr. | **504 kr.** | 850W useful GPU headroom (+75); <=140mm Z20-friendly length (+25); 80 Plus Gold-class efficiency (+25) | — |
+| [MSI MAG A750GL PCIE5 750W](https://prisjagt.dk/product.php?p=11267596) | NY | **569 kr.** | PASS | FRONTIER | 50 kr. | **519 kr.** | <=140mm Z20-friendly length (+25); 80 Plus Gold-class efficiency (+25) | — |
+| [Seasonic Focus GX 750W ATX 3.1](https://prisjagt.dk/product.php?p=13902592) | NY | **978 kr.** | PASS | FRONTIER | 50 kr. | **928 kr.** | <=140mm Z20-friendly length (+25); 80 Plus Gold-class efficiency (+25) | — |
+| [Corsair RM750e (2025) ATX 3.1 750W](https://prisjagt.dk/product.php?p=14366565) | NY | **799 kr.** | PASS | DOMINERET af MSI MAG A750GL PCIE5 750W | 50 kr. | **749 kr.** | <=140mm Z20-friendly length (+25); 80 Plus Gold-class efficiency (+25) | — |
+| [Corsair RM850e (2025) ATX 3.1 Gold 850W](https://prisjagt.dk/product.php?p=14366594) | NY | **919 kr.** | PASS | DOMINERET af MSI MAG A850GL PCIE5 II | 125 kr. | **794 kr.** | 850W useful GPU headroom (+75); <=140mm Z20-friendly length (+25); 80 Plus Gold-class efficiency (+25) | — |
+
+### CPU-køler
+
+| Kandidat | Kilde | Pris | Hard gate | Pareto | Feature-værdi | Effektiv omkostning | Fordele | Trade-offs |
+|---|---|---:|---|---|---:|---:|---|---|
+| [Arctic Freezer 36 Black](https://prisjagt.dk/product.php?p=15683387) | NY | **131 kr.** | PASS | FRONTIER | 50 kr. | **81 kr.** | cooling-structure tier 2 (+50) | — |
+| [Thermalright Phantom Spirit 120 SE](https://prisjagt.dk/product.php?p=13067479) | NY | **319 kr.** | PASS | FRONTIER | 150 kr. | **169 kr.** | cooling-structure tier 4 (+150) | — |
+| [Thermalright Peerless Assassin 120 SE](https://prisjagt.dk/product.php?p=11485774) | NY | **275 kr.** | PASS | FRONTIER | 100 kr. | **175 kr.** | cooling-structure tier 3 (+100) | — |
+| [Deepcool AK400 Zero Dark](https://prisjagt.dk/product.php?p=10192319) | NY | **233 kr.** | PASS | DOMINERET af Arctic Freezer 36 Black | 0 kr. | **233 kr.** | — | adequate single-tower class |
+
+### RAM
+
+| Kandidat | Kilde | Pris | Hard gate | Pareto | Feature-værdi | Effektiv omkostning | Fordele | Trade-offs |
+|---|---|---:|---|---|---:|---:|---|---|
+| [Crucial Classic DDR5-4800 - 16GB Kit (2x8GB).](https://www.dba.dk/recommerce/forsale/item/13161153) | BRUGT | **1.000 kr.** | PASS | FRONTIER | -350 kr. | **1.350 kr.** | — | 16GB bridge replacement penalty (+350 effective cost) |
+| [**Corsair Vengeance DDR5-6000 16GB – CL36 – AMD EXPO / Intel XMP](https://www.dba.dk/recommerce/forsale/item/24533528) | BRUGT | **1.300 kr.** | PASS | FRONTIER | -180 kr. | **1.480 kr.** | DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL38 (+30) | 16GB bridge replacement penalty (+350 effective cost) |
+| [Kingston FURY Beast RGB DDR5-5200 - 16GB - CL36](https://www.dba.dk/recommerce/forsale/item/23229131) | BRUGT | **1.200 kr.** | PASS | FRONTIER | -320 kr. | **1.520 kr.** | <=CL38 (+30) | 16GB bridge replacement penalty (+350 effective cost) |
+| [Kingston Fury DDR5 4800 mhz RAM kit på 16GB](https://www.dba.dk/recommerce/forsale/item/24292511) | BRUGT | **1.175 kr.** | PASS | FRONTIER | -350 kr. | **1.525 kr.** | — | 16GB bridge replacement penalty (+350 effective cost) |
+| [G.Skill Trident Z5 RGB DDR5 RAM 16GB (1x16GB) 6000MHz](https://www.dba.dk/recommerce/forsale/item/24050305) | BRUGT | **1.550 kr.** | PASS | FRONTIER | -250 kr. | **1.800 kr.** | DDR5-6000 target speed (+100) | 16GB bridge replacement penalty (+350 effective cost) |
+| [DDR5 16gb ram Corsair Vengeance](https://www.dba.dk/recommerce/forsale/item/23391110) | BRUGT | **1.599 kr.** | PASS | FRONTIER | -350 kr. | **1.949 kr.** | — | 16GB bridge replacement penalty (+350 effective cost) |
+| [Kingston FURY Beast RGB DDR5 5600Mhz 16GB (2x8)  CL40](https://www.dba.dk/recommerce/forsale/item/24211164) | BRUGT | **1.700 kr.** | PASS | FRONTIER | -320 kr. | **2.020 kr.** | 2-DIMM kit (+30) | 16GB bridge replacement penalty (+350 effective cost) |
+| [G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30](https://www.dba.dk/recommerce/forsale/item/21190820) | BRUGT | **2.800 kr.** | PASS | FRONTIER | 775 kr. | **2.025 kr.** | 32GB long-term target (+600); DDR5-6000 target speed (+100); <=CL32 (+75) | — |
+| [Kingston FURY Beast DDR5-6000 16GB](https://www.dba.dk/recommerce/forsale/item/24455144) | BRUGT | **2.000 kr.** | PASS | FRONTIER | -250 kr. | **2.250 kr.** | DDR5-6000 target speed (+100) | 16GB bridge replacement penalty (+350 effective cost) |
+| [Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz](https://www.dba.dk/recommerce/forsale/item/23931327) | BRUGT | **3.000 kr.** | PASS | FRONTIER | 600 kr. | **2.400 kr.** | 32GB long-term target (+600) | — |
+| [Corsair Vengeance DDR5-6000 32GB (2x16GB) EXPO CL38](https://prisjagt.dk/product.php?p=15907662) | NY | **3.499 kr.** | PASS | FRONTIER | 800 kr. | **2.699 kr.** | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL38 (+30); 2-DIMM kit (+30) | — |
+| [Corsair Vengeance DDR5 6000MHz 2x16GB CL30](https://prisjagt.dk/product.php?p=13083153) | NY | **3.979 kr.** | PASS | FRONTIER | 845 kr. | **3.134 kr.** | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL32 (+75); 2-DIMM kit (+30) | — |
+| [Kingston Fury Beast Black DDR5 6000MHz 2x16GB](https://prisjagt.dk/product.php?p=13438176) | NY | **5.011 kr.** | PASS | FRONTIER | 845 kr. | **4.166 kr.** | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL32 (+75); 2-DIMM kit (+30) | — |
+
+### SSD/lager
+
+| Kandidat | Kilde | Pris | Hard gate | Pareto | Feature-værdi | Effektiv omkostning | Fordele | Trade-offs |
+|---|---|---:|---|---|---:|---:|---|---|
+| [WD Blue SN580 M.2 2280 1TB](https://prisjagt.dk/product.php?p=11916858) | NY | **859 kr.** | PASS | FRONTIER | 400 kr. | **459 kr.** | 1TB comfort capacity (+250); 5-year warranty (+75); >=600 TBW (+75) | — |
+| [PNY CS1030 M.2 NVMe SSD 500GB](https://prisjagt.dk/product.php?p=7281095) | NY | **689 kr.** | PASS | FRONTIER | 0 kr. | **689 kr.** | — | — |
+| [Kingston NV3 M.2 2280 PCIe 4.0 NVMe 1TB](https://prisjagt.dk/product.php?p=13782579) | NY | **1.149 kr.** | PASS | FRONTIER | 325 kr. | **824 kr.** | 1TB comfort capacity (+250); 3-year warranty (+25); >=300 TBW (+25); >=5GB/s sequential class (+25) | — |
+| [Lexar NM790 M.2 2280 PCIe Gen 4x4 NVMe SSD 1TB](https://prisjagt.dk/product.php?p=12452771) | NY | **1.488 kr.** | PASS | FRONTIER | 375 kr. | **1.113 kr.** | 1TB comfort capacity (+250); 5-year warranty (+75); >=7GB/s sequential class (+50) | — |
+
+### Kabinet
+
+| Kandidat | Kilde | Pris | Hard gate | Pareto | Feature-værdi | Effektiv omkostning | Fordele | Trade-offs |
+|---|---|---:|---|---|---:|---:|---|---|
+| [Jonsbo Z20 White](https://prisjagt.dk/product.php?p=14356470) | NY | **749 kr.** | PASS | FRONTIER | 250 kr. | **499 kr.** | exact intended final Z20; avoids later replacement (+250) | — |
 
 ## Tre selvbyg-spor
 
 | Spor | Løsning | Rolle |
 |---|---|---|
-| **Anbefalet balance** | **6.827 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY** | Bedste kombination af aktuel performance, permanent platform og markedspris. |
-| **Billigste stærke fundament** | **6.117 kr. — Ryzen 5 7500F + RX 5700 XT — ACCEPTABLE — upgrade A — Z20 LIKELY** | Lavest verificerede TCWP med det rigtige AM5/Z20-fundament. |
-| **Performance step-up** | **6.827 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY** | Billigste SWEET SPOT-rute på samme opgraderbare fundament. |
-
-## Aktuelt anbefalet BOM
-
-| Del | Kilde / direkte link | Pris |
-|---|---|---:|
-| Bundkort | NY: [GIGABYTE B650M GAMING PLUS WIFI](https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794) | **1.170 kr.** |
-| Strømforsyning | NY: [MSI MAG A850GL PCIE5 II 850W ATX 3.1](https://www.proshop.dk/Stroemforsyning/MSI-MAG-A850GL-PCIE5-II-Stroemforsyning-850-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3370565) | **629 kr.** |
-| Kabinet | NY: [Jonsbo Z20 Mesh White](https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428) | **750 kr.** |
-| CPU-køler | NY: [Arctic Freezer 36 Black](https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363) | **175 kr.** |
-| RAM | BRUGT: [Crucial Classic DDR5-4800 - 16GB Kit (2x8GB).](https://www.dba.dk/recommerce/forsale/item/13161153) | **1.000 kr.** |
-| CPU | BRUGT: [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) | **800 kr.** |
-| Grafikkort | BRUGT: [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) | **1.600 kr.** |
-| SSD/lager | NY: [PNY CS1030 M.2 NVMe 500GB](https://www.proshop.dk/SSD/PNY-CS1030-M2-NVMe-500GB/3115954) | **703 kr.** |
-
-## 🔗 Del-for-del alternativer — direkte links
-
-### Bundkort
-
-| Valg | Kilde | Pris | Status |
-|---|---|---:|---|
-| [GIGABYTE B650M GAMING PLUS WIFI](https://www.proshop.dk/Bundkort/GIGABYTE-B650M-GAMING-PLUS-WIFI-Bundkort-AMD-B650-AMD-AM5-DDR5-RAM-Micro-ATX/3335794) | NY | **1.170 kr.** | VALGT I BUILD |
-
-### Strømforsyning
-
-| Valg | Kilde | Pris | Status |
-|---|---|---:|---|
-| [MSI MAG A850GL PCIE5 II 850W ATX 3.1](https://www.proshop.dk/Stroemforsyning/MSI-MAG-A850GL-PCIE5-II-Stroemforsyning-850-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3370565) | NY | **629 kr.** | VALGT I BUILD |
-| [Corsair RM750e (2025) 750W ATX 3.1](https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM750e-2025-Stroemforsyning-750-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324407) | NY | **799 kr.** | NYT ALTERNATIV |
-| [Corsair RM650e (2025) 650W ATX 3.1](https://www.proshop.dk/Stroemforsyning/Corsair-RMe-Series-RM650e-2025-Stroemforsyning-650-Watt-120-mm-ATX-31-80-Plus-Gold-certified/3324406) | NY | **647 kr.** | NYT ALTERNATIV |
-
-### Kabinet
-
-| Valg | Kilde | Pris | Status |
-|---|---|---:|---|
-| [Jonsbo Z20 Mesh White](https://www.proshop.dk/Kabinet/Jonsbo-Z20-Mesh-Kabinet-Minitower-Hvid/3407428) | NY | **750 kr.** | VALGT I BUILD |
-
-### CPU-køler
-
-| Valg | Kilde | Pris | Status |
-|---|---|---:|---|
-| [Arctic Freezer 36 Black](https://www.proshop.dk/CPU-Koeler/Arctic-Freezer-36-Black-CPU-Luftkoeler/3238363) | NY | **175 kr.** | VALGT I BUILD |
-
-### RAM
-
-| Valg | Kilde | Pris | Status |
-|---|---|---:|---|
-| [Crucial Classic DDR5-4800 - 16GB Kit (2x8GB).](https://www.dba.dk/recommerce/forsale/item/13161153) | BRUGT | **1.000 kr.** | VALGT I BUILD |
-| [G.Skill Trident Z5 Neo RGB 32GB DDR5-6000 CL30](https://www.dba.dk/recommerce/forsale/item/21190820) | BRUGT | **2.800 kr.** | VERIFICERET ALTERNATIV |
-| [Kingston Fury DDR5 4800 mhz RAM kit på 16GB](https://www.dba.dk/recommerce/forsale/item/24292511) | BRUGT | **1.175 kr.** | VERIFICERET ALTERNATIV |
-| [Kingston FURY Beast RGB DDR5-5200 - 16GB - CL36](https://www.dba.dk/recommerce/forsale/item/23229131) | BRUGT | **1.200 kr.** | VERIFICERET ALTERNATIV |
-| [**Corsair Vengeance DDR5-6000 16GB – CL36 – AMD EXPO / Intel XMP](https://www.dba.dk/recommerce/forsale/item/24533528) | BRUGT | **1.300 kr.** | VERIFICERET ALTERNATIV |
-| [G.Skill Trident Z5 RGB DDR5 RAM 16GB (1x16GB) 6000MHz](https://www.dba.dk/recommerce/forsale/item/24050305) | BRUGT | **1.550 kr.** | VERIFICERET ALTERNATIV |
-| [DDR5 16gb ram Corsair Vengeance](https://www.dba.dk/recommerce/forsale/item/23391110) | BRUGT | **1.599 kr.** | VERIFICERET ALTERNATIV |
-| [Kingston FURY Beast RGB DDR5 5600Mhz 16GB (2x8)  CL40](https://www.dba.dk/recommerce/forsale/item/24211164) | BRUGT | **1.700 kr.** | VERIFICERET ALTERNATIV |
-| [Kingston FURY Beast DDR5-6000 16GB](https://www.dba.dk/recommerce/forsale/item/24455144) | BRUGT | **2.000 kr.** | VERIFICERET ALTERNATIV |
-| [Kingston FURY Beast DDR5 - 32GB kit (2x16GB) 5600MHz](https://www.dba.dk/recommerce/forsale/item/23931327) | BRUGT | **3.000 kr.** | VERIFICERET ALTERNATIV |
-| [Corsair Vengeance DDR5-6000 32GB (2x16GB) EXPO CL38](https://prisjagt.dk/product.php?p=15907662) | NY | **3.499 kr.** | NY REFERENCE |
-
-### CPU
-
-| Valg | Kilde | Pris | Status |
-|---|---|---:|---|
-| [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) | BRUGT | **800 kr.** | VALGT I BUILD |
-| [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/22825756) | BRUGT | **825 kr.** | VERIFICERET ALTERNATIV |
-| [AMD Ryzen 5 7600X processor CPU](https://www.dba.dk/recommerce/forsale/item/23723858) | BRUGT | **950 kr.** | VERIFICERET ALTERNATIV |
-| [AMD Ryzen 5 7500F](https://www.proshop.dk/CPU/AMD-Ryzen-5-7500F-Tray-CPU-6-kerner-37-GHz-AMD-AM5-Bulk-ingen-koeler/3195178) | NY | **1.099 kr.** | NYT ALTERNATIV |
-| [AMD Ryzen 7600 processor (CPU) brugt få gange står som helt ny](https://www.dba.dk/recommerce/forsale/item/23928872) | BRUGT | **1.100 kr.** | VERIFICERET ALTERNATIV |
-| [AMD Ryzen 5 7600 processor (CPU)](https://www.dba.dk/recommerce/forsale/item/23960340) | BRUGT | **1.200 kr.** | VERIFICERET ALTERNATIV |
-| [Ryzen 9 7950X3D AM5 Processor](https://www.dba.dk/recommerce/forsale/item/22689491) | BRUGT | **3.000 kr.** | VERIFICERET ALTERNATIV |
-| [AMD Ryzen 9 7950X3D](https://www.dba.dk/recommerce/forsale/item/23355874) | BRUGT | **3.000 kr.** | VERIFICERET ALTERNATIV |
-| [AMD Ryzen 5 7500F Tray](https://pc-lager.dk/da/p/komponenter/processorer/amdprocessorer/amd-cpu-ryzen-5-7500f-3-7ghz-6-kerner-am5-tray-u-koler-1001513790) | NY | **949 kr.** | NY REFERENCE |
-
-### Grafikkort
-
-| Valg | Kilde | Pris | Status |
-|---|---|---:|---|
-| [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) | BRUGT | **1.600 kr.** | VALGT I BUILD |
-| [AMD Radeon RX 5700 XT 8GB GDDR6 Sapphire](https://www.dba.dk/recommerce/forsale/item/17048263) | BRUGT | **890 kr.** | VERIFICERET ALTERNATIV |
-| [Rx 5700 XT GPU, god stand](https://www.dba.dk/recommerce/forsale/item/23657851) | BRUGT | **1.090 kr.** | VERIFICERET ALTERNATIV |
-| [ASUS Dual GeForce RTX 2070 EVO V2 8GB GDDR6](https://www.dba.dk/recommerce/forsale/item/21763396) | BRUGT | **1.100 kr.** | VERIFICERET ALTERNATIV |
-| [8GB Asus ROG Strix RTX 2070](https://www.dba.dk/recommerce/forsale/item/24007283) | BRUGT | **1.100 kr.** | VERIFICERET ALTERNATIV |
-| [Asus RTX 2060 Super 8GB](https://www.dba.dk/recommerce/forsale/item/23719102) | BRUGT | **1.200 kr.** | VERIFICERET ALTERNATIV |
-| [GeForce RTX 2070 VENTUS GP](https://www.dba.dk/recommerce/forsale/item/21692012) | BRUGT | **1.300 kr.** | VERIFICERET ALTERNATIV |
-| [Asus Dual GeForce RTX 2070 SUPER EVO 8GB – Klar til gaming](https://www.dba.dk/recommerce/forsale/item/9433266) | BRUGT | **1.400 kr.** | VERIFICERET ALTERNATIV |
-| [ASUS RTX 2070 ROG STRIX O8G](https://www.dba.dk/recommerce/forsale/item/23194642) | BRUGT | **1.400 kr.** | VERIFICERET ALTERNATIV |
-| [XFX Radeon RX 7600 Speedster SWFT 210 8GB](https://www.proshop.dk/Grafikkort/XFX-Radeon-RX-7600-Speedster-SWFT-210-Core-8GB-GDDR6-RAM-Grafikkort/3171558) | NY | **2.495 kr.** | NY REFERENCE |
-
-### SSD/lager
-
-| Valg | Kilde | Pris | Status |
-|---|---|---:|---|
-| [PNY CS1030 M.2 NVMe 500GB](https://www.proshop.dk/SSD/PNY-CS1030-M2-NVMe-500GB/3115954) | NY | **703 kr.** | VALGT I BUILD |
-| [Kingston NV3 1TB M.2 NVMe](https://www.proshop.dk/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682) | NY | **1.212 kr.** | NYT ALTERNATIV |
+| **Anbefalet balance** | **6.711 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY** | Laveste V19 effektive omkostning efter kompatibilitet, markedspris og begrænset feature-værdi. |
+| **Billigste stærke fundament** | **6.001 kr. — Ryzen 5 7500F + RX 5700 XT — ACCEPTABLE — upgrade A — Z20 LIKELY** | Laveste verificerede TCWP på det ønskede AM5/Z20-fundament. |
+| **Performance step-up** | **6.711 kr. — Ryzen 5 7500F + RTX 2080 Super — SWEET SPOT — upgrade A — Z20 LIKELY** | Billigste SWEET SPOT-rute på samme opgraderbare fundament. |
 
 ## 🎮 Verificeret brugt GPU-marked — direkte DBA-links
 
-Tabellen viser de billigste T1-verificerede GPU-annoncer, som faktisk indgår i gyldige AM5/Z20-selvbyg-ruter. Kortet kan derfor sammenlignes direkte med hovedbuildet i stedet for at forsvinde, blot fordi det ikke rangerer #1.
-
 | GPU | Annonce | Brugtpris | WoW-klasse i ruten | TCWP med ruten |
 |---|---|---:|---|---:|
-| RX 5700 XT | [AMD Radeon RX 5700 XT 8GB GDDR6 Sapphire](https://www.dba.dk/recommerce/forsale/item/17048263) | **890 kr.** | ACCEPTABLE | 6.117 kr. |
-| RX 5700 XT | [Rx 5700 XT GPU, god stand](https://www.dba.dk/recommerce/forsale/item/23657851) | **1.090 kr.** | ACCEPTABLE | 6.317 kr. |
-| RTX 2070 | [ASUS Dual GeForce RTX 2070 EVO V2 8GB GDDR6](https://www.dba.dk/recommerce/forsale/item/21763396) | **1.100 kr.** | ACCEPTABLE | 6.327 kr. |
-| RTX 2070 | [8GB Asus ROG Strix RTX 2070](https://www.dba.dk/recommerce/forsale/item/24007283) | **1.100 kr.** | ACCEPTABLE | 6.327 kr. |
-| RTX 2060 Super | [Asus RTX 2060 Super 8GB](https://www.dba.dk/recommerce/forsale/item/23719102) | **1.200 kr.** | ACCEPTABLE | 6.427 kr. |
-| RTX 2070 | [GeForce RTX 2070 VENTUS GP](https://www.dba.dk/recommerce/forsale/item/21692012) | **1.300 kr.** | ACCEPTABLE | 6.527 kr. |
-| RTX 2070 Super | [Asus Dual GeForce RTX 2070 SUPER EVO 8GB – Klar til gaming](https://www.dba.dk/recommerce/forsale/item/9433266) | **1.400 kr.** | ACCEPTABLE | 6.627 kr. |
-| RTX 2070 | [ASUS RTX 2070 ROG STRIX O8G](https://www.dba.dk/recommerce/forsale/item/23194642) | **1.400 kr.** | ACCEPTABLE | 6.627 kr. |
-| RTX 2070 | [Asus GeForce RTX 2070 Turbo Evo](https://www.dba.dk/recommerce/forsale/item/23133030) | **1.500 kr.** | ACCEPTABLE | 6.727 kr. |
-| RTX 2070 | [ROG STRIX-RTX2070-08G Gaming](https://www.dba.dk/recommerce/forsale/item/24306613) | **1.500 kr.** | ACCEPTABLE | 6.727 kr. |
-| RX 6650 XT | [ASRock Phantom Gaming AMD Radeon RX 6650 XT grafikkort 8gb](https://www.dba.dk/recommerce/forsale/item/24074067) | **1.599 kr.** | ACCEPTABLE | 6.826 kr. |
-| RTX 2080 Super | [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) | **1.600 kr.** | SWEET SPOT | 6.827 kr. |
-| RTX 2070 Super | [ASUS GeForce RTX 2070 SUPER ROG Strix Advanced](https://www.dba.dk/recommerce/forsale/item/23301685) | **1.600 kr.** | ACCEPTABLE | 6.827 kr. |
-| RTX 2080 | [Gainward GeForce RTX 2080](https://www.dba.dk/recommerce/forsale/item/23832228) | **1.699 kr.** | ACCEPTABLE | 6.926 kr. |
-| RTX 3060 Ti | [Gigabyte GeForce RTX  3060 ti](https://www.dba.dk/recommerce/forsale/item/24558016) | **1.700 kr.** | SWEET SPOT | 6.927 kr. |
-| RTX 2070 | [Nvidia GeForce RTX 2070 grafikkort](https://www.dba.dk/recommerce/forsale/item/21340576) | **1.700 kr.** | ACCEPTABLE | 6.927 kr. |
-| RTX 2080 Super | [RTX 2080 super 8 GB](https://www.dba.dk/recommerce/forsale/item/24312539) | **1.800 kr.** | SWEET SPOT | 7.027 kr. |
-| RTX 3060 Ti | [RTX 3060 TI OC](https://www.dba.dk/recommerce/forsale/item/24273640) | **1.900 kr.** | SWEET SPOT | 7.127 kr. |
-| RTX 3060 Ti | [MSI Geforce Rtx 3060 Ti Ventus 2X 8GB](https://www.dba.dk/recommerce/forsale/item/24293041) | **1.900 kr.** | SWEET SPOT | 7.127 kr. |
-| RTX 2070 | [RTX 2070 EGPU Node Pro](https://www.dba.dk/recommerce/forsale/item/15027022) | **1.999 kr.** | ACCEPTABLE | 7.226 kr. |
-| RTX 3070 | [Geforce rtx 3070 Gigabyte Auros master](https://www.dba.dk/recommerce/forsale/item/24584822) | **2.000 kr.** | SWEET SPOT | 7.227 kr. |
-| RTX 3070 | [Gigabyte GeForce RTX 3070 Vision grafikkort](https://www.dba.dk/recommerce/forsale/item/24633491) | **2.000 kr.** | SWEET SPOT | 7.227 kr. |
-| RX 6700 XT | [GIGABYTE RX 6700 XT GAMING OC 12 GB](https://www.dba.dk/recommerce/forsale/item/24614929) | **2.000 kr.** | SWEET SPOT | 7.227 kr. |
-| RTX 3060 Ti | [Nividia RTX 3060 TI 8GB](https://www.dba.dk/recommerce/forsale/item/24316091) | **2.000 kr.** | SWEET SPOT | 7.227 kr. |
+| RX 5700 XT | [AMD Radeon RX 5700 XT 8GB GDDR6 Sapphire](https://www.dba.dk/recommerce/forsale/item/17048263) | **890 kr.** | ACCEPTABLE | 6.001 kr. |
+| RX 5700 XT | [Rx 5700 XT GPU, god stand](https://www.dba.dk/recommerce/forsale/item/23657851) | **1.090 kr.** | ACCEPTABLE | 6.201 kr. |
+| RTX 2070 | [ASUS Dual GeForce RTX 2070 EVO V2 8GB GDDR6](https://www.dba.dk/recommerce/forsale/item/21763396) | **1.100 kr.** | ACCEPTABLE | 6.211 kr. |
+| RTX 2070 | [8GB Asus ROG Strix RTX 2070](https://www.dba.dk/recommerce/forsale/item/24007283) | **1.100 kr.** | ACCEPTABLE | 6.211 kr. |
+| RTX 2060 Super | [Asus RTX 2060 Super 8GB](https://www.dba.dk/recommerce/forsale/item/23719102) | **1.200 kr.** | ACCEPTABLE | 6.311 kr. |
+| RTX 2070 | [GeForce RTX 2070 VENTUS GP](https://www.dba.dk/recommerce/forsale/item/21692012) | **1.300 kr.** | ACCEPTABLE | 6.411 kr. |
+| RTX 2070 Super | [Asus Dual GeForce RTX 2070 SUPER EVO 8GB – Klar til gaming](https://www.dba.dk/recommerce/forsale/item/9433266) | **1.400 kr.** | ACCEPTABLE | 6.511 kr. |
+| RTX 2070 | [ASUS RTX 2070 ROG STRIX O8G](https://www.dba.dk/recommerce/forsale/item/23194642) | **1.400 kr.** | ACCEPTABLE | 6.511 kr. |
+| RTX 2070 | [Asus GeForce RTX 2070 Turbo Evo](https://www.dba.dk/recommerce/forsale/item/23133030) | **1.500 kr.** | ACCEPTABLE | 6.611 kr. |
+| RTX 2070 | [ROG STRIX-RTX2070-08G Gaming](https://www.dba.dk/recommerce/forsale/item/24306613) | **1.500 kr.** | ACCEPTABLE | 6.611 kr. |
+| RX 6650 XT | [ASRock Phantom Gaming AMD Radeon RX 6650 XT grafikkort 8gb](https://www.dba.dk/recommerce/forsale/item/24074067) | **1.599 kr.** | ACCEPTABLE | 6.710 kr. |
+| RTX 2080 Super | [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) | **1.600 kr.** | SWEET SPOT | 6.711 kr. |
+| RTX 2070 Super | [ASUS GeForce RTX 2070 SUPER ROG Strix Advanced](https://www.dba.dk/recommerce/forsale/item/23301685) | **1.600 kr.** | ACCEPTABLE | 6.711 kr. |
+| RTX 2080 | [Gainward GeForce RTX 2080](https://www.dba.dk/recommerce/forsale/item/23832228) | **1.699 kr.** | ACCEPTABLE | 6.810 kr. |
+| RTX 3060 Ti | [Gigabyte GeForce RTX  3060 ti](https://www.dba.dk/recommerce/forsale/item/24558016) | **1.700 kr.** | SWEET SPOT | 6.811 kr. |
+| RTX 2070 | [Nvidia GeForce RTX 2070 grafikkort](https://www.dba.dk/recommerce/forsale/item/21340576) | **1.700 kr.** | ACCEPTABLE | 6.811 kr. |
+| RTX 2080 Super | [RTX 2080 super 8 GB](https://www.dba.dk/recommerce/forsale/item/24312539) | **1.800 kr.** | SWEET SPOT | 6.911 kr. |
+| RTX 3060 Ti | [RTX 3060 TI OC](https://www.dba.dk/recommerce/forsale/item/24273640) | **1.900 kr.** | SWEET SPOT | 7.011 kr. |
+| RTX 3060 Ti | [MSI Geforce Rtx 3060 Ti Ventus 2X 8GB](https://www.dba.dk/recommerce/forsale/item/24293041) | **1.900 kr.** | SWEET SPOT | 7.011 kr. |
+| RTX 2070 | [RTX 2070 EGPU Node Pro](https://www.dba.dk/recommerce/forsale/item/15027022) | **1.999 kr.** | ACCEPTABLE | 7.110 kr. |
+| RTX 3070 | [Geforce rtx 3070 Gigabyte Auros master](https://www.dba.dk/recommerce/forsale/item/24584822) | **2.000 kr.** | SWEET SPOT | 7.111 kr. |
+| RTX 3070 | [Gigabyte GeForce RTX 3070 Vision grafikkort](https://www.dba.dk/recommerce/forsale/item/24633491) | **2.000 kr.** | SWEET SPOT | 7.111 kr. |
+| RX 6700 XT | [GIGABYTE RX 6700 XT GAMING OC 12 GB](https://www.dba.dk/recommerce/forsale/item/24614929) | **2.000 kr.** | SWEET SPOT | 7.111 kr. |
+| RTX 3060 Ti | [Nividia RTX 3060 TI 8GB](https://www.dba.dk/recommerce/forsale/item/24316091) | **2.000 kr.** | SWEET SPOT | 7.111 kr. |
 
 ## 🧠 Verificeret brugt CPU-marked — direkte DBA-links
 
 | CPU | Annonce | Brugtpris | WoW-klasse i ruten | TCWP med ruten |
 |---|---|---:|---|---:|
-| Ryzen 5 7500F | [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) | **800 kr.** | SWEET SPOT | 6.827 kr. |
-| Ryzen 5 7600X | [AMD Ryzen 5 7600X processor CPU](https://www.dba.dk/recommerce/forsale/item/23723858) | **950 kr.** | SWEET SPOT | 6.977 kr. |
-| Ryzen 9 7950X3D | [Ryzen 9 7950X3D AM5 Processor](https://www.dba.dk/recommerce/forsale/item/22689491) | **3.000 kr.** | SWEET SPOT | 9.027 kr. |
-| Ryzen 9 7950X3D | [AMD Ryzen 9 7950X3D](https://www.dba.dk/recommerce/forsale/item/23355874) | **3.000 kr.** | SWEET SPOT | 9.027 kr. |
+| Ryzen 5 7500F | [AMD Ryzen 5 7500F processor (CPU)](https://www.dba.dk/recommerce/forsale/item/21721048) | **800 kr.** | SWEET SPOT | 6.711 kr. |
+| Ryzen 5 7600X | [AMD Ryzen 5 7600X processor CPU](https://www.dba.dk/recommerce/forsale/item/23723858) | **950 kr.** | SWEET SPOT | 6.861 kr. |
+| Ryzen 9 7950X3D | [Ryzen 9 7950X3D AM5 Processor](https://www.dba.dk/recommerce/forsale/item/22689491) | **3.000 kr.** | SWEET SPOT | 8.911 kr. |
+| Ryzen 9 7950X3D | [AMD Ryzen 9 7950X3D](https://www.dba.dk/recommerce/forsale/item/23355874) | **3.000 kr.** | SWEET SPOT | 8.911 kr. |
 
 ## Selvbyg-ranking
 
 | # | TCWP | Beslutningsscore | CPU | GPU | WoW | Upgrade | Z20 |
 |---:|---:|---:|---|---|---|---|---|
-| 1 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 2 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 3 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 4 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 5 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 6 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 7 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 8 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 9 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 10 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 11 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 12 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 13 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 14 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 15 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 16 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 17 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 18 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 19 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 20 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 21 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 22 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 23 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 24 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 25 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 26 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 27 | **6.827 kr.** | 6.709 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 28 | **6.977 kr.** | 6.775 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 29 | **6.977 kr.** | 6.775 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
-| 30 | **6.977 kr.** | 6.775 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 1 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 2 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 3 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 4 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 5 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 6 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 7 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 8 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 9 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 10 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 11 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 12 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 13 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 14 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 15 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 16 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 17 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 18 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 19 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 20 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 21 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 22 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 23 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 24 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 25 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 26 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 27 | **6.711 kr.** | 6.593 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 28 | **6.861 kr.** | 6.659 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 29 | **6.861 kr.** | 6.659 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
+| 30 | **6.861 kr.** | 6.659 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | A | LIKELY |
 
 ## Færdige computere — markedsreference
 
-Færdige PC’er beholdes som prisanker og ekstraordinære køb, men er sekundære til det opgraderbare selvbyg-spor. PC-navnet linker direkte til den T1-verificerede DBA-annonce.
+Færdige PC’er er sekundære prisankre og ekstraordinære køb. Hver række linker kun til den konkrete T1-verificerede DBA-annonce, som ruten stammer fra.
 
 | # | PC / direkte link | T1 ASK | WoW | Upgrade | Z20 |
 |---:|---|---:|---|---|---|
@@ -245,6 +239,25 @@ Færdige PC’er beholdes som prisanker og ekstraordinære køb, men er sekundæ
 | 29 | [Ryzen 7 5700X3D + RTX 4060](https://www.dba.dk/recommerce/forsale/item/21927931) | **7.800 kr.** | ACCEPTABLE | C | UNKNOWN |
 | 30 | [Core i7-14700 + RTX 4060 Ti](https://www.dba.dk/recommerce/forsale/item/24398046) | **8.000 kr.** | SWEET SPOT | C | UNKNOWN |
 
+## Del-for-del policy
+
+- **Bundkort (PERMANENT FOUNDATION):** hard gates: AM5, mATX, DDR5, Wi-Fi, 4 DIMM, >=2 M.2, >=2.5GbE, Z20 compatible. Choose the lowest effective cost after assigning only modest value to features that can extend useful platform life.
+- **Strømforsyning (PERMANENT FOUNDATION):** hard gates: NEW RETAIL preferred, >=750W, ATX 3.x, modular, <=160 mm preferred for Z20. Pay a modest premium for real headroom, compactness and modern GPU power; do not reward wattage beyond the plausible upgrade path.
+- **Kabinet (PERMANENT FOUNDATION):** hard gates: mATX compatible, GPU/cooler clearance compatible. Jonsbo Z20 is the intended final enclosure, so an exact Z20 receives value only because it avoids a later case replacement.
+- **CPU-køler (LONG-LIVED FOUNDATION):** hard gates: AM5 compatible, <=163 mm for Z20. Adequate air cooling wins; expensive cooling receives no gaming-performance premium unless it buys a concrete noise/thermal benefit.
+- **RAM (SEMI-DURABLE):** hard gates: desktop DDR5, non-RDIMM/SO-DIMM, >=16GB. 32GB DDR5-6000 is the long-term target, but a 16GB bridge is valid only when the avoided spend clearly exceeds its future-upgrade penalty.
+- **CPU (REPLACEABLE PERFORMANCE):** hard gates: compatible with chosen AM5 foundation, function verified if used. Rank on WoW CPU score and price. Do not pay large future-proofing premiums when the socket itself preserves the X3D upgrade path.
+- **Grafikkort (REPLACEABLE PERFORMANCE):** hard gates: function verified if used, Z20 fit must not be known-NO. Rank on target-resolution performance, price and a modest VRAM/longevity allowance. Performance hardware must earn its premium now.
+- **SSD/lager (CONVENIENCE / EASY UPGRADE):** hard gates: NVMe, >=500GB. Capacity above adequacy gets only a modest value because storage is easy to add and gives little WoW FPS.
+
 ## Pris- og evidensregel
 
-USED ASK kræver live T0→T1-verificeret DBA listing-object. Nye priser er særskilte danske retail/prissammenligningsreferencer. GPU-nyprisen kan være en aktuel target-class reference frem for samme udgåede GPU-model; dette er markeret i data. Defekte dele, inaktive annoncer, accessory-falskpositiver og inkompatibel SO-DIMM/server-RAM er hard-excluded. En konkret del må ikke vises som købbar i rapporten uden et direkte URL-link.
+USED ASK kræver live T0→T1-verificeret DBA listing-object, identitet, pris, aktiv status og direkte URL. Funktionelle fejl er HARD EXCLUDE. Retailkandidater kræver samme-produkt live prisverifikation i den aktuelle run; et uverificeret retailprodukt kan ikke vinde og gamle hardcodede priser bruges ikke som fallback.
+
+## Metodisk forskel fra V18
+
+- V18 sammenlignede primært en brugtpris mod én fast ny reference.
+- V19 sammenligner et live-verificeret kandidatunivers.
+- V19 hard-excluder kandidater, der ikke opfylder fundamentkravene, uanset pris.
+- V19 bruger Pareto-dominans før vægtning, så en dyrere del uden projektrelevant fordel ikke kan reddes af en score.
+- V19 kræver en eksplicit og begrænset økonomisk værdi for de features, der retfærdiggør en premium.
