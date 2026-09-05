@@ -24,6 +24,7 @@ def main() -> None:
 
     retail = json.loads(RETAIL.read_text(encoding='utf-8'))
     assert retail.get('model') == 'V19_RETAIL_SAME_PRODUCT_PRICE_GATE'
+    assert retail.get('required_motherboard_gate_passed') is True
     assert retail.get('all_catalog_products_verified') is True
     counts = retail.get('counts') or {}
     assert int(counts.get('failed') or 0) == 0
