@@ -10,6 +10,8 @@ on:
       - 'dba_component_market_v19_regression.py'
       - 'dba_retail_prices_v19.py'
       - 'dba_strategy_report_v19.py'
+      - 'dba_self_build_v19.py'
+      - 'dba_compact_publish_v19.py'
       - '.github/workflows/self-build-v19-smoke.yml'
 
 permissions:
@@ -33,7 +35,7 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
       - name: Compile V19
-        run: python -m py_compile dba_component_optimizer_v19.py dba_component_market_v19.py dba_component_market_v19_regression.py dba_retail_prices_v19.py dba_strategy_report_v19.py
+        run: python -m py_compile dba_component_optimizer_v19.py dba_component_market_v19.py dba_component_market_v19_regression.py dba_retail_prices_v19.py dba_self_build_v19.py dba_strategy_report_v19.py dba_compact_publish_v19.py
       - name: V19 component-policy and Pareto regression
         run: python dba_component_market_v19_regression.py
       - name: Verify expanded current retail universe
@@ -77,7 +79,7 @@ jobs:
           old_gigabyte=next(x for x in mb.get('evaluated') or [] if x.get('sku')=='GIGABYTE_B650M_GAMING_PLUS_WIFI')
           assert old_gigabyte.get('dominated') is True and old_gigabyte.get('dominated_by')
           text=Path('results/wow_self_build_report_v19.md').read_text(encoding='utf-8')
-          for marker in ('Hvorfor hver del vandt','Bundkort — fuld sammenligning','Runner-up','Hard gate','Pareto','Markedsdækning','Metodisk forskel fra V18'):
+          for marker in ('Hvorfor hver permanent del vandt','Markedsdækning','Fuld del-for-del sammenligning','Pareto','GPU-marked','CPU-marked','Færdige computere — markedsreference','Metodisk forskel fra V18'):
               assert marker in text, marker
           print(json.dumps({
               'PASS':True,
