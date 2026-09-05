@@ -4,6 +4,8 @@ import json
 import re
 from pathlib import Path
 
+import dba_strategy_report as strategy_report
+
 STRATEGY = Path('results/wow_strategy_latest.json')
 PARTS = Path('results/z20_parts_latest.json')
 REPORT = Path('results/wow_platform_first_report.md')
@@ -52,7 +54,6 @@ def component_alts(route, ram_alts):
             opts.append({'name':cur.get('name',kind),'price':int(cur.get('price') or 0),'url':cur.get('url'),'source':cur.get('source'),'tier':'CURRENT','pros':'Current selected BOM component.','cons':'Compare against alternatives before buying.'})
         if kind=='STORAGE': opts.extend(RETAIL_ALTS['STORAGE'])
         if kind=='RAM': opts.extend(ram_alts)
-        # Other CPU/GPU/board/PSU/case/cooler alternatives are mined from the already-ranked complete BOMs.
         result[kind]=opts
     return result
 
@@ -80,7 +81,6 @@ def main():
         if bad:continue
         routes.append(r)
     ram_alts=live_ram_alternatives(p.get('opportunities') or [])
-    # Value-first storage default for AM5 builds: cheapest adequate current SSD, not arbitrary 1 TB.
     storage_default=min(RETAIL_ALTS['STORAGE'],key=lambda x:x['price'])
     for r in routes:
         if r.get('route')=='PLATFORM_FIRST_AM5':
@@ -97,6 +97,9 @@ def main():
     d['component_alternatives_policy']='SHOW_PRICE_LINK_PROS_CONS_PER_PART'
     STRATEGY.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
 
+    # Regenerate the canonical report from the FINAL filtered/enriched ranking before
+    # appending alternatives. This prevents stale BUY NOW / BEST FOUNDATION sections.
+    strategy_report.main()
     text=REPORT.read_text(encoding='utf-8')
     lines=['','## Build-alternativer pr. komponent','','SSD er ikke låst til 1 TB. Basis-build bruger billigste tilstrækkelige verificerede valg; 500 GB og 1 TB vises som komfort-alternativer. RAM må tilsvarende bruge en billig 16 GB bridge, når det reducerer TCWP væsentligt, mens 32 GB vises som langsigtet alternativ.','']
     builds=[r for r in routes if r.get('route') in {'PLATFORM_FIRST_AM5','HYBRID_USED_NEW','USED_BUILD'}][:12]
