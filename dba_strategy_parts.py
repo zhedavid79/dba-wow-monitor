@@ -11,6 +11,18 @@ parts = recovery.parts
 parts.T1_CONCURRENCY = 8
 parts.T1_TOTAL_DEADLINE_SECONDS = 600
 
+# HARD EXCLUDE must mean a functional defect, not ordinary cosmetic wear and not
+# a harmless phrase such as "ingen fejl". Override the older broad component regex
+# before parts.main() evaluates T1 descriptions.
+FUNCTIONAL_DEFECT = re.compile(
+    r"\b(?:delvist\s+defekt|defekt|virker\s+ikke|fungerer\s+ikke|ustabil|"
+    r"artefakt(?:er)?|artifact(?:s)?|til\s+dele|reservedele|"
+    r"fryser|crash(?:er)?|genstarter|slukker|overopheder)\b"
+    r"|\bfejl(?:er)?\s+(?:under|ved|på)\b",
+    re.I,
+)
+parts.DEFECT = FUNCTIONAL_DEFECT
+
 EXTRA_QUERIES = [
     # Permanent/long-lived foundation opportunities.
     "ryzen 7500f", "ryzen 7600", "ryzen 7600x", "ryzen 7700", "am5 cpu",
@@ -69,8 +81,18 @@ def plausible_at_t0(row: dict) -> bool:
     return _original_plausible(row)
 
 
+def defect_regression() -> None:
+    # Cosmetic wear and explicit absence of faults are not functional defects.
+    assert FUNCTIONAL_DEFECT.search("ingen fejl, kun en lille ridse") is None
+    assert FUNCTIONAL_DEFECT.search("kosmetiske ridser og en lille bule") is None
+    # Actual operational problems remain hard excludes.
+    assert FUNCTIONAL_DEFECT.search("grafikkortet fryser under høj belastning")
+    assert FUNCTIONAL_DEFECT.search("delvist defekt - virker ikke stabilt")
+
+
 parts.classify = classify
 parts.plausible_at_t0 = plausible_at_t0
 
 if __name__ == "__main__":
+    defect_regression()
     asyncio.run(parts.main())
