@@ -1,0 +1,54 @@
+name: WoW DBA Component Recovery Smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dba_z20_parts.py'
+      - 'dba_z20_parts_recovery.py'
+      - 'dba_strategy_parts.py'
+      - '.github/workflows/parts-recovery-smoke.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wow-dba-component-recovery-smoke
+  cancel-in-progress: true
+
+jobs:
+  parts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Chromium
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Compile recovery path
+        run: python -m py_compile dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py
+      - name: Run focused component discovery and T1 gate
+        run: python dba_strategy_parts.py
+      - name: Validate focused component gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
+          c=p.get('coverage') or {}
+          assert p.get('gate_passed') is True, p.get('gate_passed')
+          assert c.get('complete') is True, c
+          assert not c.get('missing_queries'), c
+          print({
+              'PASS': True,
+              'parts': p.get('count'),
+              'query_total': c.get('query_total'),
+              'primary_completed': c.get('primary_completed_queries'),
+              'recovered': len(c.get('recovered_queries') or []),
+              'fallback_concurrency': c.get('fallback_concurrency'),
+          })
+          PY
