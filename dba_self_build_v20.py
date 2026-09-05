@@ -163,17 +163,18 @@ def main() -> None:
     v20_routes.sort(key=lambda r:(int(r.get('v20_decision_cost') or 10**9),int(r.get('tcwp') or 10**9)))
     assert v20_routes
 
-    # The headline recommendation is the best route that actually reaches our target
-    # performance class. ACCEPTABLE remains valuable, but belongs in the explicit
-    # cheapest-foundation/bridge track rather than silently replacing the SWEET SPOT.
     sweet=[r for r in v20_routes if str(r.get('performance_class_v20') or '').startswith('SWEET SPOT')]
     rec=sweet[0] if sweet else v20_routes[0]
     value=min(v20_routes,key=lambda r:int(r.get('tcwp') or 10**9))
     step=min(sweet,key=lambda r:int(r.get('tcwp') or 10**9)) if sweet else rec
 
-    data.update({'self_build_ranked':v20_routes,'recommended_self_build':rec,'value_foundation_build':value,'performance_step_up_build':step,'buy_now':rec,'ranked':v20_routes+list(data.get('complete_pc_reference') or [])})
+    # Rank the user-facing self-build list by the actual purchase decision: headline
+    # SWEET-SPOT recommendation first, then the remaining value-ranked routes. The
+    # cheapest ACCEPTABLE bridge remains explicitly exposed as value_foundation_build.
+    ordered_routes=[rec]+[r for r in v20_routes if r is not rec]
+    data.update({'self_build_ranked':ordered_routes,'recommended_self_build':rec,'value_foundation_build':value,'performance_step_up_build':step,'buy_now':rec,'ranked':ordered_routes+list(data.get('complete_pc_reference') or [])})
     data['component_market_coverage_v20']={'passed':True,'v19_coverage':data.get('component_market_coverage_v19'),'dynamic_retail_injected':injected,'dynamic_retail_counts':retail.get('counts'),'rule':'V20 requires green V19 category coverage plus a completed dynamic retail discovery pass.'}
-    data['gpu_optimizer_policy_v20']={'method':'TARGET_3840X1600_PERFORMANCE_PLUS_VRAM_PLUS_POWER_PLUS_EXACT_Z20_FIT','anchor_model':'RTX 2080 Super','anchor_ask':anchor_ask,'target_families':(data.get('gpu_pool_v20') or {}).get('target_families'),'headline_minimum':'SWEET SPOT; ACCEPTABLE routes remain eligible only for the cheapest-foundation/bridge track','unknown_fit_policy':'Do not hard-exclude unknown exact GPU dimensions; retain candidate with explicit uncertainty penalty. Exact known-NO is excluded.'}
+    data['gpu_optimizer_policy_v20']={'method':'TARGET_3840X1600_PERFORMANCE_PLUS_VRAM_PLUS_POWER_PLUS_EXACT_Z20_FIT','anchor_model':'RTX 2080 Super','anchor_ask':anchor_ask,'target_families':(data.get('gpu_pool_v20') or {}).get('target_families'),'headline_minimum':'SWEET SPOT; ACCEPTABLE routes remain eligible only for the cheapest-foundation/bridge track','ranking_order':'Recommended SWEET-SPOT route first; remaining routes retain V20 decision-cost order; cheapest bridge is separately exposed.','unknown_fit_policy':'Do not hard-exclude unknown exact GPU dimensions; retain candidate with explicit uncertainty penalty. Exact known-NO is excluded.'}
     add_bid_market(data,retail,anchor_ask)
     data['retail_discovery_v20']={'model':retail.get('model'),'counts':retail.get('counts'),'dynamic_admitted_products':retail.get('dynamic_admitted_products') or []}
     data['model_version']='DBA-WOW-SELF-BUILD-FIRST-V20'
