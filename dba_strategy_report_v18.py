@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 SRC = Path('results/wow_strategy_latest.json')
@@ -10,6 +11,7 @@ ALIAS = Path('results/wow_a3_report.md')
 
 ORDER = ('MOTHERBOARD','PSU','CASE','COOLER','RAM','CPU','GPU','STORAGE')
 DA = {'MOTHERBOARD':'Bundkort','PSU':'Strømforsyning','CASE':'Kabinet','COOLER':'CPU-køler','RAM':'RAM','CPU':'CPU','GPU':'Grafikkort','STORAGE':'SSD/lager'}
+BAD_RAM = re.compile(r'\b(?:so[- ]?dimm|sodimm|rdimm|lrdimm|registered|server\s*ram|kingston\s+fury\s+impact|kf548s38ibk2(?:-\d+)?)\b', re.I)
 
 
 def money(n):
@@ -42,6 +44,51 @@ def complete_link(route):
     return f"[{name}]({c['url']})" if c else name
 
 
+def component_rank_link(route, kind, fallback):
+    c = selected(route, kind)
+    if c and c.get('url'):
+        return f"[{fallback}]({c['url']})"
+    return str(fallback)
+
+
+def alternative_rows(route, kind, decision):
+    rows = []
+    cur = selected(route, kind)
+    if cur:
+        x = dict(cur)
+        x['_status'] = 'VALGT I BUILD'
+        rows.append(x)
+
+    for a in ((route.get('component_alternatives') or {}).get(kind) or []):
+        x = dict(a)
+        x['_status'] = 'VERIFICERET ALTERNATIV' if x.get('source') == 'USED ASK' else 'NYT ALTERNATIV'
+        rows.append(x)
+
+    for key, status in (('best_used','BEDSTE BRUGT'), ('new_reference','NY REFERENCE')):
+        a = (decision or {}).get(key)
+        if a:
+            x = dict(a)
+            x.setdefault('source', 'USED ASK' if key == 'best_used' else 'NEW RETAIL')
+            x['_status'] = status
+            rows.append(x)
+
+    out, seen = [], set()
+    for x in rows:
+        name = str(x.get('name') or '')
+        if kind == 'RAM' and BAD_RAM.search(name):
+            continue
+        price = int(x.get('price') or 0)
+        url = str(x.get('url') or '')
+        if not name or price <= 0 or not url:
+            continue
+        key = (name, price, url)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(x)
+    return out[:12]
+
+
 def main():
     d = json.loads(SRC.read_text(encoding='utf-8'))
     assert d.get('gate_passed') is True
@@ -58,7 +105,7 @@ def main():
         '',
         f"Generated: {d.get('generated_at')}",
         'Mål: WoW Classic/Cataclysm ved 3840×1600/75 Hz, stærk raid/crowded-combat performance og et kompakt AM5-system, der kan opgraderes løbende.',
-        'V18 sammenligner nu brugtprisen direkte mod en frisk nypris-reference for hver del og giver BUY/WAIT/USED/NEW-beslutning. SO-DIMM/server-RAM er hard-excluded fra desktop-builds.',
+        'V18 sammenligner brugtprisen direkte mod en frisk nypris-reference for hver del og giver BUY/WAIT/USED/NEW-beslutning. Alle konkrete køb og alternativer i rapporten har direkte klikbare links. SO-DIMM/server-RAM er hard-excluded fra desktop-builds.',
         '',
         '## 🧭 ANBEFALET SELVBYG',
         '',
@@ -101,7 +148,7 @@ def main():
         '',
         '## Aktuelt anbefalet BOM',
         '',
-        '| Del | Kilde | Pris |',
+        '| Del | Kilde / direkte link | Pris |',
         '|---|---|---:|',
     ]
     for kind in ORDER:
@@ -109,23 +156,41 @@ def main():
         src = 'BRUGT' if c and c.get('source') == 'USED ASK' else 'NY'
         lines.append(f"| {DA[kind]} | {src}: {link(c)} | **{money((c or {}).get('price'))}** |")
 
+    lines += ['', '## 🔗 Del-for-del alternativer — direkte links', '']
+    for kind in ORDER:
+        dec = decisions.get(kind) or {}
+        alts = alternative_rows(rec, kind, dec)
+        lines += [f"### {DA[kind]}", '']
+        if not alts:
+            lines += ['Ingen yderligere verificerede alternativer med direkte link i denne kørsel.', '']
+            continue
+        lines += [
+            '| Valg | Kilde | Pris | Status |',
+            '|---|---|---:|---|',
+        ]
+        for a in alts:
+            src = 'BRUGT' if a.get('source') == 'USED ASK' else 'NY'
+            lines.append(f"| {link(a)} | {src} | **{money(a.get('price'))}** | {a.get('_status')} |")
+        lines.append('')
+
     lines += [
-        '',
         '## Selvbyg-ranking',
         '',
         '| # | TCWP | Beslutningsscore | CPU | GPU | WoW | Upgrade | Z20 |',
         '|---:|---:|---:|---|---|---|---|---|',
     ]
     for i, r in enumerate(self_build[:30], 1):
-        lines.append(f"| {i} | **{money(r.get('tcwp'))}** | {money(r.get('self_build_effective_cost',r.get('tcwp')))} | {r.get('cpu')} | {r.get('gpu')} | {r.get('performance_class')} | {r.get('upgradeability')} | {r.get('z20_fit')} |")
+        cpu_txt = component_rank_link(r, 'CPU', r.get('cpu'))
+        gpu_txt = component_rank_link(r, 'GPU', r.get('gpu'))
+        lines.append(f"| {i} | **{money(r.get('tcwp'))}** | {money(r.get('self_build_effective_cost',r.get('tcwp')))} | {cpu_txt} | {gpu_txt} | {r.get('performance_class')} | {r.get('upgradeability')} | {r.get('z20_fit')} |")
 
     lines += [
         '',
         '## Færdige computere — markedsreference',
         '',
-        'Færdige PC’er beholdes som prisanker og ekstraordinære køb, men er sekundære til det opgraderbare selvbyg-spor.',
+        'Færdige PC’er beholdes som prisanker og ekstraordinære køb, men er sekundære til det opgraderbare selvbyg-spor. PC-navnet linker direkte til den T1-verificerede DBA-annonce.',
         '',
-        '| # | PC | T1 ASK | WoW | Upgrade | Z20 |',
+        '| # | PC / direkte link | T1 ASK | WoW | Upgrade | Z20 |',
         '|---:|---|---:|---|---|---|',
     ]
     for i, r in enumerate(complete[:30], 1):
@@ -135,7 +200,7 @@ def main():
         '',
         '## Pris- og evidensregel',
         '',
-        'USED ASK kræver live T0→T1-verificeret DBA listing-object. Nye priser er særskilte danske retail/prissammenligningsreferencer verificeret 5. september 2026. GPU-nyprisen kan være en aktuel target-class reference frem for samme udgåede GPU-model; dette er markeret i data. Defekte dele, inaktive annoncer, accessory-falskpositiver og inkompatibel SO-DIMM/server-RAM er hard-excluded.',
+        'USED ASK kræver live T0→T1-verificeret DBA listing-object. Nye priser er særskilte danske retail/prissammenligningsreferencer. GPU-nyprisen kan være en aktuel target-class reference frem for samme udgåede GPU-model; dette er markeret i data. Defekte dele, inaktive annoncer, accessory-falskpositiver og inkompatibel SO-DIMM/server-RAM er hard-excluded. En konkret del må ikke vises som købbar i rapporten uden et direkte URL-link.',
         '',
     ]
 
@@ -144,10 +209,13 @@ def main():
     assert 'Brugt vs. nyt' in text
     assert 'Nypris' in text
     assert 'Handling' in text
+    assert 'Del-for-del alternativer — direkte links' in text
+    for c in rec.get('components') or []:
+        assert c.get('url') and c['url'] in text
     CANONICAL.write_text(text, encoding='utf-8')
     LEGACY.write_text(text, encoding='utf-8')
     ALIAS.write_text(text, encoding='utf-8')
-    print(json.dumps({'report': True, 'model': d['model_version'], 'recommended_tcwp': rec.get('tcwp'), 'rows': len(decisions)}, ensure_ascii=False))
+    print(json.dumps({'report': True, 'model': d['model_version'], 'recommended_tcwp': rec.get('tcwp'), 'rows': len(decisions), 'linked_components': len(rec.get('components') or [])}, ensure_ascii=False))
 
 
 if __name__ == '__main__':
