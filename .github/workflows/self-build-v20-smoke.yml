@@ -87,6 +87,10 @@ jobs:
           assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V20'
           assert s.get('strategy_mode')=='V20_GPU_FIT_RAM_RETAIL_CACHE_BID'
           assert (s.get('component_market_coverage_v20') or {}).get('passed') is True
+          assert str(rec.get('performance_class_v20') or '').startswith('SWEET SPOT'), rec.get('performance_class_v20')
+          assert (s.get('gpu_optimizer_policy_v20') or {}).get('headline_minimum','').startswith('SWEET SPOT')
+          value=s.get('value_foundation_build') or {}
+          assert int(value.get('tcwp') or 10**9) <= int(rec.get('tcwp') or 0)
           assert r.get('model')=='V20_DYNAMIC_RETAIL_SAME_PRODUCT_GATE'
           assert r.get('all_catalog_products_verified') is True
           assert r.get('dynamic_discovery_gate_passed') is True
@@ -101,5 +105,5 @@ jobs:
           text=Path('results/wow_self_build_report_v20.md').read_text(encoding='utf-8')
           for marker in ('SELF-BUILD FIRST V20','V20 — GPU value, Z20-fit og budmodel','V20 — RAM-bud og bridge-kontrol','V20 — dynamisk retail discovery','V20 — shared same-run T1-cache','V20 — GPU discovery-pool'):
               assert marker in text, marker
-          print(json.dumps({'PASS':True,'recommended_tcwp':rec.get('tcwp'),'cpu':rec.get('cpu'),'gpu':rec.get('gpu'),'z20_fit':rec.get('z20_fit_v20'),'gpu_action':(gi.get('bid') or {}).get('action'),'retail_counts':r.get('counts'),'gpu_pool':pool.get('family_counts')},ensure_ascii=False))
+          print(json.dumps({'PASS':True,'recommended_tcwp':rec.get('tcwp'),'cpu':rec.get('cpu'),'gpu':rec.get('gpu'),'performance_class_v20':rec.get('performance_class_v20'),'value_foundation_tcwp':value.get('tcwp'),'value_foundation_gpu':value.get('gpu'),'z20_fit':rec.get('z20_fit_v20'),'gpu_action':(gi.get('bid') or {}).get('action'),'retail_counts':r.get('counts'),'gpu_pool':pool.get('family_counts')},ensure_ascii=False))
           PY
