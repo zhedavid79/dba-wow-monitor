@@ -97,7 +97,6 @@ def cpu_bid(model: str, score: int, ask: int, anchor_score: int=94, anchor_ask: 
 
 def best_new_32gb_price(retail: dict) -> int | None:
     vals=[]
-    # Static rows carry only verified price/name; admitted dynamic rows also carry specs.
     for r in retail.get('products') or []:
         name=str(r.get('name') or '')
         cap=int(r.get('capacity_gb') or 0)
@@ -137,7 +136,7 @@ def add_bid_market(data: dict, retail: dict, anchor_ask: int) -> None:
             if kind=='GPU': guidance=gpu20.bid_guidance(str(r.get('gpu') or ''),ask,anchor_ask=anchor_ask)
             elif kind=='CPU': guidance=cpu_bid(str(r.get('cpu') or ''),int(r.get('cpu_score') or 0),ask)
             else: guidance=ram_bid(c,retail)
-            target.append({'kind':kind,'model':r.get('gpu' if kind=='GPU' else 'cpu' if kind=='CPU' else None) if kind!='RAM' else c.get('name'),'listing_id':c.get('listing_id'),'name':c.get('name'),'url':c.get('url'),'ask':ask,**guidance})
+            target.append({'kind':kind,'model':r.get('gpu' if kind=='GPU' else 'cpu') if kind!='RAM' else c.get('name'),'listing_id':c.get('listing_id'),'name':c.get('name'),'url':c.get('url'),'ask':ask,**guidance})
     for xs in (gpu_rows,cpu_rows,ram_rows):
         xs.sort(key=lambda x:(0 if x.get('action')=='STRONG_BUY' else 1 if x.get('action')=='BUY' else 2 if x.get('action')=='FAIR' else 3,int(x.get('ask') or 10**9)))
     data['bid_market_v20']={'GPU':gpu_rows,'CPU':cpu_rows,'RAM':ram_rows}
@@ -163,20 +162,25 @@ def main() -> None:
     v20_routes=[r for r in v20_routes if r.get('z20_fit_v20')!='NO']
     v20_routes.sort(key=lambda r:(int(r.get('v20_decision_cost') or 10**9),int(r.get('tcwp') or 10**9)))
     assert v20_routes
-    rec=v20_routes[0]
-    value=min(v20_routes,key=lambda r:int(r.get('tcwp') or 10**9))
+
+    # The headline recommendation is the best route that actually reaches our target
+    # performance class. ACCEPTABLE remains valuable, but belongs in the explicit
+    # cheapest-foundation/bridge track rather than silently replacing the SWEET SPOT.
     sweet=[r for r in v20_routes if str(r.get('performance_class_v20') or '').startswith('SWEET SPOT')]
+    rec=sweet[0] if sweet else v20_routes[0]
+    value=min(v20_routes,key=lambda r:int(r.get('tcwp') or 10**9))
     step=min(sweet,key=lambda r:int(r.get('tcwp') or 10**9)) if sweet else rec
+
     data.update({'self_build_ranked':v20_routes,'recommended_self_build':rec,'value_foundation_build':value,'performance_step_up_build':step,'buy_now':rec,'ranked':v20_routes+list(data.get('complete_pc_reference') or [])})
     data['component_market_coverage_v20']={'passed':True,'v19_coverage':data.get('component_market_coverage_v19'),'dynamic_retail_injected':injected,'dynamic_retail_counts':retail.get('counts'),'rule':'V20 requires green V19 category coverage plus a completed dynamic retail discovery pass.'}
-    data['gpu_optimizer_policy_v20']={'method':'TARGET_3840X1600_PERFORMANCE_PLUS_VRAM_PLUS_POWER_PLUS_EXACT_Z20_FIT','anchor_model':'RTX 2080 Super','anchor_ask':anchor_ask,'target_families':(data.get('gpu_pool_v20') or {}).get('target_families'),'unknown_fit_policy':'Do not hard-exclude unknown exact GPU dimensions; retain candidate with explicit uncertainty penalty. Exact known-NO is excluded.'}
+    data['gpu_optimizer_policy_v20']={'method':'TARGET_3840X1600_PERFORMANCE_PLUS_VRAM_PLUS_POWER_PLUS_EXACT_Z20_FIT','anchor_model':'RTX 2080 Super','anchor_ask':anchor_ask,'target_families':(data.get('gpu_pool_v20') or {}).get('target_families'),'headline_minimum':'SWEET SPOT; ACCEPTABLE routes remain eligible only for the cheapest-foundation/bridge track','unknown_fit_policy':'Do not hard-exclude unknown exact GPU dimensions; retain candidate with explicit uncertainty penalty. Exact known-NO is excluded.'}
     add_bid_market(data,retail,anchor_ask)
     data['retail_discovery_v20']={'model':retail.get('model'),'counts':retail.get('counts'),'dynamic_admitted_products':retail.get('dynamic_admitted_products') or []}
     data['model_version']='DBA-WOW-SELF-BUILD-FIRST-V20'
     data['strategy_mode']='V20_GPU_FIT_RAM_RETAIL_CACHE_BID'
     OUT.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
     gi=rec.get('gpu_intelligence_v20') or {}
-    print(json.dumps({'model':data['model_version'],'recommended_tcwp':rec.get('tcwp'),'cpu':rec.get('cpu'),'gpu':rec.get('gpu'),'v20_decision_cost':rec.get('v20_decision_cost'),'gpu_action':(gi.get('bid') or {}).get('action'),'z20_fit_v20':rec.get('z20_fit_v20'),'dynamic_injected':injected,'retail_age_seconds':round(age,1)},ensure_ascii=False))
+    print(json.dumps({'model':data['model_version'],'recommended_tcwp':rec.get('tcwp'),'cpu':rec.get('cpu'),'gpu':rec.get('gpu'),'performance_class_v20':rec.get('performance_class_v20'),'v20_decision_cost':rec.get('v20_decision_cost'),'value_foundation_tcwp':value.get('tcwp'),'value_foundation_gpu':value.get('gpu'),'gpu_action':(gi.get('bid') or {}).get('action'),'z20_fit_v20':rec.get('z20_fit_v20'),'dynamic_injected':injected,'retail_age_seconds':round(age,1)},ensure_ascii=False))
 
 
 if __name__=='__main__':
