@@ -174,8 +174,36 @@ jobs:
           print(f"PASS SELF-BUILD-FIRST V18: {len(self_build)} self-builds; {len(complete)} complete-PC references; used-vs-new decisions={len(decisions)}")
           PY
 
+      # Preserve the fully gated pre-compaction state. A later compaction/git-push
+      # failure must never force another expensive live T0/T1 market scan.
+      - name: Preserve gated V18 snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: wow-v18-gated-${{ github.run_id }}
+          retention-days: 3
+          compression-level: 6
+          path: |
+            results/wow_a3_latest.json
+            results/wow_a3_report.md
+            results/wow_platform_first_report.md
+            results/wow_self_build_report.md
+            results/wow_strategy_latest.json
+            results/z20_parts_latest.json
+            results/z20_donors_latest.json
+
       - name: Compact verified V18 publication snapshot
         run: python dba_compact_publish_v18.py
+
+      - name: Validate publish payload size
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('results/wow_strategy_latest.json')
+          size=p.stat().st_size
+          limit=90*1024*1024
+          assert size < limit, f'Compact V18 strategy snapshot still too large: {size/1024/1024:.2f} MiB'
+          print(f'PASS PUBLISH SIZE: {size/1024/1024:.2f} MiB < 90 MiB')
+          PY
 
       - name: Publish authoritative self-build-first results
         run: |
