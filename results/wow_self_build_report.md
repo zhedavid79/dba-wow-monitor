@@ -1,6 +1,6 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V18
 
-Generated: 2026-09-05T19:16:05.160484+00:00
+Generated: 2026-09-05T19:17:11.279455+00:00
 Mål: WoW Classic/Cataclysm ved 3840×1600/75 Hz, stærk raid/crowded-combat performance og et kompakt AM5-system, der kan opgraderes løbende.
 V18 sammenligner brugtprisen direkte mod en frisk nypris-reference for hver del og giver BUY/WAIT/USED/NEW-beslutning. Alle konkrete køb og alternativer i rapporten har direkte klikbare links. SO-DIMM/server-RAM er hard-excluded fra desktop-builds.
 
