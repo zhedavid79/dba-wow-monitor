@@ -31,6 +31,8 @@ on:
       - 'dba_platform_first_v16.py'
       - 'dba_self_build_v17.py'
       - 'dba_strategy_report_v17.py'
+      - 'dba_self_build_v18.py'
+      - 'dba_strategy_report_v18.py'
       - 'dba_build_alternatives.py'
       - '.github/workflows/wow-a3-dba.yml'
 
@@ -58,7 +60,7 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Compile self-build-first model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_ancestor.py dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py dba_platform_first_v16.py dba_self_build_v17.py dba_strategy_report_v17.py dba_build_alternatives.py
+        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_ancestor.py dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py dba_platform_first_v16.py dba_self_build_v17.py dba_strategy_report_v17.py dba_self_build_v18.py dba_strategy_report_v18.py dba_build_alternatives.py
 
       - name: Diagnose DBA source/schema gate
         timeout-minutes: 3
@@ -88,11 +90,19 @@ jobs:
         timeout-minutes: 2
         run: python dba_self_build_v17.py
 
-      - name: Add part alternatives and generate self-build report
+      - name: Add verified part alternatives
         timeout-minutes: 3
         run: python dba_build_alternatives.py
 
-      - name: Validate V17 publication gate
+      - name: Apply V18 used-vs-new market decisions
+        timeout-minutes: 2
+        run: python dba_self_build_v18.py
+
+      - name: Generate V18 used-vs-new self-build report
+        timeout-minutes: 2
+        run: python dba_strategy_report_v18.py
+
+      - name: Validate V18 publication gate
         run: |
           python - <<'PY'
           import json,re
@@ -103,14 +113,14 @@ jobs:
           p=json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
           q=json.loads(Path('results/z20_donors_latest.json').read_text(encoding='utf-8'))
           defect=re.compile(r'\b(?:delvist\s+defekt|defekt|virker\s+ikke|fungerer\s+ikke|ustabil|artefakt(?:er)?|artifact(?:s)?|til\s+dele|reservedele|fryser|crash(?:er)?|genstarter|slukker|overopheder)\b|\bfejl(?:er)?\s+(?:under|ved|på)\b',re.I)
+          bad_ram=re.compile(r'\b(?:so[- ]?dimm|sodimm|rdimm|lrdimm|registered|server\s*ram|kingston\s+fury\s+impact|kf548s38ibk2(?:-\d+)?)\b',re.I)
 
           assert s.get('gate_passed') is True
-          assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V17'
-          assert s.get('strategy_mode')=='SELF_BUILD_FIRST_UPGRADEABLE'
+          assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V18'
+          assert s.get('strategy_mode')=='SELF_BUILD_FIRST_USED_VS_NEW'
           assert s.get('functional_defect_policy')=='HARD_EXCLUDE'
-          assert s.get('storage_policy')=='VALUE_FIRST_500_BASE_1000_COMFORT'
-          assert s.get('component_alternatives_policy')=='PART_BY_PART_BEST_CHOICE_WITH_LIVE_ALTERNATIVES'
           assert s.get('primary_decision')=='BUILD_AN_UPGRADEABLE_PC; COMPLETE_PCS_ARE_SECONDARY_MARKET_REFERENCES'
+          assert (s.get('market_decision_policy') or {}).get('mode')=='USED_VS_NEW_WITH_BUY_WAIT'
           assert c.get('gate_passed') is True and c.get('price_binding_regression',{}).get('ok') is True
           assert (c.get('coverage',{}).get('discovery') or {}).get('complete') is True
           assert (c.get('coverage',{}).get('t1') or {}).get('complete') is True
@@ -121,22 +131,27 @@ jobs:
           recommended=s.get('recommended_self_build') or {}
           assert self_build and complete and recommended
           assert recommended.get('route') in {'PLATFORM_FIRST_AM5','HYBRID_USED_NEW','USED_BUILD'}
-          assert recommended.get('route')!='COMPLETE_USED_PC'
-          assert (s.get('part_policy') or {}).keys() >= {'MOTHERBOARD','PSU','CASE','COOLER','RAM','CPU','GPU','STORAGE'}
-
-          # The desired permanent foundation remains the default for the primary recommendation.
           assert recommended.get('foundation')=='AM5_B650_B850_MATX_WIFI_4DIMM'
           assert recommended.get('upgradeability')=='A'
           assert recommended.get('z20_fit') in {'VERIFIED','LIKELY'}
+
+          decisions=recommended.get('component_market_decisions') or {}
+          required={'MOTHERBOARD','PSU','CASE','COOLER','RAM','CPU','GPU','STORAGE'}
+          assert set(decisions) == required
+          for kind,dec in decisions.items():
+              assert dec.get('decision') in {'BUY_USED','BUY_USED_BRIDGE','BUY_NEW','BUY_NEW_OR_WAIT','WAIT'}
+              new=dec.get('new_reference')
+              assert new and int(new.get('price') or 0)>0 and new.get('url')
+              assert int(dec.get('new_price') or 0)==int(new['price'])
+
+          ram=[x for x in recommended.get('components',[]) if x.get('kind')=='RAM']
+          assert len(ram)==1 and not bad_ram.search(str(ram[0].get('name') or ''))
           psu=[x for x in recommended.get('components',[]) if x.get('kind')=='PSU']
           storage=[x for x in recommended.get('components',[]) if x.get('kind')=='STORAGE']
           assert len(psu)==1 and psu[0].get('source')=='NEW RETAIL' and int(psu[0].get('watt') or 0)>=750
           assert len(storage)==1 and storage[0].get('source')=='NEW RETAIL' and int(storage[0].get('capacity_gb') or 0)>=500
 
-          ranked=s.get('ranked') or []; assert ranked
-          for r in ranked:
-              assert r.get('route') in {'COMPLETE_USED_PC','USED_PC_PLUS_FUTURE_UPGRADE','USED_BUILD','HYBRID_USED_NEW','PLATFORM_FIRST_AM5'}
-              assert r.get('performance_class') in {'ACCEPTABLE','SWEET SPOT','OVERKILL'}
+          for r in s.get('ranked') or []:
               comps=r.get('components') or []; assert comps
               assert sum(int(x['price']) for x in comps)==int(r['tcwp'])
               for x in comps:
@@ -145,16 +160,18 @@ jobs:
                       assert x.get('listing_id') and x.get('functional_defect') is False
                       assert str(x.get('listing_id'))!='11596289'
                       assert not defect.search(str(x.get('name') or ''))
+                  if x.get('kind')=='RAM' and r.get('route') in {'PLATFORM_FIRST_AM5','HYBRID_USED_NEW','USED_BUILD'}:
+                      assert not bad_ram.search(str(x.get('name') or ''))
 
           canonical=Path('results/wow_self_build_report.md').read_text(encoding='utf-8')
           legacy=Path('results/wow_platform_first_report.md').read_text(encoding='utf-8')
           alias=Path('results/wow_a3_report.md').read_text(encoding='utf-8')
           assert canonical==legacy==alias
-          assert canonical.startswith('# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V17')
-          assert '/item/11596289' not in canonical
-          for marker in ('ANBEFALET SELVBYG','Tre selvbyg-spor','Del-for-del købsplan','Selvbyg-ranking','Færdige computere — markedsreference','Pris- og evidensregel'):
+          assert canonical.startswith('# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V18')
+          assert 'KF548S38IBK2' not in canonical
+          for marker in ('ANBEFALET SELVBYG','Brugt vs. nyt','Nypris','Handling','Tre selvbyg-spor','Selvbyg-ranking','Færdige computere — markedsreference','Pris- og evidensregel'):
               assert marker in canonical,marker
-          print(f"PASS SELF-BUILD-FIRST V17: {len(self_build)} self-builds; {len(complete)} complete-PC references; primary={recommended.get('route')}")
+          print(f"PASS SELF-BUILD-FIRST V18: {len(self_build)} self-builds; {len(complete)} complete-PC references; used-vs-new decisions={len(decisions)}")
           PY
 
       - name: Publish authoritative self-build-first results
