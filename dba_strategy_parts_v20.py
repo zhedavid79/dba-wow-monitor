@@ -9,7 +9,9 @@ import dba_strategy_parts as base
 
 parts = base.parts
 CACHE = Path('results/t1_cache_v20.json')
+PARTS_OUT = Path('results/z20_parts_latest.json')
 MAX_CACHE_AGE_SECONDS = 20 * 60
+LAST_T1_BY_ID: dict[str, dict | None] = {}
 
 # Sweet-spot protection: target families get explicit variants instead of relying on
 # one broad query or a cheapest-N pool. RAM discovery is widened around the actual
@@ -51,6 +53,7 @@ def load_same_run_cache() -> tuple[dict[str, dict], float | None]:
 
 
 async def shared_fetch_all_t1(context, rows: list[dict]):
+    global LAST_T1_BY_ID
     cache, cache_age = load_same_run_cache()
     by_id: dict[str, dict | None] = {}
     errors: list[dict] = []
@@ -92,6 +95,7 @@ async def shared_fetch_all_t1(context, rows: list[dict]):
         if error:
             errors.append(error)
 
+    LAST_T1_BY_ID = dict(by_id)
     completed = set(by_id)
     missing = sorted(expected - completed)
     coverage = {
@@ -113,6 +117,35 @@ async def shared_fetch_all_t1(context, rows: list[dict]):
 parts.fetch_all_t1 = shared_fetch_all_t1
 
 
+def enrich_t1_evidence() -> None:
+    if not PARTS_OUT.exists():
+        return
+    doc=json.loads(PARTS_OUT.read_text(encoding='utf-8'))
+    enriched=0
+    for row in doc.get('opportunities') or []:
+        t1=LAST_T1_BY_ID.get(str(row.get('listing_id') or ''))
+        if not isinstance(t1,dict):
+            continue
+        description=str(t1.get('description') or '').strip()
+        brand=str(t1.get('brand') or '').strip()
+        category=str(t1.get('category') or '').strip()
+        if description: row['description_t1']=description
+        if brand: row['brand_t1']=brand
+        if category: row['category_t1']=category
+        row['gpu_identity_text_v20']='\n'.join(x for x in (str(row.get('title') or ''),description,brand) if x)
+        enriched += 1
+    doc.setdefault('v20_evidence',{})['t1_description_enriched']=enriched
+    doc['v20_evidence']['rule']='Exact GPU board-partner fit may use current-run T1 title + description + brand; missing exact model remains UNKNOWN.'
+    PARTS_OUT.write_text(json.dumps(doc,ensure_ascii=False,indent=2),encoding='utf-8')
+    print(json.dumps({'stage':'V20_T1_DESCRIPTION_EVIDENCE','enriched_opportunities':enriched},ensure_ascii=False),flush=True)
+
+
+async def run() -> None:
+    regression()
+    await parts.main()
+    enrich_t1_evidence()
+
+
 def regression() -> None:
     base.defect_regression()
     for q in ('rx 6800 xt 16gb','ddr5 6000 cl30 32gb'):
@@ -120,5 +153,4 @@ def regression() -> None:
 
 
 if __name__ == '__main__':
-    regression()
-    asyncio.run(parts.main())
+    asyncio.run(run())
