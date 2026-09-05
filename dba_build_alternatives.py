@@ -97,8 +97,6 @@ def main():
     d['component_alternatives_policy']='SHOW_PRICE_LINK_PROS_CONS_PER_PART'
     STRATEGY.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
 
-    # Regenerate the canonical report from the FINAL filtered/enriched ranking before
-    # appending alternatives. This prevents stale BUY NOW / BEST FOUNDATION sections.
     strategy_report.main()
     text=REPORT.read_text(encoding='utf-8')
     lines=['','## Build-alternativer pr. komponent','','SSD er ikke låst til 1 TB. Basis-build bruger billigste tilstrækkelige verificerede valg; 500 GB og 1 TB vises som komfort-alternativer. RAM må tilsvarende bruge en billig 16 GB bridge, når det reducerer TCWP væsentligt, mens 32 GB vises som langsigtet alternativ.','']
@@ -117,6 +115,7 @@ def main():
                 lines.append(f"| {kind} | {name} | {money(a.get('price',0))} | {a.get('source','—')} | {a.get('pros','—')} | {a.get('cons','—')} |")
         lines.append('')
     text=text+'\n'.join(lines)+'\n'
+    assert '/item/11596289' not in text, 'Accessory false-positive leaked into published report'
     REPORT.write_text(text,encoding='utf-8'); ALIAS.write_text(text,encoding='utf-8')
     print(json.dumps({'ok':True,'routes':len(routes),'builds_with_alternatives':len(builds),'ram_alternatives':len(ram_alts),'storage_default_gb':storage_default['capacity_gb']},ensure_ascii=False))
 
