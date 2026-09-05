@@ -34,6 +34,7 @@ on:
       - 'dba_self_build_v18.py'
       - 'dba_strategy_report_v18.py'
       - 'dba_build_alternatives.py'
+      - 'dba_compact_publish_v18.py'
       - '.github/workflows/wow-a3-dba.yml'
 
 permissions:
@@ -60,7 +61,7 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Compile self-build-first model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_ancestor.py dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py dba_platform_first_v16.py dba_self_build_v17.py dba_strategy_report_v17.py dba_self_build_v18.py dba_strategy_report_v18.py dba_build_alternatives.py
+        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_ancestor.py dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py dba_platform_first_v16.py dba_self_build_v17.py dba_strategy_report_v17.py dba_self_build_v18.py dba_strategy_report_v18.py dba_build_alternatives.py dba_compact_publish_v18.py
 
       - name: Diagnose DBA source/schema gate
         timeout-minutes: 3
@@ -169,10 +170,13 @@ jobs:
           assert canonical==legacy==alias
           assert canonical.startswith('# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V18')
           assert 'KF548S38IBK2' not in canonical
-          for marker in ('ANBEFALET SELVBYG','Brugt vs. nyt','Nypris','Handling','Tre selvbyg-spor','Selvbyg-ranking','Færdige computere — markedsreference','Pris- og evidensregel'):
+          for marker in ('ANBEFALET SELVBYG','Brugt vs. nyt','Nypris','Handling','Tre selvbyg-spor','Del-for-del alternativer — direkte links','GPU-marked','CPU-marked','Selvbyg-ranking','Færdige computere — markedsreference','Pris- og evidensregel'):
               assert marker in canonical,marker
           print(f"PASS SELF-BUILD-FIRST V18: {len(self_build)} self-builds; {len(complete)} complete-PC references; used-vs-new decisions={len(decisions)}")
           PY
+
+      - name: Compact verified V18 publication snapshot
+        run: python dba_compact_publish_v18.py
 
       - name: Publish authoritative self-build-first results
         run: |
