@@ -24,7 +24,6 @@ def identity_ok(expected: str, actual: str) -> bool:
     a = set(norm(actual).split())
     if not e or not a:
         return False
-    # Model numbers / distinctive tokens matter most, while allowing retailer wording.
     strong = {x for x in e if any(ch.isdigit() for ch in x) or len(x) >= 6}
     if strong and len(strong & a) < max(1, len(strong) // 2):
         return False
@@ -113,7 +112,6 @@ async def verify_one(context, product: dict, sem: asyncio.Semaphore) -> dict:
                 result.update({'verified': True, 'price': price, 'availability': availability or ('AVAILABLE_COMPARISON' if offer_count else 'UNKNOWN'), 'method': method})
                 return result
 
-            # Structured/meta fallbacks, still bound to the already verified product page identity.
             selectors = [
                 'meta[property="product:price:amount"]', 'meta[itemprop="price"]',
                 '[itemprop="price"]', '[data-price]',
@@ -144,8 +142,6 @@ async def verify_one(context, product: dict, sem: asyncio.Semaphore) -> dict:
                 if 100 <= n <= 100000:
                     matches.append(n)
             if matches:
-                # Last-resort page-bound price evidence. Take the lowest plausible retail price;
-                # identity is already tied to this exact product page.
                 result.update({'verified': True, 'price': min(matches), 'availability': 'PAGE_PRICE', 'method': 'PAGE_TEXT_PRICE'})
                 return result
 
@@ -174,9 +170,14 @@ async def main() -> None:
         await context.close()
         await browser.close()
 
+    for r in rows:
+        print(json.dumps({
+            'stage': 'RETAIL_VERIFY', 'sku': r.get('sku'), 'verified': r.get('verified'),
+            'price': r.get('price'), 'method': r.get('method'), 'http_status': r.get('http_status'),
+            'error': r.get('error'), 'rendered_title': r.get('rendered_title'), 'rendered_h1': r.get('rendered_h1'),
+        }, ensure_ascii=False), flush=True)
+
     by_sku = {r['sku']: r for r in rows}
-    # Motherboard comparison is the critical V19 regression. All three must be live
-    # comparable in the same run, otherwise V19 must fail closed rather than invent a winner.
     required = {'ASROCK_B850M_PRO_A_WIFI','MSI_B850M_GAMING_PLUS_WIFI6E','GIGABYTE_B650M_GAMING_PLUS_WIFI'}
     required_ok = all(by_sku.get(s, {}).get('verified') is True for s in required)
     doc = {
