@@ -39,16 +39,26 @@ jobs:
           import json
           from pathlib import Path
           p=json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
-          c=p.get('coverage') or {}
+          coverage=p.get('coverage') or {}
+          d=coverage.get('discovery') or {}
+          t=coverage.get('t1') or {}
           assert p.get('gate_passed') is True, p.get('gate_passed')
-          assert c.get('complete') is True, c
-          assert not c.get('missing_queries'), c
+          assert d.get('complete') is True, d
+          assert not d.get('missing_queries'), d
+          assert d.get('query_completed') == d.get('query_total'), d
+          assert t.get('complete') is True, t
+          assert not t.get('missing_listing_ids'), t
+          assert t.get('candidate_completed') == t.get('candidate_total'), t
+          assert t.get('candidate_fetch_errors') == 0, t
           print({
               'PASS': True,
               'parts': p.get('count'),
-              'query_total': c.get('query_total'),
-              'primary_completed': c.get('primary_completed_queries'),
-              'recovered': len(c.get('recovered_queries') or []),
-              'fallback_concurrency': c.get('fallback_concurrency'),
+              'query_total': d.get('query_total'),
+              'primary_completed': d.get('primary_completed_queries'),
+              'recovered': len(d.get('recovered_queries') or []),
+              'long_tail_recovered': len(d.get('long_tail_recovered_queries') or []),
+              't1_completed': t.get('candidate_completed'),
+              't1_errors': t.get('candidate_fetch_errors'),
+              'fallback_concurrency': d.get('fallback_concurrency'),
           })
           PY
