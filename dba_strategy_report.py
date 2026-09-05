@@ -6,7 +6,7 @@ from pathlib import Path
 SRC=Path("results/wow_strategy_latest.json")
 REPORT=Path("results/wow_platform_first_report.md")
 REPORT_ALIAS=Path("results/wow_a3_report.md")
-EXCLUDED_LISTING_IDS={"7969913":"PURCHASE_ATTEMPTED"}
+EXCLUDED_LISTING_IDS={"7969913":"PURCHASE_ATTEMPTED","11596289":"ACCESSORY_FALSE_POSITIVE"}
 
 def money(n): return f"{int(n):,}".replace(",",".")+" kr."
 def links(r):
