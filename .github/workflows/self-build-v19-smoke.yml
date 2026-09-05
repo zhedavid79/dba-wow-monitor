@@ -1,0 +1,82 @@
+name: WoW Self-Build V19 Explainable Component Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dba_component_optimizer_v19.py'
+      - 'dba_retail_prices_v19.py'
+      - 'dba_strategy_report_v19.py'
+      - '.github/workflows/self-build-v19-smoke.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wow-v19-component-smoke
+  cancel-in-progress: true
+
+jobs:
+  decision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install retail verifier browser
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Compile V19
+        run: python -m py_compile dba_component_optimizer_v19.py dba_retail_prices_v19.py dba_strategy_report_v19.py
+      - name: V19 component-policy regression
+        run: python -c "import dba_component_optimizer_v19 as v; v.regression(); print('PASS V19 COMPONENT POLICY')"
+      - name: Verify current retail candidates
+        timeout-minutes: 4
+        run: python dba_retail_prices_v19.py
+      - name: Apply V19 to latest T0/T1-verified DBA snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import dba_component_optimizer_v19 as v19
+          import dba_strategy_report_v19 as report
+
+          p=Path('results/wow_strategy_latest.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d.get('gate_passed') is True
+          d=v19.finalize(d)
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
+          report.main()
+
+          s=json.loads(p.read_text(encoding='utf-8'))
+          rec=s.get('recommended_self_build') or {}
+          choices=rec.get('component_choice_v19') or {}
+          mb=choices.get('MOTHERBOARD') or {}
+          winner=mb.get('winner') or {}
+          eligible=[x for x in mb.get('evaluated') or [] if x.get('eligible')]
+          assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V19'
+          assert s.get('strategy_mode')=='EXPLAINABLE_MULTI_CRITERIA_SELF_BUILD'
+          assert winner and len(eligible)>=2
+          assert int(winner['effective_cost_dkk'])==min(int(x['effective_cost_dkk']) for x in eligible)
+          assert mb.get('runner_up')
+          assert 'effective advantage' in mb.get('reason','')
+          assert (s.get('component_optimizer_policy') or {}).get('brand_bias')=='NONE'
+          text=Path('results/wow_self_build_report_v19.md').read_text(encoding='utf-8')
+          for marker in ('Hvorfor hver del vandt','Bundkort — fuld sammenligning','Runner-up','Hard gate','Metodisk forskel fra V18'):
+              assert marker in text, marker
+          print(json.dumps({
+              'PASS':True,
+              'recommended_tcwp':rec.get('tcwp'),
+              'cpu':rec.get('cpu'),
+              'gpu':rec.get('gpu'),
+              'motherboard':winner.get('name'),
+              'motherboard_price':winner.get('price'),
+              'motherboard_feature_value':winner.get('feature_value_dkk'),
+              'motherboard_effective_cost':winner.get('effective_cost_dkk'),
+              'runner_up':(mb.get('runner_up') or {}).get('name'),
+          },ensure_ascii=False))
+          PY
