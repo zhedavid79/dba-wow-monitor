@@ -1,8 +1,8 @@
 # Acurast coverage audit
 
-Generated: 2026-09-05T10:22:10.141256+00:00
+Generated: 2026-09-05T10:32:09.101470+00:00
 
-T0 listings <= ceiling: **2543**  
+T0 listings <= ceiling: **2544**  
 Verified before quality: **55**  
 Final after quality: **55**  
 Mainnet ranked: **39**
@@ -1068,8 +1068,8 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |

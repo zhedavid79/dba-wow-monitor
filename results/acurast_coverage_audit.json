@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-05T10:22:10.141256+00:00",
+  "generated_at": "2026-09-05T10:32:09.101470+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2543,
+    "t0_unique": 2544,
     "verified_before_quality": 55,
     "final_after_quality": 55,
     "ranked": 39,
@@ -9094,21 +9094,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "23524084",
       "model": null,
       "title": "Sony Erikson X10i",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
       "reason": "live price missing"
     },
     {
@@ -9452,20 +9452,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
-      "sources": [
-        "brand-mobile:google:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
-    },
-    {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
@@ -9478,6 +9464,20 @@
       "reason": "live price missing",
       "title": "Sony Erikson X10i",
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+    },
+    {
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask_t0": 0,
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
+      "sources": [
+        "brand-mobile:google:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
       "listing_id": "394898",
@@ -9539,12 +9539,12 @@
   ],
   "discovery_reject_stage_counts": {
     "T1": 6,
-    "PRODUCT_IDENTITY": 2482
+    "PRODUCT_IDENTITY": 2483
   },
   "discovery_reject_reason_counts": {
     "live price missing": 3,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 989,
     "no supported model resolved": 1444,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 988,
     "weak complete-phone evidence": 5,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 7,
@@ -9552,7 +9552,7 @@
     "description indicates part without explicit functional phone evidence": 27
   },
   "audit_integrity": {
-    "all_rejects_count": 2488,
+    "all_rejects_count": 2489,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
