@@ -40,10 +40,10 @@ on:
 permissions:
   contents: write
 
-# Latest authoritative run wins. A stale/slow previous market scan must never
-# block a newer code/data revision from reaching the publication gate.
+# V18 owns a fresh concurrency group so legacy runs cannot block it.
+# Within V18, the newest authoritative run always supersedes stale work.
 concurrency:
-  group: wow-dba-authoritative-report
+  group: wow-dba-authoritative-report-v18
   cancel-in-progress: true
 
 jobs:
