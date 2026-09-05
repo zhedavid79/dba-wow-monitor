@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-05T18:21:05.896176+00:00",
+  "generated_at": "2026-09-05T19:01:40.174490+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2551,
+    "t0_unique": 2550,
     "verified_before_quality": 59,
     "final_after_quality": 58,
     "ranked": 40,
@@ -4553,6 +4553,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "23771919",
+      "title": "OnePlus One - Den første udgave. 64gb",
+      "ask": 250,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23771919",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "23824075",
       "title": "Motorola mobil",
       "ask": 250,
@@ -5790,15 +5799,6 @@
       "title": "2 stk Huawei telefoner til simkort",
       "ask": 350,
       "url": "https://www.dba.dk/recommerce/forsale/item/23669077",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "23771919",
-      "title": "OnePlus One - Den første udgave. 64gb",
-      "ask": 350,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23771919",
       "reason": "no supported model resolved"
     },
     {
@@ -9076,6 +9076,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "23524084",
       "model": null,
       "title": "Sony Erikson X10i",
@@ -9091,16 +9101,6 @@
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9452,6 +9452,20 @@
   ],
   "t1_exits": [
     {
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
@@ -9478,20 +9492,6 @@
       "reason": "live price missing",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
-    },
-    {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
-      "sources": [
-        "brand-mobile:huawei:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "17621913",
@@ -9538,13 +9538,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 6,
-    "PRODUCT_IDENTITY": 2486
+    "PRODUCT_IDENTITY": 2485,
+    "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "live price missing": 3,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 992,
     "no supported model resolved": 1443,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 991,
+    "live price missing": 3,
     "weak complete-phone evidence": 6,
     "resolved model variant is not supported by seller text": 10,
     "accessory/part title": 7,
@@ -9552,7 +9552,7 @@
     "description indicates part without explicit functional phone evidence": 28
   },
   "audit_integrity": {
-    "all_rejects_count": 2492,
+    "all_rejects_count": 2491,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

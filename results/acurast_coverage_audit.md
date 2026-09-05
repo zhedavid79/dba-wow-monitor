@@ -1,8 +1,8 @@
 # Acurast coverage audit
 
-Generated: 2026-09-05T18:21:05.896176+00:00
+Generated: 2026-09-05T19:01:40.174490+00:00
 
-T0 listings <= ceiling: **2551**  
+T0 listings <= ceiling: **2550**  
 Verified before quality: **59**  
 Final after quality: **58**  
 Mainnet ranked: **40**
@@ -565,6 +565,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23657261 | Sony Ericsson K600i mobiltelefon | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 23709904 | Samsung "skub op telefon" model SGH-E370 | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 23768457 | Nokia lumia 520 | 250 | no supported model resolved |
+| DISCOVERY/MODEL | 23771919 | OnePlus One - Den første udgave. 64gb | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 23824075 | Motorola mobil | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 23971100 | Sony Ericsson T65 | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 24039509 | Samsung mobiltelefoner defekt parti C5212 B2100 F300? | 250 | no supported model resolved |
@@ -703,7 +704,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23538748 | Ubrugt Moto E15 | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 23601662 | Nokia 8310 retro | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 23669077 | 2 stk Huawei telefoner til simkort | 350 | no supported model resolved |
-| DISCOVERY/MODEL | 23771919 | OnePlus One - Den første udgave. 64gb | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 24356413 | 12 ældre og nyere telefoner i blandet stand. Galaxy 9 er ulåst og klar til brug | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 24452824 | Nokia 800 Tough | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 24615188 | zte A56 smartphone | 350 | no supported model resolved |
@@ -1065,9 +1065,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
