@@ -78,10 +78,6 @@ THRESHOLDS = {
 }
 
 
-def money(n: int | None) -> int | None:
-    return int(n) if n is not None else None
-
-
 def ram_capacity(name: str) -> int:
     m = re.search(r'\b(2|4)\s*x\s*(8|16|32)\s*gb\b', name or '', re.I)
     if m:
@@ -131,16 +127,34 @@ def route_has_desktop_ram(route: dict) -> bool:
     return not BAD_DESKTOP_RAM.search(str(ram.get('name') or ''))
 
 
-def apply_current_new_ram(route: dict) -> None:
+def as_new_component(kind: str, ref: dict) -> dict:
+    x = deepcopy(ref)
+    x.update({'kind': kind, 'source': 'NEW RETAIL', 'verified_at': '2026-09-05T18:00:00+02:00'})
+    return x
+
+
+def as_used_component(kind: str, used: dict) -> dict:
+    x = dict(used)
+    x.update({'kind': kind, 'source': 'USED ASK', 'functional_defect': False})
+    if kind == 'RAM':
+        x['capacity_gb'] = int(x.get('capacity_gb') or ram_capacity(str(x.get('name') or '')))
+    return x
+
+
+def replace_component(route: dict, kind: str, replacement: dict) -> None:
     comps = route.get('components') or []
     for i, c in enumerate(comps):
-        if c.get('kind') == 'RAM' and c.get('source') == 'NEW RETAIL':
-            ref = deepcopy(NEW_REFERENCES['RAM'])
-            ref.update({'kind': 'RAM', 'source': 'NEW RETAIL', 'verified_at': '2026-09-05T18:00:00+02:00'})
-            comps[i] = ref
+        if c.get('kind') == kind:
+            comps[i] = replacement
             break
     route['components'] = comps
     route['tcwp'] = sum(int(c.get('price') or 0) for c in comps)
+
+
+def apply_current_new_ram(route: dict) -> None:
+    cur = next((c for c in route.get('components', []) if c.get('kind') == 'RAM'), None)
+    if cur and cur.get('source') == 'NEW RETAIL':
+        replace_component(route, 'RAM', as_new_component('RAM', NEW_REFERENCES['RAM']))
 
 
 def component_decision(route: dict, kind: str) -> dict:
@@ -204,6 +218,19 @@ def component_decision(route: dict, kind: str) -> dict:
     }
 
 
+def apply_market_choices(route: dict) -> None:
+    # Make the BOM match the decision rather than merely annotating a contradictory choice.
+    for kind in ('MOTHERBOARD','PSU','CASE','COOLER','RAM','CPU','STORAGE'):
+        dec = component_decision(route, kind)
+        if dec['decision'] in {'BUY_USED','BUY_USED_BRIDGE'} and dec.get('best_used'):
+            replace_component(route, kind, as_used_component(kind, dec['best_used']))
+        elif dec['decision'] in {'BUY_NEW','BUY_NEW_OR_WAIT'} and dec.get('new_reference'):
+            replace_component(route, kind, as_new_component(kind, dec['new_reference']))
+    # GPU new reference is target-class rather than exact-model, so it is comparison-only.
+    # Do not mutate GPU identity/performance scoring unless a future layer models that card explicitly.
+    route['tcwp'] = sum(int(c.get('price') or 0) for c in route.get('components') or [])
+
+
 def finalize(data: dict) -> dict:
     self_build = []
     for original in data.get('self_build_ranked') or []:
@@ -211,7 +238,14 @@ def finalize(data: dict) -> dict:
         if not route_has_desktop_ram(route):
             continue
         apply_current_new_ram(route)
+        apply_market_choices(route)
+        if not route_has_desktop_ram(route):
+            continue
         v17.self_build_effective_cost(route)
+        route['component_market_decisions'] = {
+            kind: component_decision(route, kind)
+            for kind in ('MOTHERBOARD','PSU','CASE','COOLER','RAM','CPU','GPU','STORAGE')
+        }
         self_build.append(route)
 
     self_build.sort(key=lambda r: (int(r.get('self_build_effective_cost') or 10**9), int(r.get('tcwp') or 10**9)))
@@ -221,12 +255,6 @@ def finalize(data: dict) -> dict:
     sweet_price = sorted(sweet, key=lambda r: int(r.get('tcwp') or 10**9))
 
     recommended = self_build[0] if self_build else None
-    if recommended:
-        recommended['component_market_decisions'] = {
-            kind: component_decision(recommended, kind)
-            for kind in ('MOTHERBOARD','PSU','CASE','COOLER','RAM','CPU','GPU','STORAGE')
-        }
-
     complete = list(data.get('complete_pc_reference') or [])
     secondary = [r for r in data.get('ranked') or [] if r.get('route') not in v17.SELF_BUILD_ROUTES and r.get('route') != 'COMPLETE_USED_PC']
     data['ranked'] = self_build + secondary + complete
@@ -240,7 +268,7 @@ def finalize(data: dict) -> dict:
         'mode': 'USED_VS_NEW_WITH_BUY_WAIT',
         'thresholds': THRESHOLDS,
         'ram_form_factor': 'DESKTOP_DIMM_ONLY; SO_DIMM_RDIMM_LRDIMM_HARD_EXCLUDE',
-        'rule': 'Used must beat a current new reference by a category-specific margin; otherwise buy new or wait.',
+        'rule': 'Used must beat a current new reference by a category-specific margin; the actionable BOM is mutated to the chosen source before TCWP/ranking.',
     }
     data['model_version'] = 'DBA-WOW-SELF-BUILD-FIRST-V18'
     data['strategy_mode'] = 'SELF_BUILD_FIRST_USED_VS_NEW'
@@ -258,6 +286,7 @@ def main() -> None:
         'recommended_tcwp': rec.get('tcwp'),
         'recommended_cpu': rec.get('cpu'),
         'recommended_gpu': rec.get('gpu'),
+        'ram': next((c.get('name') for c in rec.get('components',[]) if c.get('kind')=='RAM'), None),
         'ram_decision': ((rec.get('component_market_decisions') or {}).get('RAM') or {}).get('decision'),
     }, ensure_ascii=False))
 
