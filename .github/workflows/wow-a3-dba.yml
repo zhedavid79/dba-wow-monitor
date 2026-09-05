@@ -8,9 +8,6 @@ on:
     - cron: '0 17 * * *'
   push:
     branches: [main]
-    # Only market/data/model changes justify a full live DBA rescan.
-    # Report formatting, compaction and workflow-only edits are regression-tested
-    # separately and must not create another 20-30 minute scan storm.
     paths:
       - 'dba_browser_v2.py'
       - 'dba_browser_v3.py'
@@ -33,20 +30,24 @@ on:
       - 'dba_platform_first_v16.py'
       - 'dba_self_build_v17.py'
       - 'dba_self_build_v18.py'
+      - 'dba_component_optimizer_v19.py'
+      - 'dba_component_market_v19.py'
+      - 'dba_component_market_v19_regression.py'
+      - 'dba_retail_prices_v19.py'
+      - 'dba_self_build_v19.py'
 
 permissions:
   contents: write
 
-# V18 owns a fresh concurrency group so legacy runs cannot block it.
-# Within V18, the newest authoritative run always supersedes stale work.
+# A failed V19 run never overwrites the last green publication.
 concurrency:
-  group: wow-dba-authoritative-report-v18
+  group: wow-dba-authoritative-report-v19
   cancel-in-progress: true
 
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -60,7 +61,19 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Compile self-build-first model
-        run: python -m py_compile dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_ancestor.py dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py dba_platform_first_v16.py dba_self_build_v17.py dba_strategy_report_v17.py dba_self_build_v18.py dba_strategy_report_v18.py dba_build_alternatives.py dba_compact_publish_v18.py
+        run: >-
+          python -m py_compile
+          dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py
+          dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py
+          dba_listing_intelligence.py dba_decision_report.py dba_t1_preflight.py
+          dba_t1_schema_probe.py dba_t1_hydration_ancestor.py dba_z20_parts.py
+          dba_z20_parts_recovery.py dba_strategy_parts.py dba_z20_donors.py
+          dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py
+          dba_platform_first_v16.py dba_self_build_v17.py dba_strategy_report_v17.py
+          dba_self_build_v18.py dba_strategy_report_v18.py dba_build_alternatives.py
+          dba_component_optimizer_v19.py dba_component_market_v19.py
+          dba_component_market_v19_regression.py dba_retail_prices_v19.py
+          dba_self_build_v19.py dba_strategy_report_v19.py dba_compact_publish_v19.py
 
       - name: Diagnose DBA source/schema gate
         timeout-minutes: 3
@@ -94,37 +107,74 @@ jobs:
         timeout-minutes: 3
         run: python dba_build_alternatives.py
 
-      - name: Apply V18 used-vs-new market decisions
+      # V18 remains an internal route/used-vs-new baseline. It is not published.
+      - name: Apply V18 route baseline
         timeout-minutes: 2
         run: python dba_self_build_v18.py
 
-      - name: Generate V18 used-vs-new self-build report
-        timeout-minutes: 2
-        run: python dba_strategy_report_v18.py
+      - name: Verify expanded V19 retail universe
+        timeout-minutes: 4
+        run: python dba_retail_prices_v19.py
 
-      - name: Validate V18 publication gate
+      - name: Apply explainable V19 component market model
+        timeout-minutes: 2
+        run: python dba_self_build_v19.py
+
+      - name: Generate authoritative V19 report
+        timeout-minutes: 2
+        run: python dba_strategy_report_v19.py
+
+      - name: Validate V19 publication gate
         run: |
           python - <<'PY'
           import json,re
+          from datetime import datetime, timezone
           from pathlib import Path
 
           s=json.loads(Path('results/wow_strategy_latest.json').read_text(encoding='utf-8'))
           c=json.loads(Path('results/wow_a3_latest.json').read_text(encoding='utf-8'))
           p=json.loads(Path('results/z20_parts_latest.json').read_text(encoding='utf-8'))
           q=json.loads(Path('results/z20_donors_latest.json').read_text(encoding='utf-8'))
+          retail=json.loads(Path('results/retail_prices_latest.json').read_text(encoding='utf-8'))
           defect=re.compile(r'\b(?:delvist\s+defekt|defekt|virker\s+ikke|fungerer\s+ikke|ustabil|artefakt(?:er)?|artifact(?:s)?|til\s+dele|reservedele|fryser|crash(?:er)?|genstarter|slukker|overopheder)\b|\bfejl(?:er)?\s+(?:under|ved|på)\b',re.I)
           bad_ram=re.compile(r'\b(?:so[- ]?dimm|sodimm|rdimm|lrdimm|registered|server\s*ram|kingston\s+fury\s+impact|kf548s38ibk2(?:-\d+)?)\b',re.I)
 
           assert s.get('gate_passed') is True
-          assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V18'
-          assert s.get('strategy_mode')=='SELF_BUILD_FIRST_USED_VS_NEW'
+          assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V19'
+          assert s.get('strategy_mode')=='EXPLAINABLE_MULTI_CRITERIA_SELF_BUILD'
           assert s.get('functional_defect_policy')=='HARD_EXCLUDE'
           assert s.get('primary_decision')=='BUILD_AN_UPGRADEABLE_PC; COMPLETE_PCS_ARE_SECONDARY_MARKET_REFERENCES'
-          assert (s.get('market_decision_policy') or {}).get('mode')=='USED_VS_NEW_WITH_BUY_WAIT'
           assert c.get('gate_passed') is True and c.get('price_binding_regression',{}).get('ok') is True
           assert (c.get('coverage',{}).get('discovery') or {}).get('complete') is True
           assert (c.get('coverage',{}).get('t1') or {}).get('complete') is True
           assert p.get('gate_passed') is True and q.get('gate_passed') is True
+
+          assert retail.get('model')=='V19_RETAIL_SAME_PRODUCT_PRICE_GATE'
+          assert retail.get('all_catalog_products_verified') is True
+          counts=retail.get('counts') or {}
+          assert int(counts.get('failed') or 0)==0
+          assert int(counts.get('verified') or 0)==int(counts.get('total') or 0)>=25
+          rt=datetime.fromisoformat(str(retail['generated_at']).replace('Z','+00:00'))
+          if rt.tzinfo is None: rt=rt.replace(tzinfo=timezone.utc)
+          age=(datetime.now(timezone.utc)-rt.astimezone(timezone.utc)).total_seconds()
+          assert 0<=age<=20*60, f'retail snapshot stale at publication gate: {age:.0f}s'
+          for x in retail.get('products') or []:
+              assert x.get('verified') is True and int(x.get('price') or 0)>0 and x.get('url')
+              assert x.get('method') in {'JSON_LD_PRODUCT','PAGE_TEXT_PRICE'} or str(x.get('method') or '').startswith('DOM:')
+
+          coverage=s.get('component_market_coverage_v19') or {}
+          assert coverage.get('passed') is True
+          cats=coverage.get('categories') or {}
+          assert cats.get('MOTHERBOARD',{}).get('eligible',0)>=6
+          assert cats.get('PSU',{}).get('eligible',0)>=4
+          assert cats.get('COOLER',{}).get('eligible',0)>=3
+          assert cats.get('RAM',{}).get('eligible',0)>=3
+          assert cats.get('STORAGE',{}).get('eligible',0)>=3
+
+          policy=s.get('component_optimizer_policy') or {}
+          assert policy.get('brand_bias')=='NONE'
+          assert policy.get('chipset_label_premium')=='NONE; B850/B650 labels carry no intrinsic score. Only concrete features matter.'
+          assert 'more expensive candidate cannot win' in str(policy.get('pareto_rule') or '')
 
           self_build=s.get('self_build_ranked') or []
           complete=s.get('complete_pc_reference') or []
@@ -134,22 +184,35 @@ jobs:
           assert recommended.get('foundation')=='AM5_B650_B850_MATX_WIFI_4DIMM'
           assert recommended.get('upgradeability')=='A'
           assert recommended.get('z20_fit') in {'VERIFIED','LIKELY'}
+          assert sum(int(x.get('price') or 0) for x in recommended.get('components') or [])==int(recommended.get('tcwp') or 0)
 
-          decisions=recommended.get('component_market_decisions') or {}
+          decisions=recommended.get('component_choice_v19') or {}
           required={'MOTHERBOARD','PSU','CASE','COOLER','RAM','CPU','GPU','STORAGE'}
-          assert set(decisions) == required
-          for kind,dec in decisions.items():
-              assert dec.get('decision') in {'BUY_USED','BUY_USED_BRIDGE','BUY_NEW','BUY_NEW_OR_WAIT','WAIT'}
-              new=dec.get('new_reference')
-              assert new and int(new.get('price') or 0)>0 and new.get('url')
-              assert int(dec.get('new_price') or 0)==int(new['price'])
+          assert set(decisions)==required
+          for kind in ('MOTHERBOARD','PSU','CASE','COOLER','RAM','STORAGE'):
+              dec=decisions[kind]
+              w=dec.get('winner') or {}
+              assert w and w.get('eligible') is True and int(w.get('price') or 0)>0 and w.get('url')
+              assert dec.get('evaluated')
+              assert 'effective' in str(dec.get('reason') or '').lower() or len(dec.get('evaluated') or [])==1
+          for kind in ('CPU','GPU'):
+              sel=(decisions[kind] or {}).get('selected') or {}
+              assert sel and int(sel.get('price') or 0)>0 and sel.get('url')
+
+          mb=decisions['MOTHERBOARD'].get('winner') or {}
+          assert mb.get('socket')=='AM5' and str(mb.get('form_factor')).lower()=='matx'
+          assert int(mb.get('dimm_slots') or 0)>=4 and int(mb.get('m2_count') or 0)>=2 and mb.get('wifi')
+          cheap_fail=next(x for x in decisions['MOTHERBOARD'].get('evaluated') or [] if x.get('sku')=='GIGABYTE_B650M_GAMING_WIFI6E')
+          assert cheap_fail.get('eligible') is False and '<4 DIMM' in (cheap_fail.get('hard_gate_failures') or [])
+          old_gigabyte=next(x for x in decisions['MOTHERBOARD'].get('evaluated') or [] if x.get('sku')=='GIGABYTE_B650M_GAMING_PLUS_WIFI')
+          assert old_gigabyte.get('dominated') is True and old_gigabyte.get('dominated_by')
 
           ram=[x for x in recommended.get('components',[]) if x.get('kind')=='RAM']
-          assert len(ram)==1 and not bad_ram.search(str(ram[0].get('name') or ''))
           psu=[x for x in recommended.get('components',[]) if x.get('kind')=='PSU']
           storage=[x for x in recommended.get('components',[]) if x.get('kind')=='STORAGE']
-          assert len(psu)==1 and psu[0].get('source')=='NEW RETAIL' and int(psu[0].get('watt') or 0)>=750
-          assert len(storage)==1 and storage[0].get('source')=='NEW RETAIL' and int(storage[0].get('capacity_gb') or 0)>=500
+          assert len(ram)==1 and not bad_ram.search(str(ram[0].get('name') or ''))
+          assert len(psu)==1 and int(psu[0].get('watt') or 0)>=750
+          assert len(storage)==1 and int(storage[0].get('capacity_gb') or 0)>=500
 
           for r in s.get('ranked') or []:
               comps=r.get('components') or []; assert comps
@@ -158,28 +221,38 @@ jobs:
                   assert x.get('source') in {'USED ASK','NEW RETAIL'} and x.get('url') and int(x.get('price') or 0)>0
                   if x['source']=='USED ASK':
                       assert x.get('listing_id') and x.get('functional_defect') is False
+                      assert str(x.get('listing_id')) in str(x.get('url'))
                       assert str(x.get('listing_id'))!='11596289'
                       assert not defect.search(str(x.get('name') or ''))
+                  else:
+                      assert x.get('price_evidence')=='LIVE_RETAIL_SNAPSHOT'
                   if x.get('kind')=='RAM' and r.get('route') in {'PLATFORM_FIRST_AM5','HYBRID_USED_NEW','USED_BUILD'}:
                       assert not bad_ram.search(str(x.get('name') or ''))
 
+          for r in complete:
+              used=next((x for x in r.get('components') or [] if x.get('source')=='USED ASK'),None)
+              assert used and used.get('listing_id') and used.get('url')
+              assert str(used['listing_id']) in str(used['url'])
+              assert used.get('functional_defect') is False
+
           canonical=Path('results/wow_self_build_report.md').read_text(encoding='utf-8')
+          v19report=Path('results/wow_self_build_report_v19.md').read_text(encoding='utf-8')
           legacy=Path('results/wow_platform_first_report.md').read_text(encoding='utf-8')
           alias=Path('results/wow_a3_report.md').read_text(encoding='utf-8')
-          assert canonical==legacy==alias
-          assert canonical.startswith('# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V18')
+          assert canonical==v19report==legacy==alias
+          assert canonical.startswith('# FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V19')
           assert 'KF548S38IBK2' not in canonical
-          for marker in ('ANBEFALET SELVBYG','Brugt vs. nyt','Nypris','Handling','Tre selvbyg-spor','Del-for-del alternativer — direkte links','GPU-marked','CPU-marked','Selvbyg-ranking','Færdige computere — markedsreference','Pris- og evidensregel'):
+          for marker in ('ANBEFALET SELVBYG','Hvorfor hver permanent del vandt','Markedsdækning','Fuld del-for-del sammenligning','Pareto','GPU-marked','CPU-marked','Selvbyg-ranking','Færdige computere — markedsreference','Pris- og evidensregel'):
               assert marker in canonical,marker
-          print(f"PASS SELF-BUILD-FIRST V18: {len(self_build)} self-builds; {len(complete)} complete-PC references; used-vs-new decisions={len(decisions)}")
+          for x in recommended.get('components') or []:
+              assert x['url'] in canonical
+          print(f"PASS SELF-BUILD-FIRST V19: {len(self_build)} self-builds; {len(complete)} complete-PC references; retail={counts.get('verified')}/{counts.get('total')}; coverage=PASS")
           PY
 
-      # Preserve the fully gated pre-compaction state. A later compaction/git-push
-      # failure must never force another expensive live T0/T1 market scan.
-      - name: Preserve gated V18 snapshot
+      - name: Preserve gated V19 snapshot
         uses: actions/upload-artifact@v4
         with:
-          name: wow-v18-gated-${{ github.run_id }}
+          name: wow-v19-gated-${{ github.run_id }}
           retention-days: 3
           compression-level: 6
           path: |
@@ -187,12 +260,14 @@ jobs:
             results/wow_a3_report.md
             results/wow_platform_first_report.md
             results/wow_self_build_report.md
+            results/wow_self_build_report_v19.md
             results/wow_strategy_latest.json
+            results/retail_prices_latest.json
             results/z20_parts_latest.json
             results/z20_donors_latest.json
 
-      - name: Compact verified V18 publication snapshot
-        run: python dba_compact_publish_v18.py
+      - name: Compact verified V19 publication snapshot
+        run: python dba_compact_publish_v19.py
 
       - name: Validate publish payload size
         run: |
@@ -201,24 +276,24 @@ jobs:
           p=Path('results/wow_strategy_latest.json')
           size=p.stat().st_size
           limit=90*1024*1024
-          assert size < limit, f'Compact V18 strategy snapshot still too large: {size/1024/1024:.2f} MiB'
+          assert size < limit, f'Compact V19 strategy snapshot still too large: {size/1024/1024:.2f} MiB'
           print(f'PASS PUBLISH SIZE: {size/1024/1024:.2f} MiB < 90 MiB')
           PY
 
-      - name: Publish authoritative self-build-first results
+      - name: Publish authoritative V19 self-build-first results
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/wow-results
-          cp results/wow_a3_latest.json results/wow_a3_report.md results/wow_platform_first_report.md results/wow_self_build_report.md results/wow_strategy_latest.json results/z20_parts_latest.json results/z20_donors_latest.json /tmp/wow-results/
+          cp results/wow_a3_latest.json results/wow_a3_report.md results/wow_platform_first_report.md results/wow_self_build_report.md results/wow_self_build_report_v19.md results/wow_strategy_latest.json results/retail_prices_latest.json results/z20_parts_latest.json results/z20_donors_latest.json /tmp/wow-results/
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/wow-results/* results/
-            git add results/wow_a3_latest.json results/wow_a3_report.md results/wow_platform_first_report.md results/wow_self_build_report.md results/wow_strategy_latest.json results/z20_parts_latest.json results/z20_donors_latest.json
+            git add results/wow_a3_latest.json results/wow_a3_report.md results/wow_platform_first_report.md results/wow_self_build_report.md results/wow_self_build_report_v19.md results/wow_strategy_latest.json results/retail_prices_latest.json results/z20_parts_latest.json results/z20_donors_latest.json
             if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Update verified WoW self-build-first report [skip ci]"
+            git commit -m "Update verified WoW V19 self-build-first report [skip ci]"
             if git push origin main; then exit 0; fi
           done
           exit 1
