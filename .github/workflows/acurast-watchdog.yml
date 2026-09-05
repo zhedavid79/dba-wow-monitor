@@ -1,0 +1,72 @@
+name: Acurast DBA Freshness Watchdog
+
+on:
+  schedule:
+    - cron: '*/15 6-20 * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: acurast-dba-watchdog
+  cancel-in-progress: false
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Acurast generation freshness
+        id: freshness
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          from datetime import datetime, timezone
+
+          p = Path('results/acurast_latest.json')
+          stale = True
+          age_min = 999999.0
+          if p.exists():
+              try:
+                  data = json.loads(p.read_text(encoding='utf-8'))
+                  ts = datetime.fromisoformat(data['generated_at'].replace('Z', '+00:00'))
+                  age_min = (datetime.now(timezone.utc) - ts).total_seconds() / 60
+                  stale = age_min > 75
+              except Exception:
+                  stale = True
+          print(f'stale={str(stale).lower()}')
+          print(f'age_min={age_min:.1f}')
+          PY
+
+      - name: Check for active Acurast workflow
+        if: steps.freshness.outputs.stale == 'true'
+        id: active
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          active=$(gh api \
+            -H 'Accept: application/vnd.github+json' \
+            /repos/${{ github.repository }}/actions/workflows/acurast-dba.yml/runs?per_page=20 \
+            --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress")] | length')
+          echo "count=$active" >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch recovery when stale and idle
+        if: steps.freshness.outputs.stale == 'true' && steps.active.outputs.count == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          echo "Acurast result is ${ { steps.freshness.outputs.age_min } } minutes old; dispatching recovery"
+          gh workflow run acurast-dba.yml --ref main
+
+      - name: Report watchdog decision
+        shell: bash
+        run: |
+          echo "stale=${{ steps.freshness.outputs.stale }} age_min=${{ steps.freshness.outputs.age_min }} active=${{ steps.active.outputs.count || 'n/a' }}"
