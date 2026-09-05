@@ -40,9 +40,11 @@ on:
 permissions:
   contents: write
 
+# Latest authoritative run wins. A stale/slow previous market scan must never
+# block a newer code/data revision from reaching the publication gate.
 concurrency:
   group: wow-dba-authoritative-report
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   report:
