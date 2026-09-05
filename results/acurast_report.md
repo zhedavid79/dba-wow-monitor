@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-05T19:01:34.996634+00:00
+Generated: 2026-09-05T21:11:31.488380+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2550 | Product rejects: 2485 | Bundle/variant/price rejects: 1 | Final: 58
+T0: 2549 | Product rejects: 2483 | Bundle/variant/price rejects: 1 | Final: 59
 
 ## Lowest verified single-device listings
 
@@ -68,6 +68,7 @@ T0: 2550 | Product rejects: 2485 | Bundle/variant/price rejects: 1 | Final: 58
 | 56 | Samsung s10 | 1000 kr. | [Samsung S10e Hvid. 128 gb](https://www.dba.dk/recommerce/forsale/item/23845886) |
 | 57 | Sony Xperia 10 III | 1000 kr. | [Sony Xperia 10 III smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/23658991) |
 | 58 | Sumsung Galaxy s25 ultra | 1000 kr. | [Kinesisk S25 Ultra](https://www.dba.dk/recommerce/forsale/item/23880275) |
+| 59 | Xiaomi 12 Pro | 1000 kr. | [Xiaomi 12 Pro 256 GB – flot stand, ingen ridser](https://www.dba.dk/recommerce/forsale/item/22007439) |
 
 ## Manual review — ambiguous variant/multi-device/price listings
 

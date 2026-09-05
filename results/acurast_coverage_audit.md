@@ -1,16 +1,16 @@
 # Acurast coverage audit
 
-Generated: 2026-09-05T19:01:40.174490+00:00
+Generated: 2026-09-05T21:11:37.587422+00:00
 
-T0 listings <= ceiling: **2550**  
-Verified before quality: **59**  
-Final after quality: **58**  
-Mainnet ranked: **40**
+T0 listings <= ceiling: **2549**  
+Verified before quality: **60**  
+Final after quality: **59**  
+Mainnet ranked: **41**
 
 ## Review buckets
 
-- Discovery/model blindspots: **980**
-- Core-compatible explicit models stopped by Pulse gate: **23**
+- Discovery/model blindspots: **978**
+- Core-compatible explicit models stopped by Pulse gate: **22**
 - T1 exits/errors: **6**
 - Quality-gate review: **1**
 - Core compatibility review: **7**
@@ -30,7 +30,6 @@ Mainnet ranked: **40**
 | Motorola G53 | Motorola G53 128 GB sort | NO_MATCH |
 | Motorola g62 | Motorola g62 | NO_MATCH |
 | Nothing Phone 3a Lite | Nothing Phone (3a) Lite 128GB/8GB - White | NO_MATCH |
-| OnePlus OnePlus 7 Pro | OnePlus OnePlus 7 Pro, Perfekt | NO_MATCH |
 | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse | NO_MATCH |
 | Poco X3 PRO | Poco X3 PRO "256GB" | NO_MATCH |
 | Samsung A23 | Samsung A23, 64 GB | NO_MATCH |
@@ -226,7 +225,6 @@ Pris: 10.999 kr. | 0 | live price missing |
 | DISCOVERY/MODEL | 18689433 | HTC wildfire a3333 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 18838882 | Sony Ericsson W715 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 19080086 | LG G Pro Lite Dual 8GB 1GB RAM | 100 | no supported model resolved |
-| DISCOVERY/MODEL | 1967279 | OnePlus FLIPCOVER TIL ONEOLUS 7 PRO, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 19735807 | Nokia, og Ericsson | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 20225710 | Sony Xperia E15i - Mobiltelefon | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 20802148 | Nokia 6220c | 100 | no supported model resolved |
@@ -247,7 +245,6 @@ Pris: 10.999 kr. | 0 | live price missing |
 | DISCOVERY/MODEL | 22044445 | Nokia 6150 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2212324 | Sony Xperia XZ Premium | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2212376 | Sony Xperia x Compact | 100 | no supported model resolved |
-| DISCOVERY/MODEL | 2214769 | OnePlus OnePlus 7 Pro, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 22482306 | Samsung og ældre mobiltelefoner | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 22488255 | Nokia 3310 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 22551449 | Samsung mobiltelefon sort | 100 | no supported model resolved |
@@ -896,7 +893,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24461110 | Samsung Galaxy A-serie smartphone 64 GB sort | 600 | no supported model resolved |
 | DISCOVERY/MODEL | 24493255 | OnePlus Watch 2 | 600 | no supported model resolved |
 | DISCOVERY/MODEL | 24529277 | Motorola Moto G24 Power – 8GB / 256GB – Dual SIM + NFC | 600 | no supported model resolved |
-| DISCOVERY/MODEL | 24566971 | Galaxy A53 5G sort | 600 | no supported model resolved |
 | DISCOVERY/MODEL | 24616014 | Huawei P30 Pro | 600 | no supported model resolved |
 | DISCOVERY/MODEL | 14725159 | Sony Xperia Z3 tablet Compact telefon SGP 621 og SGP 641. 16 GB. Sort. | 625 | no supported model resolved |
 | DISCOVERY/MODEL | 14839862 | Motorola One Hyper | 648 | no supported model resolved |
@@ -1040,6 +1036,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24565284 | Samsung Galaxy A17 5G smartphone 128 GB sort | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24632850 | Ny Motorola Moto G77 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24635005 | Motorola G67 | 1000 | no supported model resolved |
+| DISCOVERY/MODEL | 24650966 | Samsung Galaxy Tab S6 Lite | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 8144576 | Samsung A40 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 862432 | Samsung Galaxy A-serie smartphone 128 GB sort | 1000 | no supported model resolved |
 | DISCOVERY/PULSE |  | FEIL Poco x3 PRO |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
@@ -1052,7 +1049,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Motorola G53 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Motorola g62 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Nothing Phone 3a Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| DISCOVERY/PULSE |  | OnePlus OnePlus 7 Pro |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Poco X3 PRO |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung A23 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
@@ -1065,9 +1061,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
