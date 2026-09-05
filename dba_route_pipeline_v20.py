@@ -21,29 +21,26 @@ def annotate_pool() -> None:
         model=str(r.get('gpu') or 'UNKNOWN')
         counts[model]=counts.get(model,0)+1
     d['gpu_pool_v20']={
-        'method':'STRATIFIED_CHEAPEST_PLUS_PERFORMANCE_PLUS_TARGET_FAMILIES',
+        'method':'TARGET_FAMILY_RESERVED_THEN_VALUE_THEN_PERFORMANCE_MAX24',
         'pool_size':len(platform20.LAST_POOL),
+        'max_pre_v16_pool':platform20.MAX_PRE_V16_GPU_POOL,
         'target_families':list(platform20.TARGET_GPU_FAMILIES),
         'family_counts':counts,
-        'rule':'A target GPU family cannot be dropped solely because it is not in the cheapest-N listings.',
+        'rule':'One cheapest live card from each target family is reserved before value/performance fill. Pool is capped before V16 so its historical cheapest-24 cutoff cannot remove reserved target families.',
         'integration':'V20 patch remained active inside V17 -> alternatives -> V18 route construction process.',
     }
     OUT.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
 
 
 def main() -> None:
-    # v17.main -> patched v16.main -> V17 finalize
     v17.main()
-    # alternatives operates on the already-built V17 routes; it does not rerun V16.
     alternatives.main()
-    # V18 is an internal used-vs-new route baseline only; V20 later replaces its
-    # permanent retail choices with live multi-candidate decisions.
     v18.main()
     annotate_pool()
     d=json.loads(OUT.read_text(encoding='utf-8'))
     pool=d.get('gpu_pool_v20') or {}
     assert d.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V18'
-    assert int(pool.get('pool_size') or 0)>0
+    assert 0<int(pool.get('pool_size') or 0)<=platform20.MAX_PRE_V16_GPU_POOL
     print(json.dumps({'V20_ROUTE_PIPELINE':True,'baseline_model':d.get('model_version'),'self_builds':len(d.get('self_build_ranked') or []),'gpu_pool_size':pool.get('pool_size'),'gpu_family_counts':pool.get('family_counts')},ensure_ascii=False))
 
 
