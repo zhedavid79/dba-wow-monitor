@@ -23,6 +23,19 @@ FUNCTIONAL_DEFECT = re.compile(
 )
 parts.DEFECT = FUNCTIONAL_DEFECT
 
+# Some DBA titles expose only the Kingston part number and omit the words SO-DIMM.
+# KF548S38IBK2-* is Kingston FURY Impact DDR5-4800 262-pin SO-DIMM and cannot be
+# installed in the desktop DIMM slots of the AM5 mATX foundation. Add model evidence
+# to the existing incompatibility gate instead of guessing from generic Fury branding.
+HIDDEN_SODIMM_MODEL = re.compile(
+    r"\b(?:kingston\s+fury\s+impact|kf548s38ibk2(?:-\d+)?)\b",
+    re.I,
+)
+parts.RAM_INCOMPATIBLE = re.compile(
+    parts.RAM_INCOMPATIBLE.pattern + r"|\b(?:kingston\s+fury\s+impact|kf548s38ibk2(?:-\d+)?)\b",
+    re.I,
+)
+
 EXTRA_QUERIES = [
     # Permanent/long-lived foundation opportunities.
     "ryzen 7500f", "ryzen 7600", "ryzen 7600x", "ryzen 7700", "am5 cpu",
@@ -88,6 +101,9 @@ def defect_regression() -> None:
     # Actual operational problems remain hard excludes.
     assert FUNCTIONAL_DEFECT.search("grafikkortet fryser under høj belastning")
     assert FUNCTIONAL_DEFECT.search("delvist defekt - virker ikke stabilt")
+    # A part-number-only Kingston FURY Impact listing must never be promoted to desktop RAM.
+    fit, _ = parts.ram_compatibility("Kingston Fury KF548S38IBK2 DDR5 RAM 32GB (2x16GB)", "RAM")
+    assert fit == "INCOMPATIBLE", fit
 
 
 parts.classify = classify
