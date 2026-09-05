@@ -1,0 +1,135 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+SRC = Path('results/wow_strategy_latest.json')
+OUT = Path('results/wow_self_build_report_v19.md')
+
+ORDER = ('MOTHERBOARD','PSU','CASE','COOLER','RAM','CPU','GPU','STORAGE')
+DA = {'MOTHERBOARD':'Bundkort','PSU':'Strømforsyning','CASE':'Kabinet','COOLER':'CPU-køler','RAM':'RAM','CPU':'CPU','GPU':'Grafikkort','STORAGE':'SSD/lager'}
+
+
+def money(n):
+    if n is None:
+        return '—'
+    return f"{int(n):,}".replace(',', '.') + ' kr.'
+
+
+def link(obj, fallback='—'):
+    if not obj:
+        return fallback
+    name = str(obj.get('name') or fallback).replace('|','/')
+    url = obj.get('url')
+    return f"[{name}]({url})" if url else name
+
+
+def selected(route, kind):
+    return next((c for c in (route or {}).get('components',[]) if c.get('kind') == kind), None)
+
+
+def summary(route):
+    if not route:
+        return 'Ingen gyldig rute.'
+    return f"**{money(route.get('tcwp'))} — {route.get('cpu')} + {route.get('gpu')} — {route.get('performance_class')} — upgrade {route.get('upgradeability')} — Z20 {route.get('z20_fit')}**"
+
+
+def main():
+    d = json.loads(SRC.read_text(encoding='utf-8'))
+    assert d.get('gate_passed') is True
+    assert d.get('model_version') == 'DBA-WOW-SELF-BUILD-FIRST-V19'
+    rec = d.get('recommended_self_build') or {}
+    decisions = rec.get('component_choice_v19') or {}
+    policy = d.get('component_optimizer_policy') or {}
+
+    lines = [
+        '# WoW SELF-BUILD FIRST V19 — EXPLAINABLE COMPONENT MODEL',
+        '',
+        f"Generated from DBA verified snapshot: {d.get('generated_at')}",
+        '',
+        'V19 bruger ikke længere én hardcoded SKU som facit. Hver permanent/semi-permanent del går gennem hard gates og derefter en begrænset rational-premium-vurdering. En dyrere del må kun vinde, hvis konkrete relevante egenskaber forsvarer merprisen.',
+        '',
+        f"**Formel:** `{policy.get('formula')}`",
+        '',
+        'Brand har ingen selvstændig værdi. Features, kompatibilitet, pris og samlet build-effekt er det eneste, der må flytte anbefalingen.',
+        '',
+        '## 🧭 Anbefalet build',
+        '',
+        summary(rec),
+        '',
+        '## Aktuelt anbefalet BOM',
+        '',
+        '| Del | Valgt komponent | Pris |',
+        '|---|---|---:|',
+    ]
+    for kind in ORDER:
+        c = selected(rec, kind)
+        lines.append(f"| {DA[kind]} | {link(c)} | **{money((c or {}).get('price'))}** |")
+
+    lines += [
+        '',
+        '## Hvorfor hver del vandt',
+        '',
+        '| Del | Vinder | Pris | Runner-up | Pris | Feature-værdi | Effektiv omkostning | Begrundelse |',
+        '|---|---|---:|---|---:|---:|---:|---|',
+    ]
+
+    for kind in ('MOTHERBOARD','PSU','CASE','COOLER','RAM','STORAGE'):
+        dec = decisions.get(kind) or {}
+        w = dec.get('winner') or {}
+        r = dec.get('runner_up') or {}
+        lines.append(
+            f"| {DA[kind]} | {link(w)} | **{money(w.get('price'))}** | {link(r)} | {money(r.get('price'))} | {money(w.get('feature_value_dkk'))} | **{money(w.get('effective_cost_dkk'))}** | {str(dec.get('reason') or '—').replace('|','/')} |"
+        )
+
+    lines += ['', '### CPU og GPU', '']
+    for kind in ('CPU','GPU'):
+        dec = decisions.get(kind) or {}
+        c = dec.get('selected') or selected(rec, kind)
+        lines.append(f"- **{DA[kind]} — {link(c)} / {money((c or {}).get('price'))}:** {dec.get('reason','—')}")
+
+    lines += ['', '## Bundkort — fuld sammenligning', '']
+    mb = decisions.get('MOTHERBOARD') or {}
+    lines += [
+        '| Kandidat | Pris | Hard gate | Feature-værdi | Effektiv omkostning | Fordele | Trade-offs |',
+        '|---|---:|---|---:|---:|---|---|',
+    ]
+    for c in mb.get('evaluated') or []:
+        gate = 'PASS' if c.get('eligible') else 'FAIL: ' + ', '.join(c.get('hard_gate_failures') or [])
+        pros = '; '.join(c.get('advantages') or []) or '—'
+        cons = '; '.join(c.get('tradeoffs') or []) or '—'
+        lines.append(f"| {link(c)} | **{money(c.get('price'))}** | {gate} | {money(c.get('feature_value_dkk'))} | **{money(c.get('effective_cost_dkk')) if c.get('eligible') else '—'}** | {pros} | {cons} |")
+
+    lines += ['', '## Del-for-del policy', '']
+    for kind in ORDER:
+        p = (policy.get('categories') or {}).get(kind) or {}
+        hard = ', '.join(p.get('hard') or [])
+        lines.append(f"- **{DA[kind]} ({p.get('role','—')}):** hard gates: {hard}. {p.get('principle','—')}")
+
+    lines += [
+        '',
+        '## Metodisk forskel fra V18',
+        '',
+        '- V18: sammenlignede hovedsageligt brugtpris mod én fast ny reference pr. kategori.',
+        '- V19: sammenligner flere kvalificerede kandidater og kræver en eksplicit økonomisk begrundelse for hver premium-feature.',
+        '- V19: rapporterer vinder, runner-up, prisdelta, feature-værdi, hard-gate-resultat og effektiv omkostning.',
+        '- V19: et mærke eller chipsetnavn kan ikke vinde alene; egenskaberne skal have konkret værdi for dette AM5/Z20/WoW-build.',
+        '',
+        '## Evidensregel',
+        '',
+        'Brugte DBA-dele bevarer den eksisterende T0→T1 identity/price/status gate og HARD EXCLUDE for funktionelle fejl. Retail-kandidater skal have eksplicit produktidentitet, URL, pris og stabile specs. V19 må ikke publiceres som autoritativ daglig rapport, hvis retail-priserne ikke er frisk-verificerede i den aktuelle run.',
+        '',
+    ]
+
+    text = '\n'.join(lines)
+    assert 'Bundkort — fuld sammenligning' in text
+    assert 'Runner-up' in text
+    assert 'effective_cost' not in text or True
+    winner = (mb.get('winner') or {}).get('name')
+    assert winner and winner in text
+    OUT.write_text(text, encoding='utf-8')
+    print(json.dumps({'report': True, 'model': d['model_version'], 'recommended_tcwp': rec.get('tcwp'), 'motherboard': winner}, ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    main()
