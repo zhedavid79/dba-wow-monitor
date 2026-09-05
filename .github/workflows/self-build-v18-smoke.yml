@@ -1,0 +1,59 @@
+name: WoW Self-Build V18 Market Decision Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dba_strategy_parts.py'
+      - 'dba_self_build_v18.py'
+      - 'dba_strategy_report_v18.py'
+      - '.github/workflows/self-build-v18-smoke.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  decision:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install playwright
+      - name: Compile V18 decision layer
+        run: python -m py_compile dba_strategy_parts.py dba_self_build_v18.py dba_strategy_report_v18.py
+      - name: Verify hidden SO-DIMM regression
+        run: python -c "import dba_strategy_parts as s; s.defect_regression(); print('PASS RAM FORM FACTOR REGRESSION')"
+      - name: Apply V18 to latest verified market snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import dba_self_build_v18 as v18
+          import dba_strategy_report_v18 as report
+
+          p=Path('results/wow_strategy_latest.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d.get('gate_passed') is True
+          d=v18.finalize(d)
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
+          report.main()
+          s=json.loads(p.read_text(encoding='utf-8'))
+          rec=s.get('recommended_self_build') or {}
+          decisions=rec.get('component_market_decisions') or {}
+          assert s.get('model_version')=='DBA-WOW-SELF-BUILD-FIRST-V18'
+          assert len(decisions)==8
+          assert 'KF548S38IBK2' not in Path('results/wow_self_build_report.md').read_text(encoding='utf-8')
+          print(json.dumps({
+              'PASS':True,
+              'recommended_tcwp':rec.get('tcwp'),
+              'recommended_cpu':rec.get('cpu'),
+              'recommended_gpu':rec.get('gpu'),
+              'ram':next((c.get('name') for c in rec.get('components',[]) if c.get('kind')=='RAM'),None),
+              'ram_decision':(decisions.get('RAM') or {}).get('decision'),
+              'cpu_decision':(decisions.get('CPU') or {}).get('decision'),
+              'gpu_decision':(decisions.get('GPU') or {}).get('decision'),
+          },ensure_ascii=False))
+          PY
