@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-05T12:35:38.097162+00:00",
+  "generated_at": "2026-09-05T13:53:41.791102+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2544,
-    "verified_before_quality": 57,
-    "final_after_quality": 56,
-    "ranked": 41,
-    "discovery_model_blindspots": 980,
-    "pulse_gated_discovery_review": 25,
-    "t1_exit_review": 7,
+    "t0_unique": 2547,
+    "verified_before_quality": 58,
+    "final_after_quality": 57,
+    "ranked": 40,
+    "discovery_model_blindspots": 982,
+    "pulse_gated_discovery_review": 24,
+    "t1_exit_review": 6,
     "quality_review": 1,
     "core_review": 6,
-    "pulse_review": 9
+    "pulse_review": 11
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 980,
-    "DISCOVERY/PULSE": 25,
-    "T1": 7,
+    "DISCOVERY/MODEL": 982,
+    "DISCOVERY/PULSE": 24,
+    "T1": 6,
     "QUALITY": 1,
     "CORE": 6,
-    "PULSE": 9
+    "PULSE": 11
   },
   "suspects": [
     {
@@ -2982,6 +2982,15 @@
       "title": "Nokia",
       "ask": 150,
       "url": "https://www.dba.dk/recommerce/forsale/item/24614128",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24634277",
+      "title": "Samsung A40",
+      "ask": 150,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24634277",
       "reason": "no supported model resolved"
     },
     {
@@ -7910,15 +7919,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24441195",
-      "title": "CMF by Nothing Phone 2 Pro",
-      "ask": 700,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24441195",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24618417",
       "title": "Samsung Galaxy a25 5g 128gb",
       "ask": 700,
@@ -8828,6 +8828,24 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24632850",
+      "title": "Ny Motorola Moto G77",
+      "ask": 1000,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24632850",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24635005",
+      "title": "Motorola G67",
+      "ask": 1000,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24635005",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "8144576",
       "title": "Samsung A40",
       "ask": 1000,
@@ -8842,16 +8860,6 @@
       "ask": 1000,
       "url": "https://www.dba.dk/recommerce/forsale/item/862432",
       "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/PULSE",
-      "severity": "MEDIUM",
-      "listing_id": null,
-      "model": "CMF by Nothing Phone 2 Pro",
-      "title": "CMF by Nothing Phone 2 Pro",
-      "ask": null,
-      "url": null,
-      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
     },
     {
       "stage": "DISCOVERY/PULSE",
@@ -9096,6 +9104,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "23524084",
+      "model": null,
+      "title": "Sony Erikson X10i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
@@ -9111,16 +9129,6 @@
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9151,16 +9159,6 @@
       "title": "Blackberry 9000 NY",
       "ask": 800,
       "url": "https://www.dba.dk/recommerce/forsale/item/24267594",
-      "reason": "listing disposed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24581139",
-      "model": null,
-      "title": "Apple iPhone 13 256 GB sort",
-      "ask": 1000,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24581139",
       "reason": "listing disposed"
     },
     {
@@ -9263,8 +9261,24 @@
     {
       "stage": "PULSE",
       "severity": "MEDIUM",
+      "listing_id": "24635672",
+      "model": "OnePlus 11",
+      "url": null,
+      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
+    },
+    {
+      "stage": "PULSE",
+      "severity": "MEDIUM",
       "listing_id": "24222153",
       "model": "Samsung Galaxy A51",
+      "url": null,
+      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
+    },
+    {
+      "stage": "PULSE",
+      "severity": "MEDIUM",
+      "listing_id": "24635388",
+      "model": "Xiaomi Redmi 14C",
       "url": null,
       "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
     },
@@ -9294,13 +9308,6 @@
     }
   ],
   "pulse_gated_fallback_rejects": [
-    {
-      "candidate_model": "CMF by Nothing Phone 2 Pro",
-      "title": "CMF by Nothing Phone 2 Pro",
-      "pulse_match_method": "NO_MATCH",
-      "pulse_match_confidence": 0.0,
-      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
-    },
     {
       "candidate_model": "FEIL Poco x3 PRO",
       "title": "FEIL! Poco x3 PRO! 256GB",
@@ -9472,6 +9479,20 @@
   ],
   "t1_exits": [
     {
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "brand-mobile:sony:5"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+    },
+    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9498,20 +9519,6 @@
       "reason": "live price missing",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
-    },
-    {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "17621913",
@@ -9555,38 +9562,24 @@
       "reason": "listing disposed",
       "title": "Blackberry 9000 NY",
       "url": "https://www.dba.dk/recommerce/forsale/item/24267594"
-    },
-    {
-      "listing_id": "24581139",
-      "title_t0": "Apple iPhone 13 256 GB sort",
-      "ask_t0": 1000,
-      "model_t0": null,
-      "brand_t0": "apple",
-      "sources": [
-        "category:46"
-      ],
-      "stage": "T1",
-      "reason": "listing disposed",
-      "title": "Apple iPhone 13 256 GB sort",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24581139"
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2480,
-    "T1": 7
+    "PRODUCT_IDENTITY": 2483,
+    "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1443,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 987,
+    "no supported model resolved": 1446,
     "live price missing": 3,
     "weak complete-phone evidence": 5,
-    "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 7,
-    "listing disposed": 4,
+    "resolved model variant is not supported by seller text": 11,
+    "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 27
   },
   "audit_integrity": {
-    "all_rejects_count": 2487,
+    "all_rejects_count": 2489,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
