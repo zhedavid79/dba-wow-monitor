@@ -1,0 +1,52 @@
+name: Retail V22 delivered-price smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dba_retail_offers_v22.py'
+      - '.github/workflows/retail-v22-offers-smoke.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: retail-v22-offers-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install browser
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Compile offer engine
+        run: python -m py_compile dba_retail_offers_v22.py
+      - name: Inspect current published retail universe
+        run: python dba_retail_offers_v22.py
+      - name: Validate offer evidence shape
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('results/retail_offers_v22.json').read_text())
+          assert d['model']=='V22_STORE_LEVEL_DELIVERED_PRICE_AND_DEALS'
+          assert d['products_total']>0
+          print(json.dumps({
+              'products':d['products_total'],
+              'delivered_verified':d['delivered_price_verified'],
+              'deals':d['deal_candidates'],
+              'by_kind':{
+                  k:sum(1 for x in d['rows'] if x.get('kind')==k and x.get('delivered_price_verified'))
+                  for k in ('MOTHERBOARD','PSU','CASE','COOLER','RAM','STORAGE')
+              }
+          }))
+          PY
