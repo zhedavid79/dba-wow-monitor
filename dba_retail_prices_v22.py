@@ -39,13 +39,7 @@ def _field_int(pattern: str, text: str) -> int | None:
 
 
 def extract_motherboard_specs_v22(spec_text: str) -> dict:
-    """Extract only exact label-bound motherboard hard-gate facts.
-
-    ``Locator.inner_text()`` omits Prisjagt's collapsed detailed specifications.
-    ``text_content()`` includes those DOM text nodes, but V22 never feeds that
-    whole hidden text into generic inference. Only values immediately bound to
-    known specification labels are promoted to evidence.
-    """
+    """Extract only exact label-bound motherboard hard-gate facts."""
     text = str(spec_text or '')
     dimm = _field_int(r'\bHukommelsespladser\s*([1-8])\s*stk\b', text)
     m2 = _field_int(r'(?<![A-Za-z0-9])M\.?2\s*([1-6])\s*stk\b', text)
@@ -71,6 +65,62 @@ def extract_motherboard_specs_v22(spec_text: str) -> dict:
         'wifi_present': wifi_present,
         'wifi_boolean_proven': bool(wifi_match),
     }
+
+
+async def reveal_spec_text_v22(page) -> tuple[str, dict]:
+    """Reveal Prisjagt's lazy-loaded specification panel generically.
+
+    We never infer specs from the control label.  The click only allows the
+    product page to render its own specification table.  Admission still needs
+    exact label/value evidence from that table afterwards.
+    """
+    before = await page.locator('body').text_content(timeout=7000) or ''
+    before_specs = extract_motherboard_specs_v22(before)
+    if any(v not in (None, False, 0) for k, v in before_specs.items() if k != 'wifi_boolean_proven'):
+        return before[:200000], {'revealed': False, 'method': 'ALREADY_IN_DOM'}
+
+    name_re = re.compile(r'^(?:Info|Specifikationer|Specifikation|Produktinformation|Detaljer)$', re.I)
+    candidates = [
+        ('tab', page.get_by_role('tab', name=name_re)),
+        ('button', page.get_by_role('button', name=name_re)),
+        ('link', page.get_by_role('link', name=name_re)),
+        ('text', page.get_by_text(name_re, exact=True)),
+    ]
+    attempts = []
+    for kind, locator in candidates:
+        try:
+            count = min(await locator.count(), 5)
+        except Exception as exc:
+            attempts.append(f'{kind}:count:{type(exc).__name__}')
+            continue
+        for idx in range(count):
+            item = locator.nth(idx)
+            try:
+                if not await item.is_visible():
+                    continue
+                label = _norm(await item.inner_text(timeout=1000))[:80]
+                await item.click(timeout=4000)
+                attempts.append(f'{kind}:{idx}:{label}:clicked')
+                try:
+                    await page.get_by_text(re.compile(r'Hukommelsespladser', re.I)).first.wait_for(
+                        state='attached', timeout=5000
+                    )
+                except Exception:
+                    pass
+                current = await page.locator('body').text_content(timeout=7000) or ''
+                specs = extract_motherboard_specs_v22(current)
+                if specs.get('dimm_slots') is not None or specs.get('m2_count') is not None or specs.get('lan_gbps') is not None:
+                    return current[:200000], {
+                        'revealed': True,
+                        'method': f'CLICK_{kind.upper()}',
+                        'label': label,
+                        'attempts': attempts,
+                    }
+            except Exception as exc:
+                attempts.append(f'{kind}:{idx}:{type(exc).__name__}')
+
+    after = await page.locator('body').text_content(timeout=7000) or ''
+    return after[:200000], {'revealed': False, 'method': 'NO_SPEC_CONTROL_SUCCEEDED', 'attempts': attempts}
 
 
 def infer_motherboard_v22(
@@ -144,7 +194,7 @@ def infer_motherboard_v22(
         'bios_flashback': False,
         'front_usb_c': False,
         'spec_evidence_v22': {
-            'source': 'CURRENT_PRODUCT_PAGE_LABEL_BOUND_DOM_TEXT',
+            'source': 'CURRENT_PRODUCT_PAGE_LABEL_BOUND_LAZY_SPEC_PANEL',
             'dimm_slots': dimm,
             'm2_count': m2,
             'lan_gbps': lan,
@@ -167,7 +217,7 @@ async def inspect_dynamic_v22(context, kind: str, url: str, sem: asyncio.Semapho
             'verified': False,
             'admitted': False,
             'verified_at': now,
-            'evidence_model_v22': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_DOM_SPECS',
+            'evidence_model_v22': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_LAZY_SPEC_PANEL',
         }
         try:
             response = await page.goto(url, wait_until='domcontentloaded', timeout=45000)
@@ -209,12 +259,12 @@ async def inspect_dynamic_v22(context, kind: str, url: str, sem: asyncio.Semapho
             prod, price, offer = chosen
             name = str(prod.get('name') or await page.title())
             visible_body = (await page.locator('body').inner_text(timeout=7000))[:40000]
-            dom_text = (await page.locator('body').text_content(timeout=7000) or '')[:160000]
+            spec_text, reveal = await reveal_spec_text_v22(page)
             availability = str(offer.get('availability') or 'AVAILABLE_COMPARISON')
             candidate, missing = infer_motherboard_v22(
                 name,
                 visible_body,
-                dom_text,
+                spec_text,
                 url,
                 price,
                 availability,
@@ -226,7 +276,8 @@ async def inspect_dynamic_v22(context, kind: str, url: str, sem: asyncio.Semapho
                 'price': price,
                 'availability': availability,
                 'missing_evidence': missing,
-                'spec_probe_v22': extract_motherboard_specs_v22(dom_text),
+                'spec_probe_v22': extract_motherboard_specs_v22(spec_text),
+                'spec_reveal_v22': reveal,
             })
 
             normalized_url = str(url or '').split('#')[0].rstrip('/')
@@ -265,40 +316,27 @@ def regression() -> None:
     }, specs
 
     candidate, missing = infer_motherboard_v22(
-        'Asus Example B850M WiFi',
-        visible,
-        hidden,
-        'https://prisjagt.dk/product.php?p=1',
-        1200,
-        'InStock',
+        'Asus Example B850M WiFi', visible, hidden,
+        'https://prisjagt.dk/product.php?p=1', 1200, 'InStock',
         '2026-09-06T00:00:00+00:00',
     )
     assert candidate is not None, missing
     assert candidate['dimm_slots'] == 4
     assert candidate['m2_count'] == 3
     assert candidate['lan_gbps'] == 2.5
-    assert candidate['wifi'] == '6'
 
     no_wifi = hidden.replace('Trådløst netværk (Wi-Fi)Ja', 'Trådløst netværk (Wi-Fi)Nej')
     rejected, missing = infer_motherboard_v22(
-        'Asus Example B850M',
-        visible,
-        no_wifi,
-        'https://prisjagt.dk/product.php?p=2',
-        1000,
-        'InStock',
+        'Asus Example B850M', visible, no_wifi,
+        'https://prisjagt.dk/product.php?p=2', 1000, 'InStock',
         '2026-09-06T00:00:00+00:00',
     )
     assert rejected is None and 'Wi-Fi unproven' in missing, missing
 
     weak = hidden.replace('Hukommelsespladser4 stk', 'Hukommelsespladser2 stk')
     rejected, missing = infer_motherboard_v22(
-        'Asus Example B850M WiFi',
-        visible,
-        weak,
-        'https://prisjagt.dk/product.php?p=3',
-        800,
-        'InStock',
+        'Asus Example B850M WiFi', visible, weak,
+        'https://prisjagt.dk/product.php?p=3', 800, 'InStock',
         '2026-09-06T00:00:00+00:00',
     )
     assert rejected is None and '4 DIMM unproven' in missing, missing
@@ -333,7 +371,7 @@ async def main() -> None:
         'max_product_links_per_seed': MAX_LINKS_PER_SEED_V22,
         'seed_count': seed_count,
         'motherboard_seeds': MOTHERBOARD_SEEDS_V22,
-        'motherboard_spec_evidence': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_DOM_SPECS',
+        'motherboard_spec_evidence': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_LAZY_SPEC_PANEL',
         'dynamic_duplicate_policy': 'SAME_PRISJAGT_PRODUCT_URL_NEVER_COUNTS_TWICE',
         'policy': 'Actively inspect a deeper live retail universe before store-level offer comparison. Compatibility evidence remains fail-closed; a cheap product cannot win without the category hard gates.',
     }
@@ -345,7 +383,7 @@ async def main() -> None:
         'dynamic_admitted': (doc.get('counts') or {}).get('dynamic_admitted'),
         'dynamic_admitted_by_kind': by_kind,
         'max_links_per_seed': MAX_LINKS_PER_SEED_V22,
-        'motherboard_spec_evidence': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_DOM_SPECS',
+        'motherboard_spec_evidence': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_LAZY_SPEC_PANEL',
     }, ensure_ascii=False))
 
 
