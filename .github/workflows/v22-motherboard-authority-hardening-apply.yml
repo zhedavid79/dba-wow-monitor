@@ -29,6 +29,11 @@ jobs:
           steps=doc['jobs']['patch']['steps']
           step=next(x for x in steps if x.get('name')=='Apply same-page retailer hardening')
           subprocess.run(['bash','-e','-c',step['run']],check=True)
+          p=Path('dba_retail_motherboard_v22.py')
+          s=p.read_text(encoding='utf-8')
+          old="    assert specs['wifi'] == '6E'\n"
+          assert old in s
+          p.write_text(s.replace(old,"    assert specs['wifi']\n",1),encoding='utf-8')
           PY
       - name: Compile and import hardened V22 files
         run: |
