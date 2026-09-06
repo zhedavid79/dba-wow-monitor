@@ -369,21 +369,20 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
                 )
                 if can_try_direct:
                     direct_attempts += 1
+                    component_verifier = None
+                    if out.get('kind') == 'MOTHERBOARD':
+                        async def component_verifier(retailer_page, retailer_url, retailer_title, retailer_h1):
+                            return await mb22.verify_retailer_motherboard_specs_on_page(
+                                retailer_page, retailer_url, name, retailer_title, retailer_h1
+                            )
                     retailer = await authority22.verify_external_retailer(
                         context,
                         str(r['direct_url']),
                         name,
                         lead_price_dkk=int(r['displayed_price_dkk']),
+                        component_page_verifier=component_verifier,
                     )
                     r.update(retailer)
-                    if (
-                        out.get('kind') == 'MOTHERBOARD'
-                        and r.get('external_resolved') is True
-                        and r.get('retailer_url')
-                    ):
-                        r.update(await mb22.verify_retailer_motherboard_specs(
-                            context, str(r['retailer_url']), name
-                        ))
 
                 strict = bool(
                     r.get('external_resolved') is True
@@ -534,8 +533,35 @@ async def main():
             user_agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36',
             extra_http_headers={'Accept-Language': 'da-DK,da;q=0.9,en;q=0.8'},
         )
-        sem = asyncio.Semaphore(5)
+        products.sort(key=lambda p: (0 if p.get('motherboard_spec_lead_v22') is True else 1))
+        sem = asyncio.Semaphore(4)
         rows = await asyncio.gather(*(inspect(context, p, sem, kmap) for p in products))
+
+        row_pos = {str(r.get('sku') or ''): i for i, r in enumerate(rows)}
+        spec_lead_retries = 0
+        serial_sem = asyncio.Semaphore(1)
+        for p in products:
+            if p.get('motherboard_spec_lead_v22') is not True:
+                continue
+            pos = row_pos.get(str(p.get('sku') or ''))
+            if pos is None:
+                continue
+            current = rows[pos]
+            if (
+                current.get('delivered_price_verified') is True
+                and current.get('retailer_component_spec_gate_passed') is True
+            ):
+                continue
+            retry = await inspect(context, p, serial_sem, kmap)
+            spec_lead_retries += 1
+            if (
+                retry.get('delivered_price_verified') is True
+                or (
+                    current.get('retail_lead_price_dkk') is None
+                    and retry.get('retail_lead_price_dkk') is not None
+                )
+            ):
+                rows[pos] = retry
         await context.close()
         await browser.close()
 
@@ -563,6 +589,7 @@ async def main():
         'external_routes_resolved': external_routes,
         'external_urls_resolved': retailer_verified,
         'retailer_pages_verified': retailer_verified,
+        'motherboard_spec_lead_retries': locals().get('spec_lead_retries', 0),
         'rows': rows,
     }
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -591,6 +618,7 @@ async def main():
         'external_routes_resolved': external_routes,
         'external_urls_resolved': retailer_verified,
         'retailer_pages_verified': retailer_verified,
+        'motherboard_spec_lead_retries': result.get('motherboard_spec_lead_retries', 0),
         'required_price_basis': 'DIRECT_RETAILER_PAGE_ONLY',
         'same_page_floor_basis': 'LIVE_OFFER_LIST_ONLY',
         'whole_page_floor_forbidden': True,

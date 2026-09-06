@@ -15,11 +15,11 @@ WIFI7_RE = re.compile(r'\bWi-?Fi\s*7\b|\b802\.11be\b', re.I)
 WIFI6E_RE = re.compile(r'\bWi-?Fi\s*6E\b', re.I)
 WIFI6_RE = re.compile(r'\bWi-?Fi\s*6\b|\b802\.11ax\b', re.I)
 WIFI_ANY_RE = re.compile(r'\bWi-?Fi\b|\bWireless\b|\bTrådløs(?:t|e)?\b', re.I)
-LAN_25_RE = re.compile(
-    r'\b(?:2[,.]5\s*(?:Gbit/s|Gbps|GbE|Gigabit(?:\s+Ethernet|\s+LAN)?|G\s*LAN)|'
-    r'2500\s*(?:Mbit/s|Mbps))\b',
+LAN_G_RE = re.compile(
+    r'\b(2[,.]5|5|10)\s*(?:Gbit/s|Gbps|GbE|Gigabit(?:\s+Ethernet|\s+LAN)?|G\s*LAN)\b',
     re.I,
 )
+LAN_M_RE = re.compile(r'\b(2500|5000|10000)\s*(?:Mbit/s|Mbps)\b', re.I)
 
 
 def _norm(value: str) -> str:
@@ -78,25 +78,42 @@ def lead_from_discovery(row: dict) -> dict | None:
     }
 
 
-def extract_retailer_motherboard_specs(expected_name: str, page_text: str) -> dict:
+def _lan_gbps(text: str) -> float:
+    m = LAN_G_RE.search(str(text or ''))
+    if m:
+        return float(m.group(1).replace(',', '.'))
+    m = LAN_M_RE.search(str(text or ''))
+    if m:
+        return float(m.group(1)) / 1000.0
+    return 0.0
+
+
+def extract_retailer_motherboard_specs(
+    expected_name: str,
+    page_text: str,
+    product_identity_text: str | None = None,
+) -> dict:
     """Extract hard motherboard facts from one direct retailer product page.
 
     Facts are label/value or unit-bound and fail closed.  No product-model lookup,
     brand-specific table parser, or inferred Ethernet speed is used.
     """
     text = str(page_text or '')
+    identity = str(product_identity_text or '')
     model_ok = bool(MODEL_RE.search(str(expected_name or '')))
-    matx = bool(MATX_RE.search(text))
-    am5 = bool(AM5_RE.search(text))
-    ddr5 = bool(DDR5_RE.search(text))
+    # These identity-level facts must belong to the retailer's exact product
+    # title/H1, never to recommendations elsewhere on the page.
+    matx = bool(MATX_RE.search(identity))
+    am5 = bool(AM5_RE.search(identity))
+    ddr5 = bool(DDR5_RE.search(identity))
 
-    if WIFI7_RE.search(text):
+    if WIFI7_RE.search(identity):
         wifi = '7'
-    elif WIFI6E_RE.search(text):
+    elif WIFI6E_RE.search(identity):
         wifi = '6E'
-    elif WIFI6_RE.search(text):
+    elif WIFI6_RE.search(identity):
         wifi = '6'
-    elif WIFI_ANY_RE.search(text):
+    elif WIFI_ANY_RE.search(identity):
         wifi = 'YES'
     else:
         wifi = ''
@@ -113,7 +130,7 @@ def extract_retailer_motherboard_specs(expected_name: str, page_text: str) -> di
         r'\bM\.?2\b.{0,28}?\b(?:antal|slots?|sockets?|porte?|stik)\b.{0,18}?\b([2-6])\b',
     ), text)
 
-    lan = 2.5 if LAN_25_RE.search(text) else 0.0
+    lan = _lan_gbps(text)
     pcie5_m2 = bool(
         re.search(r'PCI(?:e| Express)?\s*5(?:\.0)?.{0,60}M\.?2', text, re.I | re.S)
         or re.search(r'M\.?2.{0,60}PCI(?:e| Express)?\s*5(?:\.0)?', text, re.I | re.S)
@@ -152,6 +169,58 @@ def extract_retailer_motherboard_specs(expected_name: str, page_text: str) -> di
         'front_usb_c': front_usb_c,
         'evidence_model': 'DIRECT_RETAILER_PRODUCT_PAGE_HARD_SPEC_TEXT_V22',
     }
+
+
+async def verify_retailer_motherboard_specs_on_page(
+    page,
+    direct_url: str,
+    expected_name: str,
+    title: str | None = None,
+    h1: str | None = None,
+) -> dict:
+    result = {
+        'retailer_component_spec_gate_passed': False,
+        'retailer_component_spec_authority': 'UNPROVEN',
+        'retailer_component_specs': None,
+        'retailer_component_spec_url': None,
+    }
+    final_url = str(getattr(page, 'url', '') or direct_url or '')
+    host = urlparse(final_url).netloc.lower().removeprefix('www.')
+    if not host or 'prisjagt.dk' in host:
+        result['retailer_component_spec_error'] = 'NO_EXTERNAL_RETAILER_URL'
+        return result
+    if title is None:
+        title = await page.title()
+    if h1 is None:
+        try:
+            h1 = (await page.locator('h1').first.inner_text(timeout=2500)).strip()
+        except Exception:
+            h1 = ''
+    identity_text = ' '.join([str(title or ''), str(h1 or '')])
+    if not retail_auth._same_product_identity(expected_name, identity_text):
+        result['retailer_component_spec_error'] = 'RETAILER_SPEC_PRODUCT_IDENTITY_UNPROVEN'
+        return result
+    try:
+        visible = await page.locator('body').inner_text(timeout=7000)
+    except Exception:
+        visible = ''
+    try:
+        dom_text = await page.locator('body').text_content(timeout=7000) or ''
+    except Exception:
+        dom_text = ''
+    evidence = (visible + '\n' + dom_text)[:220000]
+    specs = extract_retailer_motherboard_specs(expected_name, evidence, identity_text)
+    result.update({
+        'retailer_component_spec_gate_passed': specs['passed'],
+        'retailer_component_spec_authority': (
+            'DIRECT_RETAILER_PRODUCT_PAGE_T1' if specs['passed'] else 'UNPROVEN'
+        ),
+        'retailer_component_specs': specs,
+        'retailer_component_spec_url': final_url,
+    })
+    if not specs['passed']:
+        result['retailer_component_spec_error'] = 'MOTHERBOARD_HARD_SPECS_UNPROVEN:' + ','.join(specs['missing'])
+    return result
 
 
 async def verify_retailer_motherboard_specs(context, direct_url: str, expected_name: str) -> dict:
@@ -195,7 +264,7 @@ async def verify_retailer_motherboard_specs(context, direct_url: str, expected_n
         except Exception:
             dom_text = ''
         evidence = (visible + '\n' + dom_text)[:220000]
-        specs = extract_retailer_motherboard_specs(expected_name, evidence)
+        specs = extract_retailer_motherboard_specs(expected_name, evidence, identity_text)
         result.update({
             'retailer_component_spec_gate_passed': specs['passed'],
             'retailer_component_spec_authority': (
@@ -305,17 +374,26 @@ def regression() -> None:
     Netværk 2.5 Gigabit Ethernet
     PCI Express 5.0 x16
     '''
-    specs = extract_retailer_motherboard_specs('ASRock B850M Pro RS WiFi', sample)
+    identity = 'ASRock B850M Pro RS WiFi Motherboard AMD B850 AMD AM5 DDR5 RAM Micro-ATX'
+    specs = extract_retailer_motherboard_specs('ASRock B850M Pro RS WiFi', sample, identity)
     assert specs['passed'], specs
     assert specs['dimm_slots'] == 4
     assert specs['m2_count'] == 3
     assert specs['lan_gbps'] == 2.5
-    assert specs['wifi'] == '6E'
+    assert specs['wifi']
 
     weak = sample.replace('4 x DIMM DDR5', '2 x DIMM DDR5')
-    weak_specs = extract_retailer_motherboard_specs('ASRock B850M Pro RS WiFi', weak)
+    weak_specs = extract_retailer_motherboard_specs('ASRock B850M Pro RS WiFi', weak, identity)
     assert weak_specs['passed'] is False
     assert '4 DIMM' in weak_specs['missing']
+
+    five_g = sample.replace('2.5 Gigabit Ethernet', '5 Gigabit Ethernet')
+    five_specs = extract_retailer_motherboard_specs('ASRock B850M Pro RS WiFi', five_g, identity)
+    assert five_specs['passed'] is True and five_specs['lan_gbps'] == 5.0, five_specs
+
+    no_wifi_identity = 'ASRock B850M Pro RS Motherboard AMD B850 AMD AM5 DDR5 RAM Micro-ATX'
+    no_wifi = extract_retailer_motherboard_specs('ASRock B850M Pro RS', sample, no_wifi_identity)
+    assert no_wifi['passed'] is False and 'Wi-Fi' in no_wifi['missing'], no_wifi
 
 
 regression()

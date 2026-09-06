@@ -277,6 +277,7 @@ async def verify_external_retailer(
     expected_name: str,
     *,
     lead_price_dkk: int | None = None,
+    component_page_verifier=None,
 ) -> dict:
     now = datetime.now(timezone.utc).isoformat()
     result = {
@@ -443,6 +444,14 @@ async def verify_external_retailer(
                     f'RETAILER_TOTAL_BELOW_LIVE_OFFER_FLOOR:{delivered}/{int(lead_price_dkk)}'
                 )
                 return result
+
+        if component_page_verifier is not None:
+            try:
+                extra = await component_page_verifier(page, final_url, title, h1)
+                if isinstance(extra, dict):
+                    result.update(extra)
+            except Exception as exc:
+                result['component_page_verifier_error'] = f'{type(exc).__name__}: {str(exc)[:200]}'
 
         result['retailer_page_verified'] = True
         result['external_resolved'] = True
