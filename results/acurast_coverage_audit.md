@@ -1,8 +1,8 @@
 # Acurast coverage audit
 
-Generated: 2026-09-06T13:19:46.769953+00:00
+Generated: 2026-09-06T14:09:51.053293+00:00
 
-T0 listings <= ceiling: **2570**  
+T0 listings <= ceiling: **2573**  
 Verified before quality: **63**  
 Final after quality: **62**  
 Mainnet ranked: **45**
@@ -11,7 +11,7 @@ Mainnet ranked: **45**
 
 - Discovery/model blindspots: **985**
 - Core-compatible explicit models stopped by Pulse gate: **22**
-- T1 exits/errors: **6**
+- T1 exits/errors: **7**
 - Quality-gate review: **1**
 - Core compatibility review: **8**
 - Pulse-match review: **9**
@@ -48,6 +48,7 @@ Mainnet ranked: **45**
 | ID | Title | ASK | Reason |
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
+| 24672047 | Apple iPhone 6s 64 GB space grey smartphone | 200 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
@@ -937,7 +938,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23646203 | Nokia N80 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24236114 | Motorola G06 LTE smartphone 64GB | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24402614 | Samsung Galaxy Watch7 40mm - Beige | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 24629552 | Samsung A17 5G helt nye og ubrugte | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 24629552 | Samsung A17 5G helt nye og ubrugte (Reserveret) | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 3292825 | HUAWEI Y 7, 2 GB , Perfekt | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 7074892 | Nokia n95 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24622863 | Motorola G56 G5  Pantone black | 701 | no supported model resolved |
@@ -974,7 +975,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24337500 | Moto g77 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24457198 | nubia air | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24512056 | Nokia E90 | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 24629427 | Motorola G77 Helt nye | 800 | no supported model resolved |
+| DISCOVERY/MODEL | 24629427 | Motorola G77 Helt nye (Reserveret) | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24654428 | blackview shark 8 256gb blå | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24660072 | Nokia n96 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24660419 | Motorola G67 | 800 | no supported model resolved |
@@ -1068,10 +1069,11 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
+| T1 | 24672047 | Apple iPhone 6s 64 GB space grey smartphone | 200 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24628146 | Xiaomi Poco X3 Pro | 200 | BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['poco', 'xiaomi'] |

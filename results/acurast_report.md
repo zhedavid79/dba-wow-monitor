@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-06T13:19:43.090678+00:00
+Generated: 2026-09-06T14:09:47.304176+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2570 | Product rejects: 2501 | Bundle/variant/price rejects: 1 | Final: 62
+T0: 2573 | Product rejects: 2503 | Bundle/variant/price rejects: 1 | Final: 62
 
 ## Lowest verified single-device listings
 
