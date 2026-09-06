@@ -5,6 +5,7 @@ on:
     branches: [v22/retail-route-resolution-2026-09-06]
     paths:
       - 'tools/apply_v22_route_patch.py'
+      - 'tools/apply_v22_retail_authority_hardening.py'
       - '.github/workflows/v22-route-source-patch.yml'
 
 permissions:
@@ -12,7 +13,7 @@ permissions:
 
 jobs:
   patch:
-    if: ${{ !contains(github.event.head_commit.message, '[route-patched]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[authority-patched]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,18 +23,27 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Apply deterministic patch
+      - name: Apply deterministic patches
         run: |
-          python tools/apply_v22_route_patch.py
-          python -m py_compile dba_retail_routes_v22.py dba_retail_offers_v22.py
+          python tools/apply_v22_retail_authority_hardening.py
+          python -m py_compile dba_retail_routes_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py dba_retail_availability_v22.py
+          python - <<'PY'
+          import dba_retail_authority_v22 as a
+          assert a._same_product_identity('Corsair RM750e (2025) ATX 3.1 750W', 'Corsair RMe Series RM750e PSU Sort')
+          assert a._same_product_identity('Kingston NV3 M.2 2280 PCIe 4.0 NVMe 1TB', 'Kingston NV3 SSD 1TB')
+          assert not a._same_product_identity('ASUS TUF B850M-PLUS WIFI', 'ASUS PRIME B850M-A WIFI')
+          assert a._shipping_from_text('Billigste fragt (privatkunde) 33,00 kr.', 900)[:2] == (33, True)
+          assert a._shipping_from_text('Fragt fra 33,00 kr.', 900)[1] is False
+          print('PASS AUTHORITY HARDENING PURE CHECKS')
+          PY
       - name: Commit patched source
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add dba_retail_offers_v22.py
+          git add dba_retail_authority_v22.py dba_retail_offers_v22.py dba_retail_availability_v22.py
           if git diff --cached --quiet; then
             echo 'No source changes needed'
           else
-            git commit -m 'Route Prisjagt offers through retailer adapters [route-patched]'
+            git commit -m 'Harden direct retailer authority resolution [authority-patched]'
             git push origin HEAD:v22/retail-route-resolution-2026-09-06
           fi
