@@ -29,6 +29,7 @@ DELIVERY_INCLUDED_RE = re.compile(r'pris\s+inkl\.?\s+(?:leveringsomkostninger|fr
 STORE_LINK_RE = re.compile(r'/go-to-shop/(\d+)/offer/(\d+)')
 FINANCE_RE = re.compile(r'\b(?:pr\.?\s*(?:md|måned)|/\s*(?:md|måned)|måned(?:lig|en|er)?|afbetaling|delbetaling|finansiering|ratebetaling|kredit|per\s+month)\b', re.I)
 SHIP_CONTEXT_RE = re.compile(r'\b(?:fragt|shipping|leveringsomkostning(?:er)?)\b', re.I)
+UNIT_PRICE_RE = re.compile(r'(?:/|pr\.?|per)\s*(?:GB|TB)\b|\b(?:GB|TB)\s*(?:pris|price)\b', re.I)
 
 
 def _int_price(raw: str) -> int | None:
@@ -59,6 +60,8 @@ def price_hits(text: str) -> list[dict]:
             continue
         if SHIP_CONTEXT_RE.search(line) and not DELIVERY_INCLUDED_RE.search(line):
             continue
+        if UNIT_PRICE_RE.search(line):
+            continue
         out.append({'value': n, 'line': line[:240], 'start': m.start()})
     return out
 
@@ -83,6 +86,9 @@ def choose_card_price(hits: list[dict], card_text: str, product_floor: int | Non
         return None, '', 'NO_CARD_PRICE'
     if len(hits) == 1:
         h = hits[0]
+        old = normal_price(card_text)
+        if old is not None and int(old) == int(h['value']):
+            return None, '', 'ONLY_EXPLICIT_NORMAL_OR_BEFORE_PRICE'
         return int(h['value']), str(h.get('line') or ''), 'SINGLE_PRICE_EXACT_LIVE_OFFER_CARD'
 
     old = normal_price(card_text)
