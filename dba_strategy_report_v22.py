@@ -54,11 +54,11 @@ def action_section(p: dict) -> str:
             rr = selected.get(str(a.get('sku') or '')) or {}
             url = (rr.get('buy_url') if rr.get('purchase_ready') else rr.get('comparison_url')) or url
             if not rr.get('purchase_ready'):
-                note = 'Prisreference בלבד; ekstern butik, samme pris og lager er ikke verificeret. Ikke KØB NU.'
+                note = 'RETAIL_LEAD — live offer-liste-reference kun; slutbutik, samme pris, lager og obligatorisk fragt er ikke T1-verificeret. Ikke KØB NU.'
         lines.append(
             f"| {kind} | **{label}** | {money(a.get('ask'))} | {money(a.get('first_bid'))} | {money(a.get('target'))} | {money(a.get('walk_away'))} | {link(a.get('name'), url)} — {note} |"
         )
-    lines += ['', '`TJEK BUTIK` betyder, at produkt/pris er et aktuelt sammenligningslead, men ikke en købsklar pris. KØB NU kræver direkte slutbutik + samme produkt + samme pris + lager verificeret i samme run.', '']
+    lines += ['', '`TJEK BUTIK` = `RETAIL_LEAD`: den aktuelle live offer-liste viser produktet/prisen, men det er ikke en købsklar pris. KØB NU kræver direkte slutbutik + samme produkt + DKK-varepris + lager + obligatorisk fragt + leveret total, T1-verificeret.', '']
     return '\n'.join(lines)
 
 
@@ -67,6 +67,7 @@ def main() -> None:
     p = json.loads(PLAN.read_text(encoding='utf-8'))
     o = json.loads(OFFERS.read_text(encoding='utf-8'))
     assert p.get('version') == 'V22' and (s.get('offer_optimizer_v22') or {}).get('active') is True and BASE.exists()
+    assert o.get('authority_model') == 'V22_DIRECT_RETAILER_PAGE_T1'
 
     text = BASE.read_text(encoding='utf-8')
     text = text.replace('SELF-BUILD FIRST V21 — PROCUREMENT', 'SELF-BUILD FIRST V22 — PROCUREMENT + DEALS')
@@ -79,7 +80,6 @@ def main() -> None:
     text = re.sub(r"\*\*Kan hele buildet købes rationelt i dag\? (?:JA|NEJ)\*\*", ready_phrase, text, count=1)
     text = re.sub(r"\*\*Styrende Z20-fit:\*\* [^\n]+", f"**Styrende Z20-fit:** {fit}", text, count=1)
 
-    # Replace inherited V21 action table so old BUY_NOW labels can never leak.
     new_actions = action_section(p)
     text, n = re.subn(r'## ✅ Hvad skal jeg gøre i dag\?\n.*?(?=\n## )', new_actions + '\n', text, count=1, flags=re.S)
     assert n == 1, 'Could not replace V21 action section'
@@ -90,18 +90,18 @@ def main() -> None:
 
     lines = [
         '## 🏷️ Nye dele — tilbud, butik og leveret pris', '',
-        '**Sikkerhedsregel:** Prisjagt alene er en prisreference/lead. En pris bliver først KØB NU, når den eksterne slutbutik selv er verificeret med samme produkt, pris og lager i samme run.', '',
+        '**Sikkerhedsregel:** Prisjagt er kun `RETAIL_LEAD`. En pris bliver først **KØB NU**, når den eksterne slutbutiks egen produktside T1-verificerer samme produkt, konkret DKK-varepris, lager, obligatorisk fragt og leveret total.', '',
         '| Del | Produkt | Pris | Evidens | Handling |',
         '|---|---|---:|---|---|',
     ]
     for r in selected:
         if r.get('purchase_ready'):
-            lines.append(f"| {DA.get(r.get('kind'), r.get('kind'))} | {link(r.get('name'), r.get('buy_url'))} | **{money(r.get('delivered_price_dkk'))}** | Direkte ekstern butik verificeret | **KØB NU** |")
+            lines.append(f"| {DA.get(r.get('kind'), r.get('kind'))} | {link(r.get('name'), r.get('buy_url'))} | **{money(r.get('delivered_price_dkk'))}** | Direkte retailer T1: produkt + varepris + lager + fragt + total | **KØB NU** |")
         else:
-            lines.append(f"| {DA.get(r.get('kind'), r.get('kind'))} | {link(r.get('name'), r.get('comparison_url'))} | **{money(r.get('comparison_price_dkk'))}** | Sammenligningspris; slutbutik ikke verificeret | **TJEK BUTIK** |")
-    lines += ['', f"Direkte købsklare nye dele: **{len(direct_selected)}/{len(selected)}**. Prisreference-only: **{len(reference_selected)}**."]
+            lines.append(f"| {DA.get(r.get('kind'), r.get('kind'))} | {link(r.get('name'), r.get('comparison_url'))} | **{money(r.get('comparison_price_dkk'))}** | `RETAIL_LEAD` fra aktuel live offer-liste; ikke autoritativ ASK | **TJEK BUTIK** |")
+    lines += ['', f"Direkte købsklare nye dele: **{len(direct_selected)}/{len(selected)}**. RETAIL_LEAD-only: **{len(reference_selected)}**."]
     if reference_selected:
-        lines += ['', '**Der vises ingen samlet autoritativ købsklar pris for de nye dele**, fordi mindst én pris kun er en sammenligningsreference.']
+        lines += ['', '**Der vises ingen samlet autoritativ købsklar pris for de nye dele**, fordi mindst én pris kun er `RETAIL_LEAD`.']
     else:
         lines += ['', f"**Leveret, købsklar pris for alle valgte nye dele:** {money(sum(int(x.get('delivered_price_dkk') or 0) for x in direct_selected))}."]
     lines.append('')
@@ -111,22 +111,27 @@ def main() -> None:
     for r in o.get('rows') or []:
         if str(r.get('sku') or '') not in eligible:
             continue
-        if r.get('delivered_price_verified') is not True or r.get('external_url_resolved') is not True:
+        if (
+            r.get('delivered_price_verified') is not True
+            or r.get('external_url_resolved') is not True
+            or r.get('retailer_page_verified') is not True
+            or r.get('retailer_authority') != 'DIRECT_RETAILER_T1'
+        ):
             continue
         deal_rows.append(r)
     deal_rows.sort(key=lambda x: int(x.get('delivered_price_dkk') or 10**9))
 
     lines += [
         '## 🔎 Andre kvalificerede nye tilbud fundet', '',
-        f"Sammenligningsunivers: **{o.get('products_total')}** produkter · Prisjagt/store-card leads: **{o.get('delivered_price_verified')}** · direkte eksternt resolvebare tilbud: **{o.get('external_urls_resolved')}**.", '',
+        f"Sammenligningsunivers: **{o.get('products_total')}** produkter · aktuelle RETAIL_LEADs: **{o.get('retail_leads')}** · eksterne routes fundet: **{o.get('external_routes_resolved')}** · direkte retailer-sider fuldt verificeret: **{o.get('retailer_pages_verified')}**.", '',
         '| Del | Direkte verificeret butikstilbud | Leveret | Status |',
         '|---|---|---:|---|',
     ]
     for r in deal_rows[:25]:
-        lines.append(f"| {DA.get(r.get('kind'), r.get('kind'))} | {link(r.get('name'), r.get('buy_url'))} | **{money(r.get('delivered_price_dkk'))}** | DIREKTE VERIFICERET |")
+        lines.append(f"| {DA.get(r.get('kind'), r.get('kind'))} | {link(r.get('name'), r.get('buy_url'))} | **{money(r.get('delivered_price_dkk'))}** | DIRECT RETAILER T1 VERIFIED |")
     if not deal_rows:
-        lines.append('| — | Ingen tilbud havde en verificerbar ekstern slutbutik i dette run | — | Prisjagt-leads er ikke KØB NU |')
-    lines += ['', '**Regel:** Et tilbudsbadge eller en Prisjagt offer-ID giver ingen købsgodkendelse. Kun direkte butiksevidens må ændre den autoritative købsklare pris.', '']
+        lines.append('| — | Ingen tilbud havde fuld retailer-side-verifikation i dette run | — | RETAIL_LEAD er ikke KØB NU |')
+    lines += ['', '**Regel:** Et tilbudsbadge, Prisjagt offer-ID, seller-hint eller redirect er aldrig købsgodkendelse. Kun slutbutikkens egen T1-evidens må ændre den autoritative købsklare pris.', '']
 
     blockers = p.get('blockers') or []
     gate = ['## 🚦 KØBSKLAR-gate', '', f"**Hele buildet KØBSKLAR nu: {'JA' if ready else 'NEJ'}**", '', f"**Styrende Z20-fit:** {fit}", '']
@@ -136,7 +141,7 @@ def main() -> None:
             gate.append(f"- **{b.get('kind')} — {b.get('procurement_action')}:** {b.get('reason') or '—'}")
     else:
         gate.append('Ingen blokeringer; alle valgte dele er købsklare på de verificerede vilkår.')
-    gate += ['', '`UNKNOWN` fit eller uverificeret slutbutik må aldrig give KØBSKLAR.', '']
+    gate += ['', '`UNKNOWN` fit eller `RETAIL_LEAD`/uverificeret slutbutik må aldrig give KØBSKLAR.', '']
 
     marker = '\n## Hvorfor hver permanent del vandt\n'
     addition = '\n'.join(lines + gate)
@@ -161,6 +166,7 @@ def main() -> None:
     if reference_selected:
         assert '**TJEK BUTIK**' in text
         assert '**Der vises ingen samlet autoritativ købsklar pris for de nye dele**' in text
+        assert 'RETAIL_LEAD' in text
     assert '7969913' not in '\n'.join(line for line in text.splitlines() if 'HARD EXCLUDE' not in line and 'Historiske hard exclusions' not in line)
 
     for path in (OUT, CANONICAL, LEGACY, ALIAS):
@@ -174,6 +180,7 @@ def main() -> None:
         'direct_buy_ready_new': len(direct_selected),
         'reference_only_new': len(reference_selected),
         'direct_offer_rows': len(deal_rows),
+        'retailer_pages_verified': o.get('retailer_pages_verified'),
     }, ensure_ascii=False))
 
 
