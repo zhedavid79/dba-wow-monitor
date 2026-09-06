@@ -23,6 +23,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install Python test dependency
+        run: pip install playwright
       - name: Apply deterministic patches
         run: |
           python tools/apply_v22_retail_authority_hardening.py
