@@ -28,20 +28,22 @@ async def main() -> None:
     for c in selected:
         sku = str(c.get('sku') or '')
         prior = by_sku.get(sku) or {}
-        product_url = prior.get('product_url')
+        product_url = str(prior.get('product_url') or c.get('comparison_url') or c.get('url') or '')
         assert product_url, f'V22 selected retail product URL missing for {sku}'
         products.append({
             'sku': sku,
             'kind': c.get('kind'),
             'name': c.get('name'),
             'url': product_url,
-            'price': prior.get('same_page_lowest_price_dkk') or prior.get('product_reference_price_dkk') or c.get('price'),
+            'price': int(c.get('price') or 0),
         })
         expected[sku] = {
             'price': int(c.get('price') or 0),
             'url': str(c.get('url') or ''),
             'kind': c.get('kind'),
             'name': c.get('name'),
+            'direct_expected': c.get('retail_offer_verified_v22') is True,
+            'comparison_url': product_url,
         }
 
     async with async_playwright() as pw:
@@ -57,72 +59,70 @@ async def main() -> None:
     failures = []
     for sku, exp in expected.items():
         r = fresh_by_sku.get(sku) or {}
+        identity = r.get('identity_verified') is True
         current_price = int(r.get('delivered_price_dkk') or 0)
         current_url = str(r.get('buy_url') or '')
-        same_price = bool(current_price and current_price == int(exp['price']))
-        same_url = bool(current_url and current_url == exp['url'])
-        identity = r.get('identity_verified') is True
+        external = r.get('external_url_resolved') is True
         current_ready = r.get('delivered_price_verified') is True
-        t1_ok = bool(identity and current_ready and same_price and same_url and r.get('price_sanity_ok') is True)
+
+        if exp['direct_expected']:
+            same_price = bool(current_price and current_price == exp['price'])
+            same_url = bool(current_url and current_url == exp['url'])
+            t1_ok = bool(identity and external and current_ready and same_price and same_url and r.get('price_sanity_ok') is True)
+            status = 'IN_STOCK_DIRECT_RETAILER_T1_REVALIDATED' if t1_ok else 'DIRECT_RETAILER_OFFER_CHANGED_OR_UNPROVEN'
+            reference_ok = False
+        else:
+            # Comparison-only candidates are deliberately not purchase-ready.
+            # Re-fetching is used only to prove same-product identity/reference freshness.
+            floor = int(r.get('same_page_lowest_price_dkk') or r.get('product_reference_price_dkk') or 0)
+            reference_ok = bool(identity and floor > 0)
+            t1_ok = False
+            same_price = False
+            same_url = False
+            status = 'PRICE_REFERENCE_ONLY_CHECK_STORE' if reference_ok else 'PRICE_REFERENCE_UNPROVEN'
+
         row = {
             'kind': exp['kind'],
             'name': exp['name'],
             'sku': sku,
-            'expected_price': int(exp['price']),
+            'expected_price': exp['price'],
             'expected_url': exp['url'],
+            'comparison_url': exp['comparison_url'],
+            'direct_expected': exp['direct_expected'],
             't1_verified_at': r.get('verified_at'),
             'identity_verified': identity,
+            'external_retailer_resolved': external,
             'price_verified': same_price,
             'same_offer_url_verified': same_url,
-            'price_sanity_ok': r.get('price_sanity_ok') is True,
-            'same_page_lowest_price_dkk': r.get('same_page_lowest_price_dkk'),
-            'same_page_price_floor_method': r.get('same_page_price_floor_method'),
+            'reference_revalidated': reference_ok,
+            'current_reference_price': int(r.get('same_page_lowest_price_dkk') or r.get('product_reference_price_dkk') or 0) or None,
             'current_price': current_price or None,
             'current_url': current_url or None,
             't1_revalidated': t1_ok,
             'concrete_in_stock': t1_ok,
-            'availability_status': 'IN_STOCK_DELIVERED_PRICE_T1_REVALIDATED' if t1_ok else 'SELECTED_OFFER_CHANGED_OR_UNPROVEN',
-            'delivered_price_method': r.get('delivered_price_method'),
-            'item_price_dkk': r.get('item_price_dkk'),
-            'shipping_dkk': r.get('shipping_dkk'),
+            'availability_status': status,
             'store_offer': ({
                 'price': current_price,
                 'delivered_price_dkk': current_price,
-                'item_price_dkk': r.get('item_price_dkk'),
-                'shipping_dkk': r.get('shipping_dkk'),
                 'seller': r.get('seller'),
                 'url': current_url,
                 'availability': 'IN_STOCK',
-                'deal_type': r.get('deal_type'),
-                'normal_price_dkk': r.get('normal_price_dkk'),
-                'delivered_price_method': r.get('delivered_price_method'),
             } if t1_ok else None),
         }
         rows.append(row)
-        if not t1_ok:
-            failures.append({
-                'sku': sku,
-                'name': exp['name'],
-                'expected_price': exp['price'],
-                'current_price': current_price or None,
-                'expected_url': exp['url'],
-                'current_url': current_url or None,
-                'same_price': same_price,
-                'same_url': same_url,
-                'identity': identity,
-                'current_ready': current_ready,
-                'same_page_lowest_price_dkk': r.get('same_page_lowest_price_dkk'),
-                'error': r.get('error'),
-            })
+        if exp['direct_expected'] and not t1_ok:
+            failures.append({'sku': sku, 'name': exp['name'], 'reason': 'DIRECT_RETAILER_T1_FAILED', 'current_price': current_price or None, 'current_url': current_url or None})
+        if not exp['direct_expected'] and not reference_ok:
+            failures.append({'sku': sku, 'name': exp['name'], 'reason': 'COMPARISON_REFERENCE_REVALIDATION_FAILED'})
 
     doc = {
         'generated_at': datetime.now(timezone.utc).isoformat(),
-        'model': 'V22_SELECTED_DELIVERED_RETAIL_AVAILABILITY',
-        'policy': 'Every selected new retail component is re-fetched immediately before publication. The same SKU, same selected offer URL, same delivered price, identity and same-page price-floor sanity must all still hold.',
+        'model': 'V22_SELECTED_RETAIL_DIRECT_OR_REFERENCE_AVAILABILITY',
+        'policy': 'Only external retailer pages can be purchase-ready. Prisjagt-only prices are revalidated as same-product comparison references and remain CHECK_STORE.',
         'selected_total': len(rows),
         'identity_verified': sum(1 for x in rows if x.get('identity_verified')),
-        'concrete_in_stock': sum(1 for x in rows if x.get('concrete_in_stock')),
-        't1_revalidated': sum(1 for x in rows if x.get('t1_revalidated')),
+        'direct_buy_ready': sum(1 for x in rows if x.get('t1_revalidated')),
+        'reference_only': sum(1 for x in rows if x.get('reference_revalidated')),
         'failures': failures,
         'rows': rows,
     }
@@ -134,12 +134,12 @@ async def main() -> None:
     print(json.dumps({
         'V22_RETAIL_AVAILABILITY': True,
         'selected': len(rows),
-        't1_revalidated': doc['t1_revalidated'],
+        'direct_buy_ready': doc['direct_buy_ready'],
+        'reference_only': doc['reference_only'],
         'failures': failures,
-        'delivered_total': sum(int(x.get('expected_price') or 0) for x in rows),
     }, ensure_ascii=False))
     assert all(r.get('identity_verified') for r in rows), 'V22 selected retail identity not verified at T1'
-    assert all(r.get('t1_revalidated') for r in rows), f'V22 selected retail offer changed before publish: {failures}'
+    assert not failures, f'V22 selected retail verification failures: {failures}'
 
 
 if __name__ == '__main__':
