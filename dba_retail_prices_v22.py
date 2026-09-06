@@ -9,14 +9,10 @@ from pathlib import Path
 import dba_retail_prices_v20 as base
 
 OUT = Path('results/retail_prices_latest.json')
-
-# V20 deliberately sampled only eight products per discovery seed. V22 searches
-# deeper and uses chipset category pages for motherboards so the dynamic universe
-# is not biased by one free-text search ordering.
 MAX_LINKS_PER_SEED_V22 = 20
 MOTHERBOARD_SEEDS_V22 = [
-    'https://prisjagt.dk/c/bundkort?615=44097',  # AMD B850 category
-    'https://prisjagt.dk/c/bundkort?615=39813',  # AMD B650 category
+    'https://prisjagt.dk/c/bundkort?615=44097',
+    'https://prisjagt.dk/c/bundkort?615=39813',
 ]
 ORIGINAL_DISCOVERY_SEEDS = {k: list(v) for k, v in base.DISCOVERY_SEEDS.items()}
 ORIGINAL_MAX_LINKS = base.MAX_LINKS_PER_SEED
@@ -39,54 +35,65 @@ def _field_int(pattern: str, text: str) -> int | None:
 
 
 def extract_motherboard_specs_v22(spec_text: str) -> dict:
-    """Extract only exact label-bound motherboard hard-gate facts."""
+    """Read exact label-bound hard-gate facts from the current product page."""
     text = str(spec_text or '')
     dimm = _field_int(r'\bHukommelsespladser\s*([1-8])\s*stk\b', text)
     m2 = _field_int(r'(?<![A-Za-z0-9])M\.?2\s*([1-6])\s*stk\b', text)
-
     lan_match = re.search(
         r'\bMaks\.?\s*Ethernet[- ]?hastighed\s*(2[,.]5|5|10)\s*Gbit/s\b',
         text,
         re.I,
     )
     lan = float(lan_match.group(1).replace(',', '.')) if lan_match else None
-
     wifi_match = re.search(
         r'\bTrådløst netværk\s*\(Wi-?Fi\)\s*(Ja|Nej)\b',
         text,
         re.I,
     )
-    wifi_present = bool(wifi_match and wifi_match.group(1).lower() == 'ja')
-
     return {
         'dimm_slots': dimm,
         'm2_count': m2,
         'lan_gbps': lan,
-        'wifi_present': wifi_present,
+        'wifi_present': bool(wifi_match and wifi_match.group(1).lower() == 'ja'),
         'wifi_boolean_proven': bool(wifi_match),
     }
 
 
-async def reveal_spec_text_v22(page) -> tuple[str, dict]:
-    """Reveal Prisjagt's lazy-loaded specification panel generically.
+def _complete_spec_set(specs: dict) -> bool:
+    return (
+        specs.get('dimm_slots') is not None
+        and specs.get('m2_count') is not None
+        and specs.get('lan_gbps') is not None
+        and specs.get('wifi_boolean_proven') is True
+    )
 
-    We never infer specs from the control label.  The click only allows the
-    product page to render its own specification table.  Admission still needs
-    exact label/value evidence from that table afterwards.
+
+async def reveal_spec_text_v22(page) -> tuple[str, dict]:
+    """Expose Prisjagt's complete product specification block without guessing.
+
+    Current product pages render a shortened Info block first and use the
+    generic ``Se mere information`` control for the remaining properties.
+    Clicking a control grants no evidence by itself; all required facts must
+    subsequently be found as exact label/value pairs in the page DOM.
     """
     before = await page.locator('body').text_content(timeout=7000) or ''
     before_specs = extract_motherboard_specs_v22(before)
-    if any(v not in (None, False, 0) for k, v in before_specs.items() if k != 'wifi_boolean_proven'):
-        return before[:200000], {'revealed': False, 'method': 'ALREADY_IN_DOM'}
+    if _complete_spec_set(before_specs):
+        return before[:200000], {'revealed': False, 'method': 'COMPLETE_SPECS_ALREADY_IN_DOM'}
 
-    name_re = re.compile(r'^(?:Info|Specifikationer|Specifikation|Produktinformation|Detaljer)$', re.I)
+    expand_re = re.compile(
+        r'^(?:Se mere information|Vis mere information|Se alle specifikationer|Vis alle specifikationer)$',
+        re.I,
+    )
+    info_re = re.compile(r'^(?:Info|Specifikationer|Specifikation|Produktinformation|Detaljer)$', re.I)
     candidates = [
-        ('tab', page.get_by_role('tab', name=name_re)),
-        ('button', page.get_by_role('button', name=name_re)),
-        ('link', page.get_by_role('link', name=name_re)),
-        ('text', page.get_by_text(name_re, exact=True)),
+        ('expand_button', page.get_by_role('button', name=expand_re)),
+        ('expand_text', page.get_by_text(expand_re, exact=True)),
+        ('info_link', page.get_by_role('link', name=info_re)),
+        ('info_button', page.get_by_role('button', name=info_re)),
+        ('info_text', page.get_by_text(info_re, exact=True)),
     ]
-    attempts = []
+    attempts: list[str] = []
     for kind, locator in candidates:
         try:
             count = min(await locator.count(), 5)
@@ -102,14 +109,14 @@ async def reveal_spec_text_v22(page) -> tuple[str, dict]:
                 await item.click(timeout=4000)
                 attempts.append(f'{kind}:{idx}:{label}:clicked')
                 try:
-                    await page.get_by_text(re.compile(r'Hukommelsespladser', re.I)).first.wait_for(
-                        state='attached', timeout=5000
+                    await page.get_by_text(re.compile(r'Maks\.?\s*Ethernet[- ]?hastighed', re.I)).first.wait_for(
+                        state='attached', timeout=4000
                     )
                 except Exception:
                     pass
                 current = await page.locator('body').text_content(timeout=7000) or ''
                 specs = extract_motherboard_specs_v22(current)
-                if specs.get('dimm_slots') is not None or specs.get('m2_count') is not None or specs.get('lan_gbps') is not None:
+                if _complete_spec_set(specs):
                     return current[:200000], {
                         'revealed': True,
                         'method': f'CLICK_{kind.upper()}',
@@ -120,7 +127,12 @@ async def reveal_spec_text_v22(page) -> tuple[str, dict]:
                 attempts.append(f'{kind}:{idx}:{type(exc).__name__}')
 
     after = await page.locator('body').text_content(timeout=7000) or ''
-    return after[:200000], {'revealed': False, 'method': 'NO_SPEC_CONTROL_SUCCEEDED', 'attempts': attempts}
+    return after[:200000], {
+        'revealed': False,
+        'method': 'COMPLETE_SPEC_SET_NOT_REVEALED',
+        'attempts': attempts,
+        'partial_specs': extract_motherboard_specs_v22(after),
+    }
 
 
 def infer_motherboard_v22(
@@ -135,7 +147,6 @@ def infer_motherboard_v22(
     visible = _norm(str(name or '') + '\n' + str(visible_body or '')[:30000])
     specs = extract_motherboard_specs_v22(spec_text)
     missing: list[str] = []
-
     model_ok = bool(re.search(r'\b(?:B650M|B850M)\b', str(name or ''), re.I))
     matx = bool(re.search(r'\bMicro[- ]?ATX\b|\bm-?ATX\b', visible, re.I))
     am5 = bool(re.search(r'\bAM5\b|AMD Socket AM5', visible, re.I))
@@ -157,7 +168,6 @@ def infer_motherboard_v22(
     ):
         if not ok:
             missing.append(label + ' unproven')
-
     if missing:
         return None, missing
 
@@ -166,7 +176,6 @@ def infer_motherboard_v22(
         re.search(r'\bM\.2 PCIe Gen5\s*Ja\b', spec_norm, re.I)
         or re.search(r'\bPCIe\s*5(?:\.0)?.{0,40}M\.?2\b', spec_norm, re.I)
     )
-
     return {
         'sku': base._sku(url),
         'name': _norm(name),
@@ -194,7 +203,7 @@ def infer_motherboard_v22(
         'bios_flashback': False,
         'front_usb_c': False,
         'spec_evidence_v22': {
-            'source': 'CURRENT_PRODUCT_PAGE_LABEL_BOUND_LAZY_SPEC_PANEL',
+            'source': 'CURRENT_PRODUCT_PAGE_LABEL_BOUND_EXPANDED_INFO',
             'dimm_slots': dimm,
             'm2_count': m2,
             'lan_gbps': lan,
@@ -207,7 +216,6 @@ def infer_motherboard_v22(
 async def inspect_dynamic_v22(context, kind: str, url: str, sem: asyncio.Semaphore) -> dict:
     if kind != 'MOTHERBOARD':
         return await ORIGINAL_INSPECT_DYNAMIC(context, kind, url, sem)
-
     async with sem:
         page = await context.new_page()
         now = datetime.now(timezone.utc).isoformat()
@@ -217,12 +225,11 @@ async def inspect_dynamic_v22(context, kind: str, url: str, sem: asyncio.Semapho
             'verified': False,
             'admitted': False,
             'verified_at': now,
-            'evidence_model_v22': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_LAZY_SPEC_PANEL',
+            'evidence_model_v22': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_EXPANDED_INFO',
         }
         try:
             response = await page.goto(url, wait_until='domcontentloaded', timeout=45000)
             result['http_status'] = int(response.status) if response else None
-
             scripts = await page.locator('script[type="application/ld+json"]').all_text_contents()
             products = []
             for text in scripts:
@@ -262,13 +269,7 @@ async def inspect_dynamic_v22(context, kind: str, url: str, sem: asyncio.Semapho
             spec_text, reveal = await reveal_spec_text_v22(page)
             availability = str(offer.get('availability') or 'AVAILABLE_COMPARISON')
             candidate, missing = infer_motherboard_v22(
-                name,
-                visible_body,
-                spec_text,
-                url,
-                price,
-                availability,
-                now,
+                name, visible_body, spec_text, url, price, availability, now
             )
             result.update({
                 'verified': True,
@@ -279,13 +280,11 @@ async def inspect_dynamic_v22(context, kind: str, url: str, sem: asyncio.Semapho
                 'spec_probe_v22': extract_motherboard_specs_v22(spec_text),
                 'spec_reveal_v22': reveal,
             })
-
             normalized_url = str(url or '').split('#')[0].rstrip('/')
             if candidate and normalized_url in STATIC_MOTHERBOARD_URLS:
                 result['duplicate_static_product'] = True
                 result['missing_evidence'] = ['DUPLICATE_STATIC_PRODUCT']
                 candidate = None
-
             if candidate:
                 result['admitted'] = True
                 result['candidate'] = candidate
@@ -307,23 +306,14 @@ def regression() -> None:
         'M.2 PCIe Gen5Ja'
     )
     specs = extract_motherboard_specs_v22(hidden)
-    assert specs == {
-        'dimm_slots': 4,
-        'm2_count': 3,
-        'lan_gbps': 2.5,
-        'wifi_present': True,
-        'wifi_boolean_proven': True,
-    }, specs
-
+    assert _complete_spec_set(specs), specs
     candidate, missing = infer_motherboard_v22(
         'Asus Example B850M WiFi', visible, hidden,
         'https://prisjagt.dk/product.php?p=1', 1200, 'InStock',
         '2026-09-06T00:00:00+00:00',
     )
     assert candidate is not None, missing
-    assert candidate['dimm_slots'] == 4
-    assert candidate['m2_count'] == 3
-    assert candidate['lan_gbps'] == 2.5
+    assert candidate['dimm_slots'] == 4 and candidate['m2_count'] == 3 and candidate['lan_gbps'] == 2.5
 
     no_wifi = hidden.replace('Trådløst netværk (Wi-Fi)Ja', 'Trådløst netværk (Wi-Fi)Nej')
     rejected, missing = infer_motherboard_v22(
@@ -344,11 +334,9 @@ def regression() -> None:
 
 async def main() -> None:
     regression()
-
     used_seeds = {k: list(v) for k, v in ORIGINAL_DISCOVERY_SEEDS.items()}
     used_seeds['MOTHERBOARD'] = list(MOTHERBOARD_SEEDS_V22)
     seed_count = sum(len(v) for v in used_seeds.values())
-
     base.MAX_LINKS_PER_SEED = MAX_LINKS_PER_SEED_V22
     base.DISCOVERY_SEEDS = used_seeds
     base.inspect_dynamic = inspect_dynamic_v22
@@ -365,25 +353,23 @@ async def main() -> None:
     for row in admitted:
         kind = str(row.get('kind') or '')
         by_kind[kind] = by_kind.get(kind, 0) + 1
-
     doc['deal_discovery_v22'] = {
         'active': True,
         'max_product_links_per_seed': MAX_LINKS_PER_SEED_V22,
         'seed_count': seed_count,
         'motherboard_seeds': MOTHERBOARD_SEEDS_V22,
-        'motherboard_spec_evidence': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_LAZY_SPEC_PANEL',
+        'motherboard_spec_evidence': 'CURRENT_PRODUCT_PAGE_LABEL_BOUND_EXPANDED_INFO',
         'dynamic_duplicate_policy': 'SAME_PRISJAGT_PRODUCT_URL_NEVER_COUNTS_TWICE',
         'policy': 'Actively inspect a deeper live retail universe before store-level offer comparison. Compatibility evidence remains fail-closed; a cheap product cannot win without the category hard gates.',
     }
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding='utf-8')
-
     print(json.dumps({
         'V22_RETAIL_DISCOVERY': True,
         'dynamic_inspected': (doc.get('counts') or {}).get('dynamic_inspected'),
         'dynamic_admitted': (doc.get('counts') or {}).get('dynamic_admitted'),
         'dynamic_admitted_by_kind': by_kind,
         'max_links_per_seed': MAX_LINKS_PER_SEED_V22,
-        'motherboard_spec_evidence': 'VISIBLE_PRODUCT_TEXT_PLUS_LABEL_BOUND_LAZY_SPEC_PANEL',
+        'motherboard_spec_evidence': 'CURRENT_PRODUCT_PAGE_LABEL_BOUND_EXPANDED_INFO',
     }, ensure_ascii=False))
 
 
