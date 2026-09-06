@@ -46,9 +46,9 @@ def _model_tokens(value: str) -> set[str]:
             continue
         if re.fullmatch(r'(?:ddr|pcie|wifi|atx|gen)\d+[a-z0-9]*', compact):
             continue
-        # Chipset-only matches such as B650M/B850M cannot on their own prove
-        # which motherboard model is on the retailer page.
-        if re.fullmatch(r'[abxhqz]\d{3,4}[a-z]*', compact):
+        # Chipset-only tokens cannot prove the board model. Suffix-bearing
+        # tokens such as B850M-PLUS remain discriminative and are retained.
+        if re.fullmatch(r'[abxhqz]\d{3,4}(?:m|e)?', compact):
             continue
         if len(compact) >= 3:
             out.add(token)
@@ -56,23 +56,23 @@ def _model_tokens(value: str) -> set[str]:
 
 
 def _same_product_identity(expected: str, actual: str) -> bool:
-    """Strict identity with a model-token escape hatch for retailer naming drift.
-
-    The legacy overlap check remains the first gate.  The fallback requires
-    the same brand plus at least one discriminative alphanumeric model token;
-    generic capacities, interface generations and chipset names cannot satisfy
-    it.  This handles naming differences such as "RM750e (2025) ATX 3.1" vs
-    "RMe Series RM750e PSU" without accepting a different model.
-    """
-    if retail19.identity_ok(expected, actual):
-        return True
+    """Prove same product without accepting brand/chipset overlap alone."""
     expected_brand = _brand_token(expected)
     actual_tokens = set(_identity_tokens(actual))
     if not expected_brand or expected_brand not in actual_tokens:
         return False
+
     expected_models = _model_tokens(expected)
     actual_models = _model_tokens(actual)
-    return bool(expected_models and expected_models & actual_models)
+    if expected_models:
+        # If the expected name supplies a discriminative model token, at least
+        # one must match. This prevents TUF B850M-PLUS from matching PRIME
+        # B850M-A merely because both say ASUS/B850M/WIFI.
+        return bool(expected_models & actual_models)
+
+    # For names without a discriminative alphanumeric model token, retain the
+    # established overlap check after brand identity has already been proven.
+    return retail19.identity_ok(expected, actual)
 '''
 auth = replace_once(auth, marker, helpers + marker, 'identity helper insertion')
 
@@ -86,7 +86,7 @@ auth = replace_once(
 auth = replace_once(
     auth,
     "        unique_prices = sorted({x['price'] for x in concrete})\n        if len(unique_prices) != 1:\n            result['retailer_error'] = 'AMBIGUOUS_CURRENT_RETAILER_PRICES'\n            result['retailer_price_candidates_dkk'] = unique_prices[:12]\n            return result\n\n        item_price = unique_prices[0]\n        result['retailer_item_price_dkk'] = item_price\n        result['retailer_price_verified'] = True\n        result['retailer_stock_verified'] = True\n        result['retailer_price_method'] = 'JSON_LD_PRODUCT_OFFER_PRICE_DKK'\n",
-    "        unique_prices = sorted({x['price'] for x in concrete})\n        price_method = 'JSON_LD_PRODUCT_OFFER_PRICE_DKK'\n        if len(unique_prices) == 1:\n            item_price = unique_prices[0]\n        else:\n            # Multiple concrete in-stock Offer prices are not resolved by\n            # choosing the cheapest.  The retailer-specific live comparison\n            # card may only disambiguate when exactly one direct retailer\n            # Offer has the exact same current item price.\n            lead = int(lead_price_dkk or 0)\n            matched = [p for p in unique_prices if lead > 0 and p == lead]\n            if len(matched) != 1:\n                result['retailer_error'] = 'AMBIGUOUS_CURRENT_RETAILER_PRICES'\n                result['retailer_price_candidates_dkk'] = unique_prices[:12]\n                return result\n            item_price = matched[0]\n            price_method = 'JSON_LD_PRODUCT_OFFER_PRICE_DKK_MATCHED_LIVE_RETAILER_CARD'\n\n        result['retailer_item_price_dkk'] = item_price\n        result['retailer_price_verified'] = True\n        result['retailer_stock_verified'] = True\n        result['retailer_price_method'] = price_method\n",
+    "        unique_prices = sorted({x['price'] for x in concrete})\n        price_method = 'JSON_LD_PRODUCT_OFFER_PRICE_DKK'\n        if len(unique_prices) == 1:\n            item_price = unique_prices[0]\n        else:\n            # Never choose the cheapest among multiple current retailer offers.\n            # A live card for this exact retailer may disambiguate only when\n            # exactly one concrete in-stock retailer Offer matches it exactly.\n            lead = int(lead_price_dkk or 0)\n            matched = [p for p in unique_prices if lead > 0 and p == lead]\n            if len(matched) != 1:\n                result['retailer_error'] = 'AMBIGUOUS_CURRENT_RETAILER_PRICES'\n                result['retailer_price_candidates_dkk'] = unique_prices[:12]\n                return result\n            item_price = matched[0]\n            price_method = 'JSON_LD_PRODUCT_OFFER_PRICE_DKK_MATCHED_LIVE_RETAILER_CARD'\n\n        result['retailer_item_price_dkk'] = item_price\n        result['retailer_price_verified'] = True\n        result['retailer_stock_verified'] = True\n        result['retailer_price_method'] = price_method\n",
     'price disambiguation',
 )
 
