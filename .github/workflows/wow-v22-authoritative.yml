@@ -1,0 +1,271 @@
+name: WoW DBA Authoritative V22
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+    - cron: '0 10 * * *'
+    - cron: '0 17 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'dba_browser_v2.py'
+      - 'dba_browser_v3.py'
+      - 'dba_browser_v4.py'
+      - 'dba_browser_v5.py'
+      - 'dba_browser_v6.py'
+      - 'dba_browser_v6_recovery.py'
+      - 'dba_browser_v7_intelligence.py'
+      - 'dba_browser_v20.py'
+      - 'dba_listing_intelligence.py'
+      - 'dba_known_listing_issues_v21.json'
+      - 'dba_decision_report.py'
+      - 'dba_decision_report_v22.py'
+      - 'dba_t1_preflight.py'
+      - 'dba_t1_schema_probe.py'
+      - 'dba_t1_hydration_ancestor.py'
+      - 'dba_z20_parts.py'
+      - 'dba_z20_parts_recovery.py'
+      - 'dba_strategy_parts.py'
+      - 'dba_strategy_parts_v20.py'
+      - 'dba_z20_donors.py'
+      - 'dba_z20_donors_recovery.py'
+      - 'z20_complete_optimizer.py'
+      - 'dba_strategy_optimizer.py'
+      - 'dba_platform_first_v16.py'
+      - 'dba_platform_first_v20.py'
+      - 'dba_self_build_v17.py'
+      - 'dba_build_alternatives.py'
+      - 'dba_self_build_v18.py'
+      - 'dba_component_optimizer_v19.py'
+      - 'dba_component_market_v19.py'
+      - 'dba_gpu_model_v20.py'
+      - 'dba_route_pipeline_v20.py'
+      - 'dba_retail_prices_v20.py'
+      - 'dba_retail_prices_v22.py'
+      - 'dba_retail_offers_v22.py'
+      - 'dba_self_build_v20.py'
+      - 'dba_self_build_v20_authoritative.py'
+      - 'dba_self_build_v22_authoritative.py'
+      - 'dba_strategy_report_v19.py'
+      - 'dba_strategy_report_v20.py'
+      - 'dba_publication_gate_v20.py'
+      - 'dba_publication_gate_v20_authoritative.py'
+      - 'dba_retail_availability_v21.py'
+      - 'dba_retail_availability_v22.py'
+      - 'dba_procurement_v21.py'
+      - 'dba_procurement_v22.py'
+      - 'dba_strategy_report_v21.py'
+      - 'dba_strategy_report_v22.py'
+      - 'dba_publication_gate_v21.py'
+      - 'dba_publication_gate_v22.py'
+      - 'dba_compact_publish_v20.py'
+      - '.github/workflows/wow-v22-authoritative.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wow-dba-authoritative-v22
+  cancel-in-progress: true
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Preserve previous publication and V19 golden baseline
+        run: |
+          cp results/wow_strategy_latest.json /tmp/previous_strategy.json
+          git fetch origin baseline/v19-green-2026-09-05 --depth=1
+          git show FETCH_HEAD:results/wow_strategy_latest.json > /tmp/v19_baseline_strategy.json
+
+      - name: Install browser dependencies
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Compile V20 core and V22 procurement/deal layer
+        run: |
+          python -m py_compile \
+            dba_browser_v2.py dba_browser_v3.py dba_browser_v4.py dba_browser_v5.py \
+            dba_browser_v6.py dba_browser_v6_recovery.py dba_browser_v7_intelligence.py dba_browser_v20.py \
+            dba_listing_intelligence.py dba_decision_report.py dba_decision_report_v22.py dba_t1_preflight.py dba_t1_schema_probe.py dba_t1_hydration_ancestor.py \
+            dba_z20_parts.py dba_z20_parts_recovery.py dba_strategy_parts.py dba_strategy_parts_v20.py \
+            dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py \
+            dba_platform_first_v16.py dba_platform_first_v20.py dba_self_build_v17.py dba_build_alternatives.py dba_self_build_v18.py \
+            dba_component_optimizer_v19.py dba_component_market_v19.py dba_gpu_model_v20.py dba_route_pipeline_v20.py \
+            dba_retail_prices_v20.py dba_retail_prices_v22.py dba_retail_offers_v22.py \
+            dba_self_build_v20.py dba_self_build_v20_authoritative.py dba_self_build_v22_authoritative.py \
+            dba_strategy_report_v19.py dba_strategy_report_v20.py dba_publication_gate_v20.py dba_publication_gate_v20_authoritative.py \
+            dba_retail_availability_v21.py dba_retail_availability_v22.py dba_procurement_v21.py dba_procurement_v22.py \
+            dba_strategy_report_v21.py dba_strategy_report_v22.py dba_publication_gate_v21.py dba_publication_gate_v22.py \
+            dba_compact_publish_v20.py
+
+      - name: Diagnose DBA source/schema gate
+        timeout-minutes: 3
+        run: python dba_t1_preflight.py
+
+      - name: Scan complete used PCs and build same-run T1 cache
+        timeout-minutes: 18
+        run: python dba_browser_v20.py
+
+      - name: Apply persistent exclusions before complete-PC decision
+        run: python dba_decision_report_v22.py
+
+      - name: Scan used components with extended GPU/RAM coverage and cache reuse
+        timeout-minutes: 18
+        run: python dba_strategy_parts_v20.py
+
+      - name: Resolve complete-PC donor routes
+        timeout-minutes: 4
+        run: python dba_z20_donors_recovery.py
+
+      - name: Build route universe with reserved GPU families
+        timeout-minutes: 4
+        run: python dba_route_pipeline_v20.py
+
+      - name: Discover deeper live retail universe
+        timeout-minutes: 9
+        run: python dba_retail_prices_v22.py
+
+      - name: Apply V20 core performance model for pre-V22 regression gate
+        run: python dba_self_build_v20_authoritative.py
+
+      - name: Generate V20 core audit report
+        run: python dba_strategy_report_v20.py
+
+      - name: Validate unchanged V20 core gate
+        run: python dba_publication_gate_v20_authoritative.py
+
+      - name: Verify store-level offers, stock and delivery-inclusive prices
+        timeout-minutes: 10
+        run: python dba_retail_offers_v22.py
+
+      - name: Re-optimize new parts on delivered price and live deals
+        run: python dba_self_build_v22_authoritative.py
+
+      - name: Regenerate technical report for V22-selected BOM
+        run: python dba_strategy_report_v20.py
+
+      - name: Verify selected new-part delivered availability
+        run: python dba_retail_availability_v22.py
+
+      - name: Build V21-compatible actionable procurement base
+        env:
+          V21_PREVIOUS_STRATEGY: /tmp/previous_strategy.json
+          V21_BASELINE_STRATEGY: /tmp/v19_baseline_strategy.json
+        run: python dba_procurement_v21.py
+
+      - name: Generate V21 procurement base report
+        run: python dba_strategy_report_v21.py
+
+      - name: Apply V22 buy-ready and delivered-offer procurement rules
+        run: python dba_procurement_v22.py
+
+      - name: Generate authoritative V22 procurement and deals report
+        run: python dba_strategy_report_v22.py
+
+      - name: Validate authoritative V22 publication gate
+        run: python dba_publication_gate_v22.py
+
+      - name: Preserve gated V22 snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: wow-v22-gated-${{ github.run_id }}
+          retention-days: 3
+          compression-level: 6
+          path: |
+            results/wow_a3_latest.json
+            results/wow_a3_report.md
+            results/wow_platform_first_report.md
+            results/wow_self_build_report.md
+            results/wow_self_build_report_v20.md
+            results/wow_self_build_report_v21.md
+            results/wow_self_build_report_v22.md
+            results/wow_strategy_latest.json
+            results/procurement_plan_v21.json
+            results/procurement_plan_v22.json
+            results/retail_availability_v21.json
+            results/retail_availability_v22.json
+            results/retail_prices_latest.json
+            results/retail_discovery_v20.json
+            results/retail_offers_v22.json
+            results/z20_parts_latest.json
+            results/z20_donors_latest.json
+            results/t1_cache_v20.json
+
+      - name: Compact verified strategy snapshot
+        run: python dba_compact_publish_v20.py
+
+      - name: Validate publish payload size
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('results/wow_strategy_latest.json')
+          size=p.stat().st_size
+          limit=90*1024*1024
+          assert size < limit, f'Compact V22 strategy snapshot too large: {size/1024/1024:.2f} MiB'
+          print(f'PASS PUBLISH SIZE: {size/1024/1024:.2f} MiB < 90 MiB')
+          PY
+
+      - name: Publish authoritative V22 results
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/wow-v22-results
+          cp \
+            results/wow_a3_latest.json \
+            results/wow_a3_report.md \
+            results/wow_platform_first_report.md \
+            results/wow_self_build_report.md \
+            results/wow_self_build_report_v20.md \
+            results/wow_self_build_report_v21.md \
+            results/wow_self_build_report_v22.md \
+            results/wow_strategy_latest.json \
+            results/procurement_plan_v21.json \
+            results/procurement_plan_v22.json \
+            results/retail_availability_v21.json \
+            results/retail_availability_v22.json \
+            results/retail_prices_latest.json \
+            results/retail_discovery_v20.json \
+            results/retail_offers_v22.json \
+            results/z20_parts_latest.json \
+            results/z20_donors_latest.json \
+            /tmp/wow-v22-results/
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp /tmp/wow-v22-results/* results/
+            git add \
+              results/wow_a3_latest.json \
+              results/wow_a3_report.md \
+              results/wow_platform_first_report.md \
+              results/wow_self_build_report.md \
+              results/wow_self_build_report_v20.md \
+              results/wow_self_build_report_v21.md \
+              results/wow_self_build_report_v22.md \
+              results/wow_strategy_latest.json \
+              results/procurement_plan_v21.json \
+              results/procurement_plan_v22.json \
+              results/retail_availability_v21.json \
+              results/retail_availability_v22.json \
+              results/retail_prices_latest.json \
+              results/retail_discovery_v20.json \
+              results/retail_offers_v22.json \
+              results/z20_parts_latest.json \
+              results/z20_donors_latest.json
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Update verified WoW V22 delivered-price procurement report [skip ci]"
+            if git push origin main; then exit 0; fi
+          done
+          exit 1
