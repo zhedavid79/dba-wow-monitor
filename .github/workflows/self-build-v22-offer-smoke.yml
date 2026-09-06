@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'dba_retail_motherboard_v22.py'
       - 'dba_retail_prices_v22.py'
       - 'dba_retail_routes_v22.py'
       - 'dba_retail_authority_v22.py'
@@ -38,11 +39,12 @@ jobs:
           playwright install --with-deps chromium
       - name: Compile V22 retail safety layer
         run: |
-          python -m py_compile dba_retail_prices_v22.py dba_retail_routes_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_procurement_v22.py dba_strategy_report_v22.py dba_publication_gate_v22.py
+          python -m py_compile dba_retail_motherboard_v22.py dba_retail_prices_v22.py dba_retail_routes_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_procurement_v22.py dba_strategy_report_v22.py dba_publication_gate_v22.py
       - name: Unit-check live offer floor and retailer authority invariants
         run: |
           python - <<'PY'
           import dba_retail_authority_v22 as auth
+          import dba_retail_motherboard_v22 as mb22
           import dba_retail_offers_v22 as offers
           import dba_retail_routes_v22 as routes
 
@@ -67,8 +69,6 @@ jobs:
           assert auth._numeric('1.170') == 1170
           assert auth._numeric('895.00') == 895
 
-          # Permanent route and direct-retailer identity regressions. Route
-          # adapters are discovery only and cannot themselves grant BUY_NOW.
           assert routes.candidate_urls('Proshop','3324875') == ['https://www.proshop.dk/3324875']
           assert routes.candidate_urls('Happii','3324875') == ['https://www.happii.dk/3324875']
           assert routes.candidate_urls('Komplett','1317727') == ['https://www.komplett.dk/product/1317727']
@@ -79,7 +79,33 @@ jobs:
           assert not auth._same_product_identity('ASUS TUF B850M-PLUS WIFI', 'ASUS PRIME B850M-A WIFI')
           assert auth._shipping_from_text('Billigste fragt (privatkunde) 33,00 kr.', 900)[:2] == (33, True)
           assert auth._shipping_from_text('Fragt fra 33,00 kr.', 900)[1] is False
-          print('PASS V22 PURE RETAIL AUTHORITY AND ROUTE INVARIANTS')
+
+          identity='ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX'
+          specs=mb22.extract_retailer_motherboard_specs(
+              'ASRock B850M Pro RS WiFi',
+              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet',
+              identity,
+          )
+          assert specs['passed'] and specs['dimm_slots']==4 and specs['m2_count']==3 and specs['lan_gbps']==2.5
+          weak=mb22.extract_retailer_motherboard_specs(
+              'ASRock B850M Pro RS WiFi',
+              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 2 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet',
+              identity,
+          )
+          assert weak['passed'] is False and '4 DIMM' in weak['missing']
+          five=mb22.extract_retailer_motherboard_specs(
+              'ASRock B850M Pro RS WiFi',
+              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 5 Gigabit Ethernet',
+              identity,
+          )
+          assert five['passed'] is True and five['lan_gbps']==5.0
+          no_wifi=mb22.extract_retailer_motherboard_specs(
+              'ASRock B850M Pro RS',
+              'ASRock B850M Pro RS AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet',
+              'ASRock B850M Pro RS AMD AM5 DDR5 Micro ATX',
+          )
+          assert no_wifi['passed'] is False and 'Wi-Fi' in no_wifi['missing']
+          print('PASS V22 PURE RETAIL AUTHORITY, ROUTE AND MOTHERBOARD SPEC INVARIANTS')
           PY
       - name: Discover deeper live retail universe
         timeout-minutes: 8
@@ -117,6 +143,7 @@ jobs:
           assert gate.get('price_history_forbidden') is True
           assert gate.get('retailer_page_required_for_buy_now') is True
           assert gate.get('mandatory_shipping_required_for_buy_now') is True
+          assert gate.get('dynamic_motherboard_promotion_requires_direct_spec_gate') is True
           assert (s.get('component_market_coverage_v20') or {}).get('passed') is True
           assert len(new)==a['selected_total']==a['identity_verified']
           assert not a.get('failures')
@@ -150,6 +177,13 @@ jobs:
                   assert ar.get('retailer_page_verified') is True
                   assert ar.get('retailer_shipping_verified') is True
                   assert ar.get('delivered_arithmetic_verified') is True
+                  if x.get('dynamic_retailer_promoted_v22') is True:
+                      assert x.get('retailer_component_spec_gate_passed_v22') is True
+                      assert x.get('retailer_component_spec_authority_v22')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'
+                      assert r.get('retailer_component_spec_gate_passed') is True
+                      assert r.get('retailer_component_spec_authority')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'
+                      assert ar.get('retailer_component_spec_gate_passed') is True
+                      assert ar.get('retailer_component_spec_authority')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'
               else:
                   assert x.get('external_url_resolved_v22') is False
                   assert x.get('retailer_page_verified_v22') is False

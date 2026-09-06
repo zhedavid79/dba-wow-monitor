@@ -115,6 +115,13 @@ def main()->None:
             assert x.get('seller') and not str(x.get('seller')).startswith('Prisjagt butik #')
             assert external(str(x.get('url') or ''))
             assert int(x.get('delivered_price_dkk') or 0)==int(x.get('item_price_dkk') or 0)+int(x.get('shipping_dkk') or 0)
+            if x.get('dynamic_retailer_promoted_v22') is True:
+                assert x.get('retailer_component_spec_gate_passed_v22') is True
+                assert x.get('retailer_component_spec_authority_v22')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'
+                assert orow.get('retailer_component_spec_gate_passed') is True
+                assert orow.get('retailer_component_spec_authority')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'
+                assert ar.get('retailer_component_spec_gate_passed') is True
+                assert ar.get('retailer_component_spec_authority')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'
 
             assert act.get('procurement_action')=='BUY_NOW' and act.get('actionable_now') is True
             assert act.get('retailer_authority')=='DIRECT_RETAILER_T1'

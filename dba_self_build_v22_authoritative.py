@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import dba_component_optimizer_v19 as core
+import dba_retail_motherboard_v22 as mb22
 import dba_self_build_v20 as v20
 import dba_self_build_v20_authoritative as auth20
 
@@ -118,6 +119,20 @@ def safe_snapshot_candidates(kind: str) -> list[dict]:
                 'same_page_price_floor_method_v22': offer.get('same_page_price_floor_method'),
             })
         rows.append(c)
+
+    if kind == 'MOTHERBOARD':
+        retail_doc = json.loads(RETAIL.read_text(encoding='utf-8'))
+        existing = {str(x.get('sku') or '') for x in rows}
+        for product in retail_doc.get('products') or []:
+            if product.get('motherboard_spec_lead_v22') is not True:
+                continue
+            promoted = mb22.promoted_candidate(product, product.get('retail_offer_v22') or {})
+            if not promoted or str(promoted.get('sku') or '') in existing:
+                continue
+            ok, failures = core.hard_gate('MOTHERBOARD', promoted)
+            assert ok, f'V22 retailer-promoted motherboard failed hard gate: {failures}'
+            existing.add(str(promoted.get('sku') or ''))
+            rows.append(promoted)
     return rows
 
 
@@ -137,6 +152,10 @@ def validate_selected(data: dict) -> dict:
             assert c.get('seller') and c.get('url')
             assert c.get('availability') == 'IN_STOCK_DIRECT_RETAILER_VERIFIED'
             assert int(c.get('delivered_price_dkk') or 0) == int(c.get('item_price_dkk') or 0) + int(c.get('shipping_dkk') or 0)
+            if c.get('dynamic_retailer_promoted_v22') is True:
+                assert c.get('retailer_component_spec_gate_passed_v22') is True
+                assert c.get('retailer_component_spec_authority_v22') == 'DIRECT_RETAILER_PRODUCT_PAGE_T1'
+                assert (c.get('spec_evidence_v22') or {}).get('url')
         else:
             reference += 1
             assert c.get('external_url_resolved_v22') is False

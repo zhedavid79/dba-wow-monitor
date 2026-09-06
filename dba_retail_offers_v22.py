@@ -12,6 +12,7 @@ from playwright.async_api import async_playwright
 
 import dba_component_market_v19 as market
 import dba_retail_authority_v22 as authority22
+import dba_retail_motherboard_v22 as mb22
 import dba_retail_prices_v19 as retail19
 
 RETAIL = Path('results/retail_prices_latest.json')
@@ -368,11 +369,18 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
                 )
                 if can_try_direct:
                     direct_attempts += 1
+                    component_verifier = None
+                    if out.get('kind') == 'MOTHERBOARD':
+                        async def component_verifier(retailer_page, retailer_url, retailer_title, retailer_h1):
+                            return await mb22.verify_retailer_motherboard_specs_on_page(
+                                retailer_page, retailer_url, name, retailer_title, retailer_h1
+                            )
                     retailer = await authority22.verify_external_retailer(
                         context,
                         str(r['direct_url']),
                         name,
                         lead_price_dkk=int(r['displayed_price_dkk']),
+                        component_page_verifier=component_verifier,
                     )
                     r.update(retailer)
 
@@ -430,6 +438,12 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
                 resolved.append(r)
 
             verified = [r for r in resolved if r.get('buy_ready_offer')]
+            if p.get('motherboard_spec_lead_v22') is True:
+                verified = [
+                    r for r in verified
+                    if r.get('retailer_component_spec_gate_passed') is True
+                    and r.get('retailer_component_spec_authority') == 'DIRECT_RETAILER_PRODUCT_PAGE_T1'
+                ]
             delivered_values = [int(r['delivered_price_dkk']) for r in verified]
             median = int(round(statistics.median(delivered_values))) if delivered_values else None
             for r in resolved:
@@ -474,6 +488,10 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
                     'card_price_method': b.get('card_price_method'),
                     'same_page_lowest_price_dkk': product_floor,
                     'same_page_price_floor_method': floor_method,
+                    'retailer_component_spec_gate_passed': b.get('retailer_component_spec_gate_passed'),
+                    'retailer_component_spec_authority': b.get('retailer_component_spec_authority'),
+                    'retailer_component_specs': b.get('retailer_component_specs'),
+                    'retailer_component_spec_url': b.get('retailer_component_spec_url'),
                 })
             else:
                 out.update({
@@ -483,6 +501,10 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
                     'retailer_price_verified': False,
                     'retailer_stock_verified': False,
                     'retailer_shipping_verified': False,
+                    'retailer_component_spec_gate_passed': False,
+                    'retailer_component_spec_authority': 'UNPROVEN',
+                    'retailer_component_specs': None,
+                    'retailer_component_spec_url': None,
                 })
             return out
         except Exception as exc:
@@ -511,8 +533,35 @@ async def main():
             user_agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36',
             extra_http_headers={'Accept-Language': 'da-DK,da;q=0.9,en;q=0.8'},
         )
-        sem = asyncio.Semaphore(5)
+        products.sort(key=lambda p: (0 if p.get('motherboard_spec_lead_v22') is True else 1))
+        sem = asyncio.Semaphore(4)
         rows = await asyncio.gather(*(inspect(context, p, sem, kmap) for p in products))
+
+        row_pos = {str(r.get('sku') or ''): i for i, r in enumerate(rows)}
+        spec_lead_retries = 0
+        serial_sem = asyncio.Semaphore(1)
+        for p in products:
+            if p.get('motherboard_spec_lead_v22') is not True:
+                continue
+            pos = row_pos.get(str(p.get('sku') or ''))
+            if pos is None:
+                continue
+            current = rows[pos]
+            if (
+                current.get('delivered_price_verified') is True
+                and current.get('retailer_component_spec_gate_passed') is True
+            ):
+                continue
+            retry = await inspect(context, p, serial_sem, kmap)
+            spec_lead_retries += 1
+            if (
+                retry.get('delivered_price_verified') is True
+                or (
+                    current.get('retail_lead_price_dkk') is None
+                    and retry.get('retail_lead_price_dkk') is not None
+                )
+            ):
+                rows[pos] = retry
         await context.close()
         await browser.close()
 
@@ -540,6 +589,7 @@ async def main():
         'external_routes_resolved': external_routes,
         'external_urls_resolved': retailer_verified,
         'retailer_pages_verified': retailer_verified,
+        'motherboard_spec_lead_retries': locals().get('spec_lead_retries', 0),
         'rows': rows,
     }
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -554,7 +604,9 @@ async def main():
             'retailer_page_verified','retailer_identity_verified','retailer_price_verified',
             'retailer_stock_verified','retailer_shipping_verified','retailer_authority',
             'deal_type','normal_price_dkk','market_reference_delivered_dkk','price_sanity_ok','price_sanity_method',
-            'card_price_method','retail_lead_price_dkk','same_page_lowest_price_dkk','same_page_price_floor_method'
+            'card_price_method','retail_lead_price_dkk','same_page_lowest_price_dkk','same_page_price_floor_method',
+            'retailer_component_spec_gate_passed','retailer_component_spec_authority',
+            'retailer_component_specs','retailer_component_spec_url'
         )}
     doc['offer_gate_v22'] = {
         'model': result['model'],
@@ -566,6 +618,7 @@ async def main():
         'external_routes_resolved': external_routes,
         'external_urls_resolved': retailer_verified,
         'retailer_pages_verified': retailer_verified,
+        'motherboard_spec_lead_retries': result.get('motherboard_spec_lead_retries', 0),
         'required_price_basis': 'DIRECT_RETAILER_PAGE_ONLY',
         'same_page_floor_basis': 'LIVE_OFFER_LIST_ONLY',
         'whole_page_floor_forbidden': True,
@@ -576,6 +629,7 @@ async def main():
         'parent_section_prices_forbidden': True,
         'retailer_page_required_for_buy_now': True,
         'mandatory_shipping_required_for_buy_now': True,
+        'dynamic_motherboard_promotion_requires_direct_spec_gate': True,
     }
     RETAIL.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding='utf-8')
     bykind = {k: sum(1 for r in ready if r.get('kind') == k) for k in ('MOTHERBOARD','PSU','CASE','COOLER','RAM','STORAGE')}
