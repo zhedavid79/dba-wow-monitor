@@ -1,0 +1,39 @@
+name: V22 route source patch
+
+on:
+  push:
+    branches: [v22/retail-route-resolution-2026-09-06]
+    paths:
+      - 'tools/apply_v22_route_patch.py'
+      - '.github/workflows/v22-route-source-patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ !contains(github.event.head_commit.message, '[route-patched]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v22/retail-route-resolution-2026-09-06
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply deterministic patch
+        run: |
+          python tools/apply_v22_route_patch.py
+          python -m py_compile dba_retail_routes_v22.py dba_retail_offers_v22.py
+      - name: Commit patched source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dba_retail_offers_v22.py
+          if git diff --cached --quiet; then
+            echo 'No source changes needed'
+          else
+            git commit -m 'Route Prisjagt offers through retailer adapters [route-patched]'
+            git push origin HEAD:v22/retail-route-resolution-2026-09-06
+          fi
