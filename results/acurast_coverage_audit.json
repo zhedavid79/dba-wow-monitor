@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-06T19:07:25.555742+00:00",
+  "generated_at": "2026-09-06T20:38:33.581516+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2578,
-    "verified_before_quality": 64,
-    "final_after_quality": 63,
-    "ranked": 45,
-    "discovery_model_blindspots": 987,
+    "t0_unique": 2575,
+    "verified_before_quality": 63,
+    "final_after_quality": 62,
+    "ranked": 44,
+    "discovery_model_blindspots": 986,
     "pulse_gated_discovery_review": 23,
     "t1_exit_review": 6,
     "quality_review": 1,
@@ -15,7 +15,7 @@
     "pulse_review": 10
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 987,
+    "DISCOVERY/MODEL": 986,
     "DISCOVERY/PULSE": 23,
     "T1": 6,
     "QUALITY": 1,
@@ -6353,15 +6353,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24488679",
-      "title": "Samsung Galaxy Note 8 dual sim from 2018",
-      "ask": 400,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24488679",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24494134",
       "title": "Samsung Watch 4",
       "ask": 400,
@@ -7059,6 +7050,15 @@
       "title": "Samsung Galaxy A32 5G 64GB dual SIM",
       "ask": 500,
       "url": "https://www.dba.dk/recommerce/forsale/item/24473397",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24488679",
+      "title": "Samsung Galaxy Note 8 dual sim from 2018",
+      "ask": 500,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24488679",
       "reason": "no supported model resolved"
     },
     {
@@ -7937,15 +7937,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24622863",
-      "title": "Motorola G56 G5  Pantone black",
-      "ask": 701,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24622863",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "23426203",
       "title": "Huawei p20",
       "ask": 729,
@@ -8280,7 +8271,7 @@
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
       "listing_id": "24681186",
-      "title": "motorola G75 256 GB + 2 x cover - BYD GERNE",
+      "title": "BYD GERNE! Motorola G75 256 GB + 2 x cover",
       "ask": 800,
       "url": "https://www.dba.dk/recommerce/forsale/item/24681186",
       "reason": "no supported model resolved"
@@ -9601,13 +9592,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2508,
+    "PRODUCT_IDENTITY": 2506,
     "T1": 6
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1455,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 997,
+    "no supported model resolved": 1454,
     "live price missing": 3,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 998,
     "weak complete-phone evidence": 6,
     "accessory/part title": 6,
     "resolved model variant is not supported by seller text": 12,
@@ -9615,7 +9606,7 @@
     "description indicates part without explicit functional phone evidence": 31
   },
   "audit_integrity": {
-    "all_rejects_count": 2514,
+    "all_rejects_count": 2512,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

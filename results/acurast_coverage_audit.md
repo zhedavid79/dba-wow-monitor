@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-06T19:07:25.555742+00:00
+Generated: 2026-09-06T20:38:33.581516+00:00
 
-T0 listings <= ceiling: **2578**  
-Verified before quality: **64**  
-Final after quality: **63**  
-Mainnet ranked: **45**
+T0 listings <= ceiling: **2575**  
+Verified before quality: **63**  
+Final after quality: **62**  
+Mainnet ranked: **44**
 
 ## Review buckets
 
-- Discovery/model blindspots: **987**
+- Discovery/model blindspots: **986**
 - Core-compatible explicit models stopped by Pulse gate: **23**
 - T1 exits/errors: **6**
 - Quality-gate review: **1**
@@ -765,7 +765,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24401279 | Nokia | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24443716 | Huawei P20 Light | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24464151 | Samsung Galaxy S7 smartphone 32 GB sort | 400 | no supported model resolved |
-| DISCOVERY/MODEL | 24488679 | Samsung Galaxy Note 8 dual sim from 2018 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24494134 | Samsung Watch 4 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24505461 | Sony Xperia XZ Premium (rimelige bud modtages) | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24566703 | one plus | 400 | no supported model resolved |
@@ -844,6 +843,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24231025 | Samsung S9, 64 gb. | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24296370 | Sony smartphone 32 GB blå | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24473397 | Samsung Galaxy A32 5G 64GB dual SIM | 500 | no supported model resolved |
+| DISCOVERY/MODEL | 24488679 | Samsung Galaxy Note 8 dual sim from 2018 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24492158 | Moto Edge 30 Fusion 8/128 GB | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24493150 | Moto Watch specielt edition | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24500231 | EDGE 20 MOTOROLA 8gb ram 128gb XT2143-1 / 5G Frosted Grey | 500 | no supported model resolved |
@@ -941,7 +941,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24629552 | Samsung A17 5G helt nye og ubrugte (Reserveret) | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 3292825 | HUAWEI Y 7, 2 GB , Perfekt | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 7074892 | Nokia n95 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 24622863 | Motorola G56 G5  Pantone black | 701 | no supported model resolved |
 | DISCOVERY/MODEL | 23426203 | Huawei p20 | 729 | no supported model resolved |
 | DISCOVERY/MODEL | 19023980 | Motorola g62 | 735 | no supported model resolved |
 | DISCOVERY/MODEL | 12878105 | Motorola Edge | 749 | no supported model resolved |
@@ -979,7 +978,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24654428 | blackview shark 8 256gb blå | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24660072 | Nokia n96 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24660419 | Motorola G67 | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 24681186 | motorola G75 256 GB + 2 x cover - BYD GERNE | 800 | no supported model resolved |
+| DISCOVERY/MODEL | 24681186 | BYD GERNE! Motorola G75 256 GB + 2 x cover | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 3293691 | Motorola G, Perfekt | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 3408188 | Nokia 6.2, 64gb , Perfekt | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 3608942 | HUAWEI Y6 2019, 32 , Perfekt | 800 | no supported model resolved |
