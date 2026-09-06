@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 STRATEGY=Path('results/wow_strategy_latest.json')
@@ -48,7 +49,14 @@ def eligible_skus(strategy:dict)->set[str]:
 def main()->None:
     s=json.loads(STRATEGY.read_text(encoding='utf-8'));p=json.loads(PLAN.read_text(encoding='utf-8'));o=json.loads(OFFERS.read_text(encoding='utf-8'))
     assert p.get('version')=='V22' and (s.get('offer_optimizer_v22') or {}).get('active') is True and BASE.exists()
-    text=BASE.read_text(encoding='utf-8').replace('SELF-BUILD FIRST V21 — PROCUREMENT','SELF-BUILD FIRST V22 — PROCUREMENT + DEALS').replace('V21 bruger','V22 bruger').replace('V21 beholder','V22 beholder')
+    text=BASE.read_text(encoding='utf-8').replace('SELF-BUILD FIRST V21 — PROCUREMENT','SELF-BUILD FIRST V22 — PROCUREMENT + DEALS').replace('V21 bruger','V22 bruger').replace('V21 beholder','V22 beholder').replace('STYRENDE V21-STATUS','STYRENDE V22-STATUS')
+
+    # V22 is authoritative for complete-build readiness. V21 is used only as a
+    # formatting base, so inherited readiness text must never survive unchanged.
+    headline=p.get('headline') or {};ready=bool(headline.get('ready_to_buy_complete_build_today'));fit=str(headline.get('z20_fit') or 'UNKNOWN')
+    ready_phrase=f"**Kan hele buildet købes rationelt i dag? {'JA' if ready else 'NEJ'}**"
+    text=re.sub(r"\*\*Kan hele buildet købes rationelt i dag\? (?:JA|NEJ)\*\*",ready_phrase,text,count=1)
+    text=re.sub(r"\*\*Styrende Z20-fit:\*\* [^\n]+",f"**Styrende Z20-fit:** {fit}",text,count=1)
 
     selected=(p.get('retail_offers_v22') or {}).get('selected') or []
     lines=['## 🏷️ Nye dele — tilbud, butik og leveret pris','',
@@ -64,7 +72,7 @@ def main()->None:
     eligible=eligible_skus(s);deal_rows=[]
     for r in o.get('rows') or []:
         if str(r.get('sku') or '') not in eligible or r.get('delivered_price_verified') is not True:continue
-        best=r.get('best_delivered_offer') or {};x={'kind':r.get('kind'),'sku':r.get('sku'),'name':r.get('name'),'seller':r.get('seller'),'url':r.get('buy_url'),'delivered_price_dkk':r.get('delivered_price_dkk'),'item_price_dkk':r.get('item_price_dkk'),'shipping_dkk':r.get('shipping_dkk'),'normal_price_dkk':r.get('normal_price_dkk'),'market_reference_delivered_dkk':r.get('market_reference_delivered_dkk'),'deal_type':r.get('deal_type')}
+        x={'kind':r.get('kind'),'sku':r.get('sku'),'name':r.get('name'),'seller':r.get('seller'),'url':r.get('buy_url'),'delivered_price_dkk':r.get('delivered_price_dkk'),'item_price_dkk':r.get('item_price_dkk'),'shipping_dkk':r.get('shipping_dkk'),'normal_price_dkk':r.get('normal_price_dkk'),'market_reference_delivered_dkk':r.get('market_reference_delivered_dkk'),'deal_type':r.get('deal_type')}
         sav,pct,label=saving(x);x['saving']=sav;x['saving_pct']=pct;x['reference_label']=label;deal_rows.append(x)
     deal_rows.sort(key=lambda x:(-(x.get('saving_pct') or 0),int(x.get('delivered_price_dkk') or 10**9)))
     lines += ['## 🔎 Andre kvalificerede nye tilbud fundet','',f"Retail-univers inspiceret: **{o.get('products_total')}** produkter · leveret-pris-verificeret: **{o.get('delivered_price_verified')}** · tilbud/deal-signaler: **{o.get('deal_candidates')}**.",'',
@@ -75,7 +83,7 @@ def main()->None:
     if not deal_rows:lines.append('| — | Ingen ekstra kvalificerede leveret-pris-kandidater | — | — | — | — |')
     lines += ['','**Regel:** “tilbud” er ikke et scorebonusord. V22 vælger efter hard gates → Pareto → projektrelevant feature-værdi → **leveret pris**. Dermed kan et dyrere nyt produkt vinde, men kun hvis den konkrete merfunktion er mere værd end merprisen.','']
 
-    blockers=p.get('blockers') or [];gate=['## 🚦 KØBSKLAR-gate','',f"**Hele buildet KØBSKLAR nu: {'JA' if (p.get('headline') or {}).get('ready_to_buy_complete_build_today') else 'NEJ'}**",'',f"**Styrende Z20-fit:** {(p.get('headline') or {}).get('z20_fit','UNKNOWN')}",'']
+    blockers=p.get('blockers') or [];gate=['## 🚦 KØBSKLAR-gate','',f"**Hele buildet KØBSKLAR nu: {'JA' if ready else 'NEJ'}**",'',f"**Styrende Z20-fit:** {fit}",'']
     if blockers:
         gate.append('Aktuelle blokeringer:')
         for b in blockers:gate.append(f"- **{b.get('kind')} — {b.get('procurement_action')}:** {b.get('reason') or '—'}")
@@ -88,10 +96,12 @@ def main()->None:
     else:text+='\n\n'+addition
     text=text.replace('## V21 — GPU value, Z20-fit og budmodel','## V22 — GPU value, Z20-fit og budmodel').replace('## V21 — RAM-bud og bridge-kontrol','## V22 — RAM-bud og bridge-kontrol').replace('## V21 — CPU-bud','## V22 — CPU-bud').replace('## V21 — dynamisk retail discovery','## V22 — dynamisk retail discovery').replace('## V21 — shared same-run T1-cache','## V22 — shared same-run T1-cache').replace('## V21 — GPU discovery-pool','## V22 — GPU discovery-pool')
     assert 'Nye dele — tilbud, butik og leveret pris' in text and 'Andre kvalificerede nye tilbud fundet' in text and 'KØBSKLAR-gate' in text
+    assert ready_phrase in text
+    if not ready:assert '**Kan hele buildet købes rationelt i dag? JA**' not in text
     assert '7969913' not in '\n'.join(line for line in text.splitlines() if 'HARD EXCLUDE' not in line and 'Historiske hard exclusions' not in line),'Excluded listing leaked outside historical exclusion section'
     for r in selected:assert r.get('buy_url') and str(r['buy_url']) in text
     for path in (OUT,CANONICAL,LEGACY,ALIAS):path.write_text(text,encoding='utf-8')
-    print(json.dumps({'V22_REPORT':True,'ask_total':(p.get('headline') or {}).get('ask_total'),'target_total':(p.get('headline') or {}).get('target_total'),'fit':(p.get('headline') or {}).get('z20_fit'),'ready_today':(p.get('headline') or {}).get('ready_to_buy_complete_build_today'),'selected_new':len(selected),'eligible_offer_rows':len(deal_rows)},ensure_ascii=False))
+    print(json.dumps({'V22_REPORT':True,'ask_total':headline.get('ask_total'),'target_total':headline.get('target_total'),'fit':fit,'ready_today':ready,'selected_new':len(selected),'eligible_offer_rows':len(deal_rows)},ensure_ascii=False))
 
 
 if __name__=='__main__':main()
