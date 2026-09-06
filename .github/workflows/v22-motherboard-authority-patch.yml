@@ -63,34 +63,34 @@ jobs:
               "            assert int(c.get('delivered_price_dkk') or 0) == int(c.get('item_price_dkk') or 0) + int(c.get('shipping_dkk') or 0)\n",
               "            assert int(c.get('delivered_price_dkk') or 0) == int(c.get('item_price_dkk') or 0) + int(c.get('shipping_dkk') or 0)\n            if c.get('dynamic_retailer_promoted_v22') is True:\n                assert c.get('retailer_component_spec_gate_passed_v22') is True\n                assert c.get('retailer_component_spec_authority_v22') == 'DIRECT_RETAILER_PRODUCT_PAGE_T1'\n                assert (c.get('spec_evidence_v22') or {}).get('url')\n")
 
-          # Publication gate: selected dynamic motherboards must retain spec authority through T1.
+          # T1 availability: a selected dynamic board must re-prove hard specs.
+          rep('dba_retail_availability_v22.py',
+              "            'direct_expected': c.get('retail_offer_verified_v22') is True,\n            'comparison_url': product_url,\n",
+              "            'direct_expected': c.get('retail_offer_verified_v22') is True,\n            'dynamic_spec_expected': c.get('dynamic_retailer_promoted_v22') is True,\n            'comparison_url': product_url,\n")
+          rep('dba_retail_availability_v22.py',
+              "        arithmetic = bool(\n            current_price\n            and item is not None\n            and shipping is not None\n            and current_price == int(item) + int(shipping)\n        )\n\n        if exp['direct_expected']:\n",
+              "        arithmetic = bool(\n            current_price\n            and item is not None\n            and shipping is not None\n            and current_price == int(item) + int(shipping)\n        )\n        component_spec_ok = bool(\n            r.get('retailer_component_spec_gate_passed') is True\n            and r.get('retailer_component_spec_authority') == 'DIRECT_RETAILER_PRODUCT_PAGE_T1'\n        )\n\n        if exp['direct_expected']:\n")
+          rep('dba_retail_availability_v22.py',
+              "                and r.get('price_sanity_ok') is True\n            )\n",
+              "                and r.get('price_sanity_ok') is True\n                and (not exp['dynamic_spec_expected'] or component_spec_ok)\n            )\n")
+          rep('dba_retail_availability_v22.py',
+              "            'direct_expected': exp['direct_expected'],\n            't1_verified_at': r.get('verified_at'),\n",
+              "            'direct_expected': exp['direct_expected'],\n            'dynamic_spec_expected': exp['dynamic_spec_expected'],\n            'retailer_component_spec_gate_passed': r.get('retailer_component_spec_gate_passed') is True,\n            'retailer_component_spec_authority': r.get('retailer_component_spec_authority'),\n            'retailer_component_specs': r.get('retailer_component_specs'),\n            'retailer_component_spec_url': r.get('retailer_component_spec_url'),\n            't1_verified_at': r.get('verified_at'),\n")
+          rep('dba_retail_availability_v22.py',
+              "            'Prisjagt-only candidates remain RETAIL_LEAD and can only revalidate the current live offer-list reference.'\n",
+              "            'Prisjagt-only candidates remain RETAIL_LEAD and can only revalidate the current live offer-list reference. '\n            'A dynamically promoted motherboard must also re-prove every hard motherboard specification on the direct retailer page.'\n")
+
+          # Publication gate: selected dynamic motherboards retain spec authority through T1.
           rep('dba_publication_gate_v22.py',
               "            assert int(x.get('delivered_price_dkk') or 0)==int(x.get('item_price_dkk') or 0)+int(x.get('shipping_dkk') or 0)\n\n            assert act.get('procurement_action')=='BUY_NOW'",
               "            assert int(x.get('delivered_price_dkk') or 0)==int(x.get('item_price_dkk') or 0)+int(x.get('shipping_dkk') or 0)\n            if x.get('dynamic_retailer_promoted_v22') is True:\n                assert x.get('retailer_component_spec_gate_passed_v22') is True\n                assert x.get('retailer_component_spec_authority_v22')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'\n                assert orow.get('retailer_component_spec_gate_passed') is True\n                assert orow.get('retailer_component_spec_authority')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'\n                assert ar.get('retailer_component_spec_gate_passed') is True\n                assert ar.get('retailer_component_spec_authority')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'\n\n            assert act.get('procurement_action')=='BUY_NOW'")
-
-          # Permanent smoke regressions for the new spec authority layer.
-          rep('.github/workflows/self-build-v22-offer-smoke.yml',
-              "python -m py_compile dba_retail_prices_v22.py dba_retail_routes_v22.py dba_retail_authority_v22.py",
-              "python -m py_compile dba_retail_motherboard_v22.py dba_retail_prices_v22.py dba_retail_routes_v22.py dba_retail_authority_v22.py")
-          rep('.github/workflows/self-build-v22-offer-smoke.yml',
-              "          import dba_retail_authority_v22 as auth\n          import dba_retail_offers_v22 as offers\n",
-              "          import dba_retail_authority_v22 as auth\n          import dba_retail_motherboard_v22 as mb22\n          import dba_retail_offers_v22 as offers\n")
-          rep('.github/workflows/self-build-v22-offer-smoke.yml',
-              "          assert auth._shipping_from_text('Fragt fra 33,00 kr.', 900)[1] is False\n",
-              "          assert auth._shipping_from_text('Fragt fra 33,00 kr.', 900)[1] is False\n          specs=mb22.extract_retailer_motherboard_specs('ASRock B850M Pro RS WiFi','AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet')\n          assert specs['passed'] and specs['dimm_slots']==4 and specs['m2_count']==3 and specs['lan_gbps']==2.5\n          weak=mb22.extract_retailer_motherboard_specs('ASRock B850M Pro RS WiFi','AMD AM5 DDR5 Micro ATX 2 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet')\n          assert weak['passed'] is False and '4 DIMM' in weak['missing']\n")
-          rep('.github/workflows/self-build-v22-offer-smoke.yml',
-              "          assert gate.get('mandatory_shipping_required_for_buy_now') is True\n",
-              "          assert gate.get('mandatory_shipping_required_for_buy_now') is True\n          assert gate.get('dynamic_motherboard_promotion_requires_direct_spec_gate') is True\n")
-          rep('.github/workflows/self-build-v22-offer-smoke.yml',
-              "                  assert ar.get('delivered_arithmetic_verified') is True\n",
-              "                  assert ar.get('delivered_arithmetic_verified') is True\n                  if x.get('dynamic_retailer_promoted_v22') is True:\n                      assert x.get('retailer_component_spec_gate_passed_v22') is True\n                      assert r.get('retailer_component_spec_gate_passed') is True\n                      assert ar.get('retailer_component_spec_gate_passed') is True\n")
           PY
       - name: Compile patched V22 files
-        run: python -m py_compile dba_retail_motherboard_v22.py dba_retail_prices_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_publication_gate_v22.py
-      - name: Commit integration patch
+        run: python -m py_compile dba_retail_motherboard_v22.py dba_retail_prices_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_publication_gate_v22.py
+      - name: Commit Python integration patch
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_publication_gate_v22.py .github/workflows/self-build-v22-offer-smoke.yml
+          git add dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_publication_gate_v22.py
           git commit -m "V22: integrate retailer-backed motherboard spec promotion"
           git push origin HEAD:v22/motherboard-retailer-spec-authority-2026-09-06
