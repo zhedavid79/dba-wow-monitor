@@ -6,61 +6,9 @@ on:
     - cron: '0 6 * * *'
     - cron: '0 10 * * *'
     - cron: '0 17 * * *'
-  push:
-    branches: [main]
-    paths:
-      - 'dba_browser_v2.py'
-      - 'dba_browser_v3.py'
-      - 'dba_browser_v4.py'
-      - 'dba_browser_v5.py'
-      - 'dba_browser_v6.py'
-      - 'dba_browser_v6_recovery.py'
-      - 'dba_browser_v7_intelligence.py'
-      - 'dba_browser_v20.py'
-      - 'dba_listing_intelligence.py'
-      - 'dba_known_listing_issues_v21.json'
-      - 'dba_decision_report.py'
-      - 'dba_decision_report_v22.py'
-      - 'dba_t1_preflight.py'
-      - 'dba_t1_schema_probe.py'
-      - 'dba_t1_hydration_ancestor.py'
-      - 'dba_z20_parts.py'
-      - 'dba_z20_parts_recovery.py'
-      - 'dba_strategy_parts.py'
-      - 'dba_strategy_parts_v20.py'
-      - 'dba_z20_donors.py'
-      - 'dba_z20_donors_recovery.py'
-      - 'z20_complete_optimizer.py'
-      - 'dba_strategy_optimizer.py'
-      - 'dba_platform_first_v16.py'
-      - 'dba_platform_first_v20.py'
-      - 'dba_self_build_v17.py'
-      - 'dba_build_alternatives.py'
-      - 'dba_self_build_v18.py'
-      - 'dba_component_optimizer_v19.py'
-      - 'dba_component_market_v19.py'
-      - 'dba_gpu_model_v20.py'
-      - 'dba_route_pipeline_v20.py'
-      - 'dba_retail_prices_v20.py'
-      - 'dba_retail_prices_v22.py'
-      - 'dba_retail_offers_v22.py'
-      - 'dba_self_build_v20.py'
-      - 'dba_self_build_v20_authoritative.py'
-      - 'dba_self_build_v22_authoritative.py'
-      - 'dba_strategy_report_v19.py'
-      - 'dba_strategy_report_v20.py'
-      - 'dba_publication_gate_v20.py'
-      - 'dba_publication_gate_v20_authoritative.py'
-      - 'dba_retail_availability_v21.py'
-      - 'dba_retail_availability_v22.py'
-      - 'dba_procurement_v21.py'
-      - 'dba_procurement_v22.py'
-      - 'dba_strategy_report_v21.py'
-      - 'dba_strategy_report_v22.py'
-      - 'dba_publication_gate_v21.py'
-      - 'dba_publication_gate_v22.py'
-      - 'dba_compact_publish_v20.py'
-      - '.github/workflows/wow-v22-authoritative.yml'
+  workflow_run:
+    workflows: ["Self-build V22 offer optimizer smoke"]
+    types: [completed]
 
 permissions:
   contents: write
@@ -71,6 +19,7 @@ concurrency:
 
 jobs:
   report:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 75
     steps:
@@ -103,7 +52,7 @@ jobs:
             dba_z20_donors.py dba_z20_donors_recovery.py z20_complete_optimizer.py dba_strategy_optimizer.py \
             dba_platform_first_v16.py dba_platform_first_v20.py dba_self_build_v17.py dba_build_alternatives.py dba_self_build_v18.py \
             dba_component_optimizer_v19.py dba_component_market_v19.py dba_gpu_model_v20.py dba_route_pipeline_v20.py \
-            dba_retail_prices_v20.py dba_retail_prices_v22.py dba_retail_offers_v22.py \
+            dba_retail_prices_v20.py dba_retail_prices_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py \
             dba_self_build_v20.py dba_self_build_v20_authoritative.py dba_self_build_v22_authoritative.py \
             dba_strategy_report_v19.py dba_strategy_report_v20.py dba_publication_gate_v20.py dba_publication_gate_v20_authoritative.py \
             dba_retail_availability_v21.py dba_retail_availability_v22.py dba_procurement_v21.py dba_procurement_v22.py \
@@ -146,17 +95,18 @@ jobs:
       - name: Validate unchanged V20 core gate
         run: python dba_publication_gate_v20_authoritative.py
 
-      - name: Verify store-level offers, stock and delivery-inclusive prices
+      - name: Extract live RETAIL_LEADs and verify direct retailer pages
         timeout-minutes: 10
         run: python dba_retail_offers_v22.py
 
-      - name: Re-optimize new parts on delivered price and live deals
+      - name: Re-optimize new parts on strict retailer-delivered price
         run: python dba_self_build_v22_authoritative.py
 
       - name: Regenerate technical report for V22-selected BOM
         run: python dba_strategy_report_v20.py
 
-      - name: Verify selected new-part delivered availability
+      - name: T1 revalidate selected retailer authority
+        timeout-minutes: 7
         run: python dba_retail_availability_v22.py
 
       - name: Build V21-compatible actionable procurement base
