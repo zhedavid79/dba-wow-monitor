@@ -69,8 +69,6 @@ jobs:
           assert auth._numeric('1.170') == 1170
           assert auth._numeric('895.00') == 895
 
-          # Permanent route and direct-retailer identity regressions. Route
-          # adapters are discovery only and cannot themselves grant BUY_NOW.
           assert routes.candidate_urls('Proshop','3324875') == ['https://www.proshop.dk/3324875']
           assert routes.candidate_urls('Happii','3324875') == ['https://www.happii.dk/3324875']
           assert routes.candidate_urls('Komplett','1317727') == ['https://www.komplett.dk/product/1317727']
@@ -82,16 +80,31 @@ jobs:
           assert auth._shipping_from_text('Billigste fragt (privatkunde) 33,00 kr.', 900)[:2] == (33, True)
           assert auth._shipping_from_text('Fragt fra 33,00 kr.', 900)[1] is False
 
+          identity='ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX'
           specs=mb22.extract_retailer_motherboard_specs(
               'ASRock B850M Pro RS WiFi',
-              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet'
+              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet',
+              identity,
           )
           assert specs['passed'] and specs['dimm_slots']==4 and specs['m2_count']==3 and specs['lan_gbps']==2.5
           weak=mb22.extract_retailer_motherboard_specs(
               'ASRock B850M Pro RS WiFi',
-              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 2 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet'
+              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 2 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet',
+              identity,
           )
           assert weak['passed'] is False and '4 DIMM' in weak['missing']
+          five=mb22.extract_retailer_motherboard_specs(
+              'ASRock B850M Pro RS WiFi',
+              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 5 Gigabit Ethernet',
+              identity,
+          )
+          assert five['passed'] is True and five['lan_gbps']==5.0
+          no_wifi=mb22.extract_retailer_motherboard_specs(
+              'ASRock B850M Pro RS',
+              'ASRock B850M Pro RS AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet',
+              'ASRock B850M Pro RS AMD AM5 DDR5 Micro ATX',
+          )
+          assert no_wifi['passed'] is False and 'Wi-Fi' in no_wifi['missing']
           print('PASS V22 PURE RETAIL AUTHORITY, ROUTE AND MOTHERBOARD SPEC INVARIANTS')
           PY
       - name: Discover deeper live retail universe
