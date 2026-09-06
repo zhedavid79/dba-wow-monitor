@@ -1,0 +1,63 @@
+name: Self-build V21 procurement smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dba_known_listing_issues_v21.json'
+      - 'dba_retail_availability_v21.py'
+      - 'dba_procurement_v21.py'
+      - 'dba_strategy_report_v21.py'
+      - 'dba_publication_gate_v21.py'
+      - '.github/workflows/self-build-v21-smoke.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-build-v21-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install browser
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Preserve previous and V19 golden comparison snapshots
+        run: |
+          cp results/wow_strategy_latest.json /tmp/previous_strategy.json
+          git fetch origin baseline/v19-green-2026-09-05 --depth=1
+          git show FETCH_HEAD:results/wow_strategy_latest.json > /tmp/v19_baseline_strategy.json
+
+      - name: Compile V21
+        run: |
+          python -m py_compile dba_retail_availability_v21.py dba_procurement_v21.py dba_strategy_report_v21.py dba_publication_gate_v21.py
+
+      - name: Verify selected retail availability
+        run: python dba_retail_availability_v21.py
+
+      - name: Build actionable V21 procurement plan
+        env:
+          V21_PREVIOUS_STRATEGY: /tmp/previous_strategy.json
+          V21_BASELINE_STRATEGY: /tmp/v19_baseline_strategy.json
+        run: python dba_procurement_v21.py
+
+      - name: Render V21 report
+        run: python dba_strategy_report_v21.py
+
+      - name: Validate V21 publication invariants
+        run: python dba_publication_gate_v21.py
