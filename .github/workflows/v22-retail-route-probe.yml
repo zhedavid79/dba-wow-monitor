@@ -1,0 +1,55 @@
+name: V22 retail route probe
+
+on:
+  push:
+    branches: [v22/retail-route-resolution-2026-09-06]
+    paths:
+      - 'dba_retail_offers_v22.py'
+      - 'dba_retail_authority_v22.py'
+      - 'dba_retail_prices_v22.py'
+      - '.github/workflows/v22-retail-route-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install browser
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Discover retail universe
+        run: python dba_retail_prices_v22.py
+      - name: Extract offers
+        run: python dba_retail_offers_v22.py
+      - name: Print route evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('results/retail_offers_v22.json').read_text())
+          rows=[]
+          for product in data.get('rows') or []:
+              for offer in product.get('offers') or []:
+                  rows.append({
+                      'product': product.get('name'),
+                      'sku': product.get('sku'),
+                      'seller_hint': offer.get('seller_hint'),
+                      'seller': offer.get('seller'),
+                      'store_id': offer.get('store_id'),
+                      'offer_id': offer.get('offer_id'),
+                      'displayed_price': offer.get('displayed_price_dkk'),
+                      'redirect_status': offer.get('redirect_http_status'),
+                      'resolve_error': offer.get('resolve_error'),
+                      'redirect_url': offer.get('redirect_url'),
+                      'direct_url': offer.get('direct_url'),
+                  })
+          print(json.dumps(rows[:160], ensure_ascii=False, indent=2))
+          PY
