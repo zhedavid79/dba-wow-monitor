@@ -1,6 +1,6 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW SELF-BUILD FIRST V22 — PROCUREMENT + DEALS
 
-Generated: 2026-09-06T17:09:30.075517+00:00
+Generated: 2026-09-06T19:19:56.027067+00:00
 Mål: WoW Classic/Cataclysm ved 3840×1600/75 Hz, stærk raid/crowded-combat performance og et kompakt AM5-system med Jonsbo Z20 som slutkabinet.
 
 V22 beholder V20’s grønne markeds-/performancekerne, men gør rapporten operationel: teknisk vinder og faktisk købsbeslutning må ikke længere modsige hinanden. Historiske fejl, budgrænser, lagerstatus, eksakt fit og deduplikerede routes indgår før publicering.
@@ -79,7 +79,7 @@ Direkte købsklare nye dele: **1/5**. RETAIL_LEAD-only: **4**.
 
 ## 🔎 Andre kvalificerede nye tilbud fundet
 
-Sammenligningsunivers: **69** produkter · aktuelle RETAIL_LEADs: **49** · eksterne routes fundet: **22** · direkte retailer-sider fuldt verificeret: **9**.
+Sammenligningsunivers: **69** produkter · aktuelle RETAIL_LEADs: **50** · eksterne routes fundet: **22** · direkte retailer-sider fuldt verificeret: **9**.
 
 | Del | Direkte verificeret butikstilbud | Leveret | Status |
 |---|---|---:|---|
@@ -132,7 +132,7 @@ Aktuelle blokeringer:
 | Strømforsyning | 4 | 5 | 2 | PASS |
 | CPU-køler | 3 | 3 | 3 | PASS |
 | RAM | 3 | 26 | 26 | PASS |
-| SSD/lager | 3 | 12 | 5 | PASS |
+| SSD/lager | 3 | 13 | 5 | PASS |
 | Kabinet | 1 | 1 | 1 | PASS |
 
 **Samlet market-coverage gate: PASS**
@@ -195,7 +195,7 @@ Aktuelle blokeringer:
 | [Kingston FURY Beast White RGB DDR5 6000MHz 32GB (KF560C30BWEA-32)](https://prisjagt.dk/product.php?p=13483228) | NY | **4.857 kr.** | PASS | FRONTIER | 845 kr. | 4.012 kr. | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL32 (+75); 2-DIMM kit (+30) | — |
 | [Kingston FURY Beast White DDR5 6000MHz 32GB (KF560C30BWE-32)](https://prisjagt.dk/product.php?p=13951411) | NY | **4.936 kr.** | PASS | FRONTIER | 845 kr. | 4.091 kr. | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL32 (+75); 2-DIMM kit (+30) | — |
 | [Kingston FURY Beast RGB DDR5 6000MHz 32GB (KF560C30BBEA-32)](https://prisjagt.dk/product.php?p=13483262) | NY | **4.995 kr.** | PASS | FRONTIER | 845 kr. | 4.150 kr. | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL32 (+75); 2-DIMM kit (+30) | — |
-| [Kingston Fury Beast Black DDR5 6000MHz 2x16GB](https://prisjagt.dk/product.php?p=13438176) | NY | **5.006 kr.** | PASS | FRONTIER | 845 kr. | 4.161 kr. | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL32 (+75); 2-DIMM kit (+30) | — |
+| [Kingston Fury Beast Black DDR5 6000MHz 2x16GB](https://prisjagt.dk/product.php?p=13438176) | NY | **5.007 kr.** | PASS | FRONTIER | 845 kr. | 4.162 kr. | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL32 (+75); 2-DIMM kit (+30) | — |
 | [Kingston Fury Beast White RGB DDR5 6000MHz 32GB (KF560C36BWEA-32)](https://prisjagt.dk/product.php?p=11673859) | NY | **5.052 kr.** | PASS | FRONTIER | 800 kr. | 4.252 kr. | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL38 (+30); 2-DIMM kit (+30) | — |
 | [Kingston Fury Beast White DDR5 6000MHz 32GB (KF560C36BWE-32)](https://prisjagt.dk/product.php?p=11673858) | NY | **5.283 kr.** | PASS | FRONTIER | 800 kr. | 4.483 kr. | 32GB long-term target (+600); DDR5-6000 target speed (+100); AMD EXPO (+40); <=CL38 (+30); 2-DIMM kit (+30) | — |
 
@@ -208,8 +208,9 @@ Aktuelle blokeringer:
 | [Kingston NV3 M.2 2280 PCIe 4.0 NVMe 1TB](https://www.komplett.dk/product/1311274/hardware/pc-komponenter/harddiskssd/ssd-m2/kingston-nv3-ssd-1tb) | NY | **1.299 kr.** | PASS | FRONTIER | 325 kr. | 974 kr. | 1TB comfort capacity (+250); 3-year warranty (+25); >=300 TBW (+25); >=5GB/s sequential class (+25) | — |
 | [Lexar NM790 M.2 2280 PCIe Gen 4x4 NVMe SSD 1TB](https://prisjagt.dk/product.php?p=12452771) | NY | **1.488 kr.** | PASS | FRONTIER | 375 kr. | 1.113 kr. | 1TB comfort capacity (+250); 5-year warranty (+75); >=7GB/s sequential class (+50) | — |
 | [Samsung 990 PRO PCIe 4.0 NVMe M.2 SSD 1TB](https://prisjagt.dk/product.php?p=7012734) | NY | **1.667 kr.** | PASS | FRONTIER | 275 kr. | 1.392 kr. | 1TB comfort capacity (+250); >=5GB/s sequential class (+25) | — |
+| [Lexar NM710 M.2 2280 PCIe Gen4x4 NVMe SSD 1TB](https://prisjagt.dk/product.php?p=12452781) | NY | **1.324 kr.** | PASS | DOMINERET af PNY CS1030 M.2 NVMe SSD 1TB | 250 kr. | 1.074 kr. | 1TB comfort capacity (+250) | — |
+| [Kioxia Exceria PLUS G3 NVMe SSD 1TB](https://prisjagt.dk/product.php?p=12570494) | NY | **1.418 kr.** | PASS | DOMINERET af PNY CS1030 M.2 NVMe SSD 1TB | 250 kr. | 1.168 kr. | 1TB comfort capacity (+250) | — |
 | [Lexar NM790 M.2 2280 PCIe Gen 4×4 NVMe SSD 1TB](https://prisjagt.dk/product.php?p=12452771) | NY | **1.488 kr.** | PASS | DOMINERET af PNY CS1030 M.2 NVMe SSD 1TB | 250 kr. | 1.238 kr. | 1TB comfort capacity (+250) | — |
-| [MSI Spatium M450 PCIe 4.0 NVMe M.2 SSD 1TB](https://prisjagt.dk/product.php?p=7360320) | NY | **1.577 kr.** | PASS | DOMINERET af PNY CS1030 M.2 NVMe SSD 1TB | 250 kr. | 1.327 kr. | 1TB comfort capacity (+250) | — |
 | [Kingston KC3000 PCIe 4.0 NVMe M.2 SSD 1TB](https://prisjagt.dk/product.php?p=5908472) | NY | **1.589 kr.** | PASS | DOMINERET af PNY CS1030 M.2 NVMe SSD 1TB | 250 kr. | 1.339 kr. | 1TB comfort capacity (+250) | — |
 | [WD BLACK SN850X NVMe SSD M.2 1TB](https://prisjagt.dk/product.php?p=7007931) | NY | **1.644 kr.** | PASS | DOMINERET af PNY CS1030 M.2 NVMe SSD 1TB | 250 kr. | 1.394 kr. | 1TB comfort capacity (+250) | — |
 | [MSI Spatium M470 PCIe 4.0 NVMe M.2 SSD 1TB](https://prisjagt.dk/product.php?p=7360329) | NY | **1.879 kr.** | PASS | DOMINERET af PNY CS1030 M.2 NVMe SSD 1TB | 250 kr. | 1.629 kr. | 1TB comfort capacity (+250) | — |
@@ -256,11 +257,12 @@ Den dyrere GPU må kun vinde, hvis performance/effektivitet/VRAM/fit samlet retf
 | RTX 2080 Super | [rtx 2080 super](https://www.dba.dk/recommerce/forsale/item/24227603) | **1.600 kr.** | 1.300 kr. | 1.450 kr. | 1.600 kr. | FAIR | 1.0 | 8 | 250W | UNKNOWN |
 | RX 6700 XT | [GIGABYTE RX 6700 XT GAMING OC 12 GB](https://www.dba.dk/recommerce/forsale/item/24668473) | **2.000 kr.** | 1.550 kr. | 1.750 kr. | 1.950 kr. | FAIR | 1.1 | 12 | 230W | VERIFIED |
 | RTX 2070 | [Asus GeForce RTX 2070 Turbo Evo](https://www.dba.dk/recommerce/forsale/item/23133030) | **1.500 kr.** | 1.100 kr. | 1.250 kr. | 1.400 kr. | WAIT | 0.84 | 8 | 175W | UNKNOWN |
-| RTX 2070 | [ROG STRIX-RTX2070-08G Gaming](https://www.dba.dk/recommerce/forsale/item/24306613) | **1.500 kr.** | 1.100 kr. | 1.250 kr. | 1.400 kr. | WAIT | 0.84 | 8 | 175W | UNKNOWN |
 | RX 6650 XT | [ASRock Phantom Gaming AMD Radeon RX 6650 XT grafikkort 8gb](https://www.dba.dk/recommerce/forsale/item/24074067) | **1.599 kr.** | 1.150 kr. | 1.300 kr. | 1.450 kr. | WAIT | 0.85 | 8 | 176W | VERIFIED |
 | RTX 2070 Super | [ASUS GeForce RTX 2070 SUPER ROG Strix Advanced](https://www.dba.dk/recommerce/forsale/item/23301685) | **1.600 kr.** | 1.200 kr. | 1.350 kr. | 1.500 kr. | WAIT | 0.94 | 8 | 215W | UNKNOWN |
+| RTX 2080 | [Gainward GeForce RTX 2080](https://www.dba.dk/recommerce/forsale/item/23832228) | **1.699 kr.** | 1.250 kr. | 1.400 kr. | 1.550 kr. | WAIT | 0.95 | 8 | 215W | UNKNOWN |
 | RTX 3070 | [Gigabyte GeForce RTX 3070 Vision grafikkort](https://www.dba.dk/recommerce/forsale/item/24633491) | **2.000 kr.** | 1.550 kr. | 1.700 kr. | 1.900 kr. | WAIT | 1.2 | 8 | 220W | VERIFIED |
 | RTX 3070 | [Geforce rtx 3070 Gigabyte Auros master](https://www.dba.dk/recommerce/forsale/item/24584822) | **2.000 kr.** | 1.550 kr. | 1.700 kr. | 1.900 kr. | WAIT | 1.2 | 8 | 220W | UNKNOWN |
+| RTX 2080 Ti | [EVGA RTX 2080 TI 11GB VRAM](https://www.dba.dk/recommerce/forsale/item/15611406) | **2.099 kr.** | — | — | — | NO_VALUE_MODEL | — | — | —W | UNKNOWN |
 | RTX 3080 | [rtx 3080 msi gaming z trio](https://www.dba.dk/recommerce/forsale/item/23302398) | **2.999 kr.** | 1.850 kr. | 2.100 kr. | 2.300 kr. | WAIT | 1.48 | 10 | 320W | UNKNOWN |
 | RTX 3080 | [Nvidia GeForce RTX 3080 - 10GB Grafikkort](https://www.dba.dk/recommerce/forsale/item/23059727) | **3.000 kr.** | 1.850 kr. | 2.100 kr. | 2.300 kr. | WAIT | 1.48 | 10 | 320W | UNKNOWN |
 | RTX 3080 | [MSI GeForce RTX 3080 Gaming X Trio](https://www.dba.dk/recommerce/forsale/item/24678844) | **3.000 kr.** | 1.850 kr. | 2.100 kr. | 2.300 kr. | WAIT | 1.48 | 10 | 320W | UNKNOWN |
@@ -268,7 +270,6 @@ Den dyrere GPU må kun vinde, hvis performance/effektivitet/VRAM/fit samlet retf
 | RTX 3080 | [RTX 3080 Ventus 3X 10GB OC Edition](https://www.dba.dk/recommerce/forsale/item/24098129) | **3.150 kr.** | 1.850 kr. | 2.100 kr. | 2.300 kr. | WAIT | 1.48 | 10 | 320W | UNKNOWN |
 | RTX 3080 | [ASUS ROG Strix RTX 3080 OC](https://www.dba.dk/recommerce/forsale/item/23916636) | **3.250 kr.** | 1.850 kr. | 2.100 kr. | 2.300 kr. | WAIT | 1.48 | 10 | 320W | UNKNOWN |
 | RTX 3080 Ti | [RTX 3080 Ti](https://www.dba.dk/recommerce/forsale/item/24652517) | **3.399 kr.** | — | — | — | NO_VALUE_MODEL | — | — | —W | UNKNOWN |
-| RTX 3080 | [Rtx 3080 / 5800x](https://www.dba.dk/recommerce/forsale/item/24588116) | **6.000 kr.** | 1.850 kr. | 2.100 kr. | 2.300 kr. | WAIT | 1.48 | 10 | 320W | UNKNOWN |
 
 ## 🧠 CPU-marked + budpriser
 
@@ -305,11 +306,11 @@ Rå route-rækker: **1728** · unikke BOM’er: **96**
 | 18 | **7.225 kr.** | 4.311 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 3070](https://www.dba.dk/recommerce/forsale/item/24633491) | SWEET SPOT | VERIFIED |
 | 19 | **7.375 kr.** | 4.369 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RX 6700 XT](https://www.dba.dk/recommerce/forsale/item/24668473) | SWEET SPOT | VERIFIED |
 | 20 | **6.725 kr.** | 4.376 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2070](https://www.dba.dk/recommerce/forsale/item/23133030) | ACCEPTABLE | UNKNOWN |
-| 21 | **6.725 kr.** | 4.376 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2070](https://www.dba.dk/recommerce/forsale/item/24306613) | ACCEPTABLE | UNKNOWN |
-| 22 | **6.825 kr.** | 4.376 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2070 Super](https://www.dba.dk/recommerce/forsale/item/23301685) | ACCEPTABLE | UNKNOWN |
-| 23 | **6.775 kr.** | 4.384 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2070](https://www.dba.dk/recommerce/forsale/item/23194642) | ACCEPTABLE | UNKNOWN |
-| 24 | **6.824 kr.** | 4.385 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RX 6650 XT](https://www.dba.dk/recommerce/forsale/item/24074067) | ACCEPTABLE | VERIFIED |
-| 25 | **7.225 kr.** | 4.386 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 3070](https://www.dba.dk/recommerce/forsale/item/24584822) | SWEET SPOT | UNKNOWN |
+| 21 | **6.825 kr.** | 4.376 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 2070 Super](https://www.dba.dk/recommerce/forsale/item/23301685) | ACCEPTABLE | UNKNOWN |
+| 22 | **6.775 kr.** | 4.384 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2070](https://www.dba.dk/recommerce/forsale/item/23194642) | ACCEPTABLE | UNKNOWN |
+| 23 | **6.824 kr.** | 4.385 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RX 6650 XT](https://www.dba.dk/recommerce/forsale/item/24074067) | ACCEPTABLE | VERIFIED |
+| 24 | **7.225 kr.** | 4.386 kr. | [Ryzen 5 7500F](https://www.dba.dk/recommerce/forsale/item/21721048) | [RTX 3070](https://www.dba.dk/recommerce/forsale/item/24584822) | SWEET SPOT | UNKNOWN |
+| 25 | **6.975 kr.** | 4.419 kr. | [Ryzen 5 7600X](https://www.dba.dk/recommerce/forsale/item/23723858) | [RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24227603) | SWEET SPOT | UNKNOWN |
 
 ## ⛔ Historiske hard exclusions
 
@@ -325,45 +326,45 @@ Historisk hard-excludede annoncer er fjernet før denne tabel.
 | 2 | [Core i7-10700 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/24196184) | **4.200 kr.** | ACCEPTABLE | C | UNKNOWN |
 | 3 | [Core i7-9700 + RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/23295014) | **4.200 kr.** | SWEET SPOT | D | UNKNOWN |
 | 4 | [Core i5-12400 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/24392026) | **4.300 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 5 | [Core i7-10700 + RTX 2070](https://www.dba.dk/recommerce/forsale/item/23258743) | **4.500 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 6 | [Core i5-11400 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/23688401) | **4.500 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 7 | [Core i5-11400 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/24584338) | **4.500 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 8 | [Core i7-9700 + RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/24501866) | **4.500 kr.** | ACCEPTABLE | D | UNKNOWN |
-| 9 | [Ryzen 5 3600X + RTX 2070](https://www.dba.dk/recommerce/forsale/item/19506546) | **4.500 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 10 | [Core i5-9600 + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24660287) | **4.500 kr.** | ACCEPTABLE | D | UNKNOWN |
-| 11 | [Ryzen 5 3600 + RX 6700 XT](https://www.dba.dk/recommerce/forsale/item/24493146) | **4.500 kr.** | ACCEPTABLE | B | NO |
-| 12 | [Ryzen 5 3600 + RTX 2070 Super](https://www.dba.dk/recommerce/forsale/item/24671157) | **4.700 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 13 | [Ryzen 5 3600 + RTX 3060 Ti](https://www.dba.dk/recommerce/forsale/item/24512170) | **4.750 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 14 | [Core i7-9700 + RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24156419) | **4.795 kr.** | SWEET SPOT | D | UNKNOWN |
-| 15 | [Core i7-11700 + RTX 3060 Ti](https://www.dba.dk/recommerce/forsale/item/24534814) | **5.200 kr.** | SWEET SPOT | C | UNKNOWN |
-| 16 | [Core i7-10700 + RTX 2080](https://www.dba.dk/recommerce/forsale/item/24400931) | **5.250 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 17 | [Ryzen 7 5700X + RTX 2070](https://www.dba.dk/recommerce/forsale/item/23970471) | **5.300 kr.** | ACCEPTABLE | B | UNKNOWN |
-| 18 | [Core i7-8700 + RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/22590297) | **5.499 kr.** | ACCEPTABLE | D | UNKNOWN |
-| 19 | [Core i7-12700 + RTX 3060 Ti](https://www.dba.dk/recommerce/forsale/item/24084752) | **6.000 kr.** | SWEET SPOT | C | UNKNOWN |
-| 20 | [Core i7-10700 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/23621275) | **6.000 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 21 | [Core i7-8700 + RTX 4060](https://www.dba.dk/recommerce/forsale/item/22050046) | **6.000 kr.** | ACCEPTABLE | D | UNKNOWN |
-| 22 | [Ryzen 5 3600 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/23504617) | **6.000 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 23 | [Core i7-8700 + RTX 3070 Ti](https://www.dba.dk/recommerce/forsale/item/22511348) | **6.300 kr.** | SWEET SPOT | D | UNKNOWN |
-| 24 | [Ryzen 7 5800X3D + RTX 2070 Super](https://www.dba.dk/recommerce/forsale/item/24436859) | **6.495 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 25 | [Ryzen 5 5600X + RTX 4060](https://www.dba.dk/recommerce/forsale/item/23356482) | **6.499 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 26 | [Core i7-14700 + RTX 4060 Ti](https://www.dba.dk/recommerce/forsale/item/24647011) | **6.850 kr.** | SWEET SPOT | C | UNKNOWN |
-| 27 | [Ryzen 5 9600X + RTX 4060](https://www.dba.dk/recommerce/forsale/item/24648143) | **7.500 kr.** | ACCEPTABLE | A | UNKNOWN |
-| 28 | [Ryzen 7 5700X3D + RTX 4060](https://www.dba.dk/recommerce/forsale/item/21927931) | **7.800 kr.** | ACCEPTABLE | C | UNKNOWN |
-| 29 | [Core i7-14700 + RTX 4060 Ti](https://www.dba.dk/recommerce/forsale/item/24398046) | **8.000 kr.** | SWEET SPOT | C | UNKNOWN |
-| 30 | [Ryzen 7 7700 + RTX 3070 Ti](https://www.dba.dk/recommerce/forsale/item/23773371) | **8.000 kr.** | SWEET SPOT | A | UNKNOWN |
+| 5 | [Ryzen 5 5600X + RTX 3070](https://www.dba.dk/recommerce/forsale/item/24681356) | **4.500 kr.** | SWEET SPOT | C | UNKNOWN |
+| 6 | [Core i7-10700 + RTX 2070](https://www.dba.dk/recommerce/forsale/item/23258743) | **4.500 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 7 | [Core i5-11400 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/23688401) | **4.500 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 8 | [Core i5-11400 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/24584338) | **4.500 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 9 | [Core i7-9700 + RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/24501866) | **4.500 kr.** | ACCEPTABLE | D | UNKNOWN |
+| 10 | [Ryzen 5 3600X + RTX 2070](https://www.dba.dk/recommerce/forsale/item/19506546) | **4.500 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 11 | [Core i5-9600 + RTX 2070](https://www.dba.dk/recommerce/forsale/item/24660287) | **4.500 kr.** | ACCEPTABLE | D | UNKNOWN |
+| 12 | [Ryzen 5 3600 + RX 6700 XT](https://www.dba.dk/recommerce/forsale/item/24493146) | **4.500 kr.** | ACCEPTABLE | B | NO |
+| 13 | [Ryzen 5 3600 + RTX 2070 Super](https://www.dba.dk/recommerce/forsale/item/24671157) | **4.700 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 14 | [Ryzen 5 3600 + RTX 3060 Ti](https://www.dba.dk/recommerce/forsale/item/24512170) | **4.750 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 15 | [Core i7-9700 + RTX 2080 Super](https://www.dba.dk/recommerce/forsale/item/24156419) | **4.795 kr.** | SWEET SPOT | D | UNKNOWN |
+| 16 | [Core i7-11700 + RTX 3060 Ti](https://www.dba.dk/recommerce/forsale/item/24534814) | **5.200 kr.** | SWEET SPOT | C | UNKNOWN |
+| 17 | [Core i7-10700 + RTX 2080](https://www.dba.dk/recommerce/forsale/item/24400931) | **5.250 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 18 | [Ryzen 7 5700X + RTX 2070](https://www.dba.dk/recommerce/forsale/item/23970471) | **5.300 kr.** | ACCEPTABLE | B | UNKNOWN |
+| 19 | [Core i7-8700 + RTX 2060 Super](https://www.dba.dk/recommerce/forsale/item/22590297) | **5.499 kr.** | ACCEPTABLE | D | UNKNOWN |
+| 20 | [Ryzen 5 5600X + RTX 3060 Ti](https://www.dba.dk/recommerce/forsale/item/24680838) | **5.800 kr.** | SWEET SPOT | C | UNKNOWN |
+| 21 | [Core i7-12700 + RTX 3060 Ti](https://www.dba.dk/recommerce/forsale/item/24084752) | **6.000 kr.** | SWEET SPOT | C | UNKNOWN |
+| 22 | [Core i7-10700 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/23621275) | **6.000 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 23 | [Core i7-8700 + RTX 4060](https://www.dba.dk/recommerce/forsale/item/22050046) | **6.000 kr.** | ACCEPTABLE | D | UNKNOWN |
+| 24 | [Ryzen 5 3600 + RTX 3060](https://www.dba.dk/recommerce/forsale/item/23504617) | **6.000 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 25 | [Core i7-8700 + RTX 3070 Ti](https://www.dba.dk/recommerce/forsale/item/22511348) | **6.300 kr.** | SWEET SPOT | D | UNKNOWN |
+| 26 | [Ryzen 7 5800X3D + RTX 2070 Super](https://www.dba.dk/recommerce/forsale/item/24436859) | **6.495 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 27 | [Ryzen 5 5600X + RTX 4060](https://www.dba.dk/recommerce/forsale/item/23356482) | **6.499 kr.** | ACCEPTABLE | C | UNKNOWN |
+| 28 | [Core i7-14700 + RTX 4060 Ti](https://www.dba.dk/recommerce/forsale/item/24647011) | **6.850 kr.** | SWEET SPOT | C | UNKNOWN |
+| 29 | [Ryzen 5 9600X + RTX 4060](https://www.dba.dk/recommerce/forsale/item/24648143) | **7.500 kr.** | ACCEPTABLE | A | UNKNOWN |
+| 30 | [Ryzen 7 5700X3D + RTX 4060](https://www.dba.dk/recommerce/forsale/item/21927931) | **7.800 kr.** | ACCEPTABLE | C | UNKNOWN |
 
 ## 📈 Prisændring siden sidste run og V19-golden baseline
 
 | Del | Aktuel | Sidste publicerede run | Δ | V19 baseline | Δ |
 |---|---:|---:|---:|---:|---:|
-| Bundkort | **1.039 kr.** | 943 kr. | 96 kr. | 943 kr. | 96 kr. |
+| Bundkort | **1.039 kr.** | 1.039 kr. | 0 kr. | 943 kr. | 96 kr. |
 | Strømforsyning | **629 kr.** | 629 kr. | 0 kr. | 629 kr. | 0 kr. |
 | Kabinet | **749 kr.** | 749 kr. | 0 kr. | 749 kr. | 0 kr. |
-| CPU-køler | **319 kr.** | 131 kr. | 188 kr. | 131 kr. | 188 kr. |
+| CPU-køler | **319 kr.** | 319 kr. | 0 kr. | 131 kr. | 188 kr. |
 | RAM | **1.000 kr.** | 1.000 kr. | 0 kr. | 1.000 kr. | 0 kr. |
 | CPU | **800 kr.** | 800 kr. | 0 kr. | 800 kr. | 0 kr. |
 | Grafikkort | **1.700 kr.** | 1.700 kr. | 0 kr. | 1.600 kr. | 100 kr. |
-| SSD/lager | **689 kr.** | 859 kr. | -170 kr. | 859 kr. | -170 kr. |
+| SSD/lager | **689 kr.** | 689 kr. | 0 kr. | 859 kr. | -170 kr. |
 
 ## Dynamisk retail discovery
 
@@ -377,8 +378,8 @@ Historisk hard-excludede annoncer er fjernet før denne tabel.
 | RAM | [Corsair Vengeance DDR5 6000MHz 32GB (CMK32GX5M2B6000Z38)](https://prisjagt.dk/product.php?p=15907662) | **3.499 kr.** |
 | RAM | [Kingston FURY Beast DDR5 6000MHz 32GB (KF560C30BBE-32)](https://prisjagt.dk/product.php?p=13469408) | **4.743 kr.** |
 | RAM | [Kingston Fury Beast Black DDR5 6000MHz 32GB (KF560C36BBE-32)](https://prisjagt.dk/product.php?p=11575196) | **4.381 kr.** |
-| RAM | [G.Skill AEGIS DDR5 6000MHz 32GB (F5-6000J3636F32GX1-IS)](https://prisjagt.dk/product.php?p=14450650) | **4.036 kr.** |
 | RAM | [Corsair Vengeance RGB DDR5 6000MHz 32GB (CMH32GX5M1E6000Z38)](https://prisjagt.dk/product.php?p=14821370) | **3.589 kr.** |
+| RAM | [G.Skill AEGIS DDR5 6000MHz 32GB (F5-6000J3636F32GX1-IS)](https://prisjagt.dk/product.php?p=14450650) | **4.036 kr.** |
 | RAM | [Kingston FURY Beast Black RGB DDR5 6000MHz 32GB (KF560C36BBE2A-32)](https://prisjagt.dk/product.php?p=14811088) | **4.374 kr.** |
 | RAM | [Kingston Fury Beast White DDR5 6000MHz 32GB (KF560C36BWE-32)](https://prisjagt.dk/product.php?p=11673858) | **5.283 kr.** |
 | RAM | [Kingston Fury Beast White RGB DDR5 6000MHz 32GB (KF560C36BWEA-32)](https://prisjagt.dk/product.php?p=11673859) | **5.052 kr.** |
@@ -409,7 +410,7 @@ Historisk hard-excludede annoncer er fjernet før denne tabel.
 
 - Metode: **TARGET_FAMILY_RESERVED_THEN_VALUE_THEN_PERFORMANCE_MAX24**
 - Bevarede GPU-kandidater: **24**
-- Familiedækning: `{"RX 6700 XT": 1, "RTX 3080": 6, "RTX 3070 Ti": 1, "RTX 3070": 2, "RTX 3060 Ti": 1, "RTX 2080 Super": 1, "RTX 2070 Super": 2, "RX 5700 XT": 2, "RTX 2070": 5, "RTX 2060 Super": 1, "RX 6650 XT": 1, "RTX 3080 Ti": 1}`
+- Familiedækning: `{"RX 6700 XT": 1, "RTX 3080": 5, "RTX 3070 Ti": 1, "RTX 3070": 2, "RTX 3060 Ti": 1, "RTX 2080 Super": 1, "RTX 2070 Super": 2, "RX 5700 XT": 2, "RTX 2070": 4, "RTX 2060 Super": 1, "RX 6650 XT": 1, "RTX 2080": 1, "RTX 3080 Ti": 1, "RTX 2080 Ti": 1}`
 
 ## Pris- og evidensregel
 
