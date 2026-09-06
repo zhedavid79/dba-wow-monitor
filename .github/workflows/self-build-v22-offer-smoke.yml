@@ -58,6 +58,9 @@ jobs:
 
           assert offers.prices('Kun 393 kr pr. måned') == []
           assert offers.prices('Fragt 39 kr') == []
+          assert offers.prices('895 kr / TB') == []
+          hits=offers.price_hits('Normalpris 895 kr')
+          assert offers.choose_card_price(hits, 'Normalpris 895 kr')[0] is None
           assert auth._numeric(895) == 895
           assert auth._numeric('1.170') == 1170
           assert auth._numeric('895.00') == 895
