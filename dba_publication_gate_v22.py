@@ -32,7 +32,9 @@ def main()->None:
     if h.get('ready_to_buy_complete_build_today') is True:assert fit=='VERIFIED' and not p.get('blockers')
 
     new=[x for x in rec.get('components') or [] if x.get('source')=='NEW RETAIL'];assert new
-    assert len(new)==int(a.get('selected_total') or 0)==int(a.get('concrete_in_stock') or 0)
+    assert len(new)==int(a.get('selected_total') or 0)==int(a.get('concrete_in_stock') or 0)==int(a.get('t1_revalidated') or 0)
+    assert not a.get('failures'),'Selected retail T1 has failures'
+    avail_by_sku={str(r.get('sku') or ''):r for r in a.get('rows') or [] if r.get('sku')}
     offer_by_sku={str(r.get('sku') or ''):r for r in o.get('rows') or [] if r.get('sku')}
     for x in new:
         assert x.get('price_evidence')=='LIVE_DELIVERED_RETAIL_OFFER_V22'
@@ -41,13 +43,25 @@ def main()->None:
         assert x.get('delivered_price_method_v22') in {'PRISJAGT_PRICE_INCL_DELIVERY','ITEM_PLUS_EXACT_SHIPPING'}
         assert int(x.get('price') or 0)==int(x.get('delivered_price_dkk') or 0)>0
         if x.get('delivered_price_method_v22')=='ITEM_PLUS_EXACT_SHIPPING':assert int(x['price'])==int(x.get('item_price_dkk') or 0)+int(x.get('shipping_dkk') or 0)
-        rr=offer_by_sku.get(str(x.get('sku') or '')) or {};best=rr.get('best_delivered_offer') or {}
-        assert rr.get('delivered_price_verified') is True and best.get('price_sanity_ok') is True,'Selected retail offer did not pass V22 same-product price sanity'
-        ref=int(rr.get('product_reference_price_dkk') or 0);dp=int(rr.get('delivered_price_dkk') or 0)
-        assert ref>0 and dp>0
-        if dp<ref*.60:assert best.get('price_sanity_method')=='EXPLICIT_DEEP_DISCOUNT_CORROBORATED','Extreme retail discount lacks explicit same-offer corroboration'
+
+        sku=str(x.get('sku') or '')
+        rr=offer_by_sku.get(sku) or {};best=rr.get('best_delivered_offer') or {}
+        assert rr.get('delivered_price_verified') is True and best.get('price_sanity_ok') is True,'Selected retail offer did not pass V22 same-page price-floor sanity'
+        floor=int(rr.get('same_page_lowest_price_dkk') or best.get('same_page_lowest_price_dkk') or 0);dp=int(rr.get('delivered_price_dkk') or 0)
+        assert floor>0 and dp>0
+        tolerance=max(5,int(round(floor*.01)))
+        assert dp+tolerance>=floor,f'Selected delivered price below same-page current price floor: {dp}/{floor}'
+        assert str(best.get('price_sanity_method') or '').startswith('AT_OR_ABOVE_SAME_PAGE_PRICE_FLOOR')
         price_line=str(best.get('displayed_price_line') or '').lower()
         assert not any(t in price_line for t in ('pr. md','pr md','/md','månedlig','afbetaling','delbetaling','finansiering','per month')),'Financing amount leaked into authoritative retail price'
+
+        ar=avail_by_sku.get(sku) or {}
+        assert ar.get('t1_revalidated') is True,'Selected retail offer lacks immediate T1 revalidation'
+        assert ar.get('price_verified') is True and ar.get('same_offer_url_verified') is True
+        assert int(ar.get('current_price') or 0)==int(x.get('price') or 0)
+        assert str(ar.get('current_url') or '')==str(x.get('url') or '')
+        assert ar.get('availability_status')=='IN_STOCK_DELIVERED_PRICE_T1_REVALIDATED'
+
     for x in p.get('actions') or []:
         if x.get('source')=='NEW RETAIL':
             assert x.get('procurement_action')=='BUY_NOW' and x.get('actionable_now') is True
@@ -79,7 +93,7 @@ def main()->None:
         assert '**Kan hele buildet købes rationelt i dag? JA**' not in report,'UNKNOWN/NO fit leaked a buy-ready JA headline'
         assert '**Hele buildet KØBSKLAR nu: JA**' not in report,'UNKNOWN/NO fit leaked a KØBSKLAR JA gate'
     for x in new:assert x.get('url') in report
-    print(json.dumps({'PASS':True,'publication_gate':'V22','ask_total':h.get('ask_total'),'target_total':h.get('target_total'),'walk_away_total':h.get('walk_away_total'),'fit':fit,'ready_today':h.get('ready_to_buy_complete_build_today'),'raw_routes':raw,'unique_routes':unique,'retail_products':o.get('products_total'),'retail_delivered_verified':o.get('delivered_price_verified'),'deal_candidates':o.get('deal_candidates'),'selected_new':len(new),'upstream_buy_now':decision.get('buy_now_listing_id')},ensure_ascii=False))
+    print(json.dumps({'PASS':True,'publication_gate':'V22','ask_total':h.get('ask_total'),'target_total':h.get('target_total'),'walk_away_total':h.get('walk_away_total'),'fit':fit,'ready_today':h.get('ready_to_buy_complete_build_today'),'raw_routes':raw,'unique_routes':unique,'retail_products':o.get('products_total'),'retail_delivered_verified':o.get('delivered_price_verified'),'deal_candidates':o.get('deal_candidates'),'selected_new':len(new),'selected_retail_t1':a.get('t1_revalidated'),'upstream_buy_now':decision.get('buy_now_listing_id')},ensure_ascii=False))
 
 
 if __name__=='__main__':main()
