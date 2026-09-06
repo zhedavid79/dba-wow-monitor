@@ -20,14 +20,14 @@ jobs:
         run: |
           pip install playwright
           playwright install --with-deps chromium
-      - name: Inspect one current motherboard page
+      - name: Inspect expanded specification block
         run: |
           python - <<'PY'
-          import asyncio, json, re
+          import asyncio, re
           from playwright.async_api import async_playwright
 
           URL='https://prisjagt.dk/product.php?p=14363692'
-          LABELS=('Hukommelsespladser','Maks. Ethernet-hastighed','Trådløst netværk')
+          LABELS=('Hukommelsespladser','M.2','Maks. Ethernet-hastighed','Trådløst netværk (Wi-Fi)')
 
           async def main():
               async with async_playwright() as p:
@@ -36,42 +36,27 @@ jobs:
                   page=await c.new_page()
                   r=await page.goto(URL,wait_until='domcontentloaded',timeout=45000)
                   print('HTTP',r.status if r else None)
-                  els=await page.locator('button, a, [role="tab"], [role="button"]').evaluate_all('''els => els.map((e,i)=>({i,tag:e.tagName,role:e.getAttribute('role'),text:(e.innerText||e.textContent||'').trim().replace(/\\s+/g,' ').slice(0,180),ariaLabel:e.getAttribute('aria-label'),ariaExpanded:e.getAttribute('aria-expanded'),ariaControls:e.getAttribute('aria-controls'),href:e.getAttribute('href')})).filter(x=>x.text||x.ariaLabel)''')
-                  for x in els:
-                      t=((x.get('text') or '')+' '+(x.get('ariaLabel') or '')).lower()
-                      if any(k in t for k in ('info','spec','detal','produkt')):
-                          print('CONTROL',json.dumps(x,ensure_ascii=False))
                   before=await page.locator('body').text_content() or ''
-                  print('BEFORE_LABELS',{x:(x.lower() in before.lower()) for x in LABELS})
-
-                  pattern=re.compile(r'^(?:Info|Specifikationer|Specifikation|Produktinformation|Detaljer)$',re.I)
-                  candidates=[('tab',page.get_by_role('tab',name=pattern)),('button',page.get_by_role('button',name=pattern)),('link',page.get_by_role('link',name=pattern)),('text',page.get_by_text(pattern,exact=True))]
-                  for kind,loc in candidates:
-                      try: n=min(await loc.count(),10)
+                  print('BEFORE',{x:(x.lower() in before.lower()) for x in LABELS})
+                  expand=page.get_by_role('button',name=re.compile(r'^Se mere information$',re.I))
+                  print('EXPAND_COUNT',await expand.count())
+                  if await expand.count():
+                      item=expand.first
+                      print('EXPAND_VISIBLE',await item.is_visible())
+                      await item.click(timeout=4000)
+                      try:
+                          await page.get_by_text(re.compile(r'Maks\.?\s*Ethernet[- ]?hastighed',re.I)).first.wait_for(state='attached',timeout=5000)
                       except Exception as e:
-                          print('COUNT_ERR',kind,type(e).__name__); continue
-                      print('CANDIDATE_COUNT',kind,n)
-                      for i in range(n):
-                          it=loc.nth(i)
-                          try:
-                              vis=await it.is_visible()
-                              txt=(await it.inner_text(timeout=1000)).strip() if vis else ''
-                              print('CANDIDATE',kind,i,vis,repr(txt))
-                              if not vis: continue
-                              await it.click(timeout=4000)
-                              try:
-                                  await page.get_by_text(re.compile('Hukommelsespladser',re.I)).first.wait_for(state='attached',timeout=5000)
-                              except Exception: pass
-                              after=await page.locator('body').text_content() or ''
-                              found={x:(x.lower() in after.lower()) for x in LABELS}
-                              print('AFTER_CLICK',kind,i,found)
-                              if any(found.values()):
-                                  for label in LABELS:
-                                      pos=after.lower().find(label.lower())
-                                      if pos>=0: print('CONTEXT',label,repr(after[max(0,pos-120):pos+300]))
-                                  await c.close(); await b.close(); return
-                          except Exception as e:
-                              print('CLICK_ERR',kind,i,type(e).__name__,str(e)[:150])
+                          print('WAIT_ERR',type(e).__name__)
+                  after=await page.locator('body').text_content() or ''
+                  print('AFTER',{x:(x.lower() in after.lower()) for x in LABELS})
+                  for label in LABELS:
+                      start=0; seen=0
+                      while True:
+                          pos=after.lower().find(label.lower(),start)
+                          if pos<0 or seen>=3: break
+                          print('CONTEXT',label,repr(after[max(0,pos-140):pos+420]))
+                          start=pos+len(label); seen+=1
                   await c.close(); await b.close()
           asyncio.run(main())
           PY
