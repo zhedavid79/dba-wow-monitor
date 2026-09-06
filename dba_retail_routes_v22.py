@@ -9,6 +9,8 @@ from urllib.parse import urlparse
 # purchasing authority until dba_retail_authority_v22 verifies the retailer
 # product page itself (identity, current DKK Offer.price, InStock, mandatory
 # shipping and delivered-price arithmetic).
+# Keep this file in the V22 smoke trigger set so retailer-route changes always
+# force a fresh authoritative publication instead of leaving stale artifacts.
 
 _ID_RE = re.compile(r'^\d{4,12}$')
 
