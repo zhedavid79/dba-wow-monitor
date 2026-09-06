@@ -79,7 +79,38 @@ def infer_candidate_v22(
     )
 
 
+def regression() -> None:
+    sample = '''
+    Asus Example B850M WiFi
+    Formfaktor\nMicro ATX
+    Stikkontakt\nAMD Socket AM5
+    Hukommelsestype\nDDR5
+    Trådløst netværk (Wi-Fi)\nJa
+    Hukommelsespladser\n4 stk
+    M.2\n3 stk
+    Maks. Ethernet-hastighed\n2.5 Gbit/s
+    '''
+    augmented = augment_discovery_body_v22('MOTHERBOARD', sample)
+    assert '4 DIMM' in augmented
+    assert '3 x M.2' in augmented
+    assert '2.5GbE' in augmented
+    candidate, missing = infer_candidate_v22(
+        'MOTHERBOARD',
+        'Asus Example B850M WiFi',
+        sample,
+        'https://prisjagt.dk/product.php?p=1',
+        1200,
+        'InStock',
+        '2026-09-06T00:00:00+00:00',
+    )
+    assert candidate is not None, missing
+    assert candidate['dimm_slots'] == 4
+    assert candidate['m2_count'] == 3
+    assert candidate['lan_gbps'] == 2.5
+
+
 async def main() -> None:
+    regression()
     base.MAX_LINKS_PER_SEED = MAX_LINKS_PER_SEED_V22
     base.infer_candidate = infer_candidate_v22
     try:
