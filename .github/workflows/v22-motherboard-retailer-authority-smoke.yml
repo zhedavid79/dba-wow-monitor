@@ -1,0 +1,131 @@
+name: V22 motherboard retailer authority smoke
+
+on:
+  push:
+    branches: [v22/motherboard-retailer-spec-authority-2026-09-06]
+    paths:
+      - 'dba_retail_motherboard_v22.py'
+      - 'dba_retail_prices_v22.py'
+      - 'dba_retail_offers_v22.py'
+      - 'dba_self_build_v22_authoritative.py'
+      - 'dba_retail_availability_v22.py'
+      - 'dba_publication_gate_v22.py'
+      - '.github/workflows/v22-motherboard-retailer-authority-smoke.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v22-motherboard-retailer-authority-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install browser
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Compile and pure regressions
+        run: |
+          python -m py_compile dba_retail_motherboard_v22.py dba_retail_prices_v22.py dba_retail_routes_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_procurement_v22.py dba_strategy_report_v22.py dba_publication_gate_v22.py
+          python - <<'PY'
+          import dba_retail_motherboard_v22 as mb
+          good=mb.extract_retailer_motherboard_specs(
+              'ASRock B850M Pro RS WiFi',
+              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 4 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet'
+          )
+          assert good['passed'], good
+          bad=mb.extract_retailer_motherboard_specs(
+              'ASRock B850M Pro RS WiFi',
+              'ASRock B850M Pro RS WiFi AMD AM5 DDR5 Micro ATX 2 x DIMM DDR5 M.2 Socket 3 Wi-Fi 6E 2.5 Gigabit Ethernet'
+          )
+          assert bad['passed'] is False and '4 DIMM' in bad['missing'], bad
+          print('PASS PURE MOTHERBOARD SPEC AUTHORITY')
+          PY
+      - name: Discover live retail universe
+        timeout-minutes: 8
+        run: python dba_retail_prices_v22.py
+      - name: Resolve live offers and direct retailer authority
+        timeout-minutes: 11
+        run: python dba_retail_offers_v22.py
+      - name: Show motherboard promotion evidence
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('results/retail_prices_latest.json')
+          o=Path('results/retail_offers_v22.json')
+          if not p.exists():
+              print('NO_RETAIL_SNAPSHOT')
+              raise SystemExit(0)
+          retail=json.loads(p.read_text())
+          offers=json.loads(o.read_text()) if o.exists() else {'rows':[]}
+          by={str(x.get('sku') or ''):x for x in offers.get('rows') or []}
+          leads=[x for x in retail.get('products') or [] if x.get('motherboard_spec_lead_v22') is True]
+          print('MOTHERBOARD_SPEC_LEADS',len(leads))
+          promoted=0
+          for x in leads:
+              r=by.get(str(x.get('sku') or ''),{})
+              specs=r.get('retailer_component_specs') or {}
+              ok=bool(
+                  r.get('delivered_price_verified') is True
+                  and r.get('retailer_authority')=='DIRECT_RETAILER_T1'
+                  and r.get('retailer_component_spec_gate_passed') is True
+              )
+              promoted += int(ok)
+              print(json.dumps({
+                  'name':x.get('name'),'sku':x.get('sku'),
+                  'lead_price':r.get('retail_lead_price_dkk'),
+                  'direct':r.get('delivered_price_verified'),
+                  'buy_url':r.get('buy_url'),
+                  'seller':r.get('seller'),
+                  'spec_pass':r.get('retailer_component_spec_gate_passed'),
+                  'spec_authority':r.get('retailer_component_spec_authority'),
+                  'spec_missing':specs.get('missing'),
+                  'specs':{k:specs.get(k) for k in ('form_factor','socket','ddr','dimm_slots','wifi','lan_gbps','m2_count')},
+              },ensure_ascii=False))
+          print('RETAILER_PROMOTABLE_MOTHERBOARDS',promoted)
+          PY
+      - name: Re-optimize with fail-closed promotion
+        run: python dba_self_build_v22_authoritative.py
+      - name: Revalidate selected retail at T1
+        timeout-minutes: 7
+        run: python dba_retail_availability_v22.py
+      - name: Assert coverage and dynamic T1 invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('results/wow_strategy_latest.json').read_text())
+          a=json.loads(Path('results/retail_availability_v22.json').read_text())
+          cov=(s.get('component_market_coverage_v20') or {}).get('v19_coverage') or {}
+          cats=cov.get('categories') or {}
+          print('COVERAGE',json.dumps(cats,ensure_ascii=False))
+          assert cov.get('passed') is True, cats
+          mb=cats.get('MOTHERBOARD') or {}
+          assert int(mb.get('eligible') or 0) >= int(mb.get('minimum') or 6), mb
+          selected=[x for x in (s.get('recommended_self_build') or {}).get('components') or [] if x.get('dynamic_retailer_promoted_v22') is True]
+          by={str(x.get('sku') or ''):x for x in a.get('rows') or []}
+          for x in selected:
+              r=by.get(str(x.get('sku') or ''),{})
+              assert x.get('retailer_component_spec_gate_passed_v22') is True
+              assert x.get('retailer_component_spec_authority_v22')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'
+              assert r.get('retailer_component_spec_gate_passed') is True
+              assert r.get('retailer_component_spec_authority')=='DIRECT_RETAILER_PRODUCT_PAGE_T1'
+              assert r.get('t1_revalidated') is True
+          print(json.dumps({
+              'PASS':True,
+              'motherboard_coverage':mb,
+              'selected_dynamic_motherboards':[(x.get('name'),x.get('price'),x.get('url')) for x in selected],
+              'direct_buy_ready':a.get('direct_buy_ready'),
+              'reference_only':a.get('reference_only'),
+          },ensure_ascii=False))
+          PY
