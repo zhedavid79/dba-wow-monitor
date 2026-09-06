@@ -1,0 +1,23 @@
+name: Retail V22 redirect probe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dba_redirect_probe_v22.py'
+      - '.github/workflows/retail-v22-redirect-probe.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - run: python dba_redirect_probe_v22.py
