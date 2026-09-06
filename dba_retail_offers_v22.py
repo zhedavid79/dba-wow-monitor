@@ -17,9 +17,10 @@ RETAIL = Path('results/retail_prices_latest.json')
 OUT = Path('results/retail_offers_v22.json')
 
 PRICE_RE = re.compile(r'(?<!\d)(\d{1,3}(?:[. ]\d{3})*|\d{3,5})(?:[,.]\d{2})?\s*(?:kr\.?|DKK)', re.I)
-STOCK_RE = re.compile(r'\b(?:på lager|in stock|lagerfør|levering\s*\d|sendes|afsendes|klar til levering|på lager igen)\b', re.I)
+STOCK_RE = re.compile(r'\b(?:på lager|in stock|lagerfør|levering\s*\d|sendes|afsendes|klar til levering)\b', re.I)
+NOT_IN_STOCK_RE = re.compile(r'\b(?:på lager igen|på vej|ikke på lager|udsolgt|forventet på lager)\b', re.I)
 FREE_SHIP_RE = re.compile(r'\b(?:fri fragt|gratis fragt|gratis levering|free shipping|0(?:[,.]00)?\s*kr\.?\s*(?:fragt|levering))\b', re.I)
-PROMO_RE = re.compile(r'\b(?:tilbud|kampagne|rabat|spar|sale|specialpris|weekendpris|black friday|outlet)\b|\b\d{1,2}\s*%\b', re.I)
+PROMO_RE = re.compile(r'\b(?:tilbud|kampagne|rabat|spar|sale|specialpris|weekendpris|black friday|outlet|gælder\s+t\.?o\.?m\.?)\b|\b\d{1,2}\s*%\b', re.I)
 NORMAL_RE = re.compile(r'\b(?:før|førpris|normalpris|normal pris|vejledende pris|vejl\.?\s*pris)\D{0,20}(\d{1,3}(?:[. ]\d{3})*|\d{3,5})(?:[,.]\d{2})?\s*(?:kr\.?|DKK)', re.I)
 SHIP_A = re.compile(r'\b(?:fragt|levering|shipping)\s*(?:fra\s*)?(\d{1,3}(?:[. ]\d{3})*|\d{1,4})(?:[,.](\d{1,2}))?\s*kr\.?', re.I)
 SHIP_B = re.compile(r'(\d{1,3}(?:[. ]\d{3})*|\d{1,4})(?:[,.](\d{1,2}))?\s*kr\.?.{0,20}\b(?:fragt|levering|shipping)\b', re.I)
@@ -60,7 +61,7 @@ def price_hits(text: str) -> list[dict]:
             continue
         if SHIP_CONTEXT_RE.search(line) and not DELIVERY_INCLUDED_RE.search(line):
             continue
-        out.append({'value': n, 'line': line[:240]})
+        out.append({'value': n, 'line': line[:240], 'start': m.start()})
     return out
 
 
@@ -109,25 +110,29 @@ def kinds() -> dict[str, str]:
     return out
 
 
-async def evidence(anchor) -> str:
-    # Prefer the exact clickable offer card. Only climb a few levels when the
-    # anchor itself does not contain a price/status. Wider ancestors are unsafe
-    # because they can mix prices from neighbouring offers or unrelated widgets.
-    best = ''
-    for level in range(4):
-        try:
-            loc = anchor if level == 0 else anchor.locator('xpath=' + '/..' * level)
-            txt = (await loc.inner_text(timeout=700)).strip()
-        except Exception:
-            continue
-        if len(txt) > len(best):
-            best = txt
-        if prices(txt) and ('på lager' in txt.lower() or 'til butik' in txt.lower() or 'på lager igen' in txt.lower()):
-            return txt[:1600]
-    return best[:1600]
+async def exact_offer_card(anchor) -> tuple[str, str | None]:
+    """The go-to-shop anchor itself is the offer card on Prisjagt.
+    Never climb to a parent: parents can contain neighbouring shops, price
+    history and aggregate 'Lavest/Højest' values.
+    """
+    try:
+        text = (await anchor.inner_text(timeout=900)).strip()
+    except Exception:
+        return '', None
+    seller = None
+    try:
+        imgs = anchor.locator('img')
+        for i in range(min(await imgs.count(), 6)):
+            alt = (await imgs.nth(i).get_attribute('alt') or '').strip()
+            if alt:
+                seller = alt
+                break
+    except Exception:
+        pass
+    return text[:1600], seller
 
 
-async def resolve(context, href: str) -> dict:
+async def resolve(context, href: str, seller_hint: str | None = None) -> dict:
     m = STORE_LINK_RE.search(href)
     sid = m.group(1) if m else None
     oid = m.group(2) if m else None
@@ -138,6 +143,7 @@ async def resolve(context, href: str) -> dict:
         'store_offer_link_verified': bool(sid and oid),
         'direct_url': None,
         'external_resolved': False,
+        'seller': seller_hint or None,
     }
     try:
         resp = await context.request.get(href, timeout=12000, max_redirects=10, fail_on_status_code=False)
@@ -145,7 +151,7 @@ async def resolve(context, href: str) -> dict:
         final_url = str(resp.url)
         host = urlparse(final_url).netloc.lower().removeprefix('www.')
         if host and 'prisjagt.dk' not in host:
-            out.update({'direct_url': final_url, 'seller': host, 'external_resolved': True})
+            out.update({'direct_url': final_url, 'seller': seller_hint or host, 'external_resolved': True})
     except Exception as exc:
         out['resolve_error'] = f'{type(exc).__name__}: {str(exc)[:160]}'
     if not out.get('seller') and sid:
@@ -164,26 +170,40 @@ def sane_offer(row: dict, product_floor: int | None) -> tuple[bool, str]:
     d = int(delivered)
     floor = int(product_floor)
     tolerance = max(5, int(round(floor * 0.01)))
-    # A delivery-inclusive store price cannot legitimately undercut the same
-    # page's current lowest same-product price. If it does, the card extraction
-    # is internally contradictory and must fail closed. Real promotions are
-    # already reflected in the product-page lowest-price floor.
     if d + tolerance < floor:
         return False, f'BELOW_SAME_PAGE_PRICE_FLOOR:{d}/{floor}'
     return True, f'AT_OR_ABOVE_SAME_PAGE_PRICE_FLOOR:{d}/{floor}'
 
 
-def choose_card_price(hits: list[dict], product_floor: int | None) -> tuple[int | None, str]:
+def choose_card_price(hits: list[dict], card_text: str, product_floor: int | None) -> tuple[int | None, str, str]:
+    """Select price only from one exact offer card.
+    A promo card commonly contains old price followed by current sale price;
+    in that explicit context the final monetary amount is authoritative.
+    Otherwise a single card price is required, or the value matching the
+    same-product current floor when available.
+    """
     if not hits:
-        return None, ''
+        return None, '', 'NO_CARD_PRICE'
+    if len(hits) == 1:
+        h = hits[0]
+        return int(h['value']), str(h.get('line') or ''), 'SINGLE_PRICE_EXACT_OFFER_CARD'
+    if PROMO_RE.search(card_text):
+        h = hits[-1]
+        return int(h['value']), str(h.get('line') or ''), 'PROMO_OLD_THEN_CURRENT_LAST_PRICE'
     if product_floor:
         tolerance = max(5, int(round(int(product_floor) * 0.01)))
-        eligible = [x for x in hits if int(x['value']) + tolerance >= int(product_floor)]
-        if eligible:
-            best = min(eligible, key=lambda x: int(x['value']))
-            return int(best['value']), str(best.get('line') or '')
-        return None, ''
-    return None, ''
+        matching = [h for h in hits if abs(int(h['value']) - int(product_floor)) <= tolerance]
+        if len(matching) == 1:
+            h = matching[0]
+            return int(h['value']), str(h.get('line') or ''), 'EXACT_CARD_PRICE_MATCHES_PRODUCT_FLOOR'
+    return None, '', 'AMBIGUOUS_MULTI_PRICE_OFFER_CARD'
+
+
+def is_in_stock(card_text: str) -> bool:
+    s = str(card_text or '')
+    if NOT_IN_STOCK_RE.search(s):
+        return False
+    return bool(STOCK_RE.search(s))
 
 
 async def inspect(context, p: dict, sem, kmap: dict) -> dict:
@@ -223,8 +243,8 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
             inclusive = bool(DELIVERY_INCLUDED_RE.search(body))
             out['comparison_delivery_included'] = inclusive
 
-            anchors = page.locator('a')
-            n = min(await anchors.count(), 600)
+            anchors = page.locator('a[href*="go-to-shop"]')
+            n = min(await anchors.count(), 80)
             raw = []
             seen = set()
             for i in range(n):
@@ -233,38 +253,40 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
                     href = await a.get_attribute('href') or ''
                 except Exception:
                     continue
-                if 'go-to-shop' not in href:
+                if not href:
                     continue
                 href = urljoin(url, href)
-                txt = await evidence(a)
-                hits = price_hits(txt)
-                displayed, line = choose_card_price(hits, product_floor)
+                card_text, seller_hint = await exact_offer_card(a)
+                hits = price_hits(card_text)
+                displayed, line, price_method = choose_card_price(hits, card_text, product_floor)
                 if displayed is None:
                     continue
-                key = (href, displayed)
+                key = (href, displayed, seller_hint)
                 if key in seen:
                     continue
                 seen.add(key)
-                ship, ship_exact, ship_method = shipping(txt)
+                ship, ship_exact, ship_method = shipping(card_text)
                 raw.append({
                     'displayed_price_dkk': displayed,
                     'displayed_price_line': line,
+                    'card_price_method': price_method,
                     'price_candidates_dkk': [x['value'] for x in hits],
                     'shipping_dkk': ship,
                     'shipping_exact': ship_exact,
                     'shipping_method': ship_method,
-                    'in_stock_card': bool(STOCK_RE.search(txt)),
-                    'promo_evidence': bool(PROMO_RE.search(txt)),
-                    'normal_price_dkk': normal_price(txt),
+                    'in_stock_card': is_in_stock(card_text),
+                    'promo_evidence': bool(PROMO_RE.search(card_text)),
+                    'normal_price_dkk': normal_price(card_text),
                     'redirect_url': href,
-                    'evidence_text': txt[:650],
+                    'seller_hint': seller_hint,
+                    'evidence_text': card_text[:800],
                 })
 
             raw.sort(key=lambda x: (x['displayed_price_dkk'], 0 if x['in_stock_card'] else 1))
             resolved = []
             for row in raw[:12]:
                 r = dict(row)
-                r.update(await resolve(context, row['redirect_url']))
+                r.update(await resolve(context, row['redirect_url'], row.get('seller_hint')))
                 stock = bool(r.get('in_stock_card'))
                 if inclusive:
                     delivered = int(r['displayed_price_dkk'])
@@ -305,7 +327,7 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
                 r['market_reference_delivered_dkk'] = median
                 dp = r.get('delivered_price_dkk')
                 r['deal_type'] = (
-                    'EXPLICIT_SALE' if r.get('explicit_discount_pct') and r.get('price_sanity_ok')
+                    'EXPLICIT_SALE' if r.get('promo_evidence') and len(r.get('price_candidates_dkk') or []) > 1 and r.get('price_sanity_ok')
                     else 'MARKET_DEAL' if dp and median and dp <= median * .90
                     else 'PROMOTION_EVIDENCE' if r.get('promo_evidence') and r.get('price_sanity_ok')
                     else 'BEST_CURRENT_PRICE'
@@ -331,6 +353,7 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
                     'market_reference_delivered_dkk': median,
                     'price_sanity_ok': True,
                     'price_sanity_method': b.get('price_sanity_method'),
+                    'card_price_method': b.get('card_price_method'),
                     'same_page_lowest_price_dkk': product_floor,
                     'same_page_price_floor_method': floor_method,
                 })
@@ -342,7 +365,7 @@ async def inspect(context, p: dict, sem, kmap: dict) -> dict:
             await page.close()
 
 
-async def main() -> None:
+async def main():
     doc = json.loads(RETAIL.read_text(encoding='utf-8'))
     kmap = kinds()
     products = []
@@ -368,7 +391,12 @@ async def main() -> None:
     result = {
         'generated_at': datetime.now(timezone.utc).isoformat(),
         'model': 'V22_STORE_LEVEL_DELIVERED_PRICE_AND_DEALS',
-        'policy': 'Purchase-ready new retail requires same-product identity, current same-page lowest-price floor consistency, a store-specific Prisjagt offer_id/store_id, in-stock evidence and an authoritative delivery-inclusive total. Card prices below the current same-product page floor fail closed. Selected offers are revalidated again immediately before publication.',
+        'policy': (
+            'Each Prisjagt price is bound only to the exact go-to-shop anchor/offer card. Parent sections, price history, '
+            'aggregate Lavest/Hoejest values, financing and shipping-only amounts are excluded. Seller identity comes '
+            'from the exact card image alt. Prisjagt-only redirects remain comparison leads; purchase-ready BUY_NOW '
+            'still requires direct external retailer verification in the procurement layer.'
+        ),
         'products_total': len(rows),
         'delivered_price_verified': len(ready),
         'deal_candidates': len(deals),
@@ -382,10 +410,10 @@ async def main() -> None:
         if not r:
             continue
         p['retail_offer_v22'] = {k: r.get(k) for k in (
-            'delivered_price_verified', 'delivered_price_dkk', 'item_price_dkk', 'shipping_dkk',
-            'delivered_price_method', 'buy_url', 'seller', 'store_id', 'offer_id', 'external_url_resolved',
-            'deal_type', 'normal_price_dkk', 'market_reference_delivered_dkk', 'price_sanity_ok',
-            'price_sanity_method', 'same_page_lowest_price_dkk', 'same_page_price_floor_method',
+            'delivered_price_verified','delivered_price_dkk','item_price_dkk','shipping_dkk','delivered_price_method',
+            'buy_url','seller','store_id','offer_id','external_url_resolved','deal_type','normal_price_dkk',
+            'market_reference_delivered_dkk','price_sanity_ok','price_sanity_method','card_price_method',
+            'same_page_lowest_price_dkk','same_page_price_floor_method'
         )}
     doc['offer_gate_v22'] = {
         'model': result['model'],
@@ -393,14 +421,14 @@ async def main() -> None:
         'delivered_price_verified': len(ready),
         'deal_candidates': len(deals),
         'external_urls_resolved': result['external_urls_resolved'],
-        'required_price_basis': 'DELIVERED_PRICE_DKK',
+        'required_price_basis': 'EXACT_OFFER_CARD_ONLY',
         'financing_shipping_filter': True,
         'same_product_price_sanity': True,
-        'same_page_price_floor_gate': True,
-        'selected_offer_t1_required': True,
+        'exact_offer_card_binding': True,
+        'parent_section_prices_forbidden': True,
     }
     RETAIL.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding='utf-8')
-    bykind = {k: sum(1 for r in ready if r.get('kind') == k) for k in ('MOTHERBOARD', 'PSU', 'CASE', 'COOLER', 'RAM', 'STORAGE')}
+    bykind = {k: sum(1 for r in ready if r.get('kind') == k) for k in ('MOTHERBOARD','PSU','CASE','COOLER','RAM','STORAGE')}
     print(json.dumps({
         'V22_RETAIL_OFFERS': True,
         'products': len(rows),
@@ -408,7 +436,6 @@ async def main() -> None:
         'deals': len(deals),
         'external_resolved': result['external_urls_resolved'],
         'by_kind': bykind,
-        'same_page_price_floor_gate': True,
     }, ensure_ascii=False))
     assert rows
 
