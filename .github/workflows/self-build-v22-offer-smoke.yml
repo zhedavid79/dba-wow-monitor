@@ -1,0 +1,70 @@
+name: Self-build V22 offer optimizer smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dba_retail_prices_v22.py'
+      - 'dba_retail_offers_v22.py'
+      - 'dba_self_build_v22_authoritative.py'
+      - 'dba_retail_availability_v22.py'
+      - '.github/workflows/self-build-v22-offer-smoke.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-build-v22-offer-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install browser
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Compile V22 offer optimizer
+        run: |
+          python -m py_compile dba_retail_prices_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py
+      - name: Discover deeper live retail universe
+        timeout-minutes: 8
+        run: python dba_retail_prices_v22.py
+      - name: Verify store-level delivered offers and deals
+        timeout-minutes: 8
+        run: python dba_retail_offers_v22.py
+      - name: Re-optimize published route universe on delivered price
+        run: python dba_self_build_v22_authoritative.py
+      - name: Validate selected new-part delivered availability
+        run: python dba_retail_availability_v22.py
+      - name: Focused V22 invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('results/wow_strategy_latest.json').read_text())
+          o=json.loads(Path('results/retail_offers_v22.json').read_text())
+          a=json.loads(Path('results/retail_availability_v22.json').read_text())
+          rec=s['recommended_self_build']
+          new=[x for x in rec['components'] if x.get('source')=='NEW RETAIL']
+          assert (s.get('offer_optimizer_v22') or {}).get('active') is True
+          assert (s.get('component_market_coverage_v20') or {}).get('passed') is True
+          assert o['delivered_price_verified']>0
+          assert len(new)==a['selected_total']==a['concrete_in_stock']
+          assert all(x.get('price_evidence')=='LIVE_DELIVERED_RETAIL_OFFER_V22' for x in new)
+          print(json.dumps({
+              'recommended_tcwp':rec.get('tcwp'),
+              'cpu':rec.get('cpu'),'gpu':rec.get('gpu'),
+              'new_parts':[(x.get('kind'),x.get('name'),x.get('price'),x.get('seller'),x.get('deal_type_v22')) for x in new],
+              'offers_verified':o['delivered_price_verified'],
+              'deals':o['deal_candidates'],
+              'coverage':(s.get('component_market_coverage_v20') or {}).get('passed'),
+          },ensure_ascii=False))
+          PY
