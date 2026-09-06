@@ -54,7 +54,7 @@ def action_section(p: dict) -> str:
             rr = selected.get(str(a.get('sku') or '')) or {}
             url = (rr.get('buy_url') if rr.get('purchase_ready') else rr.get('comparison_url')) or url
             if not rr.get('purchase_ready'):
-                note = 'RETAIL_LEAD — live offer-liste-reference בלבד; slutbutik, samme pris, lager og obligatorisk fragt er ikke T1-verificeret. Ikke KØB NU.'
+                note = 'RETAIL_LEAD — live offer-liste-reference kun; slutbutik, samme pris, lager og obligatorisk fragt er ikke T1-verificeret. Ikke KØB NU.'
         lines.append(
             f"| {kind} | **{label}** | {money(a.get('ask'))} | {money(a.get('first_bid'))} | {money(a.get('target'))} | {money(a.get('walk_away'))} | {link(a.get('name'), url)} — {note} |"
         )
