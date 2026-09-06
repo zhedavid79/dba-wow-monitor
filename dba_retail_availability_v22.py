@@ -54,7 +54,11 @@ async def main() -> None:
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
-        context = await browser.new_context(locale='da-DK')
+        context = await browser.new_context(
+            locale='da-DK',
+            user_agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36',
+            extra_http_headers={'Accept-Language': 'da-DK,da;q=0.9,en;q=0.8'},
+        )
         sem = asyncio.Semaphore(3)
         fresh = await asyncio.gather(*(offers22.inspect(context, p, sem, offers22.kinds()) for p in products))
         await context.close()
