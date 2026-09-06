@@ -22,8 +22,10 @@ def augment_discovery_body_v22(kind: str, body: str) -> str:
     Prisjagt's Danish product-spec table commonly renders a label first and the
     value on the next line (for example ``Hukommelsespladser / 4 stk`` and
     ``M.2 / 3 stk``).  The V20 parser only recognizes the inverse English-style
-    forms.  V22 adds canonical aliases only when the concrete value is present
+    forms. V22 adds canonical aliases only when the concrete value is present
     in the current product page; no specification is guessed from model names.
+    The aliases are prepended so a neighbouring raw label/value pair cannot be
+    mistaken for the value of the next field by the legacy regex parser.
     """
     text = str(body or '')
     if kind != 'MOTHERBOARD':
@@ -56,7 +58,7 @@ def augment_discovery_body_v22(kind: str, body: str) -> str:
     if lan:
         aliases.append(f"{lan.group(1).replace(',', '.')}GbE")
 
-    return text + ('\n' + '\n'.join(aliases) if aliases else '')
+    return ('\n'.join(aliases) + '\n' if aliases else '') + text
 
 
 def infer_candidate_v22(
@@ -91,9 +93,7 @@ def regression() -> None:
     Maks. Ethernet-hastighed\n2.5 Gbit/s
     '''
     augmented = augment_discovery_body_v22('MOTHERBOARD', sample)
-    assert '4 DIMM' in augmented
-    assert '3 x M.2' in augmented
-    assert '2.5GbE' in augmented
+    assert augmented.startswith('4 DIMM\n3 x M.2\n2.5GbE\n')
     candidate, missing = infer_candidate_v22(
         'MOTHERBOARD',
         'Asus Example B850M WiFi',
