@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'dba_retail_prices_v22.py'
+      - 'dba_retail_routes_v22.py'
       - 'dba_retail_authority_v22.py'
       - 'dba_retail_offers_v22.py'
       - 'dba_self_build_v22_authoritative.py'
@@ -37,12 +38,13 @@ jobs:
           playwright install --with-deps chromium
       - name: Compile V22 retail safety layer
         run: |
-          python -m py_compile dba_retail_prices_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_procurement_v22.py dba_strategy_report_v22.py dba_publication_gate_v22.py
+          python -m py_compile dba_retail_prices_v22.py dba_retail_routes_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_procurement_v22.py dba_strategy_report_v22.py dba_publication_gate_v22.py
       - name: Unit-check live offer floor and retailer authority invariants
         run: |
           python - <<'PY'
           import dba_retail_authority_v22 as auth
           import dba_retail_offers_v22 as offers
+          import dba_retail_routes_v22 as routes
 
           rows = [
               {'displayed_price_dkk': 895, 'card_current': True},
@@ -64,7 +66,20 @@ jobs:
           assert auth._numeric(895) == 895
           assert auth._numeric('1.170') == 1170
           assert auth._numeric('895.00') == 895
-          print('PASS V22 PURE RETAIL AUTHORITY INVARIANTS')
+
+          # Permanent route and direct-retailer identity regressions. Route
+          # adapters are discovery only and cannot themselves grant BUY_NOW.
+          assert routes.candidate_urls('Proshop','3324875') == ['https://www.proshop.dk/3324875']
+          assert routes.candidate_urls('Happii','3324875') == ['https://www.happii.dk/3324875']
+          assert routes.candidate_urls('Komplett','1317727') == ['https://www.komplett.dk/product/1317727']
+          assert routes.candidate_urls('Unknown shop','3324875') == []
+          assert routes.candidate_urls('Proshop','not-an-id') == []
+          assert auth._same_product_identity('Corsair RM750e (2025) ATX 3.1 750W', 'Corsair RMe Series RM750e PSU Sort')
+          assert auth._same_product_identity('Kingston NV3 M.2 2280 PCIe 4.0 NVMe 1TB', 'Kingston NV3 SSD 1TB')
+          assert not auth._same_product_identity('ASUS TUF B850M-PLUS WIFI', 'ASUS PRIME B850M-A WIFI')
+          assert auth._shipping_from_text('Billigste fragt (privatkunde) 33,00 kr.', 900)[:2] == (33, True)
+          assert auth._shipping_from_text('Fragt fra 33,00 kr.', 900)[1] is False
+          print('PASS V22 PURE RETAIL AUTHORITY AND ROUTE INVARIANTS')
           PY
       - name: Discover deeper live retail universe
         timeout-minutes: 8
