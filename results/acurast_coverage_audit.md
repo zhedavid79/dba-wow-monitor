@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-06T14:09:51.053293+00:00
+Generated: 2026-09-06T16:24:08.644030+00:00
 
-T0 listings <= ceiling: **2573**  
-Verified before quality: **63**  
-Final after quality: **62**  
-Mainnet ranked: **45**
+T0 listings <= ceiling: **2575**  
+Verified before quality: **64**  
+Final after quality: **63**  
+Mainnet ranked: **46**
 
 ## Review buckets
 
 - Discovery/model blindspots: **985**
 - Core-compatible explicit models stopped by Pulse gate: **22**
-- T1 exits/errors: **7**
+- T1 exits/errors: **6**
 - Quality-gate review: **1**
 - Core compatibility review: **8**
 - Pulse-match review: **9**
@@ -48,7 +48,6 @@ Mainnet ranked: **45**
 | ID | Title | ASK | Reason |
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
-| 24672047 | Apple iPhone 6s 64 GB space grey smartphone | 200 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
@@ -763,7 +762,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24079666 | Samsung Galaxy S9 smartphone 128 GB lilla | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24098137 | Moto G9 Plus (kan bringes) | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24350240 | Samsung Galaxy A 32 5G | 400 | no supported model resolved |
-| DISCOVERY/MODEL | 24385115 | Samsung Galaxy A-serie smartphone 128 GB guld | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24401279 | Nokia | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24443716 | Huawei P20 Light | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24464151 | Samsung Galaxy S7 smartphone 32 GB sort | 400 | no supported model resolved |
@@ -1028,6 +1026,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 22431128 | Motorola Edge 50 Ultra – skærm skadet, ellers fejlfri | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 22569304 | FEIL! Poco x3 PRO! 256GB | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 22737209 | One plus 9 | 1000 | no supported model resolved |
+| DISCOVERY/MODEL | 23130132 | Samsung Galaxy A-serie smartphone 64 GB sølv | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 23467113 | Motorola G67 128gb | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 23726075 | Motorola One Zoom  2 stk! | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 23829495 | Sælges Motorola G86 power 512gb spellbound | 1000 | no supported model resolved |
@@ -1069,11 +1068,10 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
-| T1 | 24672047 | Apple iPhone 6s 64 GB space grey smartphone | 200 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24628146 | Xiaomi Poco X3 Pro | 200 | BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['poco', 'xiaomi'] |

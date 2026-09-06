@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-06T14:09:51.053293+00:00",
+  "generated_at": "2026-09-06T16:24:08.644030+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2573,
-    "verified_before_quality": 63,
-    "final_after_quality": 62,
-    "ranked": 45,
+    "t0_unique": 2575,
+    "verified_before_quality": 64,
+    "final_after_quality": 63,
+    "ranked": 46,
     "discovery_model_blindspots": 985,
     "pulse_gated_discovery_review": 22,
-    "t1_exit_review": 7,
+    "t1_exit_review": 6,
     "quality_review": 1,
     "core_review": 8,
     "pulse_review": 9
@@ -17,7 +17,7 @@
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 985,
     "DISCOVERY/PULSE": 22,
-    "T1": 7,
+    "T1": 6,
     "QUALITY": 1,
     "CORE": 8,
     "PULSE": 9
@@ -6335,15 +6335,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24385115",
-      "title": "Samsung Galaxy A-serie smartphone 128 GB guld",
-      "ask": 400,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24385115",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24401279",
       "title": "Nokia",
       "ask": 400,
@@ -8720,6 +8711,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "23130132",
+      "title": "Samsung Galaxy A-serie smartphone 64 GB sølv",
+      "ask": 1000,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23130132",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "23467113",
       "title": "Motorola G67 128gb",
       "ask": 1000,
@@ -9111,16 +9111,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "24164735",
       "model": "Google Pixel 9 Pro XL",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
@@ -9141,21 +9131,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "17621913",
       "model": null,
       "title": "Samsung Galaxy S8 - defekt",
       "ask": 150,
       "url": "https://www.dba.dk/recommerce/forsale/item/17621913",
-      "reason": "listing disposed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24672047",
-      "model": null,
-      "title": "Apple iPhone 6s 64 GB space grey smartphone",
-      "ask": 200,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24672047",
       "reason": "listing disposed"
     },
     {
@@ -9482,20 +9472,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
-      "sources": [
-        "brand-mobile:huawei:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
       "listing_id": "24164735",
       "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask_t0": 0,
@@ -9524,6 +9500,20 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
       "listing_id": "17621913",
       "title_t0": "Samsung Galaxy S8 - defekt",
       "ask_t0": 150,
@@ -9537,20 +9527,6 @@
       "reason": "listing disposed",
       "title": "Samsung Galaxy S8 - defekt",
       "url": "https://www.dba.dk/recommerce/forsale/item/17621913"
-    },
-    {
-      "listing_id": "24672047",
-      "title_t0": "Apple iPhone 6s 64 GB space grey smartphone",
-      "ask_t0": 200,
-      "model_t0": null,
-      "brand_t0": "apple",
-      "sources": [
-        "category:14"
-      ],
-      "stage": "T1",
-      "reason": "listing disposed",
-      "title": "Apple iPhone 6s 64 GB space grey smartphone",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24672047"
     },
     {
       "listing_id": "23415262",
@@ -9582,21 +9558,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 7,
-    "PRODUCT_IDENTITY": 2503
+    "T1": 6,
+    "PRODUCT_IDENTITY": 2505
   },
   "discovery_reject_reason_counts": {
     "live price missing": 3,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 996,
-    "no supported model resolved": 1452,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 999,
+    "no supported model resolved": 1451,
     "weak complete-phone evidence": 6,
-    "accessory/part title": 6,
     "resolved model variant is not supported by seller text": 12,
-    "listing disposed": 4,
+    "accessory/part title": 6,
+    "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 31
   },
   "audit_integrity": {
-    "all_rejects_count": 2510,
+    "all_rejects_count": 2511,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
