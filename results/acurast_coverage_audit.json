@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-06T06:22:49.991973+00:00",
+  "generated_at": "2026-09-06T08:21:26.549328+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2545,
+    "t0_unique": 2548,
     "verified_before_quality": 60,
     "final_after_quality": 59,
     "ranked": 42,
-    "discovery_model_blindspots": 978,
+    "discovery_model_blindspots": 981,
     "pulse_gated_discovery_review": 21,
     "t1_exit_review": 6,
     "quality_review": 1,
-    "core_review": 7,
-    "pulse_review": 10
+    "core_review": 8,
+    "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 978,
+    "DISCOVERY/MODEL": 981,
     "DISCOVERY/PULSE": 21,
     "T1": 6,
     "QUALITY": 1,
-    "CORE": 7,
-    "PULSE": 10
+    "CORE": 8,
+    "PULSE": 9
   },
   "suspects": [
     {
@@ -354,6 +354,15 @@
       "title": "Samsung Galaxy Xcover 3",
       "ask": 50,
       "url": "https://www.dba.dk/recommerce/forsale/item/19073066",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "1930761",
+      "title": "LG Forskellige",
+      "ask": 50,
+      "url": "https://www.dba.dk/recommerce/forsale/item/1930761",
       "reason": "no supported model resolved"
     },
     {
@@ -3077,6 +3086,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "574702",
+      "title": "HTC Gratia smartphone med 3,2\" TFT skærm på 320 x 480 pixels, 5MP kamera",
+      "ask": 174,
+      "url": "https://www.dba.dk/recommerce/forsale/item/574702",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "10361080",
       "title": "SAMSUNG MOBIL GALAXY A3",
       "ask": 175,
@@ -3351,6 +3369,15 @@
       "title": "Sony Ericsson Xperia X8",
       "ask": 199,
       "url": "https://www.dba.dk/recommerce/forsale/item/18183728",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "20389071",
+      "title": "Sony Ericsson Z520i mobiltelefon",
+      "ask": 199,
+      "url": "https://www.dba.dk/recommerce/forsale/item/20389071",
       "reason": "no supported model resolved"
     },
     {
@@ -7973,15 +8000,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24053742",
-      "title": "Motorola Moto G84 5G, 12 /256 GB",
-      "ask": 750,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24053742",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24105862",
       "title": "Google Pixel 2. Super velholdt.",
       "ask": 750,
@@ -8810,6 +8828,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24656287",
+      "title": "Samsung A26 128 GB",
+      "ask": 1000,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24656287",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "8144576",
       "title": "Samsung A40",
       "ask": 1000,
@@ -9038,11 +9065,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
       "reason": "live price missing"
     },
     {
@@ -9058,11 +9085,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9126,6 +9153,14 @@
       "listing_id": "24398197",
       "model": "Samsung A52s",
       "url": "https://www.dba.dk/recommerce/forsale/item/24398197",
+      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
+    },
+    {
+      "stage": "CORE",
+      "severity": "MEDIUM",
+      "listing_id": "23426246",
+      "model": "Motorola Moto G84 5G",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23426246",
       "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
@@ -9213,14 +9248,6 @@
       "severity": "MEDIUM",
       "listing_id": "24635388",
       "model": "Xiaomi Redmi 14C",
-      "url": null,
-      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
-    },
-    {
-      "stage": "PULSE",
-      "severity": "MEDIUM",
-      "listing_id": "23426246",
-      "model": "Motorola G84",
       "url": null,
       "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
     },
@@ -9392,18 +9419,18 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
       "sources": [
-        "brand-mobile:huawei:2"
+        "brand-mobile:google:2"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
       "listing_id": "23524084",
@@ -9420,18 +9447,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
+      "model_t0": null,
+      "brand_t0": "huawei",
       "sources": [
-        "brand-mobile:google:2"
+        "brand-mobile:huawei:2"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "17621913",
@@ -9478,21 +9505,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 6,
-    "PRODUCT_IDENTITY": 2479
+    "PRODUCT_IDENTITY": 2482,
+    "T1": 6
   },
   "discovery_reject_reason_counts": {
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 985,
     "live price missing": 3,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 987,
-    "no supported model resolved": 1439,
+    "no supported model resolved": 1443,
     "weak complete-phone evidence": 6,
-    "resolved model variant is not supported by seller text": 10,
+    "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 7,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 30
   },
   "audit_integrity": {
-    "all_rejects_count": 2485,
+    "all_rejects_count": 2488,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
