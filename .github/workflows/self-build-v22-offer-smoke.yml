@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'dba_retail_prices_v22.py'
+      - 'dba_retail_authority_v22.py'
       - 'dba_retail_offers_v22.py'
       - 'dba_self_build_v22_authoritative.py'
       - 'dba_retail_availability_v22.py'
@@ -24,7 +25,7 @@ concurrency:
 jobs:
   smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 22
+    timeout-minutes: 24
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -36,51 +37,121 @@ jobs:
           playwright install --with-deps chromium
       - name: Compile V22 retail safety layer
         run: |
-          python -m py_compile dba_retail_prices_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_procurement_v22.py dba_strategy_report_v22.py dba_publication_gate_v22.py
+          python -m py_compile dba_retail_prices_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_procurement_v22.py dba_strategy_report_v22.py dba_publication_gate_v22.py
+      - name: Unit-check live offer floor and retailer authority invariants
+        run: |
+          python - <<'PY'
+          import dba_retail_authority_v22 as auth
+          import dba_retail_offers_v22 as offers
+
+          rows = [
+              {'displayed_price_dkk': 895, 'card_current': True},
+              {'displayed_price_dkk': 929, 'card_current': True},
+              {'displayed_price_dkk': 629, 'card_current': False},
+          ]
+          floor, method = offers.page_floor_price(rows)
+          assert floor == 895
+          assert method == 'LIVE_OFFER_LIST_CURRENT_CARD_MIN'
+          floor2, method2 = offers.page_floor_price('Den laveste pris lige nu er 629 kr', 629)
+          assert floor2 is None
+          assert method2 == 'NO_LIVE_OFFER_LIST_PRICE_FLOOR'
+
+          assert offers.prices('Kun 393 kr pr. måned') == []
+          assert offers.prices('Fragt 39 kr') == []
+          assert auth._numeric(895) == 895
+          assert auth._numeric('1.170') == 1170
+          assert auth._numeric('895.00') == 895
+          print('PASS V22 PURE RETAIL AUTHORITY INVARIANTS')
+          PY
       - name: Discover deeper live retail universe
         timeout-minutes: 8
         run: python dba_retail_prices_v22.py
-      - name: Extract comparison/store offer leads
-        timeout-minutes: 8
+      - name: Extract RETAIL_LEADs and verify direct retailer pages
+        timeout-minutes: 10
         run: python dba_retail_offers_v22.py
       - name: Re-optimize with direct-retailer fail-closed policy
         run: python dba_self_build_v22_authoritative.py
       - name: Revalidate selected new-part evidence
+        timeout-minutes: 6
         run: python dba_retail_availability_v22.py
       - name: Focused V22 direct-retailer invariants
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
+          from urllib.parse import urlparse
+
           s=json.loads(Path('results/wow_strategy_latest.json').read_text())
           o=json.loads(Path('results/retail_offers_v22.json').read_text())
           a=json.loads(Path('results/retail_availability_v22.json').read_text())
+          retail=json.loads(Path('results/retail_prices_latest.json').read_text())
           rec=s['recommended_self_build']
           new=[x for x in rec['components'] if x.get('source')=='NEW RETAIL']
           opt=s.get('offer_optimizer_v22') or {}
+          gate=retail.get('offer_gate_v22') or {}
+
           assert opt.get('active') is True
           assert opt.get('prisjagt_only_policy')=='REFERENCE_ONLY_NEVER_BUY_READY'
+          assert opt.get('retail_authority_model')=='V22_DIRECT_RETAILER_PAGE_T1'
+          assert gate.get('required_price_basis')=='DIRECT_RETAILER_PAGE_ONLY'
+          assert gate.get('same_page_floor_basis')=='LIVE_OFFER_LIST_ONLY'
+          assert gate.get('whole_page_floor_forbidden') is True
+          assert gate.get('price_history_forbidden') is True
+          assert gate.get('retailer_page_required_for_buy_now') is True
+          assert gate.get('mandatory_shipping_required_for_buy_now') is True
           assert (s.get('component_market_coverage_v20') or {}).get('passed') is True
           assert len(new)==a['selected_total']==a['identity_verified']
           assert not a.get('failures')
+
+          offer_by={str(x.get('sku')):x for x in o.get('rows') or []}
+          avail_by={str(x.get('sku')):x for x in a.get('rows') or []}
+          for row in o.get('rows') or []:
+              method=row.get('same_page_price_floor_method')
+              assert method in {'LIVE_OFFER_LIST_CURRENT_CARD_MIN','NO_LIVE_OFFER_LIST_PRICE_FLOOR'}
+              if row.get('retail_lead_price_dkk'):
+                  assert method=='LIVE_OFFER_LIST_CURRENT_CARD_MIN'
+
           for x in new:
+              sku=str(x.get('sku') or '')
+              r=offer_by.get(sku) or {}
+              ar=avail_by.get(sku) or {}
               direct=x.get('retail_offer_verified_v22') is True
               if direct:
                   assert x.get('external_url_resolved_v22') is True
+                  assert x.get('retailer_page_verified_v22') is True
+                  assert x.get('retailer_authority_v22')=='DIRECT_RETAILER_T1'
                   assert x.get('price_evidence')=='LIVE_DIRECT_RETAILER_DELIVERED_OFFER_V22'
                   assert x.get('availability')=='IN_STOCK_DIRECT_RETAILER_VERIFIED'
+                  for key in ('external_url_resolved','retailer_page_verified','retailer_identity_verified','retailer_price_verified','retailer_stock_verified','retailer_shipping_verified'):
+                      assert r.get(key) is True
+                  assert r.get('retailer_authority')=='DIRECT_RETAILER_T1'
+                  assert r.get('delivered_price_method')=='DIRECT_RETAILER_ITEM_PLUS_MANDATORY_SHIPPING'
+                  assert int(r['delivered_price_dkk'])==int(r['item_price_dkk'])+int(r['shipping_dkk'])
+                  assert 'prisjagt.dk' not in urlparse(str(r.get('buy_url') or '')).netloc.lower()
+                  assert ar.get('t1_revalidated') is True
+                  assert ar.get('retailer_page_verified') is True
+                  assert ar.get('retailer_shipping_verified') is True
+                  assert ar.get('delivered_arithmetic_verified') is True
               else:
                   assert x.get('external_url_resolved_v22') is False
+                  assert x.get('retailer_page_verified_v22') is False
+                  assert x.get('retailer_authority_v22')=='RETAIL_LEAD'
                   assert x.get('price_evidence')=='LIVE_RETAIL_COMPARISON_REFERENCE_V22'
                   assert x.get('availability')=='PRICE_REFERENCE_ONLY_CHECK_STORE'
+                  assert x.get('same_page_price_floor_method_v22')=='LIVE_OFFER_LIST_CURRENT_CARD_MIN'
+                  assert ar.get('reference_revalidated') is True
+                  assert ar.get('current_reference_method')=='LIVE_OFFER_LIST_CURRENT_CARD_MIN'
+                  assert ar.get('t1_revalidated') is False
+
           assert a['direct_buy_ready']+a['reference_only']==len(new)
           assert a['direct_buy_ready']==sum(1 for x in new if x.get('retail_offer_verified_v22') is True)
           print(json.dumps({
               'recommended_tcwp_reference':rec.get('tcwp'),
               'cpu':rec.get('cpu'),'gpu':rec.get('gpu'),
               'new_parts':[(x.get('kind'),x.get('name'),x.get('price'),x.get('price_evidence')) for x in new],
-              'comparison_offer_leads':o.get('delivered_price_verified'),
-              'external_resolved':o.get('external_urls_resolved'),
+              'retail_leads':o.get('retail_leads'),
+              'external_routes_resolved':o.get('external_routes_resolved'),
+              'retailer_pages_verified':o.get('retailer_pages_verified'),
               'direct_buy_ready':a['direct_buy_ready'],
               'reference_only':a['reference_only'],
           },ensure_ascii=False))
