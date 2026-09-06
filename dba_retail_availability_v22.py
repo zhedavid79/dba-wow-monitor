@@ -49,6 +49,7 @@ async def main() -> None:
             'kind': c.get('kind'),
             'name': c.get('name'),
             'direct_expected': c.get('retail_offer_verified_v22') is True,
+            'dynamic_spec_expected': c.get('dynamic_retailer_promoted_v22') is True,
             'comparison_url': product_url,
         }
 
@@ -89,6 +90,10 @@ async def main() -> None:
             and shipping is not None
             and current_price == int(item) + int(shipping)
         )
+        component_spec_ok = bool(
+            r.get('retailer_component_spec_gate_passed') is True
+            and r.get('retailer_component_spec_authority') == 'DIRECT_RETAILER_PRODUCT_PAGE_T1'
+        )
 
         if exp['direct_expected']:
             same_price = bool(current_price and current_price == exp['price'])
@@ -104,6 +109,7 @@ async def main() -> None:
                 and same_url
                 and r.get('retailer_authority') == 'DIRECT_RETAILER_T1'
                 and r.get('price_sanity_ok') is True
+                and (not exp['dynamic_spec_expected'] or component_spec_ok)
             )
             status = 'IN_STOCK_DIRECT_RETAILER_T1_REVALIDATED' if t1_ok else 'DIRECT_RETAILER_OFFER_CHANGED_OR_UNPROVEN'
             reference_ok = False
@@ -128,6 +134,11 @@ async def main() -> None:
             'expected_url': exp['url'],
             'comparison_url': exp['comparison_url'],
             'direct_expected': exp['direct_expected'],
+            'dynamic_spec_expected': exp['dynamic_spec_expected'],
+            'retailer_component_spec_gate_passed': r.get('retailer_component_spec_gate_passed') is True,
+            'retailer_component_spec_authority': r.get('retailer_component_spec_authority'),
+            'retailer_component_specs': r.get('retailer_component_specs'),
+            'retailer_component_spec_url': r.get('retailer_component_spec_url'),
             't1_verified_at': r.get('verified_at'),
             'identity_verified': identity,
             'external_retailer_resolved': external,
@@ -184,7 +195,8 @@ async def main() -> None:
         'policy': (
             'BUY_NOW requires an immediate T1 re-fetch of the external retailer page with same-product identity, '
             'same direct URL, same delivered price, DKK item price, InStock and exact mandatory shipping. '
-            'Prisjagt-only candidates remain RETAIL_LEAD and can only revalidate the current live offer-list reference.'
+            'Prisjagt-only candidates remain RETAIL_LEAD and can only revalidate the current live offer-list reference. '
+            'A dynamically promoted motherboard must also re-prove every hard motherboard specification on the direct retailer page.'
         ),
         'selected_total': len(rows),
         'identity_verified': sum(1 for x in rows if x.get('identity_verified')),
