@@ -33,6 +33,7 @@ def main()->None:
 
     new=[x for x in rec.get('components') or [] if x.get('source')=='NEW RETAIL'];assert new
     assert len(new)==int(a.get('selected_total') or 0)==int(a.get('concrete_in_stock') or 0)
+    offer_by_sku={str(r.get('sku') or ''):r for r in o.get('rows') or [] if r.get('sku')}
     for x in new:
         assert x.get('price_evidence')=='LIVE_DELIVERED_RETAIL_OFFER_V22'
         assert x.get('retail_offer_verified_v22') is True and x.get('seller') and x.get('url')
@@ -40,6 +41,13 @@ def main()->None:
         assert x.get('delivered_price_method_v22') in {'PRISJAGT_PRICE_INCL_DELIVERY','ITEM_PLUS_EXACT_SHIPPING'}
         assert int(x.get('price') or 0)==int(x.get('delivered_price_dkk') or 0)>0
         if x.get('delivered_price_method_v22')=='ITEM_PLUS_EXACT_SHIPPING':assert int(x['price'])==int(x.get('item_price_dkk') or 0)+int(x.get('shipping_dkk') or 0)
+        rr=offer_by_sku.get(str(x.get('sku') or '')) or {};best=rr.get('best_delivered_offer') or {}
+        assert rr.get('delivered_price_verified') is True and best.get('price_sanity_ok') is True,'Selected retail offer did not pass V22 same-product price sanity'
+        ref=int(rr.get('product_reference_price_dkk') or 0);dp=int(rr.get('delivered_price_dkk') or 0)
+        assert ref>0 and dp>0
+        if dp<ref*.60:assert best.get('price_sanity_method')=='EXPLICIT_DEEP_DISCOUNT_CORROBORATED','Extreme retail discount lacks explicit same-offer corroboration'
+        price_line=str(best.get('displayed_price_line') or '').lower()
+        assert not any(t in price_line for t in ('pr. md','pr md','/md','månedlig','afbetaling','delbetaling','finansiering','per month')),'Financing amount leaked into authoritative retail price'
     for x in p.get('actions') or []:
         if x.get('source')=='NEW RETAIL':
             assert x.get('procurement_action')=='BUY_NOW' and x.get('actionable_now') is True
