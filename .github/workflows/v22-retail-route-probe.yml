@@ -4,6 +4,7 @@ on:
   push:
     branches: [v22/retail-route-resolution-2026-09-06]
     paths:
+      - 'dba_retail_routes_v22.py'
       - 'dba_retail_offers_v22.py'
       - 'dba_retail_authority_v22.py'
       - 'dba_retail_prices_v22.py'
@@ -25,31 +26,48 @@ jobs:
         run: |
           pip install playwright
           playwright install --with-deps chromium
+      - name: Compile route layer
+        run: python -m py_compile dba_retail_routes_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py
+      - name: Unit-check retailer adapters
+        run: |
+          python - <<'PY'
+          import dba_retail_routes_v22 as r
+          assert r.candidate_urls('Proshop','3324875') == ['https://www.proshop.dk/3324875']
+          assert r.candidate_urls('Happii','3324875') == ['https://www.happii.dk/3324875']
+          assert r.candidate_urls('Komplett','1317727') == ['https://www.komplett.dk/product/1317727']
+          assert r.candidate_urls('Unknown shop','3324875') == []
+          assert r.candidate_urls('Proshop','not-an-id') == []
+          print('PASS V22 RETAILER ROUTE ADAPTERS')
+          PY
       - name: Discover retail universe
         run: python dba_retail_prices_v22.py
-      - name: Extract offers
+      - name: Extract offers and verify retailer pages
         run: python dba_retail_offers_v22.py
-      - name: Print route evidence
+      - name: Print route and authority evidence
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           data=json.loads(Path('results/retail_offers_v22.json').read_text())
+          print(json.dumps({k:data.get(k) for k in ('products_total','retail_leads','external_routes_resolved','retailer_pages_verified','delivered_price_verified')}, ensure_ascii=False))
           rows=[]
           for product in data.get('rows') or []:
               for offer in product.get('offers') or []:
-                  rows.append({
-                      'product': product.get('name'),
-                      'sku': product.get('sku'),
-                      'seller_hint': offer.get('seller_hint'),
-                      'seller': offer.get('seller'),
-                      'store_id': offer.get('store_id'),
-                      'offer_id': offer.get('offer_id'),
-                      'displayed_price': offer.get('displayed_price_dkk'),
-                      'redirect_status': offer.get('redirect_http_status'),
-                      'resolve_error': offer.get('resolve_error'),
-                      'redirect_url': offer.get('redirect_url'),
-                      'direct_url': offer.get('direct_url'),
-                  })
-          print(json.dumps(rows[:160], ensure_ascii=False, indent=2))
+                  if offer.get('external_route_resolved') or offer.get('route_candidates'):
+                      rows.append({
+                          'product': product.get('name'),
+                          'sku': product.get('sku'),
+                          'seller': offer.get('seller'),
+                          'offer_id': offer.get('offer_id'),
+                          'displayed_price': offer.get('displayed_price_dkk'),
+                          'route_method': offer.get('route_resolution_method'),
+                          'direct_url': offer.get('direct_url'),
+                          'adapter_http_status': offer.get('adapter_http_status'),
+                          'retailer_error': offer.get('retailer_error'),
+                          'retailer_page_verified': offer.get('retailer_page_verified'),
+                          'retailer_item_price_dkk': offer.get('retailer_item_price_dkk'),
+                          'retailer_shipping_dkk': offer.get('retailer_shipping_dkk'),
+                          'retailer_delivered_price_dkk': offer.get('retailer_delivered_price_dkk'),
+                      })
+          print(json.dumps(rows[:120], ensure_ascii=False, indent=2))
           PY
