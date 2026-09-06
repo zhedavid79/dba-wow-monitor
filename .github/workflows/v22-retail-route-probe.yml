@@ -28,16 +28,22 @@ jobs:
           playwright install --with-deps chromium
       - name: Compile route layer
         run: python -m py_compile dba_retail_routes_v22.py dba_retail_authority_v22.py dba_retail_offers_v22.py
-      - name: Unit-check retailer adapters
+      - name: Unit-check retailer authority and adapters
         run: |
           python - <<'PY'
           import dba_retail_routes_v22 as r
+          import dba_retail_authority_v22 as a
           assert r.candidate_urls('Proshop','3324875') == ['https://www.proshop.dk/3324875']
           assert r.candidate_urls('Happii','3324875') == ['https://www.happii.dk/3324875']
           assert r.candidate_urls('Komplett','1317727') == ['https://www.komplett.dk/product/1317727']
           assert r.candidate_urls('Unknown shop','3324875') == []
           assert r.candidate_urls('Proshop','not-an-id') == []
-          print('PASS V22 RETAILER ROUTE ADAPTERS')
+          assert a._same_product_identity('Corsair RM750e (2025) ATX 3.1 750W', 'Corsair RMe Series RM750e PSU Sort')
+          assert a._same_product_identity('Kingston NV3 M.2 2280 PCIe 4.0 NVMe 1TB', 'Kingston NV3 SSD 1TB')
+          assert not a._same_product_identity('ASUS TUF B850M-PLUS WIFI', 'ASUS PRIME B850M-A WIFI')
+          assert a._shipping_from_text('Billigste fragt (privatkunde) 33,00 kr.', 900)[:2] == (33, True)
+          assert a._shipping_from_text('Fragt fra 33,00 kr.', 900)[1] is False
+          print('PASS V22 RETAILER AUTHORITY AND ROUTE INVARIANTS')
           PY
       - name: Discover retail universe
         run: python dba_retail_prices_v22.py
@@ -55,6 +61,7 @@ jobs:
               for offer in product.get('offers') or []:
                   if offer.get('external_route_resolved') or offer.get('route_candidates'):
                       rows.append({
+                          'kind': product.get('kind'),
                           'product': product.get('name'),
                           'sku': product.get('sku'),
                           'seller': offer.get('seller'),
@@ -63,11 +70,18 @@ jobs:
                           'route_method': offer.get('route_resolution_method'),
                           'direct_url': offer.get('direct_url'),
                           'adapter_http_status': offer.get('adapter_http_status'),
+                          'retailer_http_status': offer.get('retailer_http_status'),
+                          'retailer_title': offer.get('retailer_title'),
+                          'retailer_h1': offer.get('retailer_h1'),
+                          'retailer_product_name': offer.get('retailer_product_name'),
                           'retailer_error': offer.get('retailer_error'),
+                          'retailer_price_candidates_dkk': offer.get('retailer_price_candidates_dkk'),
                           'retailer_page_verified': offer.get('retailer_page_verified'),
+                          'retailer_price_method': offer.get('retailer_price_method'),
                           'retailer_item_price_dkk': offer.get('retailer_item_price_dkk'),
                           'retailer_shipping_dkk': offer.get('retailer_shipping_dkk'),
+                          'retailer_shipping_method': offer.get('retailer_shipping_method'),
                           'retailer_delivered_price_dkk': offer.get('retailer_delivered_price_dkk'),
                       })
-          print(json.dumps(rows[:120], ensure_ascii=False, indent=2))
+          print(json.dumps(rows[:160], ensure_ascii=False, indent=2))
           PY
