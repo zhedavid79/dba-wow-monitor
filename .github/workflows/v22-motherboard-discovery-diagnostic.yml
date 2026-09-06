@@ -1,0 +1,46 @@
+name: V22 motherboard discovery diagnostic
+
+on:
+  push:
+    branches: [v22/motherboard-discovery-diagnostic-2026-09-06]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install browser
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+      - name: Run retail discovery only
+        run: python dba_retail_prices_v22.py
+      - name: Print motherboard discovery evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('results/retail_discovery_v20.json').read_text())
+          rows=[r for r in d.get('dynamic_results',[]) if r.get('kind')=='MOTHERBOARD']
+          print('MB_ROWS',len(rows))
+          print('MB_ADMITTED',sum(1 for r in rows if r.get('admitted')))
+          for i,r in enumerate(rows,1):
+              print(json.dumps({
+                  'i':i,
+                  'name':r.get('name'),
+                  'url':r.get('url'),
+                  'verified':r.get('verified'),
+                  'admitted':r.get('admitted'),
+                  'missing_evidence':r.get('missing_evidence'),
+                  'error':r.get('error'),
+                  'price':r.get('price'),
+              },ensure_ascii=False))
+          PY
