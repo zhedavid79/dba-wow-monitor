@@ -9,6 +9,9 @@ on:
       - 'dba_retail_offers_v22.py'
       - 'dba_self_build_v22_authoritative.py'
       - 'dba_retail_availability_v22.py'
+      - 'dba_procurement_v22.py'
+      - 'dba_strategy_report_v22.py'
+      - 'dba_publication_gate_v22.py'
       - '.github/workflows/self-build-v22-offer-smoke.yml'
 
 permissions:
@@ -31,20 +34,20 @@ jobs:
         run: |
           pip install playwright
           playwright install --with-deps chromium
-      - name: Compile V22 offer optimizer
+      - name: Compile V22 retail safety layer
         run: |
-          python -m py_compile dba_retail_prices_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py
+          python -m py_compile dba_retail_prices_v22.py dba_retail_offers_v22.py dba_self_build_v22_authoritative.py dba_retail_availability_v22.py dba_procurement_v22.py dba_strategy_report_v22.py dba_publication_gate_v22.py
       - name: Discover deeper live retail universe
         timeout-minutes: 8
         run: python dba_retail_prices_v22.py
-      - name: Verify store-level delivered offers and deals
+      - name: Extract comparison/store offer leads
         timeout-minutes: 8
         run: python dba_retail_offers_v22.py
-      - name: Re-optimize published route universe on delivered price
+      - name: Re-optimize with direct-retailer fail-closed policy
         run: python dba_self_build_v22_authoritative.py
-      - name: Validate selected new-part delivered availability
+      - name: Revalidate selected new-part evidence
         run: python dba_retail_availability_v22.py
-      - name: Focused V22 invariants
+      - name: Focused V22 direct-retailer invariants
         run: |
           python - <<'PY'
           import json
@@ -54,17 +57,31 @@ jobs:
           a=json.loads(Path('results/retail_availability_v22.json').read_text())
           rec=s['recommended_self_build']
           new=[x for x in rec['components'] if x.get('source')=='NEW RETAIL']
-          assert (s.get('offer_optimizer_v22') or {}).get('active') is True
+          opt=s.get('offer_optimizer_v22') or {}
+          assert opt.get('active') is True
+          assert opt.get('prisjagt_only_policy')=='REFERENCE_ONLY_NEVER_BUY_READY'
           assert (s.get('component_market_coverage_v20') or {}).get('passed') is True
-          assert o['delivered_price_verified']>0
-          assert len(new)==a['selected_total']==a['concrete_in_stock']
-          assert all(x.get('price_evidence')=='LIVE_DELIVERED_RETAIL_OFFER_V22' for x in new)
+          assert len(new)==a['selected_total']==a['identity_verified']
+          assert not a.get('failures')
+          for x in new:
+              direct=x.get('retail_offer_verified_v22') is True
+              if direct:
+                  assert x.get('external_url_resolved_v22') is True
+                  assert x.get('price_evidence')=='LIVE_DIRECT_RETAILER_DELIVERED_OFFER_V22'
+                  assert x.get('availability')=='IN_STOCK_DIRECT_RETAILER_VERIFIED'
+              else:
+                  assert x.get('external_url_resolved_v22') is False
+                  assert x.get('price_evidence')=='LIVE_RETAIL_COMPARISON_REFERENCE_V22'
+                  assert x.get('availability')=='PRICE_REFERENCE_ONLY_CHECK_STORE'
+          assert a['direct_buy_ready']+a['reference_only']==len(new)
+          assert a['direct_buy_ready']==sum(1 for x in new if x.get('retail_offer_verified_v22') is True)
           print(json.dumps({
-              'recommended_tcwp':rec.get('tcwp'),
+              'recommended_tcwp_reference':rec.get('tcwp'),
               'cpu':rec.get('cpu'),'gpu':rec.get('gpu'),
-              'new_parts':[(x.get('kind'),x.get('name'),x.get('price'),x.get('seller'),x.get('deal_type_v22')) for x in new],
-              'offers_verified':o['delivered_price_verified'],
-              'deals':o['deal_candidates'],
-              'coverage':(s.get('component_market_coverage_v20') or {}).get('passed'),
+              'new_parts':[(x.get('kind'),x.get('name'),x.get('price'),x.get('price_evidence')) for x in new],
+              'comparison_offer_leads':o.get('delivered_price_verified'),
+              'external_resolved':o.get('external_urls_resolved'),
+              'direct_buy_ready':a['direct_buy_ready'],
+              'reference_only':a['reference_only'],
           },ensure_ascii=False))
           PY
