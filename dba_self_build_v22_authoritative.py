@@ -175,7 +175,12 @@ def main() -> None:
     data = json.loads(STRATEGY.read_text(encoding='utf-8'))
     stats = validate_selected(data)
     coverage = ((data.get('component_market_coverage_v20') or {}).get('v19_coverage') or {})
-    assert coverage.get('passed') is True, 'V22 live retail-lead candidate coverage below minimums'
+    coverage_categories = coverage.get('categories') or {}
+    print(json.dumps({'V22_LIVE_RETAIL_COVERAGE': coverage_categories}, ensure_ascii=False))
+    assert coverage.get('passed') is True, (
+        'V22 live retail-lead candidate coverage below minimums: '
+        + json.dumps(coverage_categories, ensure_ascii=False, sort_keys=True)
+    )
 
     data['offer_optimizer_v22'] = {
         'active': True,
