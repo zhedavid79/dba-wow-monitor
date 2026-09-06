@@ -47,8 +47,6 @@ def main()->None:
         elif x.get('source')=='USED ASK':
             assert x.get('procurement_action') in {'BUY_NOW','BID','WAIT','VERIFY_VALUE'}
 
-    # Persistent known defects must be removed before the legacy complete-PC decision,
-    # not merely hidden in the final report.
     active={str(k) for k,v in (issues.get('listings') or {}).items() if v.get('severity')=='HARD_EXCLUDE' and v.get('cleared') is not True}
     decision=c.get('decision_summary') or {};assert str(decision.get('buy_now_listing_id') or '') not in active
     assert all(str(r.get('listing_id') or '') not in active for r in c.get('ranked') or [])
@@ -66,6 +64,12 @@ def main()->None:
     for marker in ('Hvad skal jeg gøre i dag?','Nye dele — tilbud, butik og leveret pris','Andre kvalificerede nye tilbud fundet','KØBSKLAR-gate','Historiske hard exclusions','Selvbyg-ranking — unikke BOM','Hvorfor hoved-GPU'):
         assert marker.lower() in report.lower(),marker
     assert 'Z20 LIKELY' not in report
+    expected_ready='JA' if h.get('ready_to_buy_complete_build_today') else 'NEJ'
+    assert f'**Kan hele buildet købes rationelt i dag? {expected_ready}**' in report,'Top procurement headline disagrees with authoritative V22 readiness'
+    assert f'**Hele buildet KØBSKLAR nu: {expected_ready}**' in report,'KØBSKLAR gate disagrees with authoritative V22 readiness'
+    if fit!='VERIFIED':
+        assert '**Kan hele buildet købes rationelt i dag? JA**' not in report,'UNKNOWN/NO fit leaked a buy-ready JA headline'
+        assert '**Hele buildet KØBSKLAR nu: JA**' not in report,'UNKNOWN/NO fit leaked a KØBSKLAR JA gate'
     for x in new:assert x.get('url') in report
     print(json.dumps({'PASS':True,'publication_gate':'V22','ask_total':h.get('ask_total'),'target_total':h.get('target_total'),'walk_away_total':h.get('walk_away_total'),'fit':fit,'ready_today':h.get('ready_to_buy_complete_build_today'),'raw_routes':raw,'unique_routes':unique,'retail_products':o.get('products_total'),'retail_delivered_verified':o.get('delivered_price_verified'),'deal_candidates':o.get('deal_candidates'),'selected_new':len(new),'upstream_buy_now':decision.get('buy_now_listing_id')},ensure_ascii=False))
 
