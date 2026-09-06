@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-09-06T09:55:29.999149+00:00",
+  "generated_at": "2026-09-06T10:51:45.194239+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2554,
-    "verified_before_quality": 60,
-    "final_after_quality": 59,
-    "ranked": 42,
-    "discovery_model_blindspots": 982,
+    "t0_unique": 2555,
+    "verified_before_quality": 61,
+    "final_after_quality": 60,
+    "ranked": 43,
+    "discovery_model_blindspots": 983,
     "pulse_gated_discovery_review": 21,
-    "t1_exit_review": 6,
+    "t1_exit_review": 7,
     "quality_review": 1,
     "core_review": 8,
     "pulse_review": 9
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 982,
+    "DISCOVERY/MODEL": 983,
     "DISCOVERY/PULSE": 21,
-    "T1": 6,
+    "T1": 7,
     "QUALITY": 1,
     "CORE": 8,
     "PULSE": 9
@@ -2487,6 +2487,15 @@
       "title": "⭐️-  Nokia 6230",
       "ask": 149,
       "url": "https://www.dba.dk/recommerce/forsale/item/10676882",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24663178",
+      "title": "HTC Rhyme",
+      "ask": 149,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24663178",
       "reason": "no supported model resolved"
     },
     {
@@ -6398,6 +6407,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24664050",
+      "title": "Nokia 3210 4G",
+      "ask": 400,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24664050",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "4381626",
       "title": "Nokia Nokia 5.4, Rimelig",
       "ask": 400,
@@ -7685,6 +7703,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "2388123",
+      "title": "Samsung s8+, God",
+      "ask": 685,
+      "url": "https://www.dba.dk/recommerce/forsale/item/2388123",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "24046573",
       "title": "Nokia E66 – Flot klassiker med cover og oplader",
       "ask": 695,
@@ -7725,15 +7752,6 @@
       "title": "Motorola G 06",
       "ask": 699,
       "url": "https://www.dba.dk/recommerce/forsale/item/22737293",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "2388123",
-      "title": "Samsung s8+, God",
-      "ask": 699,
-      "url": "https://www.dba.dk/recommerce/forsale/item/2388123",
       "reason": "no supported model resolved"
     },
     {
@@ -8229,15 +8247,6 @@
       "title": "Motorola G77 Helt nye",
       "ask": 800,
       "url": "https://www.dba.dk/recommerce/forsale/item/24629427",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24648252",
-      "title": "blackview shark 8 256gb guld",
-      "ask": 800,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24648252",
       "reason": "no supported model resolved"
     },
     {
@@ -9074,6 +9083,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "23524084",
       "model": null,
       "title": "Sony Erikson X10i",
@@ -9094,12 +9113,12 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
+      "listing_id": "24494568",
       "model": null,
-      "title": "HUAWEI Ascend Y 200",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
+      "title": "📱 iPhone 4s – Låst – Til reservedele/reparation",
+      "ask": 30,
+      "url": null,
+      "reason": "HTTPError"
     },
     {
       "stage": "T1",
@@ -9428,6 +9447,20 @@
   ],
   "t1_exits": [
     {
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
@@ -9456,18 +9489,16 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
+      "listing_id": "24494568",
+      "title_t0": "📱 iPhone 4s – Låst – Til reservedele/reparation",
+      "ask_t0": 30,
       "model_t0": null,
-      "brand_t0": "huawei",
+      "brand_t0": "apple",
       "sources": [
-        "brand-mobile:huawei:2"
+        "category:1"
       ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
     },
     {
       "listing_id": "17621913",
@@ -9515,12 +9546,14 @@
   ],
   "discovery_reject_stage_counts": {
     "T1": 6,
-    "PRODUCT_IDENTITY": 2488
+    "PRODUCT_IDENTITY": 2487,
+    "T1_ERROR": 1
   },
   "discovery_reject_reason_counts": {
     "live price missing": 3,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 988,
-    "no supported model resolved": 1446,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 986,
+    "no supported model resolved": 1447,
+    "HTTPError": 1,
     "weak complete-phone evidence": 6,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 6,

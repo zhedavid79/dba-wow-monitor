@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-06T09:55:29.999149+00:00
+Generated: 2026-09-06T10:51:45.194239+00:00
 
-T0 listings <= ceiling: **2554**  
-Verified before quality: **60**  
-Final after quality: **59**  
-Mainnet ranked: **42**
+T0 listings <= ceiling: **2555**  
+Verified before quality: **61**  
+Final after quality: **60**  
+Mainnet ranked: **43**
 
 ## Review buckets
 
-- Discovery/model blindspots: **982**
+- Discovery/model blindspots: **983**
 - Core-compatible explicit models stopped by Pulse gate: **21**
-- T1 exits/errors: **6**
+- T1 exits/errors: **7**
 - Quality-gate review: **1**
 - Core compatibility review: **8**
 - Pulse-match review: **9**
@@ -46,6 +46,7 @@ Mainnet ranked: **42**
 
 | ID | Title | ASK | Reason |
 |---:|---|---:|---|
+| 24494568 | 📱 iPhone 4s – Låst – Til reservedele/reparation | 30 | HTTPError |
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
@@ -334,6 +335,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 14495487 | Gammel Nokia mobil | 140 | no supported model resolved |
 | DISCOVERY/MODEL | 14495780 | Sort Nokia mobil arvestykke | 140 | no supported model resolved |
 | DISCOVERY/MODEL | 10676882 | ⭐️-  Nokia 6230 | 149 | no supported model resolved |
+| DISCOVERY/MODEL | 24663178 | HTC Rhyme | 149 | no supported model resolved |
 | DISCOVERY/MODEL | 1003856 | Nokia 7110, Perfekt | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 1083870 | Mobil LG nexus 5X, 32 , Perfekt | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 12516897 | Sony Ericsson K770i | 150 | no supported model resolved |
@@ -768,6 +770,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24505461 | Sony Xperia XZ Premium (rimelige bud modtages) | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24566703 | one plus | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24659799 | Nokia 3510 | 400 | no supported model resolved |
+| DISCOVERY/MODEL | 24664050 | Nokia 3210 4G | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 4381626 | Nokia Nokia 5.4, Rimelig | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 5449118 | Samsung SGH-X820 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 6282996 | Samsung A6, God | 400 | no supported model resolved |
@@ -911,12 +914,12 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24616837 | Huawei P30 lite I pæn stand | 650 | no supported model resolved |
 | DISCOVERY/MODEL | 23582479 | Motorola Moto G41 128 gb | 665 | no supported model resolved |
 | DISCOVERY/MODEL | 21675550 | Huawei Y6 | 675 | no supported model resolved |
+| DISCOVERY/MODEL | 2388123 | Samsung s8+, God | 685 | no supported model resolved |
 | DISCOVERY/MODEL | 24046573 | Nokia E66 – Flot klassiker med cover og oplader | 695 | no supported model resolved |
 | DISCOVERY/MODEL | 11896632 | Huawei P 30 pro | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 15413227 | Nokia 9210 | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 17778618 | Moto g82 5g | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 22737293 | Motorola G 06 | 699 | no supported model resolved |
-| DISCOVERY/MODEL | 2388123 | Samsung s8+, God | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 23976032 | Realme Narzo 50i PRIME Ny - Uåbnet | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 24226000 | Realme C11 ( Ny/Uåbnet ) | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 6680543 | Nokia 7110 | 699 | no supported model resolved |
@@ -972,7 +975,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24457198 | nubia air | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24512056 | Nokia E90 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24629427 | Motorola G77 Helt nye | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 24648252 | blackview shark 8 256gb guld | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24654428 | blackview shark 8 256gb blå | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24660072 | Nokia n96 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24660419 | Motorola G67 | 800 | no supported model resolved |
@@ -1063,9 +1065,10 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 24494568 | 📱 iPhone 4s – Låst – Til reservedele/reparation | 30 | HTTPError |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
