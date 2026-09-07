@@ -1,20 +1,20 @@
 # Acurast coverage audit
 
-Generated: 2026-09-07T16:20:59.935215+00:00
+Generated: 2026-09-07T18:15:57.369364+00:00
 
-T0 listings <= ceiling: **2569**  
-Verified before quality: **61**  
-Final after quality: **61**  
-Mainnet ranked: **43**
+T0 listings <= ceiling: **2571**  
+Verified before quality: **52**  
+Final after quality: **52**  
+Mainnet ranked: **37**
 
 ## Review buckets
 
-- Discovery/model blindspots: **982**
+- Discovery/model blindspots: **937**
 - Core-compatible explicit models stopped by Pulse gate: **22**
-- T1 exits/errors: **6**
+- T1 exits/errors: **208**
 - Quality-gate review: **0**
-- Core compatibility review: **7**
-- Pulse-match review: **11**
+- Core compatibility review: **5**
+- Pulse-match review: **10**
 
 ## Core-compatible discovery models without unique Mainnet Pulse match
 
@@ -49,7 +49,209 @@ Mainnet ranked: **43**
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| 24267594 | Blackberry 9000 NY | 800 | listing disposed |
+| 6680543 | Nokia 7110 | 699 | HTTPError |
+| 1066648 | iPhone 4S, 16 GB, sort | 700 | HTTPError |
+| 1126822 | iPhone 4S, 16 GB, sort | 700 | HTTPError |
+| 1229107 | Motorola International 7500, God | 700 | HTTPError |
+| 17762571 | Iphone 8 plus | 700 | HTTPError |
+| 1860430 | Nokia Nokia 6700 | 700 | HTTPError |
+| 20456984 | Xiaomi Redmi note 13 | 700 | HTTPError |
+| 21110211 | Nokia 3310 with screen protector foil | 700 | HTTPError |
+| 21110275 | Nokia 3110 | 700 | HTTPError |
+| 21387956 | iPhone X | 700 | HTTPError |
+| 22106585 | Flot & fin Iphone X med fuld garanti. | 700 | HTTPError |
+| 22291818 | Nokia 6310 | 700 | HTTPError |
+| 22432378 | Motorola   motoG15         prisen er som skrevet står | 700 | HTTPError |
+| 22463316 | Doro 780X  NY | 700 | HTTPError |
+| 22730163 | Apple iPhone SE 2 64 GB sort | 700 | HTTPError |
+| 2273110 | iPhone 6, 128 GB, guld | 700 | HTTPError |
+| 22920226 | Iphone X i super stand og med garanti | 700 | HTTPError |
+| 22932162 | iPhone 11 Pro – 256 GB | 700 | HTTPError |
+| 22965144 | Apple Watch SE 40 mm GPS (1. generation) | 700 | HTTPError |
+| 23001890 | Apple iPhone 12 smartphone 64 GB sort | 700 | HTTPError |
+| 23040474 | Samsung Gear S3 Classic | 700 | HTTPError |
+| 23175067 | iPhone 7 – 32 GB Silver – Original æske – Nulstillet | 700 | HTTPError |
+| 23177988 | iPhone SE | 700 | HTTPError |
+| 23375374 | iPhone SE 64gb | 700 | HTTPError |
+| 23533262 | Flot Iphone x med garanti | 700 | HTTPError |
+| 23538020 | Doro mobil. | 700 | HTTPError |
+| 23686808 | OppoA6x telefon | 700 | HTTPError |
+| 23688887 | Apple iPhone 64 GB smartphone sort | 700 | HTTPError |
+| 23693040 | OnePlus Nord 2 5G | 700 | HTTPError |
+| 23694213 | Apple iPhone SE 2022 64 GB sort | 700 | HTTPError |
+| 23784689 | Google Pixel 3a XL | 700 | HTTPError |
+| 23847596 | Xplora børneur | 700 | HTTPError |
+| 23871810 | Doro 4100H - til SIM kort | 700 | HTTPError |
+| 23926368 | Redme Note 13 5G | 700 | HTTPError |
+| 23999931 | Iphone 8, Perfekt, 64gb, 100% batteri/nyt | 700 | HTTPError |
+| 24023423 | Punkt MP 01 mobiltelefon | 700 | HTTPError |
+| 24113148 | Samsung Galaxy S10 smartphone 128 GB hvid | 700 | HTTPError |
+| 24114191 | Motorola g85 | 700 | HTTPError |
+| 24186301 | Apple iPhone 7 32 GB sort | 700 | HTTPError |
+| 24236114 | Motorola G06 LTE smartphone 64GB | 700 | HTTPError |
+| 24283604 | iPhone SE 64GB (2nd generation) | 700 | HTTPError |
+| 24380737 | Apple iPhone 12 sort smartphone | 700 | HTTPError |
+| 24398210 | iPhone 11 | 700 | HTTPError |
+| 24477788 | Apple Watch | 700 | HTTPError |
+| 24481120 | Honor 400 Smart | 700 | HTTPError |
+| 24497267 | iPhone XR 128 GB | 700 | HTTPError |
+| 24497506 | Samsung S10e | 700 | HTTPError |
+| 24626431 | Apple iPhone 12 64 GB sort | 700 | HTTPError |
+| 24697964 | Apple iPhone SE 2022 (3 gen) 64 GB smartphone sort | 700 | HTTPError |
+| 24708051 | Flot velholdt Iphone X med garanti | 700 | HTTPError |
+| 24711378 | iPhone 11 White, 64GB | 700 | HTTPError |
+| 2495534 | Doro 8080, Perfekt | 700 | HTTPError |
+| 3292825 | HUAWEI Y 7, 2 GB , Perfekt | 700 | HTTPError |
+| 7074892 | Nokia n95 | 700 | HTTPError |
+| 8088126 | iPhone 7 | 700 | HTTPError |
+| 855872 | iPhone 6, 128 GB, aluminium | 700 | HTTPError |
+| 24671130 | iPhone XR 128GB sort | 710 | HTTPError |
+| 23426203 | Huawei p20 | 729 | HTTPError |
+| 19023980 | Motorola g62 | 735 | HTTPError |
+| 12878105 | Motorola Edge | 749 | HTTPError |
+| 19649553 | Apple iPhone 11 64 GB sort | 749 | HTTPError |
+| 2283131 | iPhone 5, 32 GB, sort | 749 | HTTPError |
+| 24525686 | Apple iPhone SE (3 gen) 64 GB sort smartphone | 749 | HTTPError |
+| 7995233 | Huawei 30 pro | 749 | HTTPError |
+| 15525919 | Motorola Moto g71 128/6 gb | 750 | HTTPError |
+| 1585040 | Andet mærke mobira | 750 | HTTPError |
+| 18444427 | Blandet lot af mobiltelefoner og tilbehør | 750 | HTTPError |
+| 18812176 | iPhone XR 64 GB sort | 750 | HTTPError |
+| 20410537 | Nubia Air       prisen er som skrevet står | 750 | HTTPError |
+| 21697517 | Senior venlig Bordtelefon | 750 | HTTPError |
+| 22697544 | Iphone xr 100% batteri | 750 | HTTPError |
+| 22848460 | iPhone X | 750 | HTTPError |
+| 23180101 | Apple iPhone 12 smartphone 64 GB sort | 750 | HTTPError |
+| 23203439 | Apple iPhone 11 smartphone 128 GB sort | 750 | HTTPError |
+| 23359163 | Apple iPhone SE 2./3. gen 64 GB hvid | 750 | HTTPError |
+| 23385833 | Redmi Note 8 | 750 | HTTPError |
+| 23415449 | Apple iPhone 11 smartphone sort | 750 | HTTPError |
+| 23537344 | OnePlus Nord N100 Android | 750 | HTTPError |
+| 23602880 | Apple iPhone 11 128 GB lilla | 750 | HTTPError |
+| 23643949 | OnePlus smartphone med smartcover. | 750 | HTTPError |
+| 23718791 | Helt ny | 750 | HTTPError |
+| 23737468 | Apple iPhone 11 smartphone 64 GB sort | 750 | HTTPError |
+| 23827425 | Iphone 11 | 750 | HTTPError |
+| 24032580 | Samsung Galaxy A52 smartphone 128 GB | 750 | HTTPError |
+| 24048852 | iPhone XS Max sælges. | 750 | HTTPError |
+| 24053742 | Motorola Moto G84 5G, 12 /256 GB | 750 | HTTPError |
+| 24105862 | Google Pixel 2. Super velholdt. | 750 | HTTPError |
+| 24110669 | OnePlus Nord N10 5G Sort | 750 | HTTPError |
+| 2415587 | Huawei Y6 (MYA-L41) / 2GB RAM / 16GB Lager /  Android 📱 | 750 | HTTPError |
+| 24259906 | Nokia 6280 (Ubrugt/Open box) | 750 | HTTPError |
+| 24292773 | iPhone 11 - 64 Gb- hvid | 750 | HTTPError |
+| 24316564 | Samsung A33 | 750 | HTTPError |
+| 24318310 | Apple iPhone SE 2022 - 3. Gen - 64 GB Stjerneskær | 750 | HTTPError |
+| 24365406 | iPhone XR 128gb Hvid | 750 | HTTPError |
+| 24395912 | Nothing Cmf Phone 1 256 Gb | 750 | HTTPError |
+| 24444797 | iPhone 12 Mini 64 GB Sort | 750 | HTTPError |
+| 24450081 | Samsung S10e | 750 | HTTPError |
+| 24475942 | Apple iPhone 11 128 GB lysblå | 750 | HTTPError |
+| 24510740 | Samsung Galaxy A15 smartphone 128 GB blå | 750 | HTTPError |
+| 24552630 | iPhone 12 mini | 750 | HTTPError |
+| 24635388 | Xiaomi Redmi 14C med stort display og 256gb lager. | 750 | HTTPError |
+| 24647459 | Sony Ericsson Xperia x1 og x2 sælges | 750 | HTTPError |
+| 24659585 | Apple iPhone SE (2-3 gen) 128 GB sort | 750 | HTTPError |
+| 24664320 | Iphone 12 | 750 | HTTPError |
+| 24697409 | Apple iPhone 11 64 GB sort med cover | 750 | HTTPError |
+| 24699801 | Apple iPhone XS 64 GB Gold | 750 | HTTPError |
+| 2534927 | Motorola Moto G62 5G, Perfekt | 750 | HTTPError |
+| 2831272 | iPhone 7, 32 GB, guld | 750 | HTTPError |
+| 5495631 | Nokia Communicator 9300, God | 750 | HTTPError |
+| 6995836 | iPhone 7, 128 GB | 750 | HTTPError |
+| 8146221 | Google Pixel 2 | 750 | HTTPError |
+| 23765084 | moto g9 plus  4 / 128 gb | 770 | HTTPError |
+| 23580497 | iPhone X i rigtig god stand sælges. | 775 | HTTPError |
+| 22976622 | God iPhone 12, fungere upåklagelig | 780 | HTTPError |
+| 23404971 | Apple iPhone SE (3. gen) 64 GB rød | 782 | HTTPError |
+| 9216302 | Retro Nokia 7380 | 789 | HTTPError |
+| 21612519 | OnePlus Nord 2T Gray Shadow | 790 | HTTPError |
+| 11203913 | Huwaei P40 (Lite 5G - 128GB) | 795 | HTTPError |
+| 11960263 | 2 stk vintage Ericsson - GF768 - T18s | 799 | HTTPError |
+| 198867 | Samsung GT-E1050, Perfekt | 799 | HTTPError |
+| 22249750 | iPhone 11 64GB Lilla | 799 | HTTPError |
+| 23320372 | Motorola G15 | 799 | HTTPError |
+| 23488917 | Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort | 799 | HTTPError |
+| 23489080 | Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød. | 799 | HTTPError |
+| 23749479 | OnePlus Nord 2.  12 / 256 gb | 799 | HTTPError |
+| 23833309 | Redmi Note 11 Pro | 799 | HTTPError |
+| 24037709 | Apple iPhone 12 128 GB sort | 799 | HTTPError |
+| 24559664 | Apple iPhone XS Max 256 GB stor Super Retina OLED skærm | 799 | HTTPError |
+| 24707596 | iPhone 11 128GB - Sort | 799 | HTTPError |
+| 3888292 | iPhone 7, 128 GB, pink | 799 | HTTPError |
+| 4824662 | iPhone XS Max nyt batteri 64 GB sort incl. panser og cover | 799 | HTTPError |
+| 12903251 | iPhone XR 128GB | 800 | HTTPError |
+| 14660054 | China, Reno 10 pro 5 G mobil guld | 800 | HTTPError |
+| 15962520 | iPhone XS | 800 | HTTPError |
+| 16366293 | Iphone 7 pink 32GB. | 800 | HTTPError |
+| 16886090 | iPhone 8, 256 GB | 800 | HTTPError |
+| 17070363 | model DORO-0450 | 800 | HTTPError |
+| 1737304 | Nokia 6280 | 800 | HTTPError |
+| 19117615 | Motorola Edge 20 | 800 | HTTPError |
+| 19745764 | iPhone 12 rød | 800 | HTTPError |
+| 20048692 | iPhone XS Max | 800 | HTTPError |
+| 20621115 | Bang & Olufsen Serene mobil inkl. original dock | 800 | HTTPError |
+| 20823736 | Apple iPhone 12 64 GB sort 82% kapacitet | 800 | HTTPError |
+| 21231795 | Apple iPhone XR 64 GB sort | 800 | HTTPError |
+| 21396099 | Apple iPhone SE 2020 64GB sort | 800 | HTTPError |
+| 21469959 | Apple iPhone Xs 128 GB | 800 | HTTPError |
+| 21516115 | Nokia 9300 Communicator | 800 | HTTPError |
+| 21562483 | *Guldnummer | 800 | HTTPError |
+| 21857091 | Iphone SE 2nd gen | 800 | HTTPError |
+| 21888090 | Xiaomi Redmi note 12 pro | 800 | HTTPError |
+| 22227683 | Apple iPhone XS 64 GB guld | 800 | HTTPError |
+| 22389846 | iPhone 11 128 gb | 800 | HTTPError |
+| 22443023 | Samsung Galaxy A 15-serie smartphone 128 GB sort | 800 | HTTPError |
+| 22626201 | Apple iPhone SE (2-gen) | 800 | HTTPError |
+| 22668899 | Apple iPhone 12 64 GB sort | 800 | HTTPError |
+| 22779876 | Apple iPhone 11 Pro Max 64 GB / 80% | 800 | HTTPError |
+| 22815681 | Xiaomi Redmi Note 14 5G smartphone 128 GB sort | 800 | HTTPError |
+| 22912693 | IPhone 8 64GB, hvid/lys pink | 800 | HTTPError |
+| 22922276 | Doro Leva L11s | 800 | HTTPError |
+| 23041488 | iPhone 10 | 800 | HTTPError |
+| 23050868 | Nokia G11 smartphone | 800 | HTTPError |
+| 23053697 | Apple Watch Series 4, Stainless Steel, 44mm | 800 | HTTPError |
+| 23108482 | iPhone 11 Pro 64GB Grøn | 800 | HTTPError |
+| 23153533 | iPhone 12 mini 128 GB sort | 800 | HTTPError |
+| 23155387 | Moto G60 | 800 | HTTPError |
+| 23229855 | iPhone XR | 800 | HTTPError |
+| 23371940 | Apple iPhone 2G-11 smartphones blandet parti | 800 | HTTPError |
+| 2342227 | Nokia G50, 128GB , Perfekt | 800 | HTTPError |
+| 23451609 | Apple iPhone 11 64 GB lilla | 800 | HTTPError |
+| 23461259 | Iphone 12 til salg | 800 | HTTPError |
+| 23475566 | Apple iPhone 11 Pro | 800 | HTTPError |
+| 23534379 | OnePlus Nord CE 2 Lite 128GB Sort | 800 | HTTPError |
+| 23579473 | Apple iPhone 11 sort smartphone | 800 | HTTPError |
+| 23602028 | Apple iPhone (Product) Red 64 GB | 800 | HTTPError |
+| 23685697 | iPhone se 2020 64 gb | 800 | HTTPError |
+| 23779806 | IPhone 13 | 800 | HTTPError |
+| 23795844 | Apple iPhone 11 pro sort | 800 | HTTPError |
+| 23814374 | iPhone 7 - 128 GB. Batteritilstand 95% | 800 | HTTPError |
+| 23908906 | Apple iPhone X smartphone 256 GB | 800 | HTTPError |
+| 23910020 | Apple iPhone 11 64 GB hvid | 800 | HTTPError |
+| 23992209 | OnePlus Nord 2T 5G 128GB 8GB RAM | 800 | HTTPError |
+| 24001062 | Redmi C14 128 Gb sort | 800 | HTTPError |
+| 24001434 | (Vil bytte med iphone 12 pro og op) REDMI C14 128 gigabytes | 800 | HTTPError |
+| 24036928 | iPhone XS | 800 | HTTPError |
+| 24083751 | Apple iPhone 12 smartphone 64 GB sort | 800 | HTTPError |
+| 24160321 | Apple iPhone 7 Plus 256 GB jet black | 800 | HTTPError |
+| 24194560 | Nokia uden google ✔️ Med internet og app butik✔️ | 800 | HTTPError |
+| 24226734 | Spirt ny tlf | 800 | HTTPError |
+| 24227181 | Samsung Galaxy A-series smartphone hvid | 800 | HTTPError |
+| 24227802 | iPhone 11 MEGET PÆN | 800 | HTTPError |
+| 24267594 | Blackberry 9000 NY | 800 | HTTPError |
+| 24272119 | iPhone 11 64GB sort | 800 | HTTPError |
+| 24279883 | Motorola Moto g24 | 800 | HTTPError |
+| 24312592 | Apple iPhone 11 64 GB sort | 800 | HTTPError |
+| 24324656 | Apple iPhone 12 128 GB sort | 800 | HTTPError |
+| 24337500 | Moto g77 | 800 | HTTPError |
+| 24341895 | iPhone X 64 GB Space Grey – pæn og fuldt fungerende | 800 | HTTPError |
+| 24394540 | iPhone 12 mini 64 gb | 800 | HTTPError |
+| 24398197 | Samsung A52s 5g | 800 | HTTPError |
+| 24485392 | iPhone 11 i god stand | 800 | HTTPError |
+| 24657841 | Apple iPhone 11 128 GB sort smartphone | 800 | HTTPError |
+| 3408188 | Nokia 6.2, 64gb , Perfekt | 800 | HTTPError |
+| 23610267 | Samsung Galaxy S10 Lite (128GB/8GB) | 849 | HTTPError |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
 Pris: 10.999 kr. | 0 | live price missing |
@@ -921,69 +1123,23 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 22737293 | Motorola G 06 | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 23976032 | Realme Narzo 50i PRIME Ny - Uåbnet | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 24226000 | Realme C11 ( Ny/Uåbnet ) | 699 | no supported model resolved |
-| DISCOVERY/MODEL | 6680543 | Nokia 7110 | 699 | no supported model resolved |
-| DISCOVERY/MODEL | 1229107 | Motorola International 7500, God | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 1860430 | Nokia Nokia 6700 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 20809906 | Samsung Galaxy A80 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 21110211 | Nokia 3310 with screen protector foil | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 21110275 | Nokia 3110 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 22291818 | Nokia 6310 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 22432378 | Motorola   motoG15         prisen er som skrevet står | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 22980306 | Samsung Galaxy s7 edge | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 23040474 | Samsung Gear S3 Classic | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 23646203 | Nokia N80 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 24236114 | Motorola G06 LTE smartphone 64GB | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 24481120 | Honor 400 Smart | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 3292825 | HUAWEI Y 7, 2 GB , Perfekt | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 7074892 | Nokia n95 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 23426203 | Huawei p20 | 729 | no supported model resolved |
-| DISCOVERY/MODEL | 19023980 | Motorola g62 | 735 | no supported model resolved |
-| DISCOVERY/MODEL | 12878105 | Motorola Edge | 749 | no supported model resolved |
-| DISCOVERY/MODEL | 7995233 | Huawei 30 pro | 749 | no supported model resolved |
-| DISCOVERY/MODEL | 15525919 | Motorola Moto g71 128/6 gb | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 1881325 | Nokia N810, Perfekt | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 20410537 | Nubia Air       prisen er som skrevet står | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 23643949 | OnePlus smartphone med smartcover. | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 24053742 | Motorola Moto G84 5G, 12 /256 GB | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 24105862 | Google Pixel 2. Super velholdt. | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 2415587 | Huawei Y6 (MYA-L41) / 2GB RAM / 16GB Lager /  Android 📱 | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 24259906 | Nokia 6280 (Ubrugt/Open box) | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 24316564 | Samsung A33 | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 24510740 | Samsung Galaxy A15 smartphone 128 GB blå | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 24647459 | Sony Ericsson Xperia x1 og x2 sælges | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 2534927 | Motorola Moto G62 5G, Perfekt | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 5495631 | Nokia Communicator 9300, God | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 8146221 | Google Pixel 2 | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 23765084 | moto g9 plus  4 / 128 gb | 770 | no supported model resolved |
-| DISCOVERY/MODEL | 9216302 | Retro Nokia 7380 | 789 | no supported model resolved |
-| DISCOVERY/MODEL | 198867 | Samsung GT-E1050, Perfekt | 799 | no supported model resolved |
-| DISCOVERY/MODEL | 23320372 | Motorola G15 | 799 | no supported model resolved |
 | DISCOVERY/MODEL | 23975892 | ZTE Blade A56 - Uåbnet Ny. | 799 | no supported model resolved |
-| DISCOVERY/MODEL | 1737304 | Nokia 6280 | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 19117615 | Motorola Edge 20 | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 21516115 | Nokia 9300 Communicator | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 22443023 | Samsung Galaxy A 15-serie smartphone 128 GB sort | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 23050868 | Nokia G11 smartphone | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 23155387 | Moto G60 | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 2342227 | Nokia G50, 128GB , Perfekt | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 24227181 | Samsung Galaxy A-series smartphone hvid | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24243621 | Sony Xperia Play (Playstation telefonen) | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 24279883 | Motorola Moto g24 | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 24337500 | Moto g77 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24457198 | nubia air | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24512056 | Nokia E90 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24660072 | Nokia n96 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24681186 | BYD GERNE! Motorola G75 256 GB + 2 x cover | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 24704674 | moto G86 Power 256 GB Spellbound | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24704996 | Motorola | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 3293691 | Motorola G, Perfekt | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 3408188 | Nokia 6.2, 64gb , Perfekt | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 3608942 | HUAWEI Y6 2019, 32 , Perfekt | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 9739408 | Virkelig flot Samsung Galaxy S6 64 GB | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24616072 | Oppo A6x 5g | 825 | no supported model resolved |
 | DISCOVERY/MODEL | 24182944 | Honor 200 Smart 5G, Forest Green | 831 | no supported model resolved |
-| DISCOVERY/MODEL | 23610267 | Samsung Galaxy S10 Lite (128GB/8GB) | 849 | no supported model resolved |
 | DISCOVERY/MODEL | 10042193 | Huawei mate 9 Porsche model titanium. | 850 | no supported model resolved |
 | DISCOVERY/MODEL | 2446223 | Nokia 9110i | 850 | no supported model resolved |
 | DISCOVERY/MODEL | 24622464 | SAMSUNG GALAXY A14 5G 128GB | 850 | no supported model resolved |
@@ -995,6 +1151,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 19990264 | Motorola g15 power | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 22806755 | Nokia 5110 | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 22961034 | Cubot KingKong Mini 4 - 4.7" tommer - 6GB RAM - 128GB hukommelse | 900 | no supported model resolved |
+| DISCOVERY/MODEL | 23606456 | Sony Clié - Model PEG-NX70VU | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 24027141 | Samsung Galaxy A26 5G smartphone 128 GB sort | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 24083604 | Samsung Galaxy ring | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 24105960 | Google Pixel 2 XL. Perfekt. | 900 | no supported model resolved |
@@ -1065,15 +1222,215 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
+| T1 | 1066648 | iPhone 4S, 16 GB, sort | 700 | HTTPError |
+| T1 | 6680543 | Nokia 7110 | 699 | HTTPError |
+| T1 | 1126822 | iPhone 4S, 16 GB, sort | 700 | HTTPError |
+| T1 | 1229107 | Motorola International 7500, God | 700 | HTTPError |
+| T1 | 17762571 | Iphone 8 plus | 700 | HTTPError |
+| T1 | 1860430 | Nokia Nokia 6700 | 700 | HTTPError |
+| T1 | 20456984 | Xiaomi Redmi note 13 | 700 | HTTPError |
+| T1 | 21110275 | Nokia 3110 | 700 | HTTPError |
+| T1 | 21110211 | Nokia 3310 with screen protector foil | 700 | HTTPError |
+| T1 | 21387956 | iPhone X | 700 | HTTPError |
+| T1 | 22432378 | Motorola   motoG15         prisen er som skrevet står | 700 | HTTPError |
+| T1 | 22291818 | Nokia 6310 | 700 | HTTPError |
+| T1 | 22106585 | Flot & fin Iphone X med fuld garanti. | 700 | HTTPError |
+| T1 | 22463316 | Doro 780X  NY | 700 | HTTPError |
+| T1 | 22730163 | Apple iPhone SE 2 64 GB sort | 700 | HTTPError |
+| T1 | 2273110 | iPhone 6, 128 GB, guld | 700 | HTTPError |
+| T1 | 22932162 | iPhone 11 Pro – 256 GB | 700 | HTTPError |
+| T1 | 22965144 | Apple Watch SE 40 mm GPS (1. generation) | 700 | HTTPError |
+| T1 | 23040474 | Samsung Gear S3 Classic | 700 | HTTPError |
+| T1 | 23375374 | iPhone SE 64gb | 700 | HTTPError |
+| T1 | 23533262 | Flot Iphone x med garanti | 700 | HTTPError |
+| T1 | 23538020 | Doro mobil. | 700 | HTTPError |
+| T1 | 23686808 | OppoA6x telefon | 700 | HTTPError |
+| T1 | 23688887 | Apple iPhone 64 GB smartphone sort | 700 | HTTPError |
+| T1 | 22920226 | Iphone X i super stand og med garanti | 700 | HTTPError |
+| T1 | 23693040 | OnePlus Nord 2 5G | 700 | HTTPError |
+| T1 | 23694213 | Apple iPhone SE 2022 64 GB sort | 700 | HTTPError |
+| T1 | 23784689 | Google Pixel 3 | 700 | HTTPError |
+| T1 | 23847596 | Xplora børneur | 700 | HTTPError |
+| T1 | 23001890 | Apple iPhone 12 smartphone 64 GB sort | 700 | HTTPError |
+| T1 | 23177988 | iPhone SE | 700 | HTTPError |
+| T1 | 23175067 | iPhone 7 – 32 GB Silver – Original æske – Nulstillet | 700 | HTTPError |
+| T1 | 23871810 | Doro 4100H - til SIM kort | 700 | HTTPError |
+| T1 | 23926368 | Redme Note 13 5G | 700 | HTTPError |
+| T1 | 23999931 | Iphone 8, Perfekt, 64gb, 100% batteri/nyt | 700 | HTTPError |
+| T1 | 24023423 | Punkt MP 01 mobiltelefon | 700 | HTTPError |
+| T1 | 24113148 | Samsung Galaxy S10 | 700 | HTTPError |
+| T1 | 24114191 | Motorola G85 | 700 | HTTPError |
+| T1 | 24186301 | Apple iPhone 7 32 GB sort | 700 | HTTPError |
+| T1 | 24283604 | iPhone SE 64GB (2nd generation) | 700 | HTTPError |
+| T1 | 24380737 | Apple iPhone 12 sort smartphone | 700 | HTTPError |
+| T1 | 24398210 | iPhone 11 | 700 | HTTPError |
+| T1 | 24477788 | Apple Watch | 700 | HTTPError |
+| T1 | 24481120 | Honor 400 Smart | 700 | HTTPError |
+| T1 | 24497267 | iPhone XR 128 GB | 700 | HTTPError |
+| T1 | 24497506 | Samsung s10 | 700 | HTTPError |
+| T1 | 24626431 | Apple iPhone 12 64 GB sort | 700 | HTTPError |
+| T1 | 24697964 | Apple iPhone SE 2022 (3 gen) 64 GB smartphone sort | 700 | HTTPError |
+| T1 | 24708051 | Flot velholdt Iphone X med garanti | 700 | HTTPError |
+| T1 | 2495534 | Doro 8080, Perfekt | 700 | HTTPError |
+| T1 | 24711378 | iPhone 11 White, 64GB | 700 | HTTPError |
+| T1 | 3292825 | HUAWEI Y 7, 2 GB , Perfekt | 700 | HTTPError |
+| T1 | 24236114 | Motorola G06 LTE smartphone 64GB | 700 | HTTPError |
+| T1 | 7074892 | Nokia n95 | 700 | HTTPError |
+| T1 | 855872 | iPhone 6, 128 GB, aluminium | 700 | HTTPError |
+| T1 | 8088126 | iPhone 7 | 700 | HTTPError |
+| T1 | 24671130 | iPhone XR 128GB sort | 710 | HTTPError |
+| T1 | 23426203 | Huawei p20 | 729 | HTTPError |
+| T1 | 19023980 | Motorola g62 | 735 | HTTPError |
+| T1 | 12878105 | Motorola Edge | 749 | HTTPError |
+| T1 | 19649553 | Apple iPhone 11 64 GB sort | 749 | HTTPError |
+| T1 | 7995233 | Huawei 30 pro | 749 | HTTPError |
+| T1 | 24525686 | Apple iPhone SE (3 gen) 64 GB sort smartphone | 749 | HTTPError |
+| T1 | 1585040 | Andet mærke mobira | 750 | HTTPError |
+| T1 | 15525919 | Motorola Moto g71 128/6 gb | 750 | HTTPError |
+| T1 | 18812176 | iPhone XR 64 GB sort | 750 | HTTPError |
+| T1 | 20410537 | Nubia Air       prisen er som skrevet står | 750 | HTTPError |
+| T1 | 21697517 | Senior venlig Bordtelefon | 750 | HTTPError |
+| T1 | 22697544 | Iphone xr 100% batteri | 750 | HTTPError |
+| T1 | 22848460 | iPhone X | 750 | HTTPError |
+| T1 | 23180101 | Apple iPhone 12 smartphone 64 GB sort | 750 | HTTPError |
+| T1 | 23203439 | Apple iPhone 11 smartphone 128 GB sort | 750 | HTTPError |
+| T1 | 2283131 | iPhone 5, 32 GB, sort | 749 | HTTPError |
+| T1 | 23359163 | Apple iPhone SE 2./3. gen 64 GB hvid | 750 | HTTPError |
+| T1 | 23385833 | Redmi Note 8 | 750 | HTTPError |
+| T1 | 23415449 | Apple iPhone 11 smartphone sort | 750 | HTTPError |
+| T1 | 23537344 | OnePlus Nord | 750 | HTTPError |
+| T1 | 23602880 | Apple iPhone 11 128 GB lilla | 750 | HTTPError |
+| T1 | 18444427 | Blandet lot af mobiltelefoner og tilbehør | 750 | HTTPError |
+| T1 | 23643949 | OnePlus smartphone med smartcover. | 750 | HTTPError |
+| T1 | 23718791 | Helt ny | 750 | HTTPError |
+| T1 | 23737468 | Apple iPhone 11 smartphone 64 GB sort | 750 | HTTPError |
+| T1 | 23827425 | Iphone 11 | 750 | HTTPError |
+| T1 | 24032580 | Samsung Galaxy A52s | 750 | HTTPError |
+| T1 | 24053742 | Motorola Moto G84 5G, 12 /256 GB | 750 | HTTPError |
+| T1 | 24048852 | iPhone XS Max sælges. | 750 | HTTPError |
+| T1 | 24105862 | Google Pixel 2. Super velholdt. | 750 | HTTPError |
+| T1 | 2415587 | Huawei Y6 (MYA-L41) / 2GB RAM / 16GB Lager /  Android 📱 | 750 | HTTPError |
+| T1 | 24259906 | Nokia 6280 (Ubrugt/Open box) | 750 | HTTPError |
+| T1 | 24292773 | iPhone 11 - 64 Gb- hvid | 750 | HTTPError |
+| T1 | 24318310 | Apple iPhone SE 2022 - 3. Gen - 64 GB Stjerneskær | 750 | HTTPError |
+| T1 | 24316564 | Samsung A33 | 750 | HTTPError |
+| T1 | 24365406 | iPhone XR 128gb Hvid | 750 | HTTPError |
+| T1 | 24395912 | Nothing Cmf Phone 1 256 Gb | 750 | HTTPError |
+| T1 | 24444797 | iPhone 12 Mini 64 GB Sort | 750 | HTTPError |
+| T1 | 24450081 | Samsung s10 | 750 | HTTPError |
+| T1 | 24475942 | Apple iPhone 11 128 GB lysblå | 750 | HTTPError |
+| T1 | 24510740 | Samsung Galaxy A15 smartphone 128 GB blå | 750 | HTTPError |
+| T1 | 24552630 | iPhone 12 mini | 750 | HTTPError |
+| T1 | 24635388 | Xiaomi Redmi 14C | 750 | HTTPError |
+| T1 | 24110669 | OnePlus Nord | 750 | HTTPError |
+| T1 | 24647459 | Sony Ericsson Xperia x1 og x2 sælges | 750 | HTTPError |
+| T1 | 24659585 | Apple iPhone SE (2-3 gen) 128 GB sort | 750 | HTTPError |
+| T1 | 24664320 | Iphone 12 | 750 | HTTPError |
+| T1 | 24697409 | Apple iPhone 11 64 GB sort med cover | 750 | HTTPError |
+| T1 | 24699801 | Apple iPhone XS 64 GB Gold | 750 | HTTPError |
+| T1 | 2534927 | Motorola Moto G62 5G, Perfekt | 750 | HTTPError |
+| T1 | 2831272 | iPhone 7, 32 GB, guld | 750 | HTTPError |
+| T1 | 23765084 | moto g9 plus  4 / 128 gb | 770 | HTTPError |
+| T1 | 23580497 | iPhone X i rigtig god stand sælges. | 775 | HTTPError |
+| T1 | 22976622 | God iPhone 12, fungere upåklagelig | 780 | HTTPError |
+| T1 | 23404971 | Apple iPhone SE (3. gen) 64 GB rød | 782 | HTTPError |
+| T1 | 9216302 | Retro Nokia 7380 | 789 | HTTPError |
+| T1 | 21612519 | OnePlus Nord 2T | 790 | HTTPError |
+| T1 | 11203913 | Huwaei P40 (Lite 5G - 128GB) | 795 | HTTPError |
+| T1 | 11960263 | 2 stk vintage Ericsson - GF768 - T18s | 799 | HTTPError |
+| T1 | 198867 | Samsung GT-E1050, Perfekt | 799 | HTTPError |
+| T1 | 22249750 | iPhone 11 64GB Lilla | 799 | HTTPError |
+| T1 | 23320372 | Motorola G15 | 799 | HTTPError |
+| T1 | 5495631 | Nokia Communicator 9300, God | 750 | HTTPError |
+| T1 | 6995836 | iPhone 7, 128 GB | 750 | HTTPError |
+| T1 | 8146221 | Google Pixel 2 | 750 | HTTPError |
+| T1 | 23488917 | Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort | 799 | HTTPError |
+| T1 | 23489080 | Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød. | 799 | HTTPError |
+| T1 | 23749479 | OnePlus Nord 2 5G | 799 | HTTPError |
+| T1 | 23833309 | Redmi Note 11 Pro | 799 | HTTPError |
+| T1 | 24037709 | Apple iPhone 12 128 GB sort | 799 | HTTPError |
+| T1 | 24559664 | Apple iPhone XS Max 256 GB stor Super Retina OLED skærm | 799 | HTTPError |
+| T1 | 3888292 | iPhone 7, 128 GB, pink | 799 | HTTPError |
+| T1 | 24707596 | iPhone 11 128GB - Sort | 799 | HTTPError |
+| T1 | 4824662 | iPhone XS Max nyt batteri 64 GB sort incl. panser og cover | 799 | HTTPError |
+| T1 | 12903251 | iPhone XR 128GB | 800 | HTTPError |
+| T1 | 14660054 | OnePlus 10 Pro | 800 | HTTPError |
+| T1 | 15962520 | iPhone XS | 800 | HTTPError |
+| T1 | 16366293 | Iphone 7 pink 32GB. | 800 | HTTPError |
+| T1 | 17070363 | model DORO-0450 | 800 | HTTPError |
+| T1 | 16886090 | iPhone 8, 256 GB | 800 | HTTPError |
+| T1 | 19117615 | Motorola Edge 20 | 800 | HTTPError |
+| T1 | 1737304 | Nokia 6280 | 800 | HTTPError |
+| T1 | 20823736 | Apple iPhone 12 64 GB sort 82% kapacitet | 800 | HTTPError |
+| T1 | 20621115 | Bang & Olufsen Serene mobil inkl. original dock | 800 | HTTPError |
+| T1 | 20048692 | iPhone XS Max | 800 | HTTPError |
+| T1 | 21469959 | Apple iPhone Xs 128 GB | 800 | HTTPError |
+| T1 | 21516115 | Nokia 9300 Communicator | 800 | HTTPError |
+| T1 | 21562483 | *Guldnummer | 800 | HTTPError |
+| T1 | 21857091 | Iphone SE 2nd gen | 800 | HTTPError |
+| T1 | 21888090 | Xiaomi Redmi note 12 pro | 800 | HTTPError |
+| T1 | 22227683 | Apple iPhone XS 64 GB guld | 800 | HTTPError |
+| T1 | 19745764 | iPhone 12 rød | 800 | HTTPError |
+| T1 | 22389846 | iPhone 11 128 gb | 800 | HTTPError |
+| T1 | 22443023 | Samsung Galaxy A 15-serie smartphone 128 GB sort | 800 | HTTPError |
+| T1 | 22626201 | Apple iPhone SE (2-gen) | 800 | HTTPError |
+| T1 | 21231795 | Apple iPhone XR 64 GB sort | 800 | HTTPError |
+| T1 | 21396099 | Apple iPhone SE 2020 64GB sort | 800 | HTTPError |
+| T1 | 22668899 | Apple iPhone 12 64 GB sort | 800 | HTTPError |
+| T1 | 22912693 | IPhone 8 64GB, hvid/lys pink | 800 | HTTPError |
+| T1 | 22815681 | Xiaomi Redmi Note 14 5G smartphone 128 GB sort | 800 | HTTPError |
+| T1 | 22779876 | Apple iPhone 11 Pro Max 64 GB / 80% | 800 | HTTPError |
+| T1 | 22922276 | Doro Leva L11s | 800 | HTTPError |
+| T1 | 23041488 | iPhone 10 | 800 | HTTPError |
+| T1 | 23053697 | Apple Watch Series 4, Stainless Steel, 44mm | 800 | HTTPError |
+| T1 | 23050868 | Nokia G11 smartphone | 800 | HTTPError |
+| T1 | 23153533 | iPhone 12 mini 128 GB sort | 800 | HTTPError |
+| T1 | 23108482 | iPhone 11 Pro 64GB Grøn | 800 | HTTPError |
+| T1 | 23155387 | Moto G60 | 800 | HTTPError |
+| T1 | 23371940 | Apple iPhone 2G-11 smartphones blandet parti | 800 | HTTPError |
+| T1 | 23451609 | Apple iPhone 11 64 GB lilla | 800 | HTTPError |
+| T1 | 23461259 | Iphone 12 til salg | 800 | HTTPError |
+| T1 | 2342227 | Nokia G50, 128GB , Perfekt | 800 | HTTPError |
+| T1 | 23475566 | Apple iPhone 11 Pro | 800 | HTTPError |
+| T1 | 23534379 | OnePlus Nord CE 2 Lite | 800 | HTTPError |
+| T1 | 23579473 | Apple iPhone 11 sort smartphone | 800 | HTTPError |
+| T1 | 23602028 | Apple iPhone (Product) Red 64 GB | 800 | HTTPError |
+| T1 | 23779806 | IPhone 13 | 800 | HTTPError |
+| T1 | 23685697 | iPhone se 2020 64 gb | 800 | HTTPError |
+| T1 | 23795844 | Apple iPhone 11 pro sort | 800 | HTTPError |
+| T1 | 23814374 | iPhone 7 - 128 GB. Batteritilstand 95% | 800 | HTTPError |
+| T1 | 23229855 | iPhone XR | 800 | HTTPError |
+| T1 | 23908906 | Apple iPhone X smartphone 256 GB | 800 | HTTPError |
+| T1 | 23910020 | Apple iPhone 11 64 GB hvid | 800 | HTTPError |
+| T1 | 24001434 | (Vil bytte med iphone 12 pro og op) REDMI C14 128 gigabytes | 800 | HTTPError |
+| T1 | 24036928 | iPhone XS | 800 | HTTPError |
+| T1 | 24083751 | Apple iPhone 12 smartphone 64 GB sort | 800 | HTTPError |
+| T1 | 24160321 | Apple iPhone 7 Plus 256 GB jet black | 800 | HTTPError |
+| T1 | 24194560 | Nokia uden google ✔️ Med internet og app butik✔️ | 800 | HTTPError |
+| T1 | 24226734 | Spirt ny tlf | 800 | HTTPError |
+| T1 | 24227181 | Samsung Galaxy A-series smartphone hvid | 800 | HTTPError |
+| T1 | 24227802 | iPhone 11 MEGET PÆN | 800 | HTTPError |
+| T1 | 24267594 | Blackberry 9000 NY | 800 | HTTPError |
+| T1 | 24272119 | iPhone 11 64GB sort | 800 | HTTPError |
+| T1 | 24001062 | Redmi C14 128 Gb sort | 800 | HTTPError |
+| T1 | 24279883 | Motorola Moto g24 | 800 | HTTPError |
+| T1 | 24312592 | Apple iPhone 11 64 GB sort | 800 | HTTPError |
+| T1 | 23992209 | OnePlus Nord 2T | 800 | HTTPError |
+| T1 | 24337500 | Moto g77 | 800 | HTTPError |
+| T1 | 24324656 | Apple iPhone 12 128 GB sort | 800 | HTTPError |
+| T1 | 24341895 | iPhone X 64 GB Space Grey – pæn og fuldt fungerende | 800 | HTTPError |
+| T1 | 24394540 | iPhone 12 mini 64 gb | 800 | HTTPError |
+| T1 | 24398197 | Samsung A52s | 800 | HTTPError |
+| T1 | 24485392 | iPhone 11 i god stand | 800 | HTTPError |
+| T1 | 24657841 | Apple iPhone 11 128 GB sort smartphone | 800 | HTTPError |
+| T1 | 3408188 | Nokia 6.2, 64gb , Perfekt | 800 | HTTPError |
+| T1 | 23610267 | Samsung Galaxy S10 Lite (128GB/8GB) | 849 | HTTPError |
 | CORE | 21698235 | Xiaomi Redmi 9 |  | Android 12+ compatibility not verified by conservative Core allowlist |
-| CORE | 23537344 | OnePlus Nord |  | Android 12+ compatibility not verified by conservative Core allowlist |
-| CORE | 24398197 | Samsung A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 23947435 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24645954 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24556622 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
@@ -1084,7 +1441,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | PULSE | 18226895 | Samsung Galaxy A51 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24635672 | OnePlus 11 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24222153 | Samsung Galaxy A51 |  | no unique Mainnet Pulse reward match: NO_MATCH |
-| PULSE | 24635388 | Xiaomi Redmi 14C |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 23426246 | Motorola G84 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24086458 | Nothing Phone 1 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24515008 | Samsung Galaxy S10+ |  | no unique Mainnet Pulse reward match: NO_MATCH |
