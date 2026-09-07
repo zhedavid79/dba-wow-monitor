@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-06T21:19:22.300333+00:00
+Generated: 2026-09-07T11:02:09.950736+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2574 | Product rejects: 2505 | Bundle/variant/price rejects: 1 | Final: 62
+T0: 2570 | Product rejects: 2502 | Bundle/variant/price rejects: 0 | Final: 62
 
 ## Lowest verified single-device listings
 
@@ -44,7 +44,7 @@ T0: 2574 | Product rejects: 2505 | Bundle/variant/price rejects: 1 | Final: 62
 | 32 | OnePlus Nord 2T | 800 kr. | [OnePlus Nord 2T 5G 128GB 8GB RAM](https://www.dba.dk/recommerce/forsale/item/23992209) |
 | 33 | OnePlus Nord CE 2 Lite | 800 kr. | [OnePlus Nord CE 2 Lite 128GB Sort](https://www.dba.dk/recommerce/forsale/item/23534379) |
 | 34 | Samsung A52s | 800 kr. | [Samsung A52s 5g](https://www.dba.dk/recommerce/forsale/item/24398197) |
-| 35 | Motorola Moto G84 5G | 829 kr. | [Moto G84 5g](https://www.dba.dk/recommerce/forsale/item/23426246) |
+| 35 | Motorola G84 | 829 kr. | [Moto G84 5g](https://www.dba.dk/recommerce/forsale/item/23426246) |
 | 36 | OnePlus Nord CE 3 Lite 5G | 850 kr. | [OnePlus Nord CE 3 Lite 5G – SOM NY!](https://www.dba.dk/recommerce/forsale/item/22999374) |
 | 37 | Samsung Galaxy S21 | 850 kr. | [Hvis Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/23058953) |
 | 38 | Nothing Phone 1 | 899 kr. | [NOTHING PHONE 1](https://www.dba.dk/recommerce/forsale/item/24086458) |
@@ -72,7 +72,3 @@ T0: 2574 | Product rejects: 2505 | Bundle/variant/price rejects: 1 | Final: 62
 | 60 | Sony Xperia 10 III | 1000 kr. | [Sony Xperia 10 III smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/23658991) |
 | 61 | Sumsung Galaxy s25 ultra | 1000 kr. | [Kinesisk S25 Ultra](https://www.dba.dk/recommerce/forsale/item/23880275) |
 | 62 | Xiaomi 12 Pro | 1000 kr. | [Xiaomi 12 Pro 256 GB – flot stand, ingen ridser](https://www.dba.dk/recommerce/forsale/item/22007439) |
-
-## Manual review — ambiguous variant/multi-device/price listings
-
-- 24628146: Xiaomi Poco X3 Pro — 200 kr. — BUNDLE/PRICE IDENTITY GATE: multiple phone brands in live title: ['poco', 'xiaomi']
