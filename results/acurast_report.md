@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-08T14:36:05.381101+00:00
+Generated: 2026-09-08T16:36:23.452790+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2584 | Product rejects: 2514 | Bundle/variant/price rejects: 0 | Final: 63
+T0: 2589 | Product rejects: 2518 | Bundle/variant/price rejects: 0 | Final: 63
 
 ## Lowest verified single-device listings
 
@@ -51,11 +51,11 @@ T0: 2584 | Product rejects: 2514 | Bundle/variant/price rejects: 0 | Final: 63
 | 39 | Samsung Galaxy S21 | 850 kr. | [Hvis Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/23058953) |
 | 40 | Nothing Phone 1 | 899 kr. | [NOTHING PHONE 1](https://www.dba.dk/recommerce/forsale/item/24086458) |
 | 41 | Motorola Edge 40 Neo | 900 kr. | [Motorola Edge 40 Neo 5G 256GB Black](https://www.dba.dk/recommerce/forsale/item/23049288) |
-| 42 | OnePlus 8T | 900 kr. | [OnePlus 8T](https://www.dba.dk/recommerce/forsale/item/23661735) |
-| 43 | Samsung Galaxy S10+ | 900 kr. | [Samsung Galaxy s10+](https://www.dba.dk/recommerce/forsale/item/24515008) |
-| 44 | Samsung Galaxy S21 | 950 kr. | [Samsung Galaxy S21 5G](https://www.dba.dk/recommerce/forsale/item/24622936) |
-| 45 | Redmi Note 13 Pro | 999 kr. | [Xiaomi Redmi Note 13 Pro 5g](https://www.dba.dk/recommerce/forsale/item/24396538) |
-| 46 | Motorola G84 | 1000 kr. | [Motorola g 84 5g 256 GB](https://www.dba.dk/recommerce/forsale/item/24621996) |
+| 42 | Motorola G84 | 900 kr. | [Motorola g 84 5g 256 GB](https://www.dba.dk/recommerce/forsale/item/24621996) |
+| 43 | OnePlus 8T | 900 kr. | [OnePlus 8T](https://www.dba.dk/recommerce/forsale/item/23661735) |
+| 44 | Samsung Galaxy S10+ | 900 kr. | [Samsung Galaxy s10+](https://www.dba.dk/recommerce/forsale/item/24515008) |
+| 45 | Samsung Galaxy S21 | 950 kr. | [Samsung Galaxy S21 5G](https://www.dba.dk/recommerce/forsale/item/24622936) |
+| 46 | Redmi Note 13 Pro | 999 kr. | [Xiaomi Redmi Note 13 Pro 5g](https://www.dba.dk/recommerce/forsale/item/24396538) |
 | 47 | OnePlus 10 Pro | 1000 kr. | [oneplus 10 pro 256gb](https://www.dba.dk/recommerce/forsale/item/22032520) |
 | 48 | OnePlus 10 Pro | 1000 kr. | [OnePlus 10 pro 256](https://www.dba.dk/recommerce/forsale/item/24036107) |
 | 49 | OnePlus 8T | 1000 kr. | [OnePlus 8T 128GB - 5G (Snapdragon) – Hurtigt bæst til skarp pris!](https://www.dba.dk/recommerce/forsale/item/23007415) |
@@ -64,8 +64,8 @@ T0: 2584 | Product rejects: 2514 | Bundle/variant/price rejects: 0 | Final: 63
 | 52 | Samsung A5 | 1000 kr. | [Samsung a52](https://www.dba.dk/recommerce/forsale/item/23947435) |
 | 53 | Samsung A5 | 1000 kr. | [Samsung A50 helt nyt](https://www.dba.dk/recommerce/forsale/item/24645954) |
 | 54 | Samsung Galaxy A52s | 1000 kr. | [Samsung Galaxy A52s 5G – 128 GB – sort](https://www.dba.dk/recommerce/forsale/item/24556622) |
-| 55 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/24582808) |
-| 56 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21 5g smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24653533) |
+| 55 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21 5g smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24653533) |
+| 56 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/24582808) |
 | 57 | Samsung Galaxy S21 FE 5G | 1000 kr. | [Samsung Galaxy S21 FE 5G smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24622237) |
 | 58 | Samsung Galaxy s22 | 1000 kr. | [Samsung Galaxy S22      256 GB](https://www.dba.dk/recommerce/forsale/item/24598738) |
 | 59 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |
