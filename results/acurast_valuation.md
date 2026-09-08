@@ -1,6 +1,6 @@
 # Acurast DBA Procurement V1.6 — Mainnet baseline ACU Accumulation Efficiency
 
-Generated: 2026-09-08T10:18:18.703603+00:00
+Generated: 2026-09-08T11:11:59.107569+00:00
 
 DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.
 Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived rewards; 30/64 live listings matched.
@@ -26,7 +26,7 @@ Long-horizon LOW stress: 20% annual reward decay. Electricity: 4.0 W at 2.50 DKK
 | 14 | Motorola G85 | 700 | 0.03216 | 0.03537 | 0.4359 | 159.1 | 0.2273 | 9 | 2 | MEDIUM | 350 | 450 | 650 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24114191) |
 | 15 | Samsung Galaxy S20+ | 650 | 0.02791 | 0.03070 | 0.3783 | 138.1 | 0.2124 | 141 | 2 | HIGH | 375 | 450 | 650 | BID | [DBA](https://www.dba.dk/recommerce/forsale/item/24631566) |
 | 16 | Samsung Galaxy S21 | 750 | 0.02894 | 0.03183 | 0.3923 | 143.2 | 0.1909 | 281 | 1 | HIGH | 400 | 500 | 700 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24713182) |
-| 17 | Samsung Galaxy S20 Ultra 5G | 700 | 0.02694 | 0.02964 | 0.3652 | 133.3 | 0.1904 | 1 | 0 | LOW | 250 | 300 | 425 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/5017686) |
+| 17 | Samsung Galaxy S20 Ultra 5G | 700 | 0.02694 | 0.02964 | 0.3651 | 133.3 | 0.1904 | 1 | 0 | LOW | 250 | 300 | 425 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/5017686) |
 | 18 | Samsung s10 | 700 | 0.02684 | 0.02952 | 0.3638 | 132.8 | 0.1897 | 1 | 0 | LOW | 250 | 300 | 425 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24497506) |
 | 19 | Samsung Galaxy S10 | 700 | 0.02684 | 0.02952 | 0.3638 | 132.8 | 0.1897 | 1 | 0 | LOW | 225 | 300 | 425 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/12922667) |
 | 20 | Samsung Galaxy S10 | 700 | 0.02684 | 0.02952 | 0.3638 | 132.8 | 0.1897 | 1 | 0 | LOW | 225 | 300 | 425 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24113148) |

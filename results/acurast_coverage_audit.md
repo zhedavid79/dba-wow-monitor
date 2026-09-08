@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-08T10:18:20.704675+00:00
+Generated: 2026-09-08T11:12:02.223110+00:00
 
-T0 listings <= ceiling: **2575**  
+T0 listings <= ceiling: **2578**  
 Verified before quality: **64**  
 Final after quality: **64**  
 Mainnet ranked: **44**
 
 ## Review buckets
 
-- Discovery/model blindspots: **978**
+- Discovery/model blindspots: **979**
 - Core-compatible explicit models stopped by Pulse gate: **22**
 - T1 exits/errors: **6**
 - Quality-gate review: **0**
@@ -521,6 +521,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 21321904 | Nokia 3510i 🚨nyt batteri 🔋 | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 21529224 | Nokia 3510i🚨nyt batteri 🔋 | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 21676298 | Huawei ALE-L21 | 225 | no supported model resolved |
+| DISCOVERY/MODEL | 21762698 | Doogee telefon | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 21837355 | Nokia 3510i🚨nyt batteri 🔋 | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 21838968 | Nokia 3720c-2 | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 2464126 | LG Spirit, 4GLTE , God | 225 | no supported model resolved |
@@ -1061,9 +1062,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
