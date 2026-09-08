@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-08T16:36:23.452790+00:00
+Generated: 2026-09-08T18:07:33.457914+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2589 | Product rejects: 2518 | Bundle/variant/price rejects: 0 | Final: 63
+T0: 2585 | Product rejects: 2515 | Bundle/variant/price rejects: 0 | Final: 63
 
 ## Lowest verified single-device listings
 
@@ -64,8 +64,8 @@ T0: 2589 | Product rejects: 2518 | Bundle/variant/price rejects: 0 | Final: 63
 | 52 | Samsung A5 | 1000 kr. | [Samsung a52](https://www.dba.dk/recommerce/forsale/item/23947435) |
 | 53 | Samsung A5 | 1000 kr. | [Samsung A50 helt nyt](https://www.dba.dk/recommerce/forsale/item/24645954) |
 | 54 | Samsung Galaxy A52s | 1000 kr. | [Samsung Galaxy A52s 5G – 128 GB – sort](https://www.dba.dk/recommerce/forsale/item/24556622) |
-| 55 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21 5g smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24653533) |
-| 56 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/24582808) |
+| 55 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/24582808) |
+| 56 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21 5g smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24653533) |
 | 57 | Samsung Galaxy S21 FE 5G | 1000 kr. | [Samsung Galaxy S21 FE 5G smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24622237) |
 | 58 | Samsung Galaxy s22 | 1000 kr. | [Samsung Galaxy S22      256 GB](https://www.dba.dk/recommerce/forsale/item/24598738) |
 | 59 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |

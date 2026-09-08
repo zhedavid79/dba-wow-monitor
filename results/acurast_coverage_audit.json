@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-09-08T16:36:27.345586+00:00",
+  "generated_at": "2026-09-08T18:07:37.397474+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2589,
+    "t0_unique": 2585,
     "verified_before_quality": 63,
     "final_after_quality": 63,
     "ranked": 43,
-    "discovery_model_blindspots": 982,
-    "pulse_gated_discovery_review": 21,
-    "t1_exit_review": 8,
+    "discovery_model_blindspots": 981,
+    "pulse_gated_discovery_review": 22,
+    "t1_exit_review": 7,
     "quality_review": 0,
     "core_review": 8,
     "pulse_review": 12
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 982,
-    "DISCOVERY/PULSE": 21,
-    "T1": 8,
+    "DISCOVERY/MODEL": 981,
+    "DISCOVERY/PULSE": 22,
+    "T1": 7,
     "CORE": 8,
     "PULSE": 12
   },
@@ -107,7 +107,7 @@
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
       "listing_id": "21556048",
-      "title": "Nokia C2",
+      "title": "Nokia C2 u. batteri",
       "ask": 30,
       "url": "https://www.dba.dk/recommerce/forsale/item/21556048",
       "reason": "no supported model resolved"
@@ -1510,6 +1510,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "1967279",
+      "title": "OnePlus FLIPCOVER TIL ONEOLUS 7 PRO, Perfekt",
+      "ask": 100,
+      "url": "https://www.dba.dk/recommerce/forsale/item/1967279",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "19735807",
       "title": "Nokia, og Ericsson",
       "ask": 100,
@@ -1685,6 +1694,15 @@
       "title": "Sony Xperia x Compact",
       "ask": 100,
       "url": "https://www.dba.dk/recommerce/forsale/item/2212376",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "2214769",
+      "title": "OnePlus OnePlus 7 Pro, Perfekt",
+      "ask": 100,
+      "url": "https://www.dba.dk/recommerce/forsale/item/2214769",
       "reason": "no supported model resolved"
     },
     {
@@ -3935,15 +3953,6 @@
       "title": "Nokia 206 RM-873 Mobiltelefon med Oplader",
       "ask": 200,
       "url": "https://www.dba.dk/recommerce/forsale/item/24039386",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24069188",
-      "title": "Samsung E2210B klaptelefon rød",
-      "ask": 200,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24069188",
       "reason": "no supported model resolved"
     },
     {
@@ -7630,15 +7639,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "23564528",
-      "title": "Samsung galaxy tab A9 wifi",
-      "ask": 650,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23564528",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "23916008",
       "title": "Nokia 7110",
       "ask": 650,
@@ -8039,15 +8039,6 @@
       "title": "Sony Ericsson Xperia x1 og x2 sælges",
       "ask": 750,
       "url": "https://www.dba.dk/recommerce/forsale/item/24647459",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24727292",
-      "title": "Helt ny Moto g77",
-      "ask": 750,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727292",
       "reason": "no supported model resolved"
     },
     {
@@ -8964,6 +8955,16 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
+      "model": "OnePlus OnePlus 7 Pro",
+      "title": "OnePlus OnePlus 7 Pro, Perfekt",
+      "ask": null,
+      "url": null,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "DISCOVERY/PULSE",
+      "severity": "MEDIUM",
+      "listing_id": null,
       "model": "Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse",
       "title": "Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse",
       "ask": null,
@@ -9073,21 +9074,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "394898",
+      "listing_id": "23524084",
       "model": null,
-      "title": "HUAWEI Ascend Y 200",
+      "title": "Sony Erikson X10i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9103,11 +9094,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
+      "listing_id": "394898",
       "model": null,
-      "title": "Sony Erikson X10i",
+      "title": "HUAWEI Ascend Y 200",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
       "reason": "live price missing"
     },
     {
@@ -9129,16 +9130,6 @@
       "ask": 250,
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262",
       "reason": "listing disposed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24186301",
-      "model": null,
-      "title": "Apple iPhone 7 32 GB sort",
-      "ask": 700,
-      "url": null,
-      "reason": "HTTPError"
     },
     {
       "stage": "T1",
@@ -9383,6 +9374,13 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
+      "candidate_model": "OnePlus OnePlus 7 Pro",
+      "title": "OnePlus OnePlus 7 Pro, Perfekt",
+      "pulse_match_method": "NO_MATCH",
+      "pulse_match_confidence": 0.0,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
+    },
+    {
       "candidate_model": "Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse",
       "title": "Panzerglass Samsung Galaxy S23 Ultra skærmbeskyttelse",
       "pulse_match_method": "NO_MATCH",
@@ -9462,32 +9460,18 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
-      "sources": [
-        "brand-mobile:google:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
-    },
-    {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "huawei",
+      "brand_t0": "sony",
       "sources": [
-        "brand-mobile:huawei:2"
+        "brand-mobile:sony:5"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "24727541",
@@ -9504,18 +9488,32 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
     },
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "sony",
+      "brand_t0": "huawei",
       "sources": [
-        "brand-mobile:sony:5"
+        "brand-mobile:huawei:2"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask_t0": 0,
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
+      "sources": [
+        "brand-mobile:google:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
       "listing_id": "17621913",
@@ -9547,18 +9545,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262"
     },
     {
-      "listing_id": "24186301",
-      "title_t0": "Apple iPhone 7 32 GB sort",
-      "ask_t0": 700,
-      "model_t0": null,
-      "brand_t0": "apple",
-      "sources": [
-        "category:39"
-      ],
-      "stage": "T1_ERROR",
-      "reason": "HTTPError"
-    },
-    {
       "listing_id": "24267594",
       "title_t0": "Blackberry 9000 NY",
       "ask_t0": 800,
@@ -9574,23 +9560,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2518,
-    "T1": 7,
-    "T1_ERROR": 1
+    "PRODUCT_IDENTITY": 2515,
+    "T1": 7
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 1001,
-    "no supported model resolved": 1462,
+    "no supported model resolved": 1461,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 1000,
     "live price missing": 4,
-    "weak complete-phone evidence": 8,
+    "weak complete-phone evidence": 7,
     "resolved model variant is not supported by seller text": 10,
-    "accessory/part title": 7,
+    "accessory/part title": 6,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 30,
-    "HTTPError": 1
+    "description indicates part without explicit functional phone evidence": 31
   },
   "audit_integrity": {
-    "all_rejects_count": 2526,
+    "all_rejects_count": 2522,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
