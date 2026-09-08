@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-08T18:07:37.397474+00:00",
+  "generated_at": "2026-09-08T19:55:01.295283+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2585,
+    "t0_unique": 2590,
     "verified_before_quality": 63,
     "final_after_quality": 63,
     "ranked": 43,
-    "discovery_model_blindspots": 981,
+    "discovery_model_blindspots": 983,
     "pulse_gated_discovery_review": 22,
     "t1_exit_review": 7,
     "quality_review": 0,
@@ -15,7 +15,7 @@
     "pulse_review": 12
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 981,
+    "DISCOVERY/MODEL": 983,
     "DISCOVERY/PULSE": 22,
     "T1": 7,
     "CORE": 8,
@@ -3035,6 +3035,15 @@
       "title": "Nokia 105, aldrig brugt i uåbnet original emballage",
       "ask": 150,
       "url": "https://www.dba.dk/recommerce/forsale/item/24730756",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24742081",
+      "title": "LG P700",
+      "ask": 150,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24742081",
       "reason": "no supported model resolved"
     },
     {
@@ -7891,6 +7900,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24742232",
+      "title": "Moto G35",
+      "ask": 700,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24742232",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "3292825",
       "title": "HUAWEI Y 7, 2 GB , Perfekt",
       "ask": 700,
@@ -9084,6 +9102,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "24727541",
       "model": null,
       "title": "Nokia 3510i",
@@ -9099,16 +9127,6 @@
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
       "reason": "live price missing"
     },
     {
@@ -9474,6 +9492,20 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask_t0": 0,
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
+      "sources": [
+        "brand-mobile:google:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+    },
+    {
       "listing_id": "24727541",
       "title_t0": "Nokia 3510i",
       "ask_t0": 0,
@@ -9500,20 +9532,6 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
-      "sources": [
-        "brand-mobile:google:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
       "listing_id": "17621913",
@@ -9560,21 +9578,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2515,
+    "PRODUCT_IDENTITY": 2520,
     "T1": 7
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1461,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 1000,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 1006,
     "live price missing": 4,
+    "no supported model resolved": 1461,
     "weak complete-phone evidence": 7,
-    "resolved model variant is not supported by seller text": 10,
     "accessory/part title": 6,
+    "resolved model variant is not supported by seller text": 10,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 31
+    "description indicates part without explicit functional phone evidence": 30
   },
   "audit_integrity": {
-    "all_rejects_count": 2522,
+    "all_rejects_count": 2527,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

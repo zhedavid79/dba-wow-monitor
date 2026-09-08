@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-08T18:07:37.397474+00:00
+Generated: 2026-09-08T19:55:01.295283+00:00
 
-T0 listings <= ceiling: **2585**  
+T0 listings <= ceiling: **2590**  
 Verified before quality: **63**  
 Final after quality: **63**  
 Mainnet ranked: **43**
 
 ## Review buckets
 
-- Discovery/model blindspots: **981**
+- Discovery/model blindspots: **983**
 - Core-compatible explicit models stopped by Pulse gate: **22**
 - T1 exits/errors: **7**
 - Quality-gate review: **0**
@@ -397,6 +397,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24614128 | Nokia | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 24634277 | Samsung A40 | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 24730756 | Nokia 105, aldrig brugt i uåbnet original emballage | 150 | no supported model resolved |
+| DISCOVERY/MODEL | 24742081 | LG P700 | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 2667878 | HTC Touch Diamond, God | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 3187991 | HTC U play, 3/32 , God | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 4289688 | Samsung Galaxy 5, God | 150 | no supported model resolved |
@@ -936,6 +937,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23646203 | Nokia N80 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24236114 | Motorola G06 LTE smartphone 64GB | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24481120 | Honor 400 Smart | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 24742232 | Moto G35 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 3292825 | HUAWEI Y 7, 2 GB , Perfekt | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 7074892 | Nokia n95 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 23426203 | Huawei p20 | 729 | no supported model resolved |
@@ -1066,9 +1068,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
