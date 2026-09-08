@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-08T19:55:01.295283+00:00
+Generated: 2026-09-08T22:36:23.214832+00:00
 
-T0 listings <= ceiling: **2590**  
+T0 listings <= ceiling: **2592**  
 Verified before quality: **63**  
 Final after quality: **63**  
 Mainnet ranked: **43**
 
 ## Review buckets
 
-- Discovery/model blindspots: **983**
-- Core-compatible explicit models stopped by Pulse gate: **22**
-- T1 exits/errors: **7**
+- Discovery/model blindspots: **974**
+- Core-compatible explicit models stopped by Pulse gate: **23**
+- T1 exits/errors: **41**
 - Quality-gate review: **0**
 - Core compatibility review: **8**
 - Pulse-match review: **12**
@@ -37,6 +37,7 @@ Mainnet ranked: **43**
 | Samsung A33 | Samsung A33 | NO_MATCH |
 | Samsung Galaxy A 14 | Samsung Galaxy A-14 | NO_MATCH |
 | SAMSUNG GALAXY A14 5G | SAMSUNG GALAXY A14 5G 128GB | NO_MATCH |
+| Samsung Galaxy a15 | Samsung Galaxy a15 | NO_MATCH |
 | Samsung Galaxy A15 | Samsung Galaxy A15 smartphone 128 GB blå | NO_MATCH |
 | Samsung Galaxy A54 5G | Samsung Galaxy A54 5G – 128 GB – Sort | NO_MATCH |
 | Samsung Galaxy S10 Lite | Samsung Galaxy S10 Lite, 128 GB, Prism Black | NO_MATCH |
@@ -49,6 +50,40 @@ Mainnet ranked: **43**
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
+| 2415587 | Huawei Y6 (MYA-L41) / 2GB RAM / 16GB Lager /  Android 📱 | 750 | HTTPError |
+| 24395912 | Nothing Cmf Phone 1 256 Gb | 750 | HTTPError |
+| 24659585 | Apple iPhone SE (2-3 gen) 128 GB sort | 750 | HTTPError |
+| 24697409 | Apple iPhone 11 64 GB sort med cover | 750 | HTTPError |
+| 5495631 | Nokia Communicator 9300, God | 750 | HTTPError |
+| 8146221 | Google Pixel 2 | 750 | HTTPError |
+| 24293778 | Apple iPhone 8 64GB (Space Gray) - Grade B | 755 | HTTPError |
+| 22976622 | God iPhone 12, fungere upåklagelig | 780 | HTTPError |
+| 21612519 | OnePlus Nord 2T Gray Shadow | 790 | HTTPError |
+| 198867 | Samsung GT-E1050, Perfekt | 799 | HTTPError |
+| 22249750 | iPhone 11 64GB Lilla | 799 | HTTPError |
+| 23320372 | Motorola G15 | 799 | HTTPError |
+| 23488917 | Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort | 799 | HTTPError |
+| 23489080 | Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød. | 799 | HTTPError |
+| 23975892 | ZTE Blade A56 - Uåbnet Ny. | 799 | HTTPError |
+| 24037709 | Apple iPhone 12 128 GB sort | 799 | HTTPError |
+| 24039827 | Smartwatch Xplora Xplay6 Play | 799 | HTTPError |
+| 4824662 | iPhone XS Max nyt batteri 64 GB sort incl. panser og cover | 799 | HTTPError |
+| 14660054 | China, Reno 10 pro 5 G mobil guld | 800 | HTTPError |
+| 15962520 | iPhone XS | 800 | HTTPError |
+| 16886090 | iPhone 8, 256 GB | 800 | HTTPError |
+| 17070363 | model DORO-0450 | 800 | HTTPError |
+| 1737304 | Nokia 6280 | 800 | HTTPError |
+| 19117615 | Motorola Edge 20 | 800 | HTTPError |
+| 19745764 | iPhone 12 rød | 800 | HTTPError |
+| 20048692 | iPhone XS Max | 800 | HTTPError |
+| 20621115 | Bang & Olufsen Serene mobil inkl. original dock | 800 | HTTPError |
+| 20823736 | Apple iPhone 12 64 GB sort 82% kapacitet | 800 | HTTPError |
+| 21231795 | Apple iPhone XR 64 GB sort | 800 | HTTPError |
+| 21516115 | Nokia 9300 Communicator | 800 | HTTPError |
+| 21888090 | Xiaomi Redmi note 12 pro | 800 | HTTPError |
+| 22389846 | iPhone 11 128 gb | 800 | HTTPError |
+| 22443023 | Samsung Galaxy A 15-serie smartphone 128 GB sort | 800 | HTTPError |
+| 22815681 | Xiaomi Redmi Note 14 5G smartphone 128 GB sort | 800 | HTTPError |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
@@ -769,6 +804,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24566703 | one plus | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24659799 | Nokia 3510 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24706218 | Motorola Moto G30 - Model: XT2129 | 400 | no supported model resolved |
+| DISCOVERY/MODEL | 24743934 | Samsung Galaxy a15 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 4381626 | Nokia Nokia 5.4, Rimelig | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 5449118 | Samsung SGH-X820 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 6282996 | Samsung A6, God | 400 | no supported model resolved |
@@ -950,23 +986,13 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23643949 | OnePlus smartphone med smartcover. | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 24053742 | Motorola Moto G84 5G, 12 /256 GB | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 24105862 | Google Pixel 2. Super velholdt. | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 2415587 | Huawei Y6 (MYA-L41) / 2GB RAM / 16GB Lager /  Android 📱 | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 24259906 | Nokia 6280 (Ubrugt/Open box) | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 24316564 | Samsung A33 | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 24510740 | Samsung Galaxy A15 smartphone 128 GB blå | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 24647459 | Sony Ericsson Xperia x1 og x2 sælges | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 2534927 | Motorola Moto G62 5G, Perfekt | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 5495631 | Nokia Communicator 9300, God | 750 | no supported model resolved |
-| DISCOVERY/MODEL | 8146221 | Google Pixel 2 | 750 | no supported model resolved |
 | DISCOVERY/MODEL | 23765084 | moto g9 plus  4 / 128 gb | 770 | no supported model resolved |
 | DISCOVERY/MODEL | 9216302 | Retro Nokia 7380 | 789 | no supported model resolved |
-| DISCOVERY/MODEL | 198867 | Samsung GT-E1050, Perfekt | 799 | no supported model resolved |
-| DISCOVERY/MODEL | 23320372 | Motorola G15 | 799 | no supported model resolved |
-| DISCOVERY/MODEL | 23975892 | ZTE Blade A56 - Uåbnet Ny. | 799 | no supported model resolved |
-| DISCOVERY/MODEL | 1737304 | Nokia 6280 | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 19117615 | Motorola Edge 20 | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 21516115 | Nokia 9300 Communicator | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 22443023 | Samsung Galaxy A 15-serie smartphone 128 GB sort | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 23050868 | Nokia G11 smartphone | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 23155387 | Moto G60 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 2342227 | Nokia G50, 128GB , Perfekt | 800 | no supported model resolved |
@@ -1062,17 +1088,52 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung A33 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy A 14 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | SAMSUNG GALAXY A14 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| DISCOVERY/PULSE |  | Samsung Galaxy a15 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy A15 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
+| T1 | 2415587 | Huawei Y6 (MYA-L41) / 2GB RAM / 16GB Lager /  Android 📱 | 750 | HTTPError |
+| T1 | 24659585 | Apple iPhone SE (2-3 gen) 128 GB sort | 750 | HTTPError |
+| T1 | 24697409 | Apple iPhone 11 64 GB sort med cover | 750 | HTTPError |
+| T1 | 24395912 | Nothing Cmf Phone 1 256 Gb | 750 | HTTPError |
+| T1 | 5495631 | Nokia Communicator 9300, God | 750 | HTTPError |
+| T1 | 24293778 | Apple iPhone 8 64GB (Space Gray) - Grade B | 755 | HTTPError |
+| T1 | 22976622 | God iPhone 12, fungere upåklagelig | 780 | HTTPError |
+| T1 | 21612519 | OnePlus Nord 2T | 790 | HTTPError |
+| T1 | 198867 | Samsung GT-E1050, Perfekt | 799 | HTTPError |
+| T1 | 22249750 | iPhone 11 64GB Lilla | 799 | HTTPError |
+| T1 | 23320372 | Motorola G15 | 799 | HTTPError |
+| T1 | 23488917 | Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort | 799 | HTTPError |
+| T1 | 8146221 | Google Pixel 2 | 750 | HTTPError |
+| T1 | 23489080 | Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød. | 799 | HTTPError |
+| T1 | 24037709 | Apple iPhone 12 128 GB sort | 799 | HTTPError |
+| T1 | 4824662 | iPhone XS Max nyt batteri 64 GB sort incl. panser og cover | 799 | HTTPError |
+| T1 | 14660054 | OnePlus 10 Pro | 800 | HTTPError |
+| T1 | 23975892 | ZTE Blade A56 - Uåbnet Ny. | 799 | HTTPError |
+| T1 | 16886090 | iPhone 8, 256 GB | 800 | HTTPError |
+| T1 | 1737304 | Nokia 6280 | 800 | HTTPError |
+| T1 | 19117615 | Motorola Edge 20 | 800 | HTTPError |
+| T1 | 24039827 | Smartwatch Xplora Xplay6 Play | 799 | HTTPError |
+| T1 | 19745764 | iPhone 12 rød | 800 | HTTPError |
+| T1 | 20048692 | iPhone XS Max | 800 | HTTPError |
+| T1 | 20621115 | Bang & Olufsen Serene mobil inkl. original dock | 800 | HTTPError |
+| T1 | 20823736 | Apple iPhone 12 64 GB sort 82% kapacitet | 800 | HTTPError |
+| T1 | 15962520 | iPhone XS | 800 | HTTPError |
+| T1 | 21231795 | Apple iPhone XR 64 GB sort | 800 | HTTPError |
+| T1 | 17070363 | model DORO-0450 | 800 | HTTPError |
+| T1 | 21888090 | Xiaomi Redmi note 12 pro | 800 | HTTPError |
+| T1 | 22389846 | iPhone 11 128 gb | 800 | HTTPError |
+| T1 | 22815681 | Xiaomi Redmi Note 14 5G smartphone 128 GB sort | 800 | HTTPError |
+| T1 | 21516115 | Nokia 9300 Communicator | 800 | HTTPError |
+| T1 | 22443023 | Samsung Galaxy A 15-serie smartphone 128 GB sort | 800 | HTTPError |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 21698235 | Xiaomi Redmi 9 |  | Android 12+ compatibility not verified by conservative Core allowlist |

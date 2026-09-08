@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-09-08T19:55:01.295283+00:00",
+  "generated_at": "2026-09-08T22:36:23.214832+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2590,
+    "t0_unique": 2592,
     "verified_before_quality": 63,
     "final_after_quality": 63,
     "ranked": 43,
-    "discovery_model_blindspots": 983,
-    "pulse_gated_discovery_review": 22,
-    "t1_exit_review": 7,
+    "discovery_model_blindspots": 974,
+    "pulse_gated_discovery_review": 23,
+    "t1_exit_review": 41,
     "quality_review": 0,
     "core_review": 8,
     "pulse_review": 12
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 983,
-    "DISCOVERY/PULSE": 22,
-    "T1": 7,
+    "DISCOVERY/MODEL": 974,
+    "DISCOVERY/PULSE": 23,
+    "T1": 41,
     "CORE": 8,
     "PULSE": 12
   },
@@ -6388,6 +6388,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24743934",
+      "title": "Samsung Galaxy a15",
+      "ask": 400,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24743934",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "4381626",
       "title": "Nokia Nokia 5.4, Rimelig",
       "ask": 400,
@@ -8017,15 +8026,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "2415587",
-      "title": "Huawei Y6 (MYA-L41) | 2GB RAM | 16GB Lager |  Android 📱",
-      "ask": 750,
-      "url": "https://www.dba.dk/recommerce/forsale/item/2415587",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24259906",
       "title": "Nokia 6280 (Ubrugt/Open box)",
       "ask": 750,
@@ -8071,24 +8071,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "5495631",
-      "title": "Nokia Communicator 9300, God",
-      "ask": 750,
-      "url": "https://www.dba.dk/recommerce/forsale/item/5495631",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "8146221",
-      "title": "Google Pixel 2",
-      "ask": 750,
-      "url": "https://www.dba.dk/recommerce/forsale/item/8146221",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "23765084",
       "title": "moto g9 plus  4 / 128 gb",
       "ask": 770,
@@ -8102,69 +8084,6 @@
       "title": "Retro Nokia 7380",
       "ask": 789,
       "url": "https://www.dba.dk/recommerce/forsale/item/9216302",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "198867",
-      "title": "Samsung GT-E1050, Perfekt",
-      "ask": 799,
-      "url": "https://www.dba.dk/recommerce/forsale/item/198867",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "23320372",
-      "title": "Motorola G15",
-      "ask": 799,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23320372",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "23975892",
-      "title": "ZTE Blade A56 - Uåbnet Ny.",
-      "ask": 799,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23975892",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "1737304",
-      "title": "Nokia 6280",
-      "ask": 800,
-      "url": "https://www.dba.dk/recommerce/forsale/item/1737304",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "19117615",
-      "title": "Motorola Edge 20",
-      "ask": 800,
-      "url": "https://www.dba.dk/recommerce/forsale/item/19117615",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "21516115",
-      "title": "Nokia 9300 Communicator",
-      "ask": 800,
-      "url": "https://www.dba.dk/recommerce/forsale/item/21516115",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "22443023",
-      "title": "Samsung Galaxy A 15-serie smartphone 128 GB sort",
-      "ask": 800,
-      "url": "https://www.dba.dk/recommerce/forsale/item/22443023",
       "reason": "no supported model resolved"
     },
     {
@@ -9043,6 +8962,16 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
+      "model": "Samsung Galaxy a15",
+      "title": "Samsung Galaxy a15",
+      "ask": null,
+      "url": null,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "DISCOVERY/PULSE",
+      "severity": "MEDIUM",
+      "listing_id": null,
       "model": "Samsung Galaxy A15",
       "title": "Samsung Galaxy A15 smartphone 128 GB blå",
       "ask": null,
@@ -9092,11 +9021,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
+      "listing_id": "394898",
       "model": null,
-      "title": "Sony Erikson X10i",
+      "title": "HUAWEI Ascend Y 200",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9112,21 +9041,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24727541",
+      "listing_id": "23524084",
       "model": null,
-      "title": "Nokia 3510i",
+      "title": "Sony Erikson X10i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
+      "listing_id": "24727541",
       "model": null,
-      "title": "HUAWEI Ascend Y 200",
+      "title": "Nokia 3510i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
       "reason": "live price missing"
     },
     {
@@ -9148,6 +9077,346 @@
       "ask": 250,
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262",
       "reason": "listing disposed"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "2415587",
+      "model": null,
+      "title": "Huawei Y6 (MYA-L41) | 2GB RAM | 16GB Lager |  Android 📱",
+      "ask": 750,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24659585",
+      "model": null,
+      "title": "Apple iPhone SE (2-3 gen) 128 GB sort",
+      "ask": 750,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24697409",
+      "model": null,
+      "title": "Apple iPhone 11 64 GB sort med cover",
+      "ask": 750,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24395912",
+      "model": null,
+      "title": "Nothing Cmf Phone 1 256 Gb",
+      "ask": 750,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "5495631",
+      "model": null,
+      "title": "Nokia Communicator 9300, God",
+      "ask": 750,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24293778",
+      "model": null,
+      "title": "Apple iPhone 8 64GB (Space Gray) - Grade B",
+      "ask": 755,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "22976622",
+      "model": null,
+      "title": "God iPhone 12, fungere upåklagelig",
+      "ask": 780,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "21612519",
+      "model": "OnePlus Nord 2T",
+      "title": "OnePlus Nord 2T Gray Shadow",
+      "ask": 790,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "198867",
+      "model": null,
+      "title": "Samsung GT-E1050, Perfekt",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "22249750",
+      "model": null,
+      "title": "iPhone 11 64GB Lilla",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23320372",
+      "model": null,
+      "title": "Motorola G15",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23488917",
+      "model": null,
+      "title": "Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "8146221",
+      "model": null,
+      "title": "Google Pixel 2",
+      "ask": 750,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23489080",
+      "model": null,
+      "title": "Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød.",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24037709",
+      "model": null,
+      "title": "Apple iPhone 12 128 GB sort",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "4824662",
+      "model": null,
+      "title": "iPhone XS Max nyt batteri 64 GB sort incl. panser og cover",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "14660054",
+      "model": "OnePlus 10 Pro",
+      "title": "China, Reno 10 pro 5 G mobil guld",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23975892",
+      "model": null,
+      "title": "ZTE Blade A56 - Uåbnet Ny.",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "16886090",
+      "model": null,
+      "title": "iPhone 8, 256 GB",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "1737304",
+      "model": null,
+      "title": "Nokia 6280",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "19117615",
+      "model": null,
+      "title": "Motorola Edge 20",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24039827",
+      "model": null,
+      "title": "Smartwatch Xplora Xplay6 Play",
+      "ask": 799,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "19745764",
+      "model": null,
+      "title": "iPhone 12 rød",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "20048692",
+      "model": null,
+      "title": "iPhone XS Max",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "20621115",
+      "model": null,
+      "title": "Bang & Olufsen Serene mobil inkl. original dock",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "20823736",
+      "model": null,
+      "title": "Apple iPhone 12 64 GB sort 82% kapacitet",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "15962520",
+      "model": null,
+      "title": "iPhone XS",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "21231795",
+      "model": null,
+      "title": "Apple iPhone XR 64 GB sort",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "17070363",
+      "model": null,
+      "title": "model DORO-0450",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "21888090",
+      "model": null,
+      "title": "Xiaomi Redmi note 12 pro",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "22389846",
+      "model": null,
+      "title": "iPhone 11 128 gb",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "22815681",
+      "model": null,
+      "title": "Xiaomi Redmi Note 14 5G smartphone 128 GB sort",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "21516115",
+      "model": null,
+      "title": "Nokia 9300 Communicator",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "22443023",
+      "model": null,
+      "title": "Samsung Galaxy A 15-serie smartphone 128 GB sort",
+      "ask": 800,
+      "url": null,
+      "reason": "HTTPError"
     },
     {
       "stage": "T1",
@@ -9441,6 +9710,13 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
+      "candidate_model": "Samsung Galaxy a15",
+      "title": "Samsung Galaxy a15",
+      "pulse_match_method": "NO_MATCH",
+      "pulse_match_confidence": 0.0,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
+    },
+    {
       "candidate_model": "Samsung Galaxy A15",
       "title": "Samsung Galaxy A15 smartphone 128 GB blå",
       "pulse_match_method": "NO_MATCH",
@@ -9478,18 +9754,18 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "sony",
+      "brand_t0": "huawei",
       "sources": [
-        "brand-mobile:sony:5"
+        "brand-mobile:huawei:2"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "24164735",
@@ -9506,6 +9782,20 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "brand-mobile:sony:5"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+    },
+    {
       "listing_id": "24727541",
       "title_t0": "Nokia 3510i",
       "ask_t0": 0,
@@ -9518,20 +9808,6 @@
       "reason": "live price missing",
       "title": "Nokia 3510i",
       "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
-    },
-    {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
-      "sources": [
-        "brand-mobile:huawei:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "17621913",
@@ -9563,6 +9839,434 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262"
     },
     {
+      "listing_id": "2415587",
+      "title_t0": "Huawei Y6 (MYA-L41) | 2GB RAM | 16GB Lager |  Android 📱",
+      "ask_t0": 750,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "category:41",
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "24659585",
+      "title_t0": "Apple iPhone SE (2-3 gen) 128 GB sort",
+      "ask_t0": 750,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:40"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "24697409",
+      "title_t0": "Apple iPhone 11 64 GB sort med cover",
+      "ask_t0": 750,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:40"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "24395912",
+      "title_t0": "Nothing Cmf Phone 1 256 Gb",
+      "ask_t0": 750,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:40",
+        "brand-mobile:nothing phone:1"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "5495631",
+      "title_t0": "Nokia Communicator 9300, God",
+      "ask_t0": 750,
+      "model_t0": null,
+      "brand_t0": "nokia",
+      "sources": [
+        "category:40",
+        "brand-mobile:nokia:8"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "24293778",
+      "title_t0": "Apple iPhone 8 64GB (Space Gray) - Grade B",
+      "ask_t0": 755,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "22976622",
+      "title_t0": "God iPhone 12, fungere upåklagelig",
+      "ask_t0": 780,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "21612519",
+      "title_t0": "OnePlus Nord 2T Gray Shadow",
+      "ask_t0": 790,
+      "model_t0": "OnePlus Nord 2T",
+      "brand_t0": "oneplus",
+      "sources": [
+        "category:41",
+        "brand-mobile:oneplus:1"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "198867",
+      "title_t0": "Samsung GT-E1050, Perfekt",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": "samsung",
+      "sources": [
+        "category:41",
+        "brand-mobile:samsung:5"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "22249750",
+      "title_t0": "iPhone 11 64GB Lilla",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "23320372",
+      "title_t0": "Motorola G15",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": "motorola",
+      "sources": [
+        "category:41",
+        "brand-mobile:motorola:2"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "23488917",
+      "title_t0": "Doro Leva L21 mobiltelefon 4G,  seniorvenlig. sort",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "8146221",
+      "title_t0": "Google Pixel 2",
+      "ask_t0": 750,
+      "model_t0": null,
+      "brand_t0": "google",
+      "sources": [
+        "category:41",
+        "brand-mobile:google:1"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "23489080",
+      "title_t0": "Doro Leva L21 mobiltelefon 4G, seniorvenlig. rød.",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "24037709",
+      "title_t0": "Apple iPhone 12 128 GB sort",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "4824662",
+      "title_t0": "iPhone XS Max nyt batteri 64 GB sort incl. panser og cover",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "14660054",
+      "title_t0": "China, Reno 10 pro 5 G mobil guld",
+      "ask_t0": 800,
+      "model_t0": "OnePlus 10 Pro",
+      "brand_t0": null,
+      "sources": [
+        "category:42",
+        "brand-mobile:xiaomi:1"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "23975892",
+      "title_t0": "ZTE Blade A56 - Uåbnet Ny.",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": "zte",
+      "sources": [
+        "category:41",
+        "brand-mobile:zte:1"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "16886090",
+      "title_t0": "iPhone 8, 256 GB",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:42"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "1737304",
+      "title_t0": "Nokia 6280",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "nokia",
+      "sources": [
+        "category:43",
+        "brand-mobile:nokia:8"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "19117615",
+      "title_t0": "Motorola Edge 20",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "motorola",
+      "sources": [
+        "category:41",
+        "brand-mobile:motorola:2"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "24039827",
+      "title_t0": "Smartwatch Xplora Xplay6 Play",
+      "ask_t0": 799,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "19745764",
+      "title_t0": "iPhone 12 rød",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:43"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "20048692",
+      "title_t0": "iPhone XS Max",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:42"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "20621115",
+      "title_t0": "Bang & Olufsen Serene mobil inkl. original dock",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:43",
+        "brand-mobile:samsung:5"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "20823736",
+      "title_t0": "Apple iPhone 12 64 GB sort 82% kapacitet",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:42"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "15962520",
+      "title_t0": "iPhone XS",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:42"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "21231795",
+      "title_t0": "Apple iPhone XR 64 GB sort",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:43"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "17070363",
+      "title_t0": "model DORO-0450",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:42"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "21888090",
+      "title_t0": "Xiaomi Redmi note 12 pro",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:42",
+        "brand-mobile:redmi:1",
+        "brand-mobile:xiaomi:1",
+        "brand-mobile:xiaomi redmi:1"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "22389846",
+      "title_t0": "iPhone 11 128 gb",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:41"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "22815681",
+      "title_t0": "Xiaomi Redmi Note 14 5G smartphone 128 GB sort",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:43",
+        "brand-mobile:redmi:1",
+        "brand-mobile:xiaomi:1",
+        "brand-mobile:xiaomi redmi:1"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "21516115",
+      "title_t0": "Nokia 9300 Communicator",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "nokia",
+      "sources": [
+        "category:43",
+        "brand-mobile:nokia:8"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "22443023",
+      "title_t0": "Samsung Galaxy A 15-serie smartphone 128 GB sort",
+      "ask_t0": 800,
+      "model_t0": null,
+      "brand_t0": "samsung",
+      "sources": [
+        "category:42",
+        "brand-mobile:samsung:5"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
       "listing_id": "24267594",
       "title_t0": "Blackberry 9000 NY",
       "ask_t0": 800,
@@ -9578,21 +10282,23 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2520,
-    "T1": 7
+    "PRODUCT_IDENTITY": 2488,
+    "T1": 7,
+    "T1_ERROR": 34
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 1006,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 992,
     "live price missing": 4,
-    "no supported model resolved": 1461,
+    "no supported model resolved": 1444,
     "weak complete-phone evidence": 7,
+    "resolved model variant is not supported by seller text": 9,
     "accessory/part title": 6,
-    "resolved model variant is not supported by seller text": 10,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 30
+    "description indicates part without explicit functional phone evidence": 30,
+    "HTTPError": 34
   },
   "audit_integrity": {
-    "all_rejects_count": 2527,
+    "all_rejects_count": 2529,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
