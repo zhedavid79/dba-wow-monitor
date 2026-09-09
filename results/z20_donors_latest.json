@@ -1,6 +1,6 @@
 {
   "model_version": "DBA-Z20-DONOR-RESOLVER-V2",
-  "generated_at": "2026-09-08T20:01:38.509402+00:00",
+  "generated_at": "2026-09-09T10:31:56.076916+00:00",
   "gate_passed": true,
   "policy": "Re-fetch live donor PCs with bounded parallel T1 and complete coverage. Expose only explicit component evidence. ATX PSU text cannot prove an ATX motherboard. Unknown motherboard/GPU SKU remains unresolved and never becomes proven fit.",
   "classifier_regression": {
@@ -42,7 +42,7 @@
     "complete": true
   },
   "t1_diagnostics": [],
-  "count": 30,
+  "count": 29,
   "donors": [
     {
       "listing_id": "24075569",
@@ -65,30 +65,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:22.278675+00:00"
-    },
-    {
-      "listing_id": "24737338",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24737338",
-      "title": "Gaming PC, I7-9700, RTX 2080 SUPER",
-      "ask_t1": 3200,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "gpu": "RTX 2080 Super",
-      "gpu_score": 65,
-      "gpu_sku": {
-        "status": "UNVERIFIED"
-      },
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "motherboard_fit": "UNVERIFIED",
-      "motherboard_model_evidence": null,
-      "upgradeability": "POOR",
-      "desktop_ram_evidence": false,
-      "psu_evidence": null,
-      "condition": "NO_DEFECT_SIGNAL",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:22.197307+00:00"
+      "t1_at": "2026-09-09T10:31:43.889306+00:00"
     },
     {
       "listing_id": "24688708",
@@ -111,7 +88,30 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:23.020479+00:00"
+      "t1_at": "2026-09-09T10:31:44.219059+00:00"
+    },
+    {
+      "listing_id": "24745283",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24745283",
+      "title": "Stationær gamer pc med skærm",
+      "ask_t1": 3500,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 3060",
+      "gpu_score": 54,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Ryzen 5 3600",
+      "cpu_score": 56,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "UNVERIFIED",
+      "desktop_ram_evidence": false,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-09T10:31:43.931955+00:00"
     },
     {
       "listing_id": "22701831",
@@ -134,7 +134,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:22.642838+00:00"
+      "t1_at": "2026-09-09T10:31:43.779907+00:00"
     },
     {
       "listing_id": "24741799",
@@ -157,7 +157,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:22.443861+00:00"
+      "t1_at": "2026-09-09T10:31:44.303717+00:00"
     },
     {
       "listing_id": "24196184",
@@ -180,53 +180,7 @@
       "psu_evidence": "corsair 550w",
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:22.197458+00:00"
-    },
-    {
-      "listing_id": "24715448",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24715448",
-      "title": "Gaming pc",
-      "ask_t1": 4299,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "gpu": "RTX 2080",
-      "gpu_score": 61,
-      "gpu_sku": {
-        "status": "UNVERIFIED"
-      },
-      "cpu": "Core i7-9700",
-      "cpu_score": 67,
-      "motherboard_fit": "UNVERIFIED",
-      "motherboard_model_evidence": null,
-      "upgradeability": "POOR",
-      "desktop_ram_evidence": true,
-      "psu_evidence": null,
-      "condition": "NO_DEFECT_SIGNAL",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:22.444742+00:00"
-    },
-    {
-      "listing_id": "24493146",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24493146",
-      "title": "Lækker selvbygget gamer PC",
-      "ask_t1": 4500,
-      "currency": "DKK",
-      "status": "https://schema.org/InStock",
-      "gpu": "RX 6700 XT",
-      "gpu_score": 68,
-      "gpu_sku": {
-        "status": "UNVERIFIED"
-      },
-      "cpu": "Ryzen 5 3600",
-      "cpu_score": 56,
-      "motherboard_fit": "UNVERIFIED",
-      "motherboard_model_evidence": null,
-      "upgradeability": "GOOD",
-      "desktop_ram_evidence": true,
-      "psu_evidence": null,
-      "condition": "NO_DEFECT_SIGNAL",
-      "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:22.374296+00:00"
+      "t1_at": "2026-09-09T10:31:44.188954+00:00"
     },
     {
       "listing_id": "23258743",
@@ -249,7 +203,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:28.686502+00:00"
+      "t1_at": "2026-09-09T10:31:43.111885+00:00"
     },
     {
       "listing_id": "24660287",
@@ -272,7 +226,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:27.511187+00:00"
+      "t1_at": "2026-09-09T10:31:45.475845+00:00"
     },
     {
       "listing_id": "19506546",
@@ -295,7 +249,7 @@
       "psu_evidence": "Corsair RM 650 modulær (650W",
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:27.413994+00:00"
+      "t1_at": "2026-09-09T10:31:46.956761+00:00"
     },
     {
       "listing_id": "24671157",
@@ -318,7 +272,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:28.350879+00:00"
+      "t1_at": "2026-09-09T10:31:48.803735+00:00"
     },
     {
       "listing_id": "24512170",
@@ -341,7 +295,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:28.867252+00:00"
+      "t1_at": "2026-09-09T10:31:48.136222+00:00"
     },
     {
       "listing_id": "24156419",
@@ -364,7 +318,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:27.904414+00:00"
+      "t1_at": "2026-09-09T10:31:47.157303+00:00"
     },
     {
       "listing_id": "24534814",
@@ -387,7 +341,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:28.844473+00:00"
+      "t1_at": "2026-09-09T10:31:49.306509+00:00"
     },
     {
       "listing_id": "24400931",
@@ -410,7 +364,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:28.625740+00:00"
+      "t1_at": "2026-09-09T10:31:48.552835+00:00"
     },
     {
       "listing_id": "22590297",
@@ -433,7 +387,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:32.964964+00:00"
+      "t1_at": "2026-09-09T10:31:49.701399+00:00"
     },
     {
       "listing_id": "24715774",
@@ -456,7 +410,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:34.048365+00:00"
+      "t1_at": "2026-09-09T10:31:48.898932+00:00"
     },
     {
       "listing_id": "24680838",
@@ -479,7 +433,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:33.374906+00:00"
+      "t1_at": "2026-09-09T10:31:51.286264+00:00"
     },
     {
       "listing_id": "24730470",
@@ -502,7 +456,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:34.503624+00:00"
+      "t1_at": "2026-09-09T10:31:52.434823+00:00"
     },
     {
       "listing_id": "24084752",
@@ -525,7 +479,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:33.387568+00:00"
+      "t1_at": "2026-09-09T10:31:51.543484+00:00"
     },
     {
       "listing_id": "22050046",
@@ -548,7 +502,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:34.670417+00:00"
+      "t1_at": "2026-09-09T10:31:52.548978+00:00"
     },
     {
       "listing_id": "23621275",
@@ -571,7 +525,7 @@
       "psu_evidence": "Corsair Gaming PC - i7-10700F | RTX 3060 12GB | 550W",
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:34.218962+00:00"
+      "t1_at": "2026-09-09T10:31:53.118406+00:00"
     },
     {
       "listing_id": "23504617",
@@ -594,7 +548,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:35.048924+00:00"
+      "t1_at": "2026-09-09T10:31:52.734781+00:00"
     },
     {
       "listing_id": "22511348",
@@ -617,7 +571,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:37.598843+00:00"
+      "t1_at": "2026-09-09T10:31:55.170797+00:00"
     },
     {
       "listing_id": "23356482",
@@ -640,7 +594,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:37.726026+00:00"
+      "t1_at": "2026-09-09T10:31:54.895881+00:00"
     },
     {
       "listing_id": "24713623",
@@ -663,7 +617,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:38.299433+00:00"
+      "t1_at": "2026-09-09T10:31:55.360972+00:00"
     },
     {
       "listing_id": "24647011",
@@ -686,7 +640,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:38.095657+00:00"
+      "t1_at": "2026-09-09T10:31:55.329119+00:00"
     },
     {
       "listing_id": "24714777",
@@ -709,7 +663,7 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:38.245492+00:00"
+      "t1_at": "2026-09-09T10:31:55.879147+00:00"
     },
     {
       "listing_id": "24093124",
@@ -732,7 +686,30 @@
       "psu_evidence": null,
       "condition": "NO_DEFECT_SIGNAL",
       "t1_source": "dba_jsonld_product_all_scripts",
-      "t1_at": "2026-09-08T20:01:38.410775+00:00"
+      "t1_at": "2026-09-09T10:31:55.992968+00:00"
+    },
+    {
+      "listing_id": "24648143",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24648143",
+      "title": "Gaming PC – RTX 4060 / Ryzen 5 9600X / 1TB Nvme",
+      "ask_t1": 7500,
+      "currency": "DKK",
+      "status": "https://schema.org/InStock",
+      "gpu": "RTX 4060",
+      "gpu_score": 60,
+      "gpu_sku": {
+        "status": "UNVERIFIED"
+      },
+      "cpu": "Ryzen 5 9600X",
+      "cpu_score": 107,
+      "motherboard_fit": "UNVERIFIED",
+      "motherboard_model_evidence": null,
+      "upgradeability": "EXCELLENT",
+      "desktop_ram_evidence": true,
+      "psu_evidence": null,
+      "condition": "NO_DEFECT_SIGNAL",
+      "t1_source": "dba_jsonld_product_all_scripts",
+      "t1_at": "2026-09-09T10:31:55.632764+00:00"
     }
   ]
 }
