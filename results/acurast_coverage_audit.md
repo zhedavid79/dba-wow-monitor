@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-10T17:49:07.007453+00:00
+Generated: 2026-09-10T19:37:37.702903+00:00
 
-T0 listings <= ceiling: **2585**  
+T0 listings <= ceiling: **2579**  
 Verified before quality: **64**  
 Final after quality: **63**  
 Mainnet ranked: **43**
 
 ## Review buckets
 
-- Discovery/model blindspots: **980**
+- Discovery/model blindspots: **979**
 - Core-compatible explicit models stopped by Pulse gate: **23**
-- T1 exits/errors: **7**
+- T1 exits/errors: **8**
 - Quality-gate review: **1**
 - Core compatibility review: **8**
 - Pulse-match review: **12**
@@ -50,6 +50,7 @@ Mainnet ranked: **43**
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
+| 24764937 | 2 stk. Doro mobiltelefoner med lader og bordholder – velfungerende sæt | 300 | HTTPError |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
@@ -109,6 +110,7 @@ Pris: 10.999 kr. | 0 | live price missing |
 | DISCOVERY/MODEL | 23715780 | Nokia 3310 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 23733178 | Sony Ericsson Xperia X10 Mini Pro (model U20i) | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 24067802 | Sony Ericsson K610i | 50 | no supported model resolved |
+| DISCOVERY/MODEL | 24069160 | Sony Ericsson Z800 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 24202163 | mobiltelefon LG KG275 | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 24315412 | Sony Ericsson Walkman mobiltelefon hvid/orange | 50 | no supported model resolved |
 | DISCOVERY/MODEL | 24522841 | motorola C200 | 50 | no supported model resolved |
@@ -407,7 +409,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 6822824 | HTC HTC Desire HD A9191, God | 150 | no supported model resolved |
 | DISCOVERY/MODEL | 14127845 | Nokia 1800 med æske og oplader | 155 | no supported model resolved |
 | DISCOVERY/MODEL | 15189332 | Samsung Galaxy S7 Edge med cover – ukendt stand – ridset skærm | 160 | no supported model resolved |
-| DISCOVERY/MODEL | 24069160 | Sony Ericsson Z800 | 160 | no supported model resolved |
 | DISCOVERY/MODEL | 3763864 | Nokia BH-101, Perfekt | 160 | no supported model resolved |
 | DISCOVERY/MODEL | 574702 | HTC Gratia smartphone med 3,2" TFT skærm på 320 x 480 pixels, 5MP kamera | 174 | no supported model resolved |
 | DISCOVERY/MODEL | 10361080 | SAMSUNG MOBIL GALAXY A3 | 175 | no supported model resolved |
@@ -762,7 +763,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23494436 | Retro original Nokia 300 3 GB, 5,0 MP | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 23655966 | Nokia 6230 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 23678138 | Samsung Galaxy S serie smartphone | 400 | no supported model resolved |
-| DISCOVERY/MODEL | 23809894 | Huawei Mate 20 pro | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24098137 | Moto G9 Plus (kan bringes) | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24401279 | Nokia | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24443716 | Huawei P20 Light | 400 | no supported model resolved |
@@ -1072,6 +1072,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
+| T1 | 24764937 | 2 stk. Doro mobiltelefoner med lader og bordholder – velfungerende sæt | 300 | HTTPError |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24756237 | 2 ipad og 3 mobiltelefoner defekt | 999 | BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |

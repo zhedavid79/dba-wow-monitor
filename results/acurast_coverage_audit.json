@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-09-10T17:49:07.007453+00:00",
+  "generated_at": "2026-09-10T19:37:37.702903+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2585,
+    "t0_unique": 2579,
     "verified_before_quality": 64,
     "final_after_quality": 63,
     "ranked": 43,
-    "discovery_model_blindspots": 980,
+    "discovery_model_blindspots": 979,
     "pulse_gated_discovery_review": 23,
-    "t1_exit_review": 7,
+    "t1_exit_review": 8,
     "quality_review": 1,
     "core_review": 8,
     "pulse_review": 12
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 980,
+    "DISCOVERY/MODEL": 979,
     "DISCOVERY/PULSE": 23,
-    "T1": 7,
+    "T1": 8,
     "QUALITY": 1,
     "CORE": 8,
     "PULSE": 12
@@ -453,6 +453,15 @@
       "title": "Sony Ericsson K610i",
       "ask": 50,
       "url": "https://www.dba.dk/recommerce/forsale/item/24067802",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24069160",
+      "title": "Sony Ericsson Z800",
+      "ask": 50,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24069160",
       "reason": "no supported model resolved"
     },
     {
@@ -3117,15 +3126,6 @@
       "title": "Samsung Galaxy S7 Edge med cover – ukendt stand – ridset skærm",
       "ask": 160,
       "url": "https://www.dba.dk/recommerce/forsale/item/15189332",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24069160",
-      "title": "Sony Ericsson Z800",
-      "ask": 160,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24069160",
       "reason": "no supported model resolved"
     },
     {
@@ -6317,15 +6317,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "23809894",
-      "title": "Huawei Mate 20 pro",
-      "ask": 400,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23809894",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24098137",
       "title": "Moto G9 Plus (kan bringes)",
       "ask": 400,
@@ -9136,6 +9127,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "24764937",
+      "model": null,
+      "title": "2 stk. Doro mobiltelefoner med lader og bordholder – velfungerende sæt",
+      "ask": 300,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "24267594",
       "model": null,
       "title": "Blackberry 9000 NY",
@@ -9563,6 +9564,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262"
     },
     {
+      "listing_id": "24764937",
+      "title_t0": "2 stk. Doro mobiltelefoner med lader og bordholder – velfungerende sæt",
+      "ask_t0": 300,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:21"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
       "listing_id": "24267594",
       "title_t0": "Blackberry 9000 NY",
       "ask_t0": 800,
@@ -9578,21 +9591,23 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2514,
-    "T1": 7
+    "T1": 7,
+    "PRODUCT_IDENTITY": 2507,
+    "T1_ERROR": 1
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 1000,
     "live price missing": 4,
-    "no supported model resolved": 1459,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 996,
+    "no supported model resolved": 1456,
     "weak complete-phone evidence": 8,
     "resolved model variant is not supported by seller text": 10,
     "accessory/part title": 8,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 29
+    "description indicates part without explicit functional phone evidence": 29,
+    "HTTPError": 1
   },
   "audit_integrity": {
-    "all_rejects_count": 2521,
+    "all_rejects_count": 2515,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
