@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-10T10:15:47.965344+00:00
+Generated: 2026-09-10T11:12:47.639289+00:00
 
-T0 listings <= ceiling: **2597**  
+T0 listings <= ceiling: **2593**  
 Verified before quality: **65**  
 Final after quality: **64**  
 Mainnet ranked: **44**
 
 ## Review buckets
 
-- Discovery/model blindspots: **985**
+- Discovery/model blindspots: **980**
 - Core-compatible explicit models stopped by Pulse gate: **23**
-- T1 exits/errors: **7**
+- T1 exits/errors: **14**
 - Quality-gate review: **1**
 - Core compatibility review: **8**
 - Pulse-match review: **12**
@@ -48,8 +48,15 @@ Mainnet ranked: **44**
 
 | ID | Title | ASK | Reason |
 |---:|---|---:|---|
+| 15216081 | Nokia 6030 | 100 | HTTPError |
+| 15223446 | Motorola C115 | 100 | HTTPError |
+| 15641045 | HTC Wildfire A3333 | 100 | HTTPError |
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
+| 2035730 | Google Nexus 5, 16 , Defekt | 200 | HTTPError |
+| 21721104 | Nokia 105 4th gen. | 200 | HTTPError |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
+| 24384050 | Apple iPhone SE (1 gen) 128 GB smartphone | 525 | HTTPError |
+| 22773232 | Apple iPhone 11 64 GB hvid - Defekt | 549 | HTTPError |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
@@ -199,16 +206,13 @@ Pris: 10.999 kr. | 0 | live price missing |
 | DISCOVERY/MODEL | 15058194 | LG KP350 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15075317 | Nokia 6021 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15166766 | HTC Smart F3188 | 100 | no supported model resolved |
-| DISCOVERY/MODEL | 15216081 | Nokia 6030 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15219574 | Sony Ericsson T230 | 100 | no supported model resolved |
-| DISCOVERY/MODEL | 15223446 | Motorola C115 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15301178 | LG GT400 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15302557 | LG GT540 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15449769 | HTC Wildfire A3333 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15476363 | Sony Ericsson KP501 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15534422 | HTC Smart F3188 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15580730 | Nokia 1600 | 100 | no supported model resolved |
-| DISCOVERY/MODEL | 15641045 | HTC Wildfire A3333 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15747024 | Sony Ericsson J100i | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1587206 | Nokia KRUSELL MOBILTASKE | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15912789 | LG KG275 | 100 | no supported model resolved |
@@ -332,6 +336,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24447427 | Nokia 5130 XpressMusic | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 24554267 | SAMSUNG GALAXY W - GT-I8150 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 24690857 | Samsung Galaxy S 4 mini | 125 | no supported model resolved |
+| DISCOVERY/MODEL | 24779932 | Huawei P10 Lite med lader og kabel | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 2779586 | Sony Ericsson K608i, God | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 395572 | HUAWEI Y6 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 5028465 | Samsung dumfone, God | 125 | no supported model resolved |
@@ -474,11 +479,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 20212783 | Nokia 1616-2 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 20237598 | Nokia 230 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2025635 | Samsung SD kord, 64gb , Perfekt | 200 | no supported model resolved |
-| DISCOVERY/MODEL | 2035730 | Google Nexus 5, 16 , Defekt | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 20515545 | Sony Xperia X8 touch screen vintage phone for sale | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 20820533 | Nokia 3510 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 20919080 | motorola mobiltlf | 200 | no supported model resolved |
-| DISCOVERY/MODEL | 21721104 | Nokia 105 4th gen. | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 21881696 | Sony Ericsson G502 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 21923677 | Nokia mobiltelefon – uden oplader | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 22261544 | Nokia mobiltelefon klassisk model 2310 | 200 | no supported model resolved |
@@ -590,7 +593,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24624972 | Sony Ericsson X1 – Klassisk mobiltelefon | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 2557388 | Sony Ericsson T630, Perfekt | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 393447 | HTC Hero, God | 250 | no supported model resolved |
-| DISCOVERY/MODEL | 4295056 | Nokia 1661-2B, 32 , Perfekt | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 5152299 | Samsung Galaxy poket plus, God | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 7786484 | Nokia 5110 | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 8534195 | HUAWEI Y5II | 250 | no supported model resolved |
@@ -853,9 +855,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24512230 | Nokia 8500 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24512260 | Nokia n80 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24573520 | Nokia model TA-1206 | 500 | no supported model resolved |
-| DISCOVERY/MODEL | 24684635 | Huawei Mate20 Pro | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24695583 | Samsung Galaxy Watch6 smartwatch grøn rem | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24729373 | Samsung Galaxy A16 LTE smartphone  4/128GB (sort) | 500 | no supported model resolved |
+| DISCOVERY/MODEL | 24780330 | Huawei p smart | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 2635050 | Nokia 103, God | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 6802340 | Nokia C02, 32GB , Perfekt | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 6910734 | Samsung M110, Perfekt | 500 | no supported model resolved |
@@ -1071,12 +1073,19 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Sony Xperia 1 ii |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 15223446 | Motorola C115 | 100 | HTTPError |
+| T1 | 15641045 | HTC Wildfire A3333 | 100 | HTTPError |
+| T1 | 15216081 | Nokia 6030 | 100 | HTTPError |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
+| T1 | 2035730 | Google Nexus 5, 16 , Defekt | 200 | HTTPError |
+| T1 | 21721104 | Nokia 105 4th gen. | 200 | HTTPError |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
+| T1 | 24384050 | Apple iPhone SE (1 gen) 128 GB smartphone | 525 | HTTPError |
+| T1 | 22773232 | Apple iPhone 11 64 GB hvid - Defekt | 549 | HTTPError |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24756237 | 2 ipad og 3 mobiltelefoner defekt | 999 | BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
