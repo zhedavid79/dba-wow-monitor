@@ -1,26 +1,27 @@
 # Acurast coverage audit
 
-Generated: 2026-09-10T22:32:09.084125+00:00
+Generated: 2026-09-11T10:13:37.667776+00:00
 
 T0 listings <= ceiling: **2577**  
-Verified before quality: **64**  
-Final after quality: **63**  
+Verified before quality: **63**  
+Final after quality: **62**  
 Mainnet ranked: **43**
 
 ## Review buckets
 
-- Discovery/model blindspots: **979**
+- Discovery/model blindspots: **974**
 - Core-compatible explicit models stopped by Pulse gate: **23**
-- T1 exits/errors: **7**
+- T1 exits/errors: **10**
 - Quality-gate review: **1**
 - Core compatibility review: **8**
-- Pulse-match review: **12**
+- Pulse-match review: **11**
 
 ## Core-compatible discovery models without unique Mainnet Pulse match
 
 | Candidate model | DBA title | Pulse result |
 |---|---|---|
 | FEIL Poco x3 PRO | FEIL! Poco x3 PRO! 256GB | NO_MATCH |
+| FLOT Motorola Edge 50 Neo | FLOT Motorola Edge 50 Neo 512 GB, fra juli 2025 | NO_MATCH |
 | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus | NO_MATCH |
 | Motorola e14 med panserglas til salg | Motorola e14 med panserglas til salg | NO_MATCH |
 | Motorola Edge 20 | Motorola Edge 20 | NO_MATCH |
@@ -41,15 +42,17 @@ Mainnet ranked: **43**
 | Samsung Galaxy A54 5G | Samsung Galaxy A54 5G 128GB | NO_MATCH |
 | Samsung Galaxy S10 Lite | Samsung Galaxy S10 Lite, 128 GB, Prism Black | NO_MATCH |
 | Sony Xperia 1 ii | Sony Xperia 1 ii | NO_MATCH |
-| SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025 | SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025 | NO_MATCH |
 | Xiaomi 13TPro Wallet | Xiaomi 13TPro Wallet, Perfekt | NO_MATCH |
 
 ## T1 exits
 
 | ID | Title | ASK | Reason |
 |---:|---|---:|---|
+| 19167686 | Samsung E1120 | 125 | HTTPError |
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
+| 16450623 | Sony Ericsson Samle Objekter | 300 | HTTPError |
+| 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | HTTPError |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
@@ -316,7 +319,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 18824000 | Nokia 2626 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 18824751 | Nokia 6230 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 18843961 | Htc VOX | 125 | no supported model resolved |
-| DISCOVERY/MODEL | 19167686 | Samsung E1120 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 19627882 | Nokia 6070 | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 19773863 | Nokia Corporation | 125 | no supported model resolved |
 | DISCOVERY/MODEL | 20916102 | Nokia mobiltelefon med tastatur | 125 | no supported model resolved |
@@ -621,7 +623,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1320176 | Nokia Lumia 640, 8 GB , Perfekt | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 14160346 | Velholdt Samsung | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 15609742 | Retro Nokia fra Nullerne | 300 | no supported model resolved |
-| DISCOVERY/MODEL | 16450623 | Sony Ericsson Samle Objekter | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 1763979 | Huawei Mate 10 Lite - skal repareres (nypris 5.000) | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 17658873 | Samsung Galaxy S5 Mini smartphone 16 GB -lader-ekstra batteri-8gb sd kort | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 18920715 | Nokia 6230i med oplader 📞📞 | 300 | no supported model resolved |
@@ -719,7 +720,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24537816 | BlackView BV6200 Pro sælges | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 24615729 | Samsung Galaxy S9+ 64GB Dual SIM – sort | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 24646058 | Nokia 3510i | 350 | no supported model resolved |
-| DISCOVERY/MODEL | 24668415 | Nokia 3210 Guld | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 24763119 | Sony Ericsson K850i (Cyber-shot 5.0 MP) m. original oplader | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 674556 | Motorola 7500 international, Rimelig | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 7049022 | ONEPLUS 2 "Rent klenodie" | 350 | no supported model resolved |
@@ -926,7 +926,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 20809906 | Samsung Galaxy A80 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 21110211 | Nokia 3310 with screen protector foil | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 21110275 | Nokia 3110 | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 22291818 | Nokia 6310 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 22432378 | Motorola   motoG15         prisen er som skrevet står | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 22980306 | Samsung Galaxy s7 edge | 700 | no supported model resolved |
@@ -934,6 +933,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23646203 | Nokia N80 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24236114 | Motorola G06 LTE smartphone 64GB | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24742232 | Moto G35 | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 24799447 | FLOT Motorola Edge 50 Neo 512 GB, fra juli 2025 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 3292825 | HUAWEI Y 7, 2 GB , Perfekt | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 7074892 | Nokia n95 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 23426203 | Huawei p20 | 729 | no supported model resolved |
@@ -965,7 +965,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 21516115 | Nokia 9300 Communicator | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 22443023 | Samsung Galaxy A 15-serie smartphone 128 GB sort | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 23050868 | Nokia G11 smartphone | 800 | no supported model resolved |
-| DISCOVERY/MODEL | 23155387 | Moto G60 | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 2342227 | Nokia G50, 128GB , Perfekt | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24227181 | Samsung Galaxy A-series smartphone hvid | 800 | no supported model resolved |
 | DISCOVERY/MODEL | 24243621 | Sony Xperia Play (Playstation telefonen) | 800 | no supported model resolved |
@@ -986,7 +985,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24622464 | SAMSUNG GALAXY A14 5G 128GB | 850 | no supported model resolved |
 | DISCOVERY/MODEL | 24632850 | Ny Motorola Moto G77 | 850 | no supported model resolved |
 | DISCOVERY/MODEL | 24666404 | Samsung Galaxy S10 Lite, 128 GB, Prism Black | 850 | no supported model resolved |
-| DISCOVERY/MODEL | 24762443 | SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025 | 850 | no supported model resolved |
 | DISCOVERY/MODEL | 23878128 | Motorola Moto G67 smartphone 128 GB grå | 899 | no supported model resolved |
 | DISCOVERY/MODEL | 1405378 | Andet mærke OPPO A18, 128 GB , Perfekt | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 19610022 | Realme 14T 5G is gb/256gb Purple | 900 | no supported model resolved |
@@ -1043,6 +1041,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 8144576 | Samsung A40 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 862432 | Samsung Galaxy A-serie smartphone 128 GB sort | 1000 | no supported model resolved |
 | DISCOVERY/PULSE |  | FEIL Poco x3 PRO |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| DISCOVERY/PULSE |  | FLOT Motorola Edge 50 Neo |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Motorola e14 med panserglas til salg |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Motorola Edge 20 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
@@ -1063,14 +1062,16 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Sony Xperia 1 ii |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| DISCOVERY/PULSE |  | SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025 |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 19167686 | Samsung E1120 | 125 | HTTPError |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
+| T1 | 16450623 | Sony Ericsson Samle Objekter | 300 | HTTPError |
+| T1 | 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | HTTPError |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24756237 | 2 ipad og 3 mobiltelefoner defekt | 999 | BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
@@ -1091,5 +1092,4 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | PULSE | 24635388 | Xiaomi Redmi 14C |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24086458 | Nothing Phone 1 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 23426246 | Motorola G84 |  | no unique Mainnet Pulse reward match: NO_MATCH |
-| PULSE | 24621996 | Motorola G84 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24515008 | Samsung Galaxy S10+ |  | no unique Mainnet Pulse reward match: NO_MATCH |

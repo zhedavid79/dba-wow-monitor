@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-10T22:32:09.084125+00:00",
+  "generated_at": "2026-09-11T10:13:37.667776+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
     "t0_unique": 2577,
-    "verified_before_quality": 64,
-    "final_after_quality": 63,
+    "verified_before_quality": 63,
+    "final_after_quality": 62,
     "ranked": 43,
-    "discovery_model_blindspots": 979,
+    "discovery_model_blindspots": 974,
     "pulse_gated_discovery_review": 23,
-    "t1_exit_review": 7,
+    "t1_exit_review": 10,
     "quality_review": 1,
     "core_review": 8,
-    "pulse_review": 12
+    "pulse_review": 11
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 979,
+    "DISCOVERY/MODEL": 974,
     "DISCOVERY/PULSE": 23,
-    "T1": 7,
+    "T1": 10,
     "QUALITY": 1,
     "CORE": 8,
-    "PULSE": 12
+    "PULSE": 11
   },
   "suspects": [
     {
@@ -2298,15 +2298,6 @@
       "title": "Htc VOX",
       "ask": 125,
       "url": "https://www.dba.dk/recommerce/forsale/item/18843961",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "19167686",
-      "title": "Samsung E1120",
-      "ask": 125,
-      "url": "https://www.dba.dk/recommerce/forsale/item/19167686",
       "reason": "no supported model resolved"
     },
     {
@@ -5048,15 +5039,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "16450623",
-      "title": "Sony Ericsson Samle Objekter",
-      "ask": 300,
-      "url": "https://www.dba.dk/recommerce/forsale/item/16450623",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "1763979",
       "title": "Huawei Mate 10 Lite - skal repareres (nypris 5.000)",
       "ask": 300,
@@ -5925,15 +5907,6 @@
       "title": "Nokia 3510i",
       "ask": 350,
       "url": "https://www.dba.dk/recommerce/forsale/item/24646058",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24668415",
-      "title": "Nokia 3210 Guld",
-      "ask": 350,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24668415",
       "reason": "no supported model resolved"
     },
     {
@@ -7793,15 +7766,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "221927",
-      "title": "HUAWEI Huawei Watch 3, Perfekt",
-      "ask": 700,
-      "url": "https://www.dba.dk/recommerce/forsale/item/221927",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "22291818",
       "title": "Nokia 6310",
       "ask": 700,
@@ -7860,6 +7824,15 @@
       "title": "Moto G35",
       "ask": 700,
       "url": "https://www.dba.dk/recommerce/forsale/item/24742232",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24799447",
+      "title": "FLOT Motorola Edge 50 Neo 512 GB, fra juli 2025",
+      "ask": 700,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24799447",
       "reason": "no supported model resolved"
     },
     {
@@ -8144,15 +8117,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "23155387",
-      "title": "Moto G60",
-      "ask": 800,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23155387",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "2342227",
       "title": "Nokia G50, 128GB , Perfekt",
       "ask": 800,
@@ -8328,15 +8292,6 @@
       "title": "Samsung Galaxy S10 Lite, 128 GB, Prism Black",
       "ask": 850,
       "url": "https://www.dba.dk/recommerce/forsale/item/24666404",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24762443",
-      "title": "SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025",
-      "ask": 850,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24762443",
       "reason": "no supported model resolved"
     },
     {
@@ -8848,6 +8803,16 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
+      "model": "FLOT Motorola Edge 50 Neo",
+      "title": "FLOT Motorola Edge 50 Neo 512 GB, fra juli 2025",
+      "ask": null,
+      "url": null,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "DISCOVERY/PULSE",
+      "severity": "MEDIUM",
+      "listing_id": null,
       "model": "Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus",
       "title": "Helt nyt 6D skærmbeskyttelse i hærdet glas til Samsung Galaxy S24 Plus",
       "ask": null,
@@ -9048,21 +9013,21 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
-      "model": "SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025",
-      "title": "SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025",
-      "ask": null,
-      "url": null,
-      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
-    },
-    {
-      "stage": "DISCOVERY/PULSE",
-      "severity": "MEDIUM",
-      "listing_id": null,
       "model": "Xiaomi 13TPro Wallet",
       "title": "Xiaomi 13TPro Wallet, Perfekt",
       "ask": null,
       "url": null,
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24727541",
+      "model": null,
+      "title": "Nokia 3510i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "reason": "live price missing"
     },
     {
       "stage": "T1",
@@ -9087,22 +9052,22 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24727541",
-      "model": null,
-      "title": "Nokia 3510i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "19167686",
+      "model": null,
+      "title": "Samsung E1120",
+      "ask": 125,
+      "url": null,
+      "reason": "HTTPError"
     },
     {
       "stage": "T1",
@@ -9123,6 +9088,26 @@
       "ask": 250,
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262",
       "reason": "listing disposed"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "16450623",
+      "model": null,
+      "title": "Sony Ericsson Samle Objekter",
+      "ask": 300,
+      "url": null,
+      "reason": "HTTPError"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "221927",
+      "model": null,
+      "title": "HUAWEI Huawei Watch 3, Perfekt",
+      "ask": 700,
+      "url": null,
+      "reason": "HTTPError"
     },
     {
       "stage": "T1",
@@ -9290,14 +9275,6 @@
     {
       "stage": "PULSE",
       "severity": "MEDIUM",
-      "listing_id": "24621996",
-      "model": "Motorola G84",
-      "url": null,
-      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
-    },
-    {
-      "stage": "PULSE",
-      "severity": "MEDIUM",
       "listing_id": "24515008",
       "model": "Samsung Galaxy S10+",
       "url": null,
@@ -9308,6 +9285,13 @@
     {
       "candidate_model": "FEIL Poco x3 PRO",
       "title": "FEIL! Poco x3 PRO! 256GB",
+      "pulse_match_method": "NO_MATCH",
+      "pulse_match_confidence": 0.0,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
+    },
+    {
+      "candidate_model": "FLOT Motorola Edge 50 Neo",
+      "title": "FLOT Motorola Edge 50 Neo 512 GB, fra juli 2025",
       "pulse_match_method": "NO_MATCH",
       "pulse_match_confidence": 0.0,
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
@@ -9453,13 +9437,6 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
-      "candidate_model": "SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025",
-      "title": "SUPER FLOT Motorola Edge 50 Neo 512 gg fra juli 2025",
-      "pulse_match_method": "NO_MATCH",
-      "pulse_match_confidence": 0.0,
-      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
-    },
-    {
       "candidate_model": "Xiaomi 13TPro Wallet",
       "title": "Xiaomi 13TPro Wallet, Perfekt",
       "pulse_match_method": "NO_MATCH",
@@ -9468,6 +9445,20 @@
     }
   ],
   "t1_exits": [
+    {
+      "listing_id": "24727541",
+      "title_t0": "Nokia 3510i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "nokia",
+      "sources": [
+        "brand-mobile:nokia:9"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Nokia 3510i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
+    },
     {
       "listing_id": "23524084",
       "title_t0": "Sony Erikson X10i",
@@ -9497,20 +9488,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
-      "listing_id": "24727541",
-      "title_t0": "Nokia 3510i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "nokia",
-      "sources": [
-        "brand-mobile:nokia:9"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Nokia 3510i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
-    },
-    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9523,6 +9500,19 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
+      "listing_id": "19167686",
+      "title_t0": "Samsung E1120",
+      "ask_t0": 125,
+      "model_t0": null,
+      "brand_t0": "samsung",
+      "sources": [
+        "category:10",
+        "brand-mobile:samsung:2"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
     },
     {
       "listing_id": "17621913",
@@ -9554,6 +9544,32 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262"
     },
     {
+      "listing_id": "16450623",
+      "title_t0": "Sony Ericsson Samle Objekter",
+      "ask_t0": 300,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "category:22",
+        "brand-mobile:sony:3"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
+      "listing_id": "221927",
+      "title_t0": "HUAWEI Huawei Watch 3, Perfekt",
+      "ask_t0": 700,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "category:38",
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1_ERROR",
+      "reason": "HTTPError"
+    },
+    {
       "listing_id": "24267594",
       "title_t0": "Blackberry 9000 NY",
       "ask_t0": 800,
@@ -9569,21 +9585,23 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2506,
-    "T1": 7
+    "PRODUCT_IDENTITY": 2504,
+    "T1": 7,
+    "T1_ERROR": 3
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1456,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 995,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 997,
+    "no supported model resolved": 1452,
     "live price missing": 4,
     "weak complete-phone evidence": 8,
     "resolved model variant is not supported by seller text": 10,
     "accessory/part title": 8,
+    "HTTPError": 3,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 29
   },
   "audit_integrity": {
-    "all_rejects_count": 2513,
+    "all_rejects_count": 2514,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
