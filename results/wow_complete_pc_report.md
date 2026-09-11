@@ -1,10 +1,10 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-10T19:29:26.679762+00:00
+Dato/tid: 2026-09-11T11:01:44.355075+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 423/423 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 425/425 kandidater.
 Same-object source gate: listing 23194642 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
-Antal struktureret verificerede og rangerede annoncer: 35.
+Antal struktureret verificerede og rangerede annoncer: 36.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
 
 ## Buy now
@@ -98,6 +98,7 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Komplet og klar stationær gaming PC – med SSD, Wi-Fi og Windows 1](https://www.dba.dk/recommerce/forsale/item/10477278) — ID `10477278` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær gaming pc med i5-7500, GTX 1080 og 6 RAM](https://www.dba.dk/recommerce/forsale/item/23819240) — ID `23819240` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Køreklar gamer PC – Perfekt til e-sport (CS2, Fortnite, Roblox)](https://www.dba.dk/recommerce/forsale/item/24617478) — ID `24617478` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Gaming PC  - i7 4770 - GTX 1060 - 500 GB SSD](https://www.dba.dk/recommerce/forsale/item/24746318) — ID `24746318` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo Legion Y520T stationær gaming computer](https://www.dba.dk/recommerce/forsale/item/23481126) — ID `23481126` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24279386) — ID `24279386` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Gamer pc med AMD Ryzen 5 2600 og skærm](https://www.dba.dk/recommerce/forsale/item/24756391) — ID `24756391` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
@@ -108,13 +109,12 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24218273) — ID `24218273` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Gaming pc](https://www.dba.dk/recommerce/forsale/item/24583084) — ID `24583084` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Gaming computer](https://www.dba.dk/recommerce/forsale/item/24618372) — ID `24618372` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Gaming PC  - i7 4770 - GTX 1060 - 500 GB SSD](https://www.dba.dk/recommerce/forsale/item/24746318) — ID `24746318` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24766641) — ID `24766641` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 
 ## Objektive diskvalifikationer
 
-- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 127
-- SPEC_PARSE_FAILED: 19
+- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 128
+- SPEC_PARSE_FAILED: 18
 
 ## Konklusion
 
