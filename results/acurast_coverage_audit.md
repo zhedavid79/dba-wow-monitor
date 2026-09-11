@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-11T16:26:06.112296+00:00
+Generated: 2026-09-11T17:51:27.960989+00:00
 
-T0 listings <= ceiling: **2574**  
+T0 listings <= ceiling: **2569**  
 Verified before quality: **65**  
 Final after quality: **64**  
 Mainnet ranked: **45**
 
 ## Review buckets
 
-- Discovery/model blindspots: **980**
+- Discovery/model blindspots: **981**
 - Core-compatible explicit models stopped by Pulse gate: **22**
 - T1 exits/errors: **8**
 - Quality-gate review: **1**
@@ -530,7 +530,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 21321904 | Nokia 3510i 🚨nyt batteri 🔋 | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 21529224 | Nokia 3510i🚨nyt batteri 🔋 | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 21676298 | Huawei ALE-L21 | 225 | no supported model resolved |
-| DISCOVERY/MODEL | 21762698 | Doogee telefon | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 21837355 | Nokia 3510i🚨nyt batteri 🔋 | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 21838968 | Nokia 3720c-2 | 225 | no supported model resolved |
 | DISCOVERY/MODEL | 2464126 | LG Spirit, 4GLTE , God | 225 | no supported model resolved |
@@ -592,6 +591,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 2451146 | Nokia Lumia 635, 16 gb , Perfekt | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 24516252 | Mobil telefon Huawei y5 lo | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 24624972 | Sony Ericsson X1 – Klassisk mobiltelefon | 250 | no supported model resolved |
+| DISCOVERY/MODEL | 24820137 | Huawei P10Lite | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 2557388 | Sony Ericsson T630, Perfekt | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 393447 | HTC Hero, God | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 5152299 | Samsung Galaxy poket plus, God | 250 | no supported model resolved |
@@ -677,6 +677,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24750006 | Huawei P30 Lite 128GB / 4GB | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24750039 | Huawei P10 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24756105 | Samsung S 4 Mobiltelefon med helt nyt batteri fra 2025 | 300 | no supported model resolved |
+| DISCOVERY/MODEL | 24819100 | Motorola g 67 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 3270704 | Nokia 2700 Clssic, Perfekt | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 3522905 | Nokia 6610i, 2 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 5187616 | OnePlus Nord N100 BE2013, 64 gb + 4gb | 300 | no supported model resolved |
@@ -1067,9 +1068,9 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 24815898 | iPhone SE | 0 | live price missing |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |

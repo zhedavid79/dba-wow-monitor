@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-11T16:26:06.112296+00:00",
+  "generated_at": "2026-09-11T17:51:27.960989+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2574,
+    "t0_unique": 2569,
     "verified_before_quality": 65,
     "final_after_quality": 64,
     "ranked": 45,
-    "discovery_model_blindspots": 980,
+    "discovery_model_blindspots": 981,
     "pulse_gated_discovery_review": 22,
     "t1_exit_review": 8,
     "quality_review": 1,
@@ -15,7 +15,7 @@
     "pulse_review": 11
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 980,
+    "DISCOVERY/MODEL": 981,
     "DISCOVERY/PULSE": 22,
     "T1": 8,
     "QUALITY": 1,
@@ -4229,15 +4229,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "21762698",
-      "title": "Doogee telefon",
-      "ask": 225,
-      "url": "https://www.dba.dk/recommerce/forsale/item/21762698",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "21837355",
       "title": "Nokia 3510i🚨nyt batteri 🔋",
       "ask": 225,
@@ -4782,6 +4773,15 @@
       "title": "Sony Ericsson X1 – Klassisk mobiltelefon",
       "ask": 250,
       "url": "https://www.dba.dk/recommerce/forsale/item/24624972",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24820137",
+      "title": "Huawei P10Lite",
+      "ask": 250,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24820137",
       "reason": "no supported model resolved"
     },
     {
@@ -5547,6 +5547,15 @@
       "title": "Samsung S 4 Mobiltelefon med helt nyt batteri fra 2025",
       "ask": 300,
       "url": "https://www.dba.dk/recommerce/forsale/item/24756105",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24819100",
+      "title": "Motorola g 67",
+      "ask": 300,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24819100",
       "reason": "no supported model resolved"
     },
     {
@@ -9086,6 +9095,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "23524084",
+      "model": null,
+      "title": "Sony Erikson X10i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "24727541",
       "model": null,
       "title": "Nokia 3510i",
@@ -9101,16 +9120,6 @@
       "title": "iPhone SE",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/24815898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9491,6 +9500,20 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "brand-mobile:sony:5"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+    },
+    {
       "listing_id": "24727541",
       "title_t0": "Nokia 3510i",
       "ask_t0": 0,
@@ -9517,20 +9540,6 @@
       "reason": "live price missing",
       "title": "iPhone SE",
       "url": "https://www.dba.dk/recommerce/forsale/item/24815898"
-    },
-    {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "17621913",
@@ -9577,21 +9586,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2501,
-    "T1": 8
+    "T1": 8,
+    "PRODUCT_IDENTITY": 2496
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1460,
     "live price missing": 5,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 988,
-    "weak complete-phone evidence": 7,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 982,
+    "no supported model resolved": 1462,
+    "weak complete-phone evidence": 6,
     "resolved model variant is not supported by seller text": 10,
     "accessory/part title": 7,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 29
   },
   "audit_integrity": {
-    "all_rejects_count": 2509,
+    "all_rejects_count": 2504,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
