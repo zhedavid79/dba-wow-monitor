@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-11T19:38:50.225932+00:00",
+  "generated_at": "2026-09-11T22:32:29.045613+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2566,
+    "t0_unique": 2567,
     "verified_before_quality": 66,
     "final_after_quality": 64,
     "ranked": 45,
-    "discovery_model_blindspots": 981,
+    "discovery_model_blindspots": 980,
     "pulse_gated_discovery_review": 22,
     "t1_exit_review": 8,
     "quality_review": 2,
@@ -15,7 +15,7 @@
     "pulse_review": 11
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 981,
+    "DISCOVERY/MODEL": 980,
     "DISCOVERY/PULSE": 22,
     "T1": 8,
     "QUALITY": 2,
@@ -6578,15 +6578,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24734232",
-      "title": "Motorola g06",
-      "ask": 450,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24734232",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24815645",
       "title": "HTC U11 64GB",
       "ask": 450,
@@ -9075,6 +9066,16 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
+      "listing_id": "24727541",
+      "model": null,
+      "title": "Nokia 3510i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
       "listing_id": "24164735",
       "model": "Google Pixel 9 Pro XL",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
@@ -9095,16 +9096,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
@@ -9115,11 +9106,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24727541",
+      "listing_id": "23524084",
       "model": null,
-      "title": "Nokia 3510i",
+      "title": "Sony Erikson X10i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9481,6 +9472,20 @@
   ],
   "t1_exits": [
     {
+      "listing_id": "24727541",
+      "title_t0": "Nokia 3510i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "nokia",
+      "sources": [
+        "brand-mobile:nokia:9"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Nokia 3510i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
+    },
+    {
       "listing_id": "24164735",
       "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask_t0": 0,
@@ -9509,20 +9514,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24815898"
     },
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
-    },
-    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9537,18 +9528,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
-      "listing_id": "24727541",
-      "title_t0": "Nokia 3510i",
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "nokia",
+      "brand_t0": "sony",
       "sources": [
-        "brand-mobile:nokia:9"
+        "brand-mobile:sony:5"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Nokia 3510i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "17621913",
@@ -9595,21 +9586,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2492,
+    "PRODUCT_IDENTITY": 2493,
     "T1": 8
   },
   "discovery_reject_reason_counts": {
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 979,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 980,
+    "no supported model resolved": 1461,
     "live price missing": 5,
-    "no supported model resolved": 1462,
     "weak complete-phone evidence": 6,
     "resolved model variant is not supported by seller text": 10,
     "accessory/part title": 7,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 28
+    "description indicates part without explicit functional phone evidence": 29
   },
   "audit_integrity": {
-    "all_rejects_count": 2500,
+    "all_rejects_count": 2501,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
