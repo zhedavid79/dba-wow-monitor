@@ -1,6 +1,6 @@
 # Acurast DBA Procurement V1.6 — Mainnet baseline ACU Accumulation Efficiency
 
-Generated: 2026-09-12T13:12:56.121973+00:00
+Generated: 2026-09-12T14:04:47.047419+00:00
 
 DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.
 Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived rewards; 31/67 live listings matched.

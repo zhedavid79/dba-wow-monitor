@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T13:12:58.008534+00:00",
+  "generated_at": "2026-09-12T14:04:48.727897+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
@@ -7,7 +7,7 @@
     "verified_before_quality": 69,
     "final_after_quality": 67,
     "ranked": 46,
-    "discovery_model_blindspots": 984,
+    "discovery_model_blindspots": 985,
     "pulse_gated_discovery_review": 23,
     "t1_exit_review": 9,
     "quality_review": 2,
@@ -15,7 +15,7 @@
     "pulse_review": 10
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 984,
+    "DISCOVERY/MODEL": 985,
     "DISCOVERY/PULSE": 23,
     "T1": 9,
     "QUALITY": 2,
@@ -2532,6 +2532,15 @@
       "title": "Nokia 3720c-2",
       "ask": 135,
       "url": "https://www.dba.dk/recommerce/forsale/item/21988939",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24845397",
+      "title": "Nokia XpressMudic - Rød",
+      "ask": 140,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24845397",
       "reason": "no supported model resolved"
     },
     {
@@ -9112,16 +9121,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24815898",
-      "model": null,
-      "title": "iPhone SE",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24815898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "24164735",
       "model": "Google Pixel 9 Pro XL",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
@@ -9142,11 +9141,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
+      "listing_id": "24727541",
       "model": null,
-      "title": "HUAWEI Ascend Y 200",
+      "title": "Nokia 3510i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24815898",
+      "model": null,
+      "title": "iPhone SE",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24815898",
       "reason": "live price missing"
     },
     {
@@ -9162,11 +9171,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24727541",
+      "listing_id": "394898",
       "model": null,
-      "title": "Nokia 3510i",
+      "title": "HUAWEI Ascend Y 200",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9551,20 +9560,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "24815898",
-      "title_t0": "iPhone SE",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "apple",
-      "sources": [
-        "category:1"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "iPhone SE",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24815898"
-    },
-    {
       "listing_id": "24164735",
       "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask_t0": 0,
@@ -9593,18 +9588,32 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
     },
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
+      "listing_id": "24727541",
+      "title_t0": "Nokia 3510i",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "huawei",
+      "brand_t0": "nokia",
       "sources": [
-        "brand-mobile:huawei:2"
+        "brand-mobile:nokia:9"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+      "title": "Nokia 3510i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
+    },
+    {
+      "listing_id": "24815898",
+      "title_t0": "iPhone SE",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "apple",
+      "sources": [
+        "category:1"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "iPhone SE",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24815898"
     },
     {
       "listing_id": "23524084",
@@ -9621,18 +9630,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
-      "listing_id": "24727541",
-      "title_t0": "Nokia 3510i",
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "nokia",
+      "brand_t0": "huawei",
       "sources": [
-        "brand-mobile:nokia:9"
+        "brand-mobile:huawei:2"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Nokia 3510i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "17621913",
@@ -9679,16 +9688,16 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 9,
-    "PRODUCT_IDENTITY": 2507
+    "PRODUCT_IDENTITY": 2507,
+    "T1": 9
   },
   "discovery_reject_reason_counts": {
+    "no supported model resolved": 1466,
     "live price missing": 6,
-    "no supported model resolved": 1465,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 991,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 990,
     "weak complete-phone evidence": 6,
-    "resolved model variant is not supported by seller text": 10,
     "accessory/part title": 7,
+    "resolved model variant is not supported by seller text": 10,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 28
   },
