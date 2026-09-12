@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-12T20:59:37.328756+00:00",
+  "generated_at": "2026-09-12T22:15:06.615911+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2588,
+    "t0_unique": 2587,
     "verified_before_quality": 69,
     "final_after_quality": 67,
     "ranked": 45,
-    "discovery_model_blindspots": 986,
+    "discovery_model_blindspots": 985,
     "pulse_gated_discovery_review": 24,
     "t1_exit_review": 8,
     "quality_review": 2,
@@ -15,7 +15,7 @@
     "pulse_review": 10
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 986,
+    "DISCOVERY/MODEL": 985,
     "DISCOVERY/PULSE": 24,
     "T1": 8,
     "QUALITY": 2,
@@ -8585,15 +8585,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24334069",
-      "title": "Samsung Galaxy A17 5G – 128GB",
-      "ask": 999,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24334069",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "24512290",
       "title": "Nokia n97",
       "ask": 999,
@@ -9140,16 +9131,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "24837917",
       "model": null,
       "title": "Telefon cover",
@@ -9160,11 +9141,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
+      "listing_id": "24727541",
       "model": null,
-      "title": "HUAWEI Ascend Y 200",
+      "title": "Nokia 3510i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
       "reason": "live price missing"
     },
     {
@@ -9180,11 +9161,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24727541",
+      "listing_id": "23524084",
       "model": null,
-      "title": "Nokia 3510i",
+      "title": "Sony Erikson X10i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9584,20 +9575,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
-    },
-    {
       "listing_id": "24837917",
       "title_t0": "Telefon cover",
       "ask_t0": 0,
@@ -9612,18 +9589,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
     },
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
+      "listing_id": "24727541",
+      "title_t0": "Nokia 3510i",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "huawei",
+      "brand_t0": "nokia",
       "sources": [
-        "brand-mobile:huawei:2"
+        "brand-mobile:nokia:9"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+      "title": "Nokia 3510i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
     },
     {
       "listing_id": "24164735",
@@ -9640,18 +9617,32 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
-      "listing_id": "24727541",
-      "title_t0": "Nokia 3510i",
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "nokia",
+      "brand_t0": "sony",
       "sources": [
-        "brand-mobile:nokia:9"
+        "brand-mobile:sony:5"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Nokia 3510i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
+    },
+    {
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "17621913",
@@ -9698,13 +9689,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "PRODUCT_IDENTITY": 2511,
-    "T1": 8
+    "T1": 8,
+    "PRODUCT_IDENTITY": 2510
   },
   "discovery_reject_reason_counts": {
-    "no supported model resolved": 1465,
     "live price missing": 5,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 992,
+    "no supported model resolved": 1464,
     "weak complete-phone evidence": 7,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 7,
@@ -9712,7 +9703,7 @@
     "description indicates part without explicit functional phone evidence": 29
   },
   "audit_integrity": {
-    "all_rejects_count": 2519,
+    "all_rejects_count": 2518,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
