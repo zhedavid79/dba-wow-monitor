@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-12T19:15:02.625804+00:00",
+  "generated_at": "2026-09-12T20:59:37.328756+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2589,
+    "t0_unique": 2588,
     "verified_before_quality": 69,
     "final_after_quality": 67,
     "ranked": 45,
-    "discovery_model_blindspots": 985,
+    "discovery_model_blindspots": 986,
     "pulse_gated_discovery_review": 24,
     "t1_exit_review": 8,
     "quality_review": 2,
@@ -15,7 +15,7 @@
     "pulse_review": 10
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 985,
+    "DISCOVERY/MODEL": 986,
     "DISCOVERY/PULSE": 24,
     "T1": 8,
     "QUALITY": 2,
@@ -7100,6 +7100,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24861124",
+      "title": "SAMSUNG GALAY A22 5G",
+      "ask": 500,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24861124",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "2635050",
       "title": "Nokia 103, God",
       "ask": 500,
@@ -9141,11 +9150,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24727541",
+      "listing_id": "24837917",
       "model": null,
-      "title": "Nokia 3510i",
+      "title": "Telefon cover",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24837917",
       "reason": "live price missing"
     },
     {
@@ -9171,11 +9180,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24837917",
+      "listing_id": "24727541",
       "model": null,
-      "title": "Telefon cover",
+      "title": "Nokia 3510i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24837917",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
       "reason": "live price missing"
     },
     {
@@ -9589,18 +9598,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
-      "listing_id": "24727541",
-      "title_t0": "Nokia 3510i",
+      "listing_id": "24837917",
+      "title_t0": "Telefon cover",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": "nokia",
+      "brand_t0": null,
       "sources": [
-        "brand-mobile:nokia:9"
+        "category:1"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Nokia 3510i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
+      "title": "Telefon cover",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
     },
     {
       "listing_id": "394898",
@@ -9631,18 +9640,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
-      "listing_id": "24837917",
-      "title_t0": "Telefon cover",
+      "listing_id": "24727541",
+      "title_t0": "Nokia 3510i",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": null,
+      "brand_t0": "nokia",
       "sources": [
-        "category:1"
+        "brand-mobile:nokia:9"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Telefon cover",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
+      "title": "Nokia 3510i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
     },
     {
       "listing_id": "17621913",
@@ -9689,13 +9698,13 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 8,
-    "PRODUCT_IDENTITY": 2512
+    "PRODUCT_IDENTITY": 2511,
+    "T1": 8
   },
   "discovery_reject_reason_counts": {
+    "no supported model resolved": 1465,
     "live price missing": 5,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 994,
-    "no supported model resolved": 1464,
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 992,
     "weak complete-phone evidence": 7,
     "resolved model variant is not supported by seller text": 11,
     "accessory/part title": 7,
@@ -9703,7 +9712,7 @@
     "description indicates part without explicit functional phone evidence": 29
   },
   "audit_integrity": {
-    "all_rejects_count": 2520,
+    "all_rejects_count": 2519,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

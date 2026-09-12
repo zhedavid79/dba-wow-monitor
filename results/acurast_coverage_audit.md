@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-12T19:15:02.625804+00:00
+Generated: 2026-09-12T20:59:37.328756+00:00
 
-T0 listings <= ceiling: **2589**  
+T0 listings <= ceiling: **2588**  
 Verified before quality: **69**  
 Final after quality: **67**  
 Mainnet ranked: **45**
 
 ## Review buckets
 
-- Discovery/model blindspots: **985**
+- Discovery/model blindspots: **986**
 - Core-compatible explicit models stopped by Pulse gate: **24**
 - T1 exits/errors: **8**
 - Quality-gate review: **2**
@@ -851,6 +851,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24780330 | Huawei p smart | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24833291 | Samsung Galaxy A33  smartphone 128 GB sort | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24854241 | Samsung Galaxy A54 5g | 500 | no supported model resolved |
+| DISCOVERY/MODEL | 24861124 | SAMSUNG GALAY A22 5G | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 2635050 | Nokia 103, God | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 6802340 | Nokia C02, 32GB , Perfekt | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 6910734 | Samsung M110, Perfekt | 500 | no supported model resolved |
@@ -1075,10 +1076,10 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
-| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
+| T1 | 24837917 | Telefon cover | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 24837917 | Telefon cover | 0 | live price missing |
+| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
