@@ -1,10 +1,10 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-11T19:28:40.175025+00:00
+Dato/tid: 2026-09-12T10:27:29.542008+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 424/424 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 422/422 kandidater.
 Same-object source gate: listing 23194642 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
-Antal struktureret verificerede og rangerede annoncer: 35.
+Antal struktureret verificerede og rangerede annoncer: 36.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
 
 ## Buy now
@@ -99,6 +99,7 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Lenovo Legion Y520T stationær gaming computer](https://www.dba.dk/recommerce/forsale/item/23481126) — ID `23481126` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær gaming pc med i5-7500, GTX 1080 og 6 RAM](https://www.dba.dk/recommerce/forsale/item/23819240) — ID `23819240` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Køreklar gamer PC – Perfekt til e-sport (CS2, Fortnite, Roblox)](https://www.dba.dk/recommerce/forsale/item/24617478) — ID `24617478` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [MSI Optix G27C 27" curved gaming PC-skærm](https://www.dba.dk/recommerce/forsale/item/24835511) — ID `24835511` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24279386) — ID `24279386` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo Y520 gaming laptop 15,6" sort](https://www.dba.dk/recommerce/forsale/item/23725350) — ID `23725350` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo Legion stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24730606) — ID `24730606` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
@@ -109,11 +110,10 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Gaming computer](https://www.dba.dk/recommerce/forsale/item/24618372) — ID `24618372` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24766641) — ID `24766641` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Acer Nitro gamer pc med Intel i5 og Nvidia GTX](https://www.dba.dk/recommerce/forsale/item/24797146) — ID `24797146` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Gamer PC - GTX 1080, 32GB RAM](https://www.dba.dk/recommerce/forsale/item/24823515) — ID `24823515` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 
 ## Objektive diskvalifikationer
 
-- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 129
+- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 128
 - SPEC_PARSE_FAILED: 20
 
 ## Konklusion
