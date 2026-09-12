@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-12T18:35:24.393430+00:00
+Generated: 2026-09-12T19:15:02.625804+00:00
 
-T0 listings <= ceiling: **2588**  
+T0 listings <= ceiling: **2589**  
 Verified before quality: **69**  
 Final after quality: **67**  
 Mainnet ranked: **45**
 
 ## Review buckets
 
-- Discovery/model blindspots: **986**
+- Discovery/model blindspots: **985**
 - Core-compatible explicit models stopped by Pulse gate: **24**
 - T1 exits/errors: **8**
 - Quality-gate review: **2**
@@ -543,7 +543,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 14096433 | Nokia 6110 | 249 | no supported model resolved |
 | DISCOVERY/MODEL | 1679073 | HTC Wildfire S A510e smartphone med 3,2” touchskærm | 249 | no supported model resolved |
 | DISCOVERY/MODEL | 2220340 | Samsung X Cover GT-S5690, Perfekt | 249 | no supported model resolved |
-| DISCOVERY/MODEL | 22681113 | Retro Sony Ericsson C901 Cyber-shot – Klassisk kameramobil inkl. oplader | 249 | no supported model resolved |
 | DISCOVERY/MODEL | 10257853 | Sony D5322. Xperia T 2 ULtra Black. | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 12392891 | Huawei P9 Lite | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 1462131 | HUAWEI CUN-L21, 8 GB , God | 250 | no supported model resolved |
@@ -1075,11 +1074,11 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
-| T1 | 24837917 | Telefon cover | 0 | live price missing |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 24837917 | Telefon cover | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
