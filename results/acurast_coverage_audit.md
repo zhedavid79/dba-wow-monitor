@@ -1,15 +1,15 @@
 # Acurast coverage audit
 
-Generated: 2026-09-13T17:43:43.899922+00:00
+Generated: 2026-09-13T19:26:04.168353+00:00
 
-T0 listings <= ceiling: **2601**  
-Verified before quality: **68**  
-Final after quality: **67**  
-Mainnet ranked: **45**
+T0 listings <= ceiling: **2597**  
+Verified before quality: **67**  
+Final after quality: **66**  
+Mainnet ranked: **44**
 
 ## Review buckets
 
-- Discovery/model blindspots: **989**
+- Discovery/model blindspots: **987**
 - Core-compatible explicit models stopped by Pulse gate: **24**
 - T1 exits/errors: **8**
 - Quality-gate review: **1**
@@ -420,7 +420,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 21525140 | Nokia smartphone 5250 sort | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 21676925 | Huawei ALE-L21 | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 21838117 | Nokia 1112 | 175 | no supported model resolved |
-| DISCOVERY/MODEL | 23652384 | Nokia C3-01 Touch and Type –  m. original oplader | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 24618580 | Nokia 3510 | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 24690211 | Nokia - forskellige vintage modeller | 175 | no supported model resolved |
 | DISCOVERY/MODEL | 9164093 | LG KG800 chocolate | 175 | no supported model resolved |
@@ -926,7 +925,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1229107 | Motorola International 7500, God | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 1860430 | Nokia Nokia 6700 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 20410537 | Nubia Air       prisen er som skrevet står | 700 | no supported model resolved |
-| DISCOVERY/MODEL | 20809906 | Samsung Galaxy A80 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 21110211 | Nokia 3310 with screen protector foil | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 21110275 | Nokia 3110 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | no supported model resolved |
@@ -1079,8 +1077,8 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
-| T1 | 24837917 | Telefon cover | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 24837917 | Telefon cover | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
