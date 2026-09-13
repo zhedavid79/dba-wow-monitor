@@ -1,6 +1,6 @@
 # Acurast coverage audit
 
-Generated: 2026-09-13T14:47:24.344676+00:00
+Generated: 2026-09-13T16:11:53.898852+00:00
 
 T0 listings <= ceiling: **2593**  
 Verified before quality: **67**  
@@ -11,7 +11,7 @@ Mainnet ranked: **45**
 
 - Discovery/model blindspots: **989**
 - Core-compatible explicit models stopped by Pulse gate: **24**
-- T1 exits/errors: **10**
+- T1 exits/errors: **8**
 - Quality-gate review: **1**
 - Core compatibility review: **11**
 - Pulse-match review: **10**
@@ -51,14 +51,12 @@ Mainnet ranked: **45**
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| 22965144 | Apple Watch SE 40 mm GPS (1. generation) | 700 | HTTPError |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
 Pris: 10.999 kr. | 0 | live price missing |
 | 24727541 | Nokia 3510i | 0 | live price missing |
 | 24837917 | Telefon cover | 0 | live price missing |
-| 24888701 | VIVO V23e 128gb | 0 | live price missing |
 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 
 ## Suspects
@@ -510,6 +508,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23975918 | Samsung S4 mini | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24039386 | Nokia 206 RM-873 Mobiltelefon med Oplader | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24040149 | Samsung Galaxy S III Mini GT-I8190 NFC Smartphone | 200 | no supported model resolved |
+| DISCOVERY/MODEL | 24098137 | Moto G9 Plus (kan bringes) | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24166497 | Huawei tablet/Windows telefon | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24316663 | Huawei Mate 20 lite | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24399592 | Nokia 1611 | 200 | no supported model resolved |
@@ -518,6 +517,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24737250 | Samsung Xcover 4 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24762306 | huawei p8 lite | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24874897 | Smartwatch Huawei band 10 | 200 | no supported model resolved |
+| DISCOVERY/MODEL | 24889275 | Samsung SGH-E370 mobiltelefon rød | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2662666 | LG Digital communication, Perfekt | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 3567808 | HTC Diverse, Diverse , God | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 6216310 | Nokia 301.1, God | 200 | no supported model resolved |
@@ -545,7 +545,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1679073 | HTC Wildfire S A510e smartphone med 3,2” touchskærm | 249 | no supported model resolved |
 | DISCOVERY/MODEL | 2220340 | Samsung X Cover GT-S5690, Perfekt | 249 | no supported model resolved |
 | DISCOVERY/MODEL | 10257853 | Sony D5322. Xperia T 2 ULtra Black. | 250 | no supported model resolved |
-| DISCOVERY/MODEL | 12392891 | Huawei P9 Lite | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 1462131 | HUAWEI CUN-L21, 8 GB , God | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 15359554 | Nokia 6230i | 250 | no supported model resolved |
 | DISCOVERY/MODEL | 15925622 | Sony Xperia E modeller . Alle modeller. Har aldrig været brugt | 250 | no supported model resolved |
@@ -762,7 +761,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23494436 | Retro original Nokia 300 3 GB, 5,0 MP | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 23655966 | Nokia 6230 | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 23678138 | Samsung Galaxy S serie smartphone | 400 | no supported model resolved |
-| DISCOVERY/MODEL | 24098137 | Moto G9 Plus (kan bringes) | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24401279 | Nokia | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24443716 | Huawei P20 Light | 400 | no supported model resolved |
 | DISCOVERY/MODEL | 24464151 | Samsung Galaxy S7 smartphone 32 GB sort | 400 | no supported model resolved |
@@ -1080,15 +1078,13 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 24888701 | VIVO V23e 128gb | 0 | live price missing |
-| T1 | 24837917 | Telefon cover | 0 | live price missing |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 24837917 | Telefon cover | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| T1 | 22965144 | Apple Watch SE 40 mm GPS (1. generation) | 700 | HTTPError |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24756237 | 2 ipad og 3 mobiltelefoner defekt | 999 | BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
