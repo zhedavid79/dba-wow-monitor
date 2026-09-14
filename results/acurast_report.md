@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-14T20:45:36.805371+00:00
+Generated: 2026-09-14T22:28:25.642250+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2600 | Product rejects: 2524 | Bundle/variant/price rejects: 1 | Final: 67
+T0: 2599 | Product rejects: 2523 | Bundle/variant/price rejects: 1 | Final: 67
 
 ## Lowest verified single-device listings
 
@@ -35,8 +35,8 @@ T0: 2600 | Product rejects: 2524 | Bundle/variant/price rejects: 1 | Final: 67
 | 23 | Samsung S21 FE | 600 kr. | [Samsung S21 FE](https://www.dba.dk/recommerce/forsale/item/24626786) |
 | 24 | Samsung Galaxy S10 | 650 kr. | [Samsung Galaxy S10e](https://www.dba.dk/recommerce/forsale/item/12922667) |
 | 25 | Samsung Galaxy A51 | 700 kr. | [Samsung Galaxy A51-serie smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24222153) |
-| 26 | Samsung Galaxy A52s | 700 kr. | [Samsung Galaxy A52s 5G, 128 GB, Awesome Black](https://www.dba.dk/recommerce/forsale/item/24839847) |
-| 27 | Samsung Galaxy A52s | 700 kr. | [Samsung Galaxy A52s 5G, 128 GB, Awesome Black – 100% funktionel](https://www.dba.dk/recommerce/forsale/item/24841291) |
+| 26 | Samsung Galaxy A52s | 700 kr. | [Samsung Galaxy A52s 5G, 128 GB, Awesome Black – 100% funktionel](https://www.dba.dk/recommerce/forsale/item/24841291) |
+| 27 | Samsung Galaxy A52s | 700 kr. | [Samsung Galaxy A52s 5G, 128 GB, Awesome Black](https://www.dba.dk/recommerce/forsale/item/24839847) |
 | 28 | Samsung Galaxy S10 | 700 kr. | [Samsung Galaxy S10 smartphone 128 GB hvid](https://www.dba.dk/recommerce/forsale/item/24113148) |
 | 29 | Samsung Galaxy S20 Ultra 5G | 700 kr. | [Samsung s20 Ultra 5g, 128 gb , Rimelig](https://www.dba.dk/recommerce/forsale/item/5017686) |
 | 30 | Samsung Galaxy S21 | 700 kr. | [Hvis Samsung Galaxy S21](https://www.dba.dk/recommerce/forsale/item/23058953) |
@@ -68,8 +68,8 @@ T0: 2600 | Product rejects: 2524 | Bundle/variant/price rejects: 1 | Final: 67
 | 56 | Samsung A5 | 1000 kr. | [Samsung a52](https://www.dba.dk/recommerce/forsale/item/23947435) |
 | 57 | Samsung A5 | 1000 kr. | [Samsung A50 helt nyt](https://www.dba.dk/recommerce/forsale/item/24645954) |
 | 58 | Samsung Galaxy A52s | 1000 kr. | [Samsung Galaxy A52s 5G – 128 GB – sort](https://www.dba.dk/recommerce/forsale/item/24556622) |
-| 59 | Samsung Galaxy S20 | 1000 kr. | [galaxy s20 som ny 1000 kr](https://www.dba.dk/recommerce/forsale/item/24768674) |
-| 60 | Samsung Galaxy S20 | 1000 kr. | [Samsung Galaxy S20 smartphone 128 GB grå](https://www.dba.dk/recommerce/forsale/item/24823163) |
+| 59 | Samsung Galaxy S20 | 1000 kr. | [Samsung Galaxy S20 smartphone 128 GB grå](https://www.dba.dk/recommerce/forsale/item/24823163) |
+| 60 | Samsung Galaxy S20 | 1000 kr. | [galaxy s20 som ny 1000 kr](https://www.dba.dk/recommerce/forsale/item/24768674) |
 | 61 | Samsung Galaxy S21 | 1000 kr. | [Samsung Galaxy S21 smartphone 128 GB hvid](https://www.dba.dk/recommerce/forsale/item/24762558) |
 | 62 | Samsung Galaxy S21 FE 5G | 1000 kr. | [Samsung Galaxy S21 FE 5G smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24622237) |
 | 63 | Samsung S21 Ultra | 1000 kr. | [Samsung galaxy S21 ultra](https://www.dba.dk/recommerce/forsale/item/23858419) |

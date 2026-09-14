@@ -1,6 +1,6 @@
 # Acurast DBA Procurement V1.6 — Mainnet baseline ACU Accumulation Efficiency
 
-Generated: 2026-09-14T20:45:38.917723+00:00
+Generated: 2026-09-14T22:28:27.708987+00:00
 
 DBA data gate: **PASS** — live same-listing structured discovery + T1/T2 verification.
 Reward data gate: **PASS** — Acurast Pulse Mainnet chain-derived rewards; 30/67 live listings matched.
@@ -34,7 +34,7 @@ Long-horizon LOW stress: 20% annual reward decay. Electricity: 4.0 W at 2.50 DKK
 | 22 | Samsung Galaxy S20 5G | 900 | 0.02819 | 0.03101 | 0.4204 | 153.5 | 0.1705 | 1 | 0 | LOW | 275 | 350 | 500 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24810381) |
 | 23 | Samsung Galaxy S10 | 795 | 0.02476 | 0.02723 | 0.3692 | 134.8 | 0.1695 | 1 | 0 | LOW | 225 | 300 | 425 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24913417) |
 | 24 | OnePlus 10 Pro | 1000 | 0.02921 | 0.03214 | 0.4357 | 159.0 | 0.1590 | 2 | 5 | LOW | 300 | 375 | 525 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/22032520) |
-| 25 | Samsung Galaxy S21 FE 5G | 1000 | 0.02881 | 0.03169 | 0.4295 | 156.8 | 0.1568 | 6 | 3 | MEDIUM | 350 | 425 | 625 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24622237) |
+| 25 | Samsung Galaxy S21 FE 5G | 1000 | 0.02885 | 0.03173 | 0.4304 | 157.1 | 0.1571 | 6 | 3 | MEDIUM | 350 | 425 | 625 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24622237) |
 | 26 | Sony Xperia 10 III | 1000 | 0.02682 | 0.02950 | 0.3999 | 146.0 | 0.1460 | 1 | 2 | LOW | 250 | 300 | 450 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/23658991) |
 | 27 | Samsung Galaxy S21 | 950 | 0.02541 | 0.02796 | 0.3790 | 138.3 | 0.1456 | 268 | 1 | HIGH | 375 | 475 | 675 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24622936) |
 | 28 | Samsung Galaxy S21 | 980 | 0.02541 | 0.02796 | 0.3790 | 138.3 | 0.1412 | 268 | 1 | HIGH | 375 | 475 | 675 | WATCH/NEGOTIATE | [DBA](https://www.dba.dk/recommerce/forsale/item/24741822) |
