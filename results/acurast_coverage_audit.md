@@ -1,20 +1,20 @@
 # Acurast coverage audit
 
-Generated: 2026-09-14T17:00:33.037817+00:00
+Generated: 2026-09-14T20:45:40.866816+00:00
 
 T0 listings <= ceiling: **2600**  
-Verified before quality: **69**  
-Final after quality: **68**  
+Verified before quality: **68**  
+Final after quality: **67**  
 Mainnet ranked: **46**
 
 ## Review buckets
 
 - Discovery/model blindspots: **988**
-- Core-compatible explicit models stopped by Pulse gate: **22**
+- Core-compatible explicit models stopped by Pulse gate: **23**
 - T1 exits/errors: **8**
 - Quality-gate review: **1**
 - Core compatibility review: **11**
-- Pulse-match review: **11**
+- Pulse-match review: **10**
 
 ## Core-compatible discovery models without unique Mainnet Pulse match
 
@@ -40,6 +40,7 @@ Mainnet ranked: **46**
 | Samsung Galaxy A54 5g | Samsung Galaxy A54 5g | NO_MATCH |
 | Samsung Galaxy A54 5G | Samsung Galaxy A54 5G – 128 GB – Sort | NO_MATCH |
 | Samsung Galaxy A54 5G | Samsung Galaxy A54 5G 128GB | NO_MATCH |
+| Samsung Galaxy A54 serie | Samsung Galaxy A54 serie smartphone 128 GB sort | NO_MATCH |
 | Samsung Galaxy S10 Lite | Samsung Galaxy S10 Lite, 128 GB, Prism Black | NO_MATCH |
 | Xiaomi 13TPro Wallet | Xiaomi 13TPro Wallet, Perfekt | NO_MATCH |
 
@@ -808,7 +809,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 20385856 | Nokia 2110 - 500kr | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 21629756 | Asus Zenfone 4 Max | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 21672551 | Zte mobil ur (børn) | 500 | no supported model resolved |
-| DISCOVERY/MODEL | 22655230 | MOTOROLA | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 22730694 | NOKIA 1661 - ubrugt - plomberet | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 22742446 | Xiaomi a5 | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 22761359 | Samsung Galaxy A-14 | 500 | no supported model resolved |
@@ -1013,6 +1013,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15235700 | Nokia G42 5G Android styresystem. | 975 | no supported model resolved |
 | DISCOVERY/MODEL | 22113507 | Samsung Galaxy S9 | 975 | no supported model resolved |
 | DISCOVERY/MODEL | 8199420 | Ny Nokia 6310i | 975 | no supported model resolved |
+| DISCOVERY/MODEL | 24916109 | Samsung Galaxy A54 serie smartphone 128 GB sort | 995 | no supported model resolved |
 | DISCOVERY/MODEL | 1959981 | Nokia 2110i NHE-4NX, Perfekt | 999 | no supported model resolved |
 | DISCOVERY/MODEL | 21140500 | Samsung Galaxy A26 128 GB sort (kun brugt i 2-3 måneder) ny pris 1750 kr | 999 | no supported model resolved |
 | DISCOVERY/MODEL | 2115824 | Google Pixel 2, 128 GB , God | 999 | no supported model resolved |
@@ -1071,13 +1072,14 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5g |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 5G |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| DISCOVERY/PULSE |  | Samsung Galaxy A54 serie |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| T1 | 24837917 | Telefon cover | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
-| T1 | 24837917 | Telefon cover | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
@@ -1100,7 +1102,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | PULSE | 20212101 | Samsung Galaxy A21s |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 23813972 | Samsung Galaxy A51 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24222153 | Samsung Galaxy A51 |  | no unique Mainnet Pulse reward match: NO_MATCH |
-| PULSE | 24635388 | Xiaomi Redmi 14C |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24086458 | Nothing Phone 1 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 23426246 | Motorola G84 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24515008 | Samsung Galaxy S10+ |  | no unique Mainnet Pulse reward match: NO_MATCH |

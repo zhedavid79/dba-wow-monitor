@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-14T17:00:33.037817+00:00",
+  "generated_at": "2026-09-14T20:45:40.866816+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
     "t0_unique": 2600,
-    "verified_before_quality": 69,
-    "final_after_quality": 68,
+    "verified_before_quality": 68,
+    "final_after_quality": 67,
     "ranked": 46,
     "discovery_model_blindspots": 988,
-    "pulse_gated_discovery_review": 22,
+    "pulse_gated_discovery_review": 23,
     "t1_exit_review": 8,
     "quality_review": 1,
     "core_review": 11,
-    "pulse_review": 11
+    "pulse_review": 10
   },
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 988,
-    "DISCOVERY/PULSE": 22,
+    "DISCOVERY/PULSE": 23,
     "T1": 8,
     "QUALITY": 1,
     "CORE": 11,
-    "PULSE": 11
+    "PULSE": 10
   },
   "suspects": [
     {
@@ -6731,15 +6731,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "22655230",
-      "title": "MOTOROLA",
-      "ask": 500,
-      "url": "https://www.dba.dk/recommerce/forsale/item/22655230",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "22730694",
       "title": "NOKIA 1661 - ubrugt - plomberet",
       "ask": 500,
@@ -8576,6 +8567,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24916109",
+      "title": "Samsung Galaxy A54 serie smartphone 128 GB sort",
+      "ask": 995,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24916109",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "1959981",
       "title": "Nokia 2110i NHE-4NX, Perfekt",
       "ask": 999,
@@ -9119,6 +9119,16 @@
       "stage": "DISCOVERY/PULSE",
       "severity": "MEDIUM",
       "listing_id": null,
+      "model": "Samsung Galaxy A54 serie",
+      "title": "Samsung Galaxy A54 serie smartphone 128 GB sort",
+      "ask": null,
+      "url": null,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "DISCOVERY/PULSE",
+      "severity": "MEDIUM",
+      "listing_id": null,
       "model": "Samsung Galaxy S10 Lite",
       "title": "Samsung Galaxy S10 Lite, 128 GB, Prism Black",
       "ask": null,
@@ -9134,6 +9144,16 @@
       "ask": null,
       "url": null,
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH)"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24837917",
+      "model": null,
+      "title": "Telefon cover",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24837917",
+      "reason": "live price missing"
     },
     {
       "stage": "T1",
@@ -9158,16 +9178,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "24727541",
       "model": null,
       "title": "Nokia 3510i",
@@ -9178,11 +9188,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24837917",
+      "listing_id": "23524084",
       "model": null,
-      "title": "Telefon cover",
+      "title": "Sony Erikson X10i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24837917",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9371,14 +9381,6 @@
     {
       "stage": "PULSE",
       "severity": "MEDIUM",
-      "listing_id": "24635388",
-      "model": "Xiaomi Redmi 14C",
-      "url": null,
-      "reason": "no unique Mainnet Pulse reward match: NO_MATCH"
-    },
-    {
-      "stage": "PULSE",
-      "severity": "MEDIUM",
       "listing_id": "24086458",
       "model": "Nothing Phone 1",
       "url": null,
@@ -9543,6 +9545,13 @@
       "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
     },
     {
+      "candidate_model": "Samsung Galaxy A54 serie",
+      "title": "Samsung Galaxy A54 serie smartphone 128 GB sort",
+      "pulse_match_method": "NO_MATCH",
+      "pulse_match_confidence": 0.0,
+      "reason": "Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy"
+    },
+    {
       "candidate_model": "Samsung Galaxy S10 Lite",
       "title": "Samsung Galaxy S10 Lite, 128 GB, Prism Black",
       "pulse_match_method": "NO_MATCH",
@@ -9558,6 +9567,20 @@
     }
   ],
   "t1_exits": [
+    {
+      "listing_id": "24837917",
+      "title_t0": "Telefon cover",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:1"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Telefon cover",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
+    },
     {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
@@ -9587,20 +9610,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
-    },
-    {
       "listing_id": "24727541",
       "title_t0": "Nokia 3510i",
       "ask_t0": 0,
@@ -9615,18 +9624,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
     },
     {
-      "listing_id": "24837917",
-      "title_t0": "Telefon cover",
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": null,
+      "brand_t0": "sony",
       "sources": [
-        "category:1"
+        "brand-mobile:sony:5"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Telefon cover",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "17621913",
@@ -9674,20 +9683,20 @@
   ],
   "discovery_reject_stage_counts": {
     "T1": 8,
-    "PRODUCT_IDENTITY": 2523
+    "PRODUCT_IDENTITY": 2524
   },
   "discovery_reject_reason_counts": {
     "live price missing": 5,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 1003,
-    "no supported model resolved": 1466,
+    "no supported model resolved": 1467,
     "weak complete-phone evidence": 7,
+    "resolved model variant is not supported by seller text": 12,
     "accessory/part title": 7,
-    "resolved model variant is not supported by seller text": 11,
     "listing disposed": 3,
-    "description indicates part without explicit functional phone evidence": 29
+    "description indicates part without explicit functional phone evidence": 28
   },
   "audit_integrity": {
-    "all_rejects_count": 2531,
+    "all_rejects_count": 2532,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
