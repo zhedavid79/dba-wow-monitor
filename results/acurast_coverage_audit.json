@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-09-15T19:10:12.361814+00:00",
+  "generated_at": "2026-09-15T20:13:53.076392+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2601,
-    "verified_before_quality": 64,
-    "final_after_quality": 63,
+    "t0_unique": 2600,
+    "verified_before_quality": 65,
+    "final_after_quality": 64,
     "ranked": 42,
-    "discovery_model_blindspots": 976,
+    "discovery_model_blindspots": 975,
     "pulse_gated_discovery_review": 22,
-    "t1_exit_review": 9,
+    "t1_exit_review": 8,
     "quality_review": 1,
-    "core_review": 10,
+    "core_review": 11,
     "pulse_review": 11
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 976,
+    "DISCOVERY/MODEL": 975,
     "DISCOVERY/PULSE": 22,
-    "T1": 9,
+    "T1": 8,
     "QUALITY": 1,
-    "CORE": 10,
+    "CORE": 11,
     "PULSE": 11
   },
   "suspects": [
@@ -5066,15 +5066,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "15609742",
-      "title": "Retro Nokia fra Nullerne",
-      "ask": 300,
-      "url": "https://www.dba.dk/recommerce/forsale/item/15609742",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "16450623",
       "title": "Sony Ericsson Samle Objekter",
       "ask": 300,
@@ -9030,11 +9021,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24837917",
+      "listing_id": "394898",
       "model": null,
-      "title": "Telefon cover",
+      "title": "HUAWEI Ascend Y 200",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24837917",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
       "reason": "live price missing"
     },
     {
@@ -9050,21 +9041,21 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "24727541",
       "model": null,
       "title": "Nokia 3510i",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24837917",
+      "model": null,
+      "title": "Telefon cover",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24837917",
       "reason": "live price missing"
     },
     {
@@ -9100,16 +9091,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "19090832",
-      "model": null,
-      "title": "iPhone 8 Plus i god stand",
-      "ask": 450,
-      "url": "https://www.dba.dk/recommerce/forsale/item/19090832",
-      "reason": "listing disposed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "24267594",
       "model": null,
       "title": "Blackberry 9000 NY",
@@ -9125,6 +9106,14 @@
       "ask": 999,
       "url": "https://www.dba.dk/recommerce/forsale/item/24756237",
       "reason": "BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type"
+    },
+    {
+      "stage": "CORE",
+      "severity": "MEDIUM",
+      "listing_id": "24918110",
+      "model": "Samsung Galaxy A52s",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24918110",
+      "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
       "stage": "CORE",
@@ -9453,18 +9442,18 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "24837917",
-      "title_t0": "Telefon cover",
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
       "model_t0": null,
-      "brand_t0": null,
+      "brand_t0": "huawei",
       "sources": [
-        "category:1"
+        "brand-mobile:huawei:2"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Telefon cover",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
     },
     {
       "listing_id": "24164735",
@@ -9481,20 +9470,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
     },
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
-      "sources": [
-        "brand-mobile:huawei:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
       "listing_id": "24727541",
       "title_t0": "Nokia 3510i",
       "ask_t0": 0,
@@ -9507,6 +9482,20 @@
       "reason": "live price missing",
       "title": "Nokia 3510i",
       "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
+    },
+    {
+      "listing_id": "24837917",
+      "title_t0": "Telefon cover",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:1"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Telefon cover",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
     },
     {
       "listing_id": "23524084",
@@ -9552,20 +9541,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262"
     },
     {
-      "listing_id": "19090832",
-      "title_t0": "iPhone 8 Plus i god stand",
-      "ask_t0": 450,
-      "model_t0": null,
-      "brand_t0": "apple",
-      "sources": [
-        "category:29"
-      ],
-      "stage": "T1",
-      "reason": "listing disposed",
-      "title": "iPhone 8 Plus i god stand",
-      "url": "https://www.dba.dk/recommerce/forsale/item/19090832"
-    },
-    {
       "listing_id": "24267594",
       "title_t0": "Blackberry 9000 NY",
       "ask_t0": 800,
@@ -9581,21 +9556,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 9,
-    "PRODUCT_IDENTITY": 2528
+    "PRODUCT_IDENTITY": 2527,
+    "T1": 8
   },
   "discovery_reject_reason_counts": {
-    "live price missing": 5,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 1018,
-    "no supported model resolved": 1456,
+    "live price missing": 5,
+    "no supported model resolved": 1455,
     "weak complete-phone evidence": 7,
     "resolved model variant is not supported by seller text": 13,
     "accessory/part title": 7,
-    "listing disposed": 4,
+    "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 27
   },
   "audit_integrity": {
-    "all_rejects_count": 2537,
+    "all_rejects_count": 2535,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }

@@ -1,19 +1,19 @@
 # Acurast coverage audit
 
-Generated: 2026-09-15T19:10:12.361814+00:00
+Generated: 2026-09-15T20:13:53.076392+00:00
 
-T0 listings <= ceiling: **2601**  
-Verified before quality: **64**  
-Final after quality: **63**  
+T0 listings <= ceiling: **2600**  
+Verified before quality: **65**  
+Final after quality: **64**  
 Mainnet ranked: **42**
 
 ## Review buckets
 
-- Discovery/model blindspots: **976**
+- Discovery/model blindspots: **975**
 - Core-compatible explicit models stopped by Pulse gate: **22**
-- T1 exits/errors: **9**
+- T1 exits/errors: **8**
 - Quality-gate review: **1**
-- Core compatibility review: **10**
+- Core compatibility review: **11**
 - Pulse-match review: **11**
 
 ## Core-compatible discovery models without unique Mainnet Pulse match
@@ -49,7 +49,6 @@ Mainnet ranked: **42**
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| 19090832 | iPhone 8 Plus i god stand | 450 | listing disposed |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
@@ -624,7 +623,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 12703262 | Nokia Telefon | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 1320176 | Nokia Lumia 640, 8 GB , Perfekt | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 14160346 | Velholdt Samsung | 300 | no supported model resolved |
-| DISCOVERY/MODEL | 15609742 | Retro Nokia fra Nullerne | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 16450623 | Sony Ericsson Samle Objekter | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 1763979 | Huawei Mate 10 Lite - skal repareres (nypris 5.000) | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 17658873 | Samsung Galaxy S5 Mini smartphone 16 GB -lader-ekstra batteri-8gb sd kort | 300 | no supported model resolved |
@@ -1062,16 +1060,16 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 serie |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 24837917 | Telefon cover | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
+| T1 | 24837917 | Telefon cover | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| T1 | 19090832 | iPhone 8 Plus i god stand | 450 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24756237 | 2 ipad og 3 mobiltelefoner defekt | 999 | BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type |
+| CORE | 24918110 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 21698235 | Xiaomi Redmi 9 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24841291 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
