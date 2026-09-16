@@ -1,20 +1,20 @@
 # Acurast coverage audit
 
-Generated: 2026-09-16T10:29:58.596070+00:00
+Generated: 2026-09-16T11:27:22.136723+00:00
 
 T0 listings <= ceiling: **2596**  
-Verified before quality: **60**  
-Final after quality: **59**  
-Mainnet ranked: **39**
+Verified before quality: **63**  
+Final after quality: **62**  
+Mainnet ranked: **41**
 
 ## Review buckets
 
-- Discovery/model blindspots: **958**
+- Discovery/model blindspots: **976**
 - Core-compatible explicit models stopped by Pulse gate: **22**
-- T1 exits/errors: **56**
+- T1 exits/errors: **9**
 - Quality-gate review: **1**
 - Core compatibility review: **10**
-- Pulse-match review: **10**
+- Pulse-match review: **11**
 
 ## Core-compatible discovery models without unique Mainnet Pulse match
 
@@ -47,56 +47,9 @@ Mainnet ranked: **39**
 
 | ID | Title | ASK | Reason |
 |---:|---|---:|---|
+| 18838882 | Sony Ericsson W715 | 100 | listing disposed |
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| 24046573 | Nokia E66 – Flot klassiker med cover og oplader | 695 | HTTPError |
-| 21177625 | iPhone XR (Product Red) | 699 | HTTPError |
-| 23976032 | Realme Narzo 50i PRIME Ny - Uåbnet | 699 | HTTPError |
-| 24192844 | iPhone XS 100% batteri 256 GB hvid incl. panser + cover | 699 | HTTPError |
-| 24225884 | Xiaomi REDMI 9A (Ny/Uåbnet) | 699 | HTTPError |
-| 24552630 | iPhone 12 mini | 699 | HTTPError |
-| 24706504 | Apple iPhone 7 Plus smartphone 256 GB sølv | 699 | HTTPError |
-| 24757721 | MOTO (rola) G06 | 699 | HTTPError |
-| 24864435 | iPhone 6S 64GB Space Grey | 699 | HTTPError |
-| 6680543 | Nokia 7110 | 699 | HTTPError |
-| 1229107 | Motorola International 7500, God | 700 | HTTPError |
-| 15451128 | iPhone SE | 700 | HTTPError |
-| 16724801 | iPhone SE - 64GB - Red | 700 | HTTPError |
-| 1860430 | Nokia Nokia 6700 | 700 | HTTPError |
-| 20410537 | Nubia Air       prisen er som skrevet står | 700 | HTTPError |
-| 20456984 | Xiaomi Redmi note 13 | 700 | HTTPError |
-| 21110211 | Nokia 3310 with screen protector foil | 700 | HTTPError |
-| 21110275 | Nokia 3110 | 700 | HTTPError |
-| 21387956 | iPhone X | 700 | HTTPError |
-| 22134966 | Apple iPhone XR 128 GB og AirPods | 700 | HTTPError |
-| 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | HTTPError |
-| 22291818 | Nokia 6310 | 700 | HTTPError |
-| 22626316 | Apple iPhone 64 GB sort 2-gen | 700 | HTTPError |
-| 2273110 | iPhone 6, 128 GB, guld | 700 | HTTPError |
-| 22840319 | iPhone XS | 700 | HTTPError |
-| 22932162 | iPhone 11 Pro – 256 GB | 700 | HTTPError |
-| 22980306 | Samsung Galaxy s7 edge | 700 | HTTPError |
-| 23001890 | Apple iPhone 12 smartphone 64 GB sort | 700 | HTTPError |
-| 23040474 | Samsung Gear S3 Classic | 700 | HTTPError |
-| 23375374 | iPhone SE 64gb | 700 | HTTPError |
-| 23538020 | Doro mobil. | 700 | HTTPError |
-| 23555112 | IPhone 11 82 procent batterikapacitet | 700 | HTTPError |
-| 23646203 | Nokia N80 | 700 | HTTPError |
-| 23686808 | OppoA6x telefon | 700 | HTTPError |
-| 23693040 | OnePlus Nord 2 5G | 700 | HTTPError |
-| 23694213 | Apple iPhone SE 2022 64 GB sort | 700 | HTTPError |
-| 23737468 | Apple iPhone 11 smartphone 64 GB sort | 700 | HTTPError |
-| 23784689 | Google Pixel 3a XL | 700 | HTTPError |
-| 23847596 | Xplora børneur | 700 | HTTPError |
-| 23871810 | Doro 4100H - til SIM kort | 700 | HTTPError |
-| 23926368 | Redme Note 13 5G | 700 | HTTPError |
-| 24113148 | Samsung Galaxy S10 smartphone 128 GB hvid | 700 | HTTPError |
-| 24186301 | Apple iPhone 7 32 GB sort | 700 | HTTPError |
-| 24222153 | Samsung Galaxy A51-serie smartphone 128 GB sort | 700 | HTTPError |
-| 24236114 | Motorola G06 LTE smartphone 64GB | 700 | HTTPError |
-| 24457198 | nubia air | 700 | HTTPError |
-| 5017686 | Samsung s20 Ultra 5g, 128 gb , Rimelig | 700 | HTTPError |
-| 7074892 | Nokia n95 | 700 | HTTPError |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
@@ -273,7 +226,6 @@ Pris: 10.999 kr. | 0 | live price missing |
 | DISCOVERY/MODEL | 18453109 | Sony Ericsson T630 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1864318 | Nokia BH-600, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 18689433 | HTC wildfire a3333 | 100 | no supported model resolved |
-| DISCOVERY/MODEL | 18838882 | Sony Ericsson W715 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 19080086 | LG G Pro Lite Dual 8GB 1GB RAM | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 1967279 | OnePlus FLIPCOVER TIL ONEOLUS 7 PRO, Perfekt | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 19735807 | Nokia, og Ericsson | 100 | no supported model resolved |
@@ -759,6 +711,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24646058 | Nokia 3510i | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 24763119 | Sony Ericsson K850i (Cyber-shot 5.0 MP) m. original oplader | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 24904588 | BlackView BV6200 Pro håndværkertelefon sælges | 350 | no supported model resolved |
+| DISCOVERY/MODEL | 24966328 | Huawei p 40 Lite | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 674556 | Motorola 7500 international, Rimelig | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 7049022 | ONEPLUS 2 "Rent klenodie" | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 7711714 | Samsung Galaxy A6 | 350 | no supported model resolved |
@@ -884,6 +837,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24729373 | Samsung Galaxy A16 LTE smartphone  4/128GB (sort) | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24854241 | Samsung Galaxy A54 5g | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 24880739 | Motorola G06 | 500 | no supported model resolved |
+| DISCOVERY/MODEL | 24965899 | Samsung Galaxy S7 Edge 32 GB sort | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 2635050 | Nokia 103, God | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 6802340 | Nokia C02, 32GB , Perfekt | 500 | no supported model resolved |
 | DISCOVERY/MODEL | 6910734 | Samsung M110, Perfekt | 500 | no supported model resolved |
@@ -949,15 +903,32 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 23582479 | Motorola Moto G41 128 gb | 665 | no supported model resolved |
 | DISCOVERY/MODEL | 21675550 | Huawei Y6 | 675 | no supported model resolved |
 | DISCOVERY/MODEL | 2388123 | Samsung s8+, God | 685 | no supported model resolved |
+| DISCOVERY/MODEL | 24046573 | Nokia E66 – Flot klassiker med cover og oplader | 695 | no supported model resolved |
 | DISCOVERY/MODEL | 11896632 | Huawei P 30 pro | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 15413227 | Nokia 9210 | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 17778618 | Moto g82 5g | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 22296355 | ZTE Blade - A56 mobiltelefon - 128 GB | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 22737293 | Motorola G 06 | 699 | no supported model resolved |
+| DISCOVERY/MODEL | 23976032 | Realme Narzo 50i PRIME Ny - Uåbnet | 699 | no supported model resolved |
 | DISCOVERY/MODEL | 24226000 | Realme C11 ( Ny/Uåbnet ) | 699 | no supported model resolved |
+| DISCOVERY/MODEL | 24757721 | MOTO (rola) G06 | 699 | no supported model resolved |
+| DISCOVERY/MODEL | 6680543 | Nokia 7110 | 699 | no supported model resolved |
+| DISCOVERY/MODEL | 1229107 | Motorola International 7500, God | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 1860430 | Nokia Nokia 6700 | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 20410537 | Nubia Air       prisen er som skrevet står | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 21110211 | Nokia 3310 with screen protector foil | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 21110275 | Nokia 3110 | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 22291818 | Nokia 6310 | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 22980306 | Samsung Galaxy s7 edge | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 23040474 | Samsung Gear S3 Classic | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 23646203 | Nokia N80 | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 24236114 | Motorola G06 LTE smartphone 64GB | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 24457198 | nubia air | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24821464 | Samsung A26 / SIM-kort holder mistet | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24852173 | Samsung Galaxy S8+ smartphone 64 GB sort | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 24867952 | OnePlus smartphone 128 GB grå | 700 | no supported model resolved |
+| DISCOVERY/MODEL | 7074892 | Nokia n95 | 700 | no supported model resolved |
 | DISCOVERY/MODEL | 23426203 | Huawei p20 | 729 | no supported model resolved |
 | DISCOVERY/MODEL | 19023980 | Motorola g62 | 735 | no supported model resolved |
 | DISCOVERY/MODEL | 12878105 | Motorola Edge | 749 | no supported model resolved |
@@ -1091,67 +1062,20 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 serie |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 24837917 | Telefon cover | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
-| T1 | 24837917 | Telefon cover | 0 | live price missing |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 18838882 | Sony Ericsson W715 | 100 | listing disposed |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| T1 | 24046573 | Nokia E66 – Flot klassiker med cover og oplader | 695 | HTTPError |
-| T1 | 21177625 | iPhone XR (Product Red) | 699 | HTTPError |
-| T1 | 23976032 | Realme Narzo 50i PRIME Ny - Uåbnet | 699 | HTTPError |
-| T1 | 24192844 | iPhone XS 100% batteri 256 GB hvid incl. panser + cover | 699 | HTTPError |
-| T1 | 24552630 | iPhone 12 mini | 699 | HTTPError |
-| T1 | 24864435 | iPhone 6S 64GB Space Grey | 699 | HTTPError |
-| T1 | 24706504 | Apple iPhone 7 Plus smartphone 256 GB sølv | 699 | HTTPError |
-| T1 | 24757721 | MOTO (rola) G06 | 699 | HTTPError |
-| T1 | 1229107 | Motorola International 7500, God | 700 | HTTPError |
-| T1 | 15451128 | iPhone SE | 700 | HTTPError |
-| T1 | 16724801 | iPhone SE - 64GB - Red | 700 | HTTPError |
-| T1 | 24225884 | Xiaomi Redmi 9A | 699 | HTTPError |
-| T1 | 1860430 | Nokia Nokia 6700 | 700 | HTTPError |
-| T1 | 20456984 | Xiaomi Redmi note 13 | 700 | HTTPError |
-| T1 | 20410537 | Nubia Air       prisen er som skrevet står | 700 | HTTPError |
-| T1 | 21110211 | Nokia 3310 with screen protector foil | 700 | HTTPError |
-| T1 | 22134966 | Apple iPhone XR 128 GB og AirPods | 700 | HTTPError |
-| T1 | 21387956 | iPhone X | 700 | HTTPError |
-| T1 | 6680543 | Nokia 7110 | 699 | HTTPError |
-| T1 | 22626316 | Apple iPhone 64 GB sort 2-gen | 700 | HTTPError |
-| T1 | 2273110 | iPhone 6, 128 GB, guld | 700 | HTTPError |
-| T1 | 22932162 | iPhone 11 Pro – 256 GB | 700 | HTTPError |
-| T1 | 22840319 | iPhone XS | 700 | HTTPError |
-| T1 | 23001890 | Apple iPhone 12 smartphone 64 GB sort | 700 | HTTPError |
-| T1 | 22980306 | Samsung Galaxy s7 edge | 700 | HTTPError |
-| T1 | 23040474 | Samsung Gear S3 Classic | 700 | HTTPError |
-| T1 | 21110275 | Nokia 3110 | 700 | HTTPError |
-| T1 | 221927 | HUAWEI Huawei Watch 3, Perfekt | 700 | HTTPError |
-| T1 | 22291818 | Nokia 6310 | 700 | HTTPError |
-| T1 | 23538020 | Doro mobil. | 700 | HTTPError |
-| T1 | 23375374 | iPhone SE 64gb | 700 | HTTPError |
-| T1 | 23555112 | IPhone 11 82 procent batterikapacitet | 700 | HTTPError |
-| T1 | 23646203 | Nokia N80 | 700 | HTTPError |
-| T1 | 23686808 | OppoA6x telefon | 700 | HTTPError |
-| T1 | 23693040 | OnePlus Nord 2 5G | 700 | HTTPError |
-| T1 | 23694213 | Apple iPhone SE 2022 64 GB sort | 700 | HTTPError |
-| T1 | 23737468 | Apple iPhone 11 smartphone 64 GB sort | 700 | HTTPError |
-| T1 | 23784689 | Google Pixel 3 | 700 | HTTPError |
-| T1 | 23847596 | Xplora børneur | 700 | HTTPError |
-| T1 | 23871810 | Doro 4100H - til SIM kort | 700 | HTTPError |
-| T1 | 23926368 | Redme Note 13 5G | 700 | HTTPError |
-| T1 | 24113148 | Samsung Galaxy S10 | 700 | HTTPError |
-| T1 | 24186301 | Apple iPhone 7 32 GB sort | 700 | HTTPError |
-| T1 | 24222153 | Samsung Galaxy A51 | 700 | HTTPError |
-| T1 | 24236114 | Motorola G06 LTE smartphone 64GB | 700 | HTTPError |
-| T1 | 24457198 | nubia air | 700 | HTTPError |
-| T1 | 5017686 | Samsung Galaxy S20 Ultra 5G | 700 | HTTPError |
-| T1 | 7074892 | Nokia n95 | 700 | HTTPError |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24756237 | 2 ipad og 3 mobiltelefoner defekt | 999 | BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 21698235 | Xiaomi Redmi 9 |  | Android 12+ compatibility not verified by conservative Core allowlist |
-| CORE | 24841291 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24839847 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
+| CORE | 24841291 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 23537344 | OnePlus Nord |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24841215 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24398197 | Samsung A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
@@ -1165,6 +1089,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | PULSE | 24841105 | Samsung Galaxy A51 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 20212101 | Samsung Galaxy A21s |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 23813972 | Samsung Galaxy A51 |  | no unique Mainnet Pulse reward match: NO_MATCH |
+| PULSE | 24222153 | Samsung Galaxy A51 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24086458 | Nothing Phone 1 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 23426246 | Motorola G84 |  | no unique Mainnet Pulse reward match: NO_MATCH |
 | PULSE | 24515008 | Samsung Galaxy S10+ |  | no unique Mainnet Pulse reward match: NO_MATCH |
