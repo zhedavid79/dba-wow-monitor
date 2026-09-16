@@ -1,6 +1,6 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-15T20:01:17.129927+00:00
+Dato/tid: 2026-09-16T11:15:41.260655+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
 Struktureret discovery: 36/36 søgninger; T1: 423/423 kandidater.
 Same-object source gate: listing 23194642 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
@@ -92,6 +92,7 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 
 - [HP stationær computer sort - Begynder Gaming Computer](https://www.dba.dk/recommerce/forsale/item/22586203) — ID `22586203` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Windows 98 Retro gaming computer](https://www.dba.dk/recommerce/forsale/item/24670051) — ID `24670051` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Shark Gaming PC / Ældre gamer PC](https://www.dba.dk/recommerce/forsale/item/24965073) — ID `24965073` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [(2 x 8) GB DDR5 RAM med 5600 frekvens. perfekt til gaming laptop,](https://www.dba.dk/recommerce/forsale/item/17251569) — ID `17251569` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [XMG gammel gaming laptop](https://www.dba.dk/recommerce/forsale/item/17754297) — ID `17754297` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [MSI GE70 Gaming Laptop – Core i7 / GeForce – Nulstillet](https://www.dba.dk/recommerce/forsale/item/23641680) — ID `23641680` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
@@ -108,12 +109,11 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24218273) — ID `24218273` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24766641) — ID `24766641` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [HP Omen 870-250no Gaming PC / i5 / 1070 / ssd / wifi+bluetooth](https://www.dba.dk/recommerce/forsale/item/24862391) — ID `24862391` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Gaming pc](https://www.dba.dk/recommerce/forsale/item/24946490) — ID `24946490` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Gaming computer](https://www.dba.dk/recommerce/forsale/item/24951218) — ID `24951218` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 
 ## Objektive diskvalifikationer
 
-- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 123
+- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 122
 - SPEC_PARSE_FAILED: 19
 
 ## Konklusion
