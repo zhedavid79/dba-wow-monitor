@@ -1,6 +1,6 @@
 # Acurast coverage audit
 
-Generated: 2026-09-16T20:04:54.339684+00:00
+Generated: 2026-09-16T22:55:56.059005+00:00
 
 T0 listings <= ceiling: **2591**  
 Verified before quality: **62**  
@@ -9,7 +9,7 @@ Mainnet ranked: **39**
 
 ## Review buckets
 
-- Discovery/model blindspots: **980**
+- Discovery/model blindspots: **981**
 - Core-compatible explicit models stopped by Pulse gate: **23**
 - T1 exits/errors: **8**
 - Quality-gate review: **1**
@@ -674,6 +674,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24706388 | Sony Ericsson Xperia – Klassisk smartphone | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24750039 | Huawei P10 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 24974972 | Motorola  Moto e14 64GB L | 300 | no supported model resolved |
+| DISCOVERY/MODEL | 24985333 | Retro Nokia fra nullerne med oplader | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 3270704 | Nokia 2700 Clssic, Perfekt | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 3522905 | Nokia 6610i, 2 | 300 | no supported model resolved |
 | DISCOVERY/MODEL | 5187616 | OnePlus Nord N100 BE2013, 64 gb + 4gb | 300 | no supported model resolved |
@@ -999,6 +1000,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24805012 | Samsung Galaxy S9+ 256GB – Flot stand, komplet sæt med alt originalt tilbehør | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 24810390 | Samsung Galaxy A-serie smartphone 128 GB sort | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 24859776 | Moto G67 | 900 | no supported model resolved |
+| DISCOVERY/MODEL | 24916109 | Samsung Galaxy A54 serie smartphone 128 GB sort | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 8200184 | Ny Nokia ATEX (EEx) | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 9700207 | Samsung a9plus | 900 | no supported model resolved |
 | DISCOVERY/MODEL | 23135575 | TCL 50 Pro NxtPaper 5G 512 GB | 950 | no supported model resolved |
@@ -1007,7 +1009,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 15235700 | Nokia G42 5G Android styresystem. | 975 | no supported model resolved |
 | DISCOVERY/MODEL | 22113507 | Samsung Galaxy S9 | 975 | no supported model resolved |
 | DISCOVERY/MODEL | 8199420 | Ny Nokia 6310i | 975 | no supported model resolved |
-| DISCOVERY/MODEL | 24916109 | Samsung Galaxy A54 serie smartphone 128 GB sort | 995 | no supported model resolved |
 | DISCOVERY/MODEL | 1959981 | Nokia 2110i NHE-4NX, Perfekt | 999 | no supported model resolved |
 | DISCOVERY/MODEL | 21140500 | Samsung Galaxy A26 128 GB sort (kun brugt i 2-3 måneder) ny pris 1750 kr | 999 | no supported model resolved |
 | DISCOVERY/MODEL | 2115824 | Google Pixel 2, 128 GB , God | 999 | no supported model resolved |
@@ -1067,19 +1068,19 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 serie |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 24837917 | Telefon cover | 0 | live price missing |
-| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 24837917 | Telefon cover | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
+| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24756237 | 2 ipad og 3 mobiltelefoner defekt | 999 | BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 21698235 | Xiaomi Redmi 9 |  | Android 12+ compatibility not verified by conservative Core allowlist |
-| CORE | 24841291 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24839847 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
+| CORE | 24841291 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 23537344 | OnePlus Nord |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24841215 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24398197 | Samsung A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |

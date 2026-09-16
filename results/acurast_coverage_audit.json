@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T20:04:54.339684+00:00",
+  "generated_at": "2026-09-16T22:55:56.059005+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
@@ -7,7 +7,7 @@
     "verified_before_quality": 62,
     "final_after_quality": 61,
     "ranked": 39,
-    "discovery_model_blindspots": 980,
+    "discovery_model_blindspots": 981,
     "pulse_gated_discovery_review": 23,
     "t1_exit_review": 8,
     "quality_review": 1,
@@ -15,7 +15,7 @@
     "pulse_review": 11
   },
   "suspect_stage_counts": {
-    "DISCOVERY/MODEL": 980,
+    "DISCOVERY/MODEL": 981,
     "DISCOVERY/PULSE": 23,
     "T1": 8,
     "QUALITY": 1,
@@ -5516,6 +5516,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24985333",
+      "title": "Retro Nokia fra nullerne med oplader",
+      "ask": 300,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24985333",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "3270704",
       "title": "Nokia 2700 Clssic, Perfekt",
       "ask": 300,
@@ -8441,6 +8450,15 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
+      "listing_id": "24916109",
+      "title": "Samsung Galaxy A54 serie smartphone 128 GB sort",
+      "ask": 900,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24916109",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
       "listing_id": "8200184",
       "title": "Ny Nokia ATEX (EEx)",
       "ask": 900,
@@ -8508,15 +8526,6 @@
       "title": "Ny Nokia 6310i",
       "ask": 975,
       "url": "https://www.dba.dk/recommerce/forsale/item/8199420",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
-      "listing_id": "24916109",
-      "title": "Samsung Galaxy A54 serie smartphone 128 GB sort",
-      "ask": 995,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24916109",
       "reason": "no supported model resolved"
     },
     {
@@ -9076,31 +9085,31 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24837917",
-      "model": null,
-      "title": "Telefon cover",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24837917",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24727541",
-      "model": null,
-      "title": "Nokia 3510i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "394898",
       "model": null,
       "title": "HUAWEI Ascend Y 200",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24164735",
+      "model": "Google Pixel 9 Pro XL",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "24837917",
+      "model": null,
+      "title": "Telefon cover",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24837917",
       "reason": "live price missing"
     },
     {
@@ -9116,11 +9125,11 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "24164735",
-      "model": "Google Pixel 9 Pro XL",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "listing_id": "24727541",
+      "model": null,
+      "title": "Nokia 3510i",
       "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541",
       "reason": "live price missing"
     },
     {
@@ -9181,17 +9190,17 @@
     {
       "stage": "CORE",
       "severity": "MEDIUM",
-      "listing_id": "24841291",
+      "listing_id": "24839847",
       "model": "Samsung Galaxy A52s",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24841291",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24839847",
       "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
       "stage": "CORE",
       "severity": "MEDIUM",
-      "listing_id": "24839847",
+      "listing_id": "24841291",
       "model": "Samsung Galaxy A52s",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24839847",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24841291",
       "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
@@ -9504,34 +9513,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "24837917",
-      "title_t0": "Telefon cover",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": null,
-      "sources": [
-        "category:1"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Telefon cover",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
-    },
-    {
-      "listing_id": "24727541",
-      "title_t0": "Nokia 3510i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "nokia",
-      "sources": [
-        "brand-mobile:nokia:9"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Nokia 3510i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
-    },
-    {
       "listing_id": "394898",
       "title_t0": "HUAWEI Ascend Y 200",
       "ask_t0": 0,
@@ -9544,6 +9525,34 @@
       "reason": "live price missing",
       "title": "HUAWEI Ascend Y 200",
       "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
+      "listing_id": "24164735",
+      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "ask_t0": 0,
+      "model_t0": "Google Pixel 9 Pro XL",
+      "brand_t0": "google",
+      "sources": [
+        "brand-mobile:google:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+    },
+    {
+      "listing_id": "24837917",
+      "title_t0": "Telefon cover",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": null,
+      "sources": [
+        "category:1"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Telefon cover",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
     },
     {
       "listing_id": "23524084",
@@ -9560,18 +9569,18 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
-      "listing_id": "24164735",
-      "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
+      "listing_id": "24727541",
+      "title_t0": "Nokia 3510i",
       "ask_t0": 0,
-      "model_t0": "Google Pixel 9 Pro XL",
-      "brand_t0": "google",
+      "model_t0": null,
+      "brand_t0": "nokia",
       "sources": [
-        "brand-mobile:google:2"
+        "brand-mobile:nokia:9"
       ],
       "stage": "T1",
       "reason": "live price missing",
-      "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+      "title": "Nokia 3510i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24727541"
     },
     {
       "listing_id": "17621913",
@@ -9618,16 +9627,16 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 8,
-    "PRODUCT_IDENTITY": 2521
+    "PRODUCT_IDENTITY": 2521,
+    "T1": 8
   },
   "discovery_reject_reason_counts": {
-    "live price missing": 5,
     "Apple/iPhone listing is not an Android Acurast Core candidate": 1011,
+    "live price missing": 5,
     "no supported model resolved": 1458,
     "weak complete-phone evidence": 7,
-    "resolved model variant is not supported by seller text": 13,
     "accessory/part title": 7,
+    "resolved model variant is not supported by seller text": 13,
     "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 25
   },
