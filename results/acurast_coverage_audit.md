@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-16T15:09:26.187274+00:00
+Generated: 2026-09-16T16:48:27.269256+00:00
 
-T0 listings <= ceiling: **2599**  
-Verified before quality: **63**  
-Final after quality: **62**  
-Mainnet ranked: **41**
+T0 listings <= ceiling: **2591**  
+Verified before quality: **62**  
+Final after quality: **61**  
+Mainnet ranked: **40**
 
 ## Review buckets
 
 - Discovery/model blindspots: **981**
 - Core-compatible explicit models stopped by Pulse gate: **23**
-- T1 exits/errors: **9**
+- T1 exits/errors: **8**
 - Quality-gate review: **1**
 - Core compatibility review: **10**
 - Pulse-match review: **11**
@@ -50,7 +50,6 @@ Mainnet ranked: **41**
 |---:|---|---:|---|
 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| 24189712 | Appel iPhone SE 2. generation 64 GB 94% batteri | 650 | listing disposed |
 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | 24164735 | Google Pixel 9 Pro XL 5G – 1TB – Obsidian 
@@ -518,7 +517,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24874897 | Smartwatch Huawei band 10 | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24889275 | Samsung SGH-E370 mobiltelefon rød | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 24974724 | Nostalgisk nokia 1112 type RH-93 | 200 | no supported model resolved |
-| DISCOVERY/MODEL | 24975012 | Motorola Moto e14 64GB X | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 2662666 | LG Digital communication, Perfekt | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 3567808 | HTC Diverse, Diverse , God | 200 | no supported model resolved |
 | DISCOVERY/MODEL | 6216310 | Nokia 301.1, God | 200 | no supported model resolved |
@@ -689,6 +687,7 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24039411 | Nokia 301 RM-840 Mobiltelefon med Oplader | 344 | no supported model resolved |
 | DISCOVERY/MODEL | 22600622 | Nokia C5 i original æske med oplader – arvestykke | 345 | no supported model resolved |
 | DISCOVERY/MODEL | 15929909 | Nokia 3720c. | 349 | no supported model resolved |
+| DISCOVERY/MODEL | 24979575 | Nokia 3310 | 349 | no supported model resolved |
 | DISCOVERY/MODEL | 10054959 | Nokia E51 med nyt batteri. Minus oplader, alt ekstraudstyret på fotos medfølger | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 1033402 | Nokia N73 , Rimelig | 350 | no supported model resolved |
 | DISCOVERY/MODEL | 11696536 | Nokia 3310 | 350 | no supported model resolved |
@@ -1069,20 +1068,19 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 serie |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 24727541 | Nokia 3510i | 0 | live price missing |
 | T1 | 24837917 | Telefon cover | 0 | live price missing |
-| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
+| T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
-| T1 | 24189712 | Appel iPhone SE 2. generation 64 GB 94% batteri | 650 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
 | QUALITY | 24756237 | 2 ipad og 3 mobiltelefoner defekt | 999 | BUNDLE/PRICE IDENTITY GATE: live title contains another distinct device type |
 | CORE | 24716303 | Samsung A5 |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 21698235 | Xiaomi Redmi 9 |  | Android 12+ compatibility not verified by conservative Core allowlist |
-| CORE | 24839847 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24841291 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
+| CORE | 24839847 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 23537344 | OnePlus Nord |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24841215 | Samsung Galaxy A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |
 | CORE | 24398197 | Samsung A52s |  | Android 12+ compatibility not verified by conservative Core allowlist |

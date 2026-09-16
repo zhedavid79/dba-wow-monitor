@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-16T15:09:26.187274+00:00",
+  "generated_at": "2026-09-16T16:48:27.269256+00:00",
   "audit_gate": true,
   "purpose": "trace every non-economic exclusion path that can hide a valid Acurast procurement candidate",
   "counts": {
-    "t0_unique": 2599,
-    "verified_before_quality": 63,
-    "final_after_quality": 62,
-    "ranked": 41,
+    "t0_unique": 2591,
+    "verified_before_quality": 62,
+    "final_after_quality": 61,
+    "ranked": 40,
     "discovery_model_blindspots": 981,
     "pulse_gated_discovery_review": 23,
-    "t1_exit_review": 9,
+    "t1_exit_review": 8,
     "quality_review": 1,
     "core_review": 10,
     "pulse_review": 11
@@ -17,7 +17,7 @@
   "suspect_stage_counts": {
     "DISCOVERY/MODEL": 981,
     "DISCOVERY/PULSE": 23,
-    "T1": 9,
+    "T1": 8,
     "QUALITY": 1,
     "CORE": 10,
     "PULSE": 11
@@ -4103,15 +4103,6 @@
     {
       "stage": "DISCOVERY/MODEL",
       "severity": "HIGH",
-      "listing_id": "24975012",
-      "title": "Motorola Moto e14 64GB X",
-      "ask": 200,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24975012",
-      "reason": "no supported model resolved"
-    },
-    {
-      "stage": "DISCOVERY/MODEL",
-      "severity": "HIGH",
       "listing_id": "2662666",
       "title": "LG Digital communication, Perfekt",
       "ask": 200,
@@ -5637,6 +5628,15 @@
       "title": "Nokia 3720c.",
       "ask": 349,
       "url": "https://www.dba.dk/recommerce/forsale/item/15929909",
+      "reason": "no supported model resolved"
+    },
+    {
+      "stage": "DISCOVERY/MODEL",
+      "severity": "HIGH",
+      "listing_id": "24979575",
+      "title": "Nokia 3310",
+      "ask": 349,
+      "url": "https://www.dba.dk/recommerce/forsale/item/24979575",
       "reason": "no supported model resolved"
     },
     {
@@ -9085,16 +9085,6 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "394898",
-      "model": null,
-      "title": "HUAWEI Ascend Y 200",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "24727541",
       "model": null,
       "title": "Nokia 3510i",
@@ -9115,21 +9105,31 @@
     {
       "stage": "T1",
       "severity": "MEDIUM",
-      "listing_id": "23524084",
-      "model": null,
-      "title": "Sony Erikson X10i",
-      "ask": 0,
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
-      "reason": "live price missing"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
       "listing_id": "24164735",
       "model": "Google Pixel 9 Pro XL",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask": 0,
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "394898",
+      "model": null,
+      "title": "HUAWEI Ascend Y 200",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898",
+      "reason": "live price missing"
+    },
+    {
+      "stage": "T1",
+      "severity": "MEDIUM",
+      "listing_id": "23524084",
+      "model": null,
+      "title": "Sony Erikson X10i",
+      "ask": 0,
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084",
       "reason": "live price missing"
     },
     {
@@ -9150,16 +9150,6 @@
       "title": "Apple iPhone se model A2296. 64 GB sort smartphone",
       "ask": 250,
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262",
-      "reason": "listing disposed"
-    },
-    {
-      "stage": "T1",
-      "severity": "MEDIUM",
-      "listing_id": "24189712",
-      "model": null,
-      "title": "Appel iPhone SE 2. generation 64 GB 94% batteri",
-      "ask": 650,
-      "url": "https://www.dba.dk/recommerce/forsale/item/24189712",
       "reason": "listing disposed"
     },
     {
@@ -9200,17 +9190,17 @@
     {
       "stage": "CORE",
       "severity": "MEDIUM",
-      "listing_id": "24839847",
+      "listing_id": "24841291",
       "model": "Samsung Galaxy A52s",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24839847",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24841291",
       "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
       "stage": "CORE",
       "severity": "MEDIUM",
-      "listing_id": "24841291",
+      "listing_id": "24839847",
       "model": "Samsung Galaxy A52s",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24841291",
+      "url": "https://www.dba.dk/recommerce/forsale/item/24839847",
       "reason": "Android 12+ compatibility not verified by conservative Core allowlist"
     },
     {
@@ -9515,20 +9505,6 @@
   ],
   "t1_exits": [
     {
-      "listing_id": "394898",
-      "title_t0": "HUAWEI Ascend Y 200",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "huawei",
-      "sources": [
-        "brand-mobile:huawei:2"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "HUAWEI Ascend Y 200",
-      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
-    },
-    {
       "listing_id": "24727541",
       "title_t0": "Nokia 3510i",
       "ask_t0": 0,
@@ -9557,20 +9533,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/24837917"
     },
     {
-      "listing_id": "23524084",
-      "title_t0": "Sony Erikson X10i",
-      "ask_t0": 0,
-      "model_t0": null,
-      "brand_t0": "sony",
-      "sources": [
-        "brand-mobile:sony:5"
-      ],
-      "stage": "T1",
-      "reason": "live price missing",
-      "title": "Sony Erikson X10i",
-      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
-    },
-    {
       "listing_id": "24164735",
       "title_t0": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "ask_t0": 0,
@@ -9583,6 +9545,34 @@
       "reason": "live price missing",
       "title": "Google Pixel 9 Pro XL 5G – 1TB – Obsidian \nPris: 10.999 kr.",
       "url": "https://www.dba.dk/recommerce/forsale/item/24164735"
+    },
+    {
+      "listing_id": "394898",
+      "title_t0": "HUAWEI Ascend Y 200",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "huawei",
+      "sources": [
+        "brand-mobile:huawei:2"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "HUAWEI Ascend Y 200",
+      "url": "https://www.dba.dk/recommerce/forsale/item/394898"
+    },
+    {
+      "listing_id": "23524084",
+      "title_t0": "Sony Erikson X10i",
+      "ask_t0": 0,
+      "model_t0": null,
+      "brand_t0": "sony",
+      "sources": [
+        "brand-mobile:sony:5"
+      ],
+      "stage": "T1",
+      "reason": "live price missing",
+      "title": "Sony Erikson X10i",
+      "url": "https://www.dba.dk/recommerce/forsale/item/23524084"
     },
     {
       "listing_id": "17621913",
@@ -9614,20 +9604,6 @@
       "url": "https://www.dba.dk/recommerce/forsale/item/23415262"
     },
     {
-      "listing_id": "24189712",
-      "title_t0": "Appel iPhone SE 2. generation 64 GB 94% batteri",
-      "ask_t0": 650,
-      "model_t0": null,
-      "brand_t0": "apple",
-      "sources": [
-        "category:37"
-      ],
-      "stage": "T1",
-      "reason": "listing disposed",
-      "title": "Appel iPhone SE 2. generation 64 GB 94% batteri",
-      "url": "https://www.dba.dk/recommerce/forsale/item/24189712"
-    },
-    {
       "listing_id": "24267594",
       "title_t0": "Blackberry 9000 NY",
       "ask_t0": 800,
@@ -9643,21 +9619,21 @@
     }
   ],
   "discovery_reject_stage_counts": {
-    "T1": 9,
-    "PRODUCT_IDENTITY": 2527
+    "PRODUCT_IDENTITY": 2521,
+    "T1": 8
   },
   "discovery_reject_reason_counts": {
+    "Apple/iPhone listing is not an Android Acurast Core candidate": 1007,
+    "no supported model resolved": 1459,
     "live price missing": 5,
-    "Apple/iPhone listing is not an Android Acurast Core candidate": 1012,
-    "no supported model resolved": 1460,
     "weak complete-phone evidence": 7,
     "resolved model variant is not supported by seller text": 13,
     "accessory/part title": 7,
-    "listing disposed": 4,
+    "listing disposed": 3,
     "description indicates part without explicit functional phone evidence": 28
   },
   "audit_integrity": {
-    "all_rejects_count": 2536,
+    "all_rejects_count": 2529,
     "blindspots_reconstructed_from_all_rejects": true,
     "suspects_untruncated_in_json": true
   }
