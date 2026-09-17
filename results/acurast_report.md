@@ -1,10 +1,10 @@
 # Acurast DBA verified phone report
 
-Generated: 2026-09-17T15:21:28.938975+00:00
+Generated: 2026-09-17T16:55:07.358595+00:00
 
 DBA data gate: **PASS** — structured discovery + same-listing live verification + final refetch
 
-T0: 2596 | Product rejects: 2527 | Bundle/variant/price rejects: 1 | Final: 59
+T0: 2593 | Product rejects: 2524 | Bundle/variant/price rejects: 1 | Final: 59
 
 ## Lowest verified single-device listings
 
@@ -13,12 +13,12 @@ T0: 2596 | Product rejects: 2527 | Bundle/variant/price rejects: 1 | Final: 59
 | 1 | Motorola E13 | 150 kr. | [Motorola E13 - ødelagt skærm](https://www.dba.dk/recommerce/forsale/item/22585550) |
 | 2 | OnePlus 7 | 350 kr. | [OnePlus 7 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24566912) |
 | 3 | OnePlus 9 | 350 kr. | [OnePlus 9 128GB](https://www.dba.dk/recommerce/forsale/item/24099425) |
-| 4 | Redmi 12C | 396 kr. | [Xiaomi Redmi 12C mobil -  3GB RAM 64GB](https://www.dba.dk/recommerce/forsale/item/22610659) |
-| 5 | Samsung Galaxy A51 | 400 kr. | [Samsung Galaxy A-serie smartphone 128 GB hvid](https://www.dba.dk/recommerce/forsale/item/23921924) |
-| 6 | Samsung Galaxy S10 | 400 kr. | [Samsung Galaxy S-serie smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24320383) |
-| 7 | Samsung Galaxy S20 FE | 400 kr. | [samsung galaxy s20 fe](https://www.dba.dk/recommerce/forsale/item/24479927) |
-| 8 | Samsung Galaxy S20+ | 400 kr. | [Samsung Galaxy S20+ smartphone 128 GB](https://www.dba.dk/recommerce/forsale/item/24844752) |
-| 9 | OnePlus Nord 2T | 450 kr. | [Oneplus Nord 2T 5G 128GB](https://www.dba.dk/recommerce/forsale/item/24902200) |
+| 4 | OnePlus Nord 2T | 350 kr. | [Oneplus Nord 2T 5G 128GB](https://www.dba.dk/recommerce/forsale/item/24902200) |
+| 5 | Redmi 12C | 396 kr. | [Xiaomi Redmi 12C mobil -  3GB RAM 64GB](https://www.dba.dk/recommerce/forsale/item/22610659) |
+| 6 | Samsung Galaxy A51 | 400 kr. | [Samsung Galaxy A-serie smartphone 128 GB hvid](https://www.dba.dk/recommerce/forsale/item/23921924) |
+| 7 | Samsung Galaxy S10 | 400 kr. | [Samsung Galaxy S-serie smartphone 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24320383) |
+| 8 | Samsung Galaxy S20 FE | 400 kr. | [samsung galaxy s20 fe](https://www.dba.dk/recommerce/forsale/item/24479927) |
+| 9 | Samsung Galaxy S20+ | 400 kr. | [Samsung Galaxy S20+ smartphone 128 GB](https://www.dba.dk/recommerce/forsale/item/24844752) |
 | 10 | Samsung A5 | 475 kr. | [Samsung A52 5G 128 GB sort](https://www.dba.dk/recommerce/forsale/item/24716303) |
 | 11 | OnePlus Nord 2T | 499 kr. | [OnePlus Nord 2t 5g 128 gb / 8 gb](https://www.dba.dk/recommerce/forsale/item/23179862) |
 | 12 | Samsung Galaxy A12 | 500 kr. | [Samsung Galaxy A12, 64](https://www.dba.dk/recommerce/forsale/item/2488756) |
