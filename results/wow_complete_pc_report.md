@@ -1,8 +1,8 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-17T11:23:25.346562+00:00
+Dato/tid: 2026-09-17T14:39:16.784074+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 430/430 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 434/434 kandidater.
 Same-object source gate: listing 23194642 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
 Antal struktureret verificerede og rangerede annoncer: 38.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
@@ -113,8 +113,8 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 
 ## Objektive diskvalifikationer
 
-- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 123
-- SPEC_PARSE_FAILED: 20
+- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 124
+- SPEC_PARSE_FAILED: 19
 
 ## Konklusion
 
