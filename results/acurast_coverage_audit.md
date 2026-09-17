@@ -1,17 +1,17 @@
 # Acurast coverage audit
 
-Generated: 2026-09-17T10:40:05.567603+00:00
+Generated: 2026-09-17T11:35:09.098831+00:00
 
-T0 listings <= ceiling: **2592**  
+T0 listings <= ceiling: **2595**  
 Verified before quality: **62**  
 Final after quality: **61**  
 Mainnet ranked: **39**
 
 ## Review buckets
 
-- Discovery/model blindspots: **982**
+- Discovery/model blindspots: **981**
 - Core-compatible explicit models stopped by Pulse gate: **22**
-- T1 exits/errors: **8**
+- T1 exits/errors: **9**
 - Quality-gate review: **1**
 - Core compatibility review: **11**
 - Pulse-match review: **11**
@@ -55,6 +55,7 @@ Mainnet ranked: **39**
 Pris: 10.999 kr. | 0 | live price missing |
 | 24727541 | Nokia 3510i | 0 | live price missing |
 | 24837917 | Telefon cover | 0 | live price missing |
+| 24993989 | Nokia 3720 c | 0 | live price missing |
 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 
 ## Suspects
@@ -1040,7 +1041,6 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/MODEL | 24764753 | sægler samsung | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24788503 | Spritny Motorola G67 – Uåbnet kasse (Plomberet) | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24894768 | Xiaomi Mi Mix - Philippe Starck Design | 1000 | no supported model resolved |
-| DISCOVERY/MODEL | 24987425 | Moto G 67 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 24988504 | Motorola G67 | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 3736052 | Nokia 6610i Rm-37, Perfekt | 1000 | no supported model resolved |
 | DISCOVERY/MODEL | 8144576 | Samsung A40 | 1000 | no supported model resolved |
@@ -1067,11 +1067,12 @@ Samsung Galaxy M12 | 100 | no supported model resolved |
 | DISCOVERY/PULSE |  | Samsung Galaxy A54 serie |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Samsung Galaxy S10 Lite |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
 | DISCOVERY/PULSE |  | Xiaomi 13TPro Wallet |  | Core-compatible explicit model has neither a unique direct Mainnet Pulse reward match nor an eligible conservative family proxy (NO_MATCH) |
+| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
+| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
+| T1 | 24993989 | Nokia 3720 c | 0 | live price missing |
+| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
 | T1 | 23524084 | Sony Erikson X10i | 0 | live price missing |
 | T1 | 24837917 | Telefon cover | 0 | live price missing |
-| T1 | 24727541 | Nokia 3510i | 0 | live price missing |
-| T1 | 394898 | HUAWEI Ascend Y 200 | 0 | live price missing |
-| T1 | 24164735 | Google Pixel 9 Pro XL | 0 | live price missing |
 | T1 | 17621913 | Samsung Galaxy S8 - defekt | 150 | listing disposed |
 | T1 | 23415262 | Apple iPhone se model A2296. 64 GB sort smartphone | 250 | listing disposed |
 | T1 | 24267594 | Blackberry 9000 NY | 800 | listing disposed |
