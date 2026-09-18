@@ -1,10 +1,10 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-18T10:58:53.915241+00:00
+Dato/tid: 2026-09-18T14:06:36.728180+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 441/441 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 440/440 kandidater.
 Same-object source gate: listing 23194642 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
-Antal struktureret verificerede og rangerede annoncer: 45.
+Antal struktureret verificerede og rangerede annoncer: 46.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
 
 ## Buy now
@@ -81,23 +81,20 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 |---|---:|---:|---:|---:|---:|---:|
 | [Acer Predator Gaming PC – i7 – komplet gaming setup](https://www.dba.dk/recommerce/forsale/item/24075569) | 2600 kr. | 4500 kr. | 4050 kr. | 2150 kr. | 2350 kr. | 2600 kr. |
 | [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) | 3000 kr. | 6150 kr. | 5550 kr. | 2450 kr. | 2700 kr. | 3000 kr. |
-| [Gaming PC – i7-9700 / RTX 2070 Super 8GB / 16GB / 512GB NVMe](https://www.dba.dk/recommerce/forsale/item/25003654) | 3995 kr. | 4500 kr. | 4050 kr. | 3300 kr. | 3600 kr. | 3995 kr. |
-| [MSI Katana GF66 11UE gamer laptop](https://www.dba.dk/recommerce/forsale/item/24584338) | 3999 kr. | 4500 kr. | 4050 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
+| [Gaming PC – i7-9700 / RTX 2070 Super 8GB / 16GB / 512GB NVMe](https://www.dba.dk/recommerce/forsale/item/25003654) | 3995 kr. | 4600 kr. | 4150 kr. | 3300 kr. | 3600 kr. | 3995 kr. |
+| [MSI Katana GF66 11UE gamer laptop](https://www.dba.dk/recommerce/forsale/item/24584338) | 3999 kr. | 4750 kr. | 4300 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
 | [MSI stationær gaming PC Intel i7-9700K RTX 2070 16GB RAM](https://www.dba.dk/recommerce/forsale/item/22701831) | 3999 kr. | 4500 kr. | 4050 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
 | [Gaming PC i7-9700K RTX 2070 ASUS ROG Strix hvid](https://www.dba.dk/recommerce/forsale/item/25016293) | 4000 kr. | 4500 kr. | 4050 kr. | 3300 kr. | 3600 kr. | 4000 kr. |
-| [Lenovo Legion 5 Gaming Laptop – RTX 3060 / i5 / 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23688401) | 4500 kr. | 4500 kr. | 4050 kr. | 3700 kr. | 4050 kr. | 4500 kr. |
+| [Lenovo Legion 5 Gaming Laptop – RTX 3060 / i5 / 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23688401) | 4500 kr. | 4750 kr. | 4300 kr. | 3700 kr. | 4050 kr. | 4500 kr. |
 | [Acer Predator Orion 3000 PO3-620 Gaming PC (i7-10700 + RTX 2070 S](https://www.dba.dk/recommerce/forsale/item/23258743) | 4500 kr. | 4250 kr. | 3800 kr. | 3500 kr. | 3800 kr. | 4250 kr. |
 
 ## Leads — ikke rangeret
 
 - [HP stationær computer sort - Begynder Gaming Computer](https://www.dba.dk/recommerce/forsale/item/22586203) — ID `22586203` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [MSI Night Blade MI3 gamer pc eller fuldt gamersetup](https://www.dba.dk/recommerce/forsale/item/24952641) — ID `24952641` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [MSI Night Blade MI3 gamer pc eller fuldt gamersetup](https://www.dba.dk/recommerce/forsale/item/24991921) — ID `24991921` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Windows 98 Retro gaming computer](https://www.dba.dk/recommerce/forsale/item/24670051) — ID `24670051` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Shark Gaming PC / Ældre gamer PC](https://www.dba.dk/recommerce/forsale/item/24965073) — ID `24965073` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [(2 x 8) GB DDR5 RAM med 5600 frekvens. perfekt til gaming laptop,](https://www.dba.dk/recommerce/forsale/item/17251569) — ID `17251569` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [XMG gammel gaming laptop](https://www.dba.dk/recommerce/forsale/item/17754297) — ID `17754297` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [MSI Infinite 8RB gamer computer](https://www.dba.dk/recommerce/forsale/item/25006240) — ID `25006240` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Dell optiplex gamer pc](https://www.dba.dk/recommerce/forsale/item/25011087) — ID `25011087` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [MSI GE70 Gaming Laptop – Core i7 / GeForce – Nulstillet](https://www.dba.dk/recommerce/forsale/item/23641680) — ID `23641680` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo Legion T530 stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24887509) — ID `24887509` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
@@ -109,7 +106,10 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [MSI GAMER BÆRBAR](https://www.dba.dk/recommerce/forsale/item/24994037) — ID `24994037` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo Y520 gaming laptop 15,6" sort](https://www.dba.dk/recommerce/forsale/item/23725350) — ID `23725350` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Gamer PC til små penge -Intel e5, GTX 960, 16GB RAM](https://www.dba.dk/recommerce/forsale/item/25019159) — ID `25019159` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [GAMER PC + TILBEHØR - I5 4670K - GTX 1650 4 GB - 16 GB RAM - 500](https://www.dba.dk/recommerce/forsale/item/25024146) — ID `25024146` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Alienware gaming bærbar 15" sort](https://www.dba.dk/recommerce/forsale/item/23408566) — ID `23408566` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24218273) — ID `24218273` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24766641) — ID `24766641` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 
 ## Objektive diskvalifikationer
 
