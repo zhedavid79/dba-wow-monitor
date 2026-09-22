@@ -1,10 +1,10 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-22T14:23:45.563565+00:00
+Dato/tid: 2026-09-22T20:05:09.117841+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 433/433 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 431/431 kandidater.
 Same-object source gate: listing 25111716 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
-Antal struktureret verificerede og rangerede annoncer: 41.
+Antal struktureret verificerede og rangerede annoncer: 39.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
 
 ## Buy now
@@ -95,6 +95,7 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Windows 98 Retro gaming computer](https://www.dba.dk/recommerce/forsale/item/24670051) — ID `24670051` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [(2 x 8) GB DDR5 RAM med 5600 frekvens. perfekt til gaming laptop,](https://www.dba.dk/recommerce/forsale/item/17251569) — ID `17251569` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [XMG gammel gaming laptop](https://www.dba.dk/recommerce/forsale/item/17754297) — ID `17754297` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Dell optiplex gamer pc](https://www.dba.dk/recommerce/forsale/item/25011087) — ID `25011087` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [MSI GE70 Gaming Laptop – Core i7 / GeForce – Nulstillet](https://www.dba.dk/recommerce/forsale/item/23641680) — ID `23641680` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Komplett stationær gaming pc med Asus skærm](https://www.dba.dk/recommerce/forsale/item/24981642) — ID `24981642` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Komplet og klar stationær gaming PC – med SSD, Wi-Fi og Windows 1](https://www.dba.dk/recommerce/forsale/item/10477278) — ID `10477278` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
@@ -109,12 +110,11 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24218273) — ID `24218273` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24766641) — ID `24766641` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo gaming computer](https://www.dba.dk/recommerce/forsale/item/25151045) — ID `25151045` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Begynder Gamer PC - 16GB DDR4, GTX 970](https://www.dba.dk/recommerce/forsale/item/25168475) — ID `25168475` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 
 ## Objektive diskvalifikationer
 
-- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 123
-- SPEC_PARSE_FAILED: 21
+- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 127
+- SPEC_PARSE_FAILED: 22
 
 ## Konklusion
 
