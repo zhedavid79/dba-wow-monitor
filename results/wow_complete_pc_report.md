@@ -1,10 +1,10 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-24T14:39:20.648448+00:00
+Dato/tid: 2026-09-24T20:20:35.781660+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 421/421 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 427/427 kandidater.
 Same-object source gate: listing 25111716 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
-Antal struktureret verificerede og rangerede annoncer: 39.
+Antal struktureret verificerede og rangerede annoncer: 41.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
 
 ## Buy now
@@ -19,7 +19,7 @@ CPU Core i5-10400; GPU RTX 3070; RAM Ukendt; lager Ukendt. Quest/open world og d
 ## Bedste budcase
 
 [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) — **ASK 3000 kr.** — ID `7969913`
-Fair-value proxy: 6100 kr.; good-deal niveau: 5500 kr.; startbud: **2450 kr.**; target: **2700 kr.**; hard max: **3000 kr.**.
+Fair-value proxy: 6000 kr.; good-deal niveau: 5400 kr.; startbud: **2450 kr.**; target: **2700 kr.**; hard max: **3000 kr.**.
 Metode: Live verified same-run cohort median.
 
 ## Ranked shortlist — pris først
@@ -40,7 +40,7 @@ Metode: Live verified same-run cohort median.
 | 12 | 4700 kr. | [Custom Gaming PC](https://www.dba.dk/recommerce/forsale/item/24671157) | 24671157 | CPU Ryzen 5 3600; GPU RTX 2070 Super; RAM Ukendt; lager 1 TB SSD | ACCEPTABLE | Består minimumsgaten, men evidensen understøtter ikke en skarpere konservativ scenarieklassifikation. |
 | 13 | 4795 kr. | [MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram](https://www.dba.dk/recommerce/forsale/item/24156419) | 24156419 | CPU Core i7-9700; GPU RTX 2080 Super; RAM Ukendt; lager Ukendt | SWEET SPOT | Quest/open world og dungeons: typisk omkring 75 Hz-målet; raids: god; worst-case crowded combat: CPU kan give mærkbare dyk. |
 | 14 | 4800 kr. | [Gaming Pc 32gb ram rtx 2080](https://www.dba.dk/recommerce/forsale/item/24400931) | 24400931 | CPU Core i7-10700; GPU RTX 2080; RAM 32 GB DDR4; lager 2 TB SSD | ACCEPTABLE | Quest/open world: god; dungeons: god; raids: acceptabel-god; worst-case crowded combat: tydelige CPU-dyk under 75 Hz må forventes. |
-| 15 | 5299 kr. | [Gaming pc](https://www.dba.dk/recommerce/forsale/item/24902530) | 24902530 | CPU Core i7-10700; GPU RTX 3070; RAM 16 GB DDR4; lager Ukendt | SWEET SPOT | Quest/open world og dungeons: typisk omkring 75 Hz-målet; raids: god; worst-case crowded combat: CPU kan give mærkbare dyk. |
+| 15 | 5000 kr. | [Gaming PC – Ryzen 5 3600X, RX 5700 XT Nitro+, 32GB RAM, X570 Hero](https://www.dba.dk/recommerce/forsale/item/25228074) | 25228074 | CPU Ryzen 5 3600X; GPU RX 5700 XT; RAM Ukendt; lager Ukendt | ACCEPTABLE | Quest/open world: god; dungeons: god; raids: acceptabel-god; worst-case crowded combat: tydelige CPU-dyk under 75 Hz må forventes. |
 
 ## Evidensmatrix
 
@@ -60,7 +60,7 @@ Metode: Live verified same-run cohort median.
 | [Custom Gaming PC](https://www.dba.dk/recommerce/forsale/item/24671157) | Ryzen 5 3600 / VERIFIED | RTX 2070 Super / VERIFIED | Ukendt | 4700→4700 kr. | https://schema.org/InStock |
 | [MM Vision Gaming Computer/i7-9700kf/RTX2080 Super/32GB Ram](https://www.dba.dk/recommerce/forsale/item/24156419) | Core i7-9700 / VERIFIED | RTX 2080 Super / VERIFIED | Ukendt | 4795→4795 kr. | https://schema.org/InStock |
 | [Gaming Pc 32gb ram rtx 2080](https://www.dba.dk/recommerce/forsale/item/24400931) | Core i7-10700 / VERIFIED | RTX 2080 / VERIFIED | 32 GB DDR4 | 4800→4800 kr. | https://schema.org/InStock |
-| [Gaming pc](https://www.dba.dk/recommerce/forsale/item/24902530) | Core i7-10700 / VERIFIED | RTX 3070 / VERIFIED | 16 GB DDR4 | 5299→5299 kr. | https://schema.org/InStock |
+| [Gaming PC – Ryzen 5 3600X, RX 5700 XT Nitro+, 32GB RAM, X570 Hero](https://www.dba.dk/recommerce/forsale/item/25228074) | Ryzen 5 3600X / VERIFIED | RX 5700 XT / VERIFIED | Ukendt | 5000→5000 kr. | https://schema.org/InStock |
 
 ## WoW-scenarier
 
@@ -79,14 +79,14 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 
 | PC | ASK | Fair-value proxy | Good deal | Startbud | Target | Hard max |
 |---|---:|---:|---:|---:|---:|---:|
-| [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) | 3000 kr. | 6100 kr. | 5500 kr. | 2450 kr. | 2700 kr. | 3000 kr. |
-| [Gamer pc](https://www.dba.dk/recommerce/forsale/item/25091518) | 3899 kr. | 4800 kr. | 4300 kr. | 3200 kr. | 3500 kr. | 3899 kr. |
-| [MSI Katana GF66 11UE gamer laptop](https://www.dba.dk/recommerce/forsale/item/24584338) | 3999 kr. | 5500 kr. | 4950 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
+| [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) | 3000 kr. | 6000 kr. | 5400 kr. | 2450 kr. | 2700 kr. | 3000 kr. |
+| [Gamer pc](https://www.dba.dk/recommerce/forsale/item/25091518) | 3899 kr. | 4900 kr. | 4400 kr. | 3200 kr. | 3500 kr. | 3899 kr. |
+| [MSI Katana GF66 11UE gamer laptop](https://www.dba.dk/recommerce/forsale/item/24584338) | 3999 kr. | 5400 kr. | 4850 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
 | [MSI stationær gaming PC Intel i7-9700K RTX 2070 16GB RAM](https://www.dba.dk/recommerce/forsale/item/22701831) | 3999 kr. | 4500 kr. | 4050 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
 | [Gaming PC i7-9700K RTX 2070 ASUS ROG Strix hvid](https://www.dba.dk/recommerce/forsale/item/25016293) | 4000 kr. | 4500 kr. | 4050 kr. | 3300 kr. | 3600 kr. | 4000 kr. |
 | [Gaming PC – RTX 2070 Super / Ryzen 5 3600 / 32GB RAM / 1TB SSD](https://www.dba.dk/recommerce/forsale/item/25144121) | 4500 kr. | 4500 kr. | 4050 kr. | 3700 kr. | 4050 kr. | 4500 kr. |
 | [Stationær Gaming PC](https://www.dba.dk/recommerce/forsale/item/25134687) | 4500 kr. | — | — | 3700 kr. | 4050 kr. | 4500 kr. |
-| [Lenovo Legion 5 Gaming Laptop – RTX 3060 / i5 / 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23688401) | 4500 kr. | 5500 kr. | 4950 kr. | 3700 kr. | 4050 kr. | 4500 kr. |
+| [Lenovo Legion 5 Gaming Laptop – RTX 3060 / i5 / 16 GB RAM](https://www.dba.dk/recommerce/forsale/item/23688401) | 4500 kr. | 5400 kr. | 4850 kr. | 3700 kr. | 4050 kr. | 4500 kr. |
 
 ## Leads — ikke rangeret
 
@@ -100,6 +100,7 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Komplet og klar stationær gaming PC – med SSD, Wi-Fi og Windows 1](https://www.dba.dk/recommerce/forsale/item/10477278) — ID `10477278` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Acer Predator stationær gaming computer](https://www.dba.dk/recommerce/forsale/item/24856930) — ID `24856930` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Computer, pc, gaming computer, stationær computer](https://www.dba.dk/recommerce/forsale/item/25218160) — ID `25218160` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Asus ROG bærbar gamer laptop 17" sort](https://www.dba.dk/recommerce/forsale/item/25230573) — ID `25230573` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær Gaming pc](https://www.dba.dk/recommerce/forsale/item/25201030) — ID `25201030` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Komplet begynder gamer pc](https://www.dba.dk/recommerce/forsale/item/25212218) — ID `25212218` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Billig og stabil Gamer PC – Perfekt til Fortnite, Roblox & Minecr](https://www.dba.dk/recommerce/forsale/item/25209785) — ID `25209785` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
@@ -109,12 +110,11 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Acer Aspire GX-781 stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/25132382) — ID `25132382` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Gaming computer](https://www.dba.dk/recommerce/forsale/item/24951218) — ID `24951218` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Alienware gaming bærbar 15" sort](https://www.dba.dk/recommerce/forsale/item/23408566) — ID `23408566` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24218273) — ID `24218273` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 
 ## Objektive diskvalifikationer
 
-- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 122
-- SPEC_PARSE_FAILED: 20
+- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 118
+- SPEC_PARSE_FAILED: 21
 
 ## Konklusion
 
