@@ -1,10 +1,10 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-25T11:36:21.754100+00:00
+Dato/tid: 2026-09-25T14:58:42.721056+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 428/428 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 426/426 kandidater.
 Same-object source gate: listing 25111716 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
-Antal struktureret verificerede og rangerede annoncer: 42.
+Antal struktureret verificerede og rangerede annoncer: 41.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
 
 ## Buy now
@@ -18,8 +18,8 @@ CPU Core i5-10400; GPU RTX 3070; RAM Ukendt; lager Ukendt. Quest/open world og d
 
 ## Bedste budcase
 
-[Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) — **ASK 3000 kr.** — ID `7969913`
-Fair-value proxy: 6000 kr.; good-deal niveau: 5400 kr.; startbud: **2450 kr.**; target: **2700 kr.**; hard max: **3000 kr.**.
+[God Gaming PC](https://www.dba.dk/recommerce/forsale/item/24084752) — **ASK 6000 kr.** — ID `24084752`
+Fair-value proxy: 8750 kr.; good-deal niveau: 7900 kr.; startbud: **4900 kr.**; target: **5400 kr.**; hard max: **6000 kr.**.
 Metode: Live verified same-run cohort median.
 
 ## Ranked shortlist — pris først
@@ -79,7 +79,7 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 
 | PC | ASK | Fair-value proxy | Good deal | Startbud | Target | Hard max |
 |---|---:|---:|---:|---:|---:|---:|
-| [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) | 3000 kr. | 6000 kr. | 5400 kr. | 2450 kr. | 2700 kr. | 3000 kr. |
+| [Gaming PC – RTX 3070 & i5-10400F](https://www.dba.dk/recommerce/forsale/item/7969913) | 3000 kr. | — | — | 2450 kr. | 2700 kr. | 3000 kr. |
 | [Gamer pc](https://www.dba.dk/recommerce/forsale/item/25091518) | 3899 kr. | 4800 kr. | 4300 kr. | 3200 kr. | 3500 kr. | 3899 kr. |
 | [MSI Katana GF66 11UE gamer laptop](https://www.dba.dk/recommerce/forsale/item/24584338) | 3999 kr. | 5300 kr. | 4750 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
 | [MSI stationær gaming PC Intel i7-9700K RTX 2070 16GB RAM](https://www.dba.dk/recommerce/forsale/item/22701831) | 3999 kr. | 4500 kr. | 4050 kr. | 3300 kr. | 3600 kr. | 3999 kr. |
@@ -113,7 +113,7 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 
 ## Objektive diskvalifikationer
 
-- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 116
+- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 118
 - SPEC_PARSE_FAILED: 21
 
 ## Konklusion
