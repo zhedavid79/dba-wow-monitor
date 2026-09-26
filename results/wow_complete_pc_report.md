@@ -1,10 +1,10 @@
 # FULDT PÅLIDELIG DBA-PRISRAPPORT — WoW Classic/Cataclysm
 
-Dato/tid: 2026-09-26T11:11:33.990962+00:00
+Dato/tid: 2026-09-26T14:03:53.785840+00:00
 Data source / retrieval: Rendered same-listing DBA card T0 + same-ID DBA Product JSON T1
-Struktureret discovery: 36/36 søgninger; T1: 414/414 kandidater.
+Struktureret discovery: 36/36 søgninger; T1: 415/415 kandidater.
 Same-object source gate: listing 25111716 — T0 rendered_dba_card / T1 dba_jsonld_product_all_scripts.
-Antal struktureret verificerede og rangerede annoncer: 39.
+Antal struktureret verificerede og rangerede annoncer: 38.
 Scope: komplette brugsklare stationære gaming-PC'er, gaming laptops og mini-PC'er. Ingen byg-selv, donor-builds eller komponentjagt.
 
 ## Buy now
@@ -99,9 +99,10 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Komplet og klar stationær gaming PC – med SSD, Wi-Fi og Windows 1](https://www.dba.dk/recommerce/forsale/item/10477278) — ID `10477278` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Acer Predator stationær gaming computer](https://www.dba.dk/recommerce/forsale/item/24856930) — ID `24856930` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær Gaming pc](https://www.dba.dk/recommerce/forsale/item/25201030) — ID `25201030` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Asus ROG bærbar gamer laptop 17" sort](https://www.dba.dk/recommerce/forsale/item/25230573) — ID `25230573` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Komplet begynder gamer pc](https://www.dba.dk/recommerce/forsale/item/25212218) — ID `25212218` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Billig og stabil Gamer PC – Perfekt til Fortnite, Roblox & Minecr](https://www.dba.dk/recommerce/forsale/item/25209785) — ID `25209785` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Asus ROG bærbar gamer laptop 17" sort](https://www.dba.dk/recommerce/forsale/item/25230573) — ID `25230573` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [MSI nightblade Mi3 stationær gaming pc sort](https://www.dba.dk/recommerce/forsale/item/25277584) — ID `25277584` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
+- [Komplet begynder gamer pc](https://www.dba.dk/recommerce/forsale/item/25212218) — ID `25212218` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/25217142) — ID `25217142` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo stationær gaming pc](https://www.dba.dk/recommerce/forsale/item/24279386) — ID `24279386` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Lenovo Y520 gaming laptop 15,6" sort](https://www.dba.dk/recommerce/forsale/item/23725350) — ID `23725350` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
@@ -109,12 +110,11 @@ ASK er altid den live T1-verificerede DBA-pris. Estimaterne nedenfor er separate
 - [Acer Aspire GX-781 stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/25132382) — ID `25132382` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Stationær gamer pc](https://www.dba.dk/recommerce/forsale/item/24218273) — ID `24218273` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 - [Begynder Gamer PC - 16GB DDR4, GTX 970](https://www.dba.dk/recommerce/forsale/item/25168475) — ID `25168475` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
-- [Alienware gaming bærbar 15" sort](https://www.dba.dk/recommerce/forsale/item/23408566) — ID `23408566` — CPU_NOT_DESCRIPTION_VERIFIED+GPU_NOT_DESCRIPTION_VERIFIED. Ikke med i prisrankingen.
 
 ## Objektive diskvalifikationer
 
-- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 115
-- SPEC_PARSE_FAILED: 20
+- NOT_VERIFIED_COMPLETE_PC_CATEGORY: 116
+- SPEC_PARSE_FAILED: 19
 
 ## Konklusion
 
